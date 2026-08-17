@@ -1,0 +1,36 @@
+name: vibestack_atlas
+description: Offline-first catalog of APIs, libraries, MCP servers and agent skills for Codex and Claude Code.
+publish_to: "none"
+version: 0.5.0+5
+
+environment:
+  sdk: ">=3.10.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  file_selector: ^1.1.0
+  http: ^1.4.0
+  # Disk cache for showcase preview images (Android + Windows + Linux + macOS).
+  path_provider: ^2.1.5
+  share_plus: ^13.3.0
+  shared_preferences: ^2.5.3
+  url_launcher: ^6.3.2
+  # Android background scheduler for the daily catalog update. Pinned to 0.6.x:
+  # every call lives in lib/services/sync/background_worker.dart, and that file
+  # degrades to the in-app timer if the plugin is missing or its API changed,
+  # so a version bump can never break start-up.
+  workmanager: ^0.6.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/catalog.json
+    - assets/catalog.schema.json

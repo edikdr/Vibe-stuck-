@@ -1,0 +1,14 @@
+# ~/.config/systemd/user/vibestack-atlas-sync.service
+# Runs one catalog update without opening a window.
+# Install:
+#   cp tool/desktop/vibestack-atlas-sync.* ~/.config/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now vibestack-atlas-sync.timer
+[Unit]
+Description=VibeStack Atlas daily catalog sync
+After=network-online.target
+
+[Service]
+Type=oneshot
+# Adjust the path to the built binary.
+ExecStart=%h/Apps/vibestack_atlas/vibestack_atlas --headless-sync

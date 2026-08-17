@@ -1,0 +1,297 @@
+# -*- coding: utf-8 -*-
+"""Builds assets/catalog.json (schemaVersion 3) and lib/i18n/categories.dart."""
+import json, sys, re, datetime, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent / 'catalog_src'))
+
+from data_apis import APIS
+from data_libs import LIBS
+from data_mcp_skills import MCPS, SKILLS
+from data_paid import PAID
+from data_showcases import SHOWCASES
+
+ROOT = str(pathlib.Path(__file__).resolve().parent.parent)
+TODAY = '2026-08-17'
+
+# ---------------------------------------------------------------- categories
+GROUPS = {
+    'ai':       {'en': 'AI and agents',        'ru': 'ИИ и агенты',            'de': 'KI und Agenten'},
+    'frontend': {'en': 'Frontend and UI',      'ru': 'Frontend и UI',          'de': 'Frontend und UI'},
+    'backend':  {'en': 'Backend and data',     'ru': 'Backend и данные',       'de': 'Backend und Daten'},
+    'devtools': {'en': 'Developer tooling',    'ru': 'Инструменты разработки', 'de': 'Entwickler-Tools'},
+    'data':     {'en': 'Data and science',     'ru': 'Данные и наука',         'de': 'Daten und Wissenschaft'},
+    'media':    {'en': 'Media and content',    'ru': 'Медиа и контент',        'de': 'Medien und Inhalte'},
+    'skills':   {'en': 'Skills and practices', 'ru': 'Skills и практики',      'de': 'Skills und Praktiken'},
+}
+
+# category -> (group, en, de)   (the key itself is the Russian label)
+CATEGORIES = {
+ 'AI и агенты':                    ('ai', 'AI and agents', 'KI und Agenten'),
+ 'AI-фреймворки':                  ('ai', 'AI frameworks', 'KI-Frameworks'),
+ 'AI skills':                      ('skills', 'AI skills', 'KI-Skills'),
+ 'Локальные модели':               ('ai', 'Local models', 'Lokale Modelle'),
+ 'Векторные базы':                 ('ai', 'Vector databases', 'Vektordatenbanken'),
+ 'Планирование и reasoning':       ('ai', 'Planning and reasoning', 'Planung und Reasoning'),
+ 'Память и знания':                ('ai', 'Memory and knowledge', 'Gedächtnis und Wissen'),
+ 'Инфраструктура MCP':             ('ai', 'MCP infrastructure', 'MCP-Infrastruktur'),
+ 'UI и frontend':                  ('frontend', 'UI and frontend', 'UI und Frontend'),
+ 'Анимация и 3D':                  ('frontend', 'Animation and 3D', 'Animation und 3D'),
+ 'Графики и визуализация':         ('frontend', 'Charts and visualization', 'Diagramme und Visualisierung'),
+ 'Изображения и дизайн':           ('frontend', 'Images and design', 'Bilder und Design'),
+ 'Frontend skills':                ('skills', 'Frontend skills', 'Frontend-Skills'),
+ 'Сборка и bundlers':              ('devtools', 'Build and bundlers', 'Build und Bundler'),
+ 'Языки и рантаймы':               ('devtools', 'Languages and runtimes', 'Sprachen und Runtimes'),
+ 'Backend и API':                  ('backend', 'Backend and APIs', 'Backend und APIs'),
+ 'Базы данных и backend':          ('backend', 'Databases and backend', 'Datenbanken und Backend'),
+ 'Базы данных и ORM':              ('backend', 'Databases and ORM', 'Datenbanken und ORM'),
+ 'Состояние и данные':             ('backend', 'State and data', 'Zustand und Daten'),
+ 'Аутентификация':                 ('backend', 'Authentication', 'Authentifizierung'),
+ 'CMS и контент':                  ('backend', 'CMS and content', 'CMS und Inhalte'),
+ 'Платежи и commerce':             ('backend', 'Payments and commerce', 'Zahlungen und Commerce'),
+ 'Почта и уведомления':            ('backend', 'Email and notifications', 'E-Mail und Benachrichtigungen'),
+ 'Очереди и события':              ('backend', 'Queues and events', 'Queues und Events'),
+ 'Таблицы и no-code':              ('backend', 'Spreadsheets and no-code', 'Tabellen und No-Code'),
+ 'Безопасность и секреты':         ('devtools', 'Security and secrets', 'Sicherheit und Secrets'),
+ 'Инфраструктура как код':         ('devtools', 'Infrastructure as code', 'Infrastructure as Code'),
+ 'Локализация и i18n':             ('devtools', 'Localization and i18n', 'Lokalisierung und i18n'),
+ 'Документы и PDF':                ('media', 'Documents and PDF', 'Dokumente und PDF'),
+ 'Здоровье и медицина':            ('data', 'Health and medicine', 'Gesundheit und Medizin'),
+ 'Разработка и DevOps':            ('devtools', 'Development and DevOps', 'Entwicklung und DevOps'),
+ 'Тестирование и качество':        ('devtools', 'Testing and quality', 'Tests und Qualität'),
+ 'Git и совместная работа':        ('devtools', 'Git and collaboration', 'Git und Zusammenarbeit'),
+ 'Браузер и автоматизация':        ('devtools', 'Browser and automation', 'Browser und Automatisierung'),
+ 'Мониторинг и аналитика':         ('devtools', 'Monitoring and analytics', 'Monitoring und Analytik'),
+ 'Облако и деплой':                ('devtools', 'Cloud and deployment', 'Cloud und Deployment'),
+ 'Документация и контекст':        ('devtools', 'Documentation and context', 'Dokumentation und Kontext'),
+ 'Установка и миграция':           ('devtools', 'Installation and migration', 'Installation und Migration'),
+ 'Локальные инструменты':          ('devtools', 'Local tools', 'Lokale Tools'),
+ 'CLI и терминал':                 ('devtools', 'CLI and terminal', 'CLI und Terminal'),
+ 'Тестовые и mock API':            ('devtools', 'Test and mock APIs', 'Test- und Mock-APIs'),
+ 'Утилиты':                        ('devtools', 'Utilities', 'Dienstprogramme'),
+ 'Мобильная и desktop разработка': ('devtools', 'Mobile and desktop development', 'Mobile- und Desktop-Entwicklung'),
+ 'Наука и исследования':           ('data', 'Science and research', 'Wissenschaft und Forschung'),
+ 'Открытые данные':                ('data', 'Open data', 'Offene Daten'),
+ 'Данные и ML':                    ('data', 'Data and ML', 'Daten und ML'),
+ 'Поиск и retrieval':              ('data', 'Search and retrieval', 'Suche und Retrieval'),
+ 'Погода и геоданные':             ('data', 'Weather and geodata', 'Wetter und Geodaten'),
+ 'Карты и навигация':              ('data', 'Maps and navigation', 'Karten und Navigation'),
+ 'Транспорт и город':              ('data', 'Transport and city', 'Verkehr und Stadt'),
+ 'Финансы':                        ('data', 'Finance', 'Finanzen'),
+ 'Космос и наука':                 ('data', 'Space and science', 'Weltraum und Wissenschaft'),
+ 'Музыка и медиа':                 ('media', 'Music and media', 'Musik und Medien'),
+ 'Видео и медиа':                  ('media', 'Video and media', 'Video und Medien'),
+ 'Видео и медиа skills':           ('skills', 'Video and media skills', 'Video- und Medien-Skills'),
+ 'Аудио и голос':                  ('media', 'Audio and voice', 'Audio und Sprache'),
+ 'Игры и развлечения':             ('media', 'Games and entertainment', 'Spiele und Unterhaltung'),
+ 'Еда и быт':                      ('media', 'Food and lifestyle', 'Essen und Alltag'),
+ 'Книги и знания':                 ('media', 'Books and knowledge', 'Bücher und Wissen'),
+ 'Новости и сообщества':           ('media', 'News and communities', 'Nachrichten und Communities'),
+ 'Коммуникации':                   ('media', 'Communication', 'Kommunikation'),
+ 'Переводы и языки':               ('media', 'Translation and languages', 'Übersetzung und Sprachen'),
+ 'Словари и лексика':              ('media', 'Dictionaries and vocabulary', 'Wörterbücher und Wortschatz'),
+ 'Каталоги skills':                ('skills', 'Skill catalogs', 'Skill-Kataloge'),
+ 'Создание skills':                ('skills', 'Creating skills', 'Skills erstellen'),
+ 'Гайды и практики':               ('skills', 'Guides and practices', 'Leitfäden und Praktiken'),
+ 'Mobile skills':                  ('skills', 'Mobile skills', 'Mobile-Skills'),
+ 'Workflow skills':                ('skills', 'Workflow skills', 'Workflow-Skills'),
+}
+
+MERGE = {
+ 'paid-openai': 'api-openai-platform', 'paid-anthropic': 'api-anthropic',
+ 'paid-gemini': 'api-google-gemini', 'paid-mistral': 'api-mistral',
+ 'paid-groq': 'api-groq', 'paid-openrouter': 'api-openrouter',
+ 'paid-deepseek': 'api-deepseek', 'paid-elevenlabs': 'api-elevenlabs',
+ 'paid-deepgram': 'api-deepgram', 'paid-assemblyai': 'api-assemblyai',
+ 'paid-tavily': 'api-tavily', 'paid-exa': 'api-exa',
+ 'paid-supabase': 'api-supabase', 'paid-neon': 'api-neon',
+ 'paid-upstash': 'api-upstash', 'paid-firebase': 'api-firebase',
+ 'paid-cloudinary': 'api-cloudinary', 'paid-sentry': 'api-sentry',
+ 'paid-posthog': 'api-posthog', 'paid-resend': 'api-resend',
+ 'paid-stripe-fees': 'api-stripe', 'paid-mapbox': 'api-mapbox',
+ 'paid-openweather': 'api-openweathermap', 'paid-deepl-pro': 'api-deepl',
+ 'paid-airtable': 'api-airtable', 'paid-vercel': 'api-vercel-rest',
+ 'paid-netlify': 'api-netlify',
+ # stage 4
+ 'paid-revenuecat': 'api-revenuecat',
+ 'paid-polar': 'api-polar', 'paid-brevo': 'api-brevo',
+ 'paid-mailgun': 'api-mailgun', 'paid-langfuse': 'api-langfuse',
+ 'paid-helicone': 'api-helicone', 'paid-imagekit': 'api-imagekit',
+ 'paid-cloudconvert': 'api-cloudconvert', 'paid-maptiler': 'api-maptiler',
+ 'paid-uptimerobot': 'api-uptimerobot', 'paid-voyage': 'api-voyage',
+}
+
+def build_showcases(item_id):
+    out = []
+    for entry in SHOWCASES.get(item_id, []):
+        title, url, kind, note_en, note_ru = entry
+        out.append({
+            'title': title, 'url': url, 'kind': kind,
+            'note': note_en, 'localizedNote': {'en': note_en, 'ru': note_ru},
+        })
+    return out
+
+def make(kind, row, pricing=None):
+    (iid, name, category, url, access, tags, install,
+     summary_en, summary_ru, tip_en) = row
+    item = {
+        'id': iid, 'name': name, 'kind': kind, 'category': category,
+        'summary': summary_en, 'url': url, 'access': access,
+        'compatibility': ['both'],
+        'tags': [t.strip() for t in tags.split(',') if t.strip()],
+        'tip': tip_en, 'verifiedAt': TODAY, 'install': install,
+        'source': 'curated', 'sourceLanguage': 'en',
+        'localizedSummary': {'en': summary_en, 'ru': summary_ru},
+        'localizedTip': {'en': tip_en},
+    }
+    if pricing:
+        item['pricing'] = pricing
+    sc = build_showcases(iid)
+    if sc:
+        item['showcases'] = sc
+    return item
+
+def main():
+    # The seed is the frozen stage-2 catalog, never the generated output:
+    # reading assets/catalog.json here would append the packs a second time
+    # on every run and the id/name validation below would fail.
+    with open(f'{ROOT}/tool/catalog_src/catalog.seed.json', encoding='utf-8') as f:
+        base = json.load(f)
+    items = base['items']
+
+    # normalise legacy entries
+    for it in items:
+        it.setdefault('compatibility', ['both'])
+        it.setdefault('install', '')
+        it.setdefault('source', 'curated')
+        it.setdefault('sourceLanguage', 'ru')
+        it.setdefault('localizedSummary', {})
+        it.setdefault('localizedTip', {})
+        it.setdefault('verifiedAt', '2026-08-12')
+        sc = build_showcases(it['id'])
+        if sc:
+            it['showcases'] = sc
+
+    for row in APIS:
+        items.append(make('api', row))
+    for row in LIBS:
+        items.append(make('library', row))
+    for row in MCPS:
+        items.append(make('mcp', row))
+    for row in SKILLS:
+        items.append(make('skill', row))
+    by_id = {i['id']: i for i in items}
+    for row in PAID:
+        (iid, name, category, url, access, tags,
+         summary_en, summary_ru, tip_en,
+         model, price_from, free_quota, pricing_url) = row
+        pricing = {
+            'model': model, 'from': price_from, 'freeQuota': free_quota,
+            'url': pricing_url, 'currency': 'USD', 'checkedAt': TODAY,
+        }
+        target = MERGE.get(iid)
+        if target:
+            if target not in by_id:
+                raise SystemExit(f'merge target missing: {target}')
+            existing = by_id[target]
+            existing['pricing'] = pricing
+            merged = list(dict.fromkeys(existing['tags'] + [t.strip() for t in tags.split(',') if t.strip()]))
+            existing['tags'] = merged
+            continue
+        core = (iid, name, category, url, access, tags, '', summary_en, summary_ru, tip_en)
+        item = make('api', core, pricing=pricing)
+        items.append(item)
+        by_id[iid] = item
+
+    # ---- pricing defaults for non-paid entries -------------------------
+    for it in items:
+        if 'pricing' in it:
+            continue
+        access = it['access']
+        model = {
+            'noKey': 'free', 'free': 'free', 'openSource': 'openSource',
+            'freeTier': 'freemium', 'mixed': 'freemium', 'paid': 'usage',
+        }.get(access, 'free')
+        it['pricing'] = {'model': model, 'checkedAt': it.get('verifiedAt', TODAY)}
+
+    # ---- category groups ----------------------------------------------
+    unknown = sorted({it['category'] for it in items} - set(CATEGORIES))
+    if unknown:
+        raise SystemExit(f'Categories without a group: {unknown}')
+    for it in items:
+        it['categoryGroup'] = CATEGORIES[it['category']][0]
+
+    # ---- validation ----------------------------------------------------
+    seen, errors = set(), []
+    kinds = {'api', 'library', 'mcp', 'skill'}
+    accesses = {'noKey', 'freeTier', 'openSource', 'free', 'mixed', 'paid'}
+    for it in items:
+        if it['id'] in seen:
+            errors.append(f"duplicate id {it['id']}")
+        seen.add(it['id'])
+        if not it['url'].startswith('https://'):
+            errors.append(f"non-https url {it['id']}")
+        if it['kind'] not in kinds:
+            errors.append(f"bad kind {it['id']}")
+        if it['access'] not in accesses:
+            errors.append(f"bad access {it['id']}")
+        if not re.fullmatch(r'[a-z0-9-]+', it['id']):
+            errors.append(f"bad id format {it['id']}")
+        for sc in it.get('showcases', []):
+            if not sc['url'].startswith('https://'):
+                errors.append(f"non-https showcase {it['id']}")
+    names = {}
+    for it in items:
+        key = it['name'].lower()
+        names.setdefault(key, []).append(it['id'])
+    for key, ids in names.items():
+        if len(ids) > 1:
+            errors.append(f"duplicate name {key}: {ids}")
+    if errors:
+        raise SystemExit('VALIDATION FAILED:\n' + '\n'.join(errors))
+
+    items.sort(key=lambda i: (i['kind'], i['categoryGroup'], i['category'], i['name'].lower()))
+    out = {
+        'schemaVersion': 3,
+        'catalogVersion': '2026.08.17',
+        'verifiedAt': TODAY,
+        'groups': [{'id': g, 'labels': GROUPS[g]} for g in GROUPS],
+        'items': items,
+    }
+    with open(f'{ROOT}/assets/catalog.json', 'w', encoding='utf-8') as f:
+        json.dump(out, f, ensure_ascii=False, indent=1)
+
+    # ---- generate lib/i18n/categories.dart ------------------------------
+    lines = [
+        '// GENERATED by tool/build_catalog.py — do not edit by hand.',
+        "import 'app_language.dart';", '',
+        'const categoryGroupOf = <String, String>{',
+    ]
+    for cat, (grp, _en, _de) in sorted(CATEGORIES.items()):
+        lines.append(f"  '{cat}': '{grp}',")
+    lines += ['};', '', 'const groupLabels = <String, Map<AppLanguage, String>>{']
+    for g, labels in GROUPS.items():
+        lines.append(
+            f"  '{g}': {{AppLanguage.en: '{labels['en']}', "
+            f"AppLanguage.ru: '{labels['ru']}', AppLanguage.de: '{labels['de']}'}},")
+    lines += ['};', '', 'const categoryLabels = <String, Map<AppLanguage, String>>{']
+    for cat, (_g, en, de) in sorted(CATEGORIES.items()):
+        lines.append(
+            f"  '{cat}': {{AppLanguage.en: '{en}', "
+            f"AppLanguage.ru: '{cat}', AppLanguage.de: '{de}'}},")
+    lines += ['};', '']
+    with open(f'{ROOT}/lib/i18n/categories.dart', 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines))
+
+    # ---- report ---------------------------------------------------------
+    from collections import Counter
+    print('total items :', len(items))
+    print('by kind     :', dict(Counter(i['kind'] for i in items)))
+    print('by group    :', dict(Counter(i['categoryGroup'] for i in items)))
+    print('with pricing:', sum(1 for i in items if i['pricing'].get('from')))
+    print('with shows  :', sum(1 for i in items if i.get('showcases')))
+    print('categories  :', len({i['category'] for i in items}))
+    print('paid access :', sum(1 for i in items if i['access'] == 'paid'))
+    unused = set(SHOWCASES) - {i['id'] for i in items}
+    if unused:
+        print('!! showcase ids not found:', sorted(unused))
+
+main()

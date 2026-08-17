@@ -1,0 +1,13 @@
+# ~/.config/systemd/user/vibestack-atlas-sync.timer
+[Unit]
+Description=Run VibeStack Atlas catalog sync once a day
+
+[Timer]
+# Change 09:00 to the hour selected in the app.
+OnCalendar=*-*-* 09:00:00
+# Catches up after the machine was off at the scheduled moment.
+Persistent=true
+Unit=vibestack-atlas-sync.service
+
+[Install]
+WantedBy=timers.target
