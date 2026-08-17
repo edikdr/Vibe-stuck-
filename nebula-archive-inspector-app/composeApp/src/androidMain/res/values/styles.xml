@@ -1,0 +1,15 @@
+<resources>
+    <!--
+      The window background matches the app surface so the launch frame and the area behind the transparent
+      system bars are the same colour as the workspace, instead of a black band under the content.
+    -->
+    <style name="NebulaTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">#05070E</item>
+        <item name="android:colorBackground">#05070E</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:colorAccent">#79E9FF</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+</resources>
