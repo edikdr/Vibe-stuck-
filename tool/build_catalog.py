@@ -217,7 +217,8 @@ MERGE = {
  'paid-isbndb': 'api-isbndb', 'paid-tecton': 'api-tecton',
  'paid-browserstack': 'api-browserstack', 'paid-saucelabs': 'api-saucelabs',
  'paid-shodan': 'api-shodan', 'paid-x-twitter': 'api-x-twitter',
- 'paid-adyen': 'api-adyen',
+ 'paid-adyen': 'api-adyen', 'paid-github-copilot': 'api-github-copilot',
+ 'paid-clearbit': 'api-clearbit', 'paid-urlbox': 'api-urlbox',
 }
 
 def build_showcases(item_id):
