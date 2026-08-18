@@ -214,7 +214,10 @@ MERGE = {
  'paid-intercom': 'api-intercom', 'paid-front-app': 'api-front-app',
  'paid-hive-moderation': 'api-hive-moderation',
  'paid-openai-embeddings': 'api-openai-embeddings',
- 'paid-isbndb': 'api-isbndb',
+ 'paid-isbndb': 'api-isbndb', 'paid-tecton': 'api-tecton',
+ 'paid-browserstack': 'api-browserstack', 'paid-saucelabs': 'api-saucelabs',
+ 'paid-shodan': 'api-shodan', 'paid-x-twitter': 'api-x-twitter',
+ 'paid-adyen': 'api-adyen',
 }
 
 def build_showcases(item_id):

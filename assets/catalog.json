@@ -4713,6 +4713,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-basecamp",
+   "name": "Basecamp API",
+   "kind": "api",
+   "category": "Планирование и календари",
+   "summary": "Project management API covering todos, messages, schedules and campfires.",
+   "url": "https://github.com/basecamp/bc3-api",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "project-management",
+    "todos",
+    "messages",
+    "campfire"
+   ],
+   "tip": "Its API requires a descriptive User-Agent with contact info, and requests without one are rejected.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Project management API covering todos, messages, schedules and campfires.",
+    "ru": "API управления проектами: задачи, сообщения, расписания и чаты."
+   },
+   "localizedTip": {
+    "en": "Its API requires a descriptive User-Agent with contact info, and requests without one are rejected."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-cal-com",
    "name": "Cal.com API",
    "kind": "api",
@@ -4783,6 +4818,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-clickup-2",
+   "name": "ClickUp API",
+   "kind": "api",
+   "category": "Планирование и календари",
+   "summary": "Task, doc and goal management API for the ClickUp workspace platform.",
+   "url": "https://developer.clickup.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tasks",
+    "project-management",
+    "docs",
+    "goals"
+   ],
+   "tip": "Webhooks are per-workspace — subscribe once rather than polling task lists for changes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Task, doc and goal management API for the ClickUp workspace platform.",
+    "ru": "API управления задачами, документами и целями платформы ClickUp."
+   },
+   "localizedTip": {
+    "en": "Webhooks are per-workspace — subscribe once rather than polling task lists for changes."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-google-calendar",
    "name": "Google Calendar API",
    "kind": "api",
@@ -4813,6 +4883,41 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-height-app",
+   "name": "Height API",
+   "kind": "api",
+   "category": "Планирование и календари",
+   "summary": "Task management API with a strong automation and webhook story.",
+   "url": "https://height.notion.site/API-documentation-643aea5bf01742de9232e5971cb4afda",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tasks",
+    "project-management",
+    "api",
+    "automation"
+   ],
+   "tip": "Its activity feed model makes it straightforward to mirror task changes into another system.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Task management API with a strong automation and webhook story.",
+    "ru": "API управления задачами с сильной поддержкой автоматизации и webhooks."
+   },
+   "localizedTip": {
+    "en": "Its activity feed model makes it straightforward to mirror task changes into another system."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -4918,6 +5023,47 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-adyen",
+   "name": "Adyen",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Enterprise payment platform covering online, in-store and mobile in one integration.",
+   "url": "https://docs.adyen.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payments",
+    "enterprise",
+    "global",
+    "unified",
+    "pricing",
+    "interchange-plus"
+   ],
+   "tip": "Its unified commerce model is the draw for businesses with both physical and online sales channels.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise payment platform covering online, in-store and mobile in one integration.",
+    "ru": "Корпоративная платёжная платформа, покрывающая онлайн, офлайн и мобильные платежи в одной интеграции."
+   },
+   "localizedTip": {
+    "en": "Its unified commerce model is the draw for businesses with both physical and online sales channels."
+   },
+   "pricing": {
+    "model": "commission",
+    "from": "fixed fee plus interchange per transaction",
+    "freeQuota": "test account for integration",
+    "url": "https://www.adyen.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -5031,6 +5177,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-mollie",
+   "name": "Mollie",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "European payment provider with strong local method support (iDEAL, Bancontact, SEPA).",
+   "url": "https://docs.mollie.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payments",
+    "europe",
+    "sepa",
+    "ideal"
+   ],
+   "tip": "Local payment methods matter enormously for European conversion — cards alone underperform there.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "European payment provider with strong local method support (iDEAL, Bancontact, SEPA).",
+    "ru": "Европейский платёжный провайдер с сильной поддержкой локальных методов (iDEAL, Bancontact, SEPA)."
+   },
+   "localizedTip": {
+    "en": "Local payment methods matter enormously for European conversion — cards alone underperform there."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "paid-paddle",
    "name": "Paddle",
    "kind": "api",
@@ -5105,6 +5286,41 @@
     "freeQuota": "no monthly platform fee",
     "url": "https://polar.sh/docs/merchant-of-record/tax",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-razorpay",
+   "name": "Razorpay",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Indian payment gateway with UPI, cards, netbanking and subscription support.",
+   "url": "https://razorpay.com/docs/api/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payments",
+    "india",
+    "upi",
+    "subscriptions"
+   ],
+   "tip": "UPI is the dominant payment method in India — card-only integrations lose most of the market.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Indian payment gateway with UPI, cards, netbanking and subscription support.",
+    "ru": "Индийский платёжный шлюз с поддержкой UPI, карт, интернет-банкинга и подписок."
+   },
+   "localizedTip": {
+    "en": "UPI is the dominant payment method in India — card-only integrations lose most of the market."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -5255,6 +5471,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-square",
+   "name": "Square API",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Payments, point of sale, inventory and catalog APIs for physical and online commerce.",
+   "url": "https://developer.squareup.com/docs",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payments",
+    "pos",
+    "inventory",
+    "commerce"
+   ],
+   "tip": "The sandbox provides test card numbers that trigger specific decline reasons — use them for error paths.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Payments, point of sale, inventory and catalog APIs for physical and online commerce.",
+    "ru": "API платежей, POS, склада и каталога для офлайн- и онлайн-торговли."
+   },
+   "localizedTip": {
+    "en": "The sandbox provides test card numbers that trigger specific decline reasons — use them for error paths."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-stripe",
    "name": "Stripe API",
    "kind": "api",
@@ -5378,6 +5629,76 @@
     "freeQuota": "300 emails per day",
     "url": "https://www.brevo.com/pricing/",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-courier",
+   "name": "Courier",
+   "kind": "api",
+   "category": "Почта и уведомления",
+   "summary": "Notification API routing one message across email, SMS, push and chat with fallbacks.",
+   "url": "https://www.courier.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "notifications",
+    "routing",
+    "templates",
+    "multi-channel"
+   ],
+   "tip": "Channel fallback (try push, then email) is configured centrally rather than coded per notification.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Notification API routing one message across email, SMS, push and chat with fallbacks.",
+    "ru": "API уведомлений, маршрутизирующий одно сообщение по email, SMS, push и чату с резервными каналами."
+   },
+   "localizedTip": {
+    "en": "Channel fallback (try push, then email) is configured centrally rather than coded per notification."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-knock",
+   "name": "Knock",
+   "kind": "api",
+   "category": "Почта и уведомления",
+   "summary": "Notification infrastructure with cross-channel workflows and an in-app inbox component.",
+   "url": "https://docs.knock.app/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "notifications",
+    "workflows",
+    "multi-channel",
+    "in-app"
+   ],
+   "tip": "Its prebuilt in-app inbox component saves building notification UI from scratch.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Notification infrastructure with cross-channel workflows and an in-app inbox component.",
+    "ru": "Инфраструктура уведомлений с кросс-канальными workflow и компонентом входящих в приложении."
+   },
+   "localizedTip": {
+    "en": "Its prebuilt in-app inbox component saves building notification UI from scratch."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -5564,6 +5885,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-coda",
+   "name": "Coda API",
+   "kind": "api",
+   "category": "Таблицы и no-code",
+   "summary": "Documents that combine text, tables and automation, accessible programmatically.",
+   "url": "https://coda.io/developers/apis/v1",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docs",
+    "tables",
+    "automation",
+    "no-code"
+   ],
+   "tip": "Its table rows behave like a database, which makes Coda a viable lightweight backend for small tools.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Documents that combine text, tables and automation, accessible programmatically.",
+    "ru": "Документы, объединяющие текст, таблицы и автоматизацию, доступные программно."
+   },
+   "localizedTip": {
+    "en": "Its table rows behave like a database, which makes Coda a viable lightweight backend for small tools."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-google-sheets",
    "name": "Google Sheets API",
    "kind": "api",
@@ -5599,6 +5955,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-grist",
+   "name": "Grist",
+   "kind": "api",
+   "category": "Таблицы и no-code",
+   "summary": "Spreadsheet-database hybrid with Python formulas and full self-hosting.",
+   "url": "https://support.getgrist.com/api/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "spreadsheet",
+    "database",
+    "formulas",
+    "self-host"
+   ],
+   "tip": "Python formulas in cells are considerably more capable than spreadsheet formula languages.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Spreadsheet-database hybrid with Python formulas and full self-hosting.",
+    "ru": "Гибрид таблицы и базы данных с формулами на Python и полным self-hosting."
+   },
+   "localizedTip": {
+    "en": "Python formulas in cells are considerably more capable than spreadsheet formula languages."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-nocodb",
    "name": "NocoDB",
    "kind": "api",
@@ -5626,6 +6017,111 @@
    },
    "localizedTip": {
     "en": "It sits on your existing database, so nothing is trapped in a vendor’s storage."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-rowy",
+   "name": "Rowy",
+   "kind": "api",
+   "category": "Таблицы и no-code",
+   "summary": "Spreadsheet UI on top of Firestore with cloud functions attached to columns.",
+   "url": "https://docs.rowy.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "firestore",
+    "spreadsheet",
+    "ui",
+    "low-code"
+   ],
+   "tip": "Useful specifically for teams already on Firebase who need a non-developer admin surface.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Spreadsheet UI on top of Firestore with cloud functions attached to columns.",
+    "ru": "Табличный интерфейс поверх Firestore с облачными функциями, привязанными к колонкам."
+   },
+   "localizedTip": {
+    "en": "Useful specifically for teams already on Firebase who need a non-developer admin surface."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-seatable",
+   "name": "SeaTable",
+   "kind": "api",
+   "category": "Таблицы и no-code",
+   "summary": "Collaborative no-code database with self-hosting and a full REST API.",
+   "url": "https://api.seatable.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "database",
+    "no-code",
+    "self-host",
+    "collaboration"
+   ],
+   "tip": "European hosting option matters for teams with data-residency requirements Airtable cannot meet.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Collaborative no-code database with self-hosting and a full REST API.",
+    "ru": "Совместная no-code база данных с self-hosting и полноценным REST API."
+   },
+   "localizedTip": {
+    "en": "European hosting option matters for teams with data-residency requirements Airtable cannot meet."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-teable",
+   "name": "Teable",
+   "kind": "api",
+   "category": "Таблицы и no-code",
+   "summary": "Postgres-backed no-code database with an Airtable-like interface.",
+   "url": "https://help.teable.io/en/developer/api",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "database",
+    "no-code",
+    "postgres",
+    "airtable-alternative"
+   ],
+   "tip": "Data lives in real Postgres, so SQL access remains available alongside the spreadsheet UI.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Postgres-backed no-code database with an Airtable-like interface.",
+    "ru": "No-code база данных на Postgres с интерфейсом в духе Airtable."
+   },
+   "localizedTip": {
+    "en": "Data lives in real Postgres, so SQL access remains available alongside the spreadsheet UI."
    },
    "pricing": {
     "model": "openSource",
@@ -5844,6 +6340,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-amplitude",
+   "name": "Amplitude",
+   "kind": "api",
+   "category": "CDP и маркетинг-данные",
+   "summary": "Product analytics with cohort analysis, funnels and behavioral segmentation.",
+   "url": "https://amplitude.com/docs/apis",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "product-analytics",
+    "events",
+    "cohorts",
+    "funnels"
+   ],
+   "tip": "Design your event taxonomy before instrumenting — renaming events later loses historical continuity.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Product analytics with cohort analysis, funnels and behavioral segmentation.",
+    "ru": "Продуктовая аналитика с когортным анализом, воронками и поведенческой сегментацией."
+   },
+   "localizedTip": {
+    "en": "Design your event taxonomy before instrumenting — renaming events later loses historical continuity."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-june-so",
    "name": "June",
    "kind": "api",
@@ -5871,6 +6402,41 @@
    },
    "localizedTip": {
     "en": "It auto-generates the standard SaaS dashboards from your existing Segment events — no dashboard-building needed."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-mixpanel",
+   "name": "Mixpanel",
+   "kind": "api",
+   "category": "CDP и маркетинг-данные",
+   "summary": "Event-based product analytics focused on funnels and retention.",
+   "url": "https://developer.mixpanel.com/reference/overview",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "product-analytics",
+    "events",
+    "funnels",
+    "retention"
+   ],
+   "tip": "Send events server-side where accuracy matters — client-side events are lost to ad blockers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Event-based product analytics focused on funnels and retention.",
+    "ru": "Событийная продуктовая аналитика с фокусом на воронки и удержание."
+   },
+   "localizedTip": {
+    "en": "Send events server-side where accuracy matters — client-side events are lost to ad blockers."
    },
    "pricing": {
     "model": "freemium",
@@ -6124,6 +6690,76 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-estuary",
+   "name": "Estuary Flow",
+   "kind": "api",
+   "category": "Data engineering",
+   "summary": "Real-time data integration with change data capture from databases to warehouses.",
+   "url": "https://docs.estuary.dev/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cdc",
+    "streaming",
+    "etl",
+    "real-time"
+   ],
+   "tip": "CDC captures every change rather than periodic snapshots, which matters for audit and real-time use cases.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Real-time data integration with change data capture from databases to warehouses.",
+    "ru": "Интеграция данных в реальном времени с CDC из баз данных в хранилища."
+   },
+   "localizedTip": {
+    "en": "CDC captures every change rather than periodic snapshots, which matters for audit and real-time use cases."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-feast",
+   "name": "Feast",
+   "kind": "api",
+   "category": "Data engineering",
+   "summary": "Open-source feature store keeping training and serving features consistent.",
+   "url": "https://docs.feast.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "feature-store",
+    "ml",
+    "serving",
+    "training"
+   ],
+   "tip": "Training/serving skew is the bug it exists to prevent — the same feature definition serves both paths.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install feast",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source feature store keeping training and serving features consistent.",
+    "ru": "Открытый feature store, поддерживающий согласованность признаков между обучением и инференсом."
+   },
+   "localizedTip": {
+    "en": "Training/serving skew is the bug it exists to prevent — the same feature definition serves both paths."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-fivetran",
    "name": "Fivetran",
    "kind": "api",
@@ -6229,6 +6865,76 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-materialize",
+   "name": "Materialize",
+   "kind": "api",
+   "category": "Data engineering",
+   "summary": "Streaming database maintaining incrementally updated materialized views in SQL.",
+   "url": "https://materialize.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "streaming",
+    "sql",
+    "incremental",
+    "views"
+   ],
+   "tip": "Write a normal SQL view and it stays continuously up to date — no manual refresh scheduling.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Streaming database maintaining incrementally updated materialized views in SQL.",
+    "ru": "Потоковая база данных, поддерживающая инкрементально обновляемые материализованные представления в SQL."
+   },
+   "localizedTip": {
+    "en": "Write a normal SQL view and it stays continuously up to date — no manual refresh scheduling."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-risingwave",
+   "name": "RisingWave",
+   "kind": "api",
+   "category": "Data engineering",
+   "summary": "Postgres-compatible streaming database, an open-source Materialize alternative.",
+   "url": "https://docs.risingwave.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "streaming",
+    "sql",
+    "postgres-compatible",
+    "incremental"
+   ],
+   "tip": "Postgres wire compatibility means existing SQL clients and BI tools connect without changes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Postgres-compatible streaming database, an open-source Materialize alternative.",
+    "ru": "Потоковая база данных, совместимая с Postgres, открытая альтернатива Materialize."
+   },
+   "localizedTip": {
+    "en": "Postgres wire compatibility means existing SQL clients and BI tools connect without changes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-snowflake",
    "name": "Snowflake",
    "kind": "api",
@@ -6259,6 +6965,46 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-tecton",
+   "name": "Tecton",
+   "kind": "api",
+   "category": "Data engineering",
+   "summary": "Managed feature platform for real-time ML with streaming feature pipelines.",
+   "url": "https://docs.tecton.ai/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "feature-store",
+    "ml",
+    "streaming",
+    "enterprise",
+    "pricing"
+   ],
+   "tip": "Its streaming feature support is the main reason to pay over self-hosting Feast.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Managed feature platform for real-time ML with streaming feature pipelines.",
+    "ru": "Управляемая платформа признаков для real-time ML с потоковыми пайплайнами."
+   },
+   "localizedTip": {
+    "en": "Its streaming feature support is the main reason to pay over self-hosting Feast."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "custom enterprise quote",
+    "freeQuota": "demo via sales",
+    "url": "https://www.tecton.ai/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -12187,6 +12933,82 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-securitytrails",
+   "name": "SecurityTrails",
+   "kind": "api",
+   "category": "Безопасность и секреты",
+   "summary": "Historical DNS and domain intelligence data.",
+   "url": "https://docs.securitytrails.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dns",
+    "domains",
+    "security",
+    "history"
+   ],
+   "tip": "DNS history is useful for verifying infrastructure changes during an incident postmortem.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Historical DNS and domain intelligence data.",
+    "ru": "Исторические данные DNS и доменной разведки."
+   },
+   "localizedTip": {
+    "en": "DNS history is useful for verifying infrastructure changes during an incident postmortem."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-shodan",
+   "name": "Shodan",
+   "kind": "api",
+   "category": "Безопасность и секреты",
+   "summary": "Search engine for internet-connected devices and exposed services.",
+   "url": "https://developer.shodan.io/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "security",
+    "scanning",
+    "devices",
+    "recon",
+    "pricing",
+    "lifetime"
+   ],
+   "tip": "Use it to audit your own exposed surface — searching others' infrastructure has legal implications.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Search engine for internet-connected devices and exposed services.",
+    "ru": "Поисковая система по устройствам и открытым сервисам в интернете."
+   },
+   "localizedTip": {
+    "en": "Use it to audit your own exposed surface — searching others' infrastructure has legal implications."
+   },
+   "pricing": {
+    "model": "credits",
+    "from": "from ~$49 one-time membership",
+    "freeQuota": "limited free account queries",
+    "url": "https://www.shodan.io/store/member",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-ssl-labs",
    "name": "SSL Labs API",
    "kind": "api",
@@ -12217,6 +13039,41 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-urlscan",
+   "name": "urlscan.io",
+   "kind": "api",
+   "category": "Безопасность и секреты",
+   "summary": "Scans and analyses URLs, capturing screenshots, requests and detected technologies.",
+   "url": "https://urlscan.io/docs/api/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "security",
+    "scanning",
+    "urls",
+    "phishing"
+   ],
+   "tip": "Public scans are visible to everyone — mark scans private when the URL contains anything sensitive.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Scans and analyses URLs, capturing screenshots, requests and detected technologies.",
+    "ru": "Сканирует и анализирует URL, сохраняя скриншоты, запросы и обнаруженные технологии."
+   },
+   "localizedTip": {
+    "en": "Public scans are visible to everyone — mark scans private when the URL contains anything sensitive."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -12903,6 +13760,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-slite",
+   "name": "Slite API",
+   "kind": "api",
+   "category": "Документация и контекст",
+   "summary": "Team knowledge base and documentation API.",
+   "url": "https://developers.slite.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docs",
+    "knowledge-base",
+    "team",
+    "notes"
+   ],
+   "tip": "Simpler and more opinionated than Notion, which suits teams that want fewer structural choices.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Team knowledge base and documentation API.",
+    "ru": "API базы знаний и документации для команд."
+   },
+   "localizedTip": {
+    "en": "Simpler and more opinionated than Notion, which suits teams that want fewer structural choices."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-axe-devtools",
    "name": "axe DevTools",
    "kind": "api",
@@ -12965,6 +13857,111 @@
    },
    "localizedTip": {
     "en": "The visual overlay in the browser extension is often faster for spot-checking than the raw API report."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-terraform-cloud",
+   "name": "HCP Terraform",
+   "kind": "api",
+   "category": "Инфраструктура как код",
+   "summary": "Hosted Terraform state, remote runs and policy enforcement.",
+   "url": "https://developer.hashicorp.com/terraform/cloud-docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iac",
+    "state",
+    "runs",
+    "collaboration"
+   ],
+   "tip": "Remote state with locking prevents the concurrent-apply corruption that plain S3 backends allow.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted Terraform state, remote runs and policy enforcement.",
+    "ru": "Размещённое состояние Terraform, удалённые запуски и применение политик."
+   },
+   "localizedTip": {
+    "en": "Remote state with locking prevents the concurrent-apply corruption that plain S3 backends allow."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-pulumi-cloud",
+   "name": "Pulumi Cloud",
+   "kind": "api",
+   "category": "Инфраструктура как код",
+   "summary": "Managed state backend, secrets and collaboration for Pulumi deployments.",
+   "url": "https://www.pulumi.com/docs/pulumi-cloud/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iac",
+    "state",
+    "secrets",
+    "collaboration"
+   ],
+   "tip": "Free for individuals — a much safer default than storing IaC state in a shared bucket you manage yourself.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Managed state backend, secrets and collaboration for Pulumi deployments.",
+    "ru": "Управляемый бэкенд состояния, секреты и совместная работа для деплоев Pulumi."
+   },
+   "localizedTip": {
+    "en": "Free for individuals — a much safer default than storing IaC state in a shared bucket you manage yourself."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-spacelift",
+   "name": "Spacelift",
+   "kind": "api",
+   "category": "Инфраструктура как код",
+   "summary": "CI/CD purpose-built for infrastructure as code, with policy-as-code controls.",
+   "url": "https://docs.spacelift.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iac",
+    "terraform",
+    "policy",
+    "automation"
+   ],
+   "tip": "Its OPA policy layer gates risky plans automatically instead of relying on human review to catch them.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "CI/CD purpose-built for infrastructure as code, with policy-as-code controls.",
+    "ru": "CI/CD, созданный специально для infrastructure as code, с policy-as-code контролем."
+   },
+   "localizedTip": {
+    "en": "Its OPA policy layer gates risky plans automatically instead of relying on human review to catch them."
    },
    "pricing": {
     "model": "freemium",
@@ -13113,6 +14110,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-superset",
+   "name": "Apache Superset",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Enterprise-grade open-source data exploration and visualization platform.",
+   "url": "https://superset.apache.org/docs/intro",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bi",
+    "dashboards",
+    "visualization",
+    "apache"
+   ],
+   "tip": "Heavier to operate than Metabase but handles far larger datasets and more chart types.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise-grade open-source data exploration and visualization platform.",
+    "ru": "Открытая платформа исследования и визуализации данных корпоративного уровня."
+   },
+   "localizedTip": {
+    "en": "Heavier to operate than Metabase but handles far larger datasets and more chart types."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-axiom",
    "name": "Axiom",
    "kind": "api",
@@ -13213,6 +14245,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-cube-dev",
+   "name": "Cube",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Semantic layer exposing consistent metrics over your warehouse via REST, GraphQL and SQL.",
+   "url": "https://cube.dev/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "semantic-layer",
+    "metrics",
+    "api",
+    "caching"
+   ],
+   "tip": "One metric definition serves every consumer, which stops each dashboard reinventing 'active user'.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Semantic layer exposing consistent metrics over your warehouse via REST, GraphQL and SQL.",
+    "ru": "Семантический слой, отдающий согласованные метрики поверх хранилища через REST, GraphQL и SQL."
+   },
+   "localizedTip": {
+    "en": "One metric definition serves every consumer, which stops each dashboard reinventing 'active user'."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -13325,6 +14392,76 @@
    },
    "localizedTip": {
     "en": "If you already run Elasticsearch for logs, APM data lands in the same cluster — one system, not two."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-lightdash",
+   "name": "Lightdash",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "BI layer built directly on top of your dbt project's metric definitions.",
+   "url": "https://docs.lightdash.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bi",
+    "dbt",
+    "metrics",
+    "self-host"
+   ],
+   "tip": "Metrics stay defined in dbt, so BI and pipelines never disagree about what a number means.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "BI layer built directly on top of your dbt project's metric definitions.",
+    "ru": "BI-слой прямо поверх определений метрик вашего dbt-проекта."
+   },
+   "localizedTip": {
+    "en": "Metrics stay defined in dbt, so BI and pipelines never disagree about what a number means."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-metabase",
+   "name": "Metabase",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Open-source business intelligence: dashboards and questions over your database.",
+   "url": "https://www.metabase.com/docs/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bi",
+    "dashboards",
+    "sql",
+    "self-host"
+   ],
+   "tip": "Non-technical users can build questions without SQL, which is why it beats a hand-built admin dashboard.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source business intelligence: dashboards and questions over your database.",
+    "ru": "Открытая BI-система: дашборды и вопросы к вашей базе данных."
+   },
+   "localizedTip": {
+    "en": "Non-technical users can build questions without SQL, which is why it beats a hand-built admin dashboard."
    },
    "pricing": {
     "model": "openSource",
@@ -14423,6 +15560,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-homebrew",
+   "name": "Homebrew Formulae API",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "JSON metadata for every Homebrew formula and cask.",
+   "url": "https://formulae.brew.sh/docs/api/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "homebrew",
+    "macos",
+    "packages",
+    "json"
+   ],
+   "tip": "Analytics endpoints expose install counts, which is a rough proxy for a macOS tool's real-world popularity.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "JSON metadata for every Homebrew formula and cask.",
+    "ru": "JSON-метаданные для каждой формулы и cask в Homebrew."
+   },
+   "localizedTip": {
+    "en": "Analytics endpoints expose install counts, which is a rough proxy for a macOS tool's real-world popularity."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-jsr",
+   "name": "JSR",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "TypeScript-first package registry working across Deno, Node and Bun.",
+   "url": "https://jsr.io/docs",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "registry",
+    "typescript",
+    "deno",
+    "modules"
+   ],
+   "tip": "It publishes TypeScript source directly, so consumers get real types rather than generated declarations.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "TypeScript-first package registry working across Deno, Node and Bun.",
+    "ru": "Реестр пакетов с приоритетом TypeScript, работает в Deno, Node и Bun."
+   },
+   "localizedTip": {
+    "en": "It publishes TypeScript source directly, so consumers get real types rather than generated declarations."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-make-com",
    "name": "Make (Integromat)",
    "kind": "api",
@@ -14458,6 +15665,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-maven-central",
+   "name": "Maven Central Search",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Search and metadata API for Java artifacts on Maven Central.",
+   "url": "https://central.sonatype.org/search/rest-api-guide/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "packages",
+    "maven",
+    "search"
+   ],
+   "tip": "Useful for automating dependency-version checks in a JVM project without scraping the web UI.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Search and metadata API for Java artifacts on Maven Central.",
+    "ru": "API поиска и метаданных Java-артефактов в Maven Central."
+   },
+   "localizedTip": {
+    "en": "Useful for automating dependency-version checks in a JVM project without scraping the web UI."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-npm-registry",
    "name": "npm Registry API",
    "kind": "api",
@@ -14485,6 +15727,41 @@
    },
    "localizedTip": {
     "en": "Requesting /{package}/latest is the cheapest possible version check for a dependency bot."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-nuget",
+   "name": "NuGet API",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Package metadata and versions for the .NET ecosystem.",
+   "url": "https://learn.microsoft.com/nuget/api/overview",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dotnet",
+    "packages",
+    "registry",
+    "versions"
+   ],
+   "tip": "The service index endpoint is the entry point — resource URLs are discovered from it, not hardcoded.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Package metadata and versions for the .NET ecosystem.",
+    "ru": "Метаданные и версии пакетов экосистемы .NET."
+   },
+   "localizedTip": {
+    "en": "The service index endpoint is the entry point — resource URLs are discovered from it, not hardcoded."
    },
    "pricing": {
     "model": "free",
@@ -14593,6 +15870,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-rubygems",
+   "name": "RubyGems API",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Gem metadata, versions and download statistics for the Ruby ecosystem.",
+   "url": "https://guides.rubygems.org/rubygems-org-api/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ruby",
+    "gems",
+    "packages",
+    "versions"
+   ],
+   "tip": "The versions endpoint returns the full release history in one call, which suits changelog tooling.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Gem metadata, versions and download statistics for the Ruby ecosystem.",
+    "ru": "Метаданные, версии и статистика загрузок гемов Ruby."
+   },
+   "localizedTip": {
+    "en": "The versions endpoint returns the full release history in one call, which suits changelog tooling."
+   },
+   "pricing": {
+    "model": "free",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -14900,6 +16212,82 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-browserstack",
+   "name": "BrowserStack",
+   "kind": "api",
+   "category": "Тестирование и качество",
+   "summary": "Cloud testing across thousands of real browser and device combinations.",
+   "url": "https://www.browserstack.com/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cross-browser",
+    "devices",
+    "testing",
+    "cloud",
+    "pricing",
+    "parallel"
+   ],
+   "tip": "Real devices, not emulators, is the differentiator — mobile rendering bugs often only appear on real hardware.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cloud testing across thousands of real browser and device combinations.",
+    "ru": "Облачное тестирование на тысячах реальных комбинаций браузеров и устройств."
+   },
+   "localizedTip": {
+    "en": "Real devices, not emulators, is the differentiator — mobile rendering bugs often only appear on real hardware."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$29 per month",
+    "freeQuota": "free trial minutes",
+    "url": "https://www.browserstack.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-codecov",
+   "name": "Codecov",
+   "kind": "api",
+   "category": "Тестирование и качество",
+   "summary": "Test coverage reporting and PR-level coverage diffs.",
+   "url": "https://docs.codecov.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "coverage",
+    "ci",
+    "reports",
+    "github"
+   ],
+   "tip": "Coverage on the diff matters far more than total project coverage — configure the PR check accordingly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Test coverage reporting and PR-level coverage diffs.",
+    "ru": "Отчёты о покрытии тестами и диффы покрытия на уровне pull request."
+   },
+   "localizedTip": {
+    "en": "Coverage on the diff matters far more than total project coverage — configure the PR check accordingly."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-jsonplaceholder",
    "name": "JSONPlaceholder",
    "kind": "api",
@@ -14927,6 +16315,117 @@
    "pricing": {
     "model": "free",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-lambdatest",
+   "name": "LambdaTest",
+   "kind": "api",
+   "category": "Тестирование и качество",
+   "summary": "Cross-browser testing platform with a free tier for manual testing.",
+   "url": "https://www.lambdatest.com/support/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cross-browser",
+    "testing",
+    "cloud",
+    "free-tier"
+   ],
+   "tip": "The free tier's manual live-testing minutes are enough for occasional browser-specific bug reproduction.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cross-browser testing platform with a free tier for manual testing.",
+    "ru": "Платформа кроссбраузерного тестирования с бесплатным тарифом для ручного тестирования."
+   },
+   "localizedTip": {
+    "en": "The free tier's manual live-testing minutes are enough for occasional browser-specific bug reproduction."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-saucelabs",
+   "name": "Sauce Labs",
+   "kind": "api",
+   "category": "Тестирование и качество",
+   "summary": "Cloud-based cross-browser and mobile testing with Selenium and Appium support.",
+   "url": "https://docs.saucelabs.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cross-browser",
+    "selenium",
+    "testing",
+    "cloud",
+    "pricing",
+    "parallel"
+   ],
+   "tip": "Parallel test execution is what makes a large suite finish in minutes rather than an hour.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cloud-based cross-browser and mobile testing with Selenium and Appium support.",
+    "ru": "Облачное кроссбраузерное и мобильное тестирование с поддержкой Selenium и Appium."
+   },
+   "localizedTip": {
+    "en": "Parallel test execution is what makes a large suite finish in minutes rather than an hour."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "custom quote by concurrency",
+    "freeQuota": "free trial available",
+    "url": "https://saucelabs.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-sonarcloud",
+   "name": "SonarCloud",
+   "kind": "api",
+   "category": "Тестирование и качество",
+   "summary": "Hosted code quality and security analysis with quality gates in CI.",
+   "url": "https://docs.sonarsource.com/sonarqube-cloud/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "static-analysis",
+    "quality-gate",
+    "ci",
+    "security"
+   ],
+   "tip": "Free for public repositories, which makes it easy to add to an open-source project's CI.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted code quality and security analysis with quality gates in CI.",
+    "ru": "Размещённый анализ качества и безопасности кода с quality gates в CI."
+   },
+   "localizedTip": {
+    "en": "Free for public repositories, which makes it easy to add to an open-source project's CI."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -15052,6 +16551,76 @@
    "pricing": {
     "model": "freemium",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-cloudmersive",
+   "name": "Cloudmersive",
+   "kind": "api",
+   "category": "Утилиты",
+   "summary": "Grab-bag utility APIs: document conversion, validation, virus scanning, OCR.",
+   "url": "https://api.cloudmersive.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "conversion",
+    "validation",
+    "virus-scan",
+    "utility"
+   ],
+   "tip": "Convenient for one-off needs, but a dedicated service usually wins on quality for any single task.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Grab-bag utility APIs: document conversion, validation, virus scanning, OCR.",
+    "ru": "Набор утилитарных API: конвертация документов, валидация, антивирус, OCR."
+   },
+   "localizedTip": {
+    "en": "Convenient for one-off needs, but a dedicated service usually wins on quality for any single task."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-ipify",
+   "name": "ipify",
+   "kind": "api",
+   "category": "Утилиты",
+   "summary": "Returns the caller's public IP address, no key and no rate limit.",
+   "url": "https://www.ipify.org/",
+   "access": "noKey",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ip",
+    "simple",
+    "no-key",
+    "utility"
+   ],
+   "tip": "About as simple as an API gets, which makes it a reliable connectivity check in scripts.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Returns the caller's public IP address, no key and no rate limit.",
+    "ru": "Возвращает публичный IP-адрес вызывающего, без ключа и без лимитов."
+   },
+   "localizedTip": {
+    "en": "About as simple as an API gets, which makes it a reliable connectivity check in scripts."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -18332,6 +19901,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-ably",
+   "name": "Ably",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Realtime messaging platform with message ordering and delivery guarantees.",
+   "url": "https://ably.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "realtime",
+    "pubsub",
+    "websockets",
+    "guaranteed-delivery"
+   ],
+   "tip": "Its connection recovery replays missed messages, which plain WebSockets leave you to implement.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Realtime messaging platform with message ordering and delivery guarantees.",
+    "ru": "Платформа обмена сообщениями в реальном времени с гарантиями порядка и доставки."
+   },
+   "localizedTip": {
+    "en": "Its connection recovery replays missed messages, which plain WebSockets leave you to implement."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-chatwoot",
    "name": "Chatwoot",
    "kind": "api",
@@ -18664,6 +20268,41 @@
     "freeQuota": "100 free emails to start",
     "url": "https://postmarkapp.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-pusher",
+   "name": "Pusher Channels",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Hosted realtime messaging over WebSockets with presence and private channels.",
+   "url": "https://pusher.com/docs/channels/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "realtime",
+    "websockets",
+    "pubsub",
+    "hosted"
+   ],
+   "tip": "Presence channels give you online-user lists without building your own connection tracking.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted realtime messaging over WebSockets with presence and private channels.",
+    "ru": "Размещённая передача сообщений в реальном времени по WebSockets с присутствием и приватными каналами."
+   },
+   "localizedTip": {
+    "en": "Presence channels give you online-user lists without building your own connection tracking."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -19722,6 +21361,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-instagram-graph",
+   "name": "Instagram Graph API",
+   "kind": "api",
+   "category": "Новости и сообщества",
+   "summary": "Media publishing and insights for Instagram Business and Creator accounts.",
+   "url": "https://developers.facebook.com/docs/instagram-platform",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "instagram",
+    "meta",
+    "media",
+    "business"
+   ],
+   "tip": "Personal accounts are not supported at all — the account must be converted to Business or Creator first.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Media publishing and insights for Instagram Business and Creator accounts.",
+    "ru": "Публикация медиа и аналитика для бизнес- и креатор-аккаунтов Instagram."
+   },
+   "localizedTip": {
+    "en": "Personal accounts are not supported at all — the account must be converted to Business or Creator first."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-lemmy",
    "name": "Lemmy API",
    "kind": "api",
@@ -19752,6 +21426,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-linkedin",
+   "name": "LinkedIn API",
+   "kind": "api",
+   "category": "Новости и сообщества",
+   "summary": "Profile, sharing and marketing APIs for the professional network.",
+   "url": "https://learn.microsoft.com/linkedin/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "linkedin",
+    "social",
+    "professional",
+    "oauth"
+   ],
+   "tip": "Most useful scopes need Partner Program approval — check eligibility before designing around them.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Profile, sharing and marketing APIs for the professional network.",
+    "ru": "API профилей, публикаций и маркетинга для профессиональной сети."
+   },
+   "localizedTip": {
+    "en": "Most useful scopes need Partner Program approval — check eligibility before designing around them."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -19921,6 +21630,118 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-threads",
+   "name": "Threads API",
+   "kind": "api",
+   "category": "Новости и сообщества",
+   "summary": "Publish and read posts on Meta's Threads platform.",
+   "url": "https://developers.facebook.com/docs/threads",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "threads",
+    "meta",
+    "social",
+    "posting"
+   ],
+   "tip": "Rate limits are per-user, not per-app, which shapes how a multi-user scheduling tool must be designed.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Publish and read posts on Meta's Threads platform.",
+    "ru": "Публикация и чтение постов на платформе Threads от Meta."
+   },
+   "localizedTip": {
+    "en": "Rate limits are per-user, not per-app, which shapes how a multi-user scheduling tool must be designed."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-tiktok",
+   "name": "TikTok for Developers",
+   "kind": "api",
+   "category": "Новости и сообщества",
+   "summary": "Content posting, login and display APIs for TikTok.",
+   "url": "https://developers.tiktok.com/doc/overview/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tiktok",
+    "video",
+    "social",
+    "content-posting"
+   ],
+   "tip": "App review is required before production access, and the review process is genuinely strict.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Content posting, login and display APIs for TikTok.",
+    "ru": "API публикации контента, входа и отображения для TikTok."
+   },
+   "localizedTip": {
+    "en": "App review is required before production access, and the review process is genuinely strict."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-x-twitter",
+   "name": "X API",
+   "kind": "api",
+   "category": "Новости и сообщества",
+   "summary": "Post, read and stream content on X (formerly Twitter).",
+   "url": "https://docs.x.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "twitter",
+    "social",
+    "posts",
+    "streaming",
+    "pricing",
+    "tiers",
+    "api"
+   ],
+   "tip": "The free tier is write-only with tight caps — reading timelines at any volume requires a paid plan.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Post, read and stream content on X (formerly Twitter).",
+    "ru": "Публикация, чтение и стриминг контента в X (бывший Twitter)."
+   },
+   "localizedTip": {
+    "en": "The free tier is write-only with tight caps — reading timelines at any volume requires a paid plan."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$100 per month (Basic)",
+    "freeQuota": "free tier is write-only, capped",
+    "url": "https://developer.x.com/en/portal/products",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -22174,6 +23995,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-scikit-image",
+   "name": "scikit-image",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Scientific image processing algorithms in Python, complementing OpenCV.",
+   "url": "https://scikit-image.org/docs/stable/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "image-processing",
+    "python",
+    "scientific",
+    "algorithms"
+   ],
+   "tip": "Its API is more NumPy-native than OpenCV's, which fits better inside a scientific Python pipeline.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install scikit-image",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Scientific image processing algorithms in Python, complementing OpenCV.",
+    "ru": "Научные алгоритмы обработки изображений в Python, дополняют OpenCV."
+   },
+   "localizedTip": {
+    "en": "Its API is more NumPy-native than OpenCV's, which fits better inside a scientific Python pipeline."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-ultralytics",
    "name": "Ultralytics YOLO",
    "kind": "library",
@@ -23066,6 +24922,76 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-buf",
+   "name": "Buf",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Modern Protocol Buffers tooling: linting, breaking-change detection and a schema registry.",
+   "url": "https://buf.build/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "protobuf",
+    "linting",
+    "breaking-change",
+    "registry"
+   ],
+   "tip": "Its breaking-change detector in CI is what prevents an accidental incompatible schema deploy.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern Protocol Buffers tooling: linting, breaking-change detection and a schema registry.",
+    "ru": "Современный тулинг Protocol Buffers: линтинг, детекция ломающих изменений и реестр схем."
+   },
+   "localizedTip": {
+    "en": "Its breaking-change detector in CI is what prevents an accidental incompatible schema deploy."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-connectrpc",
+   "name": "Connect",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "RPC framework speaking both gRPC and a browser-friendly HTTP protocol from one definition.",
+   "url": "https://connectrpc.com/docs/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rpc",
+    "protobuf",
+    "http",
+    "browser-compatible"
+   ],
+   "tip": "Solves gRPC's browser problem without a separate proxy layer, which is its main reason to exist.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @connectrpc/connect",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "RPC framework speaking both gRPC and a browser-friendly HTTP protocol from one definition.",
+    "ru": "RPC-фреймворк, говорящий и по gRPC, и по дружественному браузеру HTTP из одного определения."
+   },
+   "localizedTip": {
+    "en": "Solves gRPC's browser problem without a separate proxy layer, which is its main reason to exist."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-django",
    "name": "Django",
    "kind": "library",
@@ -23262,6 +25188,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-filament-php",
+   "name": "Filament",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Admin panel and CRUD builder for Laravel, generated from your Eloquent models.",
+   "url": "https://filamentphp.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "php",
+    "laravel",
+    "admin-panel",
+    "crud"
+   ],
+   "tip": "A full admin interface in an afternoon if your models are already well defined.",
+   "verifiedAt": "2026-08-17",
+   "install": "composer require filament/filament",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Admin panel and CRUD builder for Laravel, generated from your Eloquent models.",
+    "ru": "Конструктор админ-панели и CRUD для Laravel, генерируется из моделей Eloquent."
+   },
+   "localizedTip": {
+    "en": "A full admin interface in an afternoon if your models are already well defined."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-flask",
    "name": "Flask",
    "kind": "library",
@@ -23319,6 +25280,76 @@
    },
    "localizedTip": {
     "en": "Subscriptions over SSE work out of the box, unlike many servers that need a separate WebSocket setup."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-grpc",
+   "name": "gRPC",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "High-performance RPC framework using Protocol Buffers over HTTP/2.",
+   "url": "https://grpc.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rpc",
+    "protobuf",
+    "streaming",
+    "cross-language"
+   ],
+   "tip": "Browsers cannot speak gRPC natively — you need grpc-web or Connect for frontend clients.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance RPC framework using Protocol Buffers over HTTP/2.",
+    "ru": "Высокопроизводительный RPC-фреймворк на Protocol Buffers поверх HTTP/2."
+   },
+   "localizedTip": {
+    "en": "Browsers cannot speak gRPC natively — you need grpc-web or Connect for frontend clients."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-handlebars",
+   "name": "Handlebars",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Logic-less templating for JavaScript, usable server-side and in the browser.",
+   "url": "https://handlebarsjs.com/guide/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "templating",
+    "logic-less",
+    "javascript",
+    "server"
+   ],
+   "tip": "Its deliberate lack of logic pushes computation into your code, which keeps templates readable.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i handlebars",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Logic-less templating for JavaScript, usable server-side and in the browser.",
+    "ru": "Шаблонизация без логики для JavaScript, работает на сервере и в браузере."
+   },
+   "localizedTip": {
+    "en": "Its deliberate lack of logic pushes computation into your code, which keeps templates readable."
    },
    "pricing": {
     "model": "openSource",
@@ -23428,6 +25459,111 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-jinja2",
+   "name": "Jinja2",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "The standard Python templating engine, used by Flask, Ansible and many others.",
+   "url": "https://jinja.palletsprojects.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "templating",
+    "python",
+    "flask",
+    "server"
+   ],
+   "tip": "Enable autoescaping explicitly outside Flask — it is off by default in raw Jinja2, which invites XSS.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install jinja2",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard Python templating engine, used by Flask, Ansible and many others.",
+    "ru": "Стандартный шаблонизатор Python, используется во Flask, Ansible и многих других проектах."
+   },
+   "localizedTip": {
+    "en": "Enable autoescaping explicitly outside Flask — it is off by default in raw Jinja2, which invites XSS."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-laravel",
+   "name": "Laravel",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "The dominant PHP framework: ORM, queues, auth and templating in one opinionated package.",
+   "url": "https://laravel.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "php",
+    "framework",
+    "eloquent",
+    "fullstack"
+   ],
+   "tip": "Its ecosystem (Forge, Vapor, Livewire) is a large part of the value beyond the framework itself.",
+   "verifiedAt": "2026-08-17",
+   "install": "composer create-project laravel/laravel",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The dominant PHP framework: ORM, queues, auth and templating in one opinionated package.",
+    "ru": "Доминирующий PHP-фреймворк: ORM, очереди, аутентификация и шаблоны в одном пакете."
+   },
+   "localizedTip": {
+    "en": "Its ecosystem (Forge, Vapor, Livewire) is a large part of the value beyond the framework itself."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-liquid",
+   "name": "Liquid",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Safe templating language designed for user-editable templates, created by Shopify.",
+   "url": "https://shopify.github.io/liquid/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "templating",
+    "ruby",
+    "safe",
+    "user-editable"
+   ],
+   "tip": "Safe to expose to end users, unlike most template engines which can execute arbitrary code.",
+   "verifiedAt": "2026-08-17",
+   "install": "gem install liquid",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Safe templating language designed for user-editable templates, created by Shopify.",
+    "ru": "Безопасный язык шаблонов для пользовательского редактирования, создан Shopify."
+   },
+   "localizedTip": {
+    "en": "Safe to expose to end users, unlike most template engines which can execute arbitrary code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-litestar",
    "name": "Litestar",
    "kind": "library",
@@ -23455,6 +25591,41 @@
    },
    "localizedTip": {
     "en": "Its DI container makes layered testing straightforward without patching imports."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-msgpack",
+   "name": "MessagePack",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Compact binary serialization format, schemaless like JSON but smaller and faster.",
+   "url": "https://msgpack.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serialization",
+    "binary",
+    "compact",
+    "schemaless"
+   ],
+   "tip": "Good middle ground when you want JSON's flexibility without its size, and no schema registry.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @msgpack/msgpack",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compact binary serialization format, schemaless like JSON but smaller and faster.",
+    "ru": "Компактный бинарный формат сериализации, без схемы как JSON, но меньше и быстрее."
+   },
+   "localizedTip": {
+    "en": "Good middle ground when you want JSON's flexibility without its size, and no schema registry."
    },
    "pricing": {
     "model": "openSource",
@@ -23594,6 +25765,76 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-protobuf",
+   "name": "Protocol Buffers",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Language-neutral binary serialization format with schema evolution rules.",
+   "url": "https://protobuf.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serialization",
+    "schema",
+    "binary",
+    "google"
+   ],
+   "tip": "Never reuse a removed field number — that rule is what keeps old and new clients compatible.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Language-neutral binary serialization format with schema evolution rules.",
+    "ru": "Языконезависимый бинарный формат сериализации с правилами эволюции схемы."
+   },
+   "localizedTip": {
+    "en": "Never reuse a removed field number — that rule is what keeps old and new clients compatible."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-rails",
+   "name": "Ruby on Rails",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "The convention-over-configuration framework that shaped modern web development.",
+   "url": "https://guides.rubyonrails.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ruby",
+    "framework",
+    "convention",
+    "fullstack"
+   ],
+   "tip": "Hotwire (Turbo + Stimulus) covers most interactivity without a separate frontend framework.",
+   "verifiedAt": "2026-08-17",
+   "install": "gem install rails",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The convention-over-configuration framework that shaped modern web development.",
+    "ru": "Фреймворк convention-over-configuration, сформировавший современную веб-разработку."
+   },
+   "localizedTip": {
+    "en": "Hotwire (Turbo + Stimulus) covers most interactivity without a separate frontend framework."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-socketio",
    "name": "Socket.IO",
    "kind": "library",
@@ -23656,6 +25897,41 @@
    },
    "localizedTip": {
     "en": "Use it directly when you want ASGI routing and middleware without FastAPI's validation layer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-symfony",
+   "name": "Symfony",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Component-based PHP framework, widely used for larger enterprise applications.",
+   "url": "https://symfony.com/doc/current/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "php",
+    "components",
+    "enterprise",
+    "framework"
+   ],
+   "tip": "Its components are usable standalone — Laravel itself builds on several of them.",
+   "verifiedAt": "2026-08-17",
+   "install": "composer create-project symfony/skeleton",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Component-based PHP framework, widely used for larger enterprise applications.",
+    "ru": "Компонентный PHP-фреймворк, широко используется в крупных корпоративных приложениях."
+   },
+   "localizedTip": {
+    "en": "Its components are usable standalone — Laravel itself builds on several of them."
    },
    "pricing": {
     "model": "openSource",
@@ -23757,6 +26033,41 @@
    },
    "localizedTip": {
     "en": "Run it behind Gunicorn with uvicorn workers in production for process management and restarts."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-socket-io-2",
+   "name": "ws",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Minimal, fast WebSocket implementation for Node without Socket.IO's extra protocol.",
+   "url": "https://github.com/websockets/ws",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "websocket",
+    "node",
+    "minimal",
+    "performance"
+   ],
+   "tip": "Use it over Socket.IO when both ends are yours and you do not need automatic reconnect and fallbacks.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i ws",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal, fast WebSocket implementation for Node without Socket.IO's extra protocol.",
+    "ru": "Минимальная быстрая реализация WebSocket для Node без дополнительного протокола Socket.IO."
+   },
+   "localizedTip": {
+    "en": "Use it over Socket.IO when both ends are yours and you do not need automatic reconnect and fallbacks."
    },
    "pricing": {
     "model": "openSource",
@@ -24566,6 +26877,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-litestream",
+   "name": "Litestream",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Streaming replication for SQLite to S3-compatible object storage.",
+   "url": "https://litestream.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sqlite",
+    "replication",
+    "backup",
+    "s3"
+   ],
+   "tip": "Makes single-server SQLite genuinely production-viable by making the data recoverable.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Streaming replication for SQLite to S3-compatible object storage.",
+    "ru": "Потоковая репликация SQLite в S3-совместимое объектное хранилище."
+   },
+   "localizedTip": {
+    "en": "Makes single-server SQLite genuinely production-viable by making the data recoverable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-mikroorm",
    "name": "MikroORM",
    "kind": "library",
@@ -24593,6 +26939,41 @@
    },
    "localizedTip": {
     "en": "The Identity Map means the same row loaded twice in one request is the same object — no accidental double-fetch."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-pgbouncer",
+   "name": "PgBouncer",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Lightweight connection pooler for PostgreSQL.",
+   "url": "https://www.pgbouncer.org/config.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "connection-pooling",
+    "performance",
+    "proxy"
+   ],
+   "tip": "Essential in front of serverless functions, which otherwise exhaust Postgres connections almost immediately.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight connection pooler for PostgreSQL.",
+    "ru": "Лёгкий пулер соединений для PostgreSQL."
+   },
+   "localizedTip": {
+    "en": "Essential in front of serverless functions, which otherwise exhaust Postgres connections almost immediately."
    },
    "pricing": {
     "model": "openSource",
@@ -24942,6 +27323,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-sidekiq",
+   "name": "Sidekiq",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "The standard background job processor for Ruby, backed by Redis.",
+   "url": "https://github.com/sidekiq/sidekiq/wiki",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ruby",
+    "jobs",
+    "redis",
+    "background"
+   ],
+   "tip": "Make jobs idempotent — Sidekiq retries on failure, and a non-idempotent job double-charges someone eventually.",
+   "verifiedAt": "2026-08-17",
+   "install": "gem install sidekiq",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard background job processor for Ruby, backed by Redis.",
+    "ru": "Стандартный обработчик фоновых задач для Ruby на Redis."
+   },
+   "localizedTip": {
+    "en": "Make jobs idempotent — Sidekiq retries on failure, and a non-idempotent job double-charges someone eventually."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-temporal",
    "name": "Temporal",
    "kind": "library",
@@ -24972,6 +27388,146 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-maizzle",
+   "name": "Maizzle",
+   "kind": "library",
+   "category": "Почта и уведомления",
+   "summary": "Email framework letting you build templates with Tailwind CSS utility classes.",
+   "url": "https://maizzle.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "email",
+    "tailwind",
+    "templates",
+    "build"
+   ],
+   "tip": "It inlines the CSS at build time, since most email clients still ignore external stylesheets.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @maizzle/cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Email framework letting you build templates with Tailwind CSS utility classes.",
+    "ru": "Email-фреймворк, позволяющий строить шаблоны на утилитарных классах Tailwind CSS."
+   },
+   "localizedTip": {
+    "en": "It inlines the CSS at build time, since most email clients still ignore external stylesheets."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-mjml",
+   "name": "MJML",
+   "kind": "library",
+   "category": "Почта и уведомления",
+   "summary": "Markup language that compiles to responsive, client-compatible email HTML.",
+   "url": "https://documentation.mjml.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "email",
+    "templates",
+    "responsive",
+    "markup"
+   ],
+   "tip": "Solves the Outlook rendering problem specifically, which is where most hand-written email HTML breaks.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i mjml",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Markup language that compiles to responsive, client-compatible email HTML.",
+    "ru": "Язык разметки, компилируемый в адаптивный HTML писем, совместимый с почтовыми клиентами."
+   },
+   "localizedTip": {
+    "en": "Solves the Outlook rendering problem specifically, which is where most hand-written email HTML breaks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-nodemailer",
+   "name": "Nodemailer",
+   "kind": "library",
+   "category": "Почта и уведомления",
+   "summary": "The standard Node library for sending email over SMTP or provider APIs.",
+   "url": "https://nodemailer.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "email",
+    "smtp",
+    "node",
+    "sending"
+   ],
+   "tip": "Use a real sending service rather than raw SMTP from your app server — deliverability depends on reputation.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i nodemailer",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard Node library for sending email over SMTP or provider APIs.",
+    "ru": "Стандартная Node-библиотека для отправки почты по SMTP или через API провайдеров."
+   },
+   "localizedTip": {
+    "en": "Use a real sending service rather than raw SMTP from your app server — deliverability depends on reputation."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-react-email",
+   "name": "React Email",
+   "kind": "library",
+   "category": "Почта и уведомления",
+   "summary": "Build email templates with React components instead of nested HTML tables.",
+   "url": "https://react.email/docs/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "email",
+    "react",
+    "templates",
+    "components"
+   ],
+   "tip": "It compiles down to the table-based HTML email clients actually need — you just never write it by hand.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @react-email/components",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Build email templates with React components instead of nested HTML tables.",
+    "ru": "Создание email-шаблонов на React-компонентах вместо вложенных HTML-таблиц."
+   },
+   "localizedTip": {
+    "en": "It compiles down to the table-based HTML email clients actually need — you just never write it by hand."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -25052,6 +27608,41 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-dragonfly",
+   "name": "Dragonfly",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Redis-compatible in-memory store built multi-threaded for higher throughput per node.",
+   "url": "https://www.dragonflydb.io/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "redis-compatible",
+    "memory",
+    "performance",
+    "multithreaded"
+   ],
+   "tip": "Drop-in wire compatibility means existing Redis clients work unchanged while using fewer instances.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Redis-compatible in-memory store built multi-threaded for higher throughput per node.",
+    "ru": "Redis-совместимое in-memory хранилище, многопоточное, с более высокой пропускной способностью на узел."
+   },
+   "localizedTip": {
+    "en": "Drop-in wire compatibility means existing Redis clients work unchanged while using fewer instances."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -25334,6 +27925,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-redis-om",
+   "name": "Redis OM",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Object mapping for Redis with indexing and search, across several languages.",
+   "url": "https://redis.io/docs/latest/integrate/redisom-for-node-js/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "redis",
+    "object-mapping",
+    "search",
+    "node"
+   ],
+   "tip": "Turns Redis into a queryable document store rather than only a key-value cache.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i redis-om",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Object mapping for Redis with indexing and search, across several languages.",
+    "ru": "Объектное отображение для Redis с индексацией и поиском, для нескольких языков."
+   },
+   "localizedTip": {
+    "en": "Turns Redis into a queryable document store rather than only a key-value cache."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-redux-toolkit",
    "name": "Redux Toolkit",
    "kind": "library",
@@ -25481,6 +28107,41 @@
    },
    "localizedTip": {
     "en": "Useful as the shared state layer under a TanStack Query + Router stack in non-React frameworks too."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-valkey",
+   "name": "Valkey",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Linux Foundation fork of Redis created after Redis changed its licence.",
+   "url": "https://valkey.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "redis-fork",
+    "open-source",
+    "linux-foundation",
+    "cache"
+   ],
+   "tip": "Fully BSD-licensed, which matters if your organization avoids source-available licences.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Linux Foundation fork of Redis created after Redis changed its licence.",
+    "ru": "Форк Redis под управлением Linux Foundation, созданный после смены лицензии Redis."
+   },
+   "localizedTip": {
+    "en": "Fully BSD-licensed, which matters if your organization avoids source-available licences."
    },
    "pricing": {
     "model": "openSource",
@@ -26132,6 +28793,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-jupyter",
+   "name": "JupyterLab",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "The standard interactive notebook environment for data science and exploration.",
+   "url": "https://jupyterlab.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "notebooks",
+    "python",
+    "interactive",
+    "data-science"
+   ],
+   "tip": "Restart-and-run-all before sharing a notebook — hidden state from out-of-order cells is the classic trap.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install jupyterlab",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard interactive notebook environment for data science and exploration.",
+    "ru": "Стандартная среда интерактивных ноутбуков для data science и исследования данных."
+   },
+   "localizedTip": {
+    "en": "Restart-and-run-all before sharing a notebook — hidden state from out-of-order cells is the classic trap."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-lightgbm",
    "name": "LightGBM",
    "kind": "library",
@@ -26159,6 +28855,76 @@
    },
    "localizedTip": {
     "en": "Its leaf-wise tree growth can overfit small datasets — prefer XGBoost below roughly ten thousand rows."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-marimo",
+   "name": "marimo",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Reactive Python notebook stored as a plain .py file, with no hidden execution state.",
+   "url": "https://docs.marimo.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "notebooks",
+    "reactive",
+    "python",
+    "reproducible"
+   ],
+   "tip": "Being plain Python means notebooks diff and merge in git properly, unlike .ipynb JSON.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install marimo",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reactive Python notebook stored as a plain .py file, with no hidden execution state.",
+    "ru": "Реактивный Python-ноутбук в виде обычного .py файла без скрытого состояния выполнения."
+   },
+   "localizedTip": {
+    "en": "Being plain Python means notebooks diff and merge in git properly, unlike .ipynb JSON."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-networkx",
+   "name": "NetworkX",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Graph and network analysis in Python: algorithms, metrics and visualization.",
+   "url": "https://networkx.org/documentation/stable/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphs",
+    "networks",
+    "algorithms",
+    "python"
+   ],
+   "tip": "Pure Python, so it slows past roughly a million edges — switch to igraph or graph-tool at that scale.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install networkx",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Graph and network analysis in Python: algorithms, metrics and visualization.",
+    "ru": "Анализ графов и сетей в Python: алгоритмы, метрики и визуализация."
+   },
+   "localizedTip": {
+    "en": "Pure Python, so it slows past roughly a million edges — switch to igraph or graph-tool at that scale."
    },
    "pricing": {
     "model": "openSource",
@@ -26229,6 +28995,41 @@
    },
    "localizedTip": {
     "en": "Set dtypes on read for large CSVs: inference costs both memory and time."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-panel-holoviz",
+   "name": "Panel",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Python dashboarding library working with most plotting libraries and notebooks.",
+   "url": "https://panel.holoviz.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dashboards",
+    "python",
+    "interactive",
+    "holoviz"
+   ],
+   "tip": "More flexible than Streamlit for complex layouts, at the cost of a steeper learning curve.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install panel",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python dashboarding library working with most plotting libraries and notebooks.",
+    "ru": "Python-библиотека дашбордов, работающая с большинством библиотек графиков и ноутбуками."
+   },
+   "localizedTip": {
+    "en": "More flexible than Streamlit for complex layouts, at the cost of a steeper learning curve."
    },
    "pricing": {
     "model": "openSource",
@@ -26334,6 +29135,41 @@
    },
    "localizedTip": {
     "en": "Try a linear model or gradient boosting first: on tabular data it often ends the search."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-shiny-python",
+   "name": "Shiny for Python",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Reactive web application framework for Python, ported from R's Shiny.",
+   "url": "https://shiny.posit.co/py/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dashboards",
+    "python",
+    "reactive",
+    "posit"
+   ],
+   "tip": "Its reactive model recomputes only what changed, which scales better than Streamlit's full rerun.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install shiny",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reactive web application framework for Python, ported from R's Shiny.",
+    "ru": "Реактивный фреймворк веб-приложений для Python, портированный из R Shiny."
+   },
+   "localizedTip": {
+    "en": "Its reactive model recomputes only what changed, which scales better than Streamlit's full rerun."
    },
    "pricing": {
     "model": "openSource",
@@ -26546,6 +29382,321 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-astropy",
+   "name": "Astropy",
+   "kind": "library",
+   "category": "Космос и наука",
+   "summary": "Core astronomy library for Python: coordinates, time systems, FITS files, units.",
+   "url": "https://docs.astropy.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "astronomy",
+    "science",
+    "python",
+    "fits"
+   ],
+   "tip": "Its units system catches dimensional errors at runtime, which is invaluable in scientific code.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install astropy",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Core astronomy library for Python: coordinates, time systems, FITS files, units.",
+    "ru": "Основная астрономическая библиотека Python: координаты, системы времени, FITS-файлы, единицы."
+   },
+   "localizedTip": {
+    "en": "Its units system catches dimensional errors at runtime, which is invaluable in scientific code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-biopython",
+   "name": "Biopython",
+   "kind": "library",
+   "category": "Наука и исследования",
+   "summary": "Bioinformatics toolkit for sequence analysis, file parsing and database access.",
+   "url": "https://biopython.org/wiki/Documentation",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bioinformatics",
+    "sequences",
+    "python",
+    "genomics"
+   ],
+   "tip": "Its parsers cover the many awkward bioinformatics file formats you would otherwise hand-parse.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install biopython",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Bioinformatics toolkit for sequence analysis, file parsing and database access.",
+    "ru": "Тулкит биоинформатики для анализа последовательностей, парсинга файлов и доступа к базам."
+   },
+   "localizedTip": {
+    "en": "Its parsers cover the many awkward bioinformatics file formats you would otherwise hand-parse."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-sympy",
+   "name": "SymPy",
+   "kind": "library",
+   "category": "Наука и исследования",
+   "summary": "Symbolic mathematics in pure Python: algebra, calculus, equation solving.",
+   "url": "https://docs.sympy.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "symbolic",
+    "math",
+    "python",
+    "algebra"
+   ],
+   "tip": "Use it to derive an exact formula, then lambdify it into a fast numeric function for actual computation.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install sympy",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Symbolic mathematics in pure Python: algebra, calculus, equation solving.",
+    "ru": "Символьная математика на чистом Python: алгебра, анализ, решение уравнений."
+   },
+   "localizedTip": {
+    "en": "Use it to derive an exact formula, then lambdify it into a fast numeric function for actual computation."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-geopandas",
+   "name": "GeoPandas",
+   "kind": "library",
+   "category": "Погода и геоданные",
+   "summary": "Pandas dataframes extended with geometry columns and spatial operations.",
+   "url": "https://geopandas.org/en/stable/docs.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "geospatial",
+    "pandas",
+    "shapefiles",
+    "python"
+   ],
+   "tip": "Spatial joins that would be painful in raw SQL become one method call here.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install geopandas",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pandas dataframes extended with geometry columns and spatial operations.",
+    "ru": "Датафреймы Pandas, расширенные геометрическими колонками и пространственными операциями."
+   },
+   "localizedTip": {
+    "en": "Spatial joins that would be painful in raw SQL become one method call here."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-h3",
+   "name": "H3",
+   "kind": "library",
+   "category": "Погода и геоданные",
+   "summary": "Hexagonal hierarchical geospatial indexing system from Uber.",
+   "url": "https://h3geo.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "spatial-index",
+    "hexagons",
+    "uber",
+    "geospatial"
+   ],
+   "tip": "Hexagons have uniform neighbour distance, unlike square grids — that is why it suits proximity analysis.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install h3",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hexagonal hierarchical geospatial indexing system from Uber.",
+    "ru": "Иерархическая гексагональная система геопространственной индексации от Uber."
+   },
+   "localizedTip": {
+    "en": "Hexagons have uniform neighbour distance, unlike square grids — that is why it suits proximity analysis."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-postgis",
+   "name": "PostGIS",
+   "kind": "library",
+   "category": "Погода и геоданные",
+   "summary": "Spatial database extension adding geographic objects and queries to PostgreSQL.",
+   "url": "https://postgis.net/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "spatial",
+    "gis",
+    "sql"
+   ],
+   "tip": "Create a spatial index (GIST) on geometry columns, or spatial queries scan the whole table.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Spatial database extension adding geographic objects and queries to PostgreSQL.",
+    "ru": "Расширение пространственной базы, добавляющее географические объекты и запросы в PostgreSQL."
+   },
+   "localizedTip": {
+    "en": "Create a spatial index (GIST) on geometry columns, or spatial queries scan the whole table."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-rasterio",
+   "name": "Rasterio",
+   "kind": "library",
+   "category": "Погода и геоданные",
+   "summary": "Reads and writes geospatial raster data like satellite imagery and elevation models.",
+   "url": "https://rasterio.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "raster",
+    "geotiff",
+    "satellite",
+    "python"
+   ],
+   "tip": "Read windows rather than whole files — satellite scenes are far too large to load into memory entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install rasterio",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reads and writes geospatial raster data like satellite imagery and elevation models.",
+    "ru": "Чтение и запись геопространственных растровых данных: спутниковые снимки и модели рельефа."
+   },
+   "localizedTip": {
+    "en": "Read windows rather than whole files — satellite scenes are far too large to load into memory entirely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-shapely",
+   "name": "Shapely",
+   "kind": "library",
+   "category": "Погода и геоданные",
+   "summary": "Planar geometry operations in Python: intersections, buffers, unions.",
+   "url": "https://shapely.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "geometry",
+    "spatial",
+    "python",
+    "gis"
+   ],
+   "tip": "It ignores the Earth's curvature — reproject to a suitable CRS before measuring real-world distances.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install shapely",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Planar geometry operations in Python: intersections, buffers, unions.",
+    "ru": "Операции планарной геометрии в Python: пересечения, буферы, объединения."
+   },
+   "localizedTip": {
+    "en": "It ignores the Earth's curvature — reproject to a suitable CRS before measuring real-world distances."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-turf-js",
+   "name": "Turf.js",
+   "kind": "library",
+   "category": "Погода и геоданные",
+   "summary": "Geospatial analysis for JavaScript operating on GeoJSON in the browser or Node.",
+   "url": "https://turfjs.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "geospatial",
+    "javascript",
+    "geojson",
+    "analysis"
+   ],
+   "tip": "Doing spatial calculations client-side avoids a server round-trip for interactive map tools.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @turf/turf",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Geospatial analysis for JavaScript operating on GeoJSON in the browser or Node.",
+    "ru": "Геопространственный анализ на JavaScript поверх GeoJSON в браузере или Node."
+   },
+   "localizedTip": {
+    "en": "Doing spatial calculations client-side avoids a server round-trip for interactive map tools."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -28934,6 +32085,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-envoy",
+   "name": "Envoy",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "L7 proxy and communication bus, the data plane inside most service meshes.",
+   "url": "https://www.envoyproxy.io/docs/envoy/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "proxy",
+    "service-mesh",
+    "l7",
+    "observability"
+   ],
+   "tip": "You usually configure it through Istio or another control plane rather than writing its config directly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "L7 proxy and communication bus, the data plane inside most service meshes.",
+    "ru": "L7-прокси и коммуникационная шина, data plane внутри большинства service mesh."
+   },
+   "localizedTip": {
+    "en": "You usually configure it through Istio or another control plane rather than writing its config directly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-flux-cd",
    "name": "Flux",
    "kind": "library",
@@ -29568,6 +32754,41 @@
    },
    "localizedTip": {
     "en": "Material for MkDocs is the theme most projects actually use — install it alongside from the start."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-quarto",
+   "name": "Quarto",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Scientific publishing system rendering notebooks and markdown to sites, PDFs and slides.",
+   "url": "https://quarto.org/docs/guide/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "publishing",
+    "notebooks",
+    "reports",
+    "multi-language"
+   ],
+   "tip": "One source document renders to every output format, which suits reproducible research reports.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Scientific publishing system rendering notebooks and markdown to sites, PDFs and slides.",
+    "ru": "Система научной публикации, превращающая ноутбуки и markdown в сайты, PDF и слайды."
+   },
+   "localizedTip": {
+    "en": "One source document renders to every output format, which suits reproducible research reports."
    },
    "pricing": {
     "model": "openSource",
@@ -31317,6 +34538,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-caddy",
+   "name": "Caddy",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Web server with fully automatic HTTPS certificate provisioning and renewal.",
+   "url": "https://caddyserver.com/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web-server",
+    "https",
+    "automatic-tls",
+    "reverse-proxy"
+   ],
+   "tip": "Automatic TLS with zero configuration is the single reason most people pick it over nginx.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Web server with fully automatic HTTPS certificate provisioning and renewal.",
+    "ru": "Веб-сервер с полностью автоматическим получением и обновлением HTTPS-сертификатов."
+   },
+   "localizedTip": {
+    "en": "Automatic TLS with zero configuration is the single reason most people pick it over nginx."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nginx",
+   "name": "nginx",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "The long-standing high-performance web server and reverse proxy.",
+   "url": "https://nginx.org/en/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web-server",
+    "reverse-proxy",
+    "load-balancer",
+    "classic"
+   ],
+   "tip": "Test config with nginx -t before every reload — a syntax error takes the whole server down otherwise.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The long-standing high-performance web server and reverse proxy.",
+    "ru": "Давно устоявшийся высокопроизводительный веб-сервер и обратный прокси."
+   },
+   "localizedTip": {
+    "en": "Test config with nginx -t before every reload — a syntax error takes the whole server down otherwise."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-traefik",
+   "name": "Traefik",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Reverse proxy that discovers services dynamically from Docker and Kubernetes labels.",
+   "url": "https://doc.traefik.io/traefik/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "reverse-proxy",
+    "dynamic",
+    "kubernetes",
+    "docker"
+   ],
+   "tip": "Routes update automatically as containers start and stop — no config reload step at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reverse proxy that discovers services dynamically from Docker and Kubernetes labels.",
+    "ru": "Обратный прокси, динамически обнаруживающий сервисы по меткам Docker и Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Routes update automatically as containers start and stop — no config reload step at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-act",
    "name": "act",
    "kind": "library",
@@ -31344,6 +34670,41 @@
    },
    "localizedTip": {
     "en": "Saves the push-wait-fail-fix cycle entirely when debugging a workflow file."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-bazel",
+   "name": "Bazel",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Google's hermetic build system for very large polyglot monorepos.",
+   "url": "https://bazel.build/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "build",
+    "hermetic",
+    "monorepo",
+    "google"
+   ],
+   "tip": "Its correctness guarantees cost real setup complexity — worth it at scale, overkill for a small repo.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's hermetic build system for very large polyglot monorepos.",
+    "ru": "Герметичная система сборки Google для очень больших полиглотных монорепозиториев."
+   },
+   "localizedTip": {
+    "en": "Its correctness guarantees cost real setup complexity — worth it at scale, overkill for a small repo."
    },
    "pricing": {
     "model": "openSource",
@@ -31464,6 +34825,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-moonrepo",
+   "name": "moon",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Rust-based monorepo task runner with smart caching and dependency-aware execution.",
+   "url": "https://moonrepo.dev/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "monorepo",
+    "rust",
+    "tasks",
+    "caching"
+   ],
+   "tip": "Language-agnostic, unlike Turborepo and Nx which are strongest in the JS ecosystem.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Rust-based monorepo task runner with smart caching and dependency-aware execution.",
+    "ru": "Монорепозиторный раннер задач на Rust с умным кэшированием и учётом зависимостей."
+   },
+   "localizedTip": {
+    "en": "Language-agnostic, unlike Turborepo and Nx which are strongest in the JS ecosystem."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-n8n",
    "name": "n8n",
    "kind": "library",
@@ -31526,6 +34922,41 @@
    },
    "localizedTip": {
     "en": "The affected command is the real win in CI: it turns a full build into a partial one."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pants-build",
+   "name": "Pants",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Build system for monorepos with particularly strong Python support.",
+   "url": "https://www.pantsbuild.org/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "monorepo",
+    "python",
+    "build",
+    "caching"
+   ],
+   "tip": "It infers dependencies from imports automatically, which removes most hand-written BUILD file maintenance.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Build system for monorepos with particularly strong Python support.",
+    "ru": "Система сборки монорепозиториев с особенно сильной поддержкой Python."
+   },
+   "localizedTip": {
+    "en": "It infers dependencies from imports automatically, which removes most hand-written BUILD file maintenance."
    },
    "pricing": {
     "model": "openSource",
@@ -31814,6 +35245,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-tsup",
+   "name": "tsup",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Zero-config TypeScript library bundler built on esbuild.",
+   "url": "https://tsup.egoist.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bundler",
+    "typescript",
+    "esbuild",
+    "library"
+   ],
+   "tip": "Purpose-built for publishing libraries — it emits ESM, CJS and type declarations from one command.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D tsup",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Zero-config TypeScript library bundler built on esbuild.",
+    "ru": "Бандлер TypeScript-библиотек без конфигурации на базе esbuild."
+   },
+   "localizedTip": {
+    "en": "Purpose-built for publishing libraries — it emits ESM, CJS and type declarations from one command."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-turbopack",
    "name": "Turbopack",
    "kind": "library",
@@ -31841,6 +35307,41 @@
    },
    "localizedTip": {
     "en": "Currently powers Next.js dev mode — check current production-readiness before using it standalone."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-unbuild",
+   "name": "unbuild",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Unified build system for JavaScript libraries, from the UnJS ecosystem.",
+   "url": "https://github.com/unjs/unbuild",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bundler",
+    "rollup",
+    "library",
+    "unjs"
+   ],
+   "tip": "Its stub mode links source directly during development, avoiding a rebuild on every change.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D unbuild",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unified build system for JavaScript libraries, from the UnJS ecosystem.",
+    "ru": "Единая система сборки JavaScript-библиотек из экосистемы UnJS."
+   },
+   "localizedTip": {
+    "en": "Its stub mode links source directly during development, avoiding a rebuild on every change."
    },
    "pricing": {
     "model": "openSource",
@@ -32798,6 +36299,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-rspec",
+   "name": "RSpec",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Behaviour-driven testing framework, the Ruby community's testing standard.",
+   "url": "https://rspec.info/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ruby",
+    "testing",
+    "bdd",
+    "specs"
+   ],
+   "tip": "Its readable spec syntax doubles as documentation of intended behaviour.",
+   "verifiedAt": "2026-08-17",
+   "install": "gem install rspec",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Behaviour-driven testing framework, the Ruby community's testing standard.",
+    "ru": "Фреймворк BDD-тестирования, стандарт тестирования в Ruby-сообществе."
+   },
+   "localizedTip": {
+    "en": "Its readable spec syntax doubles as documentation of intended behaviour."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -34690,6 +38226,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-hotwire",
+   "name": "Hotwire",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "HTML-over-the-wire interactivity: Turbo for navigation, Stimulus for sprinkles of JS.",
+   "url": "https://hotwired.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ruby",
+    "rails",
+    "turbo",
+    "stimulus"
+   ],
+   "tip": "The philosophical opposite of an SPA — send HTML, not JSON, and keep state on the server.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "HTML-over-the-wire interactivity: Turbo for navigation, Stimulus for sprinkles of JS.",
+    "ru": "Интерактивность через HTML по проводу: Turbo для навигации, Stimulus для точечного JS."
+   },
+   "localizedTip": {
+    "en": "The philosophical opposite of an SPA — send HTML, not JSON, and keep state on the server."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-htmx",
    "name": "htmx",
    "kind": "library",
@@ -34880,6 +38451,41 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-livewire",
+   "name": "Livewire",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Builds reactive UIs in Laravel using PHP instead of a JavaScript framework.",
+   "url": "https://livewire.laravel.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "php",
+    "laravel",
+    "reactive",
+    "server-rendered"
+   ],
+   "tip": "Removes the separate SPA entirely for CRUD-heavy admin interfaces, at the cost of more server round-trips.",
+   "verifiedAt": "2026-08-17",
+   "install": "composer require livewire/livewire",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds reactive UIs in Laravel using PHP instead of a JavaScript framework.",
+    "ru": "Строит реактивные интерфейсы в Laravel на PHP вместо JavaScript-фреймворка."
+   },
+   "localizedTip": {
+    "en": "Removes the separate SPA entirely for CRUD-heavy admin interfaces, at the cost of more server round-trips."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
