@@ -9,6 +9,26 @@ from data_mcp_skills import MCPS, SKILLS
 from data_paid import PAID
 from data_showcases import SHOWCASES
 
+# Stage 5: the 4-5x expansion lives in its own files rather than growing the
+# stage 1-4 packs further — each file stays a manageable, reviewable size.
+from data_apis_5a import APIS_5A
+from data_apis_5b import APIS_5B
+from data_apis_5c import APIS_5C
+from data_apis_5d import APIS_5D
+from data_libs_5a import LIBS_5A
+from data_libs_5b import LIBS_5B
+from data_libs_5c import LIBS_5C
+from data_libs_5d import LIBS_5D
+from data_mcp_skills_5 import MCPS_5, SKILLS_5
+from data_mcp_skills_5b import MCPS_5B, SKILLS_5B
+from data_paid_5 import PAID_5
+
+APIS = APIS + APIS_5A + APIS_5B + APIS_5C + APIS_5D
+LIBS = LIBS + LIBS_5A + LIBS_5B + LIBS_5C + LIBS_5D
+MCPS = MCPS + MCPS_5 + MCPS_5B
+SKILLS = SKILLS + SKILLS_5 + SKILLS_5B
+PAID = PAID + PAID_5
+
 ROOT = str(pathlib.Path(__file__).resolve().parent.parent)
 TODAY = '2026-08-17'
 
@@ -93,6 +113,47 @@ CATEGORIES = {
  'Гайды и практики':               ('skills', 'Guides and practices', 'Leitfäden und Praktiken'),
  'Mobile skills':                  ('skills', 'Mobile skills', 'Mobile-Skills'),
  'Workflow skills':                ('skills', 'Workflow skills', 'Workflow-Skills'),
+
+ # ==================== Stage 5 additions (4-5x expansion) ====================
+ 'Компьютерное зрение':            ('ai', 'Computer vision', 'Computer Vision'),
+ 'MLOps и эксперименты':           ('ai', 'MLOps and experiment tracking', 'MLOps und Experiment-Tracking'),
+ 'Голосовые агенты':               ('ai', 'Voice agents', 'Sprachagenten'),
+ 'AI-оценка и safety':             ('ai', 'AI evaluation and safety', 'KI-Evaluation und Sicherheit'),
+ 'NLP и обработка текста':         ('ai', 'NLP and text processing', 'NLP und Textverarbeitung'),
+ 'Рекомендательные системы':       ('ai', 'Recommendation engines', 'Empfehlungssysteme'),
+ 'Web3 и блокчейн':                ('backend', 'Web3 and blockchain', 'Web3 und Blockchain'),
+ 'IoT и встраиваемые системы':     ('devtools', 'IoT and embedded systems', 'IoT und eingebettete Systeme'),
+ 'Service mesh и Kubernetes':      ('devtools', 'Service mesh and Kubernetes', 'Service Mesh und Kubernetes'),
+ 'Feature flags и эксперименты':   ('devtools', 'Feature flags and experiments', 'Feature Flags und Experimente'),
+ 'CDP и маркетинг-данные':         ('data', 'CDP and marketing data', 'CDP und Marketingdaten'),
+ 'CRM и продажи':                  ('backend', 'CRM and sales', 'CRM und Vertrieb'),
+ 'Email-маркетинг':                ('backend', 'Email marketing', 'E-Mail-Marketing'),
+ 'Формы и опросы':                 ('backend', 'Forms and surveys', 'Formulare und Umfragen'),
+ 'Видеоконференции':               ('media', 'Video conferencing', 'Videokonferenzen'),
+ 'Стриминг видео':                 ('media', 'Video streaming', 'Video-Streaming'),
+ 'OCR и распознавание документов': ('ai', 'OCR and document AI', 'OCR und Dokumenten-KI'),
+ 'Идентификация и KYC':            ('backend', 'Identity verification and KYC', 'Identitätsprüfung und KYC'),
+ 'Логистика и доставка':           ('data', 'Logistics and shipping', 'Logistik und Versand'),
+ 'Недвижимость':                   ('data', 'Real estate', 'Immobilien'),
+ 'Юридические и налоговые API':    ('data', 'Legal and tax APIs', 'Rechts- und Steuer-APIs'),
+ 'Образование':                    ('data', 'Education', 'Bildung'),
+ 'HR и рекрутинг':                 ('backend', 'HR and recruiting', 'HR und Recruiting'),
+ 'Планирование и календари':       ('backend', 'Scheduling and calendars', 'Terminplanung und Kalender'),
+ 'A/B-тестирование':               ('devtools', 'A/B testing', 'A/B-Tests'),
+ 'Визуальное тестирование':        ('devtools', 'Visual regression testing', 'Visuelle Regressionstests'),
+ 'Доступность (a11y)':             ('devtools', 'Accessibility', 'Barrierefreiheit'),
+ 'Rust экосистема':                ('devtools', 'Rust ecosystem', 'Rust-Ökosystem'),
+ 'Go экосистема':                  ('devtools', 'Go ecosystem', 'Go-Ökosystem'),
+ 'JVM экосистема':                 ('devtools', 'JVM ecosystem', 'JVM-Ökosystem'),
+ '.NET экосистема':                ('devtools', '.NET ecosystem', '.NET-Ökosystem'),
+ 'Elixir экосистема':              ('devtools', 'Elixir ecosystem', 'Elixir-Ökosystem'),
+ 'Игровые движки':                 ('media', 'Game engines', 'Game-Engines'),
+ 'Дизайн-системы':                 ('frontend', 'Design systems', 'Designsysteme'),
+ 'Наблюдаемость трасс':            ('devtools', 'Distributed tracing', 'Verteiltes Tracing'),
+ 'Секреты и конфигурация':         ('devtools', 'Secrets and configuration', 'Secrets und Konfiguration'),
+ 'Message queues и брокеры':       ('backend', 'Message queues and brokers', 'Message Queues und Broker'),
+ 'Data engineering':               ('data', 'Data engineering', 'Data Engineering'),
+ 'Робототехника':                  ('data', 'Robotics', 'Robotik'),
 }
 
 MERGE = {
@@ -117,6 +178,18 @@ MERGE = {
  'paid-helicone': 'api-helicone', 'paid-imagekit': 'api-imagekit',
  'paid-cloudconvert': 'api-cloudconvert', 'paid-maptiler': 'api-maptiler',
  'paid-uptimerobot': 'api-uptimerobot', 'paid-voyage': 'api-voyage',
+ # stage 5
+ 'paid-docsumo': 'api-docsumo', 'paid-openai-realtime': 'api-openai-realtime',
+ 'paid-close-crm': 'api-close-crm', 'paid-salesforce': 'api-salesforce',
+ 'paid-workday': 'api-workday', 'paid-onfido': 'api-onfido',
+ 'paid-stripe-identity': 'api-stripe-identity', 'paid-veriff': 'api-veriff',
+ 'paid-attom-data': 'api-attom-data', 'paid-avalara': 'api-avalara',
+ 'paid-brightdata-mcp': 'mcp-brightdata', 'paid-datadog-mcp': 'mcp-datadog',
+ 'paid-redox': 'api-redox', 'paid-marqeta': 'api-marqeta',
+ 'paid-stripe-treasury': 'api-stripe-treasury', 'paid-yodlee': 'api-yodlee',
+ 'paid-optimizely': 'api-optimizely', 'paid-vwo': 'api-vwo',
+ 'paid-lightstep': 'api-lightstep', 'paid-aws-secrets-manager': 'api-aws-secrets-manager',
+ 'paid-statuspage-io': 'api-statuspage-io',
 }
 
 def build_showcases(item_id):
