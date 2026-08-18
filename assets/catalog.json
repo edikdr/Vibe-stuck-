@@ -30775,6 +30775,76 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-kafka-streams",
+   "name": "Kafka Streams",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Java library for stateful stream processing directly on Kafka topics.",
+   "url": "https://kafka.apache.org/documentation/streams/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kafka",
+    "streaming",
+    "java",
+    "stateful"
+   ],
+   "tip": "It is a library, not a cluster — your app is the processor, which removes a whole deployment tier.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Java library for stateful stream processing directly on Kafka topics.",
+    "ru": "Java-библиотека для stateful-обработки потоков прямо поверх топиков Kafka."
+   },
+   "localizedTip": {
+    "en": "It is a library, not a cluster — your app is the processor, which removes a whole deployment tier."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-benthos",
+   "name": "Redpanda Connect (Benthos)",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Declarative stream processor connecting queues, databases and APIs with YAML pipelines.",
+   "url": "https://docs.redpanda.com/redpanda-connect/about/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stream-processing",
+    "yaml",
+    "connectors",
+    "glue"
+   ],
+   "tip": "Replaces a surprising amount of bespoke glue-code services with one config file and no deploy pipeline.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Declarative stream processor connecting queues, databases and APIs with YAML pipelines.",
+    "ru": "Декларативный потоковый процессор, связывающий очереди, базы и API через YAML-пайплайны."
+   },
+   "localizedTip": {
+    "en": "Replaces a surprising amount of bespoke glue-code services with one config file and no deploy pipeline."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-sidekiq",
    "name": "Sidekiq",
    "kind": "library",
@@ -32155,6 +32225,41 @@
    },
    "localizedTip": {
     "en": "Write a test on every model's primary key from day one — it catches join fan-out immediately."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-debezium",
+   "name": "Debezium",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Change data capture streaming database row changes into Kafka as events.",
+   "url": "https://debezium.io/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cdc",
+    "kafka",
+    "databases",
+    "change-events"
+   ],
+   "tip": "Reads the database's replication log, so it captures every change without polling or triggers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Change data capture streaming database row changes into Kafka as events.",
+    "ru": "Change data capture: потоковая передача изменений строк базы данных в Kafka как событий."
+   },
+   "localizedTip": {
+    "en": "Reads the database's replication log, so it captures every change without polling or triggers."
    },
    "pricing": {
     "model": "openSource",
@@ -34245,6 +34350,356 @@
    },
    "localizedTip": {
     "en": "Prototype logic in Python nodes first; port to C++ only for the specific nodes that need real-time performance."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-blynk",
+   "name": "Blynk",
+   "kind": "library",
+   "category": "Умный дом и IoT",
+   "summary": "Builds mobile apps for IoT devices with a drag-and-drop widget interface.",
+   "url": "https://docs.blynk.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iot",
+    "mobile-app",
+    "dashboards",
+    "no-code"
+   ],
+   "tip": "Fastest path to a phone UI for a hobby device, without writing any mobile code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds mobile apps for IoT devices with a drag-and-drop widget interface.",
+    "ru": "Создаёт мобильные приложения для IoT-устройств через drag-and-drop интерфейс виджетов."
+   },
+   "localizedTip": {
+    "en": "Fastest path to a phone UI for a hobby device, without writing any mobile code."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-emqx",
+   "name": "EMQX",
+   "kind": "library",
+   "category": "Умный дом и IoT",
+   "summary": "Distributed MQTT broker built to handle millions of concurrent device connections.",
+   "url": "https://docs.emqx.com/en/emqx/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mqtt",
+    "broker",
+    "clustered",
+    "scalable"
+   ],
+   "tip": "Clustering and rule engine are what you move to Mosquitto from once device count grows.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed MQTT broker built to handle millions of concurrent device connections.",
+    "ru": "Распределённый MQTT-брокер, рассчитанный на миллионы одновременных подключений устройств."
+   },
+   "localizedTip": {
+    "en": "Clustering and rule engine are what you move to Mosquitto from once device count grows."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-golioth",
+   "name": "Golioth",
+   "kind": "library",
+   "category": "Умный дом и IoT",
+   "summary": "Device management cloud for embedded firmware, with first-class Zephyr support.",
+   "url": "https://docs.golioth.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iot",
+    "device-management",
+    "zephyr",
+    "cloud"
+   ],
+   "tip": "Handles OTA, logging and settings so firmware teams do not build a device backend themselves.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Device management cloud for embedded firmware, with first-class Zephyr support.",
+    "ru": "Облако управления устройствами для встраиваемой прошивки с полноценной поддержкой Zephyr."
+   },
+   "localizedTip": {
+    "en": "Handles OTA, logging and settings so firmware teams do not build a device backend themselves."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-home-assistant",
+   "name": "Home Assistant",
+   "kind": "library",
+   "category": "Умный дом и IoT",
+   "summary": "Open-source home automation platform with thousands of device integrations.",
+   "url": "https://developers.home-assistant.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "smart-home",
+    "automation",
+    "python",
+    "integrations"
+   ],
+   "tip": "Its local-first design keeps automations working when the internet or a vendor cloud goes down.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source home automation platform with thousands of device integrations.",
+    "ru": "Открытая платформа домашней автоматизации с тысячами интеграций устройств."
+   },
+   "localizedTip": {
+    "en": "Its local-first design keeps automations working when the internet or a vendor cloud goes down."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-losant",
+   "name": "Losant",
+   "kind": "library",
+   "category": "Умный дом и IoT",
+   "summary": "Enterprise IoT platform with a visual workflow engine and end-user dashboards.",
+   "url": "https://docs.losant.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iot",
+    "workflows",
+    "dashboards",
+    "enterprise"
+   ],
+   "tip": "Its white-label experience layer is what separates it from purely internal telemetry platforms.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise IoT platform with a visual workflow engine and end-user dashboards.",
+    "ru": "Корпоративная IoT-платформа с визуальным движком workflow и дашбордами для конечных пользователей."
+   },
+   "localizedTip": {
+    "en": "Its white-label experience layer is what separates it from purely internal telemetry platforms."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-opcua",
+   "name": "OPC UA (open62541)",
+   "kind": "library",
+   "category": "Умный дом и IoT",
+   "summary": "Open-source implementation of the OPC UA industrial automation protocol.",
+   "url": "https://www.open62541.org/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "opc-ua",
+    "industrial",
+    "protocol",
+    "c"
+   ],
+   "tip": "The protocol of record for factory-floor equipment — expect it in any industrial integration.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source implementation of the OPC UA industrial automation protocol.",
+    "ru": "Открытая реализация промышленного протокола автоматизации OPC UA."
+   },
+   "localizedTip": {
+    "en": "The protocol of record for factory-floor equipment — expect it in any industrial integration."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-thingsboard",
+   "name": "ThingsBoard",
+   "kind": "library",
+   "category": "Умный дом и IoT",
+   "summary": "IoT platform for device management, telemetry collection and dashboards.",
+   "url": "https://thingsboard.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iot",
+    "dashboards",
+    "telemetry",
+    "rules"
+   ],
+   "tip": "Its rule engine handles alerting and transformation server-side, keeping device firmware simple.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "IoT platform for device management, telemetry collection and dashboards.",
+    "ru": "IoT-платформа для управления устройствами, сбора телеметрии и дашбордов."
+   },
+   "localizedTip": {
+    "en": "Its rule engine handles alerting and transformation server-side, keeping device firmware simple."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-vernemq",
+   "name": "VerneMQ",
+   "kind": "library",
+   "category": "Умный дом и IoT",
+   "summary": "Erlang-based clustered MQTT broker with a plugin system for auth and routing.",
+   "url": "https://docs.vernemq.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mqtt",
+    "broker",
+    "erlang",
+    "clustered"
+   ],
+   "tip": "The BEAM runtime gives it graceful degradation under connection storms rather than hard failure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Erlang-based clustered MQTT broker with a plugin system for auth and routing.",
+    "ru": "Кластерный MQTT-брокер на Erlang с системой плагинов для аутентификации и маршрутизации."
+   },
+   "localizedTip": {
+    "en": "The BEAM runtime gives it graceful degradation under connection storms rather than hard failure."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-zenoh",
+   "name": "Zenoh",
+   "kind": "library",
+   "category": "Умный дом и IoT",
+   "summary": "Pub/sub, storage and query protocol unifying cloud, edge and robotics data flows.",
+   "url": "https://zenoh.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pubsub",
+    "robotics",
+    "edge",
+    "protocol"
+   ],
+   "tip": "Lower overhead than MQTT or DDS on constrained links, which is why ROS 2 adopted it as a transport.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pub/sub, storage and query protocol unifying cloud, edge and robotics data flows.",
+    "ru": "Протокол pub/sub, хранения и запросов, объединяющий потоки данных облака, edge и робототехники."
+   },
+   "localizedTip": {
+    "en": "Lower overhead than MQTT or DDS on constrained links, which is why ROS 2 adopted it as a transport."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-zigbee2mqtt",
+   "name": "Zigbee2MQTT",
+   "kind": "library",
+   "category": "Умный дом и IoT",
+   "summary": "Bridges Zigbee devices onto MQTT, freeing them from vendor hubs.",
+   "url": "https://www.zigbee2mqtt.io/guide/getting-started/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "zigbee",
+    "mqtt",
+    "smart-home",
+    "bridge"
+   ],
+   "tip": "Removes the vendor cloud from the loop entirely, which is the main reason to run it over a stock hub.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Bridges Zigbee devices onto MQTT, freeing them from vendor hubs.",
+    "ru": "Мост Zigbee-устройств в MQTT, освобождающий их от вендорских хабов."
+   },
+   "localizedTip": {
+    "en": "Removes the vendor cloud from the loop entirely, which is the main reason to run it over a stock hub."
    },
    "pricing": {
     "model": "openSource",
@@ -39320,6 +39775,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-arduino-cli",
+   "name": "Arduino CLI",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Command-line interface for compiling and uploading Arduino sketches, usable in CI.",
+   "url": "https://arduino.github.io/arduino-cli/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "arduino",
+    "cli",
+    "build",
+    "ci"
+   ],
+   "tip": "Makes firmware builds reproducible in CI, which the Arduino IDE alone cannot do.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Command-line interface for compiling and uploading Arduino sketches, usable in CI.",
+    "ru": "Интерфейс командной строки для компиляции и загрузки скетчей Arduino, применим в CI."
+   },
+   "localizedTip": {
+    "en": "Makes firmware builds reproducible in CI, which the Arduino IDE alone cannot do."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-asdf",
+   "name": "asdf",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Plugin-based manager for multiple runtime versions from one .tool-versions file.",
+   "url": "https://asdf-vm.com/guide/getting-started.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "version-manager",
+    "plugins",
+    "runtimes",
+    "tool-versions"
+   ],
+   "tip": "Its plugin coverage is the broadest, though mise is considerably faster for the same job.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Plugin-based manager for multiple runtime versions from one .tool-versions file.",
+    "ru": "Менеджер версий рантаймов на плагинах, работающий из одного файла .tool-versions."
+   },
+   "localizedTip": {
+    "en": "Its plugin coverage is the broadest, though mise is considerably faster for the same job."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-balena-os",
+   "name": "balenaOS",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Container-focused Linux OS for IoT devices, designed for remote fleet management.",
+   "url": "https://docs.balena.io/reference/OS/overview/2.x/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iot",
+    "containers",
+    "fleet",
+    "linux"
+   ],
+   "tip": "Running device software as containers makes over-the-air updates behave like a normal deploy.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Container-focused Linux OS for IoT devices, designed for remote fleet management.",
+    "ru": "Linux-ОС на контейнерах для IoT-устройств, рассчитанная на удалённое управление парком."
+   },
+   "localizedTip": {
+    "en": "Running device software as containers makes over-the-air updates behave like a normal deploy."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-bazel",
    "name": "Bazel",
    "kind": "library",
@@ -39347,6 +39907,76 @@
    },
    "localizedTip": {
     "en": "Its correctness guarantees cost real setup complexity — worth it at scale, overkill for a small repo."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-buildroot",
+   "name": "Buildroot",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Simpler alternative to Yocto for generating embedded Linux root filesystems.",
+   "url": "https://buildroot.org/docs.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "linux",
+    "embedded",
+    "build-system",
+    "simple"
+   ],
+   "tip": "Far easier to learn than Yocto, but it rebuilds from scratch rather than supporting incremental layers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simpler alternative to Yocto for generating embedded Linux root filesystems.",
+    "ru": "Более простая альтернатива Yocto для генерации корневых файловых систем встраиваемого Linux."
+   },
+   "localizedTip": {
+    "en": "Far easier to learn than Yocto, but it rebuilds from scratch rather than supporting incremental layers."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-clack",
+   "name": "Clack",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Polished interactive CLI prompts with a consistent visual style out of the box.",
+   "url": "https://www.clack.cc/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "prompts",
+    "cli",
+    "interactive"
+   ],
+   "tip": "Handles Ctrl+C cancellation properly by default, which hand-rolled prompt loops usually get wrong.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @clack/prompts",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Polished interactive CLI prompts with a consistent visual style out of the box.",
+    "ru": "Отточенные интерактивные CLI-промпты с единым визуальным стилем из коробки."
+   },
+   "localizedTip": {
+    "en": "Handles Ctrl+C cancellation properly by default, which hand-rolled prompt loops usually get wrong."
    },
    "pricing": {
     "model": "openSource",
@@ -39467,6 +40097,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-fish-shell",
+   "name": "fish shell",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Interactive shell with autosuggestions and syntax highlighting configured by default.",
+   "url": "https://fishshell.com/docs/current/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "shell",
+    "autosuggestions",
+    "interactive",
+    "ux"
+   ],
+   "tip": "Not POSIX-compatible — keep your scripts in bash and use fish only as the interactive shell.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Interactive shell with autosuggestions and syntax highlighting configured by default.",
+    "ru": "Интерактивная оболочка с автоподсказками и подсветкой синтаксиса из коробки."
+   },
+   "localizedTip": {
+    "en": "Not POSIX-compatible — keep your scripts in bash and use fish only as the interactive shell."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-inquirer",
+   "name": "Inquirer.js",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "The long-standing interactive prompt collection for Node CLIs.",
+   "url": "https://github.com/SBoudrias/Inquirer.js",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "prompts",
+    "cli",
+    "interactive"
+   ],
+   "tip": "The newer @inquirer/prompts packages are far lighter than the legacy monolithic import.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @inquirer/prompts",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The long-standing interactive prompt collection for Node CLIs.",
+    "ru": "Давно устоявшийся набор интерактивных промптов для Node-CLI."
+   },
+   "localizedTip": {
+    "en": "The newer @inquirer/prompts packages are far lighter than the legacy monolithic import."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-mender",
+   "name": "Mender",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Over-the-air update manager for embedded Linux with atomic rollback.",
+   "url": "https://docs.mender.io/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ota",
+    "updates",
+    "embedded",
+    "robustness"
+   ],
+   "tip": "Its A/B partition scheme means a failed update reboots into the previous working image automatically.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Over-the-air update manager for embedded Linux with atomic rollback.",
+    "ru": "Менеджер OTA-обновлений для встраиваемого Linux с атомарным откатом."
+   },
+   "localizedTip": {
+    "en": "Its A/B partition scheme means a failed update reboots into the previous working image automatically."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-moonrepo",
    "name": "moon",
    "kind": "library",
@@ -39532,6 +40267,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nushell",
+   "name": "Nushell",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Shell where pipelines carry structured data instead of plain text.",
+   "url": "https://www.nushell.sh/book/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "shell",
+    "structured-data",
+    "pipelines",
+    "tables"
+   ],
+   "tip": "Removes the awk/cut/sed parsing layer entirely — columns are real fields, not character offsets.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Shell where pipelines carry structured data instead of plain text.",
+    "ru": "Оболочка, где по пайплайнам передаются структурированные данные, а не просто текст."
+   },
+   "localizedTip": {
+    "en": "Removes the awk/cut/sed parsing layer entirely — columns are real fields, not character offsets."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -39642,6 +40412,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-starship",
+   "name": "Starship",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Fast, configurable shell prompt that works identically across bash, zsh, fish and others.",
+   "url": "https://starship.rs/config/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prompt",
+    "shell",
+    "cross-shell",
+    "rust"
+   ],
+   "tip": "One TOML config gives an identical prompt on every machine and every shell you use.",
+   "verifiedAt": "2026-08-17",
+   "install": "curl -sS https://starship.rs/install.sh | sh",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast, configurable shell prompt that works identically across bash, zsh, fish and others.",
+    "ru": "Быстрый настраиваемый промпт оболочки, одинаково работающий в bash, zsh, fish и других."
+   },
+   "localizedTip": {
+    "en": "One TOML config gives an identical prompt on every machine and every shell you use."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-turborepo",
    "name": "Turborepo",
    "kind": "library",
@@ -39704,6 +40509,76 @@
    },
    "localizedTip": {
     "en": "It replaces pip, venv and pip-tools in one binary, which simplifies CI images a lot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-yocto",
+   "name": "Yocto Project",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Build system for creating custom Linux distributions for embedded hardware.",
+   "url": "https://docs.yoctoproject.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "linux",
+    "embedded",
+    "build-system",
+    "images"
+   ],
+   "tip": "The learning curve is steep and builds are slow, but it is the industry standard for shipping devices.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Build system for creating custom Linux distributions for embedded hardware.",
+    "ru": "Система сборки кастомных Linux-дистрибутивов для встраиваемого оборудования."
+   },
+   "localizedTip": {
+    "en": "The learning curve is steep and builds are slow, but it is the industry standard for shipping devices."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-yq",
+   "name": "yq",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "jq-style processor for YAML, XML and TOML documents.",
+   "url": "https://mikefarah.gitbook.io/yq/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "yaml",
+    "cli",
+    "query",
+    "transform"
+   ],
+   "tip": "Essential for scripted edits to Kubernetes manifests and CI configs without a YAML parser in code.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install yq",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "jq-style processor for YAML, XML and TOML documents.",
+    "ru": "Обработчик в стиле jq для документов YAML, XML и TOML."
+   },
+   "localizedTip": {
+    "en": "Essential for scripted edits to Kubernetes manifests and CI configs without a YAML parser in code."
    },
    "pricing": {
     "model": "openSource",
@@ -40495,6 +41370,41 @@
    },
    "localizedTip": {
     "en": "Vitest defaults to it for a reason — test suites run measurably faster than with jsdom."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-hyperfine",
+   "name": "hyperfine",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Command-line benchmarking tool with warmup runs and statistical output.",
+   "url": "https://github.com/sharkdp/hyperfine",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "benchmark",
+    "cli",
+    "statistics",
+    "rust"
+   ],
+   "tip": "Warmup runs matter more than most people expect — first-run I/O caching skews naive time comparisons.",
+   "verifiedAt": "2026-08-17",
+   "install": "cargo install hyperfine",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Command-line benchmarking tool with warmup runs and statistical output.",
+    "ru": "Инструмент бенчмаркинга командной строки с прогревочными запусками и статистикой."
+   },
+   "localizedTip": {
+    "en": "Warmup runs matter more than most people expect — first-run I/O caching skews naive time comparisons."
    },
    "pricing": {
     "model": "openSource",
@@ -42273,6 +43183,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-embassy-rs",
+   "name": "Embassy",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Async embedded framework for Rust, bringing async/await to bare-metal microcontrollers.",
+   "url": "https://embassy.dev/book/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rust",
+    "embedded",
+    "async",
+    "no-std"
+   ],
+   "tip": "Async replaces the traditional RTOS task model, often with smaller binaries and no separate scheduler.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Async embedded framework for Rust, bringing async/await to bare-metal microcontrollers.",
+    "ru": "Асинхронный встраиваемый фреймворк для Rust, приносящий async/await на bare-metal микроконтроллеры."
+   },
+   "localizedTip": {
+    "en": "Async replaces the traditional RTOS task model, often with smaller binaries and no separate scheduler."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-embedded-hal",
+   "name": "embedded-hal",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Trait definitions letting Rust device drivers work across any supported microcontroller.",
+   "url": "https://docs.rs/embedded-hal/latest/embedded_hal/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rust",
+    "embedded",
+    "traits",
+    "portable"
+   ],
+   "tip": "Write a sensor driver once against the traits and it compiles for STM32, ESP32 and RP2040 alike.",
+   "verifiedAt": "2026-08-17",
+   "install": "cargo add embedded-hal",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Trait definitions letting Rust device drivers work across any supported microcontroller.",
+    "ru": "Определения трейтов, позволяющие драйверам устройств на Rust работать на любом поддерживаемом микроконтроллере."
+   },
+   "localizedTip": {
+    "en": "Write a sensor driver once against the traits and it compiles for STM32, ESP32 and RP2040 alike."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-emscripten",
    "name": "Emscripten",
    "kind": "library",
@@ -42300,6 +43280,76 @@
    },
    "localizedTip": {
     "en": "Its emulated filesystem and SDL layers are why large native codebases port with modest changes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-freertos",
+   "name": "FreeRTOS",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "The most widely deployed real-time kernel for microcontrollers, MIT-licensed.",
+   "url": "https://www.freertos.org/Documentation/00-Overview",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rtos",
+    "embedded",
+    "microcontroller",
+    "scheduler"
+   ],
+   "tip": "Its permissive licence is why it appears in commercial products where GPL RTOSes cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The most widely deployed real-time kernel for microcontrollers, MIT-licensed.",
+    "ru": "Самое распространённое ядро реального времени для микроконтроллеров, лицензия MIT."
+   },
+   "localizedTip": {
+    "en": "Its permissive licence is why it appears in commercial products where GPL RTOSes cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-mbed-os",
+   "name": "Mbed OS",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Arm's embedded operating system with drivers, networking and security built in.",
+   "url": "https://os.mbed.com/docs/mbed-os/latest/introduction/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rtos",
+    "arm",
+    "embedded",
+    "cpp"
+   ],
+   "tip": "Development has slowed considerably — check project activity before starting something new on it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Arm's embedded operating system with drivers, networking and security built in.",
+    "ru": "Встраиваемая операционная система Arm с драйверами, сетью и безопасностью из коробки."
+   },
+   "localizedTip": {
+    "en": "Development has slowed considerably — check project activity before starting something new on it."
    },
    "pricing": {
     "model": "openSource",
@@ -42370,6 +43420,41 @@
    },
    "localizedTip": {
     "en": "Pin the version with an .nvmrc file so CI and your machine never drift apart."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-tinygo",
+   "name": "TinyGo",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Go compiler targeting microcontrollers and WebAssembly with much smaller output.",
+   "url": "https://tinygo.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "go",
+    "embedded",
+    "wasm",
+    "small-binaries"
+   ],
+   "tip": "Not all of the Go standard library is supported — check package compatibility before porting code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Go compiler targeting microcontrollers and WebAssembly with much smaller output.",
+    "ru": "Компилятор Go для микроконтроллеров и WebAssembly с существенно меньшим размером вывода."
+   },
+   "localizedTip": {
+    "en": "Not all of the Go standard library is supported — check package compatibility before porting code."
    },
    "pricing": {
     "model": "openSource",

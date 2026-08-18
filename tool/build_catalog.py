@@ -169,6 +169,7 @@ CATEGORIES = {
  'Секреты и конфигурация':         ('devtools', 'Secrets and configuration', 'Secrets und Konfiguration'),
  'Message queues и брокеры':       ('backend', 'Message queues and brokers', 'Message Queues und Broker'),
  'Data engineering':               ('data', 'Data engineering', 'Data Engineering'),
+ 'Умный дом и IoT':                ('data', 'Умный дом и IoT', 'Smart home & IoT'),
  'Робототехника':                  ('data', 'Robotics', 'Robotik'),
 }
 
