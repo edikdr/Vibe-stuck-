@@ -422,6 +422,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "api-lambda-labs",
+   "name": "Lambda",
+   "kind": "api",
+   "category": "AI и агенты",
+   "summary": "On-demand GPU cloud aimed at ML training and inference, often cheaper than hyperscalers.",
+   "url": "https://docs.lambda.ai/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gpu",
+    "cloud",
+    "training",
+    "inference"
+   ],
+   "tip": "Instance availability fluctuates — check capacity before planning a long training run on a specific GPU type.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "On-demand GPU cloud aimed at ML training and inference, often cheaper than hyperscalers.",
+    "ru": "GPU-облако по требованию для обучения и инференса ML, зачастую дешевле гиперскейлеров."
+   },
+   "localizedTip": {
+    "en": "Instance availability fluctuates — check capacity before planning a long training run on a specific GPU type."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "api-langfuse",
    "name": "Langfuse",
    "kind": "api",
@@ -512,6 +547,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "api-nvidia-nim",
+   "name": "NVIDIA NIM",
+   "kind": "api",
+   "category": "AI и агенты",
+   "summary": "Containerized inference microservices for running open models on your own GPUs.",
+   "url": "https://docs.nvidia.com/nim/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "inference",
+    "nvidia",
+    "microservices",
+    "gpu"
+   ],
+   "tip": "Same OpenAI-compatible API whether hosted or self-run, which keeps client code portable.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Containerized inference microservices for running open models on your own GPUs.",
+    "ru": "Контейнеризованные микросервисы инференса для запуска открытых моделей на своих GPU."
+   },
+   "localizedTip": {
+    "en": "Same OpenAI-compatible API whether hosted or self-run, which keeps client code portable."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "api-openai-platform",
    "name": "OpenAI Platform API",
    "kind": "api",
@@ -586,6 +656,111 @@
     "freeQuota": "Several free-to-use community models",
     "url": "https://openrouter.ai/docs/faq",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-perplexity-2",
+   "name": "Perplexity Sonar API",
+   "kind": "api",
+   "category": "AI и агенты",
+   "summary": "LLM answers grounded in live web search with citations returned inline.",
+   "url": "https://docs.perplexity.ai/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "search",
+    "llm",
+    "citations",
+    "realtime"
+   ],
+   "tip": "Reach for it when an answer must reflect today's web, not the model's training cutoff.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "LLM answers grounded in live web search with citations returned inline.",
+    "ru": "Ответы LLM, основанные на живом веб-поиске, с цитатами прямо в ответе."
+   },
+   "localizedTip": {
+    "en": "Reach for it when an answer must reflect today's web, not the model's training cutoff."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-runpod",
+   "name": "RunPod",
+   "kind": "api",
+   "category": "AI и агенты",
+   "summary": "GPU cloud with both persistent pods and serverless autoscaling inference endpoints.",
+   "url": "https://docs.runpod.io/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gpu",
+    "serverless",
+    "containers",
+    "inference"
+   ],
+   "tip": "Serverless endpoints scale to zero, so intermittent workloads cost far less than a persistent pod.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GPU cloud with both persistent pods and serverless autoscaling inference endpoints.",
+    "ru": "GPU-облако с постоянными подами и serverless-эндпоинтами инференса с автомасштабированием."
+   },
+   "localizedTip": {
+    "en": "Serverless endpoints scale to zero, so intermittent workloads cost far less than a persistent pod."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-sambanova",
+   "name": "SambaNova Cloud",
+   "kind": "api",
+   "category": "AI и агенты",
+   "summary": "Fast open-model inference on custom dataflow hardware.",
+   "url": "https://docs.sambanova.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "inference",
+    "fast",
+    "open-models",
+    "rdu"
+   ],
+   "tip": "Another OpenAI-compatible endpoint — worth benchmarking against Groq and Cerebras for your specific model.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast open-model inference on custom dataflow hardware.",
+    "ru": "Быстрый инференс открытых моделей на специализированном dataflow-железе."
+   },
+   "localizedTip": {
+    "en": "Another OpenAI-compatible endpoint — worth benchmarking against Groq and Cerebras for your specific model."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -771,6 +946,47 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "api-hive-moderation",
+   "name": "Hive Moderation",
+   "kind": "api",
+   "category": "AI-оценка и safety",
+   "summary": "Visual and text moderation covering NSFW, violence and other content classes.",
+   "url": "https://docs.thehive.ai/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "moderation",
+    "images",
+    "video",
+    "nsfw",
+    "pricing",
+    "usage"
+   ],
+   "tip": "Its visual moderation is the differentiator — most free moderation APIs cover text only.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Visual and text moderation covering NSFW, violence and other content classes.",
+    "ru": "Модерация изображений и текста: NSFW, насилие и другие категории контента."
+   },
+   "localizedTip": {
+    "en": "Its visual moderation is the differentiator — most free moderation APIs cover text only."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "custom per-item pricing",
+    "freeQuota": "free trial credits",
+    "url": "https://thehive.ai/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "api-lakera-guard",
    "name": "Lakera Guard",
    "kind": "api",
@@ -806,6 +1022,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "api-openai-moderation",
+   "name": "OpenAI Moderation API",
+   "kind": "api",
+   "category": "AI-оценка и safety",
+   "summary": "Free content moderation endpoint classifying text and images against safety categories.",
+   "url": "https://platform.openai.com/docs/guides/moderation",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "moderation",
+    "safety",
+    "content-policy",
+    "free"
+   ],
+   "tip": "Free even without paid API usage, which makes it a cheap first filter on user-generated content.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free content moderation endpoint classifying text and images against safety categories.",
+    "ru": "Бесплатный эндпоинт модерации, классифицирующий текст и изображения по категориям безопасности."
+   },
+   "localizedTip": {
+    "en": "Free even without paid API usage, which makes it a cheap first filter on user-generated content."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "api-patronus-ai",
    "name": "Patronus AI",
    "kind": "api",
@@ -836,6 +1087,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-perspective-api",
+   "name": "Perspective API",
+   "kind": "api",
+   "category": "AI-оценка и safety",
+   "summary": "Toxicity scoring for comments and user content, from Google Jigsaw.",
+   "url": "https://developers.perspectiveapi.com/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "moderation",
+    "toxicity",
+    "jigsaw",
+    "google"
+   ],
+   "tip": "Scores are probabilities, not verdicts — pick a threshold from your own data rather than trusting a default.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Toxicity scoring for comments and user content, from Google Jigsaw.",
+    "ru": "Оценка токсичности комментариев и пользовательского контента от Google Jigsaw."
+   },
+   "localizedTip": {
+    "en": "Scores are probabilities, not verdicts — pick a threshold from your own data rather than trusting a default."
+   },
+   "pricing": {
+    "model": "free",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -1833,6 +2119,111 @@
    },
    "localizedTip": {
     "en": "Compare price per million tokens before you pick a model: the spread between similar models is large."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-letta",
+   "name": "Letta (MemGPT)",
+   "kind": "api",
+   "category": "Память и знания",
+   "summary": "Stateful agents with self-editing long-term memory, the MemGPT research made practical.",
+   "url": "https://docs.letta.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "memory",
+    "agents",
+    "stateful",
+    "memgpt"
+   ],
+   "tip": "Agents manage their own memory paging, which suits long-lived assistants over one-shot task agents.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install letta",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Stateful agents with self-editing long-term memory, the MemGPT research made practical.",
+    "ru": "Агенты с состоянием и саморедактируемой долговременной памятью — практическое воплощение MemGPT."
+   },
+   "localizedTip": {
+    "en": "Agents manage their own memory paging, which suits long-lived assistants over one-shot task agents."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-mem0",
+   "name": "Mem0",
+   "kind": "api",
+   "category": "Память и знания",
+   "summary": "Memory layer for AI agents storing user preferences and facts across sessions.",
+   "url": "https://docs.mem0.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "memory",
+    "agents",
+    "personalization",
+    "recall"
+   ],
+   "tip": "Store durable preferences and decisions, not raw transcripts — recall quality degrades as the store bloats.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install mem0ai",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Memory layer for AI agents storing user preferences and facts across sessions.",
+    "ru": "Слой памяти для ИИ-агентов, хранящий предпочтения и факты пользователя между сессиями."
+   },
+   "localizedTip": {
+    "en": "Store durable preferences and decisions, not raw transcripts — recall quality degrades as the store bloats."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-zep",
+   "name": "Zep",
+   "kind": "api",
+   "category": "Память и знания",
+   "summary": "Temporal knowledge graph memory for agents, tracking how facts change over time.",
+   "url": "https://help.getzep.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "memory",
+    "agents",
+    "knowledge-graph",
+    "temporal"
+   ],
+   "tip": "Its temporal model handles superseded facts correctly, which naive vector memory gets wrong.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Temporal knowledge graph memory for agents, tracking how facts change over time.",
+    "ru": "Темпоральный граф знаний как память агента, отслеживающий изменение фактов во времени."
+   },
+   "localizedTip": {
+    "en": "Its temporal model handles superseded facts correctly, which naive vector memory gets wrong."
    },
    "pricing": {
     "model": "freemium",
@@ -5873,6 +6264,76 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-huggingface-datasets",
+   "name": "Hugging Face Datasets Server",
+   "kind": "api",
+   "category": "Данные и ML",
+   "summary": "REST API for previewing and querying any dataset on the Hugging Face Hub without downloading it.",
+   "url": "https://huggingface.co/docs/dataset-viewer/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "datasets",
+    "api",
+    "preview",
+    "huggingface"
+   ],
+   "tip": "Query rows and filters server-side to inspect a huge dataset before committing disk space to it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "REST API for previewing and querying any dataset on the Hugging Face Hub without downloading it.",
+    "ru": "REST API для просмотра и запросов к любому датасету на Hugging Face Hub без скачивания."
+   },
+   "localizedTip": {
+    "en": "Query rows and filters server-side to inspect a huge dataset before committing disk space to it."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-kaggle",
+   "name": "Kaggle API",
+   "kind": "api",
+   "category": "Данные и ML",
+   "summary": "Programmatic access to Kaggle datasets, competitions and notebook execution.",
+   "url": "https://www.kaggle.com/docs/api",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "datasets",
+    "competitions",
+    "notebooks",
+    "kaggle"
+   ],
+   "tip": "Dataset downloads need accepted competition rules for competition data — the API errors cryptically otherwise.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install kaggle",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Programmatic access to Kaggle datasets, competitions and notebook execution.",
+    "ru": "Программный доступ к датасетам, соревнованиям и запуску ноутбуков Kaggle."
+   },
+   "localizedTip": {
+    "en": "Dataset downloads need accepted competition rules for competition data — the API errors cryptically otherwise."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-apple-healthkit",
    "name": "Apple HealthKit",
    "kind": "api",
@@ -7050,6 +7511,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-carbon-interface",
+   "name": "Carbon Interface",
+   "kind": "api",
+   "category": "Наука и исследования",
+   "summary": "Carbon emission estimates for electricity, flights, shipping and vehicles.",
+   "url": "https://docs.carboninterface.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "carbon",
+    "emissions",
+    "calculator",
+    "sustainability"
+   ],
+   "tip": "Estimates use published emission factors, so document the methodology if you display figures to users.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Carbon emission estimates for electricity, flights, shipping and vehicles.",
+    "ru": "Оценка выбросов углерода для электроэнергии, авиаперелётов, доставки и транспорта."
+   },
+   "localizedTip": {
+    "en": "Estimates use published emission factors, so document the methodology if you display figures to users."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-crossref",
    "name": "Crossref REST API",
    "kind": "api",
@@ -7116,6 +7612,76 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-eia",
+   "name": "EIA Open Data",
+   "kind": "api",
+   "category": "Наука и исследования",
+   "summary": "US Energy Information Administration data on production, consumption and prices.",
+   "url": "https://www.eia.gov/opendata/documentation.php",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "energy",
+    "us",
+    "statistics",
+    "government"
+   ],
+   "tip": "Series IDs are the primary lookup key — browse the catalog first rather than guessing identifiers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "US Energy Information Administration data on production, consumption and prices.",
+    "ru": "Данные Управления энергетической информации США о добыче, потреблении и ценах."
+   },
+   "localizedTip": {
+    "en": "Series IDs are the primary lookup key — browse the catalog first rather than guessing identifiers."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-electricity-maps",
+   "name": "Electricity Maps",
+   "kind": "api",
+   "category": "Наука и исследования",
+   "summary": "Real-time carbon intensity and electricity mix data by geographic zone.",
+   "url": "https://portal.electricitymaps.com/docs/api",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "energy",
+    "carbon",
+    "grid",
+    "climate"
+   ],
+   "tip": "Useful for carbon-aware scheduling — shift batch jobs to hours when the grid is cleanest.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Real-time carbon intensity and electricity mix data by geographic zone.",
+    "ru": "Данные об углеродоёмкости и структуре электрогенерации по географическим зонам в реальном времени."
+   },
+   "localizedTip": {
+    "en": "Useful for carbon-aware scheduling — shift batch jobs to hours when the grid is cleanest."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-europe-pmc",
    "name": "Europe PMC API",
    "kind": "api",
@@ -7174,6 +7740,41 @@
    },
    "localizedTip": {
     "en": "Every published item gets a citable DOI automatically — useful for data that needs to be formally cited."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-gbif",
+   "name": "GBIF",
+   "kind": "api",
+   "category": "Наука и исследования",
+   "summary": "Global biodiversity data: species occurrence records from museums and surveys worldwide.",
+   "url": "https://techdocs.gbif.org/en/openapi/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "biodiversity",
+    "species",
+    "occurrences",
+    "open-data"
+   ],
+   "tip": "Occurrence downloads are asynchronous for large queries — request, then poll for the prepared archive.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Global biodiversity data: species occurrence records from museums and surveys worldwide.",
+    "ru": "Глобальные данные о биоразнообразии: записи о встречах видов из музеев и исследований по всему миру."
+   },
+   "localizedTip": {
+    "en": "Occurrence downloads are asynchronous for large queries — request, then poll for the prepared archive."
    },
    "pricing": {
     "model": "free",
@@ -7738,6 +8339,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-congress-gov",
+   "name": "Congress.gov API",
+   "kind": "api",
+   "category": "Открытые данные",
+   "summary": "Official US Congress legislative data: bills, amendments, members, votes.",
+   "url": "https://api.congress.gov/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "government",
+    "us",
+    "legislation",
+    "congress"
+   ],
+   "tip": "Uses the same api.data.gov key infrastructure as other federal APIs — one key covers several agencies.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Official US Congress legislative data: bills, amendments, members, votes.",
+    "ru": "Официальные законодательные данные Конгресса США: законопроекты, поправки, члены, голосования."
+   },
+   "localizedTip": {
+    "en": "Uses the same api.data.gov key infrastructure as other federal APIs — one key covers several agencies."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-data-gov",
    "name": "Data.gov (CKAN)",
    "kind": "api",
@@ -7878,6 +8514,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-uk-gov",
+   "name": "GOV.UK Content API",
+   "kind": "api",
+   "category": "Открытые данные",
+   "summary": "Structured access to all GOV.UK published content, no key required.",
+   "url": "https://content-api.publishing.service.gov.uk/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "government",
+    "uk",
+    "content",
+    "no-key"
+   ],
+   "tip": "A good example of well-designed government API documentation, worth reading even outside UK projects.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Structured access to all GOV.UK published content, no key required.",
+    "ru": "Структурированный доступ ко всему опубликованному контенту GOV.UK, без ключа."
+   },
+   "localizedTip": {
+    "en": "A good example of well-designed government API documentation, worth reading even outside UK projects."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-nager-date",
    "name": "Nager.Date",
    "kind": "api",
@@ -7904,6 +8575,76 @@
    "pricing": {
     "model": "free",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-openstates",
+   "name": "Open States",
+   "kind": "api",
+   "category": "Открытые данные",
+   "summary": "US state legislature data: bills, legislators, votes and committees.",
+   "url": "https://docs.openstates.org/api-v3/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "government",
+    "legislation",
+    "us-states",
+    "civic"
+   ],
+   "tip": "GraphQL and REST both available — GraphQL avoids over-fetching on bill records with many nested fields.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "US state legislature data: bills, legislators, votes and committees.",
+    "ru": "Данные законодательных органов штатов США: законопроекты, законодатели, голосования, комитеты."
+   },
+   "localizedTip": {
+    "en": "GraphQL and REST both available — GraphQL avoids over-fetching on bill records with many nested fields."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-fec",
+   "name": "OpenFEC",
+   "kind": "api",
+   "category": "Открытые данные",
+   "summary": "US campaign finance data: contributions, expenditures and committee filings.",
+   "url": "https://api.open.fec.gov/developers/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "campaign-finance",
+    "us",
+    "elections",
+    "transparency"
+   ],
+   "tip": "Filing data lags real activity by weeks — do not treat it as real-time during an active campaign.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "US campaign finance data: contributions, expenditures and committee filings.",
+    "ru": "Данные о финансировании избирательных кампаний США: взносы, расходы, отчёты комитетов."
+   },
+   "localizedTip": {
+    "en": "Filing data lags real activity by weeks — do not treat it as real-time during an active campaign."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
   },
@@ -8083,6 +8824,41 @@
    },
    "localizedTip": {
     "en": "Air quality and pollen are separate paid add-ons from basic weather — check the plan tiers carefully."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-weatherkit",
+   "name": "Apple WeatherKit",
+   "kind": "api",
+   "category": "Погода и геоданные",
+   "summary": "Apple's weather data service, available via REST beyond Apple platforms.",
+   "url": "https://developer.apple.com/weatherkit/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "weather",
+    "apple",
+    "forecast",
+    "rest"
+   ],
+   "tip": "Requires an Apple Developer account even for REST use — that is the main barrier versus alternatives.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Apple's weather data service, available via REST beyond Apple platforms.",
+    "ru": "Сервис погодных данных Apple, доступен через REST и вне платформ Apple."
+   },
+   "localizedTip": {
+    "en": "Requires an Apple Developer account even for REST use — that is the main barrier versus alternatives."
    },
    "pricing": {
     "model": "freemium",
@@ -8372,6 +9148,41 @@
     "freeQuota": "50k free map loads per month",
     "url": "https://www.mapbox.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-meteostat",
+   "name": "Meteostat",
+   "kind": "api",
+   "category": "Погода и геоданные",
+   "summary": "Historical weather and climate data from thousands of ground stations.",
+   "url": "https://dev.meteostat.net/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "weather",
+    "historical",
+    "climate",
+    "stations"
+   ],
+   "tip": "Its Python library reads the same data locally without API limits, which suits bulk historical analysis.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Historical weather and climate data from thousands of ground stations.",
+    "ru": "Исторические данные о погоде и климате с тысяч наземных метеостанций."
+   },
+   "localizedTip": {
+    "en": "Its Python library reads the same data locally without API limits, which suits bulk historical analysis."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -8805,6 +9616,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-google-embeddings",
+   "name": "Gemini Embeddings",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Google's text embedding models, with a usable free tier via AI Studio.",
+   "url": "https://ai.google.dev/gemini-api/docs/embeddings",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "embeddings",
+    "google",
+    "rag",
+    "multilingual"
+   ],
+   "tip": "Set task_type (retrieval_document vs retrieval_query) — asymmetric embeddings measurably improve recall.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's text embedding models, with a usable free tier via AI Studio.",
+    "ru": "Модели текстовых эмбеддингов Google с рабочим бесплатным тарифом через AI Studio."
+   },
+   "localizedTip": {
+    "en": "Set task_type (retrieval_document vs retrieval_query) — asymmetric embeddings measurably improve recall."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-jina-reader",
    "name": "Jina AI Reader",
    "kind": "api",
@@ -8905,6 +9751,82 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-mixedbread",
+   "name": "Mixedbread",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Embedding and reranking models, with open-weight versions published alongside the API.",
+   "url": "https://www.mixedbread.com/api-reference",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "embeddings",
+    "rerank",
+    "open-models",
+    "search"
+   ],
+   "tip": "Open weights mean you can prototype on the API and self-host the same model later without re-tuning.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Embedding and reranking models, with open-weight versions published alongside the API.",
+    "ru": "Модели эмбеддингов и реранка, с открытыми весами, публикуемыми параллельно с API."
+   },
+   "localizedTip": {
+    "en": "Open weights mean you can prototype on the API and self-host the same model later without re-tuning."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-openai-embeddings",
+   "name": "OpenAI Embeddings",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Text embedding models for semantic search and RAG pipelines.",
+   "url": "https://platform.openai.com/docs/guides/embeddings",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "embeddings",
+    "vectors",
+    "rag",
+    "openai",
+    "pricing",
+    "tokens"
+   ],
+   "tip": "The dimensions parameter lets you shorten vectors to cut storage cost with modest quality loss.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Text embedding models for semantic search and RAG pipelines.",
+    "ru": "Модели текстовых эмбеддингов для семантического поиска и RAG-пайплайнов."
+   },
+   "localizedTip": {
+    "en": "The dimensions parameter lets you shorten vectors to cut storage cost with modest quality loss."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.02 / 1M tokens (small model)",
+    "freeQuota": "no free tier",
+    "url": "https://platform.openai.com/docs/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -9425,6 +10347,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-navitia",
+   "name": "Navitia",
+   "kind": "api",
+   "category": "Транспорт и город",
+   "summary": "Public transit journey planning API built on open GTFS data.",
+   "url": "https://doc.navitia.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "transit",
+    "routing",
+    "gtfs",
+    "journey-planner"
+   ],
+   "tip": "Coverage depends on which regions have published GTFS feeds — check your city's data availability first.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Public transit journey planning API built on open GTFS data.",
+    "ru": "API планирования поездок на общественном транспорте на открытых данных GTFS."
+   },
+   "localizedTip": {
+    "en": "Coverage depends on which regions have published GTFS feeds — check your city's data availability first."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-open-charge-map",
    "name": "Open Charge Map",
    "kind": "api",
@@ -9487,6 +10444,41 @@
    },
    "localizedTip": {
     "en": "German holidays differ per Bundesland: always pass the subdivision code."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-opensky",
+   "name": "OpenSky Network",
+   "kind": "api",
+   "category": "Транспорт и город",
+   "summary": "Free live and historical flight tracking data from a community ADS-B receiver network.",
+   "url": "https://openskynetwork.github.io/opensky-api/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flights",
+    "adsb",
+    "tracking",
+    "open-data"
+   ],
+   "tip": "Anonymous access is heavily rate-limited; registering (still free) raises limits substantially.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free live and historical flight tracking data from a community ADS-B receiver network.",
+    "ru": "Бесплатные живые и исторические данные отслеживания рейсов из общественной сети ADS-B приёмников."
+   },
+   "localizedTip": {
+    "en": "Anonymous access is heavily rate-limited; registering (still free) raises limits substantially."
    },
    "pricing": {
     "model": "free",
@@ -10343,6 +11335,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-companies-house",
+   "name": "Companies House API",
+   "kind": "api",
+   "category": "Юридические и налоговые API",
+   "summary": "UK company registry data: filings, officers, ownership, all free.",
+   "url": "https://developer.company-information.service.gov.uk/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "companies",
+    "uk",
+    "registry",
+    "legal"
+   ],
+   "tip": "Free and comprehensive for UK entities — a rare case where official registry data needs no commercial vendor.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "UK company registry data: filings, officers, ownership, all free.",
+    "ru": "Данные реестра компаний Великобритании: отчётность, руководители, владельцы — бесплатно."
+   },
+   "localizedTip": {
+    "en": "Free and comprehensive for UK entities — a rare case where official registry data needs no commercial vendor."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-docusign",
    "name": "DocuSign eSignature API",
    "kind": "api",
@@ -10370,6 +11397,41 @@
    },
    "localizedTip": {
     "en": "Embedded signing keeps the signer inside your app instead of redirecting to DocuSign's site."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-opencorporates",
+   "name": "OpenCorporates",
+   "kind": "api",
+   "category": "Юридические и налоговые API",
+   "summary": "Company registry data aggregated across many national jurisdictions.",
+   "url": "https://api.opencorporates.com/documentation/API-Reference",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "companies",
+    "registry",
+    "global",
+    "legal"
+   ],
+   "tip": "Coverage and freshness vary a lot by jurisdiction — check your target country before relying on it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Company registry data aggregated across many national jurisdictions.",
+    "ru": "Данные реестров компаний, агрегированные по множеству национальных юрисдикций."
+   },
+   "localizedTip": {
+    "en": "Coverage and freshness vary a lot by jurisdiction — check your target country before relying on it."
    },
    "pricing": {
     "model": "freemium",
@@ -11343,6 +12405,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-daytona",
+   "name": "Daytona",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Fast, isolated development environments usable as agent sandboxes.",
+   "url": "https://www.daytona.io/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sandbox",
+    "dev-environments",
+    "agents",
+    "isolation"
+   ],
+   "tip": "Sub-second sandbox creation is the differentiator versus spinning up a container per task yourself.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast, isolated development environments usable as agent sandboxes.",
+    "ru": "Быстрые изолированные среды разработки, применимые как песочницы для агентов."
+   },
+   "localizedTip": {
+    "en": "Sub-second sandbox creation is the differentiator versus spinning up a container per task yourself."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-e2b-sandboxes",
+   "name": "E2B Sandboxes",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Isolated cloud sandboxes for running AI-generated code safely.",
+   "url": "https://e2b.dev/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sandbox",
+    "code-execution",
+    "agents",
+    "isolation"
+   ],
+   "tip": "Never run model-generated code on your own host — this is the specific problem E2B exists to solve.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install e2b-code-interpreter",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Isolated cloud sandboxes for running AI-generated code safely.",
+    "ru": "Изолированные облачные песочницы для безопасного запуска сгенерированного ИИ кода."
+   },
+   "localizedTip": {
+    "en": "Never run model-generated code on your own host — this is the specific problem E2B exists to solve."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "paid-firecrawl",
    "name": "Firecrawl",
    "kind": "api",
@@ -11377,6 +12509,41 @@
     "freeQuota": "500 free credits",
     "url": "https://www.firecrawl.dev/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-modal-sandboxes",
+   "name": "Modal Sandboxes",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Ephemeral sandboxes on Modal for running untrusted or agent-generated code.",
+   "url": "https://modal.com/docs/guide/sandbox",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sandbox",
+    "python",
+    "agents",
+    "serverless"
+   ],
+   "tip": "Useful if you already run Modal for GPU work — one platform for both inference and sandboxing.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install modal",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Ephemeral sandboxes on Modal for running untrusted or agent-generated code.",
+    "ru": "Эфемерные песочницы Modal для запуска недоверенного или сгенерированного агентом кода."
+   },
+   "localizedTip": {
+    "en": "Useful if you already run Modal for GPU work — one platform for both inference and sandboxing."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -16164,6 +17331,76 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-api-football",
+   "name": "API-Football",
+   "kind": "api",
+   "category": "Игры и развлечения",
+   "summary": "Football (soccer) fixtures, live scores, standings and statistics across leagues.",
+   "url": "https://www.api-football.com/documentation-v3",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "football",
+    "soccer",
+    "fixtures",
+    "live-scores"
+   ],
+   "tip": "The free tier's 100 requests/day suits a personal dashboard, not a public live-score site.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Football (soccer) fixtures, live scores, standings and statistics across leagues.",
+    "ru": "Расписание, живые счета, турнирные таблицы и статистика футбола по лигам."
+   },
+   "localizedTip": {
+    "en": "The free tier's 100 requests/day suits a personal dashboard, not a public live-score site."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-balldontlie",
+   "name": "balldontlie",
+   "kind": "api",
+   "category": "Игры и развлечения",
+   "summary": "NBA statistics API: players, teams, games and box scores.",
+   "url": "https://docs.balldontlie.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nba",
+    "basketball",
+    "stats",
+    "simple"
+   ],
+   "tip": "Simple enough to be a good first API for teaching pagination and query parameters.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "NBA statistics API: players, teams, games and box scores.",
+    "ru": "API статистики NBA: игроки, команды, игры и протоколы матчей."
+   },
+   "localizedTip": {
+    "en": "Simple enough to be a good first API for teaching pagination and query parameters."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-boardgamegeek",
    "name": "BoardGameGeek XML API",
    "kind": "api",
@@ -16311,6 +17548,41 @@
    ],
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-football-data-org",
+   "name": "football-data.org",
+   "kind": "api",
+   "category": "Игры и развлечения",
+   "summary": "European football competition data with a free tier covering major leagues.",
+   "url": "https://www.football-data.org/documentation/quickstart",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "football",
+    "fixtures",
+    "competitions",
+    "free-tier"
+   ],
+   "tip": "The free tier covers a fixed set of competitions — verify your league is included before building.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "European football competition data with a free tier covering major leagues.",
+    "ru": "Данные европейских футбольных соревнований с бесплатным тарифом по основным лигам."
+   },
+   "localizedTip": {
+    "en": "The free tier covers a fixed set of competitions — verify your league is included before building."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -16870,6 +18142,117 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-google-books",
+   "name": "Google Books API",
+   "kind": "api",
+   "category": "Книги и знания",
+   "summary": "Book search, metadata, covers and preview availability from Google Books.",
+   "url": "https://developers.google.com/books/docs/v1/using",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "books",
+    "search",
+    "metadata",
+    "google"
+   ],
+   "tip": "Works without a key for basic search, though adding one raises the quota considerably.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Book search, metadata, covers and preview availability from Google Books.",
+    "ru": "Поиск книг, метаданные, обложки и доступность предпросмотра из Google Books."
+   },
+   "localizedTip": {
+    "en": "Works without a key for basic search, though adding one raises the quota considerably."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-gutendex",
+   "name": "Gutendex (Project Gutenberg)",
+   "kind": "api",
+   "category": "Книги и знания",
+   "summary": "JSON API over Project Gutenberg's public domain book catalog, no key required.",
+   "url": "https://gutendex.com/",
+   "access": "noKey",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "books",
+    "public-domain",
+    "gutenberg",
+    "no-key"
+   ],
+   "tip": "Full book texts are downloadable directly, which makes it a good corpus source for NLP experiments.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "JSON API over Project Gutenberg's public domain book catalog, no key required.",
+    "ru": "JSON API поверх каталога общественного достояния Project Gutenberg, без ключа."
+   },
+   "localizedTip": {
+    "en": "Full book texts are downloadable directly, which makes it a good corpus source for NLP experiments."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-isbndb",
+   "name": "ISBNdb",
+   "kind": "api",
+   "category": "Книги и знания",
+   "summary": "Comprehensive ISBN-indexed book database with pricing and edition data.",
+   "url": "https://isbndb.com/apidocs/v2",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "books",
+    "isbn",
+    "metadata",
+    "catalog",
+    "pricing",
+    "subscription"
+   ],
+   "tip": "More complete for obscure and out-of-print editions than free alternatives, which is what you pay for.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Comprehensive ISBN-indexed book database with pricing and edition data.",
+    "ru": "Полная база книг по ISBN с данными о ценах и изданиях."
+   },
+   "localizedTip": {
+    "en": "More complete for obscure and out-of-print editions than free alternatives, which is what you pay for."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$15 per month",
+    "freeQuota": "limited trial requests",
+    "url": "https://isbndb.com/isbn-database",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -19144,6 +20527,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "lib-agno",
+   "name": "Agno",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Lightweight Python framework for building agents with memory, tools and reasoning.",
+   "url": "https://docs.agno.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "agents",
+    "multi-agent",
+    "memory"
+   ],
+   "tip": "Deliberately minimal compared to LangChain — the whole framework is small enough to read in an afternoon.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install agno",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight Python framework for building agents with memory, tools and reasoning.",
+    "ru": "Лёгкий Python-фреймворк для агентов с памятью, инструментами и рассуждением."
+   },
+   "localizedTip": {
+    "en": "Deliberately minimal compared to LangChain — the whole framework is small enough to read in an afternoon."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-autogen-2",
    "name": "AutoGen",
    "kind": "library",
@@ -19366,6 +20784,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-langchain-js",
+   "name": "LangChain.js",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "The JavaScript/TypeScript port of LangChain for Node and browser agents.",
+   "url": "https://js.langchain.com/docs/introduction/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "javascript",
+    "agents",
+    "rag",
+    "integrations"
+   ],
+   "tip": "Its integration surface lags the Python version — verify your specific integration exists before committing.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i langchain",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The JavaScript/TypeScript port of LangChain for Node and browser agents.",
+    "ru": "JavaScript/TypeScript-порт LangChain для агентов в Node и браузере."
+   },
+   "localizedTip": {
+    "en": "Its integration surface lags the Python version — verify your specific integration exists before committing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-langgraph",
    "name": "LangGraph",
    "kind": "library",
@@ -19455,6 +20908,76 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-llamaindex-ts",
+   "name": "LlamaIndex.TS",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "TypeScript implementation of LlamaIndex for RAG pipelines in Node.",
+   "url": "https://ts.llamaindex.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "rag",
+    "indexing",
+    "retrieval"
+   ],
+   "tip": "Useful when the whole stack is TypeScript and you would rather not run a separate Python service for RAG.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i llamaindex",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "TypeScript implementation of LlamaIndex for RAG pipelines in Node.",
+    "ru": "TypeScript-реализация LlamaIndex для RAG-пайплайнов в Node."
+   },
+   "localizedTip": {
+    "en": "Useful when the whole stack is TypeScript and you would rather not run a separate Python service for RAG."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-mastra",
+   "name": "Mastra",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "TypeScript agent framework with workflows, RAG and evals built in.",
+   "url": "https://mastra.ai/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "agents",
+    "workflows",
+    "rag"
+   ],
+   "tip": "Its workflow primitives are durable, which covers the long-running-agent case plain function calls do not.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm create mastra@latest",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "TypeScript agent framework with workflows, RAG and evals built in.",
+    "ru": "TypeScript-фреймворк агентов со встроенными workflow, RAG и оценками."
+   },
+   "localizedTip": {
+    "en": "Its workflow primitives are durable, which covers the long-running-agent case plain function calls do not."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
   },
@@ -20686,6 +22209,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-exllamav2",
+   "name": "ExLlamaV2",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Fast quantized inference library for running large models on consumer GPUs.",
+   "url": "https://github.com/turboderp-org/exllamav2",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "quantization",
+    "inference",
+    "gpu",
+    "fast"
+   ],
+   "tip": "Its EXL2 format allows fractional bit-rates, letting you fit a model exactly into available VRAM.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install exllamav2",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast quantized inference library for running large models on consumer GPUs.",
+    "ru": "Быстрая библиотека квантованного инференса для запуска больших моделей на потребительских GPU."
+   },
+   "localizedTip": {
+    "en": "Its EXL2 format allows fractional bit-rates, letting you fit a model exactly into available VRAM."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-fastembed",
    "name": "FastEmbed",
    "kind": "library",
@@ -20713,6 +22271,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-gpt4all",
+   "name": "GPT4All",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Local model runner focused on CPU inference and privacy, with a desktop app.",
+   "url": "https://docs.gpt4all.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "local",
+    "desktop",
+    "privacy",
+    "cpu"
+   ],
+   "tip": "Runs acceptably without a GPU, which matters for deploying to ordinary office hardware.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install gpt4all",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Local model runner focused on CPU inference and privacy, with a desktop app.",
+    "ru": "Локальный запуск моделей с фокусом на CPU-инференс и приватность, с настольным приложением."
+   },
+   "localizedTip": {
+    "en": "Runs acceptably without a GPU, which matters for deploying to ordinary office hardware."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
   },
@@ -20747,6 +22340,76 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-llamafile",
+   "name": "llamafile",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Packages an LLM and its runtime into one executable file that runs on multiple OSes.",
+   "url": "https://github.com/Mozilla-Ocho/llamafile",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "local",
+    "single-file",
+    "portable",
+    "mozilla"
+   ],
+   "tip": "One file with no install step at all — the simplest way to hand someone a working local model.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Packages an LLM and its runtime into one executable file that runs on multiple OSes.",
+    "ru": "Упаковывает LLM и рантайм в один исполняемый файл, работающий на разных ОС."
+   },
+   "localizedTip": {
+    "en": "One file with no install step at all — the simplest way to hand someone a working local model."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-lm-studio",
+   "name": "LM Studio",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Desktop app for downloading and running local models, with an OpenAI-compatible server.",
+   "url": "https://lmstudio.ai/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "local",
+    "gui",
+    "models",
+    "openai-compatible"
+   ],
+   "tip": "Its local server mode means existing OpenAI client code points at localhost with no other changes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Desktop app for downloading and running local models, with an OpenAI-compatible server.",
+    "ru": "Настольное приложение для скачивания и запуска локальных моделей с OpenAI-совместимым сервером."
+   },
+   "localizedTip": {
+    "en": "Its local server mode means existing OpenAI client code points at localhost with no other changes."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -20943,6 +22606,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-text-generation-webui",
+   "name": "Text Generation WebUI",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Gradio web UI for running local text models with many backend loaders.",
+   "url": "https://github.com/oobabooga/text-generation-webui",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "local",
+    "gradio",
+    "models",
+    "ui"
+   ],
+   "tip": "Supports more quantization formats than most runners — useful when a model only ships in an unusual format.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Gradio web UI for running local text models with many backend loaders.",
+    "ru": "Веб-интерфейс Gradio для запуска локальных текстовых моделей с разными загрузчиками бэкендов."
+   },
+   "localizedTip": {
+    "en": "Supports more quantization formats than most runners — useful when a model only ships in an unusual format."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-transformers",
    "name": "Transformers",
    "kind": "library",
@@ -21056,6 +22754,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-burr",
+   "name": "Burr",
+   "kind": "library",
+   "category": "Планирование и reasoning",
+   "summary": "State machine framework for AI applications with built-in tracking and a debug UI.",
+   "url": "https://burr.dagworks.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "state-machines",
+    "agents",
+    "observability"
+   ],
+   "tip": "Its UI replays an agent run step by step, which makes debugging non-deterministic flows far easier.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install burr",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "State machine framework for AI applications with built-in tracking and a debug UI.",
+    "ru": "Фреймворк конечных автоматов для ИИ-приложений со встроенным трекингом и UI отладки."
+   },
+   "localizedTip": {
+    "en": "Its UI replays an agent run step by step, which makes debugging non-deterministic flows far easier."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-guidance-ai",
    "name": "Guidance",
    "kind": "library",
@@ -21116,6 +22849,41 @@
    },
    "localizedTip": {
     "en": "Constraints are declared inline in the query itself, so validity is enforced during generation, not after."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-pydantic-graph",
+   "name": "Pydantic Graph",
+   "kind": "library",
+   "category": "Планирование и reasoning",
+   "summary": "Typed graph-based state machines for orchestrating multi-step agent logic.",
+   "url": "https://ai.pydantic.dev/graph/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "graphs",
+    "state-machines",
+    "typed"
+   ],
+   "tip": "Type-checked node transitions catch invalid agent state paths at development time, not in production.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pydantic-graph",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Typed graph-based state machines for orchestrating multi-step agent logic.",
+    "ru": "Типизированные графовые конечные автоматы для оркестрации многошаговой логики агента."
+   },
+   "localizedTip": {
+    "en": "Type-checked node transitions catch invalid agent state paths at development time, not in production."
    },
    "pricing": {
     "model": "openSource",
@@ -25789,6 +27557,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-gleam",
+   "name": "Gleam",
+   "kind": "library",
+   "category": "Elixir экосистема",
+   "summary": "Statically typed functional language for the BEAM (Erlang VM), interoperable with Elixir.",
+   "url": "https://gleam.run/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "beam",
+    "type-safe",
+    "functional",
+    "erlang"
+   ],
+   "tip": "Brings compile-time type safety to the BEAM, which Elixir and Erlang deliberately lack.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Statically typed functional language for the BEAM (Erlang VM), interoperable with Elixir.",
+    "ru": "Статически типизированный функциональный язык для BEAM (Erlang VM), совместим с Elixir."
+   },
+   "localizedTip": {
+    "en": "Brings compile-time type safety to the BEAM, which Elixir and Erlang deliberately lack."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-oban",
    "name": "Oban",
    "kind": "library",
@@ -26706,6 +28509,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-kotlin-coroutines",
+   "name": "Kotlin Coroutines",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Kotlin's structured concurrency model for asynchronous programming.",
+   "url": "https://kotlinlang.org/docs/coroutines-overview.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kotlin",
+    "async",
+    "concurrency",
+    "structured"
+   ],
+   "tip": "Scopes tie coroutine lifetime to a component's lifecycle, which prevents the classic leaked-async-task bug.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Kotlin's structured concurrency model for asynchronous programming.",
+    "ru": "Модель структурированной конкурентности Kotlin для асинхронного программирования."
+   },
+   "localizedTip": {
+    "en": "Scopes tie coroutine lifetime to a component's lifecycle, which prevents the classic leaked-async-task bug."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -28380,6 +30218,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-alamofire",
+   "name": "Alamofire",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "The standard Swift HTTP networking library, wrapping URLSession ergonomically.",
+   "url": "https://alamofire.github.io/Alamofire/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "swift",
+    "networking",
+    "http",
+    "ios"
+   ],
+   "tip": "Modern async/await URLSession covers many cases natively now — check if you actually need the dependency.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard Swift HTTP networking library, wrapping URLSession ergonomically.",
+    "ru": "Стандартная Swift-библиотека HTTP-сети, эргономичная обёртка над URLSession."
+   },
+   "localizedTip": {
+    "en": "Modern async/await URLSession covers many cases natively now — check if you actually need the dependency."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-capacitor",
    "name": "Capacitor",
    "kind": "library",
@@ -28420,6 +30293,41 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-swift-composable-architecture",
+   "name": "Composable Architecture (TCA)",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Redux-like state management for SwiftUI with a strong emphasis on testability.",
+   "url": "https://pointfreeco.github.io/swift-composable-architecture/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "swift",
+    "state",
+    "architecture",
+    "testable"
+   ],
+   "tip": "Its exhaustive testing model catches unhandled state transitions that ad-hoc SwiftUI state hides.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Redux-like state management for SwiftUI with a strong emphasis on testability.",
+    "ru": "Redux-подобное управление состоянием для SwiftUI с сильным упором на тестируемость."
+   },
+   "localizedTip": {
+    "en": "Its exhaustive testing model catches unhandled state transitions that ad-hoc SwiftUI state hides."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -28758,6 +30666,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-jetpack-compose-2",
+   "name": "Jetpack Compose Multiplatform",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "JetBrains' port of Compose UI to desktop, web and iOS beyond Android.",
+   "url": "https://www.jetbrains.com/compose-multiplatform/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kotlin",
+    "compose",
+    "multiplatform",
+    "ui"
+   ],
+   "tip": "Unlike KMM (which shares logic only), this shares the UI layer too — a different tradeoff entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "JetBrains' port of Compose UI to desktop, web and iOS beyond Android.",
+    "ru": "Порт Compose UI от JetBrains на desktop, web и iOS помимо Android."
+   },
+   "localizedTip": {
+    "en": "Unlike KMM (which shares logic only), this shares the UI layer too — a different tradeoff entirely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-kmp",
    "name": "Kotlin Multiplatform",
    "kind": "library",
@@ -29010,6 +30953,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-swiftui",
+   "name": "SwiftUI",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Apple's declarative UI framework for iOS, macOS, watchOS and visionOS.",
+   "url": "https://developer.apple.com/documentation/swiftui/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "swift",
+    "ios",
+    "declarative",
+    "apple"
+   ],
+   "tip": "One layout adapts across Apple platforms, but platform-specific polish still needs conditional code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Apple's declarative UI framework for iOS, macOS, watchOS and visionOS.",
+    "ru": "Декларативный UI-фреймворк Apple для iOS, macOS, watchOS и visionOS."
+   },
+   "localizedTip": {
+    "en": "One layout adapts across Apple platforms, but platform-specific polish still needs conditional code."
+   },
+   "pricing": {
+    "model": "free",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -31627,6 +33605,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-bun-ffi",
+   "name": "Bun FFI",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Call native C libraries directly from Bun without writing a native addon.",
+   "url": "https://bun.com/docs/api/ffi",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bun",
+    "ffi",
+    "native",
+    "performance"
+   ],
+   "tip": "Avoids the node-gyp build step entirely, which is the usual pain point for native modules in Node.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Call native C libraries directly from Bun without writing a native addon.",
+    "ru": "Вызов нативных C-библиотек прямо из Bun без написания нативного аддона."
+   },
+   "localizedTip": {
+    "en": "Avoids the node-gyp build step entirely, which is the usual pain point for native modules in Node."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-crystal-lang",
+   "name": "Crystal",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Compiled language with Ruby-inspired syntax and static type inference.",
+   "url": "https://crystal-lang.org/reference/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "compiled",
+    "ruby-like",
+    "static-typing",
+    "fast"
+   ],
+   "tip": "Familiar to Ruby developers while running roughly an order of magnitude faster.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compiled language with Ruby-inspired syntax and static type inference.",
+    "ru": "Компилируемый язык с синтаксисом в духе Ruby и статическим выводом типов."
+   },
+   "localizedTip": {
+    "en": "Familiar to Ruby developers while running roughly an order of magnitude faster."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-deno",
    "name": "Deno",
    "kind": "library",
@@ -31654,6 +33702,76 @@
    },
    "localizedTip": {
     "en": "The permission flags are the point: run untrusted code without network access and it simply cannot phone home."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-emscripten",
+   "name": "Emscripten",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Compiles C and C++ to WebAssembly, the toolchain behind most ported native web apps.",
+   "url": "https://emscripten.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "wasm",
+    "c",
+    "cpp",
+    "compiler"
+   ],
+   "tip": "Its emulated filesystem and SDL layers are why large native codebases port with modest changes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compiles C and C++ to WebAssembly, the toolchain behind most ported native web apps.",
+    "ru": "Компилирует C и C++ в WebAssembly — тулчейн большинства портированных нативных веб-приложений."
+   },
+   "localizedTip": {
+    "en": "Its emulated filesystem and SDL layers are why large native codebases port with modest changes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nim",
+   "name": "Nim",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Statically typed compiled language with Python-like syntax and strong metaprogramming.",
+   "url": "https://nim-lang.org/documentation.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "compiled",
+    "python-like",
+    "performance",
+    "metaprogramming"
+   ],
+   "tip": "Compiles to C, which is why binaries are small and it runs almost anywhere C does.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Statically typed compiled language with Python-like syntax and strong metaprogramming.",
+    "ru": "Статически типизированный компилируемый язык с синтаксисом в духе Python и сильным метапрограммированием."
+   },
+   "localizedTip": {
+    "en": "Compiles to C, which is why binaries are small and it runs almost anywhere C does."
    },
    "pricing": {
     "model": "openSource",
@@ -31724,6 +33842,146 @@
    },
    "localizedTip": {
     "en": "Turn on strict mode in a new project: retrofitting it into an old codebase is far more painful."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-wasm-pack",
+   "name": "wasm-pack",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Builds Rust into WebAssembly npm packages with generated JavaScript bindings.",
+   "url": "https://rustwasm.github.io/wasm-pack/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "wasm",
+    "rust",
+    "npm",
+    "bindings"
+   ],
+   "tip": "Generates TypeScript definitions automatically, so the WASM module feels like a normal typed npm package.",
+   "verifiedAt": "2026-08-17",
+   "install": "cargo install wasm-pack",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds Rust into WebAssembly npm packages with generated JavaScript bindings.",
+    "ru": "Собирает Rust в npm-пакеты WebAssembly с автогенерируемыми JavaScript-биндингами."
+   },
+   "localizedTip": {
+    "en": "Generates TypeScript definitions automatically, so the WASM module feels like a normal typed npm package."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-wasmer",
+   "name": "Wasmer",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "WebAssembly runtime with bindings for many host languages and a package registry.",
+   "url": "https://docs.wasmer.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "wasm",
+    "runtime",
+    "universal",
+    "embeddable"
+   ],
+   "tip": "Its multi-language embedding story is the main differentiator versus Wasmtime.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "WebAssembly runtime with bindings for many host languages and a package registry.",
+    "ru": "Рантайм WebAssembly с биндингами для многих языков и реестром пакетов."
+   },
+   "localizedTip": {
+    "en": "Its multi-language embedding story is the main differentiator versus Wasmtime."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-wasmtime",
+   "name": "Wasmtime",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Standalone WebAssembly runtime from the Bytecode Alliance, usable as an embedded sandbox.",
+   "url": "https://docs.wasmtime.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "wasm",
+    "runtime",
+    "bytecode-alliance",
+    "sandboxing"
+   ],
+   "tip": "WASM's capability-based sandbox makes it a strong option for running untrusted plugin code safely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Standalone WebAssembly runtime from the Bytecode Alliance, usable as an embedded sandbox.",
+    "ru": "Автономный рантайм WebAssembly от Bytecode Alliance, применим как встраиваемая песочница."
+   },
+   "localizedTip": {
+    "en": "WASM's capability-based sandbox makes it a strong option for running untrusted plugin code safely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-zig",
+   "name": "Zig",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Systems programming language with manual memory management and excellent C interop.",
+   "url": "https://ziglang.org/documentation/master/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "systems",
+    "c-interop",
+    "compiler",
+    "manual-memory"
+   ],
+   "tip": "Its C compiler mode alone is useful — zig cc works as a drop-in cross-compiling C toolchain.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Systems programming language with manual memory management and excellent C interop.",
+    "ru": "Язык системного программирования с ручным управлением памятью и отличной совместимостью с C."
+   },
+   "localizedTip": {
+    "en": "Its C compiler mode alone is useful — zig cc works as a drop-in cross-compiling C toolchain."
    },
    "pricing": {
     "model": "openSource",
@@ -32058,6 +34316,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-cmdk",
+   "name": "cmdk",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Composable command palette component for React, the pattern behind Cmd+K menus.",
+   "url": "https://cmdk.paco.me/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "command-palette",
+    "react",
+    "search",
+    "keyboard"
+   ],
+   "tip": "Ships unstyled, so it adapts to any design system rather than fighting one.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i cmdk",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Composable command palette component for React, the pattern behind Cmd+K menus.",
+    "ru": "Композируемый компонент командной палитры для React — паттерн меню по Cmd+K."
+   },
+   "localizedTip": {
+    "en": "Ships unstyled, so it adapts to any design system rather than fighting one."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-codemirror",
    "name": "CodeMirror 6",
    "kind": "library",
@@ -32140,6 +34433,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-dnd-kit",
+   "name": "dnd kit",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Modern, accessible drag-and-drop toolkit for React with keyboard support.",
+   "url": "https://docs.dndkit.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "drag-and-drop",
+    "react",
+    "accessible",
+    "modular"
+   ],
+   "tip": "Keyboard-accessible dragging out of the box is the main reason to pick it over react-beautiful-dnd.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @dnd-kit/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern, accessible drag-and-drop toolkit for React with keyboard support.",
+    "ru": "Современный доступный тулкит drag-and-drop для React с поддержкой клавиатуры."
+   },
+   "localizedTip": {
+    "en": "Keyboard-accessible dragging out of the box is the main reason to pick it over react-beautiful-dnd."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-eleventy",
    "name": "Eleventy",
    "kind": "library",
@@ -32180,6 +34508,76 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-embla-carousel",
+   "name": "Embla Carousel",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Lightweight, dependency-free carousel with precise scroll physics.",
+   "url": "https://www.embla-carousel.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "carousel",
+    "slider",
+    "lightweight",
+    "accessible"
+   ],
+   "tip": "Its physics feel native on touch devices, which is where most carousel libraries fall apart.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i embla-carousel",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight, dependency-free carousel with precise scroll physics.",
+    "ru": "Лёгкая карусель без зависимостей с точной физикой прокрутки."
+   },
+   "localizedTip": {
+    "en": "Its physics feel native on touch devices, which is where most carousel libraries fall apart."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-floating-ui",
+   "name": "Floating UI",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Positioning engine for tooltips, popovers and dropdowns, the successor to Popper.js.",
+   "url": "https://floating-ui.com/docs/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tooltips",
+    "popovers",
+    "positioning",
+    "anchoring"
+   ],
+   "tip": "It handles viewport collision and flipping, which is the part everyone gets wrong hand-rolling a tooltip.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @floating-ui/dom",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Positioning engine for tooltips, popovers and dropdowns, the successor to Popper.js.",
+    "ru": "Движок позиционирования для тултипов, поповеров и дропдаунов, преемник Popper.js."
+   },
+   "localizedTip": {
+    "en": "It handles viewport collision and flipping, which is the part everyone gets wrong hand-rolling a tooltip."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -33568,6 +35966,41 @@
    },
    "localizedTip": {
     "en": "It renders nothing, which is why it fits any design system without a fight."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-tanstack-virtual",
+   "name": "TanStack Virtual",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Headless list and grid virtualization for rendering huge datasets smoothly.",
+   "url": "https://tanstack.com/virtual/latest",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "virtualization",
+    "performance",
+    "lists",
+    "headless"
+   ],
+   "tip": "Only becomes necessary past roughly a thousand DOM nodes — below that it adds complexity for no gain.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @tanstack/virtual-core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless list and grid virtualization for rendering huge datasets smoothly.",
+    "ru": "Headless виртуализация списков и сеток для плавного рендеринга огромных наборов данных."
+   },
+   "localizedTip": {
+    "en": "Only becomes necessary past roughly a thousand DOM nodes — below that it adds complexity for no gain."
    },
    "pricing": {
     "model": "openSource",
@@ -35610,6 +38043,181 @@
    "categoryGroup": "media"
   },
   {
+   "id": "lib-librosa",
+   "name": "librosa",
+   "kind": "library",
+   "category": "Аудио и голос",
+   "summary": "Python library for audio analysis: spectrograms, beat tracking, feature extraction.",
+   "url": "https://librosa.org/doc/latest/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "audio",
+    "analysis",
+    "python",
+    "features"
+   ],
+   "tip": "The standard starting point for classical audio feature engineering before reaching for a neural model.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install librosa",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python library for audio analysis: spectrograms, beat tracking, feature extraction.",
+    "ru": "Python-библиотека анализа аудио: спектрограммы, отслеживание ритма, извлечение признаков."
+   },
+   "localizedTip": {
+    "en": "The standard starting point for classical audio feature engineering before reaching for a neural model."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-pyannote",
+   "name": "pyannote.audio",
+   "kind": "library",
+   "category": "Аудио и голос",
+   "summary": "Speaker diarization toolkit: who spoke when, in a multi-speaker recording.",
+   "url": "https://github.com/pyannote/pyannote-audio",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diarization",
+    "speakers",
+    "audio",
+    "pytorch"
+   ],
+   "tip": "Requires accepting model terms on Hugging Face before the pretrained pipeline will download.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pyannote.audio",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Speaker diarization toolkit: who spoke when, in a multi-speaker recording.",
+    "ru": "Тулкит разделения говорящих: кто и когда говорил в многоголосой записи."
+   },
+   "localizedTip": {
+    "en": "Requires accepting model terms on Hugging Face before the pretrained pipeline will download."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-pydub",
+   "name": "Pydub",
+   "kind": "library",
+   "category": "Аудио и голос",
+   "summary": "Simple audio manipulation in Python: slice, concatenate, adjust volume, convert formats.",
+   "url": "https://github.com/jiaaro/pydub",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "audio",
+    "manipulation",
+    "python",
+    "simple"
+   ],
+   "tip": "It shells out to FFmpeg, so FFmpeg must be installed separately or format conversion silently fails.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pydub",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple audio manipulation in Python: slice, concatenate, adjust volume, convert formats.",
+    "ru": "Простая работа с аудио в Python: нарезка, склейка, громкость, конвертация форматов."
+   },
+   "localizedTip": {
+    "en": "It shells out to FFmpeg, so FFmpeg must be installed separately or format conversion silently fails."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-tone-js-2",
+   "name": "Web Audio API",
+   "kind": "library",
+   "category": "Аудио и голос",
+   "summary": "The browser's native audio processing and synthesis API.",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "audio",
+    "browser",
+    "synthesis",
+    "standard"
+   ],
+   "tip": "Audio context must start from a user gesture — browsers block autoplay audio without one.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The browser's native audio processing and synthesis API.",
+    "ru": "Нативный API браузера для обработки и синтеза аудио."
+   },
+   "localizedTip": {
+    "en": "Audio context must start from a user gesture — browsers block autoplay audio without one."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-whisperx",
+   "name": "WhisperX",
+   "kind": "library",
+   "category": "Аудио и голос",
+   "summary": "Whisper transcription with word-level timestamps and speaker diarization.",
+   "url": "https://github.com/m-bain/whisperX",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "transcription",
+    "alignment",
+    "diarization",
+    "whisper"
+   ],
+   "tip": "Word-level alignment is what makes subtitle generation and clip-searching actually usable.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install whisperx",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Whisper transcription with word-level timestamps and speaker diarization.",
+    "ru": "Транскрипция Whisper с таймкодами на уровне слов и разделением говорящих."
+   },
+   "localizedTip": {
+    "en": "Word-level alignment is what makes subtitle generation and clip-searching actually usable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "lib-plyr",
    "name": "Plyr",
    "kind": "library",
@@ -35972,6 +38580,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "lib-excalibur-js",
+   "name": "Excalibur.js",
+   "kind": "library",
+   "category": "Игровые движки",
+   "summary": "TypeScript-first 2D game engine for the browser with batteries included.",
+   "url": "https://excaliburjs.com/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "2d",
+    "game-engine",
+    "browser"
+   ],
+   "tip": "Fuller than PixiJS (scenes, actors, collision built in) if you want an engine rather than a renderer.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i excalibur",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "TypeScript-first 2D game engine for the browser with batteries included.",
+    "ru": "2D игровой движок для браузера на TypeScript со всем необходимым из коробки."
+   },
+   "localizedTip": {
+    "en": "Fuller than PixiJS (scenes, actors, collision built in) if you want an engine rather than a renderer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "lib-godot",
    "name": "Godot Engine",
    "kind": "library",
@@ -35999,6 +38642,76 @@
    },
    "localizedTip": {
     "en": "GDScript is the fastest path to a first prototype; C# is there once performance matters."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-kaboom-js",
+   "name": "KAPLAY (Kaboom.js)",
+   "kind": "library",
+   "category": "Игровые движки",
+   "summary": "Fun, beginner-friendly JavaScript game library for quick 2D prototypes.",
+   "url": "https://kaplayjs.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "javascript",
+    "2d",
+    "beginner",
+    "fast-prototyping"
+   ],
+   "tip": "Its terse API makes game jams and teaching much faster than a full engine's setup.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i kaplay",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fun, beginner-friendly JavaScript game library for quick 2D prototypes.",
+    "ru": "Дружелюбная к новичкам JavaScript-библиотека для быстрых 2D-прототипов."
+   },
+   "localizedTip": {
+    "en": "Its terse API makes game jams and teaching much faster than a full engine's setup."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-matter-js",
+   "name": "Matter.js",
+   "kind": "library",
+   "category": "Игровые движки",
+   "summary": "2D rigid body physics engine for the browser.",
+   "url": "https://brm.io/matter-js/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "physics",
+    "2d",
+    "javascript",
+    "rigid-body"
+   ],
+   "tip": "Tune the timestep carefully — physics engines behave very differently on inconsistent frame rates.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i matter-js",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "2D rigid body physics engine for the browser.",
+    "ru": "2D физический движок твёрдых тел для браузера."
+   },
+   "localizedTip": {
+    "en": "Tune the timestep carefully — physics engines behave very differently on inconsistent frame rates."
    },
    "pricing": {
     "model": "openSource",
@@ -37858,6 +40571,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "mcp-memory-bank",
+   "name": "Memory Bank MCP",
+   "kind": "mcp",
+   "category": "Память и знания",
+   "summary": "File-based project memory an agent reads and updates across sessions.",
+   "url": "https://github.com/alioshr/memory-bank-mcp",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "memory",
+    "project-context",
+    "files",
+    "community"
+   ],
+   "tip": "Plain markdown files means the memory is reviewable and version-controllable, unlike an opaque vector store.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx -y @allpepper/memory-bank-mcp",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "File-based project memory an agent reads and updates across sessions.",
+    "ru": "Файловая память проекта, которую агент читает и обновляет между сессиями."
+   },
+   "localizedTip": {
+    "en": "Plain markdown files means the memory is reviewable and version-controllable, unlike an opaque vector store."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "mcp-memory",
    "name": "Memory MCP Server",
    "kind": "mcp",
@@ -38053,6 +40801,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "mcp-sqlite-official",
+   "name": "SQLite MCP (official)",
+   "kind": "mcp",
+   "category": "Базы данных и ORM",
+   "summary": "Reference server for querying and modifying SQLite databases.",
+   "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/sqlite",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sqlite",
+    "database",
+    "official",
+    "reference"
+   ],
+   "tip": "Good template for writing your own database MCP server — the code is short and readable.",
+   "verifiedAt": "2026-08-17",
+   "install": "uvx mcp-server-sqlite",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reference server for querying and modifying SQLite databases.",
+    "ru": "Эталонный сервер для запросов и изменения баз данных SQLite."
+   },
+   "localizedTip": {
+    "en": "Good template for writing your own database MCP server — the code is short and readable."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -38287,6 +41070,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "mcp-clickup",
+   "name": "ClickUp MCP",
+   "kind": "mcp",
+   "category": "Планирование и календари",
+   "summary": "Community server for ClickUp tasks, lists and spaces.",
+   "url": "https://github.com/taazkareem/clickup-mcp-server",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "clickup",
+    "tasks",
+    "project-management",
+    "community"
+   ],
+   "tip": "Scope the API token to one workspace before letting an agent create or move tasks.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx -y @taazkareem/clickup-mcp-server",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community server for ClickUp tasks, lists and spaces.",
+    "ru": "Сервер сообщества для задач, списков и пространств ClickUp."
+   },
+   "localizedTip": {
+    "en": "Scope the API token to one workspace before letting an agent create or move tasks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "mcp-todoist",
    "name": "Todoist MCP",
    "kind": "mcp",
@@ -38317,6 +41135,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "mcp-trello",
+   "name": "Trello MCP",
+   "kind": "mcp",
+   "category": "Планирование и календари",
+   "summary": "Community server for Trello boards, lists and cards.",
+   "url": "https://github.com/delorenj/mcp-server-trello",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "trello",
+    "kanban",
+    "boards",
+    "community"
+   ],
+   "tip": "Board IDs are opaque — have the agent list boards first rather than hardcoding an ID.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community server for Trello boards, lists and cards.",
+    "ru": "Сервер сообщества для досок, списков и карточек Trello."
+   },
+   "localizedTip": {
+    "en": "Board IDs are opaque — have the agent list boards first rather than hardcoding an ID."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -38456,6 +41309,76 @@
     "checkedAt": "2026-08-12"
    },
    "categoryGroup": "backend"
+  },
+  {
+   "id": "mcp-pubmed",
+   "name": "PubMed MCP",
+   "kind": "mcp",
+   "category": "Здоровье и медицина",
+   "summary": "Search biomedical literature from PubMed as an agent tool.",
+   "url": "https://github.com/JackKuo666/PubMed-MCP-Server",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pubmed",
+    "medical",
+    "research",
+    "community"
+   ],
+   "tip": "Useful for literature review workflows, but always verify claims against the actual abstract.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Search biomedical literature from PubMed as an agent tool.",
+    "ru": "Поиск биомедицинской литературы PubMed как инструмент агента."
+   },
+   "localizedTip": {
+    "en": "Useful for literature review workflows, but always verify claims against the actual abstract."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "mcp-arxiv",
+   "name": "arXiv MCP Server",
+   "kind": "mcp",
+   "category": "Наука и исследования",
+   "summary": "Search and retrieve arXiv papers directly into an agent's context.",
+   "url": "https://github.com/blazickjp/arxiv-mcp-server",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "arxiv",
+    "papers",
+    "research",
+    "community"
+   ],
+   "tip": "Downloads full paper text, so a long paper can eat a large share of the context window — summarize per section.",
+   "verifiedAt": "2026-08-17",
+   "install": "uvx arxiv-mcp-server",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Search and retrieve arXiv papers directly into an agent's context.",
+    "ru": "Поиск и получение статей arXiv прямо в контекст агента."
+   },
+   "localizedTip": {
+    "en": "Downloads full paper text, so a long paper can eat a large share of the context window — summarize per section."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
   },
   {
    "id": "mcp-brave-search",
@@ -38625,6 +41548,41 @@
    "pricing": {
     "model": "freemium",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "mcp-azure-devops",
+   "name": "Azure DevOps MCP",
+   "kind": "mcp",
+   "category": "Git и совместная работа",
+   "summary": "Official Microsoft server for Azure DevOps work items, repos and pipelines.",
+   "url": "https://github.com/microsoft/azure-devops-mcp",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "azure-devops",
+    "official",
+    "microsoft",
+    "pipelines"
+   ],
+   "tip": "Personal access token scope determines what the agent can touch — start with read-only scopes.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx -y @azure-devops/mcp",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Official Microsoft server for Azure DevOps work items, repos and pipelines.",
+    "ru": "Официальный сервер Microsoft для рабочих элементов, репозиториев и пайплайнов Azure DevOps."
+   },
+   "localizedTip": {
+    "en": "Personal access token scope determines what the agent can touch — start with read-only scopes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -38996,6 +41954,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "mcp-code-runner",
+   "name": "Code Runner MCP",
+   "kind": "mcp",
+   "category": "Браузер и автоматизация",
+   "summary": "Runs code snippets locally in many languages from an agent tool call.",
+   "url": "https://github.com/formulahendry/mcp-server-code-runner",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-execution",
+    "local",
+    "multi-language",
+    "community"
+   ],
+   "tip": "Runs on your host with your permissions — prefer a sandboxed alternative for untrusted generated code.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx -y mcp-server-code-runner",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs code snippets locally in many languages from an agent tool call.",
+    "ru": "Запускает фрагменты кода локально на многих языках по вызову инструмента агента."
+   },
+   "localizedTip": {
+    "en": "Runs on your host with your permissions — prefer a sandboxed alternative for untrusted generated code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -39764,6 +42757,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "mcp-aws-official",
+   "name": "AWS MCP Servers (official)",
+   "kind": "mcp",
+   "category": "Облако и деплой",
+   "summary": "AWS Labs' collection of official MCP servers covering many AWS services.",
+   "url": "https://awslabs.github.io/mcp/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "aws",
+    "cloud",
+    "official",
+    "multi-service"
+   ],
+   "tip": "Install only the specific service servers you need — the full set is large and mostly irrelevant per project.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AWS Labs' collection of official MCP servers covering many AWS services.",
+    "ru": "Коллекция официальных MCP-серверов AWS Labs, покрывающая множество сервисов AWS."
+   },
+   "localizedTip": {
+    "en": "Install only the specific service servers you need — the full set is large and mostly irrelevant per project."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "mcp-digitalocean-official",
    "name": "DigitalOcean MCP (official)",
    "kind": "mcp",
@@ -40481,6 +43509,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "mcp-youtube-transcript",
+   "name": "YouTube Transcript MCP",
+   "kind": "mcp",
+   "category": "Видео и медиа",
+   "summary": "Fetches YouTube video transcripts for summarization and search.",
+   "url": "https://github.com/jkawamoto/mcp-youtube-transcript",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "youtube",
+    "transcripts",
+    "video",
+    "community"
+   ],
+   "tip": "Only works on videos with captions available — auto-generated captions count, but not all videos have them.",
+   "verifiedAt": "2026-08-17",
+   "install": "uvx mcp-youtube-transcript",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fetches YouTube video transcripts for summarization and search.",
+    "ru": "Получает транскрипты видео YouTube для суммаризации и поиска."
+   },
+   "localizedTip": {
+    "en": "Only works on videos with captions available — auto-generated captions count, but not all videos have them."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "mcp-intercom-official",
    "name": "Intercom MCP (official)",
    "kind": "mcp",
@@ -40549,6 +43612,76 @@
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
+  },
+  {
+   "id": "skill-define-success",
+   "name": "Define Success Criteria",
+   "kind": "skill",
+   "category": "AI-оценка и safety",
+   "summary": "Writing measurable success criteria before building an LLM feature.",
+   "url": "https://docs.claude.com/en/docs/test-and-evaluate/define-success",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "evaluation",
+    "metrics",
+    "criteria",
+    "claude"
+   ],
+   "tip": "Without this, evaluation becomes vibes — decide what 'good' means before you start tuning prompts.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Writing measurable success criteria before building an LLM feature.",
+    "ru": "Формулирование измеримых критериев успеха до разработки LLM-функции."
+   },
+   "localizedTip": {
+    "en": "Without this, evaluation becomes vibes — decide what 'good' means before you start tuning prompts."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "skill-reduce-hallucinations",
+   "name": "Reduce Hallucinations",
+   "kind": "skill",
+   "category": "AI-оценка и safety",
+   "summary": "Techniques for grounding answers and letting the model say it does not know.",
+   "url": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hallucinations",
+    "grounding",
+    "accuracy",
+    "claude"
+   ],
+   "tip": "Explicitly permitting \"I don't know\" in the prompt measurably reduces confident fabrication.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Techniques for grounding answers and letting the model say it does not know.",
+    "ru": "Техники привязки ответов к источникам и разрешения модели сказать, что она не знает."
+   },
+   "localizedTip": {
+    "en": "Explicitly permitting \"I don't know\" in the prompt measurably reduces confident fabrication."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
   },
   {
    "id": "skill-mcp-authorization",
@@ -40718,6 +43851,41 @@
    },
    "localizedTip": {
     "en": "Read the transport and authorization sections before exposing a server beyond localhost."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "skill-chain-of-thought",
+   "name": "Chain of Thought Prompting",
+   "kind": "skill",
+   "category": "Планирование и reasoning",
+   "summary": "Letting the model reason step by step before answering, and when it actually helps.",
+   "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-of-thought",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prompting",
+    "reasoning",
+    "technique",
+    "claude"
+   ],
+   "tip": "It costs latency and tokens — reserve it for genuinely multi-step problems, not simple lookups.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Letting the model reason step by step before answering, and when it actually helps.",
+    "ru": "Пошаговое рассуждение модели перед ответом и случаи, когда это реально помогает."
+   },
+   "localizedTip": {
+    "en": "It costs latency and tokens — reserve it for genuinely multi-step problems, not simple lookups."
    },
    "pricing": {
     "model": "free",
@@ -41671,6 +44839,41 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-anthropic-courses",
+   "name": "Anthropic Courses",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Structured courses on prompt engineering, tool use and building with the Claude API.",
+   "url": "https://github.com/anthropics/courses",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "learning",
+    "claude",
+    "tutorials",
+    "prompting"
+   ],
+   "tip": "The prompt engineering course is the most practical starting point if you are new to the API.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Structured courses on prompt engineering, tool use and building with the Claude API.",
+    "ru": "Структурированные курсы по prompt engineering, tool use и разработке с Claude API."
+   },
+   "localizedTip": {
+    "en": "The prompt engineering course is the most practical starting point if you are new to the API."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-model-cards",
    "name": "Anthropic Model Cards",
    "kind": "skill",
@@ -41706,6 +44909,41 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-prompt-library",
+   "name": "Anthropic Prompt Library",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Ready-made prompts for dozens of common tasks, usable as starting templates.",
+   "url": "https://docs.claude.com/en/resources/prompt-library/library",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prompts",
+    "examples",
+    "templates",
+    "claude"
+   ],
+   "tip": "Adapt rather than copy — these are illustrative starting points, not tuned for your specific data.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Ready-made prompts for dozens of common tasks, usable as starting templates.",
+    "ru": "Готовые промпты для десятков типовых задач, годятся как стартовые шаблоны."
+   },
+   "localizedTip": {
+    "en": "Adapt rather than copy — these are illustrative starting points, not tuned for your specific data."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-anthropic-transparency-hub",
    "name": "Anthropic Transparency Hub",
    "kind": "skill",
@@ -41733,6 +44971,41 @@
    },
    "localizedTip": {
     "en": "Check the current usage policy here before designing a feature in a regulated or high-stakes domain."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-be-clear-direct",
+   "name": "Be Clear and Direct",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "The single highest-leverage prompting technique: say exactly what you want.",
+   "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prompting",
+    "clarity",
+    "technique",
+    "claude"
+   ],
+   "tip": "Most prompt failures are ambiguity, not model capability — fix the prompt before switching models.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The single highest-leverage prompting technique: say exactly what you want.",
+    "ru": "Самая эффективная техника промптинга: сказать точно, что именно нужно."
+   },
+   "localizedTip": {
+    "en": "Most prompt failures are ambiguity, not model capability — fix the prompt before switching models."
    },
    "pricing": {
     "model": "free",
@@ -42510,6 +45783,76 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-increase-consistency",
+   "name": "Increase Output Consistency",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Getting reliably formatted output across repeated runs.",
+   "url": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/increase-consistency",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "consistency",
+    "formatting",
+    "structured",
+    "claude"
+   ],
+   "tip": "Prefilling the assistant turn with the opening of your desired format is the simplest reliable trick.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Getting reliably formatted output across repeated runs.",
+    "ru": "Получение стабильно форматированного вывода при повторных запусках."
+   },
+   "localizedTip": {
+    "en": "Prefilling the assistant turn with the opening of your desired format is the simplest reliable trick."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-long-context-tips",
+   "name": "Long Context Tips",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Structuring very long inputs so the model reliably finds what matters.",
+   "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/long-context-tips",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "context",
+    "long-documents",
+    "structure",
+    "claude"
+   ],
+   "tip": "Put the question after the documents, not before — it measurably improves retrieval from long context.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Structuring very long inputs so the model reliably finds what matters.",
+    "ru": "Структурирование очень длинных входных данных, чтобы модель надёжно находила нужное."
+   },
+   "localizedTip": {
+    "en": "Put the question after the documents, not before — it measurably improves retrieval from long context."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-mcp-in-claude-code",
    "name": "MCP in Claude Code",
    "kind": "skill",
@@ -42607,6 +45950,41 @@
    },
    "localizedTip": {
     "en": "Note the token cost honestly reported here before choosing a multi-agent design."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-use-examples",
+   "name": "Multishot Prompting",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Using examples to pin down output format and style more reliably than description alone.",
+   "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prompting",
+    "examples",
+    "few-shot",
+    "claude"
+   ],
+   "tip": "Three to five diverse examples usually beat a long prose description of the desired format.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Using examples to pin down output format and style more reliably than description alone.",
+    "ru": "Использование примеров для надёжной фиксации формата и стиля вывода лучше, чем одно описание."
+   },
+   "localizedTip": {
+    "en": "Three to five diverse examples usually beat a long prose description of the desired format."
    },
    "pricing": {
     "model": "free",
@@ -42747,6 +46125,41 @@
    },
    "localizedTip": {
     "en": "Prefer this over parsing free-text JSON from a prompt — it removes the whole class of malformed output."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-system-prompts",
+   "name": "System Prompts",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Using the system prompt to set persistent role, context and constraints.",
+   "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/system-prompts",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prompting",
+    "role",
+    "system",
+    "claude"
+   ],
+   "tip": "Put stable instructions here and variable content in user turns — that split also maximizes cache hits.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Using the system prompt to set persistent role, context and constraints.",
+    "ru": "Использование системного промпта для постоянной роли, контекста и ограничений."
+   },
+   "localizedTip": {
+    "en": "Put stable instructions here and variable content in user turns — that split also maximizes cache hits."
    },
    "pricing": {
     "model": "free",

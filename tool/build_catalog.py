@@ -212,6 +212,9 @@ MERGE = {
  'paid-rippling': 'api-rippling', 'paid-planetscale-vitess': 'api-planetscale-2',
  'paid-dynatrace': 'api-dynatrace', 'paid-bunny-net': 'api-bunny-net',
  'paid-intercom': 'api-intercom', 'paid-front-app': 'api-front-app',
+ 'paid-hive-moderation': 'api-hive-moderation',
+ 'paid-openai-embeddings': 'api-openai-embeddings',
+ 'paid-isbndb': 'api-isbndb',
 }
 
 def build_showcases(item_id):
