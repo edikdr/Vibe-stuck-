@@ -17770,6 +17770,188 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-8thwall",
+   "name": "8th Wall",
+   "kind": "api",
+   "category": "Анимация и 3D",
+   "summary": "WebAR platform delivering augmented reality through a browser, no app install.",
+   "url": "https://www.8thwall.com/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "webar",
+    "ar",
+    "browser",
+    "niantic",
+    "pricing",
+    "views",
+    "subscription"
+   ],
+   "tip": "No app install is the entire value proposition — compare against native ARKit/ARCore on that basis.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "WebAR platform delivering augmented reality through a browser, no app install.",
+    "ru": "WebAR-платформа, доставляющая дополненную реальность через браузер без установки приложения."
+   },
+   "localizedTip": {
+    "en": "No app install is the entire value proposition — compare against native ARKit/ARCore on that basis."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$99 per month per project",
+    "freeQuota": "free development and testing",
+    "url": "https://www.8thwall.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-luma-genie",
+   "name": "Luma Genie",
+   "kind": "api",
+   "category": "Анимация и 3D",
+   "summary": "Text-to-3D model generation from Luma Labs.",
+   "url": "https://lumalabs.ai/genie",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "3d-generation",
+    "ai",
+    "text-to-3d",
+    "models"
+   ],
+   "tip": "Useful for rapid concept iteration; hand-modelling still wins for final production assets.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Text-to-3D model generation from Luma Labs.",
+    "ru": "Генерация 3D-моделей из текста от Luma Labs."
+   },
+   "localizedTip": {
+    "en": "Useful for rapid concept iteration; hand-modelling still wins for final production assets."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-meshy",
+   "name": "Meshy",
+   "kind": "api",
+   "category": "Анимация и 3D",
+   "summary": "AI 3D model generation from text prompts or reference images.",
+   "url": "https://docs.meshy.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "3d-generation",
+    "ai",
+    "models",
+    "texturing"
+   ],
+   "tip": "Generated topology is rarely production-ready for animation — plan for retopology if you need to rig it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AI 3D model generation from text prompts or reference images.",
+    "ru": "Генерация 3D-моделей ИИ по текстовым промптам или референсным изображениям."
+   },
+   "localizedTip": {
+    "en": "Generated topology is rarely production-ready for animation — plan for retopology if you need to rig it."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-polyhaven",
+   "name": "Poly Haven",
+   "kind": "api",
+   "category": "Анимация и 3D",
+   "summary": "Free CC0 HDRIs, textures and 3D models with a public API, no key required.",
+   "url": "https://redocly.github.io/redoc/?url=https://api.polyhaven.com/api-docs.json",
+   "access": "noKey",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "3d",
+    "textures",
+    "hdri",
+    "cc0"
+   ],
+   "tip": "Everything is CC0, so there are no attribution requirements even in commercial work.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free CC0 HDRIs, textures and 3D models with a public API, no key required.",
+    "ru": "Бесплатные CC0 HDRI, текстуры и 3D-модели с публичным API, без ключа."
+   },
+   "localizedTip": {
+    "en": "Everything is CC0, so there are no attribution requirements even in commercial work."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-sketchfab",
+   "name": "Sketchfab API",
+   "kind": "api",
+   "category": "Анимация и 3D",
+   "summary": "3D model hosting, search and an embeddable web viewer.",
+   "url": "https://sketchfab.com/developers",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "3d",
+    "models",
+    "marketplace",
+    "viewer"
+   ],
+   "tip": "Its embed viewer handles format conversion and LOD automatically, saving a lot of WebGL work.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "3D model hosting, search and an embeddable web viewer.",
+    "ru": "Хостинг 3D-моделей, поиск и встраиваемый веб-просмотрщик."
+   },
+   "localizedTip": {
+    "en": "Its embed viewer handles format conversion and LOD automatically, saving a lot of WebGL work."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "api-supernova-io",
    "name": "Supernova",
    "kind": "api",
@@ -17943,6 +18125,41 @@
    },
    "localizedTip": {
     "en": "Autofill APIs populate a brand template with your data — faster than building a design generator from scratch."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-clipdrop",
+   "name": "ClipDrop",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Image editing APIs: background removal, cleanup, upscaling and relighting.",
+   "url": "https://clipdrop.co/apis/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "image-editing",
+    "upscale",
+    "cleanup",
+    "stability"
+   ],
+   "tip": "The cleanup endpoint removes unwanted objects, which is often more useful than full regeneration.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Image editing APIs: background removal, cleanup, upscaling and relighting.",
+    "ru": "API редактирования изображений: удаление фона, очистка, апскейл и перерасчёт освещения."
+   },
+   "localizedTip": {
+    "en": "The cleanup endpoint removes unwanted objects, which is often more useful than full regeneration."
    },
    "pricing": {
     "model": "freemium",
@@ -18351,6 +18568,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "api-photoroom",
+   "name": "PhotoRoom",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Background removal and product photo editing tuned for ecommerce catalogs.",
+   "url": "https://www.photoroom.com/api",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "background-removal",
+    "ecommerce",
+    "images",
+    "editing"
+   ],
+   "tip": "Its product-photo templates handle shadows and reflections better than generic background removal.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Background removal and product photo editing tuned for ecommerce catalogs.",
+    "ru": "Удаление фона и редактирование фото товаров, заточено под ecommerce-каталоги."
+   },
+   "localizedTip": {
+    "en": "Its product-photo templates handle shadows and reflections better than generic background removal."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "api-pixabay",
    "name": "Pixabay API",
    "kind": "api",
@@ -18378,6 +18630,41 @@
    "pricing": {
     "model": "freemium",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-pixelcut",
+   "name": "Pixelcut API",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Background removal, upscaling and product photo generation.",
+   "url": "https://www.pixelcut.ai/api",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "background-removal",
+    "upscale",
+    "images",
+    "ecommerce"
+   ],
+   "tip": "Compare output against PhotoRoom on your own product images — quality differs noticeably by category.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Background removal, upscaling and product photo generation.",
+    "ru": "Удаление фона, апскейл и генерация фото товаров."
+   },
+   "localizedTip": {
+    "en": "Compare output against PhotoRoom on your own product images — quality differs noticeably by category."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
   },
@@ -18822,6 +19109,47 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "api-vectorizer-ai",
+   "name": "Vectorizer.AI",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Converts raster images into clean vector SVG artwork.",
+   "url": "https://vectorizer.ai/api",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vectorization",
+    "svg",
+    "raster-to-vector",
+    "tracing",
+    "pricing",
+    "credits"
+   ],
+   "tip": "Results are far better on flat graphics and logos than on photographs, which vectorize poorly by nature.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Converts raster images into clean vector SVG artwork.",
+    "ru": "Преобразует растровые изображения в чистую векторную SVG-графику."
+   },
+   "localizedTip": {
+    "en": "Results are far better on flat graphics and logos than on photographs, which vectorize poorly by nature."
+   },
+   "pricing": {
+    "model": "credits",
+    "from": "from ~$9.99 per credit pack",
+    "freeQuota": "free watermarked previews",
+    "url": "https://vectorizer.ai/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "api-assemblyai",
    "name": "AssemblyAI",
    "kind": "api",
@@ -18857,6 +19185,41 @@
     "freeQuota": "Free tier with limited hours",
     "url": "https://www.assemblyai.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-assemblyai-lemur",
+   "name": "AssemblyAI LeMUR",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Applies an LLM directly to audio transcripts for summarization and question answering.",
+   "url": "https://www.assemblyai.com/docs/lemur",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "audio",
+    "llm",
+    "summarization",
+    "qa"
+   ],
+   "tip": "Avoids wiring transcription and an LLM together yourself when the task is purely transcript analysis.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Applies an LLM directly to audio transcripts for summarization and question answering.",
+    "ru": "Применяет LLM прямо к транскриптам аудио для суммаризации и ответов на вопросы."
+   },
+   "localizedTip": {
+    "en": "Avoids wiring transcription and an LLM together yourself when the task is purely transcript analysis."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -18972,6 +19335,257 @@
     "freeQuota": "10k characters per month free",
     "url": "https://elevenlabs.io/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-lalal-ai",
+   "name": "LALAL.AI",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Audio stem separation splitting tracks into vocals, drums, bass and other parts.",
+   "url": "https://www.lalal.ai/api/help/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stem-separation",
+    "audio",
+    "vocals",
+    "music",
+    "pricing",
+    "minutes"
+   ],
+   "tip": "Quality varies by source material — dense mixes separate noticeably worse than sparse ones.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Audio stem separation splitting tracks into vocals, drums, bass and other parts.",
+    "ru": "Разделение аудио на стемы: вокал, барабаны, бас и другие части."
+   },
+   "localizedTip": {
+    "en": "Quality varies by source material — dense mixes separate noticeably worse than sparse ones."
+   },
+   "pricing": {
+    "model": "credits",
+    "from": "from ~$18 per minute pack",
+    "freeQuota": "free trial minutes",
+    "url": "https://www.lalal.ai/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-playht",
+   "name": "PlayAI (Play.ht)",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Text-to-speech and voice cloning with low-latency streaming.",
+   "url": "https://docs.play.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tts",
+    "voice-cloning",
+    "audio",
+    "realtime"
+   ],
+   "tip": "Voice cloning requires consent from the voice owner — most providers require you to attest to this.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Text-to-speech and voice cloning with low-latency streaming.",
+    "ru": "Синтез речи и клонирование голоса с потоковой передачей и низкой задержкой."
+   },
+   "localizedTip": {
+    "en": "Voice cloning requires consent from the voice owner — most providers require you to attest to this."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-speechify",
+   "name": "Speechify API",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Text-to-speech aimed at reading long-form content aloud.",
+   "url": "https://docs.sws.speechify.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tts",
+    "accessibility",
+    "reading",
+    "voices"
+   ],
+   "tip": "Its voices are tuned for sustained listening rather than short prompts, which suits article narration.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Text-to-speech aimed at reading long-form content aloud.",
+    "ru": "Синтез речи для озвучивания длинных текстов."
+   },
+   "localizedTip": {
+    "en": "Its voices are tuned for sustained listening rather than short prompts, which suits article narration."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-stability-audio",
+   "name": "Stability AI Audio",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Sound effect and music generation from Stability AI's audio models.",
+   "url": "https://platform.stability.ai/docs/api-reference",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "audio-generation",
+    "sound-effects",
+    "music",
+    "stability"
+   ],
+   "tip": "Better suited to sound effects and loops than full songs — different tool from Suno or Udio.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Sound effect and music generation from Stability AI's audio models.",
+    "ru": "Генерация звуковых эффектов и музыки моделями аудио от Stability AI."
+   },
+   "localizedTip": {
+    "en": "Better suited to sound effects and loops than full songs — different tool from Suno or Udio."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-suno",
+   "name": "Suno",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "AI music generation producing full songs with vocals from a text prompt.",
+   "url": "https://suno.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "music-generation",
+    "ai",
+    "audio",
+    "songs"
+   ],
+   "tip": "Check the commercial-use terms for your plan tier before using generated music in a product.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AI music generation producing full songs with vocals from a text prompt.",
+    "ru": "Генерация музыки ИИ: полноценные песни с вокалом по текстовому промпту."
+   },
+   "localizedTip": {
+    "en": "Check the commercial-use terms for your plan tier before using generated music in a product."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-udio",
+   "name": "Udio",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "AI music creation platform with extension and remixing of generated tracks.",
+   "url": "https://www.udio.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "music-generation",
+    "ai",
+    "audio",
+    "creative"
+   ],
+   "tip": "Licensing for generated audio is still an evolving area — verify terms before commercial release.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AI music creation platform with extension and remixing of generated tracks.",
+    "ru": "Платформа создания музыки ИИ с расширением и ремиксом сгенерированных треков."
+   },
+   "localizedTip": {
+    "en": "Licensing for generated audio is still an evolving area — verify terms before commercial release."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-creatomate",
+   "name": "Creatomate",
+   "kind": "api",
+   "category": "Видео и медиа",
+   "summary": "Template-based video and image generation for automated content production.",
+   "url": "https://creatomate.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "video",
+    "automation",
+    "templates",
+    "rendering"
+   ],
+   "tip": "Design the template once in their editor, then vary it per-render with data — much like Bannerbear for video.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Template-based video and image generation for automated content production.",
+    "ru": "Генерация видео и изображений по шаблонам для автоматизированного производства контента."
+   },
+   "localizedTip": {
+    "en": "Design the template once in their editor, then vary it per-render with data — much like Bannerbear for video."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -19146,6 +19760,41 @@
    },
    "localizedTip": {
     "en": "Gen-3/Gen-4 model choice matters a lot for cost and quality — check current model pricing before batch jobs."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-shotstack",
+   "name": "Shotstack",
+   "kind": "api",
+   "category": "Видео и медиа",
+   "summary": "Programmatic video editing and rendering from a JSON timeline description.",
+   "url": "https://shotstack.io/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "video-editing",
+    "api",
+    "rendering",
+    "automation"
+   ],
+   "tip": "Describing edits as JSON makes automated, templated video generation genuinely practical.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Programmatic video editing and rendering from a JSON timeline description.",
+    "ru": "Программное редактирование и рендеринг видео из JSON-описания таймлайна."
+   },
+   "localizedTip": {
+    "en": "Describing edits as JSON makes automated, templated video generation genuinely practical."
    },
    "pricing": {
     "model": "freemium",
@@ -26427,6 +27076,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-hypercorn",
+   "name": "Granian",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Rust-based HTTP server for Python ASGI and WSGI applications.",
+   "url": "https://github.com/emmett-framework/granian",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "asgi",
+    "rust",
+    "server"
+   ],
+   "tip": "Worth benchmarking against Uvicorn on your own workload — the gap varies by application shape.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install granian",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Rust-based HTTP server for Python ASGI and WSGI applications.",
+    "ru": "HTTP-сервер на Rust для Python-приложений ASGI и WSGI."
+   },
+   "localizedTip": {
+    "en": "Worth benchmarking against Uvicorn on your own workload — the gap varies by application shape."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-graphql-yoga",
    "name": "GraphQL Yoga",
    "kind": "library",
@@ -26489,6 +27173,41 @@
    },
    "localizedTip": {
     "en": "Browsers cannot speak gRPC natively — you need grpc-web or Connect for frontend clients."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-gunicorn",
+   "name": "Gunicorn",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Python WSGI server and process manager, commonly fronting Uvicorn workers.",
+   "url": "https://docs.gunicorn.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "wsgi",
+    "server",
+    "process-manager"
+   ],
+   "tip": "Set worker count from CPU cores, not arbitrarily — too many workers thrash memory without adding throughput.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install gunicorn",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python WSGI server and process manager, commonly fronting Uvicorn workers.",
+    "ru": "WSGI-сервер и менеджер процессов Python, часто управляет воркерами Uvicorn."
+   },
+   "localizedTip": {
+    "en": "Set worker count from CPU cores, not arbitrarily — too many workers thrash memory without adding throughput."
    },
    "pricing": {
     "model": "openSource",
@@ -29092,6 +29811,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-apollo-client",
+   "name": "Apollo Client",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "GraphQL client with a normalized cache that updates related queries automatically.",
+   "url": "https://www.apollographql.com/docs/react",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "cache",
+    "react",
+    "normalized"
+   ],
+   "tip": "The normalized cache is powerful but subtle — read its identity rules before debugging stale UI.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @apollo/client",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GraphQL client with a normalized cache that updates related queries automatically.",
+    "ru": "GraphQL-клиент с нормализованным кэшем, автоматически обновляющим связанные запросы."
+   },
+   "localizedTip": {
+    "en": "The normalized cache is powerful but subtle — read its identity rules before debugging stale UI."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-bloc",
    "name": "Bloc",
    "kind": "library",
@@ -29244,6 +29998,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-dexie-2",
+   "name": "idb",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Tiny promise-based wrapper over IndexedDB.",
+   "url": "https://github.com/jakearchibald/idb",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "indexeddb",
+    "promises",
+    "browser",
+    "storage"
+   ],
+   "tip": "Thinner than Dexie — pick it when you want IndexedDB with promises and nothing more.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i idb",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Tiny promise-based wrapper over IndexedDB.",
+    "ru": "Крошечная обёртка над IndexedDB на промисах."
+   },
+   "localizedTip": {
+    "en": "Thinner than Dexie — pick it when you want IndexedDB with promises and nothing more."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-immer",
    "name": "Immer",
    "kind": "library",
@@ -29341,6 +30130,76 @@
    },
    "localizedTip": {
     "en": "Fine-grained subscriptions mean a state change re-renders only the exact component reading that value."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-localforage",
+   "name": "localForage",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Offline storage with a localStorage-like API backed by IndexedDB or WebSQL.",
+   "url": "https://localforage.github.io/localForage/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "storage",
+    "offline",
+    "indexeddb",
+    "fallback"
+   ],
+   "tip": "Unlike localStorage it stores structured data and is asynchronous, so it never blocks the main thread.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i localforage",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Offline storage with a localStorage-like API backed by IndexedDB or WebSQL.",
+    "ru": "Офлайн-хранилище с API в духе localStorage поверх IndexedDB или WebSQL."
+   },
+   "localizedTip": {
+    "en": "Unlike localStorage it stores structured data and is asynchronous, so it never blocks the main thread."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-memcached",
+   "name": "Memcached",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Simple distributed memory caching system for reducing database load.",
+   "url": "https://memcached.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cache",
+    "memory",
+    "simple",
+    "distributed"
+   ],
+   "tip": "Simpler than Redis, but with no persistence or data structures — pick Redis unless you specifically want minimal.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple distributed memory caching system for reducing database load.",
+    "ru": "Простая распределённая система кэширования в памяти для снижения нагрузки на базу."
+   },
+   "localizedTip": {
+    "en": "Simpler than Redis, but with no persistence or data structures — pick Redis unless you specifically want minimal."
    },
    "pricing": {
     "model": "openSource",
@@ -29596,6 +30455,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-swr",
+   "name": "SWR",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "React data fetching with stale-while-revalidate caching, from Vercel.",
+   "url": "https://swr.vercel.app/docs/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "data-fetching",
+    "react",
+    "cache",
+    "vercel"
+   ],
+   "tip": "Lighter than TanStack Query; pick TanStack when you need mutations and complex cache invalidation.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i swr",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "React data fetching with stale-while-revalidate caching, from Vercel.",
+    "ru": "Загрузка данных в React с кэшированием stale-while-revalidate от Vercel."
+   },
+   "localizedTip": {
+    "en": "Lighter than TanStack Query; pick TanStack when you need mutations and complex cache invalidation."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-tanstack-query",
    "name": "TanStack Query",
    "kind": "library",
@@ -29666,6 +30560,41 @@
    },
    "localizedTip": {
     "en": "Useful as the shared state layer under a TanStack Query + Router stack in non-React frameworks too."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-urql",
+   "name": "urql",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Lightweight, extensible GraphQL client, a simpler alternative to Apollo.",
+   "url": "https://commerce.nearform.com/open-source/urql/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "client",
+    "lightweight",
+    "exchanges"
+   ],
+   "tip": "Its document cache is easier to reason about than normalized caching for many applications.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i urql",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight, extensible GraphQL client, a simpler alternative to Apollo.",
+    "ru": "Лёгкий расширяемый GraphQL-клиент, более простая альтернатива Apollo."
+   },
+   "localizedTip": {
+    "en": "Its document cache is easier to reason about than normalized caching for many applications."
    },
    "pricing": {
     "model": "openSource",
@@ -36412,6 +37341,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-web-vitals",
+   "name": "web-vitals",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Measures Core Web Vitals (LCP, INP, CLS) from real user sessions.",
+   "url": "https://github.com/GoogleChrome/web-vitals",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "performance",
+    "metrics",
+    "core-web-vitals",
+    "google"
+   ],
+   "tip": "Field data from real users differs a lot from lab scores — this is what search ranking actually uses.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i web-vitals",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Measures Core Web Vitals (LCP, INP, CLS) from real user sessions.",
+    "ru": "Измеряет Core Web Vitals (LCP, INP, CLS) в реальных пользовательских сессиях."
+   },
+   "localizedTip": {
+    "en": "Field data from real users differs a lot from lab scores — this is what search ranking actually uses."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-caddy",
    "name": "Caddy",
    "kind": "library",
@@ -36509,6 +37473,41 @@
    },
    "localizedTip": {
     "en": "Routes update automatically as containers start and stop — no config reload step at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-varnish",
+   "name": "Varnish Cache",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "HTTP accelerator caching responses in front of your application servers.",
+   "url": "https://varnish-cache.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "http-cache",
+    "reverse-proxy",
+    "performance",
+    "vcl"
+   ],
+   "tip": "Its VCL configuration language is powerful but idiosyncratic — budget real time to learn it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "HTTP accelerator caching responses in front of your application servers.",
+    "ru": "HTTP-акселератор, кэширующий ответы перед серверами приложений."
+   },
+   "localizedTip": {
+    "en": "Its VCL configuration language is powerful but idiosyncratic — budget real time to learn it."
    },
    "pricing": {
     "model": "openSource",
@@ -37084,6 +38083,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-bundle-analyzer",
+   "name": "Rollup Plugin Visualizer",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Visualizes bundle composition to find what is actually making your build large.",
+   "url": "https://github.com/btd/rollup-plugin-visualizer",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bundle-size",
+    "analysis",
+    "visualization",
+    "rollup"
+   ],
+   "tip": "Almost always reveals one unexpectedly large dependency — check before optimizing your own code.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D rollup-plugin-visualizer",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Visualizes bundle composition to find what is actually making your build large.",
+    "ru": "Визуализирует состав бандла, чтобы найти, что реально раздувает сборку."
+   },
+   "localizedTip": {
+    "en": "Almost always reveals one unexpectedly large dependency — check before optimizing your own code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-rspack",
    "name": "Rspack",
    "kind": "library",
@@ -37111,6 +38145,41 @@
    },
    "localizedTip": {
     "en": "The migration path is the selling point: keep the config, gain the speed."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-size-limit",
+   "name": "Size Limit",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Enforces a bundle size budget in CI, failing the build when it grows past a threshold.",
+   "url": "https://github.com/ai/size-limit",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bundle-size",
+    "ci",
+    "budget",
+    "performance"
+   ],
+   "tip": "Set the budget slightly above current size — a budget you constantly override stops meaning anything.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D size-limit",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enforces a bundle size budget in CI, failing the build when it grows past a threshold.",
+    "ru": "Обеспечивает бюджет размера бандла в CI, роняя сборку при превышении порога."
+   },
+   "localizedTip": {
+    "en": "Set the budget slightly above current size — a budget you constantly override stops meaning anything."
    },
    "pricing": {
     "model": "openSource",
@@ -37761,6 +38830,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-lighthouse",
+   "name": "Lighthouse",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Automated auditing for performance, accessibility, SEO and best practices.",
+   "url": "https://developer.chrome.com/docs/lighthouse",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "performance",
+    "audit",
+    "accessibility",
+    "seo"
+   ],
+   "tip": "Run it in CI with a performance budget so a regression fails the build rather than shipping quietly.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g lighthouse",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automated auditing for performance, accessibility, SEO and best practices.",
+    "ru": "Автоматический аудит производительности, доступности, SEO и лучших практик."
+   },
+   "localizedTip": {
+    "en": "Run it in CI with a performance budget so a regression fails the build rather than shipping quietly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -40158,6 +41262,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-comlink",
+   "name": "Comlink",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Makes web workers feel like local async function calls instead of message passing.",
+   "url": "https://github.com/GoogleChromeLabs/comlink",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web-workers",
+    "rpc",
+    "google",
+    "ergonomics"
+   ],
+   "tip": "Removes nearly all postMessage boilerplate, which is why workers stop feeling painful to use.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i comlink",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Makes web workers feel like local async function calls instead of message passing.",
+    "ru": "Превращает web workers в обычные асинхронные вызовы функций вместо обмена сообщениями."
+   },
+   "localizedTip": {
+    "en": "Removes nearly all postMessage boilerplate, which is why workers stop feeling painful to use."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-daisyui",
    "name": "daisyUI",
    "kind": "library",
@@ -41105,6 +42244,41 @@
    },
    "localizedTip": {
     "en": "One component API across three frameworks is useful for teams maintaining more than one frontend stack."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-partytown",
+   "name": "Partytown",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Moves third-party scripts off the main thread into a web worker.",
+   "url": "https://partytown.builder.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "performance",
+    "web-workers",
+    "third-party",
+    "scripts"
+   ],
+   "tip": "Analytics and tag-manager scripts are the usual culprits blocking the main thread — start with those.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @builder.io/partytown",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Moves third-party scripts off the main thread into a web worker.",
+    "ru": "Переносит сторонние скрипты с главного потока в web worker."
+   },
+   "localizedTip": {
+    "en": "Analytics and tag-manager scripts are the usual culprits blocking the main thread — start with those."
    },
    "pricing": {
     "model": "openSource",
@@ -42104,6 +43278,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-vite-pwa",
+   "name": "Vite PWA Plugin",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Zero-config PWA support for Vite projects, generating manifest and service worker.",
+   "url": "https://vite-pwa-org.netlify.app/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pwa",
+    "vite",
+    "service-worker",
+    "manifest"
+   ],
+   "tip": "Test the update flow explicitly — stale service workers serving old assets is the classic PWA bug.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D vite-plugin-pwa",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Zero-config PWA support for Vite projects, generating manifest and service worker.",
+    "ru": "PWA-поддержка без конфигурации для Vite-проектов, генерирует манифест и service worker."
+   },
+   "localizedTip": {
+    "en": "Test the update flow explicitly — stale service workers serving old assets is the classic PWA bug."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-vue",
    "name": "Vue",
    "kind": "library",
@@ -42174,6 +43383,41 @@
    },
    "localizedTip": {
     "en": "Check here before writing a composable: the tricky lifecycle cases are already handled."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-workbox",
+   "name": "Workbox",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Service worker toolkit for caching strategies and offline-capable PWAs.",
+   "url": "https://developer.chrome.com/docs/workbox",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "service-worker",
+    "pwa",
+    "caching",
+    "offline"
+   ],
+   "tip": "Pick the caching strategy per route deliberately — a wrong strategy serves stale content indefinitely.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i workbox-build",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Service worker toolkit for caching strategies and offline-capable PWAs.",
+    "ru": "Тулкит service worker для стратегий кэширования и офлайн-совместимых PWA."
+   },
+   "localizedTip": {
+    "en": "Pick the caching strategy per route deliberately — a wrong strategy serves stale content indefinitely."
    },
    "pricing": {
     "model": "openSource",
@@ -45566,6 +46810,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "mcp-fastapi-mcp",
+   "name": "FastAPI-MCP",
+   "kind": "mcp",
+   "category": "Инфраструктура MCP",
+   "summary": "Exposes an existing FastAPI application's endpoints as MCP tools automatically.",
+   "url": "https://github.com/tadata-org/fastapi_mcp",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fastapi",
+    "mcp",
+    "python",
+    "auto-generation"
+   ],
+   "tip": "Your OpenAPI descriptions become the tool descriptions, so write them well before exposing them.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install fastapi-mcp",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Exposes an existing FastAPI application's endpoints as MCP tools automatically.",
+    "ru": "Автоматически отдаёт эндпоинты существующего FastAPI-приложения как MCP-инструменты."
+   },
+   "localizedTip": {
+    "en": "Your OpenAPI descriptions become the tool descriptions, so write them well before exposing them."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "mcp-fastmcp",
    "name": "FastMCP",
    "kind": "mcp",
@@ -45852,6 +47131,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "mcp-langchain-adapter",
+   "name": "LangChain MCP Adapters",
+   "kind": "mcp",
+   "category": "Инфраструктура MCP",
+   "summary": "Converts MCP server tools into LangChain tools usable in existing chains and agents.",
+   "url": "https://github.com/langchain-ai/langchain-mcp-adapters",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "langchain",
+    "mcp",
+    "tools",
+    "adapter"
+   ],
+   "tip": "Lets you reuse the MCP ecosystem without rewriting an existing LangChain application.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install langchain-mcp-adapters",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Converts MCP server tools into LangChain tools usable in existing chains and agents.",
+    "ru": "Превращает инструменты MCP-серверов в инструменты LangChain для существующих цепочек и агентов."
+   },
+   "localizedTip": {
+    "en": "Lets you reuse the MCP ecosystem without rewriting an existing LangChain application."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "mcp-linear-official",
    "name": "Linear MCP (official)",
    "kind": "mcp",
@@ -46051,6 +47365,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "mcp-mcp-use",
+   "name": "mcp-use",
+   "kind": "mcp",
+   "category": "Инфраструктура MCP",
+   "summary": "Open-source Python client for connecting any LLM to MCP servers.",
+   "url": "https://docs.mcp-use.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mcp",
+    "client",
+    "python",
+    "agents"
+   ],
+   "tip": "Useful for building a custom agent host without adopting a full agent framework.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install mcp-use",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source Python client for connecting any LLM to MCP servers.",
+    "ru": "Открытый Python-клиент для подключения любой LLM к MCP-серверам."
+   },
+   "localizedTip": {
+    "en": "Useful for building a custom agent host without adopting a full agent framework."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "mcp-monday-official",
    "name": "monday.com MCP (official)",
    "kind": "mcp",
@@ -46183,6 +47532,76 @@
    },
    "localizedTip": {
     "en": "Scope the integration to specific pages in Notion's UI — it otherwise sees the whole workspace."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "mcp-openai-agents",
+   "name": "OpenAI Agents SDK MCP",
+   "kind": "mcp",
+   "category": "Инфраструктура MCP",
+   "summary": "MCP client support inside OpenAI's Agents SDK, connecting the same servers.",
+   "url": "https://openai.github.io/openai-agents-python/mcp/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "openai",
+    "agents",
+    "mcp",
+    "python"
+   ],
+   "tip": "One MCP server works across Claude, OpenAI agents and other hosts — that portability is the point.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install openai-agents",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "MCP client support inside OpenAI's Agents SDK, connecting the same servers.",
+    "ru": "Поддержка MCP-клиента в OpenAI Agents SDK, подключает те же серверы."
+   },
+   "localizedTip": {
+    "en": "One MCP server works across Claude, OpenAI agents and other hosts — that portability is the point."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "mcp-openapi-server",
+   "name": "OpenAPI MCP Server",
+   "kind": "mcp",
+   "category": "Инфраструктура MCP",
+   "summary": "Turns any OpenAPI specification into an MCP server without writing server code.",
+   "url": "https://github.com/janwilmake/openapi-mcp-server",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "openapi",
+    "mcp",
+    "generation",
+    "rest"
+   ],
+   "tip": "The fastest path to giving an agent access to an internal REST API you already document.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Turns any OpenAPI specification into an MCP server without writing server code.",
+    "ru": "Превращает любую OpenAPI-спецификацию в MCP-сервер без написания кода сервера."
+   },
+   "localizedTip": {
+    "en": "The fastest path to giving an agent access to an internal REST API you already document."
    },
    "pricing": {
     "model": "openSource",
@@ -49724,6 +51143,76 @@
    "categoryGroup": "media"
   },
   {
+   "id": "mcp-glama-directory",
+   "name": "Glama MCP Directory",
+   "kind": "mcp",
+   "category": "Каталоги skills",
+   "summary": "Searchable directory of MCP servers with security and quality signals.",
+   "url": "https://glama.ai/mcp/servers",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mcp",
+    "directory",
+    "discovery",
+    "index"
+   ],
+   "tip": "Check a community server's activity and inspection results here before installing it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Searchable directory of MCP servers with security and quality signals.",
+    "ru": "Поисковый каталог MCP-серверов с сигналами безопасности и качества."
+   },
+   "localizedTip": {
+    "en": "Check a community server's activity and inspection results here before installing it."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "mcp-pulse-directory",
+   "name": "PulseMCP",
+   "kind": "mcp",
+   "category": "Каталоги skills",
+   "summary": "MCP server directory with news and weekly updates on ecosystem changes.",
+   "url": "https://www.pulsemcp.com/servers",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mcp",
+    "directory",
+    "news",
+    "discovery"
+   ],
+   "tip": "Useful for tracking what is new — the MCP ecosystem moves fast enough that directories go stale.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "MCP server directory with news and weekly updates on ecosystem changes.",
+    "ru": "Каталог MCP-серверов с новостями и еженедельными обновлениями об изменениях в экосистеме."
+   },
+   "localizedTip": {
+    "en": "Useful for tracking what is new — the MCP ecosystem moves fast enough that directories go stale."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-define-success",
    "name": "Define Success Criteria",
    "kind": "skill",
@@ -49751,6 +51240,41 @@
    },
    "localizedTip": {
     "en": "Without this, evaluation becomes vibes — decide what 'good' means before you start tuning prompts."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "skill-agent-evaluation",
+   "name": "Evaluating Agent Systems",
+   "kind": "skill",
+   "category": "AI-оценка и safety",
+   "summary": "Building evaluation sets for agent behavior rather than single-turn output.",
+   "url": "https://docs.claude.com/en/docs/test-and-evaluate/eval-tool",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "evaluation",
+    "agents",
+    "testing",
+    "metrics"
+   ],
+   "tip": "Evaluate the trajectory, not just the final answer — a right answer via a dangerous path is still a failure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Building evaluation sets for agent behavior rather than single-turn output.",
+    "ru": "Построение оценочных наборов для поведения агента, а не для одиночного ответа."
+   },
+   "localizedTip": {
+    "en": "Evaluate the trajectory, not just the final answer — a right answer via a dangerous path is still a failure."
    },
    "pricing": {
     "model": "free",
@@ -50249,6 +51773,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "skill-claude-desktop-extensions",
+   "name": "Claude Desktop Extensions",
+   "kind": "skill",
+   "category": "Установка и миграция",
+   "summary": "Packaging MCP servers as one-click installable desktop extensions.",
+   "url": "https://www.anthropic.com/engineering/desktop-extensions",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "desktop",
+    "extensions",
+    "mcp",
+    "packaging"
+   ],
+   "tip": "Removes the manual JSON config step that stops non-technical users adopting MCP servers at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Packaging MCP servers as one-click installable desktop extensions.",
+    "ru": "Упаковка MCP-серверов в устанавливаемые в один клик desktop-расширения."
+   },
+   "localizedTip": {
+    "en": "Removes the manual JSON config step that stops non-technical users adopting MCP servers at all."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "skill-openai-installer",
    "name": "Codex Skill Installer",
    "kind": "skill",
@@ -50726,6 +52285,41 @@
    },
    "localizedTip": {
     "en": "Any prompt you have typed twice should become a command in .claude/commands."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-claude-in-slack",
+   "name": "Claude in Slack",
+   "kind": "skill",
+   "category": "Workflow skills",
+   "summary": "Running Claude from Slack channels and threads for team workflows.",
+   "url": "https://docs.claude.com/en/docs/claude-code/slack",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "slack",
+    "integration",
+    "claude",
+    "team"
+   ],
+   "tip": "Thread context carries over, so a discussion can turn into a task without restating the background.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Running Claude from Slack channels and threads for team workflows.",
+    "ru": "Запуск Claude из каналов и тредов Slack для командных процессов."
+   },
+   "localizedTip": {
+    "en": "Thread context carries over, so a discussion can turn into a task without restating the background."
    },
    "pricing": {
     "model": "free",
@@ -52348,6 +53942,41 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-effective-agents-tools",
+   "name": "Tool Design for Agents",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Designing tool interfaces an agent can use correctly without trial and error.",
+   "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tools",
+    "schemas",
+    "design",
+    "agents"
+   ],
+   "tip": "Consolidate many narrow tools into fewer well-described ones — agents pick wrong among near-identical options.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Designing tool interfaces an agent can use correctly without trial and error.",
+    "ru": "Проектирование интерфейсов инструментов, которыми агент пользуется правильно без проб и ошибок."
+   },
+   "localizedTip": {
+    "en": "Consolidate many narrow tools into fewer well-described ones — agents pick wrong among near-identical options."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-tool-use",
    "name": "Tool Use Guide",
    "kind": "skill",
@@ -53005,6 +54634,41 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-progressive-disclosure",
+   "name": "Progressive Disclosure in Skills",
+   "kind": "skill",
+   "category": "Создание skills",
+   "summary": "Structuring a skill so only the needed parts load into context, not everything at once.",
+   "url": "https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "skills",
+    "context",
+    "structure",
+    "efficiency"
+   ],
+   "tip": "Keep SKILL.md short and push detail into referenced files the model reads only when relevant.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Structuring a skill so only the needed parts load into context, not everything at once.",
+    "ru": "Структурирование skill так, чтобы в контекст загружалось только нужное, а не всё сразу."
+   },
+   "localizedTip": {
+    "en": "Keep SKILL.md short and push detail into referenced files the model reads only when relevant."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-authoring-best-practices",
    "name": "Skill Authoring Best Practices",
    "kind": "skill",
@@ -53032,6 +54696,41 @@
    },
    "localizedTip": {
     "en": "The description field decides whether a skill ever triggers: write it about the task, not the tool."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-skill-authoring-guide",
+   "name": "Skill Authoring Guide",
+   "kind": "skill",
+   "category": "Создание skills",
+   "summary": "How to write a skill's description so it triggers at the right time and not otherwise.",
+   "url": "https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "skills",
+    "authoring",
+    "description",
+    "triggering"
+   ],
+   "tip": "The description is the entire triggering mechanism — vague descriptions produce skills that never fire.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "How to write a skill's description so it triggers at the right time and not otherwise.",
+    "ru": "Как написать описание skill, чтобы он срабатывал вовремя и не срабатывал лишний раз."
+   },
+   "localizedTip": {
+    "en": "The description is the entire triggering mechanism — vague descriptions produce skills that never fire."
    },
    "pricing": {
     "model": "free",

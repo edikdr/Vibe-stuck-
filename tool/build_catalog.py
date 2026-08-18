@@ -219,6 +219,8 @@ MERGE = {
  'paid-shodan': 'api-shodan', 'paid-x-twitter': 'api-x-twitter',
  'paid-adyen': 'api-adyen', 'paid-github-copilot': 'api-github-copilot',
  'paid-clearbit': 'api-clearbit', 'paid-urlbox': 'api-urlbox',
+ 'paid-8thwall': 'api-8thwall', 'paid-vectorizer-ai': 'api-vectorizer-ai',
+ 'paid-lalal-ai': 'api-lalal-ai',
 }
 
 def build_showcases(item_id):
