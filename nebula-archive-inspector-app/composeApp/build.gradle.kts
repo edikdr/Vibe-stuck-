@@ -50,6 +50,11 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.swing)
             }
         }
+        val desktopTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
     }
 }
 
@@ -75,8 +80,8 @@ android {
         applicationId = "app.nebula.archive"
         minSdk = 26
         targetSdk = 35
-        versionCode = 13
-        versionName = "0.13.0-multi-select-and-shared-core"
+        versionCode = 14
+        versionName = "0.14.0-performance-causes-and-diff"
     }
 }
 

@@ -222,7 +222,9 @@ function(enabled){
       }catch(e){}
     },
     drop:function(id){state.selection=state.selection.filter(function(item){return item.id!==id});emitSelection();draw()},
-    clear:function(){state.selection=[];state.counter=0;emitSelection();draw()}
+    clear:function(){state.selection=[];state.counter=0;emitSelection();draw()},
+    // Exposed so the performance run can name the element behind a layout shift without duplicating this logic.
+    selectorFor:function(node){try{return (node&&node.nodeType===1)?selector(node):''}catch(e){return ''}}
   };
   window[key]=state;
   document.addEventListener('pointermove',function(e){if(state.enabled){state.hover=e.target;schedule()}},true);

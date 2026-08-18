@@ -23,7 +23,9 @@ composeApp/src/
 | --- | --- |
 | `ArchiveModel.kt` | entries, project, path resolution, Zip-Slip-safe normalisation |
 | `Inspection.kt` | what an inspected element is, and `PreviewCommands` — what a preview must be able to do |
-| `Performance.kt` | runtime score and advice |
+| `Performance.kt` | runtime score, findings and the simulated network profiles |
+| `FindingText.kt` | localized wording for a finding — the page reports facts, Kotlin writes the sentence |
+| `ArchiveDiff.kt` / `TextDiff.kt` | comparison of two archives, and the line diff for text files |
 | `SourceSearch.kt` | element → candidate source files |
 | `AiContext.kt` | the compact block behind "Copy for AI" |
 | `Svg.kt` | makes a standalone SVG scalable |

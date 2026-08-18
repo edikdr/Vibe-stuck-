@@ -1,5 +1,54 @@
 # Changelog
 
+## 0.14.0 — concrete performance causes, per-page testing, network throttling, archive diff
+
+### Performance test
+
+- The test now names **what** slows the page down instead of printing generic advice. Findings come with the
+  element or file behind them: layout shifts attributed to the node that moved, long JavaScript tasks,
+  render-blocking scripts, oversized images (with decoded vs painted size and wasted pixels), images without
+  `width`/`height`, the heaviest downloads, expensive compositing properties, DOM size and script weight.
+- A finding with a selector opens **straight in the element inspector**; one that maps to an archive file
+  opens in the source viewer. The diagnosis and the tool that explains it are finally connected.
+- **Every page can be measured in one run.** The test walks all HTML pages of the archive (up to 20, entry
+  point first), shows `N/M` progress with a Stop button, reports an average plus the worst page, and returns
+  the user to the page they started from.
+- **Fixed a real scoring bug**: JavaScript weight was summed over the whole archive, so a multi-page site with
+  code splitting was penalised for bundles the measured page never executed. Weight now comes from the
+  resources the page actually loaded, and `evaluateRuntimePerformance` no longer takes the project at all.
+- Layout shift and long-task time now affect the score.
+- Three AI blocks, all compact and fence-free: the whole report, the problems of one page, or a single
+  problem with its selector and target.
+
+### Network throttling
+
+- `FULL / 4G / 4G− / 3G` presets (Chrome DevTools values) cycle from the preview toolbar, so a site can simply
+  be browsed under Slow 3G to watch skeletons and lazy loading behave.
+- Bytes are really held back while serving archive files — the page loads slowly instead of being reported as
+  slow — and latency is applied per request on Chromium's worker thread, never on the UI thread.
+- Throttling never changes the score; the report is stamped with the profile it was measured under, so two
+  runs cannot be compared by accident.
+- Honest limits, stated in the UI: CPU throttling and a GPU/paint/composite breakdown are not available to an
+  embedded WebView. The compositing-cost finding is the closest honest signal, named for what it is.
+
+### Archive diff
+
+- Two open archives can be compared: added, removed and modified files, byte delta, unchanged count. Equal
+  size is not treated as equal content — same-size files are hashed.
+- Text files open in a **line diff** with shared prefix/suffix trimmed and distant context dropped, so a
+  one-line edit prints a few lines instead of the whole file. A rewrite too large to match line by line
+  degrades to a labelled replacement block rather than stalling the device.
+- One compact `Diff for AI` block summarises what changed between two builds.
+
+### Internals
+
+- `ThrottledInputStream` and `LimitedInputStream` moved to `jvmShared`, where a desktop preview will reuse
+  them — and where they are unit tested. Testing them caught a real bug: `0` was used as "not started yet",
+  which restarted the pacing budget on every read.
+- 53 shared tests now cover scoring, findings, all three performance AI blocks, the diff, the line diff and
+  the throttling maths. The injected performance script is exercised against a DOM stub with faked
+  `PerformanceObserver` entries.
+
 ## 0.13.0 — multi-selection, shared core, mobile rendering fixes
 
 ### Inspector

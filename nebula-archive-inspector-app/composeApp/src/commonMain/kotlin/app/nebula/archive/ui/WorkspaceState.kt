@@ -4,11 +4,16 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import app.nebula.archive.AppLocale
 import app.nebula.archive.AppStrings
 import app.nebula.archive.ArchiveEntry
+import app.nebula.archive.ArchiveKind
 import app.nebula.archive.ArchiveProject
 import app.nebula.archive.InspectedElement
+import app.nebula.archive.NetworkProfile
+import app.nebula.archive.PagePerformance
+import app.nebula.archive.PerformanceFinding
 import app.nebula.archive.PreviewCommands
 import app.nebula.archive.PreviewDevice
 import app.nebula.archive.PreviewIssue
@@ -16,8 +21,15 @@ import app.nebula.archive.PreviewNavigationState
 import app.nebula.archive.RuntimeMetrics
 import app.nebula.archive.RuntimePerformanceReport
 import app.nebula.archive.SelectedElement
+import app.nebula.archive.SitePerformance
 import app.nebula.archive.SourceHit
 import app.nebula.archive.evaluateRuntimePerformance
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 
 /** The side panel currently attached to the preview. Only one can be open at a time. */
 enum class WorkspacePanel { None, Inspection, Performance, Diagnostics }
@@ -25,6 +37,7 @@ enum class WorkspacePanel { None, Inspection, Performance, Diagnostics }
 /** A full-surface layer above the workspace. */
 sealed interface WorkspaceOverlay {
     data object Files : WorkspaceOverlay
+    data object Diff : WorkspaceOverlay
     data class Source(val hit: SourceHit) : WorkspaceOverlay
     data class Asset(val entry: ArchiveEntry) : WorkspaceOverlay
 }
@@ -33,6 +46,15 @@ private const val MAX_ISSUES = 80
 private const val DEFAULT_PANEL_EXTENT = 320f
 const val MIN_PANEL_EXTENT = 210f
 const val MAX_PANEL_EXTENT = 620f
+
+/** A run that produced nothing by now never will; the UI must not stay stuck on it. */
+private const val MEASURE_TIMEOUT_MS = 9_000L
+
+/** Waiting for a page to finish loading before measuring it. */
+private const val PAGE_LOAD_TIMEOUT_MS = 15_000L
+
+/** A 200-page archive would take half an hour; the first pages are the ones that matter. */
+private const val MAX_TESTED_PAGES = 20
 
 /**
  * All workspace state for one open project, and the rules that keep it consistent.
@@ -46,6 +68,7 @@ const val MAX_PANEL_EXTENT = 620f
 class WorkspaceState(
     val project: ArchiveProject,
     locale: AppLocale,
+    private val scope: CoroutineScope,
 ) {
     /** Switching language must not reset the workspace, so the locale lives in the state. */
     var locale: AppLocale by mutableStateOf(locale)
@@ -78,21 +101,37 @@ class WorkspaceState(
 
     var onlineResources: Boolean by mutableStateOf(true)
         private set
+    var networkProfile: NetworkProfile by mutableStateOf(NetworkProfile.Unthrottled)
+        private set
     var device: PreviewDevice by mutableStateOf(PreviewDevice.Auto)
         private set
     var landscape: Boolean by mutableStateOf(false)
         private set
 
-    var performanceReport: RuntimePerformanceReport? by mutableStateOf(null)
+    // ---- performance ------------------------------------------------------------------------------------
+
+    /** Result of the whole run: one page for a single measurement, several after a site test. */
+    var site: SitePerformance? by mutableStateOf(null)
         private set
-    var performanceRunning: Boolean by mutableStateOf(false)
+    var testing: Boolean by mutableStateOf(false)
         private set
-    var performanceUnavailable: Boolean by mutableStateOf(false)
+    var testProgress: Int by mutableStateOf(0)
+        private set
+    var testTotal: Int by mutableStateOf(0)
+        private set
+    var testFailed: Boolean by mutableStateOf(false)
         private set
 
-    /** Incremented on every start and every cancel, so a late result of an old run is ignored. */
-    var performanceRun: Int by mutableStateOf(0)
+    /** Handoff from the preview bridge to the measuring coroutine. */
+    private var pendingReport: RuntimePerformanceReport? by mutableStateOf(null)
+    private var testJob: Job? = null
+
+    /** Which measured page the panel is showing the details of. */
+    var openPageResult: PagePerformance? by mutableStateOf(null)
         private set
+
+    /** True when the archive is a single HTML document, so a site-wide run is meaningless. */
+    val singlePage: Boolean get() = htmlPages().size <= 1
 
     /** Panel height on phones, panel width on wide screens. */
     private var requestedPanelExtent: Float by mutableStateOf(DEFAULT_PANEL_EXTENT)
@@ -115,7 +154,7 @@ class WorkspaceState(
 
     fun startInspecting() {
         clearInspection()
-        closePerformance()
+        stopTest()
         panel = WorkspacePanel.None
         overlay = null
         inspecting = true
@@ -138,13 +177,16 @@ class WorkspaceState(
         inspected = elements
         sources = emptyMap()
         panel = WorkspacePanel.Inspection
-        performanceRunning = false
-        performanceUnavailable = false
     }
 
     fun inspectSelected(id: Int) = preview.inspectSelected(id)
 
-    fun inspectSelector(selector: String) = preview.inspectSelector(selector)
+    /** Also used by a performance finding to jump straight to the element that causes it. */
+    fun inspectSelector(selector: String) {
+        if (selector.isBlank()) return
+        panel = WorkspacePanel.Inspection
+        preview.inspectSelector(selector)
+    }
 
     fun inspectWholeSelection() = preview.inspectWholeSelection()
 
@@ -177,13 +219,13 @@ class WorkspaceState(
     fun onNavigation(next: PreviewNavigationState) {
         val changedPage = navigation.path.isNotBlank() && navigation.path != next.path
         navigation = next
-        if (!changedPage) return
-        // Selectors, source hits and measurements all describe the page that was just replaced.
+        // A test drives navigation itself; resetting on its own page loads would cancel the run.
+        if (!changedPage || testing) return
+        // Selectors and source hits describe the page that was just replaced.
         stopInspecting()
         selection = emptyList()
         clearInspection()
-        closePerformance()
-        if (panel != WorkspacePanel.Diagnostics) panel = WorkspacePanel.None
+        if (panel == WorkspacePanel.Inspection) panel = WorkspacePanel.None
     }
 
     fun onIssue(issue: PreviewIssue) {
@@ -197,6 +239,12 @@ class WorkspaceState(
     fun toggleOnlineResources() {
         onlineResources = !onlineResources
         preview.setOnlineResourcesEnabled(onlineResources)
+    }
+
+    /** Cycles the simulated network. Applies to normal browsing too, not just to a test run. */
+    fun cycleNetworkProfile() {
+        networkProfile = networkProfile.next()
+        preview.setNetworkProfile(networkProfile)
     }
 
     fun cycleDevice() {
@@ -214,62 +262,24 @@ class WorkspaceState(
             WorkspacePanel.None
         } else {
             stopInspecting()
-            closePerformance()
+            stopTest()
             clearInspection()
             WorkspacePanel.Diagnostics
         }
     }
 
-    fun startPerformanceTest() {
-        stopInspecting()
-        clearInspection()
-        selection = emptyList()
-        preview.clearSelection()
-        overlay = null
-        panel = WorkspacePanel.Performance
-        performanceReport = null
-        performanceRun++
-        if (preview.runPerformanceTest()) {
-            performanceRunning = true
-            performanceUnavailable = false
-        } else {
-            performanceRunning = false
-            performanceUnavailable = true
-        }
-    }
-
-    /** Called by the screen when a started run produced no result in time. */
-    fun onPerformanceTimeout(run: Int) {
-        if (!performanceRunning || run != performanceRun) return
-        performanceRunning = false
-        performanceUnavailable = true
-        preview.cancelPerformanceTest()
-    }
-
-    fun onPerformanceResult(metrics: RuntimeMetrics) {
-        if (panel != WorkspacePanel.Performance) return
-        performanceReport = evaluateRuntimePerformance(project, metrics, locale)
-        performanceRunning = false
-        performanceUnavailable = false
-    }
-
-    fun closePerformance() {
-        performanceRun++
-        performanceRunning = false
-        performanceUnavailable = false
-        performanceReport = null
-        preview.cancelPerformanceTest()
-        if (panel == WorkspacePanel.Performance) panel = WorkspacePanel.None
-    }
-
-    fun closePanel() = when (panel) {
-        WorkspacePanel.Performance -> closePerformance()
-        WorkspacePanel.Inspection -> closeInspection()
-        else -> panel = WorkspacePanel.None
+    fun closePanel() {
+        if (panel == WorkspacePanel.Performance) stopTest()
+        if (panel == WorkspacePanel.Inspection) clearInspection()
+        panel = WorkspacePanel.None
     }
 
     fun openFiles() {
         overlay = WorkspaceOverlay.Files
+    }
+
+    fun openDiff() {
+        overlay = WorkspaceOverlay.Diff
     }
 
     /** Opens an archive entry in the reader that fits it: formatted source, or a visual preview. */
@@ -279,6 +289,14 @@ class WorkspaceState(
         } else {
             WorkspaceOverlay.Asset(entry)
         }
+    }
+
+    fun openSource(hit: SourceHit) {
+        overlay = WorkspaceOverlay.Source(hit)
+    }
+
+    fun closeOverlay() {
+        overlay = null
     }
 
     // ---- SVG viewer options (shared state, applied by the platform preview) -----------------------------
@@ -296,11 +314,91 @@ class WorkspaceState(
         svgFitToStage = !svgFitToStage
     }
 
-    fun openSource(hit: SourceHit) {
-        overlay = WorkspaceOverlay.Source(hit)
+    // ---- performance test -------------------------------------------------------------------------------
+
+    /** Called by the preview bridge when the in-page measurement finishes. */
+    fun onPerformanceResult(metrics: RuntimeMetrics, findings: List<PerformanceFinding>) {
+        pendingReport = evaluateRuntimePerformance(metrics, findings, networkProfile)
     }
 
-    fun closeOverlay() {
-        overlay = null
+    /** Measures the page that is open right now. */
+    fun startPageTest() = launchTest(wholeSite = false)
+
+    /** Walks every HTML page of the archive and measures each one. */
+    fun startSiteTest() = launchTest(wholeSite = true)
+
+    fun stopTest() {
+        testJob?.cancel()
+        testJob = null
+        testing = false
+        preview.cancelPerformanceTest()
     }
+
+    fun showPageResult(page: PagePerformance?) {
+        openPageResult = page
+    }
+
+    private fun launchTest(wholeSite: Boolean) {
+        testJob?.cancel()
+        stopInspecting()
+        clearInspection()
+        selection = emptyList()
+        preview.clearSelection()
+        overlay = null
+        panel = WorkspacePanel.Performance
+        site = null
+        openPageResult = null
+        testFailed = false
+        testJob = scope.launch { runTest(wholeSite) }
+    }
+
+    private suspend fun runTest(wholeSite: Boolean) {
+        val startPath = pagePath
+        val pages = if (wholeSite) htmlPages() else listOf(startPath)
+        testing = true
+        testProgress = 0
+        testTotal = pages.size
+        val measured = mutableListOf<PagePerformance>()
+        try {
+            pages.forEachIndexed { index, path ->
+                testProgress = index + 1
+                if (wholeSite || path != startPath) {
+                    preview.openPage(path)
+                    if (!awaitPageReady(path)) return@forEachIndexed
+                }
+                val report = measureCurrentPage() ?: return@forEachIndexed
+                measured += PagePerformance(path, report)
+            }
+            site = SitePerformance(measured, networkProfile)
+            openPageResult = measured.firstOrNull()
+            testFailed = measured.isEmpty()
+        } finally {
+            testing = false
+            if (wholeSite && startPath.isNotBlank() && pagePath != startPath) {
+                // Put the user back where they were before the run took over navigation.
+                preview.openPage(startPath)
+            }
+        }
+    }
+
+    private suspend fun awaitPageReady(path: String): Boolean = withTimeoutOrNull(PAGE_LOAD_TIMEOUT_MS) {
+        snapshotFlow { navigation }
+            .filterNotNull()
+            .first { it.pageReady && (it.path == path || it.path.isBlank()) }
+        true
+    } ?: false
+
+    private suspend fun measureCurrentPage(): RuntimePerformanceReport? {
+        pendingReport = null
+        if (!preview.runPerformanceTest()) return null
+        return withTimeoutOrNull(MEASURE_TIMEOUT_MS) {
+            snapshotFlow { pendingReport }.filterNotNull().first()
+        }.also { if (it == null) preview.cancelPerformanceTest() }
+    }
+
+    private fun htmlPages(): List<String> = project.entries
+        .filter { it.kind == ArchiveKind.Html }
+        .map { it.path }
+        .sortedBy { if (it == project.entryPoint) 0 else 1 }
+        .take(MAX_TESTED_PAGES)
 }

@@ -186,7 +186,38 @@ function(){
 
 internal const val PERFORMANCE_SCRIPT = """
 async function(runToken){
+  function selectorOf(node){
+    try{ var i=window.__nebulaInspector; return (node&&i&&i.selectorFor)?i.selectorFor(node):'' }catch(e){ return '' }
+  }
+  function label(node){
+    if(!node||!node.tagName)return '';
+    var s=node.tagName.toLowerCase();
+    if(node.id)return s+'#'+node.id;
+    var c=(node.className&&node.className.baseVal!==undefined)?node.className.baseVal:node.className;
+    if(typeof c==='string'&&c.trim())s+='.'+c.trim().split(/\s+/).slice(0,2).join('.');
+    return s;
+  }
+  function resourcePath(value){
+    try{
+      var url=new URL(value,location.href);
+      if(url.host!==location.host)return url.href;
+      return decodeURIComponent(url.pathname.replace(/^\//,''));
+    }catch(e){ return String(value||'') }
+  }
+  function observe(type,sink){
+    try{
+      var observer=new PerformanceObserver(function(list){
+        list.getEntries().forEach(function(entry){ sink.push(entry) });
+      });
+      observer.observe({type:type,buffered:true});
+      return observer;
+    }catch(e){ return null }
+  }
   try{
+    var shifts=[],tasks=[];
+    var shiftObserver=observe('layout-shift',shifts);
+    var taskObserver=observe('longtask',tasks);
+
     var deltas=[],last=performance.now(),frames=0;
     await new Promise(function(resolve){
       function sample(now){
@@ -196,12 +227,151 @@ async function(runToken){
       }
       requestAnimationFrame(sample);
     });
-    var nav=performance.getEntriesByType('navigation')[0]||{},paints=performance.getEntriesByType('paint')||[],resources=performance.getEntriesByType('resource')||[];
-    var fcp=null;for(var i=0;i<paints.length;i++){if(paints[i].name==='first-contentful-paint'){fcp=paints[i].startTime;break}}
-    var total=0;for(var r=0;r<resources.length;r++)total+=resources[r].decodedBodySize||resources[r].transferSize||0;
+    if(shiftObserver)shiftObserver.disconnect();
+    if(taskObserver)taskObserver.disconnect();
+
+    var nav=performance.getEntriesByType('navigation')[0]||{};
+    var paints=performance.getEntriesByType('paint')||[];
+    var resources=performance.getEntriesByType('resource')||[];
+    var fcp=null;
+    for(var i=0;i<paints.length;i++){ if(paints[i].name==='first-contentful-paint'){ fcp=paints[i].startTime;break } }
+
+    var bytesByUrl={},total=0,scriptBytes=0;
+    for(var r=0;r<resources.length;r++){
+      var entry=resources[r];
+      var size=entry.decodedBodySize||entry.transferSize||0;
+      total+=size;
+      bytesByUrl[entry.name]=size;
+      if(entry.initiatorType==='script'||/\.(m|c)?js(\?|${'$'})/i.test(entry.name))scriptBytes+=size;
+    }
+    function bytesOf(value){
+      if(!value)return 0;
+      if(bytesByUrl[value])return bytesByUrl[value];
+      try{ var absolute=new URL(value,location.href).href; return bytesByUrl[absolute]||0 }catch(e){ return 0 }
+    }
+
     var average=deltas.length?deltas.reduce(function(a,b){return a+b},0)/deltas.length:0;
-    var worst=deltas.length?Math.max.apply(Math,deltas):0;
+    var worstFrame=deltas.length?Math.max.apply(Math,deltas):0;
     var slow=deltas.length?deltas.filter(function(v){return v>34}).length/deltas.length*100:0;
+
+    var findings=[];
+    function add(kind,fields){
+      if(findings.length>=20)return;
+      fields=fields||{};
+      findings.push({
+        kind:kind,
+        target:fields.target||'',
+        selector:fields.selector||'',
+        note:fields.note||'',
+        value:Number(fields.value||0),
+        extra:Number(fields.extra||0)
+      });
+    }
+
+    // Layout shifts, attributed to the element that moved.
+    var cls=0,worstShift=null;
+    for(var s=0;s<shifts.length;s++){
+      var shift=shifts[s];
+      if(shift.hadRecentInput)continue;
+      cls+=shift.value||0;
+      if(!worstShift||(shift.value||0)>(worstShift.value||0))worstShift=shift;
+    }
+    if(cls>0.05){
+      var moved=null,distance=0;
+      if(worstShift&&worstShift.sources&&worstShift.sources.length){
+        var source=worstShift.sources[0];
+        moved=source.node||null;
+        if(source.previousRect&&source.currentRect){
+          distance=Math.max(
+            Math.abs(source.currentRect.top-source.previousRect.top),
+            Math.abs(source.currentRect.left-source.previousRect.left)
+          );
+        }
+      }
+      add('LayoutShift',{target:label(moved),selector:selectorOf(moved),value:cls,extra:distance});
+    }
+
+    // Long tasks block every interaction while they run.
+    if(tasks.length){
+      var taskTotal=0,taskWorst=0;
+      for(var t=0;t<tasks.length;t++){
+        taskTotal+=tasks[t].duration||0;
+        if((tasks[t].duration||0)>taskWorst)taskWorst=tasks[t].duration||0;
+      }
+      if(taskTotal>150)add('LongTask',{value:taskWorst,extra:tasks.length});
+    }
+
+    // Synchronous scripts and stylesheets in the head delay the first paint.
+    try{
+      var head=document.head||document;
+      Array.prototype.slice.call(head.querySelectorAll('script[src]')).slice(0,8).forEach(function(node){
+        if(node.async||node.defer||node.type==='module')return;
+        add('RenderBlocking',{target:resourcePath(node.src),selector:selectorOf(node),value:bytesOf(node.src)});
+      });
+    }catch(e){}
+
+    // Images decoded far larger than they are painted, and images that reserve no space.
+    try{
+      var oversized=[];
+      Array.prototype.slice.call(document.images).slice(0,200).forEach(function(image){
+        var width=image.clientWidth,height=image.clientHeight;
+        var source=image.currentSrc||image.src;
+        if(!source)return;
+        if(width&&height&&image.naturalWidth&&image.naturalHeight){
+          var ratio=window.devicePixelRatio||1;
+          var neededWidth=width*ratio,neededHeight=height*ratio;
+          if(image.naturalWidth>neededWidth*1.5&&image.naturalHeight>neededHeight*1.5){
+            var wasted=1-(neededWidth*neededHeight)/(image.naturalWidth*image.naturalHeight);
+            oversized.push({
+              target:resourcePath(source),
+              selector:selectorOf(image),
+              value:bytesOf(source),
+              extra:wasted,
+              note:image.naturalWidth+'×'+image.naturalHeight+' → '+Math.round(width)+'×'+Math.round(height)
+            });
+          }
+        }
+        if(!image.getAttribute('width')&&!image.getAttribute('height')){
+          var style=getComputedStyle(image);
+          if(!style.aspectRatio||style.aspectRatio==='auto'){
+            add('MissingDimensions',{
+              target:resourcePath(source),
+              selector:selectorOf(image),
+              note:image.naturalWidth?image.naturalWidth+'×'+image.naturalHeight:''
+            });
+          }
+        }
+      });
+      oversized.sort(function(a,b){return b.value-a.value});
+      oversized.slice(0,5).forEach(function(item){ add('OversizedImage',item) });
+    }catch(e){}
+
+    // The heaviest single downloads of the page.
+    try{
+      var heavy=resources.slice().sort(function(a,b){
+        return (b.decodedBodySize||b.transferSize||0)-(a.decodedBodySize||a.transferSize||0);
+      });
+      for(var h=0;h<heavy.length&&h<3;h++){
+        var size=heavy[h].decodedBodySize||heavy[h].transferSize||0;
+        if(size<300000)break;
+        add('HeavyResource',{target:resourcePath(heavy[h].name),value:size});
+      }
+    }catch(e){}
+
+    // Properties that force their own compositing layer are the closest honest signal to GPU cost.
+    try{
+      var costly=0,nodes=document.body?document.body.querySelectorAll('*'):[];
+      for(var n=0;n<nodes.length&&n<2000;n++){
+        var computed=getComputedStyle(nodes[n]);
+        if((computed.willChange&&computed.willChange!=='auto')||
+           (computed.filter&&computed.filter!=='none')||
+           (computed.backdropFilter&&computed.backdropFilter!=='none')){
+          costly++;
+        }
+      }
+      if(costly>12)add('CompositingCost',{value:costly});
+    }catch(e){}
+
     NebulaInspector.performanceResult(JSON.stringify({
       runToken:runToken,
       responseStartMs:Number(nav.responseStart||0),
@@ -209,14 +379,21 @@ async function(runToken){
       loadMs:Number(nav.loadEventEnd||nav.duration||0),
       firstContentfulPaintMs:fcp===null?-1:Number(fcp),
       averageFrameMs:average,
-      worstFrameMs:worst,
+      worstFrameMs:worstFrame,
       slowFramePercent:slow,
       domNodes:document.getElementsByTagName('*').length,
       resourceCount:resources.length,
-      decodedResourceBytes:total
+      decodedResourceBytes:total,
+      scriptBytes:scriptBytes,
+      layoutShiftScore:cls,
+      longTaskCount:tasks.length,
+      longTaskTotalMs:tasks.reduce(function(a,b){return a+(b.duration||0)},0),
+      findings:findings
     }));
   }catch(e){
-    NebulaInspector.performanceResult(JSON.stringify({runToken:runToken,loadMs:0,domNodes:document.getElementsByTagName('*').length}));
+    NebulaInspector.performanceResult(JSON.stringify({
+      runToken:runToken,loadMs:0,domNodes:document.getElementsByTagName('*').length,findings:[]
+    }));
   }
 }
 """

@@ -103,6 +103,12 @@ interface PreviewCommands {
     fun setInspectorEnabled(enabled: Boolean)
     fun setOnlineResourcesEnabled(enabled: Boolean)
 
+    /** Loads one page of the archive by its entry path; used to walk the site during a full test. */
+    fun openPage(path: String)
+
+    /** Applies a simulated network profile to everything served from the archive. */
+    fun setNetworkProfile(profile: NetworkProfile)
+
     /** Inspects the element matching [selector] without adding it to the multi-selection. */
     fun inspectSelector(selector: String)
 
@@ -125,6 +131,8 @@ interface PreviewCommands {
             override fun reload() = Unit
             override fun setInspectorEnabled(enabled: Boolean) = Unit
             override fun setOnlineResourcesEnabled(enabled: Boolean) = Unit
+            override fun openPage(path: String) = Unit
+            override fun setNetworkProfile(profile: NetworkProfile) = Unit
             override fun inspectSelector(selector: String) = Unit
             override fun inspectSelected(id: Int) = Unit
             override fun dropSelected(id: Int) = Unit

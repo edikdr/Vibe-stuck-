@@ -59,6 +59,8 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
     private var pageLoaded = false
     private var inspectorEnabled = false
     private var onlineResources = true
+    @Volatile
+    private var networkProfile = NetworkProfile.Unthrottled
     private var popupWindow = false
     private var loadingProgress = 0
     private var lastInspectorHoverAtMs = 0L
@@ -66,7 +68,7 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
 
     var onInspected: ((List<InspectedElement>) -> Unit)? = null
     var onSelectionChanged: ((List<SelectedElement>) -> Unit)? = null
-    var onPerformanceResult: ((RuntimeMetrics) -> Unit)? = null
+    var onPerformanceResult: ((RuntimeMetrics, List<PerformanceFinding>) -> Unit)? = null
     var onNavigationStateChanged: ((PreviewNavigationState) -> Unit)? = null
     var onIssue: ((PreviewIssue) -> Unit)? = null
     var onPopupCreated: ((ArchiveWebView) -> Unit)? = null
@@ -180,6 +182,16 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
         onlineResources = enabled
     }
 
+    override fun setNetworkProfile(profile: NetworkProfile) {
+        networkProfile = profile
+    }
+
+    override fun openPage(path: String) {
+        if (project == null || path.isBlank()) return
+        pageLoaded = false
+        loadUrl(PREVIEW_ORIGIN + encodePath(path))
+    }
+
     override fun inspectSelector(selector: String) =
         callInspector("inspectSelector(${JSONObject.quote(selector)})")
 
@@ -193,7 +205,10 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
 
     override fun runPerformanceTest(): Boolean {
         if (!pageLoaded) return false
+        // Picking must be off while measuring, and the inspector's selector builder has to be present so a
+        // layout shift can be attributed to a real element.
         setInspectorEnabled(false)
+        applyInspectorState()
         performanceToken += 1
         evaluateJavascript("($PERFORMANCE_SCRIPT)($performanceToken);", null)
         return true
@@ -264,12 +279,13 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
     // ---- serving ----------------------------------------------------------------------------------------
 
     private fun archiveResponse(project: ArchiveProject, path: String, rangeHeader: String?): WebResourceResponse {
+        applyLatency()
         val diskFile = (project.content as? DiskArchiveSource)?.file(path)
         val mime = mimeType(path)
         val encoding = if (isTextMime(mime)) "UTF-8" else null
         if (diskFile == null) {
             val bytes = project.bytes(path) ?: return notFoundResponse()
-            return WebResourceResponse(mime, encoding, ByteArrayInputStream(bytes)).apply {
+            return WebResourceResponse(mime, encoding, throttled(ByteArrayInputStream(bytes))).apply {
                 responseHeaders = mapOf("Cache-Control" to "no-store", "Access-Control-Allow-Origin" to "*")
             }
         }
@@ -291,10 +307,10 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
                     "Cache-Control" to "no-store",
                     "Access-Control-Allow-Origin" to "*",
                 ),
-                LimitedInputStream(stream, count),
+                throttled(LimitedInputStream(stream, count)),
             )
         }
-        return WebResourceResponse(mime, encoding, FileInputStream(diskFile)).apply {
+        return WebResourceResponse(mime, encoding, throttled(FileInputStream(diskFile))).apply {
             responseHeaders = mapOf(
                 "Content-Length" to length.toString(),
                 "Accept-Ranges" to "bytes",
@@ -302,6 +318,20 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
                 "Access-Control-Allow-Origin" to "*",
             )
         }
+    }
+
+    /**
+     * Simulated round trip. `shouldInterceptRequest` runs on a Chromium worker thread, never on the UI
+     * thread, so holding it is how a slow network is reproduced rather than faked in a timer.
+     */
+    private fun applyLatency() {
+        val latency = networkProfile.latencyMs
+        if (latency > 0) runCatching { Thread.sleep(latency) }
+    }
+
+    private fun throttled(stream: InputStream): InputStream {
+        val rate = networkProfile.bytesPerSecond
+        return if (rate > 0) ThrottledInputStream(stream, rate) else stream
     }
 
     private fun blockedResponse() = WebResourceResponse(
@@ -460,9 +490,9 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
         fun performanceResult(payload: String) {
             runCatching {
                 val json = JSONObject(payload)
-                json.optInt("runToken", -1) to readMetrics(json)
-            }.onSuccess { (token, metrics) ->
-                if (token == performanceToken) post { onPerformanceResult?.invoke(metrics) }
+                Triple(json.optInt("runToken", -1), readMetrics(json), readFindings(json))
+            }.onSuccess { (token, metrics, findings) ->
+                if (token == performanceToken) post { onPerformanceResult?.invoke(metrics, findings) }
             }
         }
     }
@@ -537,7 +567,28 @@ private fun readMetrics(json: JSONObject) = RuntimeMetrics(
     domNodes = json.optInt("domNodes").coerceAtLeast(0),
     resourceCount = json.optInt("resourceCount").coerceAtLeast(0),
     decodedResourceBytes = json.optLong("decodedResourceBytes").coerceAtLeast(0L),
+    scriptBytes = json.optLong("scriptBytes").coerceAtLeast(0L),
+    layoutShiftScore = json.optDouble("layoutShiftScore", 0.0).coerceAtLeast(0.0),
+    longTaskCount = json.optInt("longTaskCount").coerceAtLeast(0),
+    longTaskTotalMs = json.optDouble("longTaskTotalMs", 0.0).coerceAtLeast(0.0),
 )
+
+private fun readFindings(json: JSONObject): List<PerformanceFinding> {
+    val array = json.optJSONArray("findings") ?: return emptyList()
+    return (0 until array.length()).mapNotNull { index ->
+        val item = array.optJSONObject(index) ?: return@mapNotNull null
+        val kind = PerformanceFindingKind.entries.firstOrNull { it.name == item.optString("kind") }
+            ?: return@mapNotNull null
+        PerformanceFinding(
+            kind = kind,
+            target = item.optString("target"),
+            selector = item.optString("selector"),
+            note = item.optString("note"),
+            value = item.optDouble("value", 0.0),
+            extra = item.optDouble("extra", 0.0),
+        )
+    }
+}
 
 /**
  * `isForMainFrame` is true for every resource requested by the main frame, not only for its document, so it
@@ -560,25 +611,4 @@ private fun parseRange(value: String?, size: Long): LongRange? {
     val start = firstRange.substringBefore('-').toLongOrNull() ?: return null
     val end = firstRange.substringAfter('-', "").toLongOrNull()?.coerceAtMost(size - 1) ?: (size - 1)
     return if (start in 0 until size && end >= start) start..end else null
-}
-
-private class LimitedInputStream(
-    private val source: InputStream,
-    private var remaining: Long,
-) : InputStream() {
-    override fun read(): Int {
-        if (remaining <= 0) return -1
-        val value = source.read()
-        if (value >= 0) remaining--
-        return value
-    }
-
-    override fun read(buffer: ByteArray, offset: Int, length: Int): Int {
-        if (remaining <= 0) return -1
-        val count = source.read(buffer, offset, minOf(length.toLong(), remaining).toInt())
-        if (count > 0) remaining -= count
-        return count
-    }
-
-    override fun close() = source.close()
 }

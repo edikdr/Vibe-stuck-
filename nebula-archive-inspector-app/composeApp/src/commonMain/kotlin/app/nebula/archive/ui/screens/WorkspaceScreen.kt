@@ -29,6 +29,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -44,11 +45,7 @@ import app.nebula.archive.PreviewDevice
 import app.nebula.archive.findElementSources
 import app.nebula.archive.formatBytes
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
-
-/** A runtime test that produced nothing by now is never going to; the UI must not stay stuck on it. */
-private const val PERFORMANCE_TIMEOUT_MS = 8_000L
 
 /** Source lookup for a large group would scan the archive once per element; the rest keep their own panel. */
 private const val MAX_GROUP_SOURCE_LOOKUPS = 8
@@ -67,7 +64,8 @@ fun WorkspaceScreen(
     onToggleLocale: () -> Unit,
     onClose: () -> Unit,
 ) {
-    val state = remember(project.openedAtMs) { WorkspaceState(project, locale) }
+    val scope = rememberCoroutineScope()
+    val state = remember(project.openedAtMs) { WorkspaceState(project, locale, scope) }
     SideEffect { state.locale = locale }
 
     LaunchedEffect(state.inspected) {
@@ -79,18 +77,12 @@ fun WorkspaceScreen(
             }
         }
     }
-    LaunchedEffect(state.performanceRun, state.performanceRunning) {
-        if (!state.performanceRunning) return@LaunchedEffect
-        val run = state.performanceRun
-        delay(PERFORMANCE_TIMEOUT_MS)
-        state.onPerformanceTimeout(run)
-    }
 
     Column(
         Modifier.fillMaxSize().background(Space).windowInsetsPadding(WindowInsets.safeDrawing),
     ) {
         if (projects.size > 1) ProjectTabs(projects, project, onSelectProject)
-        WorkspaceHeader(state, onClose, onOpenAnother, onToggleLocale)
+        WorkspaceHeader(state, onClose, onOpenAnother, onToggleLocale, comparable = projects.size > 1)
 
         Box(Modifier.fillMaxWidth().weight(1f)) {
             BoxWithConstraints(Modifier.fillMaxSize()) {
@@ -116,7 +108,7 @@ fun WorkspaceScreen(
                     }
                 }
             }
-            WorkspaceOverlays(state, platform)
+            WorkspaceOverlays(state, platform, projects)
         }
     }
 }
@@ -132,7 +124,7 @@ private fun WorkspacePanelContent(state: WorkspaceState, wide: Boolean, modifier
 }
 
 @Composable
-private fun BoxScope.WorkspaceOverlays(state: WorkspaceState, platform: NebulaPlatform) {
+private fun BoxScope.WorkspaceOverlays(state: WorkspaceState, platform: NebulaPlatform, projects: List<ArchiveProject>) {
     when (val overlay = state.overlay) {
         null -> Unit
         is WorkspaceOverlay.Files -> {
@@ -142,6 +134,7 @@ private fun BoxScope.WorkspaceOverlays(state: WorkspaceState, platform: NebulaPl
                 Modifier.fillMaxWidth(.92f).widthIn(max = 390.dp).fillMaxHeight().align(Alignment.CenterStart),
             )
         }
+        is WorkspaceOverlay.Diff -> ArchiveDiffPanel(state, projects, Modifier.fillMaxSize())
         is WorkspaceOverlay.Source -> SourceViewer(state, overlay.hit, Modifier.fillMaxSize())
         is WorkspaceOverlay.Asset -> AssetViewer(state, platform, overlay.entry, Modifier.fillMaxSize())
     }
@@ -187,6 +180,7 @@ private fun WorkspaceHeader(
     onClose: () -> Unit,
     onOpenAnother: () -> Unit,
     onToggleLocale: () -> Unit,
+    comparable: Boolean,
 ) {
     val strings = state.strings
     Column(
@@ -223,7 +217,8 @@ private fun WorkspaceHeader(
                 state::toggleInspecting,
                 active = state.inspecting,
             )
-            ToolAction("◴", strings.test + if (state.performanceRunning) "…" else "", state::startPerformanceTest, active = state.performanceRunning)
+            ToolAction("◴", strings.test + if (state.testing) "…" else "", state::startPageTest, active = state.testing)
+            if (comparable) ToolAction("⇄", strings.compare, state::openDiff, active = state.overlay is WorkspaceOverlay.Diff)
             ToolAction("文", strings.localeSwitch, onToggleLocale)
         }
     }
@@ -246,6 +241,7 @@ private fun PreviewPane(state: WorkspaceState, platform: NebulaPlatform, modifie
             SmallAction(deviceLabel(state.device, state), state::cycleDevice, active = state.device.emulated)
             if (state.device.emulated) SmallAction("⟳", state::rotateDevice, active = state.landscape)
             SmallAction(if (state.onlineResources) "NET" else "OFF", state::toggleOnlineResources, active = state.onlineResources)
+            SmallAction(state.networkProfile.shortLabel, state::cycleNetworkProfile, active = state.networkProfile.throttled)
             SmallAction(if (state.issues.isEmpty()) "!" else "!${state.issues.size}", state::toggleDiagnostics, active = state.issues.isNotEmpty())
         }
         if (state.navigation.progress in 1..99) {

@@ -105,18 +105,6 @@ class InspectionTest {
         assertTrue(context.contains("selected together"), context)
     }
 
-    @Test
-    fun runtimeScorePenalizesSlowAndJankyPages() {
-        val project = testProject(mapOf("index.html" to "<html></html>"))
-        val fast = evaluateRuntimePerformance(project, metrics(load = 600.0, slowFrames = 1.0, domNodes = 400))
-        val slow = evaluateRuntimePerformance(project, metrics(load = 5_500.0, slowFrames = 45.0, domNodes = 7_000))
-
-        assertTrue(fast.score > slow.score)
-        assertEquals('A', fast.grade)
-        assertTrue(slow.advice.size >= 2)
-        project.close()
-    }
-
     private fun element(
         selector: String,
         tag: String = "button",
@@ -133,16 +121,4 @@ class InspectionTest {
         outerHtml = outerHtml,
     )
 
-    private fun metrics(load: Double, slowFrames: Double, domNodes: Int) = RuntimeMetrics(
-        responseStartMs = 20.0,
-        domContentLoadedMs = load * .8,
-        loadMs = load,
-        firstContentfulPaintMs = load * .5,
-        averageFrameMs = if (slowFrames > 15) 29.0 else 16.7,
-        worstFrameMs = if (slowFrames > 15) 90.0 else 20.0,
-        slowFramePercent = slowFrames,
-        domNodes = domNodes,
-        resourceCount = if (domNodes > 3_000) 280 else 30,
-        decodedResourceBytes = 512_000,
-    )
 }

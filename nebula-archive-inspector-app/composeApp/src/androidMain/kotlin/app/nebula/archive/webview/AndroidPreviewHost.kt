@@ -213,6 +213,7 @@ private fun DevicePreview(
                     webView.scaleY = scale
                     bind(webView)
                     webView.setOnlineResourcesEnabled(state.onlineResources)
+                    webView.setNetworkProfile(state.networkProfile)
                     if (webView.tag != state.project.openedAtMs) {
                         webView.tag = state.project.openedAtMs
                         webView.show(state.project)

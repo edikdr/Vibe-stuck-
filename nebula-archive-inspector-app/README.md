@@ -51,8 +51,15 @@ The inspector paints its outlines and marks on a canvas above the page, so inspe
   and scaled natively, so taps and element picking stay aligned.
 - Keeps a bounded diagnostics log of missing archive files, JavaScript errors, blocked resources and failed
   requests.
-- Runs an on-demand runtime performance test: load and paint timing, 60-frame pacing, slow-frame percentage,
-  DOM size, resource count and JavaScript weight.
+- Runs a runtime performance test that names concrete causes — the element behind a layout shift, the
+  render-blocking script, the oversized image, the long JavaScript task — and can measure every page of the
+  archive in one run, reporting the average and the worst page. A finding opens straight in the element
+  inspector or in its source file, and copies to an assistant as one compact block.
+- Simulates a slow network (`4G / 4G− / 3G`, Chrome DevTools values) while browsing and while measuring, by
+  really holding bytes back. CPU throttling and a GPU breakdown are not possible in an embedded WebView, and
+  the app says so rather than faking numbers.
+- Compares two open archives: what was added, removed or changed between two builds, with a line diff for
+  text files and a compact diff block for an assistant.
 - Adds guarded pointer/touch fallbacks and layer repairs for modals, drawers and scroll-reveal animations that
   an Android WebView would otherwise leave broken. Every forced style is recorded and restored.
 - Shows real child WebViews for `window.open` and `target="_blank"`, with native `alert`/`confirm`/`prompt`.
