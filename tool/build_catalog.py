@@ -173,6 +173,8 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-deel': 'api-deel', 'paid-remote-com': 'api-remote-com',
+ 'paid-weglot': 'api-weglot',
  'paid-openai': 'api-openai-platform', 'paid-anthropic': 'api-anthropic',
  'paid-gemini': 'api-google-gemini', 'paid-mistral': 'api-mistral',
  'paid-groq': 'api-groq', 'paid-openrouter': 'api-openrouter',

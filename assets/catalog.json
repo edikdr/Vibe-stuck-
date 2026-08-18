@@ -3307,6 +3307,47 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-deel",
+   "name": "Deel API",
+   "kind": "api",
+   "category": "HR и рекрутинг",
+   "summary": "Global payroll, contractor and employer-of-record APIs for international hiring.",
+   "url": "https://developer.deel.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payroll",
+    "global",
+    "contractors",
+    "eor",
+    "pricing",
+    "per-employee"
+   ],
+   "tip": "EOR handles legal employment in countries where you have no entity, which is the core value.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Global payroll, contractor and employer-of-record APIs for international hiring.",
+    "ru": "API глобальных зарплат, подрядчиков и employer-of-record для международного найма."
+   },
+   "localizedTip": {
+    "en": "EOR handles legal employment in countries where you have no entity, which is the core value."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$49 per contractor per month",
+    "freeQuota": "free HR platform tier",
+    "url": "https://www.deel.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-greenhouse",
    "name": "Greenhouse API",
    "kind": "api",
@@ -3407,6 +3448,47 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-remote-com",
+   "name": "Remote API",
+   "kind": "api",
+   "category": "HR и рекрутинг",
+   "summary": "Employer-of-record and global payroll platform API.",
+   "url": "https://developer.remote.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "eor",
+    "payroll",
+    "global",
+    "compliance",
+    "pricing",
+    "per-employee"
+   ],
+   "tip": "Compare EOR per-employee fees against Deel directly — they differ meaningfully by country.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Employer-of-record and global payroll platform API.",
+    "ru": "API платформы employer-of-record и глобальных зарплат."
+   },
+   "localizedTip": {
+    "en": "Compare EOR per-employee fees against Deel directly — they differ meaningfully by country."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$29 per contractor per month",
+    "freeQuota": "free contractor management tier",
+    "url": "https://remote.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -4325,6 +4407,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-firebase-firestore",
+   "name": "Cloud Firestore",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Realtime document database with offline persistence built into the client SDKs.",
+   "url": "https://firebase.google.com/docs/firestore",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nosql",
+    "realtime",
+    "offline",
+    "google"
+   ],
+   "tip": "Design around its query limitations early — no joins and limited compound queries shape the data model.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Realtime document database with offline persistence built into the client SDKs.",
+    "ru": "Документная база реального времени со встроенной офлайн-персистентностью в клиентских SDK."
+   },
+   "localizedTip": {
+    "en": "Design around its query limitations early — no joins and limited compound queries shape the data model."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-cockroachdb",
    "name": "CockroachDB",
    "kind": "api",
@@ -4395,6 +4512,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-dgraph",
+   "name": "Dgraph",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Distributed graph database with native GraphQL support.",
+   "url": "https://dgraph.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graph",
+    "graphql",
+    "distributed",
+    "native"
+   ],
+   "tip": "Its GraphQL-native model removes the resolver layer most graph databases still require.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed graph database with native GraphQL support.",
+    "ru": "Распределённая графовая база данных с нативной поддержкой GraphQL."
+   },
+   "localizedTip": {
+    "en": "Its GraphQL-native model removes the resolver layer most graph databases still require."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-electric-sql",
    "name": "ElectricSQL",
    "kind": "api",
@@ -4425,6 +4577,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-fauna",
+   "name": "Fauna",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Distributed serverless document-relational database with strong consistency.",
+   "url": "https://docs.fauna.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serverless",
+    "distributed",
+    "fql",
+    "transactions"
+   ],
+   "tip": "Global strong consistency without manual replica management is its main differentiator.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed serverless document-relational database with strong consistency.",
+    "ru": "Распределённая serverless документно-реляционная база данных со строгой согласованностью."
+   },
+   "localizedTip": {
+    "en": "Global strong consistency without manual replica management is its main differentiator."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -4536,6 +4723,41 @@
     "freeQuota": "Free shared M0 cluster",
     "url": "https://www.mongodb.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-neo4j-aura",
+   "name": "Neo4j AuraDB",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Managed graph database service with the Cypher query language.",
+   "url": "https://neo4j.com/docs/aura/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graph",
+    "cypher",
+    "managed",
+    "relationships"
+   ],
+   "tip": "Graph databases win specifically on multi-hop relationship queries that become expensive joins in SQL.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Managed graph database service with the Cypher query language.",
+    "ru": "Управляемый сервис графовой базы данных с языком запросов Cypher."
+   },
+   "localizedTip": {
+    "en": "Graph databases win specifically on multi-hop relationship queries that become expensive joins in SQL."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -4697,6 +4919,111 @@
     "freeQuota": "Free tier with two active projects",
     "url": "https://supabase.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-supabase-realtime",
+   "name": "Supabase Realtime",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Realtime Postgres change subscriptions, presence and broadcast channels.",
+   "url": "https://supabase.com/docs/guides/realtime",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "realtime",
+    "postgres",
+    "websockets",
+    "broadcast"
+   ],
+   "tip": "Row Level Security applies to realtime subscriptions too — a missing policy leaks rows over the socket.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Realtime Postgres change subscriptions, presence and broadcast channels.",
+    "ru": "Подписки на изменения Postgres в реальном времени, присутствие и broadcast-каналы."
+   },
+   "localizedTip": {
+    "en": "Row Level Security applies to realtime subscriptions too — a missing policy leaks rows over the socket."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-surrealdb",
+   "name": "SurrealDB",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Multi-model database combining document, graph and relational in one engine.",
+   "url": "https://surrealdb.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "multi-model",
+    "rust",
+    "realtime",
+    "graph"
+   ],
+   "tip": "Its embedded mode runs in-process, which suits local-first apps as well as server deployments.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Multi-model database combining document, graph and relational in one engine.",
+    "ru": "Мультимодельная база данных, объединяющая документную, графовую и реляционную модели в одном движке."
+   },
+   "localizedTip": {
+    "en": "Its embedded mode runs in-process, which suits local-first apps as well as server deployments."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-tigrisdata",
+   "name": "Tigris",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "S3-compatible object storage distributed globally with no egress fees.",
+   "url": "https://www.tigrisdata.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "object-storage",
+    "s3",
+    "globally-distributed",
+    "edge"
+   ],
+   "tip": "No egress fees changes the economics for media-heavy applications compared to AWS S3.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "S3-compatible object storage distributed globally with no egress fees.",
+    "ru": "S3-совместимое объектное хранилище с глобальным распределением и без платы за исходящий трафик."
+   },
+   "localizedTip": {
+    "en": "No egress fees changes the economics for media-heavy applications compared to AWS S3."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -5036,6 +5363,76 @@
     "freeQuota": "sandbox available on request",
     "url": "https://www.veriff.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-camunda",
+   "name": "Camunda",
+   "kind": "api",
+   "category": "Очереди и события",
+   "summary": "BPMN-based process orchestration for business workflows with a visual modeler.",
+   "url": "https://docs.camunda.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bpmn",
+    "workflow",
+    "orchestration",
+    "process"
+   ],
+   "tip": "BPMN diagrams are the executable artifact, which lets non-developers review the actual process logic.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "BPMN-based process orchestration for business workflows with a visual modeler.",
+    "ru": "Оркестрация бизнес-процессов на BPMN с визуальным моделировщиком."
+   },
+   "localizedTip": {
+    "en": "BPMN diagrams are the executable artifact, which lets non-developers review the actual process logic."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-restate",
+   "name": "Restate",
+   "kind": "api",
+   "category": "Очереди и события",
+   "summary": "Durable execution engine for resilient microservice workflows.",
+   "url": "https://docs.restate.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "durable-execution",
+    "workflows",
+    "typescript",
+    "resilient"
+   ],
+   "tip": "Lighter-weight than Temporal for teams that want durability without running a separate cluster.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Durable execution engine for resilient microservice workflows.",
+    "ru": "Движок durable execution для устойчивых микросервисных workflow."
+   },
+   "localizedTip": {
+    "en": "Lighter-weight than Temporal for teams that want durability without running a separate cluster."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -6983,6 +7380,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-clickhouse-2",
+   "name": "ClickHouse",
+   "kind": "api",
+   "category": "Data engineering",
+   "summary": "Columnar OLAP database designed for very fast analytical queries at scale.",
+   "url": "https://clickhouse.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "olap",
+    "columnar",
+    "analytics",
+    "fast"
+   ],
+   "tip": "Its performance depends heavily on choosing the right ORDER BY key — that decision is hard to change later.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Columnar OLAP database designed for very fast analytical queries at scale.",
+    "ru": "Колоночная OLAP-база данных для очень быстрых аналитических запросов на масштабе."
+   },
+   "localizedTip": {
+    "en": "Its performance depends heavily on choosing the right ORDER BY key — that decision is hard to change later."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-clickhouse-cloud-2",
    "name": "ClickHouse Cloud",
    "kind": "api",
@@ -7228,6 +7660,76 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-influxdb",
+   "name": "InfluxDB",
+   "kind": "api",
+   "category": "Data engineering",
+   "summary": "Purpose-built time-series database for metrics, events and IoT sensor data.",
+   "url": "https://docs.influxdata.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "timeseries",
+    "metrics",
+    "iot",
+    "monitoring"
+   ],
+   "tip": "Retention policies and downsampling are essential — raw high-frequency data grows unmanageably fast.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Purpose-built time-series database for metrics, events and IoT sensor data.",
+    "ru": "Специализированная база временных рядов для метрик, событий и данных IoT-датчиков."
+   },
+   "localizedTip": {
+    "en": "Retention policies and downsampling are essential — raw high-frequency data grows unmanageably fast."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-kestra",
+   "name": "Kestra",
+   "kind": "api",
+   "category": "Data engineering",
+   "summary": "Declarative YAML-based orchestration for data and infrastructure workflows.",
+   "url": "https://kestra.io/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "orchestration",
+    "yaml",
+    "declarative",
+    "data"
+   ],
+   "tip": "YAML definitions make workflows reviewable in a PR without reading Python DAG code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Declarative YAML-based orchestration for data and infrastructure workflows.",
+    "ru": "Декларативная оркестрация workflow данных и инфраструктуры на YAML."
+   },
+   "localizedTip": {
+    "en": "YAML definitions make workflows reviewable in a PR without reading Python DAG code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-materialize",
    "name": "Materialize",
    "kind": "api",
@@ -7258,6 +7760,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-questdb",
+   "name": "QuestDB",
+   "kind": "api",
+   "category": "Data engineering",
+   "summary": "High-performance time-series database with SQL and fast ingestion.",
+   "url": "https://questdb.com/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "timeseries",
+    "sql",
+    "fast",
+    "ingestion"
+   ],
+   "tip": "Its SQL extensions for time-series (SAMPLE BY, LATEST ON) remove a lot of window-function boilerplate.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance time-series database with SQL and fast ingestion.",
+    "ru": "Высокопроизводительная база временных рядов с SQL и быстрым приёмом данных."
+   },
+   "localizedTip": {
+    "en": "Its SQL extensions for time-series (SAMPLE BY, LATEST ON) remove a lot of window-function boilerplate."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -7368,6 +7905,41 @@
     "freeQuota": "demo via sales",
     "url": "https://www.tecton.ai/",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-timescaledb",
+   "name": "TimescaleDB",
+   "kind": "api",
+   "category": "Data engineering",
+   "summary": "Time-series extension for PostgreSQL, keeping full SQL and the Postgres ecosystem.",
+   "url": "https://docs.timescale.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "timeseries",
+    "postgres",
+    "extension",
+    "hypertables"
+   ],
+   "tip": "Choosing this over a dedicated TSDB means keeping joins with your relational data, which often matters more.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Time-series extension for PostgreSQL, keeping full SQL and the Postgres ecosystem.",
+    "ru": "Расширение временных рядов для PostgreSQL с сохранением полного SQL и экосистемы Postgres."
+   },
+   "localizedTip": {
+    "en": "Choosing this over a dedicated TSDB means keeping joins with your relational data, which often matters more."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -7844,6 +8416,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-graphhopper",
+   "name": "GraphHopper",
+   "kind": "api",
+   "category": "Карты и навигация",
+   "summary": "Routing and route optimization on OpenStreetMap data, self-hostable.",
+   "url": "https://docs.graphhopper.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "routing",
+    "osm",
+    "optimization",
+    "self-host"
+   ],
+   "tip": "Its route optimization solves vehicle-routing problems, which plain directions APIs do not address.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Routing and route optimization on OpenStreetMap data, self-hostable.",
+    "ru": "Маршрутизация и оптимизация маршрутов на данных OpenStreetMap, можно разместить самостоятельно."
+   },
+   "localizedTip": {
+    "en": "Its route optimization solves vehicle-routing problems, which plain directions APIs do not address."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "paid-here",
    "name": "HERE Location Services",
    "kind": "api",
@@ -7878,6 +8485,41 @@
     "freeQuota": "1000 free transactions per day",
     "url": "https://www.here.com/get-started/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-mapbox-directions",
+   "name": "Mapbox Directions API",
+   "kind": "api",
+   "category": "Карты и навигация",
+   "summary": "Turn-by-turn routing with live traffic across driving, walking and cycling profiles.",
+   "url": "https://docs.mapbox.com/api/navigation/directions/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "routing",
+    "navigation",
+    "traffic",
+    "maps"
+   ],
+   "tip": "The matrix endpoint computes many-to-many travel times far more cheaply than looping directions calls.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Turn-by-turn routing with live traffic across driving, walking and cycling profiles.",
+    "ru": "Пошаговая маршрутизация с учётом пробок для авто, пешеходов и велосипедистов."
+   },
+   "localizedTip": {
+    "en": "The matrix endpoint computes many-to-many travel times far more cheaply than looping directions calls."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -8058,6 +8700,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-valhalla",
+   "name": "Valhalla",
+   "kind": "api",
+   "category": "Карты и навигация",
+   "summary": "Open-source routing engine for OpenStreetMap with isochrones and map matching.",
+   "url": "https://valhalla.github.io/valhalla/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "routing",
+    "osm",
+    "self-host",
+    "isochrones"
+   ],
+   "tip": "Self-hosting eliminates per-request routing costs entirely, at the cost of managing large tile data.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source routing engine for OpenStreetMap with isochrones and map matching.",
+    "ru": "Открытый движок маршрутизации для OpenStreetMap с изохронами и map matching."
+   },
+   "localizedTip": {
+    "en": "Self-hosting eliminates per-request routing costs entirely, at the cost of managing large tile data."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -9373,6 +10050,76 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-moodle",
+   "name": "Moodle Web Services",
+   "kind": "api",
+   "category": "Образование",
+   "summary": "Web service API for the widely deployed open-source Moodle LMS.",
+   "url": "https://docs.moodle.org/dev/Web_service_API_functions",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "lms",
+    "education",
+    "self-host",
+    "courses"
+   ],
+   "tip": "Each web service function must be explicitly enabled by an admin before it becomes callable.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Web service API for the widely deployed open-source Moodle LMS.",
+    "ru": "API веб-сервисов для широко распространённой открытой LMS Moodle."
+   },
+   "localizedTip": {
+    "en": "Each web service function must be explicitly enabled by an admin before it becomes callable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-openedx",
+   "name": "Open edX APIs",
+   "kind": "api",
+   "category": "Образование",
+   "summary": "REST APIs for the Open edX learning platform used by many universities.",
+   "url": "https://docs.openedx.org/en/latest/developers/references/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "lms",
+    "mooc",
+    "education",
+    "self-host"
+   ],
+   "tip": "Heavier to self-host than Moodle — evaluate the operational cost before committing to it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "REST APIs for the Open edX learning platform used by many universities.",
+    "ru": "REST API платформы обучения Open edX, используемой многими университетами."
+   },
+   "localizedTip": {
+    "en": "Heavier to self-host than Moodle — evaluate the operational cost before committing to it."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -11005,6 +11752,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-lunr",
+   "name": "Lunr.js",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Small client-side full-text search library, a JavaScript take on Solr's ideas.",
+   "url": "https://lunrjs.com/docs/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "search",
+    "client-side",
+    "javascript",
+    "small"
+   ],
+   "tip": "Index size grows quickly — beyond a few thousand documents, prefer Pagefind's chunked approach.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i lunr",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Small client-side full-text search library, a JavaScript take on Solr's ideas.",
+    "ru": "Небольшая клиентская библиотека полнотекстового поиска, JavaScript-интерпретация идей Solr."
+   },
+   "localizedTip": {
+    "en": "Index size grows quickly — beyond a few thousand documents, prefer Pagefind's chunked approach."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-marqo",
    "name": "Marqo",
    "kind": "api",
@@ -11075,6 +11857,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-mongodb-atlas-2",
+   "name": "MongoDB Atlas Search",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Full-text and vector search built into MongoDB Atlas, no separate search cluster.",
+   "url": "https://www.mongodb.com/docs/atlas/atlas-search/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "search",
+    "mongodb",
+    "lucene",
+    "full-text"
+   ],
+   "tip": "Avoids running Elasticsearch alongside Mongo, which removes a whole sync pipeline and its failure modes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Full-text and vector search built into MongoDB Atlas, no separate search cluster.",
+    "ru": "Полнотекстовый и векторный поиск внутри MongoDB Atlas, без отдельного поискового кластера."
+   },
+   "localizedTip": {
+    "en": "Avoids running Elasticsearch alongside Mongo, which removes a whole sync pipeline and its failure modes."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-openai-embeddings",
    "name": "OpenAI Embeddings",
    "kind": "api",
@@ -11111,6 +11928,76 @@
     "freeQuota": "no free tier",
     "url": "https://platform.openai.com/docs/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-orama",
+   "name": "Orama",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Full-text, vector and hybrid search engine running in JavaScript, including in the browser.",
+   "url": "https://docs.orama.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "search",
+    "javascript",
+    "in-memory",
+    "edge"
+   ],
+   "tip": "Running search entirely client-side removes both server cost and query latency for modest datasets.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @orama/orama",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Full-text, vector and hybrid search engine running in JavaScript, including in the browser.",
+    "ru": "Полнотекстовый, векторный и гибридный поисковый движок на JavaScript, работает и в браузере."
+   },
+   "localizedTip": {
+    "en": "Running search entirely client-side removes both server cost and query latency for modest datasets."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-pagefind",
+   "name": "Pagefind",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Static site search that indexes at build time and loads index fragments on demand.",
+   "url": "https://pagefind.app/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "static-search",
+    "indexing",
+    "low-bandwidth",
+    "ssg"
+   ],
+   "tip": "It downloads only the index chunks a query needs, so large sites stay searchable without a server.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Static site search that indexes at build time and loads index fragments on demand.",
+    "ru": "Поиск по статическим сайтам с индексацией на этапе сборки и загрузкой фрагментов индекса по требованию."
+   },
+   "localizedTip": {
+    "en": "It downloads only the index chunks a query needs, so large sites stay searchable without a server."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -11299,6 +12186,41 @@
     "freeQuota": "starter token allowance",
     "url": "https://docs.voyageai.com/docs/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-zincsearch",
+   "name": "ZincSearch",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Lightweight search engine in Go, a simpler alternative to Elasticsearch.",
+   "url": "https://zincsearch-docs.zinc.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "search",
+    "lightweight",
+    "elasticsearch-alternative",
+    "go"
+   ],
+   "tip": "Single binary with far lower resource use, which suits small deployments Elasticsearch would dominate.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight search engine in Go, a simpler alternative to Elasticsearch.",
+    "ru": "Лёгкий поисковый движок на Go, более простая альтернатива Elasticsearch."
+   },
+   "localizedTip": {
+    "en": "Single binary with far lower resource use, which suits small deployments Elasticsearch would dominate."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -12829,6 +13751,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-dropbox-sign",
+   "name": "Dropbox Sign",
+   "kind": "api",
+   "category": "Юридические и налоговые API",
+   "summary": "E-signature API with embedded signing, formerly HelloSign.",
+   "url": "https://developers.hellosign.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "esignature",
+    "contracts",
+    "embedded",
+    "legal"
+   ],
+   "tip": "Its test mode allows unlimited signature requests, so the whole flow can be built before paying.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "E-signature API with embedded signing, formerly HelloSign.",
+    "ru": "API электронной подписи со встраиваемым подписанием, ранее HelloSign."
+   },
+   "localizedTip": {
+    "en": "Its test mode allows unlimited signature requests, so the whole flow can be built before paying."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-opencorporates",
    "name": "OpenCorporates",
    "kind": "api",
@@ -12856,6 +13813,76 @@
    },
    "localizedTip": {
     "en": "Coverage and freshness vary a lot by jurisdiction — check your target country before relying on it."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-pandadoc",
+   "name": "PandaDoc",
+   "kind": "api",
+   "category": "Юридические и налоговые API",
+   "summary": "Document automation with templates, e-signature and payment collection.",
+   "url": "https://developers.pandadoc.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "documents",
+    "esignature",
+    "proposals",
+    "templates"
+   ],
+   "tip": "Templates with variable tokens turn contract generation into a data-merge rather than document editing.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Document automation with templates, e-signature and payment collection.",
+    "ru": "Автоматизация документов с шаблонами, электронной подписью и сбором платежей."
+   },
+   "localizedTip": {
+    "en": "Templates with variable tokens turn contract generation into a data-merge rather than document editing."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-signwell",
+   "name": "SignWell",
+   "kind": "api",
+   "category": "Юридические и налоговые API",
+   "summary": "Straightforward e-signature API with a usable free tier for low volume.",
+   "url": "https://www.signwell.com/api/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "esignature",
+    "documents",
+    "simple",
+    "legal"
+   ],
+   "tip": "Cheaper than DocuSign for basic signature workflows without enterprise compliance requirements.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Straightforward e-signature API with a usable free tier for low volume.",
+    "ru": "Простой API электронной подписи с рабочим бесплатным тарифом для небольших объёмов."
+   },
+   "localizedTip": {
+    "en": "Cheaper than DocuSign for basic signature workflows without enterprise compliance requirements."
    },
    "pricing": {
     "model": "freemium",
@@ -14788,6 +15815,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-localazy",
+   "name": "Localazy",
+   "kind": "api",
+   "category": "Локализация и i18n",
+   "summary": "Localization management with a strong CLI and mobile app focus.",
+   "url": "https://localazy.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "localization",
+    "translations",
+    "mobile",
+    "cli"
+   ],
+   "tip": "Its shared community translations cover common UI strings for free across projects.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Localization management with a strong CLI and mobile app focus.",
+    "ru": "Управление локализацией с сильным CLI и фокусом на мобильные приложения."
+   },
+   "localizedTip": {
+    "en": "Its shared community translations cover common UI strings for free across projects."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-lokalise",
    "name": "Lokalise API",
    "kind": "api",
@@ -14853,6 +15915,83 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-tolgee",
+   "name": "Tolgee",
+   "kind": "api",
+   "category": "Локализация и i18n",
+   "summary": "Open-source localization platform with in-context translation editing in your running app.",
+   "url": "https://tolgee.io/platform",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "localization",
+    "in-context",
+    "open-source",
+    "self-host"
+   ],
+   "tip": "In-context editing means translators see the real UI, which catches length and context errors early.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source localization platform with in-context translation editing in your running app.",
+    "ru": "Открытая платформа локализации с редактированием переводов прямо в работающем приложении."
+   },
+   "localizedTip": {
+    "en": "In-context editing means translators see the real UI, which catches length and context errors early."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-weglot",
+   "name": "Weglot",
+   "kind": "api",
+   "category": "Локализация и i18n",
+   "summary": "Website translation layer that proxies and translates pages without code changes.",
+   "url": "https://developers.weglot.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "translation",
+    "website",
+    "proxy",
+    "seo",
+    "pricing",
+    "words",
+    "subscription"
+   ],
+   "tip": "SEO-friendly because translated pages get their own URLs, unlike client-side translation widgets.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Website translation layer that proxies and translates pages without code changes.",
+    "ru": "Слой перевода сайта, который проксирует и переводит страницы без изменений в коде."
+   },
+   "localizedTip": {
+    "en": "SEO-friendly because translated pages get their own URLs, unlike client-side translation widgets."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~€15 per month",
+    "freeQuota": "free trial",
+    "url": "https://www.weglot.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -16171,6 +17310,41 @@
     "freeQuota": "Hobby plan free for personal projects",
     "url": "https://vercel.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-activepieces",
+   "name": "Activepieces",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Open-source no-code automation platform, an alternative to Zapier and Make.",
+   "url": "https://www.activepieces.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "automation",
+    "no-code",
+    "self-host",
+    "typescript"
+   ],
+   "tip": "Its pieces are TypeScript packages, so writing a custom integration is a normal npm workflow.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source no-code automation platform, an alternative to Zapier and Make.",
+    "ru": "Открытая no-code платформа автоматизации, альтернатива Zapier и Make."
+   },
+   "localizedTip": {
+    "en": "Its pieces are TypeScript packages, so writing a custom integration is a normal npm workflow."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -31164,6 +32338,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-axolotl",
+   "name": "Axolotl",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Config-driven LLM fine-tuning covering many model architectures and training methods.",
+   "url": "https://docs.axolotl.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fine-tuning",
+    "config",
+    "yaml",
+    "llm"
+   ],
+   "tip": "A YAML file defines the whole run, which makes experiments reproducible and easy to diff.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install axolotl",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Config-driven LLM fine-tuning covering many model architectures and training methods.",
+    "ru": "Дообучение LLM через конфиг, покрывает множество архитектур моделей и методов обучения."
+   },
+   "localizedTip": {
+    "en": "A YAML file defines the whole run, which makes experiments reproducible and easy to diff."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-catboost",
    "name": "CatBoost",
    "kind": "library",
@@ -31191,6 +32400,41 @@
    },
    "localizedTip": {
     "en": "Pass categorical columns directly instead of one-hot encoding them — it handles the encoding internally."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-darts",
+   "name": "Darts",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Unified time series library covering classical, machine learning and deep forecasting models.",
+   "url": "https://unit8co.github.io/darts/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "forecasting",
+    "timeseries",
+    "unified-api",
+    "python"
+   ],
+   "tip": "Its consistent API makes comparing a dozen model families a loop rather than a rewrite each time.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install darts",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unified time series library covering classical, machine learning and deep forecasting models.",
+    "ru": "Единая библиотека временных рядов: классические, ML и глубокие модели прогнозирования."
+   },
+   "localizedTip": {
+    "en": "Its consistent API makes comparing a dozen model families a loop rather than a rewrite each time."
    },
    "pricing": {
     "model": "openSource",
@@ -31281,6 +32525,76 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-gymnasium",
+   "name": "Gymnasium",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Standard API for reinforcement learning environments, the maintained successor to OpenAI Gym.",
+   "url": "https://gymnasium.farama.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "reinforcement-learning",
+    "environments",
+    "standard",
+    "api"
+   ],
+   "tip": "Use this rather than the archived gym package — the original is no longer maintained.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install gymnasium",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Standard API for reinforcement learning environments, the maintained successor to OpenAI Gym.",
+    "ru": "Стандартный API сред обучения с подкреплением, поддерживаемый преемник OpenAI Gym."
+   },
+   "localizedTip": {
+    "en": "Use this rather than the archived gym package — the original is no longer maintained."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-accelerate",
+   "name": "Hugging Face Accelerate",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Runs the same PyTorch training code on CPU, single GPU, multi-GPU or TPU unchanged.",
+   "url": "https://huggingface.co/docs/accelerate",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "distributed",
+    "training",
+    "pytorch",
+    "huggingface"
+   ],
+   "tip": "Lighter than Lightning — it adds device handling without imposing a training-loop structure.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install accelerate",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs the same PyTorch training code on CPU, single GPU, multi-GPU or TPU unchanged.",
+    "ru": "Запускает один и тот же код обучения PyTorch на CPU, одной GPU, нескольких GPU или TPU без изменений."
+   },
+   "localizedTip": {
+    "en": "Lighter than Lightning — it adds device handling without imposing a training-loop structure."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-ibis",
    "name": "Ibis",
    "kind": "library",
@@ -31316,6 +32630,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-jax",
+   "name": "JAX",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Composable function transformations (grad, jit, vmap) over NumPy-like arrays.",
+   "url": "https://docs.jax.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "autodiff",
+    "xla",
+    "research",
+    "functional"
+   ],
+   "tip": "Its functional purity requirement is strict — side effects inside jit-compiled functions silently misbehave.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install jax",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Composable function transformations (grad, jit, vmap) over NumPy-like arrays.",
+    "ru": "Композируемые преобразования функций (grad, jit, vmap) над массивами в духе NumPy."
+   },
+   "localizedTip": {
+    "en": "Its functional purity requirement is strict — side effects inside jit-compiled functions silently misbehave."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-jupyter",
    "name": "JupyterLab",
    "kind": "library",
@@ -31343,6 +32692,41 @@
    },
    "localizedTip": {
     "en": "Restart-and-run-all before sharing a notebook — hidden state from out-of-order cells is the classic trap."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-keras",
+   "name": "Keras 3",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "High-level neural network API running on TensorFlow, PyTorch or JAX backends.",
+   "url": "https://keras.io/api/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "deep-learning",
+    "high-level",
+    "multi-backend",
+    "api"
+   ],
+   "tip": "Multi-backend support means the same model code runs on whichever framework your team standardizes on.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install keras",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-level neural network API running on TensorFlow, PyTorch or JAX backends.",
+    "ru": "Высокоуровневый API нейросетей поверх бэкендов TensorFlow, PyTorch или JAX."
+   },
+   "localizedTip": {
+    "en": "Multi-backend support means the same model code runs on whichever framework your team standardizes on."
    },
    "pricing": {
     "model": "openSource",
@@ -31561,6 +32945,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-peft",
+   "name": "PEFT",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Parameter-efficient fine-tuning methods including LoRA and QLoRA.",
+   "url": "https://huggingface.co/docs/peft",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fine-tuning",
+    "lora",
+    "efficient",
+    "huggingface"
+   ],
+   "tip": "LoRA fine-tuning fits on a single consumer GPU where full fine-tuning would need a cluster.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install peft",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Parameter-efficient fine-tuning methods including LoRA and QLoRA.",
+    "ru": "Методы параметрически эффективного дообучения, включая LoRA и QLoRA."
+   },
+   "localizedTip": {
+    "en": "LoRA fine-tuning fits on a single consumer GPU where full fine-tuning would need a cluster."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-polars",
    "name": "Polars",
    "kind": "library",
@@ -31631,6 +33050,111 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-prophet",
+   "name": "Prophet",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Time series forecasting handling seasonality and holidays with minimal tuning.",
+   "url": "https://facebook.github.io/prophet/docs/quick_start.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "forecasting",
+    "timeseries",
+    "seasonality",
+    "meta"
+   ],
+   "tip": "Strong on business metrics with clear seasonality; weaker on series driven by external shocks.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install prophet",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Time series forecasting handling seasonality and holidays with minimal tuning.",
+    "ru": "Прогнозирование временных рядов с учётом сезонности и праздников при минимальной настройке."
+   },
+   "localizedTip": {
+    "en": "Strong on business metrics with clear seasonality; weaker on series driven by external shocks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-pytorch",
+   "name": "PyTorch",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "The dominant deep learning framework for research and increasingly for production.",
+   "url": "https://pytorch.org/docs/stable/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "deep-learning",
+    "tensors",
+    "research",
+    "gpu"
+   ],
+   "tip": "torch.compile speeds up training and inference substantially with a one-line change on modern versions.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install torch",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The dominant deep learning framework for research and increasingly for production.",
+    "ru": "Доминирующий фреймворк глубокого обучения для исследований и всё чаще для продакшена."
+   },
+   "localizedTip": {
+    "en": "torch.compile speeds up training and inference substantially with a one-line change on modern versions."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-lightning",
+   "name": "PyTorch Lightning",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Structures PyTorch training loops and handles distributed training details.",
+   "url": "https://lightning.ai/docs/pytorch/stable/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pytorch",
+    "training",
+    "boilerplate",
+    "distributed"
+   ],
+   "tip": "Moving to multi-GPU becomes a flag change rather than a rewrite, which is the main reason to adopt it.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install lightning",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Structures PyTorch training loops and handles distributed training details.",
+    "ru": "Структурирует циклы обучения PyTorch и берёт на себя детали распределённого обучения."
+   },
+   "localizedTip": {
+    "en": "Moving to multi-GPU becomes a flag change rather than a rewrite, which is the main reason to adopt it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-scikit-learn",
    "name": "scikit-learn",
    "kind": "library",
@@ -31666,6 +33190,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-shap",
+   "name": "SHAP",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Model explainability through Shapley values, showing each feature's contribution.",
+   "url": "https://shap.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "explainability",
+    "interpretability",
+    "ml",
+    "features"
+   ],
+   "tip": "TreeExplainer is exact and fast for tree models — use it rather than the slower model-agnostic explainer.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install shap",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Model explainability through Shapley values, showing each feature's contribution.",
+    "ru": "Объяснимость моделей через значения Шепли, показывает вклад каждого признака."
+   },
+   "localizedTip": {
+    "en": "TreeExplainer is exact and fast for tree models — use it rather than the slower model-agnostic explainer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-shiny-python",
    "name": "Shiny for Python",
    "kind": "library",
@@ -31693,6 +33252,76 @@
    },
    "localizedTip": {
     "en": "Its reactive model recomputes only what changed, which scales better than Streamlit's full rerun."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-stable-baselines3",
+   "name": "Stable-Baselines3",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Reliable implementations of standard reinforcement learning algorithms in PyTorch.",
+   "url": "https://stable-baselines3.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "reinforcement-learning",
+    "algorithms",
+    "pytorch",
+    "baselines"
+   ],
+   "tip": "Its implementations are validated against published results, which matters since RL is notoriously fiddly.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install stable-baselines3",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reliable implementations of standard reinforcement learning algorithms in PyTorch.",
+    "ru": "Надёжные реализации стандартных алгоритмов обучения с подкреплением на PyTorch."
+   },
+   "localizedTip": {
+    "en": "Its implementations are validated against published results, which matters since RL is notoriously fiddly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-statsforecast",
+   "name": "StatsForecast",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Fast statistical forecasting models (ARIMA, ETS) with a scikit-learn-like API.",
+   "url": "https://nixtlaverse.nixtla.io/statsforecast/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "forecasting",
+    "statistical",
+    "fast",
+    "timeseries"
+   ],
+   "tip": "Classical statistical models often beat neural forecasters on short, regular series — benchmark before assuming.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install statsforecast",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast statistical forecasting models (ARIMA, ETS) with a scikit-learn-like API.",
+    "ru": "Быстрые статистические модели прогнозирования (ARIMA, ETS) с API в духе scikit-learn."
+   },
+   "localizedTip": {
+    "en": "Classical statistical models often beat neural forecasters on short, regular series — benchmark before assuming."
    },
    "pricing": {
     "model": "openSource",
@@ -31776,6 +33405,146 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-tensorflow",
+   "name": "TensorFlow",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Google's deep learning framework with strong production and mobile deployment tooling.",
+   "url": "https://www.tensorflow.org/api_docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "deep-learning",
+    "google",
+    "production",
+    "keras"
+   ],
+   "tip": "TensorFlow Lite and TF.js remain its edge — on-device deployment is better served here than by PyTorch.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install tensorflow",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's deep learning framework with strong production and mobile deployment tooling.",
+    "ru": "Фреймворк глубокого обучения Google с сильными инструментами продакшена и мобильного развёртывания."
+   },
+   "localizedTip": {
+    "en": "TensorFlow Lite and TF.js remain its edge — on-device deployment is better served here than by PyTorch."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-trl",
+   "name": "TRL",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Reinforcement learning and preference optimization (DPO, PPO) for language models.",
+   "url": "https://huggingface.co/docs/trl",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rlhf",
+    "dpo",
+    "fine-tuning",
+    "alignment"
+   ],
+   "tip": "DPO is simpler and more stable than PPO for most preference-tuning tasks — start there.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install trl",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reinforcement learning and preference optimization (DPO, PPO) for language models.",
+    "ru": "Обучение с подкреплением и оптимизация предпочтений (DPO, PPO) для языковых моделей."
+   },
+   "localizedTip": {
+    "en": "DPO is simpler and more stable than PPO for most preference-tuning tasks — start there."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-tsfresh",
+   "name": "tsfresh",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Automated feature extraction from time series for downstream machine learning.",
+   "url": "https://tsfresh.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "feature-extraction",
+    "timeseries",
+    "automated",
+    "python"
+   ],
+   "tip": "It generates hundreds of features then filters by statistical relevance, saving manual feature engineering.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install tsfresh",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automated feature extraction from time series for downstream machine learning.",
+    "ru": "Автоматическое извлечение признаков из временных рядов для последующего машинного обучения."
+   },
+   "localizedTip": {
+    "en": "It generates hundreds of features then filters by statistical relevance, saving manual feature engineering."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-unsloth",
+   "name": "Unsloth",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Faster, more memory-efficient LLM fine-tuning through optimized kernels.",
+   "url": "https://docs.unsloth.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fine-tuning",
+    "fast",
+    "memory-efficient",
+    "lora"
+   ],
+   "tip": "Meaningfully reduces VRAM requirements, which often decides whether a fine-tune is possible at all locally.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install unsloth",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Faster, more memory-efficient LLM fine-tuning through optimized kernels.",
+    "ru": "Более быстрое и экономное по памяти дообучение LLM за счёт оптимизированных ядер."
+   },
+   "localizedTip": {
+    "en": "Meaningfully reduces VRAM requirements, which often decides whether a fine-tune is possible at all locally."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
