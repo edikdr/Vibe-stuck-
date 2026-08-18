@@ -1911,6 +1911,111 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-directus-2",
+   "name": "Directus Cloud",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Wraps any existing SQL database in a headless CMS and REST/GraphQL API.",
+   "url": "https://docs.directus.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cms",
+    "headless",
+    "sql",
+    "self-host"
+   ],
+   "tip": "Point it at a database you already have — it introspects the schema instead of forcing its own.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Wraps any existing SQL database in a headless CMS and REST/GraphQL API.",
+    "ru": "Оборачивает любую существующую SQL-базу в headless CMS и REST/GraphQL API."
+   },
+   "localizedTip": {
+    "en": "Point it at a database you already have — it introspects the schema instead of forcing its own."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-ghost-api",
+   "name": "Ghost Content API",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Read-only content API for the Ghost publishing platform, usable headlessly.",
+   "url": "https://ghost.org/docs/content-api/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cms",
+    "blog",
+    "publishing",
+    "headless"
+   ],
+   "tip": "The Content API key is safe to expose client-side; the Admin API key is not — do not mix them up.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Read-only content API for the Ghost publishing platform, usable headlessly.",
+    "ru": "API контента только для чтения для платформы публикаций Ghost, можно использовать headless."
+   },
+   "localizedTip": {
+    "en": "The Content API key is safe to expose client-side; the Admin API key is not — do not mix them up."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-notion-api-2",
+   "name": "Notion API (databases)",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Query Notion databases with filters and sorts, using Notion as a lightweight CMS.",
+   "url": "https://developers.notion.com/reference/post-database-query",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "notion",
+    "database",
+    "query",
+    "filters"
+   ],
+   "tip": "Query results are paginated at 100 items — always follow next_cursor rather than assuming one page.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Query Notion databases with filters and sorts, using Notion as a lightweight CMS.",
+    "ru": "Запросы к базам данных Notion с фильтрами и сортировкой — Notion как лёгкая CMS."
+   },
+   "localizedTip": {
+    "en": "Query results are paginated at 100 items — always follow next_cursor rather than assuming one page."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-payload-cms-2",
    "name": "Payload",
    "kind": "api",
@@ -1946,6 +2051,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-prismic",
+   "name": "Prismic",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Headless CMS built around reusable content slices that map to frontend components.",
+   "url": "https://prismic.io/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cms",
+    "headless",
+    "slices",
+    "page-builder"
+   ],
+   "tip": "Model slices to match your component library one-to-one, or the page builder gets confusing for editors.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless CMS built around reusable content slices that map to frontend components.",
+    "ru": "Headless CMS вокруг переиспользуемых слайсов контента, отображаемых в компоненты фронтенда."
+   },
+   "localizedTip": {
+    "en": "Model slices to match your component library one-to-one, or the page builder gets confusing for editors."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-sanity-io",
    "name": "Sanity",
    "kind": "api",
@@ -1973,6 +2113,41 @@
    },
    "localizedTip": {
     "en": "Model content as structured documents from day one — retrofitting structure onto free-text later is painful."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-storyblok",
+   "name": "Storyblok",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Headless CMS with a visual editor that previews your real components live.",
+   "url": "https://www.storyblok.com/docs/api/content-delivery/v2",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cms",
+    "headless",
+    "visual-editor",
+    "components"
+   ],
+   "tip": "The visual editor needs a bridge script on your frontend — set it up early or editors get a blank preview.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless CMS with a visual editor that previews your real components live.",
+    "ru": "Headless CMS с визуальным редактором, показывающим реальные компоненты в живом превью."
+   },
+   "localizedTip": {
+    "en": "The visual editor needs a bridge script on your frontend — set it up early or editors get a blank preview."
    },
    "pricing": {
     "model": "freemium",
@@ -2308,6 +2483,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-ashby",
+   "name": "Ashby API",
+   "kind": "api",
+   "category": "HR и рекрутинг",
+   "summary": "Modern ATS API with strong built-in hiring analytics.",
+   "url": "https://developers.ashbyhq.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ats",
+    "recruiting",
+    "analytics",
+    "hiring"
+   ],
+   "tip": "Its analytics endpoints expose funnel metrics directly — no need to recompute them from raw application data.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern ATS API with strong built-in hiring analytics.",
+    "ru": "Современный API ATS с сильной встроенной аналитикой найма."
+   },
+   "localizedTip": {
+    "en": "Its analytics endpoints expose funnel metrics directly — no need to recompute them from raw application data."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-bamboohr",
    "name": "BambooHR API",
    "kind": "api",
@@ -2378,6 +2588,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-gusto",
+   "name": "Gusto API",
+   "kind": "api",
+   "category": "HR и рекрутинг",
+   "summary": "Payroll and benefits API aimed at small and mid-sized US businesses.",
+   "url": "https://docs.gusto.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payroll",
+    "hr",
+    "benefits",
+    "small-business"
+   ],
+   "tip": "The demo environment has synthetic companies to build against before touching real payroll data.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Payroll and benefits API aimed at small and mid-sized US businesses.",
+    "ru": "API зарплат и льгот для малого и среднего бизнеса в США."
+   },
+   "localizedTip": {
+    "en": "The demo environment has synthetic companies to build against before touching real payroll data."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-lever",
    "name": "Lever API",
    "kind": "api",
@@ -2408,6 +2653,47 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-rippling",
+   "name": "Rippling API",
+   "kind": "api",
+   "category": "HR и рекрутинг",
+   "summary": "Unified HR, IT and payroll platform API for employee lifecycle automation.",
+   "url": "https://developer.rippling.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hr",
+    "payroll",
+    "it",
+    "employee-data",
+    "pricing",
+    "per-employee"
+   ],
+   "tip": "Its IT provisioning hooks let onboarding create accounts across tools automatically from one HR event.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unified HR, IT and payroll platform API for employee lifecycle automation.",
+    "ru": "Единый API HR, IT и зарплат для автоматизации жизненного цикла сотрудника."
+   },
+   "localizedTip": {
+    "en": "Its IT provisioning hooks let onboarding create accounts across tools automatically from one HR event."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$8 per employee per month",
+    "freeQuota": "demo via sales",
+    "url": "https://www.rippling.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -2964,6 +3250,76 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-descope",
+   "name": "Descope",
+   "kind": "api",
+   "category": "Аутентификация",
+   "summary": "Auth platform with a visual flow builder for designing login and signup journeys.",
+   "url": "https://docs.descope.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "auth",
+    "flows",
+    "drag-drop",
+    "passwordless"
+   ],
+   "tip": "Change an auth flow (add MFA, change ordering) in the visual editor without redeploying your app.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Auth platform with a visual flow builder for designing login and signup journeys.",
+    "ru": "Платформа аутентификации с визуальным конструктором потоков входа и регистрации."
+   },
+   "localizedTip": {
+    "en": "Change an auth flow (add MFA, change ordering) in the visual editor without redeploying your app."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-fusionauth",
+   "name": "FusionAuth",
+   "kind": "api",
+   "category": "Аутентификация",
+   "summary": "Full-featured auth server, free when self-hosted with no user-count limit.",
+   "url": "https://fusionauth.io/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "auth",
+    "self-host",
+    "oauth",
+    "enterprise"
+   ],
+   "tip": "The self-hosted community edition has no MAU cap at all — unusual among auth vendors.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Full-featured auth server, free when self-hosted with no user-count limit.",
+    "ru": "Полнофункциональный сервер аутентификации, бесплатен при self-hosting без лимита пользователей."
+   },
+   "localizedTip": {
+    "en": "The self-hosted community edition has no MAU cap at all — unusual among auth vendors."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-hcaptcha",
    "name": "hCaptcha",
    "kind": "api",
@@ -2991,6 +3347,41 @@
    },
    "localizedTip": {
     "en": "Keep the sitekey public and the secret on the server; they are not interchangeable."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-kinde",
+   "name": "Kinde",
+   "kind": "api",
+   "category": "Аутентификация",
+   "summary": "Auth built for SaaS: organizations, roles, permissions and feature flags together.",
+   "url": "https://docs.kinde.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "auth",
+    "b2b",
+    "saas",
+    "feature-flags"
+   ],
+   "tip": "Combining auth and feature flags in one service removes a common two-vendor integration for early SaaS.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Auth built for SaaS: organizations, roles, permissions and feature flags together.",
+    "ru": "Аутентификация для SaaS: организации, роли, разрешения и feature-флаги в одном месте."
+   },
+   "localizedTip": {
+    "en": "Combining auth and feature flags in one service removes a common two-vendor integration for early SaaS."
    },
    "pricing": {
     "model": "freemium",
@@ -3029,6 +3420,76 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-stytch",
+   "name": "Stytch",
+   "kind": "api",
+   "category": "Аутентификация",
+   "summary": "Passwordless-first auth: magic links, OTP, passkeys and B2B organization support.",
+   "url": "https://stytch.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "auth",
+    "passwordless",
+    "magic-links",
+    "b2b"
+   ],
+   "tip": "Its B2B product models organizations and SSO natively, unlike bolting orgs onto a consumer auth product.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Passwordless-first auth: magic links, OTP, passkeys and B2B organization support.",
+    "ru": "Аутентификация без паролей: magic links, OTP, passkeys и поддержка B2B-организаций."
+   },
+   "localizedTip": {
+    "en": "Its B2B product models organizations and SSO natively, unlike bolting orgs onto a consumer auth product."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-supertokens",
+   "name": "SuperTokens",
+   "kind": "api",
+   "category": "Аутентификация",
+   "summary": "Open-source auth with self-hosting, session management and social login.",
+   "url": "https://supertokens.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "auth",
+    "open-source",
+    "self-host",
+    "sessions"
+   ],
+   "tip": "Self-hosting the core removes per-MAU pricing entirely, which matters once user counts grow.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source auth with self-hosting, session management and social login.",
+    "ru": "Открытая аутентификация с self-hosting, управлением сессиями и социальным входом."
+   },
+   "localizedTip": {
+    "en": "Self-hosting the core removes per-MAU pricing entirely, which matters once user counts grow."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -3110,6 +3571,111 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-cockroachdb",
+   "name": "CockroachDB",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Distributed SQL database that survives node and region failures, Postgres wire-compatible.",
+   "url": "https://www.cockroachlabs.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "distributed",
+    "sql",
+    "postgres-compatible",
+    "resilient"
+   ],
+   "tip": "Postgres wire compatibility means most Postgres drivers and ORMs work without modification.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed SQL database that survives node and region failures, Postgres wire-compatible.",
+    "ru": "Распределённая SQL-база, переживающая отказ узлов и регионов, совместима с протоколом Postgres."
+   },
+   "localizedTip": {
+    "en": "Postgres wire compatibility means most Postgres drivers and ORMs work without modification."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-convex-dev",
+   "name": "Convex",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Reactive backend where queries auto-update in the UI when underlying data changes.",
+   "url": "https://docs.convex.dev/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "backend",
+    "realtime",
+    "typescript",
+    "reactive"
+   ],
+   "tip": "Queries are reactive by default — no manual websocket or polling code to keep the UI in sync.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm create convex@latest",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reactive backend where queries auto-update in the UI when underlying data changes.",
+    "ru": "Реактивный бэкенд, где запросы автоматически обновляются в UI при изменении данных."
+   },
+   "localizedTip": {
+    "en": "Queries are reactive by default — no manual websocket or polling code to keep the UI in sync."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-electric-sql",
+   "name": "ElectricSQL",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Postgres sync engine for local-first apps: query a local copy, sync changes automatically.",
+   "url": "https://electric-sql.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sync",
+    "postgres",
+    "local-first",
+    "offline"
+   ],
+   "tip": "Local-first means reads never hit the network — the tradeoff is designing for eventual consistency.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Postgres sync engine for local-first apps: query a local copy, sync changes automatically.",
+    "ru": "Движок синхронизации Postgres для local-first приложений: запросы к локальной копии, автосинхронизация."
+   },
+   "localizedTip": {
+    "en": "Local-first means reads never hit the network — the tradeoff is designing for eventual consistency."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-firebase",
    "name": "Firebase",
    "kind": "api",
@@ -3142,6 +3708,41 @@
     "freeQuota": "Generous Spark free tier",
     "url": "https://firebase.google.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-instantdb",
+   "name": "InstantDB",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Realtime, offline-first database with optimistic updates and automatic sync.",
+   "url": "https://www.instantdb.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "realtime",
+    "graph",
+    "offline-first",
+    "sync"
+   ],
+   "tip": "Optimistic local writes make the UI feel instant while sync happens in the background.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @instantdb/react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Realtime, offline-first database with optimistic updates and automatic sync.",
+    "ru": "Realtime offline-first база данных с оптимистичными обновлениями и автоматической синхронизацией."
+   },
+   "localizedTip": {
+    "en": "Optimistic local writes make the UI feel instant while sync happens in the background."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -3253,6 +3854,46 @@
     "model": "subscription",
     "from": "from ~$39 / month",
     "freeQuota": "No permanent free tier",
+    "url": "https://planetscale.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-planetscale-2",
+   "name": "PlanetScale (Vitess)",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Managed MySQL on Vitess with database branching and non-blocking schema changes.",
+   "url": "https://planetscale.com/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mysql",
+    "vitess",
+    "scaling",
+    "branching",
+    "pricing"
+   ],
+   "tip": "Schema changes deploy without locking tables, which is the main reason to pick it over plain RDS MySQL.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Managed MySQL on Vitess with database branching and non-blocking schema changes.",
+    "ru": "Управляемый MySQL на Vitess с ветвлением базы и неблокирующими изменениями схемы."
+   },
+   "localizedTip": {
+    "en": "Schema changes deploy without locking tables, which is the main reason to pick it over plain RDS MySQL."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$39 per month",
+    "freeQuota": "no free tier",
     "url": "https://planetscale.com/pricing",
     "currency": "USD",
     "checkedAt": "2026-08-17"
@@ -3374,6 +4015,41 @@
     "freeQuota": "10k free commands per day",
     "url": "https://upstash.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-xata",
+   "name": "Xata",
+   "kind": "api",
+   "category": "Базы данных и backend",
+   "summary": "Serverless Postgres with built-in full-text search and database branching.",
+   "url": "https://xata.io/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "serverless",
+    "search",
+    "branching"
+   ],
+   "tip": "Search is built in rather than needing a separate Elasticsearch cluster alongside the database.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Serverless Postgres with built-in full-text search and database branching.",
+    "ru": "Serverless Postgres со встроенным полнотекстовым поиском и ветвлением базы данных."
+   },
+   "localizedTip": {
+    "en": "Search is built in rather than needing a separate Elasticsearch cluster alongside the database."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -3606,6 +4282,41 @@
     "freeQuota": "sandbox available on request",
     "url": "https://www.veriff.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-trigger-dev",
+   "name": "Trigger.dev",
+   "kind": "api",
+   "category": "Очереди и события",
+   "summary": "Durable background jobs for TypeScript with no timeouts and built-in retries.",
+   "url": "https://trigger.dev/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "background-jobs",
+    "typescript",
+    "workflows",
+    "durable"
+   ],
+   "tip": "Long-running tasks survive deploys, which is the main advantage over plain serverless functions.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx trigger.dev@latest init",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Durable background jobs for TypeScript with no timeouts and built-in retries.",
+    "ru": "Устойчивые фоновые задачи для TypeScript без таймаутов и со встроенными повторами."
+   },
+   "localizedTip": {
+    "en": "Long-running tasks survive deploys, which is the main advantage over plain serverless functions."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -3894,6 +4605,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-medusa-js",
+   "name": "Medusa",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Open-source headless commerce engine in Node, a self-hostable Shopify alternative.",
+   "url": "https://docs.medusajs.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ecommerce",
+    "headless",
+    "nodejs",
+    "self-host"
+   ],
+   "tip": "Its plugin system covers payments and fulfillment — check for an existing plugin before writing an integration.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx create-medusa-app@latest",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source headless commerce engine in Node, a self-hostable Shopify alternative.",
+    "ru": "Открытый headless-движок коммерции на Node, self-hosted альтернатива Shopify."
+   },
+   "localizedTip": {
+    "en": "Its plugin system covers payments and fulfillment — check for an existing plugin before writing an integration."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "paid-paddle",
    "name": "Paddle",
    "kind": "api",
@@ -4013,6 +4759,111 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-shopify-admin",
+   "name": "Shopify Admin API",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Products, orders, customers and inventory for Shopify stores via GraphQL.",
+   "url": "https://shopify.dev/docs/api/admin",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ecommerce",
+    "shopify",
+    "graphql",
+    "orders"
+   ],
+   "tip": "REST is being deprecated in favor of GraphQL — start new integrations on GraphQL directly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Products, orders, customers and inventory for Shopify stores via GraphQL.",
+    "ru": "Товары, заказы, клиенты и склад для магазинов Shopify через GraphQL."
+   },
+   "localizedTip": {
+    "en": "REST is being deprecated in favor of GraphQL — start new integrations on GraphQL directly."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-shopify-storefront",
+   "name": "Shopify Storefront API",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Public, customer-facing GraphQL API for building headless Shopify storefronts.",
+   "url": "https://shopify.dev/docs/api/storefront",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ecommerce",
+    "headless",
+    "shopify",
+    "graphql"
+   ],
+   "tip": "This token is safe in client code, unlike the Admin API token — that's the whole point of the split.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Public, customer-facing GraphQL API for building headless Shopify storefronts.",
+    "ru": "Публичный клиентский GraphQL API для headless-витрин Shopify."
+   },
+   "localizedTip": {
+    "en": "This token is safe in client code, unlike the Admin API token — that's the whole point of the split."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-snipcart",
+   "name": "Snipcart",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Drop-in shopping cart for static sites, added with a script tag and HTML attributes.",
+   "url": "https://docs.snipcart.com/v3/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ecommerce",
+    "cart",
+    "static-sites",
+    "javascript"
+   ],
+   "tip": "Products are defined in your HTML markup, which means no separate product database to maintain.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Drop-in shopping cart for static sites, added with a script tag and HTML attributes.",
+    "ru": "Готовая корзина для статических сайтов, добавляется скриптом и HTML-атрибутами."
+   },
+   "localizedTip": {
+    "en": "Products are defined in your HTML markup, which means no separate product database to maintain."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-stripe",
    "name": "Stripe API",
    "kind": "api",
@@ -4061,6 +4912,41 @@
     "freeQuota": "No monthly fee",
     "url": "https://stripe.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-woocommerce",
+   "name": "WooCommerce REST API",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "REST API for WooCommerce stores running on WordPress.",
+   "url": "https://woocommerce.github.io/woocommerce-rest-api-docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ecommerce",
+    "wordpress",
+    "rest",
+    "orders"
+   ],
+   "tip": "Requires HTTPS for key-based auth — over plain HTTP it silently falls back to a weaker OAuth1 flow.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "REST API for WooCommerce stores running on WordPress.",
+    "ru": "REST API для магазинов WooCommerce на WordPress."
+   },
+   "localizedTip": {
+    "en": "Requires HTTPS for key-based auth — over plain HTTP it silently falls back to a weaker OAuth1 flow."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -10348,6 +11234,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-apify-2",
+   "name": "Apify Actors",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Prebuilt scrapers ('actors') for common sites, plus a platform to run your own.",
+   "url": "https://docs.apify.com/platform/actors",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scraping",
+    "actors",
+    "marketplace",
+    "cloud"
+   ],
+   "tip": "Search the Actor Store before writing a scraper — a maintained one likely exists for your target site.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Prebuilt scrapers ('actors') for common sites, plus a platform to run your own.",
+    "ru": "Готовые скраперы («акторы») для популярных сайтов плюс платформа для запуска своих."
+   },
+   "localizedTip": {
+    "en": "Search the Actor Store before writing a scraper — a maintained one likely exists for your target site."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "paid-brightdata",
    "name": "Bright Data",
    "kind": "api",
@@ -10382,6 +11303,41 @@
     "freeQuota": "Free trial credits",
     "url": "https://brightdata.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-browserless",
+   "name": "Browserless",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Hosted headless Chrome that Puppeteer and Playwright connect to over WebSocket.",
+   "url": "https://docs.browserless.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "headless",
+    "chrome",
+    "puppeteer",
+    "hosted"
+   ],
+   "tip": "Change one connect() line in existing Puppeteer code — no rewrite needed to move off local Chrome.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted headless Chrome that Puppeteer and Playwright connect to over WebSocket.",
+    "ru": "Размещённый headless Chrome, к которому Puppeteer и Playwright подключаются по WebSocket."
+   },
+   "localizedTip": {
+    "en": "Change one connect() line in existing Puppeteer code — no rewrite needed to move off local Chrome."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -10426,6 +11382,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-scrapfly",
+   "name": "Scrapfly",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Web scraping API with anti-bot bypass, JS rendering and proxy rotation built in.",
+   "url": "https://scrapfly.io/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scraping",
+    "anti-bot",
+    "proxy",
+    "rendering"
+   ],
+   "tip": "Enable ASP (anti-scraping protection) bypass only when needed — it costs more credits per request.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Web scraping API with anti-bot bypass, JS rendering and proxy rotation built in.",
+    "ru": "API веб-скрапинга с обходом анти-бот защиты, JS-рендерингом и ротацией прокси."
+   },
+   "localizedTip": {
+    "en": "Enable ASP (anti-scraping protection) bypass only when needed — it costs more credits per request."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "paid-scrapingbee",
    "name": "ScrapingBee",
    "kind": "api",
@@ -10460,6 +11451,41 @@
     "freeQuota": "1000 free API credits",
     "url": "https://www.scrapingbee.com/#pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-zenrows",
+   "name": "ZenRows",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Scraping API handling proxies, headless browsers and CAPTCHA avoidance behind one call.",
+   "url": "https://docs.zenrows.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scraping",
+    "proxy",
+    "anti-bot",
+    "api"
+   ],
+   "tip": "Start without premium proxies — many sites work fine on the cheaper datacenter pool.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Scraping API handling proxies, headless browsers and CAPTCHA avoidance behind one call.",
+    "ru": "API скрапинга, берущий на себя прокси, headless-браузеры и обход CAPTCHA в одном вызове."
+   },
+   "localizedTip": {
+    "en": "Start without premium proxies — many sites work fine on the cheaper datacenter pool."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -10570,6 +11596,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-gitbook",
+   "name": "GitBook API",
+   "kind": "api",
+   "category": "Документация и контекст",
+   "summary": "Programmatic access to GitBook spaces, pages and content for docs automation.",
+   "url": "https://gitbook.com/docs/developers/gitbook-api",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docs",
+    "knowledge-base",
+    "api",
+    "publishing"
+   ],
+   "tip": "Git Sync keeps a GitBook space mirrored with a repo branch — often simpler than driving the API directly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Programmatic access to GitBook spaces, pages and content for docs automation.",
+    "ru": "Программный доступ к пространствам, страницам и контенту GitBook для автоматизации документации."
+   },
+   "localizedTip": {
+    "en": "Git Sync keeps a GitBook space mirrored with a repo branch — often simpler than driving the API directly."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-mintlify",
+   "name": "Mintlify",
+   "kind": "api",
+   "category": "Документация и контекст",
+   "summary": "Documentation platform with MDX authoring, AI search and a polished default theme.",
+   "url": "https://mintlify.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docs",
+    "mdx",
+    "hosted",
+    "ai-search"
+   ],
+   "tip": "Docs live as MDX files in your repo, so documentation reviews happen in the same PR as the code change.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g mint",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Documentation platform with MDX authoring, AI search and a polished default theme.",
+    "ru": "Платформа документации с авторингом в MDX, ИИ-поиском и качественной темой по умолчанию."
+   },
+   "localizedTip": {
+    "en": "Docs live as MDX files in your repo, so documentation reviews happen in the same PR as the code change."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-notion",
    "name": "Notion API",
    "kind": "api",
@@ -10597,6 +11693,41 @@
    },
    "localizedTip": {
     "en": "Pages must be explicitly shared with your integration, which is the usual cause of empty results."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-readme-io",
+   "name": "ReadMe",
+   "kind": "api",
+   "category": "Документация и контекст",
+   "summary": "Hosted API documentation generated from OpenAPI, with an interactive playground.",
+   "url": "https://docs.readme.com/main/reference/intro-to-the-readme-api",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docs",
+    "api-reference",
+    "openapi",
+    "hosted"
+   ],
+   "tip": "Sync your OpenAPI spec from CI so docs never drift behind the actual API surface.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted API documentation generated from OpenAPI, with an interactive playground.",
+    "ru": "Размещённая документация API из OpenAPI с интерактивной песочницей."
+   },
+   "localizedTip": {
+    "en": "Sync your OpenAPI spec from CI so docs never drift behind the actual API surface."
    },
    "pricing": {
     "model": "freemium",
@@ -10954,6 +12085,117 @@
     "freeQuota": "14-day free trial",
     "url": "https://www.datadoghq.com/pricing/",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-dynatrace",
+   "name": "Dynatrace",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Enterprise observability with automated dependency mapping and root-cause analysis.",
+   "url": "https://docs.dynatrace.com/docs/dynatrace-api",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "apm",
+    "observability",
+    "ai",
+    "enterprise",
+    "pricing",
+    "per-host"
+   ],
+   "tip": "Its OneAgent auto-discovers services without manual instrumentation, which is the main draw over DIY OTel.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise observability with automated dependency mapping and root-cause analysis.",
+    "ru": "Корпоративная observability с автоматическим построением зависимостей и анализом первопричин."
+   },
+   "localizedTip": {
+    "en": "Its OneAgent auto-discovers services without manual instrumentation, which is the main draw over DIY OTel."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.04 per host-hour",
+    "freeQuota": "15-day free trial",
+    "url": "https://www.dynatrace.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-elastic-apm",
+   "name": "Elastic APM",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Application performance monitoring built on the Elastic Stack, self-hostable.",
+   "url": "https://www.elastic.co/guide/en/apm/guide/current/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "apm",
+    "elastic",
+    "tracing",
+    "self-host"
+   ],
+   "tip": "If you already run Elasticsearch for logs, APM data lands in the same cluster — one system, not two.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Application performance monitoring built on the Elastic Stack, self-hostable.",
+    "ru": "Мониторинг производительности приложений на Elastic Stack, можно разместить самостоятельно."
+   },
+   "localizedTip": {
+    "en": "If you already run Elasticsearch for logs, APM data lands in the same cluster — one system, not two."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-newrelic",
+   "name": "New Relic",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Full-stack observability with its own NRQL query language and a real free tier.",
+   "url": "https://docs.newrelic.com/docs/apis/intro-apis/introduction-new-relic-apis/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "apm",
+    "observability",
+    "nrql",
+    "monitoring"
+   ],
+   "tip": "The free tier includes 100GB/month ingest — generous enough for a small production service.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Full-stack observability with its own NRQL query language and a real free tier.",
+    "ru": "Full-stack observability с собственным языком запросов NRQL и реальным бесплатным тарифом."
+   },
+   "localizedTip": {
+    "en": "The free tier includes 100GB/month ingest — generous enough for a small production service."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -11435,6 +12677,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-cloudflare-workers-2",
+   "name": "Cloudflare Durable Objects",
+   "kind": "api",
+   "category": "Облако и деплой",
+   "summary": "Strongly consistent stateful objects at the edge, for coordination and real-time state.",
+   "url": "https://developers.cloudflare.com/durable-objects/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "edge",
+    "stateful",
+    "coordination",
+    "cloudflare"
+   ],
+   "tip": "Each object is single-threaded and globally unique — ideal for per-room or per-document coordination.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Strongly consistent stateful objects at the edge, for coordination and real-time state.",
+    "ru": "Строго согласованные объекты с состоянием на edge для координации и состояния в реальном времени."
+   },
+   "localizedTip": {
+    "en": "Each object is single-threaded and globally unique — ideal for per-room or per-document coordination."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "paid-cloudflare-workers",
    "name": "Cloudflare Workers Paid",
    "kind": "api",
@@ -11469,6 +12746,41 @@
     "freeQuota": "100k free requests per day",
     "url": "https://developers.cloudflare.com/workers/platform/pricing/",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-deno-deploy",
+   "name": "Deno Deploy",
+   "kind": "api",
+   "category": "Облако и деплой",
+   "summary": "Globally distributed serverless runtime for TypeScript and JavaScript, no build step.",
+   "url": "https://docs.deno.com/deploy/manual/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "edge",
+    "deno",
+    "serverless",
+    "typescript"
+   ],
+   "tip": "Deploys straight from a GitHub repo with no bundler config — TypeScript runs as-is.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Globally distributed serverless runtime for TypeScript and JavaScript, no build step.",
+    "ru": "Глобально распределённый serverless-рантайм для TypeScript и JavaScript без этапа сборки."
+   },
+   "localizedTip": {
+    "en": "Deploys straight from a GitHub repo with no bundler config — TypeScript runs as-is."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -11513,6 +12825,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-koyeb",
+   "name": "Koyeb",
+   "kind": "api",
+   "category": "Облако и деплой",
+   "summary": "Serverless platform for containers and functions with global edge deployment.",
+   "url": "https://www.koyeb.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serverless",
+    "containers",
+    "global",
+    "deploy"
+   ],
+   "tip": "It runs plain Docker images, so migrating off it later is just moving the same container elsewhere.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Serverless platform for containers and functions with global edge deployment.",
+    "ru": "Serverless-платформа для контейнеров и функций с глобальным edge-деплоем."
+   },
+   "localizedTip": {
+    "en": "It runs plain Docker images, so migrating off it later is just moving the same container elsewhere."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-netlify",
    "name": "Netlify API",
    "kind": "api",
@@ -11548,6 +12895,76 @@
     "freeQuota": "Free tier with 100GB bandwidth",
     "url": "https://www.netlify.com/pricing/",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-northflank",
+   "name": "Northflank",
+   "kind": "api",
+   "category": "Облако и деплой",
+   "summary": "Platform combining container deployment, managed databases and build pipelines.",
+   "url": "https://northflank.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "paas",
+    "containers",
+    "databases",
+    "ci"
+   ],
+   "tip": "Its free tier includes a managed database, which is rare — most free PaaS tiers exclude persistence.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Platform combining container deployment, managed databases and build pipelines.",
+    "ru": "Платформа, объединяющая деплой контейнеров, управляемые базы данных и пайплайны сборки."
+   },
+   "localizedTip": {
+    "en": "Its free tier includes a managed database, which is rare — most free PaaS tiers exclude persistence."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-porter-run",
+   "name": "Porter",
+   "kind": "api",
+   "category": "Облако и деплой",
+   "summary": "PaaS layer that deploys into your own AWS/GCP account, combining Heroku UX with cloud ownership.",
+   "url": "https://docs.porter.run/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "paas",
+    "aws",
+    "deploy"
+   ],
+   "tip": "Infrastructure stays in your cloud account, so leaving Porter does not mean migrating the workloads.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "PaaS layer that deploys into your own AWS/GCP account, combining Heroku UX with cloud ownership.",
+    "ru": "PaaS-слой, разворачивающий в твой собственный аккаунт AWS/GCP — UX Heroku с владением облаком."
+   },
+   "localizedTip": {
+    "en": "Infrastructure stays in your cloud account, so leaving Porter does not mean migrating the workloads."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -11672,6 +13089,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-appsmith",
+   "name": "Appsmith",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Open-source, self-hostable internal tool builder, a Retool alternative.",
+   "url": "https://docs.appsmith.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "internal-tools",
+    "low-code",
+    "self-host",
+    "admin"
+   ],
+   "tip": "Self-hosting matters here specifically because internal tools usually touch production databases directly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source, self-hostable internal tool builder, a Retool alternative.",
+    "ru": "Открытый self-hosted конструктор внутренних инструментов, альтернатива Retool."
+   },
+   "localizedTip": {
+    "en": "Self-hosting matters here specifically because internal tools usually touch production databases directly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-budibase",
+   "name": "Budibase",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Open-source low-code platform for internal apps, with a built-in database option.",
+   "url": "https://docs.budibase.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "low-code",
+    "internal-tools",
+    "self-host",
+    "forms"
+   ],
+   "tip": "It can host its own data, unlike tools that require you to bring an existing database.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source low-code platform for internal apps, with a built-in database option.",
+    "ru": "Открытая low-code платформа для внутренних приложений со встроенной опцией базы данных."
+   },
+   "localizedTip": {
+    "en": "It can host its own data, unlike tools that require you to bring an existing database."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-crates-io",
    "name": "crates.io API",
    "kind": "api",
@@ -11769,6 +13256,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-make-com",
+   "name": "Make (Integromat)",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Visual workflow automation connecting hundreds of apps, with its own REST API.",
+   "url": "https://developers.make.com/api-documentation",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "automation",
+    "no-code",
+    "workflows",
+    "integrations"
+   ],
+   "tip": "Its visual scenario builder handles branching and error paths better than most no-code competitors.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Visual workflow automation connecting hundreds of apps, with its own REST API.",
+    "ru": "Визуальная автоматизация workflow, соединяющая сотни приложений, со своим REST API."
+   },
+   "localizedTip": {
+    "en": "Its visual scenario builder handles branching and error paths better than most no-code competitors."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-npm-registry",
    "name": "npm Registry API",
    "kind": "api",
@@ -11804,6 +13326,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-pipedream",
+   "name": "Pipedream",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Workflow automation where each step can be arbitrary Node/Python code, not just presets.",
+   "url": "https://pipedream.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "automation",
+    "serverless",
+    "code",
+    "integrations"
+   ],
+   "tip": "The code-step escape hatch is why it fits developers better than purely visual automation tools.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Workflow automation where each step can be arbitrary Node/Python code, not just presets.",
+    "ru": "Автоматизация workflow, где каждый шаг может быть произвольным кодом Node/Python, а не только пресетом."
+   },
+   "localizedTip": {
+    "en": "The code-step escape hatch is why it fits developers better than purely visual automation tools."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-pypi-json",
    "name": "PyPI JSON API",
    "kind": "api",
@@ -11834,6 +13391,41 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-retool",
+   "name": "Retool",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Build internal admin tools and dashboards by dragging components onto queries.",
+   "url": "https://docs.retool.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "internal-tools",
+    "low-code",
+    "admin",
+    "dashboards"
+   ],
+   "tip": "Its value is skipping a CRUD admin UI entirely — do not use it for customer-facing product surfaces.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Build internal admin tools and dashboards by dragging components onto queries.",
+    "ru": "Сборка внутренних админ-инструментов и дашбордов перетаскиванием компонентов на запросы."
+   },
+   "localizedTip": {
+    "en": "Its value is skipping a CRUD admin UI entirely — do not use it for customer-facing product surfaces."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -11881,6 +13473,41 @@
    ],
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-windmill",
+   "name": "Windmill",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Open-source developer platform turning scripts into workflows, UIs and cron jobs.",
+   "url": "https://www.windmill.dev/docs/intro",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "automation",
+    "scripts",
+    "self-host",
+    "workflows"
+   ],
+   "tip": "Self-hostable alternative to Retool plus Airflow in one, if you want both internal tools and job scheduling.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source developer platform turning scripts into workflows, UIs and cron jobs.",
+    "ru": "Открытая платформа для разработчиков, превращающая скрипты в workflow, интерфейсы и cron-задачи."
+   },
+   "localizedTip": {
+    "en": "Self-hostable alternative to Retool plus Airflow in one, if you want both internal tools and job scheduling."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -12444,6 +14071,47 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-bunny-net",
+   "name": "Bunny.net",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Low-cost CDN, object storage and video delivery, priced well below the big providers.",
+   "url": "https://docs.bunny.net/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cdn",
+    "storage",
+    "video",
+    "cheap",
+    "pricing",
+    "bandwidth"
+   ],
+   "tip": "Its per-GB pricing is often several times cheaper than Cloudflare or Fastly for straightforward CDN needs.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Low-cost CDN, object storage and video delivery, priced well below the big providers.",
+    "ru": "Недорогой CDN, объектное хранилище и доставка видео, заметно дешевле крупных провайдеров."
+   },
+   "localizedTip": {
+    "en": "Its per-GB pricing is often several times cheaper than Cloudflare or Fastly for straightforward CDN needs."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.01 per GB",
+    "freeQuota": "$1 minimum monthly spend",
+    "url": "https://bunny.net/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -13097,6 +14765,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "api-transloadit",
+   "name": "Transloadit",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "File processing pipelines: resize, transcode, watermark, virus-scan in one assembly.",
+   "url": "https://transloadit.com/docs/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "encoding",
+    "files",
+    "pipelines",
+    "media"
+   ],
+   "tip": "Templates define the pipeline server-side, so the client only uploads and never sends processing params.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "File processing pipelines: resize, transcode, watermark, virus-scan in one assembly.",
+    "ru": "Пайплайны обработки файлов: ресайз, транскодирование, водяные знаки, антивирус в одной сборке."
+   },
+   "localizedTip": {
+    "en": "Templates define the pipeline server-side, so the client only uploads and never sends processing params."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "api-unsplash",
    "name": "Unsplash API",
    "kind": "api",
@@ -13135,6 +14838,41 @@
    "pricing": {
     "model": "freemium",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-uploadcare",
+   "name": "Uploadcare",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "File uploading, storage, transformation and CDN delivery with a drop-in upload widget.",
+   "url": "https://uploadcare.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "upload",
+    "cdn",
+    "transform",
+    "widget"
+   ],
+   "tip": "The upload widget handles resumable uploads and camera/social sources without custom UI work.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "File uploading, storage, transformation and CDN delivery with a drop-in upload widget.",
+    "ru": "Загрузка, хранение, трансформация и CDN-доставка файлов с готовым виджетом загрузки."
+   },
+   "localizedTip": {
+    "en": "The upload widget handles resumable uploads and camera/social sources without custom UI work."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
   },
@@ -13977,6 +15715,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-fruityvice",
+   "name": "Fruityvice",
+   "kind": "api",
+   "category": "Еда и быт",
+   "summary": "Nutrition data about fruit, no key required, useful for teaching and demos.",
+   "url": "https://www.fruityvice.com/doc/index.html",
+   "access": "noKey",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fruit",
+    "nutrition",
+    "no-key",
+    "simple"
+   ],
+   "tip": "Its tiny, stable dataset makes it a good target for teaching API consumption without rate-limit worries.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Nutrition data about fruit, no key required, useful for teaching and demos.",
+    "ru": "Данные о питательной ценности фруктов без ключа, удобно для обучения и демо."
+   },
+   "localizedTip": {
+    "en": "Its tiny, stable dataset makes it a good target for teaching API consumption without rate-limit worries."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-nutritionix",
    "name": "Nutritionix",
    "kind": "api",
@@ -14108,6 +15881,41 @@
    "pricing": {
     "model": "freemium",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-tasty",
+   "name": "Tasty API",
+   "kind": "api",
+   "category": "Еда и быт",
+   "summary": "Recipes with video instructions from BuzzFeed's Tasty, via RapidAPI.",
+   "url": "https://rapidapi.com/apidojo/api/tasty",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "recipes",
+    "food",
+    "video",
+    "buzzfeed"
+   ],
+   "tip": "Access is through RapidAPI rather than a direct endpoint — the key and billing live there.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Recipes with video instructions from BuzzFeed's Tasty, via RapidAPI.",
+    "ru": "Рецепты с видеоинструкциями от Tasty (BuzzFeed) через RapidAPI."
+   },
+   "localizedTip": {
+    "en": "Access is through RapidAPI rather than a direct endpoint — the key and billing live there."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
   },
@@ -14356,6 +16164,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-boardgamegeek",
+   "name": "BoardGameGeek XML API",
+   "kind": "api",
+   "category": "Игры и развлечения",
+   "summary": "Board game data, ratings and user collections from BoardGameGeek.",
+   "url": "https://boardgamegeek.com/wiki/page/BGG_XML_API2",
+   "access": "noKey",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "board-games",
+    "ratings",
+    "collection",
+    "no-key"
+   ],
+   "tip": "Returns XML, not JSON, and may reply 202 while it prepares data — retry after a short delay.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Board game data, ratings and user collections from BoardGameGeek.",
+    "ru": "Данные о настольных играх, рейтинги и коллекции пользователей с BoardGameGeek."
+   },
+   "localizedTip": {
+    "en": "Returns XML, not JSON, and may reply 202 while it prepares data — retry after a short delay."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-chess-com",
    "name": "Chess.com API",
    "kind": "api",
@@ -14383,6 +16226,41 @@
    },
    "localizedTip": {
     "en": "Monthly game archives are the efficient way to pull history — avoid paging single games."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-dnd5e",
+   "name": "D&D 5e API",
+   "kind": "api",
+   "category": "Игры и развлечения",
+   "summary": "Dungeons & Dragons 5th edition rules data: spells, monsters, classes, no key required.",
+   "url": "https://www.dnd5eapi.co/docs/",
+   "access": "noKey",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dnd",
+    "rpg",
+    "spells",
+    "no-key"
+   ],
+   "tip": "The dataset is static and small enough to cache entirely on first load for an offline-capable app.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Dungeons & Dragons 5th edition rules data: spells, monsters, classes, no key required.",
+    "ru": "Данные правил D&D 5-й редакции: заклинания, монстры, классы, без ключа."
+   },
+   "localizedTip": {
+    "en": "The dataset is static and small enough to cache entirely on first load for an offline-capable app."
    },
    "pricing": {
     "model": "free",
@@ -15071,6 +16949,76 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-chatwoot",
+   "name": "Chatwoot",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Open-source customer engagement suite, a self-hostable Intercom alternative.",
+   "url": "https://www.chatwoot.com/docs/product/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "support",
+    "chat",
+    "omnichannel",
+    "self-host"
+   ],
+   "tip": "Self-hosting removes per-seat pricing, which is the main cost driver for support tools as teams grow.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source customer engagement suite, a self-hostable Intercom alternative.",
+    "ru": "Открытый набор инструментов взаимодействия с клиентами, self-hosted альтернатива Intercom."
+   },
+   "localizedTip": {
+    "en": "Self-hosting removes per-seat pricing, which is the main cost driver for support tools as teams grow."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-crisp-chat",
+   "name": "Crisp",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Live chat and customer support platform with a genuinely free starting tier.",
+   "url": "https://docs.crisp.chat/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "chat",
+    "support",
+    "livechat",
+    "widget"
+   ],
+   "tip": "The free tier includes the chat widget and two seats — enough for a solo product's support channel.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Live chat and customer support platform with a genuinely free starting tier.",
+    "ru": "Платформа живого чата и поддержки клиентов с реально бесплатным стартовым тарифом."
+   },
+   "localizedTip": {
+    "en": "The free tier includes the chat widget and two seats — enough for a solo product's support channel."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-discord",
    "name": "Discord API",
    "kind": "api",
@@ -15101,6 +17049,89 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-front-app",
+   "name": "Front API",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Shared inbox and team collaboration API for customer-facing email.",
+   "url": "https://dev.frontapp.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "email",
+    "shared-inbox",
+    "collaboration",
+    "support",
+    "pricing",
+    "seats"
+   ],
+   "tip": "Its API models conversations rather than individual emails, which fits team-based support workflows better.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Shared inbox and team collaboration API for customer-facing email.",
+    "ru": "API общего почтового ящика и командной работы для клиентской переписки."
+   },
+   "localizedTip": {
+    "en": "Its API models conversations rather than individual emails, which fits team-based support workflows better."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$19 per seat per month",
+    "freeQuota": "7-day free trial",
+    "url": "https://front.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-intercom",
+   "name": "Intercom API",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Customer messaging and support platform API: conversations, contacts, help center.",
+   "url": "https://developers.intercom.com/docs/references/introduction/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "support",
+    "chat",
+    "messaging",
+    "crm",
+    "pricing",
+    "seats",
+    "resolutions"
+   ],
+   "tip": "Webhooks on conversation events replace polling for new customer messages entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Customer messaging and support platform API: conversations, contacts, help center.",
+    "ru": "API платформы клиентских сообщений и поддержки: разговоры, контакты, база знаний."
+   },
+   "localizedTip": {
+    "en": "Webhooks on conversation events replace polling for new customer messages entirely."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$29 per seat per month",
+    "freeQuota": "14-day free trial",
+    "url": "https://www.intercom.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -16173,6 +18204,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-devto",
+   "name": "DEV.to API",
+   "kind": "api",
+   "category": "Новости и сообщества",
+   "summary": "Publish and read articles on DEV.to and other Forem-powered communities.",
+   "url": "https://developers.forem.com/api",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "blogging",
+    "articles",
+    "devto",
+    "forem"
+   ],
+   "tip": "Cross-post from your own blog with a canonical_url so search engines credit your site, not DEV.to.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Publish and read articles on DEV.to and other Forem-powered communities.",
+    "ru": "Публикация и чтение статей на DEV.to и других сообществах на Forem."
+   },
+   "localizedTip": {
+    "en": "Cross-post from your own blog with a canonical_url so search engines credit your site, not DEV.to."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-gnews",
    "name": "GNews",
    "kind": "api",
@@ -16234,6 +18300,76 @@
    "pricing": {
     "model": "free",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-hashnode",
+   "name": "Hashnode API",
+   "kind": "api",
+   "category": "Новости и сообщества",
+   "summary": "GraphQL API for the Hashnode developer blogging platform.",
+   "url": "https://apidocs.hashnode.com/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "blogging",
+    "graphql",
+    "developers",
+    "publishing"
+   ],
+   "tip": "Its GraphQL schema makes fetching exactly the post fields you need straightforward, unlike REST blog APIs.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GraphQL API for the Hashnode developer blogging platform.",
+    "ru": "GraphQL API для платформы блогов для разработчиков Hashnode."
+   },
+   "localizedTip": {
+    "en": "Its GraphQL schema makes fetching exactly the post fields you need straightforward, unlike REST blog APIs."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-lemmy",
+   "name": "Lemmy API",
+   "kind": "api",
+   "category": "Новости и сообщества",
+   "summary": "API for Lemmy, the federated link-aggregator and Reddit alternative.",
+   "url": "https://join-lemmy.org/docs/contributors/04-api.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fediverse",
+    "forum",
+    "reddit-alternative",
+    "federated"
+   ],
+   "tip": "Each instance federates independently — pick a home instance before building against the API.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API for Lemmy, the federated link-aggregator and Reddit alternative.",
+    "ru": "API Lemmy — федеративного агрегатора ссылок и альтернативы Reddit."
+   },
+   "localizedTip": {
+    "en": "Each instance federates independently — pick a home instance before building against the API."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
   },
@@ -16407,6 +18543,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-deepl-2",
+   "name": "DeepL API",
+   "kind": "api",
+   "category": "Переводы и языки",
+   "summary": "Machine translation widely regarded as higher quality than alternatives for European languages.",
+   "url": "https://developers.deepl.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "translation",
+    "quality",
+    "formality",
+    "glossary"
+   ],
+   "tip": "Glossaries let you pin product names and domain terms so they stay untranslated consistently.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Machine translation widely regarded as higher quality than alternatives for European languages.",
+    "ru": "Машинный перевод, широко признанный более качественным для европейских языков."
+   },
+   "localizedTip": {
+    "en": "Glossaries let you pin product names and domain terms so they stay untranslated consistently."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-deepl",
    "name": "DeepL API Free",
    "kind": "api",
@@ -16486,6 +18657,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-google-translate-2",
+   "name": "Google Cloud Translation v3",
+   "kind": "api",
+   "category": "Переводы и языки",
+   "summary": "Google's translation API with batch translation and custom glossary support.",
+   "url": "https://cloud.google.com/translate/docs/reference/rest",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "translation",
+    "google",
+    "batch",
+    "glossary"
+   ],
+   "tip": "Batch translation of documents in Cloud Storage is far cheaper per word than per-request calls.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's translation API with batch translation and custom glossary support.",
+    "ru": "API перевода Google с пакетным переводом и поддержкой пользовательских глоссариев."
+   },
+   "localizedTip": {
+    "en": "Batch translation of documents in Cloud Storage is far cheaper per word than per-request calls."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-libretranslate",
    "name": "LibreTranslate",
    "kind": "api",
@@ -16550,6 +18756,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-modernmt",
+   "name": "ModernMT",
+   "kind": "api",
+   "category": "Переводы и языки",
+   "summary": "Adaptive machine translation that learns from corrections in real time.",
+   "url": "https://www.modernmt.com/api/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "translation",
+    "adaptive",
+    "context",
+    "mt"
+   ],
+   "tip": "Feeding back post-edited translations improves subsequent output within the same session.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Adaptive machine translation that learns from corrections in real time.",
+    "ru": "Адаптивный машинный перевод, обучающийся на исправлениях в реальном времени."
+   },
+   "localizedTip": {
+    "en": "Feeding back post-edited translations improves subsequent output within the same session."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -16659,6 +18900,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-merriam-webster",
+   "name": "Merriam-Webster APIs",
+   "kind": "api",
+   "category": "Словари и лексика",
+   "summary": "Authoritative English dictionary and thesaurus data from Merriam-Webster.",
+   "url": "https://dictionaryapi.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dictionary",
+    "thesaurus",
+    "english",
+    "authoritative"
+   ],
+   "tip": "Free non-commercial keys allow 1000 queries/day — commercial use requires a separate licence.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Authoritative English dictionary and thesaurus data from Merriam-Webster.",
+    "ru": "Авторитетные данные английского словаря и тезауруса от Merriam-Webster."
+   },
+   "localizedTip": {
+    "en": "Free non-commercial keys allow 1000 queries/day — commercial use requires a separate licence."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-tatoeba",
    "name": "Tatoeba API",
    "kind": "api",
@@ -16720,6 +18996,41 @@
    },
    "localizedTip": {
     "en": "Ask for several source dictionaries at once: coverage per single source is uneven."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-wordsapi",
+   "name": "WordsAPI",
+   "kind": "api",
+   "category": "Словари и лексика",
+   "summary": "English word data: definitions, synonyms, rhymes, syllables and frequency.",
+   "url": "https://www.wordsapi.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dictionary",
+    "synonyms",
+    "rhymes",
+    "english"
+   ],
+   "tip": "Frequency data is useful for filtering obscure words out of word games and vocabulary tools.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "English word data: definitions, synonyms, rhymes, syllables and frequency.",
+    "ru": "Данные об английских словах: определения, синонимы, рифмы, слоги и частотность."
+   },
+   "localizedTip": {
+    "en": "Frequency data is useful for filtering obscure words out of word games and vocabulary tools."
    },
    "pricing": {
     "model": "freemium",
@@ -18882,6 +21193,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-asyncio-tools",
+   "name": "AnyIO",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Structured concurrency for Python that works on both asyncio and Trio backends.",
+   "url": "https://anyio.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "async",
+    "structured-concurrency",
+    "portable"
+   ],
+   "tip": "Task groups guarantee child tasks are awaited or cancelled — no more silently orphaned background tasks.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install anyio",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Structured concurrency for Python that works on both asyncio and Trio backends.",
+    "ru": "Структурированная конкурентность для Python, работает и на asyncio, и на Trio."
+   },
+   "localizedTip": {
+    "en": "Task groups guarantee child tasks are awaited or cancelled — no more silently orphaned background tasks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-apollo-server",
    "name": "Apollo Server",
    "kind": "library",
@@ -19279,6 +21625,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-httpx-2",
+   "name": "HTTPX (async)",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Async-capable HTTP client for Python with a requests-compatible API.",
+   "url": "https://www.python-httpx.org/async/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "http-client",
+    "async",
+    "requests-like"
+   ],
+   "tip": "Reuse one AsyncClient across requests — creating a client per call throws away connection pooling.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install httpx",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Async-capable HTTP client for Python with a requests-compatible API.",
+    "ru": "Асинхронный HTTP-клиент для Python с API, совместимым с requests."
+   },
+   "localizedTip": {
+    "en": "Reuse one AsyncClient across requests — creating a client per call throws away connection pooling."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-litestar",
    "name": "Litestar",
    "kind": "library",
@@ -19480,6 +21861,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-starlette",
+   "name": "Starlette",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Lightweight ASGI framework that FastAPI itself is built on top of.",
+   "url": "https://www.starlette.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "asgi",
+    "lightweight",
+    "foundation"
+   ],
+   "tip": "Use it directly when you want ASGI routing and middleware without FastAPI's validation layer.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install starlette",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight ASGI framework that FastAPI itself is built on top of.",
+    "ru": "Лёгкий ASGI-фреймворк, на котором построен сам FastAPI."
+   },
+   "localizedTip": {
+    "en": "Use it directly when you want ASGI routing and middleware without FastAPI's validation layer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-trpc",
    "name": "tRPC",
    "kind": "library",
@@ -19538,6 +21954,41 @@
    },
    "localizedTip": {
     "en": "Middleware composes cleanly for auth checks — attach it once at the router level, not per-procedure."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-uvicorn",
+   "name": "Uvicorn",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "The standard ASGI server for running FastAPI, Starlette and Litestar apps.",
+   "url": "https://www.uvicorn.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "asgi",
+    "server",
+    "production"
+   ],
+   "tip": "Run it behind Gunicorn with uvicorn workers in production for process management and restarts.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install uvicorn",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard ASGI server for running FastAPI, Starlette and Litestar apps.",
+    "ru": "Стандартный ASGI-сервер для запуска приложений FastAPI, Starlette и Litestar."
+   },
+   "localizedTip": {
+    "en": "Run it behind Gunicorn with uvicorn workers in production for process management and restarts."
    },
    "pricing": {
     "model": "openSource",
@@ -20548,6 +22999,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-arq",
+   "name": "arq",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Async job queue for Python built on asyncio and Redis, lighter than Celery.",
+   "url": "https://arq-docs.helpmanual.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "async",
+    "redis",
+    "jobs"
+   ],
+   "tip": "A natural fit when your app is already fully async — Celery's sync-first model fights asyncio codebases.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install arq",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Async job queue for Python built on asyncio and Redis, lighter than Celery.",
+    "ru": "Асинхронная очередь задач для Python на asyncio и Redis, легче Celery."
+   },
+   "localizedTip": {
+    "en": "A natural fit when your app is already fully async — Celery's sync-first model fights asyncio codebases."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-bullmq",
    "name": "BullMQ",
    "kind": "library",
@@ -20610,6 +23096,41 @@
    },
    "localizedTip": {
     "en": "Set explicit time limits and acks_late, or one stuck task quietly holds a worker forever."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-celery-beat",
+   "name": "Celery Beat",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "The periodic-task scheduler that ships with Celery, a distributed cron replacement.",
+   "url": "https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "scheduling",
+    "cron",
+    "periodic"
+   ],
+   "tip": "Run exactly one beat process cluster-wide, or every scheduled task fires once per beat instance.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The periodic-task scheduler that ships with Celery, a distributed cron replacement.",
+    "ru": "Планировщик периодических задач в составе Celery — распределённая замена cron."
+   },
+   "localizedTip": {
+    "en": "Run exactly one beat process cluster-wide, or every scheduled task fires once per beat instance."
    },
    "pricing": {
     "model": "openSource",
@@ -22661,6 +25182,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-chalk",
+   "name": "Chalk",
+   "kind": "library",
+   "category": "CLI и терминал",
+   "summary": "Terminal string styling for Node CLIs: colors, bold, underline.",
+   "url": "https://github.com/chalk/chalk",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "terminal",
+    "colors",
+    "styling",
+    "node"
+   ],
+   "tip": "It auto-detects color support, so piped output stays clean without you checking TTY manually.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i chalk",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Terminal string styling for Node CLIs: colors, bold, underline.",
+    "ru": "Стилизация строк терминала для Node-CLI: цвета, жирный, подчёркивание."
+   },
+   "localizedTip": {
+    "en": "It auto-detects color support, so piped output stays clean without you checking TTY manually."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-clap-rust",
    "name": "clap",
    "kind": "library",
@@ -22723,6 +25279,41 @@
    },
    "localizedTip": {
     "en": "Nested command groups let a CLI grow subcommands (git-style) without restructuring existing code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-execa",
+   "name": "execa",
+   "kind": "library",
+   "category": "CLI и терминал",
+   "summary": "Better subprocess execution for Node with promises and sane defaults.",
+   "url": "https://github.com/sindresorhus/execa",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "subprocess",
+    "node",
+    "promises",
+    "cli"
+   ],
+   "tip": "Its default of not using a shell avoids a whole class of command-injection issues child_process invites.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i execa",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Better subprocess execution for Node with promises and sane defaults.",
+    "ru": "Улучшенный запуск подпроцессов в Node с промисами и разумными настройками по умолчанию."
+   },
+   "localizedTip": {
+    "en": "Its default of not using a shell avoids a whole class of command-injection issues child_process invites."
    },
    "pricing": {
     "model": "openSource",
@@ -22918,6 +25509,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-ora",
+   "name": "Ora",
+   "kind": "library",
+   "category": "CLI и терминал",
+   "summary": "Elegant terminal spinners for long-running CLI operations.",
+   "url": "https://github.com/sindresorhus/ora",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "spinner",
+    "terminal",
+    "cli",
+    "node"
+   ],
+   "tip": "Always stop the spinner in a finally block, or an error leaves a spinning cursor stuck in the terminal.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i ora",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Elegant terminal spinners for long-running CLI operations.",
+    "ru": "Аккуратные терминальные спиннеры для долгих операций в CLI."
+   },
+   "localizedTip": {
+    "en": "Always stop the spinner in a finally block, or an error leaves a spinning cursor stuck in the terminal."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-ratatui",
    "name": "Ratatui",
    "kind": "library",
@@ -23093,6 +25719,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-zx",
+   "name": "zx",
+   "kind": "library",
+   "category": "CLI и терминал",
+   "summary": "Write shell scripts in JavaScript with clean subprocess syntax, from Google.",
+   "url": "https://google.github.io/zx/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "shell",
+    "javascript",
+    "scripting",
+    "google"
+   ],
+   "tip": "A good middle ground when a bash script outgrows bash but a full Node CLI is overkill.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g zx",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Write shell scripts in JavaScript with clean subprocess syntax, from Google.",
+    "ru": "Написание shell-скриптов на JavaScript с удобным синтаксисом подпроцессов, от Google."
+   },
+   "localizedTip": {
+    "en": "A good middle ground when a bash script outgrows bash but a full Node CLI is overkill."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-ecto",
    "name": "Ecto",
    "kind": "library",
@@ -23233,6 +25894,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-commitlint",
+   "name": "commitlint",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Enforces conventional commit message format via a git hook.",
+   "url": "https://commitlint.js.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "commits",
+    "conventional",
+    "lint",
+    "git"
+   ],
+   "tip": "Conventional commits are what let changelog and version-bump tooling work automatically downstream.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D @commitlint/cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enforces conventional commit message format via a git hook.",
+    "ru": "Обеспечивает соблюдение формата conventional commits через git-хук."
+   },
+   "localizedTip": {
+    "en": "Conventional commits are what let changelog and version-bump tooling work automatically downstream."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-gh-cli",
    "name": "GitHub CLI",
    "kind": "library",
@@ -23307,6 +26003,41 @@
    },
    "localizedTip": {
     "en": "Staging individual lines here is far easier than remembering git add --patch commands."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-lefthook",
+   "name": "Lefthook",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Fast, parallel git hooks manager that works across language ecosystems.",
+   "url": "https://lefthook.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "git-hooks",
+    "fast",
+    "parallel",
+    "polyglot"
+   ],
+   "tip": "Runs hooks in parallel unlike husky, which matters once you have several checks on pre-commit.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D lefthook",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast, parallel git hooks manager that works across language ecosystems.",
+    "ru": "Быстрый параллельный менеджер git-хуков, работающий в разных языковых экосистемах."
+   },
+   "localizedTip": {
+    "en": "Runs hooks in parallel unlike husky, which matters once you have several checks on pre-commit."
    },
    "pricing": {
     "model": "openSource",
@@ -24330,6 +27061,461 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-cert-manager",
+   "name": "cert-manager",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Automates TLS certificate issuance and renewal inside Kubernetes.",
+   "url": "https://cert-manager.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tls",
+    "certificates",
+    "kubernetes",
+    "letsencrypt"
+   ],
+   "tip": "Set up a staging ClusterIssuer first — Let's Encrypt production rate limits are easy to hit while debugging.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automates TLS certificate issuance and renewal inside Kubernetes.",
+    "ru": "Автоматизирует выпуск и обновление TLS-сертификатов внутри Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Set up a staging ClusterIssuer first — Let's Encrypt production rate limits are easy to hit while debugging."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-flux-cd",
+   "name": "Flux",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "GitOps continuous delivery for Kubernetes, the CNCF alternative to Argo CD.",
+   "url": "https://fluxcd.io/flux/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gitops",
+    "kubernetes",
+    "cd",
+    "cncf"
+   ],
+   "tip": "More composable and controller-driven than Argo CD; Argo has the stronger UI if that matters to your team.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install fluxcd/tap/flux",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GitOps continuous delivery for Kubernetes, the CNCF alternative to Argo CD.",
+    "ru": "GitOps непрерывная доставка для Kubernetes, альтернатива Argo CD в CNCF."
+   },
+   "localizedTip": {
+    "en": "More composable and controller-driven than Argo CD; Argo has the stronger UI if that matters to your team."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-k3s",
+   "name": "K3s",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Lightweight certified Kubernetes distribution in a single binary, good for edge and small servers.",
+   "url": "https://docs.k3s.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "lightweight",
+    "edge",
+    "iot"
+   ],
+   "tip": "Runs comfortably on a Raspberry Pi, unlike full Kubernetes — the whole point of the distribution.",
+   "verifiedAt": "2026-08-17",
+   "install": "curl -sfL https://get.k3s.io | sh -",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight certified Kubernetes distribution in a single binary, good for edge and small servers.",
+    "ru": "Лёгкий сертифицированный дистрибутив Kubernetes в одном бинарнике для edge и небольших серверов."
+   },
+   "localizedTip": {
+    "en": "Runs comfortably on a Raspberry Pi, unlike full Kubernetes — the whole point of the distribution."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-k9s",
+   "name": "k9s",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Terminal UI for navigating and managing Kubernetes clusters interactively.",
+   "url": "https://k9scli.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "tui",
+    "cli",
+    "operations"
+   ],
+   "tip": "Far faster than repeated kubectl commands for exploring what is actually running in a cluster.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install k9s",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Terminal UI for navigating and managing Kubernetes clusters interactively.",
+    "ru": "Терминальный интерфейс для интерактивной навигации и управления кластерами Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Far faster than repeated kubectl commands for exploring what is actually running in a cluster."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-kind",
+   "name": "kind",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Runs local Kubernetes clusters inside Docker containers, built for testing.",
+   "url": "https://kind.sigs.k8s.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "local",
+    "testing",
+    "docker"
+   ],
+   "tip": "Its speed of cluster creation and teardown is what makes it the standard for CI-based k8s testing.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install kind",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs local Kubernetes clusters inside Docker containers, built for testing.",
+    "ru": "Запускает локальные кластеры Kubernetes внутри Docker-контейнеров, создан для тестирования."
+   },
+   "localizedTip": {
+    "en": "Its speed of cluster creation and teardown is what makes it the standard for CI-based k8s testing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-kubectx",
+   "name": "kubectx / kubens",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Fast switching between Kubernetes contexts and namespaces.",
+   "url": "https://github.com/ahmetb/kubectx",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "context",
+    "namespace",
+    "cli"
+   ],
+   "tip": "Pair with a shell prompt showing the current context — most production incidents start with the wrong context.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install kubectx",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast switching between Kubernetes contexts and namespaces.",
+    "ru": "Быстрое переключение между контекстами и пространствами имён Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Pair with a shell prompt showing the current context — most production incidents start with the wrong context."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-argon2",
+   "name": "Argon2",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "The password-hashing competition winner, the current recommended default for new systems.",
+   "url": "https://github.com/P-H-C/phc-winner-argon2",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "password-hashing",
+    "crypto",
+    "security",
+    "kdf"
+   ],
+   "tip": "Prefer this over bcrypt for new projects; both are far better than any general-purpose hash like SHA-256.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install argon2-cffi",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The password-hashing competition winner, the current recommended default for new systems.",
+    "ru": "Победитель конкурса алгоритмов хеширования паролей, рекомендуемый выбор для новых систем."
+   },
+   "localizedTip": {
+    "en": "Prefer this over bcrypt for new projects; both are far better than any general-purpose hash like SHA-256."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-bcrypt",
+   "name": "bcrypt",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Long-established password hashing function, still perfectly acceptable and widely supported.",
+   "url": "https://github.com/pyca/bcrypt",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "password-hashing",
+    "crypto",
+    "security",
+    "legacy"
+   ],
+   "tip": "Its 72-byte input limit silently truncates longer passwords — pre-hash if you allow long passphrases.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install bcrypt",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Long-established password hashing function, still perfectly acceptable and widely supported.",
+    "ru": "Давно проверенная функция хеширования паролей, до сих пор приемлема и широко поддерживается."
+   },
+   "localizedTip": {
+    "en": "Its 72-byte input limit silently truncates longer passwords — pre-hash if you allow long passphrases."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-gitleaks",
+   "name": "Gitleaks",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Detects hardcoded secrets and credentials in git repositories and history.",
+   "url": "https://github.com/gitleaks/gitleaks",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "secrets",
+    "scanning",
+    "git",
+    "pre-commit"
+   ],
+   "tip": "Run it as a pre-commit hook — catching a key before it enters history saves a painful rotation later.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install gitleaks",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Detects hardcoded secrets and credentials in git repositories and history.",
+    "ru": "Находит захардкоженные секреты и учётные данные в git-репозиториях и истории."
+   },
+   "localizedTip": {
+    "en": "Run it as a pre-commit hook — catching a key before it enters history saves a painful rotation later."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-jose-jwt",
+   "name": "jose",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "JavaScript implementation of JWT, JWS, JWE and JWK with modern crypto primitives.",
+   "url": "https://github.com/panva/jose",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "jwt",
+    "jwe",
+    "jws",
+    "javascript"
+   ],
+   "tip": "Always verify the algorithm explicitly when validating a token — accepting 'none' is a classic JWT vulnerability.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i jose",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "JavaScript implementation of JWT, JWS, JWE and JWK with modern crypto primitives.",
+    "ru": "JavaScript-реализация JWT, JWS, JWE и JWK на современных криптопримитивах."
+   },
+   "localizedTip": {
+    "en": "Always verify the algorithm explicitly when validating a token — accepting 'none' is a classic JWT vulnerability."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-libsodium",
+   "name": "libsodium",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Modern cryptography library with safe defaults and hard-to-misuse APIs.",
+   "url": "https://doc.libsodium.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "crypto",
+    "encryption",
+    "nacl",
+    "modern"
+   ],
+   "tip": "Its API deliberately hides algorithm choice — that is the feature, not a limitation.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern cryptography library with safe defaults and hard-to-misuse APIs.",
+    "ru": "Современная криптографическая библиотека с безопасными настройками и API, который сложно применить неправильно."
+   },
+   "localizedTip": {
+    "en": "Its API deliberately hides algorithm choice — that is the feature, not a limitation."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-semgrep-2",
+   "name": "Semgrep",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Static analysis with readable, code-pattern-based rules for finding security bugs.",
+   "url": "https://semgrep.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sast",
+    "static-analysis",
+    "rules",
+    "security"
+   ],
+   "tip": "Rules look like the code they match, so writing a custom rule for your codebase takes minutes, not hours.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install semgrep",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Static analysis with readable, code-pattern-based rules for finding security bugs.",
+    "ru": "Статический анализ с читаемыми правилами на основе паттернов кода для поиска уязвимостей."
+   },
+   "localizedTip": {
+    "en": "Rules look like the code they match, so writing a custom rule for your codebase takes minutes, not hours."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-trivy",
+   "name": "Trivy",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Scans containers, filesystems and IaC for vulnerabilities and misconfigurations.",
+   "url": "https://trivy.dev/latest/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scanning",
+    "vulnerabilities",
+    "containers",
+    "iac"
+   ],
+   "tip": "Add it as a CI step on your Dockerfile build — it catches vulnerable base images before they ship.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install trivy",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Scans containers, filesystems and IaC for vulnerabilities and misconfigurations.",
+    "ru": "Сканирует контейнеры, файловые системы и IaC на уязвимости и ошибки конфигурации."
+   },
+   "localizedTip": {
+    "en": "Add it as a CI step on your Dockerfile build — it catches vulnerable base images before they ship."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-puppeteer",
    "name": "Puppeteer",
    "kind": "library",
@@ -24510,6 +27696,111 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-mkdocs",
+   "name": "MkDocs",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Markdown-based static documentation site generator, simpler than Sphinx.",
+   "url": "https://www.mkdocs.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docs",
+    "markdown",
+    "static-site",
+    "python"
+   ],
+   "tip": "Material for MkDocs is the theme most projects actually use — install it alongside from the start.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install mkdocs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Markdown-based static documentation site generator, simpler than Sphinx.",
+    "ru": "Генератор статических сайтов документации на Markdown, проще Sphinx."
+   },
+   "localizedTip": {
+    "en": "Material for MkDocs is the theme most projects actually use — install it alongside from the start."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-sphinx",
+   "name": "Sphinx",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "The standard Python documentation generator, behind most major Python project docs.",
+   "url": "https://www.sphinx-doc.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docs",
+    "python",
+    "rst",
+    "generation"
+   ],
+   "tip": "autodoc pulls docstrings straight from source, so the API reference maintains itself.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install sphinx",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard Python documentation generator, behind most major Python project docs.",
+    "ru": "Стандартный генератор документации Python, лежит в основе документации большинства крупных Python-проектов."
+   },
+   "localizedTip": {
+    "en": "autodoc pulls docstrings straight from source, so the API reference maintains itself."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-typedoc",
+   "name": "TypeDoc",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Generates API documentation directly from TypeScript source and TSDoc comments.",
+   "url": "https://typedoc.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docs",
+    "typescript",
+    "api-reference",
+    "generation"
+   ],
+   "tip": "Docs stay accurate because they are derived from the actual type signatures, not written separately.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D typedoc",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates API documentation directly from TypeScript source and TSDoc comments.",
+    "ru": "Генерирует документацию API прямо из исходников TypeScript и TSDoc-комментариев."
+   },
+   "localizedTip": {
+    "en": "Docs stay accurate because they are derived from the actual type signatures, not written separately."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -24739,6 +28030,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-crossplane",
+   "name": "Crossplane",
+   "kind": "library",
+   "category": "Инфраструктура как код",
+   "summary": "Manages cloud infrastructure through Kubernetes APIs instead of a separate IaC tool.",
+   "url": "https://docs.crossplane.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iac",
+    "kubernetes",
+    "control-plane",
+    "cncf"
+   ],
+   "tip": "Infrastructure becomes Kubernetes resources, so the same RBAC and GitOps flow covers apps and infra alike.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Manages cloud infrastructure through Kubernetes APIs instead of a separate IaC tool.",
+    "ru": "Управляет облачной инфраструктурой через API Kubernetes вместо отдельного IaC-инструмента."
+   },
+   "localizedTip": {
+    "en": "Infrastructure becomes Kubernetes resources, so the same RBAC and GitOps flow covers apps and infra alike."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-opentofu",
    "name": "OpenTofu",
    "kind": "library",
@@ -24809,6 +28135,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-babel-python-i18n",
+   "name": "Babel (Python)",
+   "kind": "library",
+   "category": "Локализация и i18n",
+   "summary": "Internationalization for Python: locale-aware date, number and currency formatting.",
+   "url": "https://babel.pocoo.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "i18n",
+    "python",
+    "dates",
+    "gettext"
+   ],
+   "tip": "It ships the CLDR locale database, so formatting matches platform conventions rather than hand-rolled rules.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install babel",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Internationalization for Python: locale-aware date, number and currency formatting.",
+    "ru": "Интернационализация для Python: форматирование дат, чисел и валют с учётом локали."
+   },
+   "localizedTip": {
+    "en": "It ships the CLDR locale database, so formatting matches platform conventions rather than hand-rolled rules."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-formatjs",
    "name": "FormatJS",
    "kind": "library",
@@ -24871,6 +28232,76 @@
    },
    "localizedTip": {
     "en": "Split translations into namespaces per route so a locale does not download the whole app."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-luxon",
+   "name": "Luxon",
+   "kind": "library",
+   "category": "Локализация и i18n",
+   "summary": "Date and time library with first-class timezone and locale support, from the Moment.js team.",
+   "url": "https://moment.github.io/luxon/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dates",
+    "timezones",
+    "i18n",
+    "immutable"
+   ],
+   "tip": "Its timezone handling is the reason to pick it over Day.js when you genuinely need multi-zone logic.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i luxon",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Date and time library with first-class timezone and locale support, from the Moment.js team.",
+    "ru": "Библиотека дат и времени с полноценной поддержкой часовых поясов и локалей от команды Moment.js."
+   },
+   "localizedTip": {
+    "en": "Its timezone handling is the reason to pick it over Day.js when you genuinely need multi-zone logic."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-temporal-polyfill",
+   "name": "Temporal API polyfill",
+   "kind": "library",
+   "category": "Локализация и i18n",
+   "summary": "Polyfill for the upcoming standard JavaScript date/time API replacing the flawed Date object.",
+   "url": "https://github.com/tc39/proposal-temporal",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dates",
+    "javascript",
+    "standard",
+    "tc39"
+   ],
+   "tip": "Worth adopting now for new code — it becomes the platform standard and removes the need for a date library.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @js-temporal/polyfill",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Polyfill for the upcoming standard JavaScript date/time API replacing the flawed Date object.",
+    "ru": "Полифил будущего стандартного API даты/времени JavaScript, заменяющего проблемный Date."
+   },
+   "localizedTip": {
+    "en": "Worth adopting now for new code — it becomes the platform standard and removes the need for a date library."
    },
    "pricing": {
     "model": "openSource",
@@ -24989,6 +28420,41 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-dio",
+   "name": "Dio",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "HTTP client for Dart with interceptors, retries and request cancellation.",
+   "url": "https://pub.dev/packages/dio",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flutter",
+    "http",
+    "interceptors",
+    "dart"
+   ],
+   "tip": "Interceptors are the clean place to attach auth headers and refresh expired tokens app-wide.",
+   "verifiedAt": "2026-08-17",
+   "install": "flutter pub add dio",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "HTTP client for Dart with interceptors, retries and request cancellation.",
+    "ru": "HTTP-клиент для Dart с интерцепторами, повторами и отменой запросов."
+   },
+   "localizedTip": {
+    "en": "Interceptors are the clean place to attach auth headers and refresh expired tokens app-wide."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -25171,6 +28637,76 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-flutter-bloc-2",
+   "name": "flutter_bloc",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Event-driven state management for Flutter with a strict, testable separation of concerns.",
+   "url": "https://bloclibrary.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flutter",
+    "state",
+    "bloc",
+    "events"
+   ],
+   "tip": "Its explicitness pays off in large teams; it is heavier than Riverpod for a small app.",
+   "verifiedAt": "2026-08-17",
+   "install": "flutter pub add flutter_bloc",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Event-driven state management for Flutter with a strict, testable separation of concerns.",
+    "ru": "Событийное управление состоянием Flutter со строгим тестируемым разделением ответственности."
+   },
+   "localizedTip": {
+    "en": "Its explicitness pays off in large teams; it is heavier than Riverpod for a small app."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-go-router",
+   "name": "go_router",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Declarative routing for Flutter with deep linking and nested navigation support.",
+   "url": "https://pub.dev/packages/go_router",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flutter",
+    "routing",
+    "deep-links",
+    "declarative"
+   ],
+   "tip": "The official recommendation for Navigator 2.0 — hand-rolling Navigator 2.0 directly is rarely worth it.",
+   "verifiedAt": "2026-08-17",
+   "install": "flutter pub add go_router",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Declarative routing for Flutter with deep linking and nested navigation support.",
+    "ru": "Декларативная маршрутизация Flutter с поддержкой deep links и вложенной навигации."
+   },
+   "localizedTip": {
+    "en": "The official recommendation for Navigator 2.0 — hand-rolling Navigator 2.0 directly is rarely worth it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -25409,6 +28945,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-react-native-reanimated",
+   "name": "React Native Reanimated",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Runs animations on the UI thread in React Native, avoiding JS-bridge jank.",
+   "url": "https://docs.swmansion.com/react-native-reanimated/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react-native",
+    "animation",
+    "ui-thread",
+    "gestures"
+   ],
+   "tip": "Worklets run on the UI thread — that separation is exactly why gestures stay smooth under JS load.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i react-native-reanimated",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs animations on the UI thread in React Native, avoiding JS-bridge jank.",
+    "ru": "Выполняет анимации в UI-потоке React Native, избегая подтормаживаний из-за JS-моста."
+   },
+   "localizedTip": {
+    "en": "Worklets run on the UI thread — that separation is exactly why gestures stay smooth under JS load."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-react-native-gesture-handler",
+   "name": "RN Gesture Handler",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Native-driven gesture recognition for React Native, replacing the built-in touch system.",
+   "url": "https://docs.swmansion.com/react-native-gesture-handler/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react-native",
+    "gestures",
+    "native",
+    "touch"
+   ],
+   "tip": "Pairs with Reanimated so a gesture can drive an animation entirely off the JS thread.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i react-native-gesture-handler",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Native-driven gesture recognition for React Native, replacing the built-in touch system.",
+    "ru": "Нативное распознавание жестов для React Native вместо встроенной системы касаний."
+   },
+   "localizedTip": {
+    "en": "Pairs with Reanimated so a gesture can drive an animation entirely off the JS thread."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-tauri",
    "name": "Tauri",
    "kind": "library",
@@ -25488,6 +29094,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-fluent-bit",
+   "name": "Fluent Bit",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Lightweight log processor and forwarder, the standard sidecar in Kubernetes logging setups.",
+   "url": "https://docs.fluentbit.io/manual",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "logs",
+    "forwarding",
+    "lightweight",
+    "cncf"
+   ],
+   "tip": "Its memory footprint is small enough to run as a DaemonSet on every node without noticeable overhead.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight log processor and forwarder, the standard sidecar in Kubernetes logging setups.",
+    "ru": "Лёгкий обработчик и пересыльщик логов, стандартный sidecar в Kubernetes-логировании."
+   },
+   "localizedTip": {
+    "en": "Its memory footprint is small enough to run as a DaemonSet on every node without noticeable overhead."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-grafana-loki",
+   "name": "Grafana Loki",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Log aggregation that indexes only labels, not full text, making it far cheaper to run.",
+   "url": "https://grafana.com/docs/loki/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "logs",
+    "grafana",
+    "labels",
+    "cheap"
+   ],
+   "tip": "Keep label cardinality low — high-cardinality labels are the one thing that makes Loki expensive and slow.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Log aggregation that indexes only labels, not full text, making it far cheaper to run.",
+    "ru": "Агрегация логов, индексирующая только метки, а не полный текст — заметно дешевле в эксплуатации."
+   },
+   "localizedTip": {
+    "en": "Keep label cardinality low — high-cardinality labels are the one thing that makes Loki expensive and slow."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-opentelemetry",
    "name": "OpenTelemetry",
    "kind": "library",
@@ -25558,6 +29234,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-prometheus-client",
+   "name": "Prometheus client libraries",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Official instrumentation libraries for exposing Prometheus metrics from your code.",
+   "url": "https://prometheus.io/docs/instrumenting/clientlibs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "metrics",
+    "instrumentation",
+    "prometheus",
+    "exporters"
+   ],
+   "tip": "Stick to the four standard metric types — inventing custom aggregation in-app defeats Prometheus's model.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install prometheus-client",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Official instrumentation libraries for exposing Prometheus metrics from your code.",
+    "ru": "Официальные библиотеки инструментации для экспорта метрик Prometheus из вашего кода."
+   },
+   "localizedTip": {
+    "en": "Stick to the four standard metric types — inventing custom aggregation in-app defeats Prometheus's model."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-sentry-sdk",
    "name": "Sentry SDK",
    "kind": "library",
@@ -25588,6 +29299,111 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-vector-dev",
+   "name": "Vector",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "High-performance observability data pipeline for collecting, transforming and routing logs.",
+   "url": "https://vector.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "logs",
+    "pipeline",
+    "rust",
+    "observability"
+   ],
+   "tip": "Transforming and filtering at the agent cuts ingest cost before data reaches a paid backend.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance observability data pipeline for collecting, transforming and routing logs.",
+    "ru": "Высокопроизводительный пайплайн данных observability для сбора, трансформации и маршрутизации логов."
+   },
+   "localizedTip": {
+    "en": "Transforming and filtering at the agent cuts ingest cost before data reaches a paid backend."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-act",
+   "name": "act",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Runs GitHub Actions workflows locally in Docker, without pushing to test a change.",
+   "url": "https://nektosact.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "github-actions",
+    "local",
+    "docker",
+    "testing"
+   ],
+   "tip": "Saves the push-wait-fail-fix cycle entirely when debugging a workflow file.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install act",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs GitHub Actions workflows locally in Docker, without pushing to test a change.",
+    "ru": "Запускает workflow GitHub Actions локально в Docker, без пуша для проверки изменения."
+   },
+   "localizedTip": {
+    "en": "Saves the push-wait-fail-fix cycle entirely when debugging a workflow file."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-dagger-io",
+   "name": "Dagger",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Defines CI/CD pipelines as code that runs identically locally and on any CI provider.",
+   "url": "https://docs.dagger.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ci",
+    "pipelines",
+    "containers",
+    "portable"
+   ],
+   "tip": "Pipelines run in containers, which is why 'works locally but fails in CI' largely disappears.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Defines CI/CD pipelines as code that runs identically locally and on any CI provider.",
+    "ru": "Описывает CI/CD-пайплайны как код, одинаково работающий локально и на любом CI-провайдере."
+   },
+   "localizedTip": {
+    "en": "Pipelines run in containers, which is why 'works locally but fails in CI' largely disappears."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -25631,6 +29447,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-earthly",
+   "name": "Earthly",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Build automation combining Dockerfile and Makefile concepts, reproducible across environments.",
+   "url": "https://docs.earthly.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "build",
+    "ci",
+    "reproducible",
+    "containers"
+   ],
+   "tip": "Its syntax is familiar if you know Dockerfiles, which shortens adoption compared to a new DSL.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Build automation combining Dockerfile and Makefile concepts, reproducible across environments.",
+    "ru": "Автоматизация сборки, объединяющая идеи Dockerfile и Makefile, воспроизводима между окружениями."
+   },
+   "localizedTip": {
+    "en": "Its syntax is familiar if you know Dockerfiles, which shortens adoption compared to a new DSL."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -27321,6 +31172,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-arktype",
+   "name": "ArkType",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "TypeScript validation using type-like syntax with full static inference.",
+   "url": "https://arktype.io/docs/intro/setup",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "validation",
+    "typescript",
+    "inference",
+    "syntax"
+   ],
+   "tip": "Schemas read almost exactly like TypeScript type annotations, which keeps them easy to scan.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i arktype",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "TypeScript validation using type-like syntax with full static inference.",
+    "ru": "Валидация TypeScript с синтаксисом в духе типов и полным статическим выводом."
+   },
+   "localizedTip": {
+    "en": "Schemas read almost exactly like TypeScript type annotations, which keeps them easy to scan."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-beautifulsoup",
+   "name": "Beautiful Soup",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "The standard Python HTML/XML parsing library, tolerant of malformed markup.",
+   "url": "https://www.crummy.com/software/BeautifulSoup/bs4/doc/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "html",
+    "parsing",
+    "python",
+    "scraping"
+   ],
+   "tip": "Pair it with the lxml parser backend for a substantial speed improvement over the built-in one.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install beautifulsoup4",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard Python HTML/XML parsing library, tolerant of malformed markup.",
+    "ru": "Стандартная библиотека парсинга HTML/XML в Python, устойчива к некорректной разметке."
+   },
+   "localizedTip": {
+    "en": "Pair it with the lxml parser backend for a substantial speed improvement over the built-in one."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-cheerio",
+   "name": "Cheerio",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Server-side HTML parsing with a jQuery-like API, no browser required.",
+   "url": "https://cheerio.js.org/docs/intro",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "html",
+    "parsing",
+    "jquery-like",
+    "scraping"
+   ],
+   "tip": "Far faster than a headless browser for static HTML — only reach for Playwright when JS rendering is required.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i cheerio",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Server-side HTML parsing with a jQuery-like API, no browser required.",
+    "ru": "Парсинг HTML на сервере с API в духе jQuery, без браузера."
+   },
+   "localizedTip": {
+    "en": "Far faster than a headless browser for static HTML — only reach for Playwright when JS rendering is required."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-datefns",
    "name": "date-fns",
    "kind": "library",
@@ -27391,6 +31347,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-yaml-js",
+   "name": "js-yaml",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "YAML parser and serializer for JavaScript.",
+   "url": "https://github.com/nodeca/js-yaml",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "yaml",
+    "parsing",
+    "javascript",
+    "config"
+   ],
+   "tip": "Use safeLoad semantics (the default in v4) — the unsafe loader can instantiate arbitrary JS types.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i js-yaml",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "YAML parser and serializer for JavaScript.",
+    "ru": "Парсер и сериализатор YAML для JavaScript."
+   },
+   "localizedTip": {
+    "en": "Use safeLoad semantics (the default in v4) — the unsafe loader can instantiate arbitrary JS types."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-lodash-es",
    "name": "Lodash",
    "kind": "library",
@@ -27418,6 +31409,41 @@
    },
    "localizedTip": {
     "en": "Import individual functions (lodash/debounce) rather than the whole library to keep bundles small."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-lxml",
+   "name": "lxml",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Fast XML and HTML processing for Python with full XPath support.",
+   "url": "https://lxml.de/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "xml",
+    "html",
+    "python",
+    "xpath"
+   ],
+   "tip": "XPath handles deeply nested extraction far more concisely than chained CSS selector calls.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install lxml",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast XML and HTML processing for Python with full XPath support.",
+    "ru": "Быстрая обработка XML и HTML в Python с полной поддержкой XPath."
+   },
+   "localizedTip": {
+    "en": "XPath handles deeply nested extraction far more concisely than chained CSS selector calls."
    },
    "pricing": {
     "model": "openSource",
@@ -27461,6 +31487,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-papaparse",
+   "name": "PapaParse",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Fast in-browser CSV parser with streaming support for large files.",
+   "url": "https://www.papaparse.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "csv",
+    "parsing",
+    "javascript",
+    "streaming"
+   ],
+   "tip": "Streaming mode parses multi-hundred-megabyte CSVs in the browser without exhausting memory.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i papaparse",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast in-browser CSV parser with streaming support for large files.",
+    "ru": "Быстрый браузерный парсер CSV с потоковой обработкой больших файлов."
+   },
+   "localizedTip": {
+    "en": "Streaming mode parses multi-hundred-megabyte CSVs in the browser without exhausting memory."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-rambda",
    "name": "Ramda",
    "kind": "library",
@@ -27488,6 +31549,41 @@
    },
    "localizedTip": {
     "en": "Every function is auto-curried, which is what makes point-free composition read naturally here."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-zod-2",
+   "name": "Valibot",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Schema validation for TypeScript with a much smaller bundle than Zod.",
+   "url": "https://valibot.dev/guides/introduction/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "validation",
+    "typescript",
+    "tiny",
+    "tree-shakeable"
+   ],
+   "tip": "Its modular API means you only bundle the validators you actually import — the main win over Zod on the client.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i valibot",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Schema validation for TypeScript with a much smaller bundle than Zod.",
+    "ru": "Валидация схем для TypeScript с заметно меньшим размером бандла, чем у Zod."
+   },
+   "localizedTip": {
+    "en": "Its modular API means you only bundle the validators you actually import — the main win over Zod on the client."
    },
    "pricing": {
     "model": "openSource",
@@ -27796,6 +31892,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-ark-ui",
+   "name": "Ark UI",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Headless accessible components driven by state machines, for React, Vue and Solid.",
+   "url": "https://ark-ui.com/docs/overview/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "headless",
+    "accessible",
+    "state-machines",
+    "multi-framework"
+   ],
+   "tip": "Its state-machine foundation makes complex widget behavior (comboboxes, date pickers) genuinely reliable.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @ark-ui/react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless accessible components driven by state machines, for React, Vue and Solid.",
+    "ru": "Headless доступные компоненты на конечных автоматах для React, Vue и Solid."
+   },
+   "localizedTip": {
+    "en": "Its state-machine foundation makes complex widget behavior (comboboxes, date pickers) genuinely reliable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-astro",
    "name": "Astro",
    "kind": "library",
@@ -27974,6 +32105,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-daisyui",
+   "name": "daisyUI",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Tailwind plugin adding semantic component classes, no JavaScript required.",
+   "url": "https://daisyui.com/docs/install/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tailwind",
+    "components",
+    "css-only",
+    "themes"
+   ],
+   "tip": "Pure CSS means it works in any framework or plain HTML — no React/Vue dependency at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D daisyui",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Tailwind plugin adding semantic component classes, no JavaScript required.",
+    "ru": "Плагин Tailwind, добавляющий семантические классы компонентов, без JavaScript."
+   },
+   "localizedTip": {
+    "en": "Pure CSS means it works in any framework or plain HTML — no React/Vue dependency at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-eleventy",
    "name": "Eleventy",
    "kind": "library",
@@ -28083,6 +32249,41 @@
    },
    "localizedTip": {
     "en": "Smaller surface than Radix; enough for menus, dialogs and comboboxes in most apps."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-nextui",
+   "name": "HeroUI (NextUI)",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Modern React component library built on Tailwind with a strong default aesthetic.",
+   "url": "https://www.heroui.com/docs/guide/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "components",
+    "tailwind",
+    "themeable"
+   ],
+   "tip": "Renamed from NextUI to HeroUI — older tutorials referencing NextUI describe the same library.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @heroui/react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern React component library built on Tailwind with a strong default aesthetic.",
+    "ru": "Современная библиотека React-компонентов на Tailwind с сильной эстетикой по умолчанию."
+   },
+   "localizedTip": {
+    "en": "Renamed from NextUI to HeroUI — older tutorials referencing NextUI describe the same library."
    },
    "pricing": {
     "model": "openSource",
@@ -28544,6 +32745,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-park-ui",
+   "name": "Park UI",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Styled components built on Ark UI and Panda CSS, framework-agnostic across React/Vue/Solid.",
+   "url": "https://park-ui.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "components",
+    "ark-ui",
+    "panda-css",
+    "accessible"
+   ],
+   "tip": "One component API across three frameworks is useful for teams maintaining more than one frontend stack.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Styled components built on Ark UI and Panda CSS, framework-agnostic across React/Vue/Solid.",
+    "ru": "Стилизованные компоненты на Ark UI и Panda CSS, работают в React/Vue/Solid."
+   },
+   "localizedTip": {
+    "en": "One component API across three frameworks is useful for teams maintaining more than one frontend stack."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-preact",
    "name": "Preact",
    "kind": "library",
@@ -28605,6 +32841,41 @@
    },
    "localizedTip": {
     "en": "Works in plain React too via @preact/signals-react — you don't have to adopt Preact to use it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-primevue",
+   "name": "PrimeVue",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Large Vue component suite with a particularly capable DataTable.",
+   "url": "https://primevue.org/introduction/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vue",
+    "components",
+    "datatable",
+    "enterprise"
+   ],
+   "tip": "Its DataTable covers virtual scroll, grouping, filtering and export — rarely worth rebuilding by hand.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i primevue",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Large Vue component suite with a particularly capable DataTable.",
+    "ru": "Большой набор Vue-компонентов с особенно мощной таблицей DataTable."
+   },
+   "localizedTip": {
+    "en": "Its DataTable covers virtual scroll, grouping, filtering and export — rarely worth rebuilding by hand."
    },
    "pricing": {
     "model": "openSource",
@@ -28885,6 +33156,40 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-shoelace",
+   "name": "Shoelace / Web Awesome",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Framework-agnostic UI components built as standard web components.",
+   "url": "https://shoelace.style/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web-components",
+    "framework-agnostic",
+    "accessible"
+   ],
+   "tip": "Web components work in any framework or none, which makes them a safe bet for long-lived design systems.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @shoelace-style/shoelace",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Framework-agnostic UI components built as standard web components.",
+    "ru": "UI-компоненты, не зависящие от фреймворка, построены как стандартные web components."
+   },
+   "localizedTip": {
+    "en": "Web components work in any framework or none, which makes them a safe bet for long-lived design systems."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
   },

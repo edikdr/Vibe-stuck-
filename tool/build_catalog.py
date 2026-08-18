@@ -9,36 +9,41 @@ from data_mcp_skills import MCPS, SKILLS
 from data_paid import PAID
 from data_showcases import SHOWCASES
 
-# Stage 5: the 4-5x expansion lives in its own files rather than growing the
-# stage 1-4 packs further — each file stays a manageable, reviewable size.
-from data_apis_5a import APIS_5A
-from data_apis_5b import APIS_5B
-from data_apis_5c import APIS_5C
-from data_apis_5d import APIS_5D
-from data_apis_5e import APIS_5E
-from data_apis_5f import APIS_5F
-from data_apis_5g import APIS_5G
-from data_apis_5h import APIS_5H
-from data_libs_5a import LIBS_5A
-from data_libs_5b import LIBS_5B
-from data_libs_5c import LIBS_5C
-from data_libs_5d import LIBS_5D
-from data_libs_5e import LIBS_5E
-from data_libs_5f import LIBS_5F
-from data_libs_5g import LIBS_5G
-from data_libs_5h import LIBS_5H
-from data_mcp_skills_5 import MCPS_5, SKILLS_5
-from data_mcp_skills_5b import MCPS_5B, SKILLS_5B
-from data_mcp_skills_5c import MCPS_5C, SKILLS_5C
-from data_mcp_skills_5d import MCPS_5D, SKILLS_5D
-from data_paid_5 import PAID_5
-from data_paid_5b import PAID_5B
+# Stage 5+: expansion packs live in their own files rather than growing the
+# stage 1-4 packs further. They are discovered by filename instead of being
+# imported one by one, so adding `data_apis_5k.py` needs no edit here at all —
+# drop the file in catalog_src/ and it is picked up on the next build.
+#
+# Convention: data_<kind>_<suffix>.py exporting <KIND>_<SUFFIX> in upper case,
+# e.g. data_apis_5a.py -> APIS_5A, data_mcp_skills_5b.py -> MCPS_5B + SKILLS_5B.
+import importlib
 
-APIS = APIS + APIS_5A + APIS_5B + APIS_5C + APIS_5D + APIS_5E + APIS_5F + APIS_5G + APIS_5H
-LIBS = LIBS + LIBS_5A + LIBS_5B + LIBS_5C + LIBS_5D + LIBS_5E + LIBS_5F + LIBS_5G + LIBS_5H
-MCPS = MCPS + MCPS_5 + MCPS_5B + MCPS_5C + MCPS_5D
-SKILLS = SKILLS + SKILLS_5 + SKILLS_5B + SKILLS_5C + SKILLS_5D
-PAID = PAID + PAID_5 + PAID_5B
+_PACK_SRC = pathlib.Path(__file__).parent / 'catalog_src'
+
+
+def _load_packs(prefix, *symbols):
+    """Import every data_<prefix>_*.py pack and concatenate the named lists."""
+    found = {symbol: [] for symbol in symbols}
+    for path in sorted(_PACK_SRC.glob(f'data_{prefix}_*.py')):
+        module = importlib.import_module(path.stem)
+        suffix = path.stem[len(f'data_{prefix}_'):].upper()
+        for symbol in symbols:
+            rows = getattr(module, f'{symbol}_{suffix}', None)
+            if rows:
+                found[symbol].extend(rows)
+    return [found[symbol] for symbol in symbols]
+
+
+(_apis_extra,) = _load_packs('apis', 'APIS')
+(_libs_extra,) = _load_packs('libs', 'LIBS')
+_mcps_extra, _skills_extra = _load_packs('mcp_skills', 'MCPS', 'SKILLS')
+(_paid_extra,) = _load_packs('paid', 'PAID')
+
+APIS = APIS + _apis_extra
+LIBS = LIBS + _libs_extra
+MCPS = MCPS + _mcps_extra
+SKILLS = SKILLS + _skills_extra
+PAID = PAID + _paid_extra
 
 ROOT = str(pathlib.Path(__file__).resolve().parent.parent)
 TODAY = '2026-08-17'
@@ -204,6 +209,9 @@ MERGE = {
  'paid-drugbank': 'api-drugbank', 'paid-project44': 'api-project44',
  'paid-middesk': 'api-middesk', 'paid-postmark-templates': 'api-postmark-2',
  'paid-kagi-search': 'mcp-kagi-search',
+ 'paid-rippling': 'api-rippling', 'paid-planetscale-vitess': 'api-planetscale-2',
+ 'paid-dynatrace': 'api-dynatrace', 'paid-bunny-net': 'api-bunny-net',
+ 'paid-intercom': 'api-intercom', 'paid-front-app': 'api-front-app',
 }
 
 def build_showcases(item_id):
