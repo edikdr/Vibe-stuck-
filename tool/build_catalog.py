@@ -15,19 +15,30 @@ from data_apis_5a import APIS_5A
 from data_apis_5b import APIS_5B
 from data_apis_5c import APIS_5C
 from data_apis_5d import APIS_5D
+from data_apis_5e import APIS_5E
+from data_apis_5f import APIS_5F
+from data_apis_5g import APIS_5G
+from data_apis_5h import APIS_5H
 from data_libs_5a import LIBS_5A
 from data_libs_5b import LIBS_5B
 from data_libs_5c import LIBS_5C
 from data_libs_5d import LIBS_5D
+from data_libs_5e import LIBS_5E
+from data_libs_5f import LIBS_5F
+from data_libs_5g import LIBS_5G
+from data_libs_5h import LIBS_5H
 from data_mcp_skills_5 import MCPS_5, SKILLS_5
 from data_mcp_skills_5b import MCPS_5B, SKILLS_5B
+from data_mcp_skills_5c import MCPS_5C, SKILLS_5C
+from data_mcp_skills_5d import MCPS_5D, SKILLS_5D
 from data_paid_5 import PAID_5
+from data_paid_5b import PAID_5B
 
-APIS = APIS + APIS_5A + APIS_5B + APIS_5C + APIS_5D
-LIBS = LIBS + LIBS_5A + LIBS_5B + LIBS_5C + LIBS_5D
-MCPS = MCPS + MCPS_5 + MCPS_5B
-SKILLS = SKILLS + SKILLS_5 + SKILLS_5B
-PAID = PAID + PAID_5
+APIS = APIS + APIS_5A + APIS_5B + APIS_5C + APIS_5D + APIS_5E + APIS_5F + APIS_5G + APIS_5H
+LIBS = LIBS + LIBS_5A + LIBS_5B + LIBS_5C + LIBS_5D + LIBS_5E + LIBS_5F + LIBS_5G + LIBS_5H
+MCPS = MCPS + MCPS_5 + MCPS_5B + MCPS_5C + MCPS_5D
+SKILLS = SKILLS + SKILLS_5 + SKILLS_5B + SKILLS_5C + SKILLS_5D
+PAID = PAID + PAID_5 + PAID_5B
 
 ROOT = str(pathlib.Path(__file__).resolve().parent.parent)
 TODAY = '2026-08-17'
@@ -190,6 +201,9 @@ MERGE = {
  'paid-optimizely': 'api-optimizely', 'paid-vwo': 'api-vwo',
  'paid-lightstep': 'api-lightstep', 'paid-aws-secrets-manager': 'api-aws-secrets-manager',
  'paid-statuspage-io': 'api-statuspage-io',
+ 'paid-drugbank': 'api-drugbank', 'paid-project44': 'api-project44',
+ 'paid-middesk': 'api-middesk', 'paid-postmark-templates': 'api-postmark-2',
+ 'paid-kagi-search': 'mcp-kagi-search',
 }
 
 def build_showcases(item_id):
