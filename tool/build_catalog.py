@@ -173,6 +173,7 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-stainless': 'lib-stainless',
  'paid-zyte': 'api-zyte',
  'paid-oxylabs': 'api-oxylabs',
  'paid-smartproxy': 'api-smartproxy',

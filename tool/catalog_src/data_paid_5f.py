@@ -47,4 +47,9 @@ PAID_5F = [
  "Определение технологий в виде месячных кредитов на проверки.",
  "Its detection rules are open source, so self-hosting is a real option for high volumes.",
  "credits","from ~$149 per month","free browser extension","https://www.wappalyzer.com/pricing/"),
+("paid-stainless","Stainless (pricing)","Backend и API","https://www.stainless.com/pricing","paid","sdk,pricing,languages,subscription",
+ "SDK generation billed monthly by the number of target languages.",
+ "Генерация SDK с месячной оплатой по числу целевых языков.",
+ "Worth it when SDK quality is customer-facing; open-source generators cover internal clients fine.",
+ "subscription","from ~$250 per month","free tier for one language","https://www.stainless.com/pricing"),
 ]

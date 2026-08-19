@@ -34160,6 +34160,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-apache-thrift",
+   "name": "Apache Thrift",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Cross-language RPC and serialization framework originating at Facebook.",
+   "url": "https://thrift.apache.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rpc",
+    "serialization",
+    "cross-language",
+    "facebook"
+   ],
+   "tip": "Broad language coverage, though gRPC has taken over most new development.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cross-language RPC and serialization framework originating at Facebook.",
+    "ru": "Кроссязыковой фреймворк RPC и сериализации, созданный в Facebook."
+   },
+   "localizedTip": {
+    "en": "Broad language coverage, though gRPC has taken over most new development."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-apollo-federation",
    "name": "Apollo Federation",
    "kind": "library",
@@ -34300,6 +34335,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-bson",
+   "name": "BSON",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Binary JSON encoding with extra types, used natively by MongoDB.",
+   "url": "https://bsonspec.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "binary",
+    "json",
+    "mongodb",
+    "types"
+   ],
+   "tip": "Its date and binary types survive round trips that plain JSON turns into strings.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Binary JSON encoding with extra types, used natively by MongoDB.",
+    "ru": "Бинарная кодировка JSON с дополнительными типами, нативно используемая в MongoDB."
+   },
+   "localizedTip": {
+    "en": "Its date and binary types survive round trips that plain JSON turns into strings."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-buf",
    "name": "Buf",
    "kind": "library",
@@ -34335,6 +34405,76 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-capnproto",
+   "name": "Cap'n Proto",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Zero-copy serialization with no encoding or decoding step.",
+   "url": "https://capnproto.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serialization",
+    "zero-copy",
+    "rpc",
+    "fast"
+   ],
+   "tip": "Reading a field is a pointer dereference, which is why it beats protobuf on latency-critical paths.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Zero-copy serialization with no encoding or decoding step.",
+    "ru": "Сериализация без копирования, не требующая шагов кодирования и декодирования."
+   },
+   "localizedTip": {
+    "en": "Reading a field is a pointer dereference, which is why it beats protobuf on latency-critical paths."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-cbor",
+   "name": "CBOR",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Compact binary format modelled on the JSON data model, an IETF standard.",
+   "url": "https://cbor.io/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serialization",
+    "binary",
+    "json-like",
+    "iot"
+   ],
+   "tip": "Common in IoT and WebAuthn where JSON's size and parsing cost matter.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compact binary format modelled on the JSON data model, an IETF standard.",
+    "ru": "Компактный бинарный формат по модели данных JSON, стандарт IETF."
+   },
+   "localizedTip": {
+    "en": "Common in IoT and WebAuthn where JSON's size and parsing cost matter."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-connectrpc",
    "name": "Connect",
    "kind": "library",
@@ -34362,6 +34502,41 @@
    },
    "localizedTip": {
     "en": "Solves gRPC's browser problem without a separate proxy layer, which is its main reason to exist."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-connect-rpc",
+   "name": "Connect RPC",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Protobuf RPC that works over plain HTTP and directly from browsers.",
+   "url": "https://connectrpc.com/docs/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "grpc",
+    "http",
+    "browser",
+    "protobuf"
+   ],
+   "tip": "Its endpoints are curl-friendly, unlike gRPC's binary framing over HTTP/2.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Protobuf RPC that works over plain HTTP and directly from browsers.",
+    "ru": "Protobuf RPC, работающий поверх обычного HTTP и напрямую из браузеров."
+   },
+   "localizedTip": {
+    "en": "Its endpoints are curl-friendly, unlike gRPC's binary framing over HTTP/2."
    },
    "pricing": {
     "model": "openSource",
@@ -34601,6 +34776,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-fern",
+   "name": "Fern",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Generates SDKs and API documentation from a single API definition.",
+   "url": "https://buildwithfern.com/learn",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sdk",
+    "docs",
+    "openapi",
+    "codegen"
+   ],
+   "tip": "Docs and SDKs from one source removes the usual drift between them.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates SDKs and API documentation from a single API definition.",
+    "ru": "Генерирует SDK и документацию API из одного определения API."
+   },
+   "localizedTip": {
+    "en": "Docs and SDKs from one source removes the usual drift between them."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-filament-php",
    "name": "Filament",
    "kind": "library",
@@ -34662,6 +34872,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-flatbuffers",
+   "name": "FlatBuffers",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Google's zero-copy serialization library, widely used in games.",
+   "url": "https://flatbuffers.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serialization",
+    "zero-copy",
+    "google",
+    "games"
+   ],
+   "tip": "Accessing one field without parsing the whole buffer is what suits it to per-frame data.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's zero-copy serialization library, widely used in games.",
+    "ru": "Библиотека сериализации без копирования от Google, широко используемая в играх."
+   },
+   "localizedTip": {
+    "en": "Accessing one field without parsing the whole buffer is what suits it to per-frame data."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
   },
@@ -34806,6 +35051,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-grpc-web",
+   "name": "gRPC-Web",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Brings gRPC to browsers through a translating proxy.",
+   "url": "https://github.com/grpc/grpc-web",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "grpc",
+    "browser",
+    "proxy",
+    "protobuf"
+   ],
+   "tip": "The required proxy is real infrastructure — Connect RPC avoids it entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Brings gRPC to browsers through a translating proxy.",
+    "ru": "Приносит gRPC в браузеры через транслирующий прокси."
+   },
+   "localizedTip": {
+    "en": "The required proxy is real infrastructure — Connect RPC avoids it entirely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-gunicorn",
    "name": "Gunicorn",
    "kind": "library",
@@ -34906,6 +35186,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-hey-api",
+   "name": "Hey API",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Modern TypeScript client generator for OpenAPI specifications.",
+   "url": "https://heyapi.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "openapi",
+    "typescript",
+    "client",
+    "codegen"
+   ],
+   "tip": "Its output is readable TypeScript you can actually debug, unlike heavily abstracted generators.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D @hey-api/openapi-ts",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern TypeScript client generator for OpenAPI specifications.",
+    "ru": "Современный генератор TypeScript-клиентов для OpenAPI-спецификаций."
+   },
+   "localizedTip": {
+    "en": "Its output is readable TypeScript you can actually debug, unlike heavily abstracted generators."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -35074,6 +35389,41 @@
    },
    "localizedTip": {
     "en": "Its middleware cascade unwinds after the response, which makes timing and cleanup logic natural."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-kubb",
+   "name": "Kubb",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Plugin-based generator turning OpenAPI specs into clients, types and mocks.",
+   "url": "https://kubb.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "openapi",
+    "codegen",
+    "plugins",
+    "typescript"
+   ],
+   "tip": "Its plugin model lets you emit exactly the artifacts your stack needs and nothing else.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D @kubb/cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Plugin-based generator turning OpenAPI specs into clients, types and mocks.",
+    "ru": "Генератор на плагинах, превращающий OpenAPI-спецификации в клиенты, типы и моки."
+   },
+   "localizedTip": {
+    "en": "Its plugin model lets you emit exactly the artifacts your stack needs and nothing else."
    },
    "pricing": {
     "model": "openSource",
@@ -35388,6 +35738,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-orval",
+   "name": "Orval",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Generates typed API clients and React Query hooks from OpenAPI specs.",
+   "url": "https://orval.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "openapi",
+    "codegen",
+    "react-query",
+    "typescript"
+   ],
+   "tip": "It also generates MSW mocks from the same spec, so tests and client never drift.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D orval",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates typed API clients and React Query hooks from OpenAPI specs.",
+    "ru": "Генерирует типизированные API-клиенты и хуки React Query из OpenAPI-спецификаций."
+   },
+   "localizedTip": {
+    "en": "It also generates MSW mocks from the same spec, so tests and client never drift."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-postgraphile",
    "name": "PostGraphile",
    "kind": "library",
@@ -35598,6 +35983,83 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-speakeasy",
+   "name": "Speakeasy",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Generates production-quality SDKs in many languages from an OpenAPI spec.",
+   "url": "https://www.speakeasy.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sdk",
+    "codegen",
+    "openapi",
+    "multi-language"
+   ],
+   "tip": "Generated SDKs include retries and pagination, which naive generators leave to the caller.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates production-quality SDKs in many languages from an OpenAPI spec.",
+    "ru": "Генерирует SDK продакшн-качества на многих языках из OpenAPI-спецификации."
+   },
+   "localizedTip": {
+    "en": "Generated SDKs include retries and pagination, which naive generators leave to the caller."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-stainless",
+   "name": "Stainless",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "SDK generation platform behind several major AI provider client libraries.",
+   "url": "https://www.stainless.com/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sdk",
+    "codegen",
+    "quality",
+    "api-first",
+    "pricing",
+    "languages",
+    "subscription"
+   ],
+   "tip": "The OpenAI and Anthropic SDKs are generated with it, which is a useful quality reference.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "SDK generation platform behind several major AI provider client libraries.",
+    "ru": "Платформа генерации SDK, на которой построены клиентские библиотеки нескольких крупных AI-провайдеров."
+   },
+   "localizedTip": {
+    "en": "The OpenAI and Anthropic SDKs are generated with it, which is a useful quality reference."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$250 per month",
+    "freeQuota": "free tier for one language",
+    "url": "https://www.stainless.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-starlette",
    "name": "Starlette",
    "kind": "library",
@@ -35796,6 +36258,41 @@
    },
    "localizedTip": {
     "en": "Adopts incrementally on an existing REST API, unlike RPC layers that require rewriting endpoints."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-twirp",
+   "name": "Twirp",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Simple protobuf RPC framework over HTTP from Twitch.",
+   "url": "https://twitchtv.github.io/twirp/docs/intro.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rpc",
+    "protobuf",
+    "simple",
+    "http"
+   ],
+   "tip": "Deliberately smaller than gRPC — no streaming, and correspondingly less to operate.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple protobuf RPC framework over HTTP from Twitch.",
+    "ru": "Простой protobuf RPC-фреймворк поверх HTTP от Twitch."
+   },
+   "localizedTip": {
+    "en": "Deliberately smaller than gRPC — no streaming, and correspondingly less to operate."
    },
    "pricing": {
     "model": "openSource",
@@ -39268,6 +39765,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-mobx",
+   "name": "MobX",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Transparent reactive state management driven by observables.",
+   "url": "https://mobx.js.org/README.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "reactive",
+    "observable",
+    "state",
+    "transparent"
+   ],
+   "tip": "Components re-render from tracked reads automatically, with no selector functions to maintain.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i mobx",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Transparent reactive state management driven by observables.",
+    "ru": "Прозрачное реактивное управление состоянием на основе наблюдаемых значений."
+   },
+   "localizedTip": {
+    "en": "Components re-render from tracked reads automatically, with no selector functions to maintain."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-nanostores",
    "name": "Nano Stores",
    "kind": "library",
@@ -39434,6 +39966,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-recoil",
+   "name": "Recoil",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Atom-based state management for React, originally from Meta.",
+   "url": "https://recoiljs.org/docs/introduction/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "atoms",
+    "facebook",
+    "experimental"
+   ],
+   "tip": "Development has stopped — Jotai offers the same atom model and is actively maintained.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i recoil",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Atom-based state management for React, originally from Meta.",
+    "ru": "Управление состоянием React на основе атомов, изначально из Meta."
+   },
+   "localizedTip": {
+    "en": "Development has stopped — Jotai offers the same atom model and is actively maintained."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
   },
@@ -40271,6 +40838,41 @@
    },
    "localizedTip": {
     "en": "Keep DAG files light — heavy imports at parse time slow down the scheduler for every DAG, not just yours."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-apache-avro",
+   "name": "Apache Avro",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Compact binary serialization with strong schema evolution rules.",
+   "url": "https://avro.apache.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serialization",
+    "schema-evolution",
+    "kafka",
+    "compact"
+   ],
+   "tip": "Its schema evolution rules are why it dominates Kafka topics with long-lived data.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compact binary serialization with strong schema evolution rules.",
+    "ru": "Компактная бинарная сериализация со строгими правилами эволюции схемы."
+   },
+   "localizedTip": {
+    "en": "Its schema evolution rules are why it dominates Kafka topics with long-lived data."
    },
    "pricing": {
     "model": "openSource",
@@ -49768,6 +50370,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-redocly",
+   "name": "Redocly",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "OpenAPI documentation rendering plus spec linting and bundling.",
+   "url": "https://redocly.com/docs/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "openapi",
+    "docs",
+    "linting",
+    "portal"
+   ],
+   "tip": "Its linter catches spec problems that break generated clients before anyone generates one.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D @redocly/cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "OpenAPI documentation rendering plus spec linting and bundling.",
+    "ru": "Рендеринг документации OpenAPI вместе с линтингом и сборкой спецификаций."
+   },
+   "localizedTip": {
+    "en": "Its linter catches spec problems that break generated clients before anyone generates one."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-scalar",
+   "name": "Scalar",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Modern OpenAPI reference renderer with a built-in request client.",
+   "url": "https://guides.scalar.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "openapi",
+    "docs",
+    "api-client",
+    "modern"
+   ],
+   "tip": "Readers can try endpoints inside the docs, which cuts the path from reading to a first call.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @scalar/api-reference",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern OpenAPI reference renderer with a built-in request client.",
+    "ru": "Современный рендерер справочника OpenAPI со встроенным клиентом запросов."
+   },
+   "localizedTip": {
+    "en": "Readers can try endpoints inside the docs, which cuts the path from reading to a first call."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-sphinx",
    "name": "Sphinx",
    "kind": "library",
@@ -49795,6 +50467,41 @@
    },
    "localizedTip": {
     "en": "autodoc pulls docstrings straight from source, so the API reference maintains itself."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-swagger-ui",
+   "name": "Swagger UI",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "The long-standing interactive renderer for OpenAPI specifications.",
+   "url": "https://swagger.io/tools/swagger-ui/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "openapi",
+    "docs",
+    "interactive",
+    "standard"
+   ],
+   "tip": "Universally recognizable, though newer renderers are considerably faster on large specifications.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i swagger-ui",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The long-standing interactive renderer for OpenAPI specifications.",
+    "ru": "Давний интерактивный рендерер спецификаций OpenAPI."
+   },
+   "localizedTip": {
+    "en": "Universally recognizable, though newer renderers are considerably faster on large specifications."
    },
    "pricing": {
     "model": "openSource",
@@ -57177,6 +57884,146 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-bruno",
+   "name": "Bruno",
+   "kind": "library",
+   "category": "Тестовые и mock API",
+   "summary": "API client storing collections as plain files in your repository.",
+   "url": "https://docs.usebruno.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-client",
+    "git-friendly",
+    "offline",
+    "collections"
+   ],
+   "tip": "Collections version and merge like code, which cloud-synced clients make awkward.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API client storing collections as plain files in your repository.",
+    "ru": "API-клиент, хранящий коллекции обычными файлами в вашем репозитории."
+   },
+   "localizedTip": {
+    "en": "Collections version and merge like code, which cloud-synced clients make awkward."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-hoppscotch",
+   "name": "Hoppscotch",
+   "kind": "library",
+   "category": "Тестовые и mock API",
+   "summary": "Lightweight open-source API client that runs in the browser.",
+   "url": "https://docs.hoppscotch.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-client",
+    "web",
+    "lightweight",
+    "self-host"
+   ],
+   "tip": "Nothing to install, and self-hostable when requests must stay inside your network.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight open-source API client that runs in the browser.",
+    "ru": "Лёгкий открытый API-клиент, работающий в браузере."
+   },
+   "localizedTip": {
+    "en": "Nothing to install, and self-hostable when requests must stay inside your network."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-insomnia",
+   "name": "Insomnia",
+   "kind": "library",
+   "category": "Тестовые и mock API",
+   "summary": "API client and design tool supporting REST, GraphQL and gRPC.",
+   "url": "https://docs.insomnia.rest/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-client",
+    "graphql",
+    "grpc",
+    "design"
+   ],
+   "tip": "Its gRPC support is unusual among general API clients and saves reaching for grpcurl.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API client and design tool supporting REST, GraphQL and gRPC.",
+    "ru": "API-клиент и инструмент проектирования с поддержкой REST, GraphQL и gRPC."
+   },
+   "localizedTip": {
+    "en": "Its gRPC support is unusual among general API clients and saves reaching for grpcurl."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-postman-flows",
+   "name": "Postman Flows",
+   "kind": "library",
+   "category": "Тестовые и mock API",
+   "summary": "Visual workflow builder chaining API requests inside Postman.",
+   "url": "https://learning.postman.com/docs/postman-flows/overview/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postman",
+    "visual",
+    "workflows",
+    "no-code"
+   ],
+   "tip": "Useful for prototyping a multi-step integration before writing any code for it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Visual workflow builder chaining API requests inside Postman.",
+    "ru": "Визуальный конструктор workflow, связывающий API-запросы внутри Postman."
+   },
+   "localizedTip": {
+    "en": "Useful for prototyping a multi-step integration before writing any code for it."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-prism-mock",
    "name": "Prism",
    "kind": "library",
@@ -57212,6 +58059,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-rapidapi",
+   "name": "RapidAPI",
+   "kind": "library",
+   "category": "Тестовые и mock API",
+   "summary": "API marketplace with unified authentication and billing across providers.",
+   "url": "https://docs.rapidapi.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "marketplace",
+    "api-hub",
+    "discovery",
+    "billing"
+   ],
+   "tip": "Convenient for discovery, though calling a provider directly is usually cheaper in production.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API marketplace with unified authentication and billing across providers.",
+    "ru": "Маркетплейс API с единой аутентификацией и биллингом для разных провайдеров."
+   },
+   "localizedTip": {
+    "en": "Convenient for discovery, though calling a provider directly is usually cheaper in production."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-wiremock",
    "name": "WireMock",
    "kind": "library",
@@ -57242,6 +58124,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-yaak",
+   "name": "Yaak",
+   "kind": "library",
+   "category": "Тестовые и mock API",
+   "summary": "Desktop API client built in Rust with optional Git synchronization.",
+   "url": "https://yaak.app/docs",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-client",
+    "desktop",
+    "rust",
+    "git-sync"
+   ],
+   "tip": "Fast and offline-first, with none of the account requirements newer clients have added.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Desktop API client built in Rust with optional Git synchronization.",
+    "ru": "Desktop API-клиент на Rust с опциональной синхронизацией через Git."
+   },
+   "localizedTip": {
+    "en": "Fast and offline-first, with none of the account requirements newer clients have added."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -57352,6 +58269,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-attrs",
+   "name": "attrs",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Python classes without boilerplate, with validators and converters.",
+   "url": "https://www.attrs.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "classes",
+    "boilerplate",
+    "validators"
+   ],
+   "tip": "It predates and inspired dataclasses, and still offers features the standard library lacks.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install attrs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python classes without boilerplate, with validators and converters.",
+    "ru": "Классы Python без шаблонного кода, с валидаторами и конвертерами."
+   },
+   "localizedTip": {
+    "en": "It predates and inspired dataclasses, and still offers features the standard library lacks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-beautifulsoup",
    "name": "Beautiful Soup",
    "kind": "library",
@@ -57379,6 +58331,41 @@
    },
    "localizedTip": {
     "en": "Pair it with the lxml parser backend for a substantial speed improvement over the built-in one."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-cattrs",
+   "name": "cattrs",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Structures and unstructures Python objects to and from plain data.",
+   "url": "https://catt.rs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "serialization",
+    "structuring",
+    "attrs"
+   ],
+   "tip": "Separating serialization from the class definition keeps model classes free of encoding concerns.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install cattrs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Structures and unstructures Python objects to and from plain data.",
+    "ru": "Преобразует объекты Python в простые данные и обратно."
+   },
+   "localizedTip": {
+    "en": "Separating serialization from the class definition keeps model classes free of encoding concerns."
    },
    "pricing": {
     "model": "openSource",
@@ -57519,6 +58506,76 @@
    },
    "localizedTip": {
     "en": "The API mirrors Moment.js closely enough that migrating an old codebase is often a mechanical import swap."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-io-ts",
+   "name": "io-ts",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Runtime type validation built on fp-ts codecs.",
+   "url": "https://gcanti.github.io/io-ts/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "runtime-types",
+    "functional",
+    "decoding",
+    "fp-ts"
+   ],
+   "tip": "Its functional style suits fp-ts codebases; Zod is friendlier for everyone else.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i io-ts",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runtime type validation built on fp-ts codecs.",
+    "ru": "Рантайм-валидация типов на кодеках fp-ts."
+   },
+   "localizedTip": {
+    "en": "Its functional style suits fp-ts codebases; Zod is friendlier for everyone else."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-joi",
+   "name": "Joi",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Powerful server-side object schema validation for Node.",
+   "url": "https://joi.dev/api/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "validation",
+    "schema",
+    "node",
+    "server-side"
+   ],
+   "tip": "Its conditional and dependency rules express constraints that simpler validators cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i joi",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Powerful server-side object schema validation for Node.",
+    "ru": "Мощная серверная валидация схем объектов для Node."
+   },
+   "localizedTip": {
+    "en": "Its conditional and dependency rules express constraints that simpler validators cannot."
    },
    "pricing": {
     "model": "openSource",
@@ -57772,6 +58829,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-typebox",
+   "name": "TypeBox",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Builds JSON Schema and TypeScript types from a single definition.",
+   "url": "https://github.com/sinclairzx81/typebox",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "json-schema",
+    "typescript",
+    "static-types",
+    "validation"
+   ],
+   "tip": "Producing real JSON Schema means the same definition drives OpenAPI docs and runtime checks.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @sinclair/typebox",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds JSON Schema and TypeScript types from a single definition.",
+    "ru": "Строит JSON Schema и типы TypeScript из одного определения."
+   },
+   "localizedTip": {
+    "en": "Producing real JSON Schema means the same definition drives OpenAPI docs and runtime checks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-typia",
    "name": "Typia",
    "kind": "library",
@@ -57834,6 +58926,76 @@
    },
    "localizedTip": {
     "en": "Its modular API means you only bundle the validators you actually import — the main win over Zod on the client."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-voluptuous",
+   "name": "Voluptuous",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Simple Python data validation library used widely in configuration handling.",
+   "url": "https://github.com/alecthomas/voluptuous",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "validation",
+    "schema",
+    "simple"
+   ],
+   "tip": "Home Assistant validates every integration's configuration with it, which is a strong endorsement.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install voluptuous",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple Python data validation library used widely in configuration handling.",
+    "ru": "Простая библиотека валидации данных Python, широко используемая для конфигураций."
+   },
+   "localizedTip": {
+    "en": "Home Assistant validates every integration's configuration with it, which is a strong endorsement."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-yup",
+   "name": "Yup",
+   "kind": "library",
+   "category": "Утилиты",
+   "summary": "Schema validation library long paired with Formik.",
+   "url": "https://github.com/jquense/yup",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "validation",
+    "schema",
+    "javascript",
+    "forms"
+   ],
+   "tip": "Zod's TypeScript inference is stronger — prefer it unless you already depend on Yup.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i yup",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Schema validation library long paired with Formik.",
+    "ru": "Библиотека валидации схем, давно используемая вместе с Formik."
+   },
+   "localizedTip": {
+    "en": "Zod's TypeScript inference is stronger — prefer it unless you already depend on Yup."
    },
    "pricing": {
     "model": "openSource",
@@ -59244,6 +60406,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-conform",
+   "name": "Conform",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Form validation built on the browser's native constraint validation API.",
+   "url": "https://conform.guide/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "forms",
+    "web-standards",
+    "progressive"
+   ],
+   "tip": "Building on the platform means server-side validation and client-side stay naturally in sync.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @conform-to/react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Form validation built on the browser's native constraint validation API.",
+    "ru": "Валидация форм на основе нативного API проверки ограничений браузера."
+   },
+   "localizedTip": {
+    "en": "Building on the platform means server-side validation and client-side stay naturally in sync."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-daisyui",
    "name": "daisyUI",
    "kind": "library",
@@ -59563,6 +60760,41 @@
    },
    "localizedTip": {
     "en": "It leans on platform standards rather than a framework runtime, which ages better over time."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-felte",
+   "name": "Felte",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Extensible form library for Svelte, Solid and React.",
+   "url": "https://felte.dev/docs/svelte/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "svelte",
+    "forms",
+    "validation",
+    "extensible"
+   ],
+   "tip": "Its extender API adds persistence or reporters without touching form logic.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i felte",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Extensible form library for Svelte, Solid and React.",
+    "ru": "Расширяемая библиотека форм для Svelte, Solid и React."
+   },
+   "localizedTip": {
+    "en": "Its extender API adds persistence or reporters without touching form logic."
    },
    "pricing": {
     "model": "openSource",
@@ -61500,6 +62732,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-sveltekit-superforms",
+   "name": "Superforms",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "SvelteKit form library working with and without JavaScript enabled.",
+   "url": "https://superforms.rocks/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sveltekit",
+    "forms",
+    "progressive-enhancement",
+    "validation"
+   ],
+   "tip": "Progressive enhancement means the form still submits if the client bundle fails to load.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i sveltekit-superforms",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "SvelteKit form library working with and without JavaScript enabled.",
+    "ru": "Библиотека форм для SvelteKit, работающая с включённым и выключенным JavaScript."
+   },
+   "localizedTip": {
+    "en": "Progressive enhancement means the form still submits if the client bundle fails to load."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-svelte",
    "name": "Svelte",
    "kind": "library",
@@ -61757,6 +63024,41 @@
    },
    "localizedTip": {
     "en": "Conflict resolution means a passed-in override actually wins, which raw string concatenation cannot guarantee."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-tanstack-form",
+   "name": "TanStack Form",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Type-safe form state management across React, Vue, Solid and Angular.",
+   "url": "https://tanstack.com/form/latest/docs/overview",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "forms",
+    "type-safe",
+    "framework-agnostic",
+    "validation"
+   ],
+   "tip": "Its validation adapters accept Zod or Valibot schemas, reusing types you already have.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @tanstack/react-form",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Type-safe form state management across React, Vue, Solid and Angular.",
+    "ru": "Типобезопасное управление состоянием форм для React, Vue, Solid и Angular."
+   },
+   "localizedTip": {
+    "en": "Its validation adapters accept Zod or Valibot schemas, reusing types you already have."
    },
    "pricing": {
     "model": "openSource",
@@ -62212,6 +63514,41 @@
    },
    "localizedTip": {
     "en": "Pick the caching strategy per route deliberately — a wrong strategy serves stale content indefinitely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-wouter",
+   "name": "Wouter",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Minimal React router in roughly two kilobytes.",
+   "url": "https://github.com/molefrog/wouter",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "routing",
+    "tiny",
+    "hooks"
+   ],
+   "tip": "Covers hook-based routing for small apps where React Router's size is hard to justify.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i wouter",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal React router in roughly two kilobytes.",
+    "ru": "Минималистичный React-роутер размером около двух килобайт."
+   },
+   "localizedTip": {
+    "en": "Covers hook-based routing for small apps where React Router's size is hard to justify."
    },
    "pricing": {
     "model": "openSource",
