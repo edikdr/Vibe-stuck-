@@ -173,6 +173,10 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-vast-ai': 'api-vast-ai',
+ 'paid-midjourney': 'api-midjourney',
+ 'paid-magnific': 'api-magnific',
+ 'paid-freepik-api': 'api-freepik-api',
  'paid-devin': 'api-devin',
  'paid-amp-code': 'api-amp-code',
  'paid-augment-code': 'api-augment-code',

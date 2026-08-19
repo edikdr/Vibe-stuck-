@@ -2451,6 +2451,76 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "api-beam-cloud",
+   "name": "Beam",
+   "kind": "api",
+   "category": "Локальные модели",
+   "summary": "Serverless GPU platform for Python workloads.",
+   "url": "https://docs.beam.cloud/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serverless",
+    "gpu",
+    "python",
+    "fast-cold-start"
+   ],
+   "tip": "Its fast cold starts make per-request GPU inference viable, which most serverless GPU offerings do not.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install beam-client",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Serverless GPU platform for Python workloads.",
+    "ru": "Serverless GPU-платформа для Python-нагрузок."
+   },
+   "localizedTip": {
+    "en": "Its fast cold starts make per-request GPU inference viable, which most serverless GPU offerings do not."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-cerebrium",
+   "name": "Cerebrium",
+   "kind": "api",
+   "category": "Локальные модели",
+   "summary": "Serverless GPU infrastructure for deploying machine learning models.",
+   "url": "https://docs.cerebrium.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serverless",
+    "gpu",
+    "deployment",
+    "inference"
+   ],
+   "tip": "Deployment is a Python file plus a config, which removes the container build step.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Serverless GPU infrastructure for deploying machine learning models.",
+    "ru": "Serverless GPU-инфраструктура для развёртывания моделей машинного обучения."
+   },
+   "localizedTip": {
+    "en": "Deployment is a Python file plus a config, which removes the container build step."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "api-fireworks",
    "name": "Fireworks AI",
    "kind": "api",
@@ -2477,6 +2547,146 @@
    },
    "localizedTip": {
     "en": "Start on the serverless tier and only move to dedicated deployments when latency actually hurts."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-hyperbolic",
+   "name": "Hyperbolic",
+   "kind": "api",
+   "category": "Локальные модели",
+   "summary": "Low-cost inference and GPU rental for open models.",
+   "url": "https://docs.hyperbolic.xyz/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gpu",
+    "inference",
+    "open-models",
+    "cheap"
+   ],
+   "tip": "Its pricing for open-weight models undercuts the major inference providers noticeably.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Low-cost inference and GPU rental for open models.",
+    "ru": "Недорогой инференс и аренда GPU для открытых моделей."
+   },
+   "localizedTip": {
+    "en": "Its pricing for open-weight models undercuts the major inference providers noticeably."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-inferless",
+   "name": "Inferless",
+   "kind": "api",
+   "category": "Локальные модели",
+   "summary": "Serverless GPU inference with automatic scaling to zero.",
+   "url": "https://docs.inferless.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serverless",
+    "gpu",
+    "inference",
+    "autoscaling"
+   ],
+   "tip": "Scale to zero means an occasionally used model costs nothing while idle.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Serverless GPU inference with automatic scaling to zero.",
+    "ru": "Serverless GPU-инференс с автоматическим масштабированием до нуля."
+   },
+   "localizedTip": {
+    "en": "Scale to zero means an occasionally used model costs nothing while idle."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-novita-ai",
+   "name": "Novita AI",
+   "kind": "api",
+   "category": "Локальные модели",
+   "summary": "Affordable GPU cloud with ready-made model APIs.",
+   "url": "https://novita.ai/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gpu",
+    "inference",
+    "apis",
+    "affordable"
+   ],
+   "tip": "Its prebuilt endpoints cover common models without any deployment work at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Affordable GPU cloud with ready-made model APIs.",
+    "ru": "Доступное GPU-облако с готовыми API моделей."
+   },
+   "localizedTip": {
+    "en": "Its prebuilt endpoints cover common models without any deployment work at all."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-paperspace",
+   "name": "Paperspace",
+   "kind": "api",
+   "category": "Локальные модели",
+   "summary": "GPU cloud with notebooks and deployments, now part of DigitalOcean.",
+   "url": "https://docs.digitalocean.com/products/paperspace/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gpu",
+    "notebooks",
+    "deployments",
+    "digitalocean"
+   ],
+   "tip": "Its free GPU notebook tier is enough to work through a training tutorial end to end.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GPU cloud with notebooks and deployments, now part of DigitalOcean.",
+    "ru": "GPU-облако с ноутбуками и развёртываниями, теперь часть DigitalOcean."
+   },
+   "localizedTip": {
+    "en": "Its free GPU notebook tier is enough to work through a training tutorial end to end."
    },
    "pricing": {
     "model": "freemium",
@@ -2514,6 +2724,47 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-vast-ai",
+   "name": "Vast.ai",
+   "kind": "api",
+   "category": "Локальные модели",
+   "summary": "Marketplace renting GPU capacity from independent providers.",
+   "url": "https://docs.vast.ai/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gpu",
+    "marketplace",
+    "cheap",
+    "spot",
+    "pricing",
+    "per-hour"
+   ],
+   "tip": "Far cheaper than managed clouds, with reliability that varies by individual host.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Marketplace renting GPU capacity from independent providers.",
+    "ru": "Маркетплейс аренды GPU-мощностей у независимых поставщиков."
+   },
+   "localizedTip": {
+    "en": "Far cheaper than managed clouds, with reliability that varies by individual host."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.20 per hour",
+    "freeQuota": "free trial credit",
+    "url": "https://vast.ai/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -25904,6 +26155,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "api-automatic1111",
+   "name": "AUTOMATIC1111 WebUI",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "The long-standing Stable Diffusion web interface with a large extension ecosystem.",
+   "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stable-diffusion",
+    "webui",
+    "extensions",
+    "local"
+   ],
+   "tip": "Its extension catalogue remains the broadest, though development has slowed considerably.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The long-standing Stable Diffusion web interface with a large extension ecosystem.",
+    "ru": "Давно устоявшийся веб-интерфейс Stable Diffusion с большой экосистемой расширений."
+   },
+   "localizedTip": {
+    "en": "Its extension catalogue remains the broadest, though development has slowed considerably."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "api-bannerbear",
    "name": "Bannerbear",
    "kind": "api",
@@ -26125,6 +26411,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "api-comfyui",
+   "name": "ComfyUI",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Node-based interface for building image generation workflows locally.",
+   "url": "https://docs.comfy.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node-based",
+    "diffusion",
+    "workflows",
+    "local"
+   ],
+   "tip": "Workflows export as JSON, so a reproducible generation pipeline is a shareable file.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Node-based interface for building image generation workflows locally.",
+    "ru": "Интерфейс на узлах для построения локальных workflow генерации изображений."
+   },
+   "localizedTip": {
+    "en": "Workflows export as JSON, so a reproducible generation pipeline is a shareable file."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "api-dicebear",
    "name": "DiceBear Avatars",
    "kind": "api",
@@ -26167,6 +26488,41 @@
    ],
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-diffusers",
+   "name": "Diffusers",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Hugging Face library for running and training diffusion models.",
+   "url": "https://huggingface.co/docs/diffusers",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "huggingface",
+    "library",
+    "pipelines",
+    "python"
+   ],
+   "tip": "Its pipeline abstraction makes swapping between model architectures a one-line change.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install diffusers",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hugging Face library for running and training diffusion models.",
+    "ru": "Библиотека Hugging Face для запуска и обучения диффузионных моделей."
+   },
+   "localizedTip": {
+    "en": "Its pipeline abstraction makes swapping between model architectures a one-line change."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -26244,6 +26600,83 @@
     "from": "Paid seats from ~$3 / month (Viewer)",
     "freeQuota": "Free plan with limited files",
     "url": "https://www.figma.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-fooocus",
+   "name": "Fooocus",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Simplified Stable Diffusion interface with strong built-in defaults.",
+   "url": "https://github.com/lllyasviel/Fooocus",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "simple",
+    "diffusion",
+    "defaults",
+    "local"
+   ],
+   "tip": "It hides the sampler and scheduler knobs, which is exactly right for anyone not tuning them.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simplified Stable Diffusion interface with strong built-in defaults.",
+    "ru": "Упрощённый интерфейс Stable Diffusion с хорошими настройками по умолчанию."
+   },
+   "localizedTip": {
+    "en": "It hides the sampler and scheduler knobs, which is exactly right for anyone not tuning them."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-freepik-api",
+   "name": "Freepik API",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Stock assets and image generation with commercial licensing included.",
+   "url": "https://docs.freepik.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stock",
+    "generation",
+    "icons",
+    "licensed",
+    "pricing",
+    "credits",
+    "licensing"
+   ],
+   "tip": "Licensing clarity is the real product — generated images alone rarely come with usage rights.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Stock assets and image generation with commercial licensing included.",
+    "ru": "Стоковые ресурсы и генерация изображений с включённой коммерческой лицензией."
+   },
+   "localizedTip": {
+    "en": "Licensing clarity is the real product — generated images alone rarely come with usage rights."
+   },
+   "pricing": {
+    "model": "credits",
+    "from": "from ~$0.004 per credit",
+    "freeQuota": "free trial credits",
+    "url": "https://www.freepik.com/api/pricing",
     "currency": "USD",
     "checkedAt": "2026-08-17"
    },
@@ -26361,6 +26794,111 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "api-invokeai",
+   "name": "InvokeAI",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Professional-oriented generative image studio with a unified canvas.",
+   "url": "https://invoke-ai.github.io/InvokeAI/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diffusion",
+    "professional",
+    "canvas",
+    "workflows"
+   ],
+   "tip": "Its canvas handles inpainting and outpainting as one continuous surface rather than separate modes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Professional-oriented generative image studio with a unified canvas.",
+    "ru": "Профессиональная студия генеративных изображений с единым холстом."
+   },
+   "localizedTip": {
+    "en": "Its canvas handles inpainting and outpainting as one continuous surface rather than separate modes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-krea",
+   "name": "Krea",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Real-time image generation and enhancement with a creative interface.",
+   "url": "https://docs.krea.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "realtime",
+    "generation",
+    "enhancement",
+    "creative"
+   ],
+   "tip": "Real-time canvas generation turns prompting into a continuous rather than iterative process.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Real-time image generation and enhancement with a creative interface.",
+    "ru": "Генерация и улучшение изображений в реальном времени с творческим интерфейсом."
+   },
+   "localizedTip": {
+    "en": "Real-time canvas generation turns prompting into a continuous rather than iterative process."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-leonardo-ai",
+   "name": "Leonardo.Ai",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Image generation platform with an API and fine-tuned model library.",
+   "url": "https://docs.leonardo.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "image-generation",
+    "api",
+    "models",
+    "game-assets"
+   ],
+   "tip": "Its game asset models produce consistent sprite and texture sets, which general models struggle with.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Image generation platform with an API and fine-tuned model library.",
+    "ru": "Платформа генерации изображений с API и библиотекой дообученных моделей."
+   },
+   "localizedTip": {
+    "en": "Its game asset models produce consistent sprite and texture sets, which general models struggle with."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "api-picsum",
    "name": "Lorem Picsum",
    "kind": "api",
@@ -26402,6 +26940,90 @@
    ],
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-magnific",
+   "name": "Magnific AI",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "AI upscaler that adds plausible detail rather than only enlarging.",
+   "url": "https://magnific.ai/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "upscaling",
+    "detail",
+    "enhancement",
+    "creative",
+    "pricing",
+    "credits",
+    "subscription"
+   ],
+   "tip": "It invents detail rather than recovering it, which rules it out for evidential imagery.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AI upscaler that adds plausible detail rather than only enlarging.",
+    "ru": "AI-апскейлер, добавляющий правдоподобные детали, а не просто увеличивающий изображение."
+   },
+   "localizedTip": {
+    "en": "It invents detail rather than recovering it, which rules it out for evidential imagery."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$39 per month",
+    "freeQuota": "no free tier",
+    "url": "https://magnific.ai/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-midjourney",
+   "name": "Midjourney",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Image generation service known for its strong aesthetic defaults.",
+   "url": "https://docs.midjourney.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "image-generation",
+    "quality",
+    "discord",
+    "aesthetic",
+    "pricing",
+    "subscription",
+    "gpu-minutes"
+   ],
+   "tip": "It has no official public API, which rules it out for programmatic pipelines.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Image generation service known for its strong aesthetic defaults.",
+    "ru": "Сервис генерации изображений, известный сильной эстетикой по умолчанию."
+   },
+   "localizedTip": {
+    "en": "It has no official public API, which rules it out for programmatic pipelines."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$10 per month",
+    "freeQuota": "no free tier",
+    "url": "https://docs.midjourney.com/hc/en-us/articles/29273914197901",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -26656,6 +27278,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "api-remove-bg",
+   "name": "remove.bg",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Background removal API with consistent results on people and products.",
+   "url": "https://www.remove.bg/api",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "background-removal",
+    "api",
+    "simple",
+    "batch"
+   ],
+   "tip": "Its free tier returns low-resolution results, so evaluate quality at full size before committing.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Background removal API with consistent results on people and products.",
+    "ru": "API удаления фона со стабильным результатом на людях и товарах."
+   },
+   "localizedTip": {
+    "en": "Its free tier returns low-resolution results, so evaluate quality at full size before committing."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "api-removebg",
    "name": "remove.bg API",
    "kind": "api",
@@ -26798,6 +27455,41 @@
     "freeQuota": "Free credits on registration",
     "url": "https://platform.stability.ai/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "api-sd-webui-forge",
+   "name": "Stable Diffusion WebUI Forge",
+   "kind": "api",
+   "category": "Изображения и дизайн",
+   "summary": "Performance-focused fork of the AUTOMATIC1111 interface.",
+   "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "performance",
+    "fork",
+    "low-vram",
+    "diffusion"
+   ],
+   "tip": "Its memory optimizations make larger models usable on consumer graphics cards.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Performance-focused fork of the AUTOMATIC1111 interface.",
+    "ru": "Форк интерфейса AUTOMATIC1111 с упором на производительность."
+   },
+   "localizedTip": {
+    "en": "Its memory optimizations make larger models usable on consumer graphics cards."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
