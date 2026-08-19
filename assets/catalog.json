@@ -40546,6 +40546,111 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-affine",
+   "name": "AFFiNE",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Workspace combining documents and an infinite whiteboard in one canvas.",
+   "url": "https://docs.affine.pro/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docs",
+    "whiteboard",
+    "local-first",
+    "unified"
+   ],
+   "tip": "Editing the same content as a document or as a diagram is genuinely unusual.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Workspace combining documents and an infinite whiteboard in one canvas.",
+    "ru": "Рабочее пространство, объединяющее документы и бесконечную доску на одном холсте."
+   },
+   "localizedTip": {
+    "en": "Editing the same content as a document or as a diagram is genuinely unusual."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-anytype",
+   "name": "Anytype",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Encrypted local-first workspace with peer-to-peer synchronization.",
+   "url": "https://doc.anytype.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "local-first",
+    "encrypted",
+    "objects",
+    "peer-to-peer"
+   ],
+   "tip": "End-to-end encryption means the sync server never sees your content at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Encrypted local-first workspace with peer-to-peer synchronization.",
+    "ru": "Зашифрованное local-first рабочее пространство с одноранговой синхронизацией."
+   },
+   "localizedTip": {
+    "en": "End-to-end encryption means the sync server never sees your content at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-appflowy",
+   "name": "AppFlowy",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Open-source Notion alternative built with Rust and Flutter.",
+   "url": "https://docs.appflowy.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "notion-alternative",
+    "rust",
+    "flutter",
+    "self-host"
+   ],
+   "tip": "Self-hosting keeps team documents inside your own infrastructure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source Notion alternative built with Rust and Flutter.",
+    "ru": "Открытая альтернатива Notion на Rust и Flutter."
+   },
+   "localizedTip": {
+    "en": "Self-hosting keeps team documents inside your own infrastructure."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-cognee",
    "name": "Cognee",
    "kind": "library",
@@ -40573,6 +40678,76 @@
    },
    "localizedTip": {
     "en": "Graph memory answers relational questions that flat vector retrieval consistently gets wrong."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-dendron",
+   "name": "Dendron",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Hierarchical note taking built into VS Code.",
+   "url": "https://wiki.dendron.so/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vscode",
+    "hierarchical",
+    "markdown",
+    "developer"
+   ],
+   "tip": "Notes live beside code in the same editor, which suits developer documentation habits.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hierarchical note taking built into VS Code.",
+    "ru": "Иерархические заметки, встроенные в VS Code."
+   },
+   "localizedTip": {
+    "en": "Notes live beside code in the same editor, which suits developer documentation habits."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-foam",
+   "name": "Foam",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Personal knowledge management in VS Code using linked Markdown.",
+   "url": "https://foambubble.github.io/foam/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vscode",
+    "markdown",
+    "linking",
+    "free"
+   ],
+   "tip": "It is a set of extensions and conventions rather than an application, which keeps it portable.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Personal knowledge management in VS Code using linked Markdown.",
+    "ru": "Управление личными знаниями в VS Code через связанный Markdown."
+   },
+   "localizedTip": {
+    "en": "It is a set of extensions and conventions rather than an application, which keeps it portable."
    },
    "pricing": {
     "model": "openSource",
@@ -40616,6 +40791,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-joplin",
+   "name": "Joplin",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Open-source note taking with end-to-end encrypted synchronization.",
+   "url": "https://joplinapp.org/help/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "markdown",
+    "encryption",
+    "sync",
+    "cross-platform"
+   ],
+   "tip": "It syncs through storage you already own, such as Dropbox or WebDAV.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source note taking with end-to-end encrypted synchronization.",
+    "ru": "Открытые заметки со сквозным шифрованием при синхронизации."
+   },
+   "localizedTip": {
+    "en": "It syncs through storage you already own, such as Dropbox or WebDAV."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-letta",
    "name": "Letta",
    "kind": "library",
@@ -40643,6 +40853,146 @@
    },
    "localizedTip": {
     "en": "The agent decides what to keep in memory itself, rather than you tuning a retrieval pipeline."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-logseq",
+   "name": "Logseq",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Open-source outliner where every block is independently linkable.",
+   "url": "https://docs.logseq.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "outliner",
+    "blocks",
+    "local-first",
+    "open-source"
+   ],
+   "tip": "Block-level linking suits daily journaling far better than page-level tools.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source outliner where every block is independently linkable.",
+    "ru": "Открытый аутлайнер, где каждый блок можно связать отдельно."
+   },
+   "localizedTip": {
+    "en": "Block-level linking suits daily journaling far better than page-level tools."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-obsidian",
+   "name": "Obsidian",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Local-first knowledge base storing notes as plain Markdown files.",
+   "url": "https://help.obsidian.md/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "markdown",
+    "local-first",
+    "plugins",
+    "linking"
+   ],
+   "tip": "Your notes stay as files on disk, so no vendor shutdown can strand them.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Local-first knowledge base storing notes as plain Markdown files.",
+    "ru": "Local-first база знаний, хранящая заметки обычными файлами Markdown."
+   },
+   "localizedTip": {
+    "en": "Your notes stay as files on disk, so no vendor shutdown can strand them."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-silverbullet",
+   "name": "SilverBullet",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Self-hosted Markdown notebook with an embedded query language.",
+   "url": "https://silverbullet.md/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "markdown",
+    "self-host",
+    "queries",
+    "extensible"
+   ],
+   "tip": "Querying across notes turns a note collection into a small structured database.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted Markdown notebook with an embedded query language.",
+    "ru": "Self-hosted блокнот на Markdown со встроенным языком запросов."
+   },
+   "localizedTip": {
+    "en": "Querying across notes turns a note collection into a small structured database."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-trilium",
+   "name": "Trilium Notes",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Hierarchical note-taking application with scripting support.",
+   "url": "https://triliumnext.github.io/Docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hierarchical",
+    "self-host",
+    "scripting",
+    "notes"
+   ],
+   "tip": "Its scripting turns a note collection into a small personal application.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hierarchical note-taking application with scripting support.",
+    "ru": "Иерархическое приложение для заметок с поддержкой скриптов."
+   },
+   "localizedTip": {
+    "en": "Its scripting turns a note collection into a small personal application."
    },
    "pricing": {
     "model": "openSource",
@@ -64117,6 +64467,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-bookstack",
+   "name": "BookStack",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Self-hosted documentation platform organized into books and chapters.",
+   "url": "https://www.bookstackapp.com/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "wiki",
+    "php",
+    "structured",
+    "simple"
+   ],
+   "tip": "Its fixed hierarchy is a feature — free-form wikis sprawl without one.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted documentation platform organized into books and chapters.",
+    "ru": "Self-hosted платформа документации, организованная в книги и главы."
+   },
+   "localizedTip": {
+    "en": "Its fixed hierarchy is a feature — free-form wikis sprawl without one."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-d2",
    "name": "D2",
    "kind": "library",
@@ -64144,6 +64529,41 @@
    },
    "localizedTip": {
     "en": "Its layout engines produce noticeably cleaner results than Mermaid on dense diagrams."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-docmost",
+   "name": "Docmost",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Open-source collaborative wiki with real-time editing.",
+   "url": "https://docmost.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "wiki",
+    "collaborative",
+    "real-time",
+    "self-host"
+   ],
+   "tip": "Real-time collaboration is rare in self-hosted wikis, which usually lock pages instead.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source collaborative wiki with real-time editing.",
+    "ru": "Открытая совместная вики с редактированием в реальном времени."
+   },
+   "localizedTip": {
+    "en": "Real-time collaboration is rare in self-hosted wikis, which usually lock pages instead."
    },
    "pricing": {
     "model": "openSource",
@@ -64541,6 +64961,41 @@
    },
    "localizedTip": {
     "en": "React components inside documentation pages let you embed live examples rather than screenshots."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-outline",
+   "name": "Outline",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Team knowledge base with fast search and a clean editor.",
+   "url": "https://docs.getoutline.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "team-wiki",
+    "markdown",
+    "search",
+    "self-host"
+   ],
+   "tip": "Its search is fast enough that people actually look things up rather than asking again.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Team knowledge base with fast search and a clean editor.",
+    "ru": "Командная база знаний с быстрым поиском и понятным редактором."
+   },
+   "localizedTip": {
+    "en": "Its search is fast enough that people actually look things up rather than asking again."
    },
    "pricing": {
     "model": "openSource",
@@ -65079,6 +65534,41 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-wikijs",
+   "name": "Wiki.js",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Modern self-hosted wiki with optional Git synchronization.",
+   "url": "https://docs.requarks.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "wiki",
+    "self-host",
+    "markdown",
+    "git-sync"
+   ],
+   "tip": "Git sync means the wiki content is versioned and reviewable like any other repository.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern self-hosted wiki with optional Git synchronization.",
+    "ru": "Современная self-hosted вики с опциональной синхронизацией через Git."
+   },
+   "localizedTip": {
+    "en": "Git sync means the wiki content is versioned and reviewable like any other repository."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -89103,6 +89593,258 @@
    "categoryGroup": "media"
   },
   {
+   "id": "lib-karakeep",
+   "name": "Karakeep",
+   "kind": "library",
+   "category": "Книги и знания",
+   "summary": "Self-hosted bookmark manager with automatic AI tagging, formerly Hoarder.",
+   "url": "https://docs.karakeep.app/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bookmarks",
+    "ai-tagging",
+    "self-host",
+    "search"
+   ],
+   "tip": "Automatic tagging keeps a large collection navigable without manual filing.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted bookmark manager with automatic AI tagging, formerly Hoarder.",
+    "ru": "Self-hosted менеджер закладок с автоматической AI-разметкой, ранее Hoarder."
+   },
+   "localizedTip": {
+    "en": "Automatic tagging keeps a large collection navigable without manual filing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-linkding",
+   "name": "linkding",
+   "kind": "library",
+   "category": "Книги и знания",
+   "summary": "Minimal self-hosted bookmark manager.",
+   "url": "https://linkding.link/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bookmarks",
+    "self-host",
+    "minimal",
+    "fast"
+   ],
+   "tip": "Small enough to run on a Raspberry Pi and fast enough to use constantly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal self-hosted bookmark manager.",
+    "ru": "Минималистичный self-hosted менеджер закладок."
+   },
+   "localizedTip": {
+    "en": "Small enough to run on a Raspberry Pi and fast enough to use constantly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-omnivore",
+   "name": "Omnivore",
+   "kind": "library",
+   "category": "Книги и знания",
+   "summary": "Read-later application, now archived but self-hostable from source.",
+   "url": "https://github.com/omnivore-app/omnivore",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "read-later",
+    "archived",
+    "self-host",
+    "highlights"
+   ],
+   "tip": "The hosted service shut down — a useful reminder to prefer self-hostable reading tools.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Read-later application, now archived but self-hostable from source.",
+    "ru": "Приложение отложенного чтения, теперь архивное, но разворачиваемое из исходников."
+   },
+   "localizedTip": {
+    "en": "The hosted service shut down — a useful reminder to prefer self-hostable reading tools."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-raindrop-io",
+   "name": "Raindrop.io",
+   "kind": "library",
+   "category": "Книги и знания",
+   "summary": "Bookmark manager with collections, tagging and full-text search.",
+   "url": "https://developer.raindrop.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bookmarks",
+    "collections",
+    "search",
+    "cross-platform"
+   ],
+   "tip": "Its permanent copies keep the content readable after the original page disappears.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Bookmark manager with collections, tagging and full-text search.",
+    "ru": "Менеджер закладок с коллекциями, тегами и полнотекстовым поиском."
+   },
+   "localizedTip": {
+    "en": "Its permanent copies keep the content readable after the original page disappears."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-readwise",
+   "name": "Readwise",
+   "kind": "library",
+   "category": "Книги и знания",
+   "summary": "Collects highlights from books and articles and resurfaces them over time.",
+   "url": "https://readwise.io/api_deets",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "highlights",
+    "spaced-repetition",
+    "sync",
+    "reading",
+    "pricing",
+    "subscription",
+    "per-user"
+   ],
+   "tip": "Spaced resurfacing is what turns highlights into something you actually retain.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Collects highlights from books and articles and resurfaces them over time.",
+    "ru": "Собирает выделения из книг и статей и периодически возвращает их вам."
+   },
+   "localizedTip": {
+    "en": "Spaced resurfacing is what turns highlights into something you actually retain."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$9.99 per month",
+    "freeQuota": "free 30-day trial",
+    "url": "https://readwise.io/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-wallabag",
+   "name": "wallabag",
+   "kind": "library",
+   "category": "Книги и знания",
+   "summary": "Self-hosted read-later service that saves article content.",
+   "url": "https://doc.wallabag.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "read-later",
+    "self-host",
+    "articles",
+    "php"
+   ],
+   "tip": "Self-hosting means your reading list is not a business model that can be discontinued.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted read-later service that saves article content.",
+    "ru": "Self-hosted сервис отложенного чтения, сохраняющий содержимое статей."
+   },
+   "localizedTip": {
+    "en": "Self-hosting means your reading list is not a business model that can be discontinued."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-zotero",
+   "name": "Zotero",
+   "kind": "library",
+   "category": "Книги и знания",
+   "summary": "Reference manager for collecting and citing research sources.",
+   "url": "https://www.zotero.org/support/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "references",
+    "citations",
+    "research",
+    "academic"
+   ],
+   "tip": "Its browser connector captures full citation metadata from a page in one click.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reference manager for collecting and citing research sources.",
+    "ru": "Менеджер источников для сбора и цитирования научных материалов."
+   },
+   "localizedTip": {
+    "en": "Its browser connector captures full citation metadata from a page in one click."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "lib-howler",
    "name": "Howler.js",
    "kind": "library",
@@ -95707,6 +96449,636 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "skill-contributor-covenant",
+   "name": "Contributor Covenant",
+   "kind": "skill",
+   "category": "Git и совместная работа",
+   "summary": "The widely adopted code of conduct for open-source projects.",
+   "url": "https://www.contributor-covenant.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-of-conduct",
+    "community",
+    "open-source",
+    "standard"
+   ],
+   "tip": "Adopting it means little without naming who enforces it and how reports are handled.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The widely adopted code of conduct for open-source projects.",
+    "ru": "Широко принятый кодекс поведения для open-source проектов."
+   },
+   "localizedTip": {
+    "en": "Adopting it means little without naming who enforces it and how reports are handled."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-conventional-commits",
+   "name": "Conventional Commits",
+   "kind": "skill",
+   "category": "Git и совместная работа",
+   "summary": "Commit message convention that machines can parse.",
+   "url": "https://www.conventionalcommits.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "commits",
+    "convention",
+    "automation",
+    "changelog"
+   ],
+   "tip": "Adopting it unlocks automated versioning and changelogs, which is the actual payoff.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Commit message convention that machines can parse.",
+    "ru": "Соглашение о сообщениях коммитов, разбираемое машинами."
+   },
+   "localizedTip": {
+    "en": "Adopting it unlocks automated versioning and changelogs, which is the actual payoff."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-keep-a-changelog",
+   "name": "Keep a Changelog",
+   "kind": "skill",
+   "category": "Git и совместная работа",
+   "summary": "Convention for writing changelogs people can actually read.",
+   "url": "https://keepachangelog.com/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "changelog",
+    "convention",
+    "human-readable",
+    "releases"
+   ],
+   "tip": "A dumped commit log is not a changelog — the distinction is what the convention exists for.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Convention for writing changelogs people can actually read.",
+    "ru": "Соглашение о написании changelog, которые люди действительно читают."
+   },
+   "localizedTip": {
+    "en": "A dumped commit log is not a changelog — the distinction is what the convention exists for."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-semver",
+   "name": "Semantic Versioning",
+   "kind": "skill",
+   "category": "Git и совместная работа",
+   "summary": "The version numbering specification communicating compatibility.",
+   "url": "https://semver.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "versioning",
+    "specification",
+    "compatibility",
+    "standard"
+   ],
+   "tip": "A breaking change in a minor release breaks the contract other tooling relies on.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The version numbering specification communicating compatibility.",
+    "ru": "Спецификация нумерации версий, сообщающая о совместимости."
+   },
+   "localizedTip": {
+    "en": "A breaking change in a minor release breaks the contract other tooling relies on."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-reuse-software",
+   "name": "REUSE",
+   "kind": "skill",
+   "category": "Безопасность и секреты",
+   "summary": "Specification for making licence information machine-readable per file.",
+   "url": "https://reuse.software/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "licensing",
+    "compliance",
+    "automation",
+    "fsfe"
+   ],
+   "tip": "Per-file licence headers resolve the ambiguity a single root LICENSE file leaves.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Specification for making licence information machine-readable per file.",
+    "ru": "Спецификация машиночитаемой информации о лицензии для каждого файла."
+   },
+   "localizedTip": {
+    "en": "Per-file licence headers resolve the ambiguity a single root LICENSE file leaves."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-spdx",
+   "name": "SPDX",
+   "kind": "skill",
+   "category": "Безопасность и секреты",
+   "summary": "Standard for communicating licence and software bill of materials data.",
+   "url": "https://spdx.dev/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "licensing",
+    "sbom",
+    "identifiers",
+    "standard"
+   ],
+   "tip": "Its licence identifiers are what let automated tooling reason about compliance at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Standard for communicating licence and software bill of materials data.",
+    "ru": "Стандарт передачи данных о лицензиях и software bill of materials."
+   },
+   "localizedTip": {
+    "en": "Its licence identifiers are what let automated tooling reason about compliance at all."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-asyncapi",
+   "name": "AsyncAPI",
+   "kind": "skill",
+   "category": "Документация и контекст",
+   "summary": "Specification for documenting event-driven and message-based APIs.",
+   "url": "https://www.asyncapi.com/docs",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "event-driven",
+    "specification",
+    "messaging",
+    "kafka"
+   ],
+   "tip": "It fills the gap OpenAPI leaves, since REST specs cannot describe a Kafka topic.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Specification for documenting event-driven and message-based APIs.",
+    "ru": "Спецификация документирования событийных и основанных на сообщениях API."
+   },
+   "localizedTip": {
+    "en": "It fills the gap OpenAPI leaves, since REST specs cannot describe a Kafka topic."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-baseline",
+   "name": "Baseline",
+   "kind": "skill",
+   "category": "Документация и контекст",
+   "summary": "Signals which web features are safely usable across major browsers.",
+   "url": "https://web.dev/baseline",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "compatibility",
+    "web-features",
+    "interoperable",
+    "standard"
+   ],
+   "tip": "It replaces per-feature support research with one interoperability signal.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Signals which web features are safely usable across major browsers.",
+    "ru": "Показывает, какие возможности веба безопасно использовать во всех основных браузерах."
+   },
+   "localizedTip": {
+    "en": "It replaces per-feature support research with one interoperability signal."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-caniuse",
+   "name": "Can I Use",
+   "kind": "skill",
+   "category": "Документация и контекст",
+   "summary": "Browser support tables for web platform features.",
+   "url": "https://caniuse.com/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "compatibility",
+    "browsers",
+    "support-tables",
+    "reference"
+   ],
+   "tip": "Import your own analytics to see support weighted by your actual audience, not global share.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Browser support tables for web platform features.",
+    "ru": "Таблицы поддержки браузерами возможностей веб-платформы."
+   },
+   "localizedTip": {
+    "en": "Import your own analytics to see support weighted by your actual audience, not global share."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-graphql-spec",
+   "name": "GraphQL Specification",
+   "kind": "skill",
+   "category": "Документация и контекст",
+   "summary": "The formal GraphQL language and execution specification.",
+   "url": "https://spec.graphql.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "specification",
+    "reference",
+    "standard"
+   ],
+   "tip": "Reading the execution section explains why resolver performance behaves as it does.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The formal GraphQL language and execution specification.",
+    "ru": "Формальная спецификация языка и исполнения GraphQL."
+   },
+   "localizedTip": {
+    "en": "Reading the execution section explains why resolver performance behaves as it does."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-mdn",
+   "name": "MDN Web Docs",
+   "kind": "skill",
+   "category": "Документация и контекст",
+   "summary": "The reference documentation for web platform technologies.",
+   "url": "https://developer.mozilla.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "reference",
+    "web",
+    "browser",
+    "compatibility"
+   ],
+   "tip": "Its per-feature browser compatibility tables answer most 'can I use this' questions inline.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The reference documentation for web platform technologies.",
+    "ru": "Справочная документация по технологиям веб-платформы."
+   },
+   "localizedTip": {
+    "en": "Its per-feature browser compatibility tables answer most 'can I use this' questions inline."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-openapi-spec",
+   "name": "OpenAPI Specification",
+   "kind": "skill",
+   "category": "Документация и контекст",
+   "summary": "The standard specification for describing REST APIs.",
+   "url": "https://spec.openapis.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api",
+    "specification",
+    "rest",
+    "standard"
+   ],
+   "tip": "Writing the spec before the implementation catches interface problems while they are still cheap.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard specification for describing REST APIs.",
+    "ru": "Стандартная спецификация описания REST API."
+   },
+   "localizedTip": {
+    "en": "Writing the spec before the implementation catches interface problems while they are still cheap."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-rfc-editor",
+   "name": "RFC Editor",
+   "kind": "skill",
+   "category": "Документация и контекст",
+   "summary": "The archive of internet standards and protocol specifications.",
+   "url": "https://www.rfc-editor.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "internet-standards",
+    "protocols",
+    "ietf",
+    "reference"
+   ],
+   "tip": "When documentation and implementation disagree about a protocol, the RFC settles it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The archive of internet standards and protocol specifications.",
+    "ru": "Архив интернет-стандартов и спецификаций протоколов."
+   },
+   "localizedTip": {
+    "en": "When documentation and implementation disagree about a protocol, the RFC settles it."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-w3c-specs",
+   "name": "W3C Specifications",
+   "kind": "skill",
+   "category": "Документация и контекст",
+   "summary": "The technical reports and standards defining the web platform.",
+   "url": "https://www.w3.org/TR/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web-standards",
+    "html",
+    "css",
+    "reference"
+   ],
+   "tip": "Specs describe intended behaviour; browsers describe actual behaviour — you often need both.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The technical reports and standards defining the web platform.",
+    "ru": "Технические отчёты и стандарты, определяющие веб-платформу."
+   },
+   "localizedTip": {
+    "en": "Specs describe intended behaviour; browsers describe actual behaviour — you often need both."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-aria-practices",
+   "name": "ARIA Authoring Practices",
+   "kind": "skill",
+   "category": "Доступность (a11y)",
+   "summary": "Reference patterns for building accessible interface components.",
+   "url": "https://www.w3.org/WAI/ARIA/apg/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "aria",
+    "patterns",
+    "keyboard",
+    "components"
+   ],
+   "tip": "Its keyboard interaction specifications are what most custom components get wrong.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reference patterns for building accessible interface components.",
+    "ru": "Эталонные паттерны создания доступных компонентов интерфейса."
+   },
+   "localizedTip": {
+    "en": "Its keyboard interaction specifications are what most custom components get wrong."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-inclusive-components",
+   "name": "Inclusive Components",
+   "kind": "skill",
+   "category": "Доступность (a11y)",
+   "summary": "Practical guide to building accessible interface components.",
+   "url": "https://inclusive-components.design/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "accessibility",
+    "components",
+    "patterns",
+    "practical"
+   ],
+   "tip": "It reasons from first principles rather than reciting rules, which transfers to new components.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Practical guide to building accessible interface components.",
+    "ru": "Практическое руководство по созданию доступных компонентов интерфейса."
+   },
+   "localizedTip": {
+    "en": "It reasons from first principles rather than reciting rules, which transfers to new components."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-a11y-project",
+   "name": "The A11Y Project",
+   "kind": "skill",
+   "category": "Доступность (a11y)",
+   "summary": "Community-driven accessibility resources and a practical checklist.",
+   "url": "https://www.a11yproject.com/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "accessibility",
+    "checklist",
+    "community",
+    "resources"
+   ],
+   "tip": "Its checklist is short enough to actually work through before a release.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community-driven accessibility resources and a practical checklist.",
+    "ru": "Ресурсы по доступности от сообщества и практический чек-лист."
+   },
+   "localizedTip": {
+    "en": "Its checklist is short enough to actually work through before a release."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-wcag",
+   "name": "WCAG",
+   "kind": "skill",
+   "category": "Доступность (a11y)",
+   "summary": "The web accessibility guidelines most legal requirements reference.",
+   "url": "https://www.w3.org/WAI/standards-guidelines/wcag/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "accessibility",
+    "standard",
+    "compliance",
+    "guidelines"
+   ],
+   "tip": "Level AA is the compliance target in most jurisdictions, not level AAA.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The web accessibility guidelines most legal requirements reference.",
+    "ru": "Руководство по доступности веба, на которое ссылается большинство законодательных требований."
+   },
+   "localizedTip": {
+    "en": "Level AA is the compliance target in most jurisdictions, not level AAA."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "skill-openai-evals",
    "name": "OpenAI Evals",
    "kind": "skill",
@@ -96045,6 +97417,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "skill-json-schema",
+   "name": "JSON Schema",
+   "kind": "skill",
+   "category": "Утилиты",
+   "summary": "Vocabulary for validating and documenting JSON data structures.",
+   "url": "https://json-schema.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "validation",
+    "specification",
+    "structure",
+    "standard"
+   ],
+   "tip": "One schema drives validation, documentation and code generation at once.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Vocabulary for validating and documenting JSON data structures.",
+    "ru": "Словарь для валидации и документирования структур данных JSON."
+   },
+   "localizedTip": {
+    "en": "One schema drives validation, documentation and code generation at once."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -96605,6 +98012,41 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-advent-of-code",
+   "name": "Advent of Code",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Annual programming puzzle calendar running through December.",
+   "url": "https://adventofcode.com/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "puzzles",
+    "annual",
+    "december",
+    "community"
+   ],
+   "tip": "A good excuse to try an unfamiliar language on problems small enough to finish.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Annual programming puzzle calendar running through December.",
+    "ru": "Ежегодный календарь программистских головоломок на протяжении декабря."
+   },
+   "localizedTip": {
+    "en": "A good excuse to try an unfamiliar language on problems small enough to finish."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-agent-skills-docs",
    "name": "Agent Skills Overview",
    "kind": "skill",
@@ -96924,6 +98366,41 @@
    },
    "localizedTip": {
     "en": "Start with the simplest pattern that solves the task: most problems are not agent-shaped."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-choose-a-license",
+   "name": "Choose a License",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Plain-language guide to choosing an open-source licence.",
+   "url": "https://choosealicense.com/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "licensing",
+    "open-source",
+    "comparison",
+    "github"
+   ],
+   "tip": "A repository with no licence is not open source — default copyright reserves all rights.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Plain-language guide to choosing an open-source licence.",
+    "ru": "Понятное руководство по выбору open-source лицензии."
+   },
+   "localizedTip": {
+    "en": "A repository with no licence is not open source — default copyright reserves all rights."
    },
    "pricing": {
     "model": "free",
@@ -97491,6 +98968,41 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-codewars",
+   "name": "Codewars",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Coding practice through community-authored challenges called kata.",
+   "url": "https://www.codewars.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kata",
+    "practice",
+    "community",
+    "ranks"
+   ],
+   "tip": "Reading other solutions after solving is where most of the learning actually happens.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Coding practice through community-authored challenges called kata.",
+    "ru": "Практика программирования через задачи от сообщества, называемые ката."
+   },
+   "localizedTip": {
+    "en": "Reading other solutions after solving is where most of the learning actually happens."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-codex-cli",
    "name": "Codex CLI",
    "kind": "skill",
@@ -97596,6 +99108,48 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-ddia",
+   "name": "Designing Data-Intensive Applications",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "The reference book on data systems, consistency and distributed storage.",
+   "url": "https://dataintensive.net/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "distributed-systems",
+    "databases",
+    "foundational",
+    "book",
+    "pricing",
+    "one-time",
+    "reference"
+   ],
+   "tip": "Its chapter on replication and consistency explains failures you will otherwise debug blind.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The reference book on data systems, consistency and distributed storage.",
+    "ru": "Справочная книга по системам данных, согласованности и распределённому хранению."
+   },
+   "localizedTip": {
+    "en": "Its chapter on replication and consistency explains failures you will otherwise debug blind."
+   },
+   "pricing": {
+    "model": "one-time",
+    "from": "from ~$50 for the book",
+    "freeQuota": "free sample chapter",
+    "url": "https://dataintensive.net/buy.html",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-context-engineering",
    "name": "Effective Context Engineering",
    "kind": "skill",
@@ -97623,6 +99177,41 @@
    },
    "localizedTip": {
     "en": "Treat context as a budget: everything you add competes with the instructions that matter."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-exercism",
+   "name": "Exercism",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Practice exercises across many languages with volunteer mentoring.",
+   "url": "https://exercism.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "practice",
+    "mentoring",
+    "languages",
+    "free"
+   ],
+   "tip": "Human code review on your solutions is what separates it from other exercise sites.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Practice exercises across many languages with volunteer mentoring.",
+    "ru": "Практические упражнения на множестве языков с наставничеством волонтёров."
+   },
+   "localizedTip": {
+    "en": "Human code review on your solutions is what separates it from other exercise sites."
    },
    "pricing": {
     "model": "free",
@@ -97666,6 +99255,111 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-freecodecamp",
+   "name": "freeCodeCamp",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Free interactive curriculum with project-based certifications.",
+   "url": "https://www.freecodecamp.org/learn",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "curriculum",
+    "certifications",
+    "interactive",
+    "nonprofit"
+   ],
+   "tip": "Its certification projects are portfolio pieces, which the quizzes alone are not.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free interactive curriculum with project-based certifications.",
+    "ru": "Бесплатная интерактивная программа с проектными сертификациями."
+   },
+   "localizedTip": {
+    "en": "Its certification projects are portfolio pieces, which the quizzes alone are not."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-google-eng-practices",
+   "name": "Google Engineering Practices",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Google's published guidance on code review standards.",
+   "url": "https://google.github.io/eng-practices/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-review",
+    "standards",
+    "culture",
+    "guidelines"
+   ],
+   "tip": "Its 'approve when it improves the codebase' rule resolves most review deadlocks.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's published guidance on code review standards.",
+    "ru": "Опубликованные рекомендации Google по стандартам code review."
+   },
+   "localizedTip": {
+    "en": "Its 'approve when it improves the codebase' rule resolves most review deadlocks."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-google-sre-book",
+   "name": "Google SRE Book",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Google's freely readable books on site reliability engineering.",
+   "url": "https://sre.google/books/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sre",
+    "reliability",
+    "slo",
+    "operations"
+   ],
+   "tip": "The error budget chapter is the one that changes how teams argue about reliability.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's freely readable books on site reliability engineering.",
+    "ru": "Свободно доступные книги Google по site reliability engineering."
+   },
+   "localizedTip": {
+    "en": "The error budget chapter is the one that changes how teams argue about reliability."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-increase-consistency",
    "name": "Increase Output Consistency",
    "kind": "skill",
@@ -97696,6 +99390,41 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-leetcode",
+   "name": "LeetCode",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Algorithm practice problems widely used for interview preparation.",
+   "url": "https://leetcode.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "algorithms",
+    "interviews",
+    "practice",
+    "contests"
+   ],
+   "tip": "Study patterns rather than grinding problem count — the patterns are what transfer.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Algorithm practice problems widely used for interview preparation.",
+    "ru": "Задачи по алгоритмам, широко используемые для подготовки к собеседованиям."
+   },
+   "localizedTip": {
+    "en": "Study patterns rather than grinding problem count — the patterns are what transfer."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "skills"
@@ -97911,6 +99640,76 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-patterns-dev",
+   "name": "Patterns.dev",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Modern web design, rendering and performance patterns.",
+   "url": "https://www.patterns.dev/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web",
+    "patterns",
+    "performance",
+    "rendering"
+   ],
+   "tip": "Its rendering patterns section explains the tradeoffs behind every framework's defaults.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern web design, rendering and performance patterns.",
+    "ru": "Современные паттерны проектирования, рендеринга и производительности в вебе."
+   },
+   "localizedTip": {
+    "en": "Its rendering patterns section explains the tradeoffs behind every framework's defaults."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-project-euler",
+   "name": "Project Euler",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Mathematical and computational problems requiring efficient solutions.",
+   "url": "https://projecteuler.net/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mathematics",
+    "algorithms",
+    "puzzles",
+    "archive"
+   ],
+   "tip": "Brute force stops working after the first few, which is precisely the lesson.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mathematical and computational problems requiring efficient solutions.",
+    "ru": "Математические и вычислительные задачи, требующие эффективных решений."
+   },
+   "localizedTip": {
+    "en": "Brute force stops working after the first few, which is precisely the lesson."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-prompt-caching-guide",
    "name": "Prompt Caching Guide",
    "kind": "skill",
@@ -97981,6 +99780,146 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-refactoring-guru",
+   "name": "Refactoring Guru",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Illustrated guide to design patterns and refactoring techniques.",
+   "url": "https://refactoring.guru/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "design-patterns",
+    "refactoring",
+    "examples",
+    "illustrated"
+   ],
+   "tip": "Its code smell catalogue is the more practical half — patterns are easy to over-apply.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Illustrated guide to design patterns and refactoring techniques.",
+    "ru": "Иллюстрированное руководство по паттернам проектирования и техникам рефакторинга."
+   },
+   "localizedTip": {
+    "en": "Its code smell catalogue is the more practical half — patterns are easy to over-apply."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-roadmap-sh",
+   "name": "roadmap.sh",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Visual learning roadmaps for developer roles and technologies.",
+   "url": "https://roadmap.sh/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "learning-paths",
+    "visual",
+    "roles",
+    "community"
+   ],
+   "tip": "Use them to find gaps in what you know, not as a checklist to complete in order.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Visual learning roadmaps for developer roles and technologies.",
+    "ru": "Визуальные учебные маршруты по ролям разработчика и технологиям."
+   },
+   "localizedTip": {
+    "en": "Use them to find gaps in what you know, not as a checklist to complete in order."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-stackoverflow-survey",
+   "name": "Stack Overflow Developer Survey",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Annual survey of developer tools, salaries and working practices.",
+   "url": "https://survey.stackoverflow.co/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "survey",
+    "industry",
+    "salaries",
+    "trends"
+   ],
+   "tip": "Its salary data by technology and region is the most cited part for good reason.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Annual survey of developer tools, salaries and working practices.",
+    "ru": "Ежегодный опрос об инструментах разработчиков, зарплатах и практиках работы."
+   },
+   "localizedTip": {
+    "en": "Its salary data by technology and region is the most cited part for good reason."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-state-of-js",
+   "name": "State of JS",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Annual survey of JavaScript ecosystem usage and satisfaction.",
+   "url": "https://stateofjs.com/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "survey",
+    "ecosystem",
+    "trends",
+    "annual"
+   ],
+   "tip": "Its retention metric predicts a tool's trajectory better than raw usage numbers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Annual survey of JavaScript ecosystem usage and satisfaction.",
+    "ru": "Ежегодный опрос об использовании и удовлетворённости в экосистеме JavaScript."
+   },
+   "localizedTip": {
+    "en": "Its retention metric predicts a tool's trajectory better than raw usage numbers."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-structured-outputs-claude",
    "name": "Structured Outputs",
    "kind": "skill",
@@ -98016,6 +99955,41 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-system-design-primer",
+   "name": "System Design Primer",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Open reference on designing large-scale systems.",
+   "url": "https://github.com/donnemartin/system-design-primer",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "system-design",
+    "interviews",
+    "scalability",
+    "reference"
+   ],
+   "tip": "Its trade-off discussions are more useful than the diagrams — the reasoning is the content.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open reference on designing large-scale systems.",
+    "ru": "Открытый справочник по проектированию крупномасштабных систем."
+   },
+   "localizedTip": {
+    "en": "Its trade-off discussions are more useful than the diagrams — the reasoning is the content."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-system-prompts",
    "name": "System Prompts",
    "kind": "skill",
@@ -98043,6 +100017,76 @@
    },
    "localizedTip": {
     "en": "Put stable instructions here and variable content in user turns — that split also maximizes cache hits."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-odin-project",
+   "name": "The Odin Project",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Free full-stack curriculum built around projects rather than lectures.",
+   "url": "https://www.theodinproject.com/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "full-stack",
+    "curriculum",
+    "projects",
+    "free"
+   ],
+   "tip": "It sends you to official documentation rather than replacing it, which builds a durable habit.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free full-stack curriculum built around projects rather than lectures.",
+    "ru": "Бесплатная full-stack программа, построенная вокруг проектов, а не лекций."
+   },
+   "localizedTip": {
+    "en": "It sends you to official documentation rather than replacing it, which builds a durable habit."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-twelve-factor",
+   "name": "The Twelve-Factor App",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Methodology for building portable, deployable software services.",
+   "url": "https://12factor.net/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "methodology",
+    "saas",
+    "deployment",
+    "configuration"
+   ],
+   "tip": "Its configuration-in-environment rule is why containerized deployment works as smoothly as it does.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Methodology for building portable, deployable software services.",
+    "ru": "Методология создания переносимых и легко развёртываемых сервисов."
+   },
+   "localizedTip": {
+    "en": "Its configuration-in-environment rule is why containerized deployment works as smoothly as it does."
    },
    "pricing": {
     "model": "free",
@@ -98261,6 +100305,76 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-web-almanac",
+   "name": "Web Almanac",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Annual report on the state of the web, built from real crawl data.",
+   "url": "https://almanac.httparchive.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "research",
+    "statistics",
+    "http-archive",
+    "annual"
+   ],
+   "tip": "Its data settles arguments about what techniques are actually used in production.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Annual report on the state of the web, built from real crawl data.",
+    "ru": "Ежегодный отчёт о состоянии веба на основе реальных данных обхода сайтов."
+   },
+   "localizedTip": {
+    "en": "Its data settles arguments about what techniques are actually used in production."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-web-dev",
+   "name": "web.dev",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "Google's guidance on web performance and modern best practices.",
+   "url": "https://web.dev/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "google",
+    "performance",
+    "best-practices",
+    "core-web-vitals"
+   ],
+   "tip": "Its Core Web Vitals guidance maps directly to what search ranking actually measures.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's guidance on web performance and modern best practices.",
+    "ru": "Рекомендации Google по производительности веба и современным лучшим практикам."
+   },
+   "localizedTip": {
+    "en": "Its Core Web Vitals guidance maps directly to what search ranking actually measures."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-writing-good-claude-md",
    "name": "Writing a Good CLAUDE.md",
    "kind": "skill",
@@ -98447,6 +100561,41 @@
    ],
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-awesome-lists",
+   "name": "Awesome Lists",
+   "kind": "skill",
+   "category": "Каталоги skills",
+   "summary": "Community-curated lists of tools and resources for almost every topic.",
+   "url": "https://github.com/sindresorhus/awesome",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "curated",
+    "directories",
+    "community",
+    "discovery"
+   ],
+   "tip": "Check the last commit date — many lists are years stale and quietly recommend dead projects.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community-curated lists of tools and resources for almost every topic.",
+    "ru": "Курируемые сообществом списки инструментов и ресурсов почти по любой теме."
+   },
+   "localizedTip": {
+    "en": "Check the last commit date — many lists are years stale and quietly recommend dead projects."
+   },
+   "pricing": {
+    "model": "free",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "skills"

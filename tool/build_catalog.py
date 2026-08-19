@@ -173,6 +173,8 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-readwise': 'lib-readwise',
+ 'paid-ddia': 'skill-ddia',
  'paid-buildkite': 'lib-buildkite',
  'paid-bamboo': 'lib-bamboo',
  'paid-travis-ci': 'lib-travis-ci',
