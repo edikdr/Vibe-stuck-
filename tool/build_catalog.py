@@ -173,6 +173,17 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-stripe-billing': 'api-stripe-billing',
+ 'paid-chargebee': 'api-chargebee',
+ 'paid-recurly': 'api-recurly',
+ 'paid-orb-billing': 'api-orb-billing',
+ 'paid-metronome': 'api-metronome',
+ 'paid-eppo': 'api-eppo',
+ 'paid-amplitude-experiment': 'api-amplitude-experiment',
+ 'paid-ab-tasty': 'api-ab-tasty',
+ 'paid-convert-com': 'api-convert-com',
+ 'paid-kameleoon': 'api-kameleoon',
+ 'paid-aws-appconfig': 'api-aws-appconfig',
  'paid-escape-tech': 'lib-escape-tech',
  'paid-salt-security': 'lib-salt-security',
  'paid-traceable': 'lib-traceable',

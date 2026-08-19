@@ -7335,6 +7335,48 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-chargebee",
+   "name": "Chargebee",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Subscription management with revenue recognition and dunning workflows.",
+   "url": "https://apidocs.chargebee.com/docs/api",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "subscriptions",
+    "revenue",
+    "dunning",
+    "enterprise",
+    "pricing",
+    "revenue-share",
+    "subscription"
+   ],
+   "tip": "Its dunning recovers failed payments automatically, which is usually a few percent of revenue.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Subscription management with revenue recognition and dunning workflows.",
+    "ru": "Управление подписками с признанием выручки и процессами взыскания задолженности."
+   },
+   "localizedTip": {
+    "en": "Its dunning recovers failed payments automatically, which is usually a few percent of revenue."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "free under ~$250k annual revenue, then from ~$599 per month",
+    "freeQuota": "free starter tier",
+    "url": "https://www.chargebee.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-commercetools",
    "name": "commercetools",
    "kind": "api",
@@ -7407,6 +7449,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-lago",
+   "name": "Lago",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Open-source usage-based billing and metering platform.",
+   "url": "https://getlago.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "usage-based",
+    "open-source",
+    "self-host",
+    "metering"
+   ],
+   "tip": "Self-hosting keeps billing data in your own infrastructure, which regulated products often require.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source usage-based billing and metering platform.",
+    "ru": "Открытая платформа биллинга и учёта потребления."
+   },
+   "localizedTip": {
+    "en": "Self-hosting keeps billing data in your own infrastructure, which regulated products often require."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -7485,6 +7562,47 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-metronome",
+   "name": "Metronome",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Real-time usage-based billing platform for consumption products.",
+   "url": "https://docs.metronome.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "usage-based",
+    "realtime",
+    "metering",
+    "enterprise",
+    "pricing",
+    "volume"
+   ],
+   "tip": "Real-time balances let you show customers current spend rather than a monthly surprise.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Real-time usage-based billing platform for consumption products.",
+    "ru": "Платформа биллинга по потреблению в реальном времени для consumption-продуктов."
+   },
+   "localizedTip": {
+    "en": "Real-time balances let you show customers current spend rather than a monthly surprise."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "product demo",
+    "url": "https://metronome.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-mollie",
    "name": "Mollie",
    "kind": "api",
@@ -7515,6 +7633,47 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-orb-billing",
+   "name": "Orb",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Usage-based billing engine built for complex consumption pricing.",
+   "url": "https://docs.withorb.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "usage-based",
+    "metering",
+    "pricing",
+    "developer-first",
+    "platform-fee",
+    "custom"
+   ],
+   "tip": "Metering and invoicing in one system avoids the reconciliation gap between usage and billing.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Usage-based billing engine built for complex consumption pricing.",
+    "ru": "Движок биллинга по потреблению для сложных моделей ценообразования."
+   },
+   "localizedTip": {
+    "en": "Metering and invoicing in one system avoids the reconciliation gap between usage and billing."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "product demo",
+    "url": "https://www.withorb.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -7634,6 +7793,48 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-recurly",
+   "name": "Recurly",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Subscription billing platform with churn and retention tooling.",
+   "url": "https://recurly.com/developers/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "subscriptions",
+    "retention",
+    "billing",
+    "analytics",
+    "pricing",
+    "revenue-share",
+    "platform-fee"
+   ],
+   "tip": "Its revenue recovery features target involuntary churn from expired cards specifically.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Subscription billing platform with churn and retention tooling.",
+    "ru": "Платформа биллинга подписок с инструментами удержания и работы с оттоком."
+   },
+   "localizedTip": {
+    "en": "Its revenue recovery features target involuntary churn from expired cards specifically."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$249 per month",
+    "freeQuota": "free trial",
+    "url": "https://recurly.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-revenuecat",
    "name": "RevenueCat",
    "kind": "api",
@@ -7704,6 +7905,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-schematic",
+   "name": "Schematic",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Feature entitlement and packaging layer that syncs with Stripe.",
+   "url": "https://docs.schematichq.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "entitlements",
+    "feature-gating",
+    "pricing",
+    "stripe"
+   ],
+   "tip": "It keeps plan definitions and feature gates in one place rather than scattered across the code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Feature entitlement and packaging layer that syncs with Stripe.",
+    "ru": "Слой прав доступа и упаковки функций с синхронизацией со Stripe."
+   },
+   "localizedTip": {
+    "en": "It keeps plan definitions and feature gates in one place rather than scattered across the code."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -7954,6 +8190,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-stigg",
+   "name": "Stigg",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Pricing and entitlement management decoupled from billing code.",
+   "url": "https://docs.stigg.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pricing",
+    "entitlements",
+    "packaging",
+    "monetization"
+   ],
+   "tip": "Changing a plan's limits becomes configuration rather than a deploy, which speeds pricing experiments.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pricing and entitlement management decoupled from billing code.",
+    "ru": "Управление ценообразованием и правами доступа, отделённое от кода биллинга."
+   },
+   "localizedTip": {
+    "en": "Changing a plan's limits becomes configuration rather than a deploy, which speeds pricing experiments."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-stripe",
    "name": "Stripe API",
    "kind": "api",
@@ -8001,6 +8272,48 @@
     "from": "around 1.5% + €0.25 for EEA cards",
     "freeQuota": "No monthly fee",
     "url": "https://stripe.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-stripe-billing",
+   "name": "Stripe Billing",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Subscription and invoicing layer on top of Stripe payments.",
+   "url": "https://docs.stripe.com/billing",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "subscriptions",
+    "invoicing",
+    "usage-based",
+    "proration",
+    "pricing",
+    "percentage",
+    "volume"
+   ],
+   "tip": "Its proration handling covers mid-cycle plan changes, which is where hand-built billing breaks.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Subscription and invoicing layer on top of Stripe payments.",
+    "ru": "Слой подписок и выставления счетов поверх платежей Stripe."
+   },
+   "localizedTip": {
+    "en": "Its proration handling covers mid-cycle plan changes, which is where hand-built billing breaks."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~0.5% of billing volume",
+    "freeQuota": "free on the starter tier",
+    "url": "https://stripe.com/billing/pricing",
     "currency": "USD",
     "checkedAt": "2026-08-17"
    },
@@ -17378,6 +17691,216 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-ab-tasty",
+   "name": "AB Tasty",
+   "kind": "api",
+   "category": "A/B-тестирование",
+   "summary": "Experimentation and personalization platform for web and app experiences.",
+   "url": "https://developers.abtasty.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "experimentation",
+    "personalization",
+    "web",
+    "enterprise",
+    "pricing",
+    "traffic",
+    "annual"
+   ],
+   "tip": "Its visual editor lets marketers build variants without engineering involvement.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Experimentation and personalization platform for web and app experiences.",
+    "ru": "Платформа экспериментов и персонализации для веба и приложений."
+   },
+   "localizedTip": {
+    "en": "Its visual editor lets marketers build variants without engineering involvement."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote (by monthly traffic)",
+    "freeQuota": "product demo",
+    "url": "https://www.abtasty.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-amplitude-experiment",
+   "name": "Amplitude Experiment",
+   "kind": "api",
+   "category": "A/B-тестирование",
+   "summary": "Experimentation built on Amplitude's behavioural analytics data.",
+   "url": "https://amplitude.com/docs/experiment",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "experimentation",
+    "analytics",
+    "flags",
+    "integrated",
+    "pricing",
+    "mtu",
+    "add-on"
+   ],
+   "tip": "Reusing existing Amplitude events avoids instrumenting metrics twice for the same question.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Experimentation built on Amplitude's behavioural analytics data.",
+    "ru": "Эксперименты на основе данных поведенческой аналитики Amplitude."
+   },
+   "localizedTip": {
+    "en": "Reusing existing Amplitude events avoids instrumenting metrics twice for the same question."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote (by monthly tracked users)",
+    "freeQuota": "free analytics tier",
+    "url": "https://amplitude.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-convert-com",
+   "name": "Convert.com",
+   "kind": "api",
+   "category": "A/B-тестирование",
+   "summary": "A/B testing platform with a strong privacy and consent posture.",
+   "url": "https://api.convert.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ab-testing",
+    "privacy",
+    "personalization",
+    "web",
+    "pricing",
+    "tested-users",
+    "subscription"
+   ],
+   "tip": "Its data handling is built around GDPR, which matters for European traffic specifically.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "A/B testing platform with a strong privacy and consent posture.",
+    "ru": "Платформа A/B-тестирования с сильной позицией по приватности и согласию."
+   },
+   "localizedTip": {
+    "en": "Its data handling is built around GDPR, which matters for European traffic specifically."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$99 per month",
+    "freeQuota": "free trial",
+    "url": "https://www.convert.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-eppo",
+   "name": "Eppo",
+   "kind": "api",
+   "category": "A/B-тестирование",
+   "summary": "Warehouse-native experimentation platform computing results in your own data warehouse.",
+   "url": "https://docs.geteppo.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "experimentation",
+    "warehouse-native",
+    "statistics",
+    "metrics",
+    "pricing",
+    "warehouse",
+    "custom"
+   ],
+   "tip": "Running analysis on your warehouse means experiment metrics match your existing business metrics.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Warehouse-native experimentation platform computing results in your own data warehouse.",
+    "ru": "Платформа экспериментов, вычисляющая результаты прямо в вашем хранилище данных."
+   },
+   "localizedTip": {
+    "en": "Running analysis on your warehouse means experiment metrics match your existing business metrics."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "product demo",
+    "url": "https://www.geteppo.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-kameleoon",
+   "name": "Kameleoon",
+   "kind": "api",
+   "category": "A/B-тестирование",
+   "summary": "Experimentation and personalization with AI-driven targeting.",
+   "url": "https://developers.kameleoon.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "experimentation",
+    "personalization",
+    "ai",
+    "feature-flags",
+    "pricing",
+    "traffic",
+    "custom"
+   ],
+   "tip": "It combines flags and experiments in one platform, which avoids running two separate systems.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Experimentation and personalization with AI-driven targeting.",
+    "ru": "Эксперименты и персонализация с таргетингом на основе AI."
+   },
+   "localizedTip": {
+    "en": "It combines flags and experiments in one platform, which avoids running two separate systems."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "free trial",
+    "url": "https://www.kameleoon.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-optimizely",
    "name": "Optimizely",
    "kind": "api",
@@ -17460,6 +17983,152 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-aws-appconfig",
+   "name": "AWS AppConfig",
+   "kind": "api",
+   "category": "Feature flags и эксперименты",
+   "summary": "Managed configuration deployment with validation and automatic rollback.",
+   "url": "https://docs.aws.amazon.com/appconfig/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "aws",
+    "configuration",
+    "validation",
+    "rollouts",
+    "pricing",
+    "per-request"
+   ],
+   "tip": "Validating configuration before deployment prevents the bad-config outage that flags otherwise invite.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Managed configuration deployment with validation and automatic rollback.",
+    "ru": "Управляемое развёртывание конфигурации с валидацией и автоматическим откатом."
+   },
+   "localizedTip": {
+    "en": "Validating configuration before deployment prevents the bad-config outage that flags otherwise invite."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.0000002 per configuration request",
+    "freeQuota": "free tier of requests",
+    "url": "https://aws.amazon.com/systems-manager/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-bucket-co",
+   "name": "Bucket",
+   "kind": "api",
+   "category": "Feature flags и эксперименты",
+   "summary": "Feature flags for B2B products, tied to per-company adoption tracking.",
+   "url": "https://docs.bucket.co/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "feature-flags",
+    "b2b",
+    "adoption",
+    "feedback"
+   ],
+   "tip": "Company-level targeting matches how B2B rollouts actually work, unlike per-user flags.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Feature flags for B2B products, tied to per-company adoption tracking.",
+    "ru": "Фича-флаги для B2B-продуктов с отслеживанием внедрения по компаниям."
+   },
+   "localizedTip": {
+    "en": "Company-level targeting matches how B2B rollouts actually work, unlike per-user flags."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-configcat",
+   "name": "ConfigCat",
+   "kind": "api",
+   "category": "Feature flags и эксперименты",
+   "summary": "Straightforward feature flag service with generous free limits.",
+   "url": "https://configcat.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "feature-flags",
+    "simple",
+    "sdk",
+    "affordable"
+   ],
+   "tip": "Its free tier covers a real small product, which most flag services reserve for trials.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Straightforward feature flag service with generous free limits.",
+    "ru": "Простой сервис фича-флагов со щедрыми бесплатными лимитами."
+   },
+   "localizedTip": {
+    "en": "Its free tier covers a real small product, which most flag services reserve for trials."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-firebase-remote-config",
+   "name": "Firebase Remote Config",
+   "kind": "api",
+   "category": "Feature flags и эксперименты",
+   "summary": "Free remote configuration and staged rollouts for mobile apps.",
+   "url": "https://firebase.google.com/docs/remote-config",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mobile",
+    "configuration",
+    "rollouts",
+    "free"
+   ],
+   "tip": "Free at any scale, which makes it the default for mobile config even alongside paid flag services.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free remote configuration and staged rollouts for mobile apps.",
+    "ru": "Бесплатная удалённая конфигурация и поэтапные раскатки для мобильных приложений."
+   },
+   "localizedTip": {
+    "en": "Free at any scale, which makes it the default for mobile config even alongside paid flag services."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-flagsmith",
    "name": "Flagsmith",
    "kind": "api",
@@ -17530,6 +18199,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-hypertune",
+   "name": "Hypertune",
+   "kind": "api",
+   "category": "Feature flags и эксперименты",
+   "summary": "Type-safe feature flags with generated client code.",
+   "url": "https://docs.hypertune.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "type-safe",
+    "flags",
+    "experiments",
+    "codegen"
+   ],
+   "tip": "Generated types mean a deleted flag becomes a compile error rather than a silent default.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Type-safe feature flags with generated client code.",
+    "ru": "Типобезопасные фича-флаги с генерируемым клиентским кодом."
+   },
+   "localizedTip": {
+    "en": "Generated types mean a deleted flag becomes a compile error rather than a silent default."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-launchdarkly",
    "name": "LaunchDarkly",
    "kind": "api",
@@ -17557,6 +18261,76 @@
    },
    "localizedTip": {
     "en": "Kill switches are the highest-value flag type — wrap any risky new code path in one from day one."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-posthog-flags",
+   "name": "PostHog Feature Flags",
+   "kind": "api",
+   "category": "Feature flags и эксперименты",
+   "summary": "Feature flags integrated with PostHog's product analytics.",
+   "url": "https://posthog.com/docs/feature-flags",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flags",
+    "analytics",
+    "experiments",
+    "integrated"
+   ],
+   "tip": "Flags and analytics in one system means every rollout is measurable without extra instrumentation.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Feature flags integrated with PostHog's product analytics.",
+    "ru": "Фича-флаги, интегрированные с продуктовой аналитикой PostHog."
+   },
+   "localizedTip": {
+    "en": "Flags and analytics in one system means every rollout is measurable without extra instrumentation."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-split-io",
+   "name": "Split",
+   "kind": "api",
+   "category": "Feature flags и эксперименты",
+   "summary": "Feature delivery platform combining flags with automatic metric monitoring.",
+   "url": "https://help.split.io/hc/en-us/categories/360001480091",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flags",
+    "experimentation",
+    "metrics",
+    "enterprise"
+   ],
+   "tip": "It alerts when a flag degrades a guardrail metric, which turns a rollout into a safety net.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Feature delivery platform combining flags with automatic metric monitoring.",
+    "ru": "Платформа доставки функций, сочетающая флаги с автоматическим мониторингом метрик."
+   },
+   "localizedTip": {
+    "en": "It alerts when a flag degrades a guardrail metric, which turns a rollout into a safety net."
    },
    "pricing": {
     "model": "freemium",
@@ -17630,6 +18404,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-vercel-edge-config",
+   "name": "Vercel Edge Config",
+   "kind": "api",
+   "category": "Feature flags и эксперименты",
+   "summary": "Ultra-low-latency configuration store readable from edge functions.",
+   "url": "https://vercel.com/docs/edge-config",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "edge",
+    "configuration",
+    "low-latency",
+    "vercel"
+   ],
+   "tip": "Reads take under a millisecond, so config lookups can sit in the request path safely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Ultra-low-latency configuration store readable from edge functions.",
+    "ru": "Хранилище конфигурации со сверхнизкой задержкой, читаемое из edge-функций."
+   },
+   "localizedTip": {
+    "en": "Reads take under a millisecond, so config lookups can sit in the request path safely."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
