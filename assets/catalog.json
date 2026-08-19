@@ -28676,6 +28676,76 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-aif360",
+   "name": "AI Fairness 360",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "IBM's extensive library of bias metrics and mitigation algorithms.",
+   "url": "https://aif360.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fairness",
+    "bias",
+    "ibm",
+    "metrics"
+   ],
+   "tip": "Broader metric coverage than Fairlearn, with a correspondingly steeper learning curve.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install aif360",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "IBM's extensive library of bias metrics and mitigation algorithms.",
+    "ru": "Обширная библиотека IBM с метриками смещения и алгоритмами их снижения."
+   },
+   "localizedTip": {
+    "en": "Broader metric coverage than Fairlearn, with a correspondingly steeper learning curve."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-alibi",
+   "name": "Alibi",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Model inspection library with counterfactual and anchor explanations.",
+   "url": "https://docs.seldon.ai/projects/alibi",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "explanations",
+    "counterfactuals",
+    "seldon",
+    "inspection"
+   ],
+   "tip": "Counterfactuals answer 'what would have to change' — often more actionable than feature importance.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install alibi",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Model inspection library with counterfactual and anchor explanations.",
+    "ru": "Библиотека инспекции моделей с контрфактическими и anchor-объяснениями."
+   },
+   "localizedTip": {
+    "en": "Counterfactuals answer 'what would have to change' — often more actionable than feature importance."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-deepchecks",
    "name": "Deepchecks",
    "kind": "library",
@@ -28781,6 +28851,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-fairlearn",
+   "name": "Fairlearn",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Assesses and mitigates fairness-related harms in classification models.",
+   "url": "https://fairlearn.org/main/user_guide/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fairness",
+    "bias",
+    "metrics",
+    "mitigation"
+   ],
+   "tip": "Fairness metrics conflict mathematically — you must choose which definition your context requires.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install fairlearn",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Assesses and mitigates fairness-related harms in classification models.",
+    "ru": "Оценивает и снижает вред, связанный со справедливостью, в моделях классификации."
+   },
+   "localizedTip": {
+    "en": "Fairness metrics conflict mathematically — you must choose which definition your context requires."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-humanloop",
    "name": "Humanloop",
    "kind": "library",
@@ -28823,6 +28928,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-interpretml",
+   "name": "InterpretML",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Microsoft toolkit for glassbox models and blackbox explanations.",
+   "url": "https://interpret.ml/docs/getting-started.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "glassbox",
+    "explainable",
+    "microsoft",
+    "ebm"
+   ],
+   "tip": "Its Explainable Boosting Machine is often as accurate as gradient boosting while remaining readable.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install interpret",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Microsoft toolkit for glassbox models and blackbox explanations.",
+    "ru": "Набор инструментов Microsoft для прозрачных моделей и объяснений чёрных ящиков."
+   },
+   "localizedTip": {
+    "en": "Its Explainable Boosting Machine is often as accurate as gradient boosting while remaining readable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-langwatch",
    "name": "LangWatch",
    "kind": "library",
@@ -28853,6 +28993,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-lime",
+   "name": "LIME",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Explains individual predictions by fitting a simple local surrogate model.",
+   "url": "https://github.com/marcotcr/lime",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "interpretability",
+    "local",
+    "explanations",
+    "model-agnostic"
+   ],
+   "tip": "Explanations vary between runs — check stability before showing one to a stakeholder.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install lime",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Explains individual predictions by fitting a simple local surrogate model.",
+    "ru": "Объясняет отдельные предсказания, обучая простую локальную суррогатную модель."
+   },
+   "localizedTip": {
+    "en": "Explanations vary between runs — check stability before showing one to a stakeholder."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -30345,6 +30520,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-hyperopt",
+   "name": "Hyperopt",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Bayesian hyperparameter optimization using tree-structured Parzen estimators.",
+   "url": "https://hyperopt.github.io/hyperopt/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hyperparameters",
+    "bayesian",
+    "tpe",
+    "search"
+   ],
+   "tip": "Optuna is the more actively developed option now, with a considerably nicer API.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install hyperopt",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Bayesian hyperparameter optimization using tree-structured Parzen estimators.",
+    "ru": "Байесовская оптимизация гиперпараметров через tree-structured Parzen estimators."
+   },
+   "localizedTip": {
+    "en": "Optuna is the more actively developed option now, with a considerably nicer API."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-kserve",
    "name": "KServe",
    "kind": "library",
@@ -30652,6 +30862,41 @@
    },
    "localizedTip": {
     "en": "Wrapping an existing single-node training loop is usually a few lines, not a rewrite."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-ray-tune",
+   "name": "Ray Tune",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Distributed hyperparameter tuning with early-stopping schedulers.",
+   "url": "https://docs.ray.io/en/latest/tune/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hyperparameters",
+    "distributed",
+    "schedulers",
+    "scaling"
+   ],
+   "tip": "ASHA scheduling kills unpromising trials early, which is where most of the compute saving comes from.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install 'ray[tune]'",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed hyperparameter tuning with early-stopping schedulers.",
+    "ru": "Распределённый подбор гиперпараметров с планировщиками ранней остановки."
+   },
+   "localizedTip": {
+    "en": "ASHA scheduling kills unpromising trials early, which is where most of the compute saving comes from."
    },
    "pricing": {
     "model": "openSource",
@@ -39238,6 +39483,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-cupy",
+   "name": "CuPy",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "GPU array library with a NumPy-compatible API.",
+   "url": "https://docs.cupy.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gpu",
+    "numpy-compatible",
+    "cuda",
+    "arrays"
+   ],
+   "tip": "Swapping the numpy import for cupy is often the whole port, for array-heavy code.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install cupy",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GPU array library with a NumPy-compatible API.",
+    "ru": "Библиотека GPU-массивов с NumPy-совместимым API."
+   },
+   "localizedTip": {
+    "en": "Swapping the numpy import for cupy is often the whole port, for array-heavy code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-darts",
    "name": "Darts",
    "kind": "library",
@@ -39273,6 +39553,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-dgl",
+   "name": "DGL",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Graph neural network library working across PyTorch, TensorFlow and MXNet.",
+   "url": "https://www.dgl.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gnn",
+    "framework-agnostic",
+    "scalable",
+    "graphs"
+   ],
+   "tip": "Its distributed training support handles graphs too large for a single machine.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install dgl",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Graph neural network library working across PyTorch, TensorFlow and MXNet.",
+    "ru": "Библиотека графовых нейросетей, работающая с PyTorch, TensorFlow и MXNet."
+   },
+   "localizedTip": {
+    "en": "Its distributed training support handles graphs too large for a single machine."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-duckdb",
    "name": "DuckDB",
    "kind": "library",
@@ -39300,6 +39615,76 @@
    },
    "localizedTip": {
     "en": "Run SQL over a folder of CSV files without any import step: perfect for one-off analysis."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-equinox",
+   "name": "Equinox",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Minimal JAX neural network library where models are ordinary PyTrees.",
+   "url": "https://docs.kidger.site/equinox/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "jax",
+    "neural-networks",
+    "pytrees",
+    "minimal"
+   ],
+   "tip": "Models are plain dataclasses, so JAX transformations apply to them with no special handling.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install equinox",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal JAX neural network library where models are ordinary PyTrees.",
+    "ru": "Минималистичная библиотека нейросетей для JAX, где модели — обычные PyTree."
+   },
+   "localizedTip": {
+    "en": "Models are plain dataclasses, so JAX transformations apply to them with no special handling."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-flax",
+   "name": "Flax",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Neural network library for JAX, used widely in Google research code.",
+   "url": "https://flax.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "jax",
+    "neural-networks",
+    "google",
+    "functional"
+   ],
+   "tip": "Explicit parameter passing is unusual coming from PyTorch, but it is what makes JAX transforms work.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install flax",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Neural network library for JAX, used widely in Google research code.",
+    "ru": "Библиотека нейросетей для JAX, широко используемая в исследовательском коде Google."
+   },
+   "localizedTip": {
+    "en": "Explicit parameter passing is unusual coming from PyTorch, but it is what makes JAX transforms work."
    },
    "pricing": {
     "model": "openSource",
@@ -39348,6 +39733,41 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-graph-tool",
+   "name": "graph-tool",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "High-performance graph library with statistical inference for network structure.",
+   "url": "https://graph-tool.skewed.de/static/doc/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphs",
+    "performance",
+    "c-plus-plus",
+    "statistics"
+   ],
+   "tip": "Its stochastic block model inference finds community structure that modularity methods miss.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance graph library with statistical inference for network structure.",
+    "ru": "Высокопроизводительная библиотека графов со статистическим выводом структуры сети."
+   },
+   "localizedTip": {
+    "en": "Its stochastic block model inference finds community structure that modularity methods miss."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -39452,6 +39872,76 @@
    },
    "localizedTip": {
     "en": "Prototype on DuckDB locally and run the identical code against the warehouse."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-igraph",
+   "name": "igraph",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Fast graph analysis library with a C core and Python, R and Mathematica bindings.",
+   "url": "https://python.igraph.org/en/stable/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphs",
+    "c-core",
+    "fast",
+    "analysis"
+   ],
+   "tip": "Considerably faster than NetworkX on large graphs, with a less Pythonic interface.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install igraph",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast graph analysis library with a C core and Python, R and Mathematica bindings.",
+    "ru": "Быстрая библиотека анализа графов с ядром на C и биндингами для Python, R и Mathematica."
+   },
+   "localizedTip": {
+    "en": "Considerably faster than NetworkX on large graphs, with a less Pythonic interface."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-imbalanced-learn",
+   "name": "imbalanced-learn",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Resampling techniques for imbalanced classification, integrated with scikit-learn.",
+   "url": "https://imbalanced-learn.org/stable/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "resampling",
+    "class-imbalance",
+    "scikit-learn",
+    "smote"
+   ],
+   "tip": "Resample inside the cross-validation pipeline, not before it — otherwise your scores are inflated.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install imbalanced-learn",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Resampling techniques for imbalanced classification, integrated with scikit-learn.",
+    "ru": "Техники ресемплинга для несбалансированной классификации, интегрированные со scikit-learn."
+   },
+   "localizedTip": {
+    "en": "Resample inside the cross-validation pipeline, not before it — otherwise your scores are inflated."
    },
    "pricing": {
     "model": "openSource",
@@ -39670,6 +40160,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-neuralprophet",
+   "name": "NeuralProphet",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Neural network forecasting successor to Prophet, built on PyTorch.",
+   "url": "https://neuralprophet.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "forecasting",
+    "neural",
+    "time-series",
+    "pytorch"
+   ],
+   "tip": "Handles autoregression that Prophet cannot, at the cost of longer training and more tuning.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install neuralprophet",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Neural network forecasting successor to Prophet, built on PyTorch.",
+    "ru": "Нейросетевой преемник Prophet для прогнозирования, построенный на PyTorch."
+   },
+   "localizedTip": {
+    "en": "Handles autoregression that Prophet cannot, at the cost of longer training and more tuning."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-numpy",
    "name": "NumPy",
    "kind": "library",
@@ -39697,6 +40222,41 @@
    },
    "localizedTip": {
     "en": "Vectorise before you optimise: a Python loop over an array is the usual bottleneck."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-optax",
+   "name": "Optax",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Composable gradient transformation and optimizer library for JAX.",
+   "url": "https://optax.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "jax",
+    "optimizers",
+    "gradient",
+    "composable"
+   ],
+   "tip": "Chaining transformations lets you build clipping, scheduling and weight decay as separate pieces.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install optax",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Composable gradient transformation and optimizer library for JAX.",
+    "ru": "Композируемая библиотека преобразований градиента и оптимизаторов для JAX."
+   },
+   "localizedTip": {
+    "en": "Chaining transformations lets you build clipping, scheduling and weight decay as separate pieces."
    },
    "pricing": {
     "model": "openSource",
@@ -39915,6 +40475,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-pyod",
+   "name": "PyOD",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Comprehensive toolkit of outlier and anomaly detection algorithms.",
+   "url": "https://pyod.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "anomaly-detection",
+    "outliers",
+    "unified",
+    "benchmarks"
+   ],
+   "tip": "Its unified API makes benchmarking a dozen detectors on your data a short script.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pyod",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Comprehensive toolkit of outlier and anomaly detection algorithms.",
+    "ru": "Полный набор алгоритмов обнаружения выбросов и аномалий."
+   },
+   "localizedTip": {
+    "en": "Its unified API makes benchmarking a dozen detectors on your data a short script."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-pytorch",
    "name": "PyTorch",
    "kind": "library",
@@ -39942,6 +40537,41 @@
    },
    "localizedTip": {
     "en": "torch.compile speeds up training and inference substantially with a one-line change on modern versions."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-pyg",
+   "name": "PyTorch Geometric",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Graph neural network library for PyTorch with many published architectures.",
+   "url": "https://pytorch-geometric.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gnn",
+    "pytorch",
+    "graphs",
+    "deep-learning"
+   ],
+   "tip": "Its sparse message-passing implementation is what makes large graphs fit in GPU memory.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install torch_geometric",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Graph neural network library for PyTorch with many published architectures.",
+    "ru": "Библиотека графовых нейросетей для PyTorch со множеством опубликованных архитектур."
+   },
+   "localizedTip": {
+    "en": "Its sparse message-passing implementation is what makes large graphs fit in GPU memory."
    },
    "pricing": {
     "model": "openSource",
@@ -40082,6 +40712,41 @@
    },
    "localizedTip": {
     "en": "Its reactive model recomputes only what changed, which scales better than Streamlit's full rerun."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-sktime",
+   "name": "sktime",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Unified scikit-learn-style interface for time series tasks.",
+   "url": "https://www.sktime.net/en/stable/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "time-series",
+    "scikit-learn",
+    "unified",
+    "forecasting"
+   ],
+   "tip": "Its familiar fit/predict API lets you compare very different forecasters with one code path.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install sktime",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unified scikit-learn-style interface for time series tasks.",
+    "ru": "Единый интерфейс в стиле scikit-learn для задач с временными рядами."
+   },
+   "localizedTip": {
+    "en": "Its familiar fit/predict API lets you compare very different forecasters with one code path."
    },
    "pricing": {
     "model": "openSource",
@@ -40853,6 +41518,223 @@
    },
    "localizedTip": {
     "en": "Its parsers cover the many awkward bioinformatics file formats you would otherwise hand-parse."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-cvxpy",
+   "name": "CVXPY",
+   "kind": "library",
+   "category": "Наука и исследования",
+   "summary": "Models convex optimization problems in natural mathematical notation.",
+   "url": "https://www.cvxpy.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "convex-optimization",
+    "modelling",
+    "python",
+    "solvers"
+   ],
+   "tip": "It verifies convexity as you build the problem, catching a formulation error before any solve.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install cvxpy",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Models convex optimization problems in natural mathematical notation.",
+    "ru": "Моделирует задачи выпуклой оптимизации в естественной математической нотации."
+   },
+   "localizedTip": {
+    "en": "It verifies convexity as you build the problem, catching a formulation error before any solve."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-gurobi",
+   "name": "Gurobi",
+   "kind": "library",
+   "category": "Наука и исследования",
+   "summary": "Commercial optimization solver, among the fastest available for large MILP problems.",
+   "url": "https://docs.gurobi.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "solver",
+    "milp",
+    "commercial",
+    "performance",
+    "pricing",
+    "licence",
+    "academic-free"
+   ],
+   "tip": "Free for academic use, and often an order of magnitude faster than open-source solvers.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install gurobipy",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Commercial optimization solver, among the fastest available for large MILP problems.",
+    "ru": "Коммерческий решатель оптимизации, один из самых быстрых для больших MILP-задач."
+   },
+   "localizedTip": {
+    "en": "Free for academic use, and often an order of magnitude faster than open-source solvers."
+   },
+   "pricing": {
+    "model": "one-time",
+    "from": "custom quote (named-user or cloud licence)",
+    "freeQuota": "free academic licence and size-limited trial",
+    "url": "https://www.gurobi.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-or-tools",
+   "name": "OR-Tools",
+   "kind": "library",
+   "category": "Наука и исследования",
+   "summary": "Google's operations research suite for routing, scheduling and constraint problems.",
+   "url": "https://developers.google.com/optimization",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "constraint-programming",
+    "routing",
+    "scheduling",
+    "google"
+   ],
+   "tip": "Its CP-SAT solver is remarkably strong on scheduling problems that defeat generic MILP approaches.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install ortools",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's operations research suite for routing, scheduling and constraint problems.",
+    "ru": "Набор инструментов исследования операций от Google для маршрутизации, планирования и задач с ограничениями."
+   },
+   "localizedTip": {
+    "en": "Its CP-SAT solver is remarkably strong on scheduling problems that defeat generic MILP approaches."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-pulp",
+   "name": "PuLP",
+   "kind": "library",
+   "category": "Наука и исследования",
+   "summary": "Linear and mixed-integer programming modeller for Python.",
+   "url": "https://coin-or.github.io/pulp/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "linear-programming",
+    "milp",
+    "python",
+    "solvers"
+   ],
+   "tip": "Ships with a free solver and switches to a commercial one without changing the model code.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pulp",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Linear and mixed-integer programming modeller for Python.",
+    "ru": "Моделировщик линейного и смешанно-целочисленного программирования для Python."
+   },
+   "localizedTip": {
+    "en": "Ships with a free solver and switches to a commercial one without changing the model code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-pyomo",
+   "name": "Pyomo",
+   "kind": "library",
+   "category": "Наука и исследования",
+   "summary": "Algebraic modelling language for a wide range of optimization problem classes.",
+   "url": "https://pyomo.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "optimization",
+    "modelling",
+    "algebraic",
+    "solvers"
+   ],
+   "tip": "Covers nonlinear and stochastic programming that simpler linear-only modellers cannot express.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pyomo",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Algebraic modelling language for a wide range of optimization problem classes.",
+    "ru": "Алгебраический язык моделирования для широкого класса задач оптимизации."
+   },
+   "localizedTip": {
+    "en": "Covers nonlinear and stochastic programming that simpler linear-only modellers cannot express."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-scipy",
+   "name": "SciPy",
+   "kind": "library",
+   "category": "Наука и исследования",
+   "summary": "Foundational scientific computing library: optimization, signals, statistics and linear algebra.",
+   "url": "https://docs.scipy.org/doc/scipy/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scientific",
+    "algorithms",
+    "optimization",
+    "signal"
+   ],
+   "tip": "Check here before writing a numerical routine — the well-tested version usually already exists.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install scipy",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Foundational scientific computing library: optimization, signals, statistics and linear algebra.",
+    "ru": "Фундаментальная библиотека научных вычислений: оптимизация, сигналы, статистика и линейная алгебра."
+   },
+   "localizedTip": {
+    "en": "Check here before writing a numerical routine — the well-tested version usually already exists."
    },
    "pricing": {
     "model": "openSource",
@@ -52971,6 +53853,76 @@
    },
    "localizedTip": {
     "en": "Pin the version with an .nvmrc file so CI and your machine never drift apart."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-numba",
+   "name": "Numba",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "JIT compiler turning numerical Python loops into fast machine code.",
+   "url": "https://numba.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "jit",
+    "python",
+    "llvm",
+    "performance"
+   ],
+   "tip": "Only helps on numeric array code — decorating general Python often makes things slower.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install numba",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "JIT compiler turning numerical Python loops into fast machine code.",
+    "ru": "JIT-компилятор, превращающий числовые циклы Python в быстрый машинный код."
+   },
+   "localizedTip": {
+    "en": "Only helps on numeric array code — decorating general Python often makes things slower."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-taichi",
+   "name": "Taichi",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Python-embedded language for high-performance parallel computing and simulation.",
+   "url": "https://docs.taichi-lang.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gpu",
+    "parallel",
+    "simulation",
+    "python-embedded"
+   ],
+   "tip": "Writes once and runs on CPU or GPU, which suits physics simulation and graphics prototyping.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install taichi",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python-embedded language for high-performance parallel computing and simulation.",
+    "ru": "Встроенный в Python язык для высокопроизводительных параллельных вычислений и симуляций."
+   },
+   "localizedTip": {
+    "en": "Writes once and runs on CPU or GPU, which suits physics simulation and graphics prototyping."
    },
    "pricing": {
     "model": "openSource",

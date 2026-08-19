@@ -173,6 +173,7 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-gurobi': 'lib-gurobi',
  'paid-appsflyer': 'lib-appsflyer',
  'paid-adjust': 'lib-adjust',
  'paid-singular': 'lib-singular',

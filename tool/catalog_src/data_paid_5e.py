@@ -52,4 +52,9 @@ PAID_5E = [
  "Продуктовые туры и микроопросы с оплатой по активным пользователям в месяц.",
  "Its styling flexibility is the reason to pay over the lighter open-source tour libraries.",
  "subscription","from ~$279 per month","free trial","https://www.chameleon.io/pricing"),
+("paid-gurobi","Gurobi (pricing)","Наука и исследования","https://www.gurobi.com/pricing/","paid","solver,pricing,licence,academic-free",
+ "Commercial optimization solver licensed per machine or per cloud core.",
+ "Коммерческий решатель оптимизации с лицензией на машину или на облачное ядро.",
+ "Free full-strength academic licences make it the standard solver in research regardless of budget.",
+ "one-time","custom quote (named-user or cloud licence)","free academic licence and size-limited trial","https://www.gurobi.com/pricing/"),
 ]
