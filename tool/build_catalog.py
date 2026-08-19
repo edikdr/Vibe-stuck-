@@ -173,6 +173,11 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-escape-tech': 'lib-escape-tech',
+ 'paid-salt-security': 'lib-salt-security',
+ 'paid-traceable': 'lib-traceable',
+ 'paid-noname-security': 'lib-noname-security',
+ 'paid-impart-security': 'lib-impart-security',
  'paid-wellsaid': 'api-wellsaid',
  'paid-respeecher': 'api-respeecher',
  'paid-krisp': 'api-krisp',

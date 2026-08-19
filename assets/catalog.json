@@ -30646,6 +30646,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-motia",
+   "name": "Motia",
+   "kind": "library",
+   "category": "AI и агенты",
+   "summary": "Unified backend framework where APIs, jobs and agents are all steps.",
+   "url": "https://www.motia.dev/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "backend",
+    "agents",
+    "steps",
+    "polyglot"
+   ],
+   "tip": "Steps can be written in different languages within one workflow, which few frameworks allow.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx motia@latest create",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unified backend framework where APIs, jobs and agents are all steps.",
+    "ru": "Единый бэкенд-фреймворк, где API, задачи и агенты — это шаги одного типа."
+   },
+   "localizedTip": {
+    "en": "Steps can be written in different languages within one workflow, which few frameworks allow."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-strands-agents",
    "name": "Strands Agents",
    "kind": "library",
@@ -30673,6 +30708,41 @@
    },
    "localizedTip": {
     "en": "Relies on the model's own reasoning rather than a hardcoded graph, which keeps the code very small."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-voltagent",
+   "name": "VoltAgent",
+   "kind": "library",
+   "category": "AI и агенты",
+   "summary": "TypeScript agent framework with built-in tracing of agent runs.",
+   "url": "https://voltagent.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "agents",
+    "observability",
+    "tools"
+   ],
+   "tip": "Seeing each tool call and decision in a trace is what makes agent debugging tractable.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @voltagent/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "TypeScript agent framework with built-in tracing of agent runs.",
+    "ru": "TypeScript-фреймворк агентов со встроенной трассировкой запусков."
+   },
+   "localizedTip": {
+    "en": "Seeing each tool call and decision in a trace is what makes agent debugging tractable."
    },
    "pricing": {
     "model": "openSource",
@@ -31395,6 +31465,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-cloudflare-ai-gateway",
+   "name": "Cloudflare AI Gateway",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Proxy layer adding caching, rate limiting and analytics to any AI provider.",
+   "url": "https://developers.cloudflare.com/ai-gateway/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gateway",
+    "caching",
+    "rate-limiting",
+    "analytics"
+   ],
+   "tip": "Adding it is a base URL change, and the response caching often pays for itself immediately.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Proxy layer adding caching, rate limiting and analytics to any AI provider.",
+    "ru": "Прокси-слой, добавляющий кэширование, ограничение частоты и аналитику к любому AI-провайдеру."
+   },
+   "localizedTip": {
+    "en": "Adding it is a base URL change, and the response caching often pays for itself immediately."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-crewai",
    "name": "CrewAI",
    "kind": "library",
@@ -31451,6 +31556,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-genkit",
+   "name": "Genkit",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Google's framework for building AI features with typed flows and local tracing.",
+   "url": "https://genkit.dev/docs/get-started/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "google",
+    "ai",
+    "flows",
+    "typescript"
+   ],
+   "tip": "Its developer UI replays flows locally, which shortens the prompt iteration loop considerably.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i genkit",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's framework for building AI features with typed flows and local tracing.",
+    "ru": "Фреймворк Google для AI-функций с типизированными потоками и локальной трассировкой."
+   },
+   "localizedTip": {
+    "en": "Its developer UI replays flows locally, which shortens the prompt iteration loop considerably."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
   },
@@ -31950,6 +32090,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-notdiamond",
+   "name": "Not Diamond",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Automatically selects the best model per query from your configured set.",
+   "url": "https://docs.notdiamond.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "routing",
+    "model-selection",
+    "quality",
+    "automatic"
+   ],
+   "tip": "Its router is trained on benchmarks, so it generalizes better than a hand-written heuristic.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install notdiamond",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automatically selects the best model per query from your configured set.",
+    "ru": "Автоматически выбирает лучшую модель под каждый запрос из настроенного набора."
+   },
+   "localizedTip": {
+    "en": "Its router is trained on benchmarks, so it generalizes better than a hand-written heuristic."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-openai-agents",
    "name": "OpenAI Agents SDK",
    "kind": "library",
@@ -32117,6 +32292,76 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-requesty",
+   "name": "Requesty",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "LLM gateway with routing, caching and per-request cost attribution.",
+   "url": "https://docs.requesty.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gateway",
+    "routing",
+    "caching",
+    "cost-tracking"
+   ],
+   "tip": "Per-request cost attribution is what lets you find which feature is actually driving the bill.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "LLM gateway with routing, caching and per-request cost attribution.",
+    "ru": "LLM-шлюз с маршрутизацией, кэшированием и учётом стоимости по каждому запросу."
+   },
+   "localizedTip": {
+    "en": "Per-request cost attribution is what lets you find which feature is actually driving the bill."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-routellm",
+   "name": "RouteLLM",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Routes queries between strong and weak models to cut cost at similar quality.",
+   "url": "https://github.com/lm-sys/RouteLLM",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "routing",
+    "cost-optimization",
+    "research",
+    "quality"
+   ],
+   "tip": "Most queries do not need the largest model — the research behind it quantifies how many.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install routellm",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Routes queries between strong and weak models to cut cost at similar quality.",
+    "ru": "Маршрутизирует запросы между сильными и слабыми моделями, снижая стоимость при сопоставимом качестве."
+   },
+   "localizedTip": {
+    "en": "Most queries do not need the largest model — the research behind it quantifies how many."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-semantic-kernel",
    "name": "Semantic Kernel",
    "kind": "library",
@@ -32145,6 +32390,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-semantic-router",
+   "name": "Semantic Router",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Routes requests by embedding similarity instead of an LLM call.",
+   "url": "https://github.com/aurelio-labs/semantic-router",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "routing",
+    "embeddings",
+    "fast",
+    "decisions"
+   ],
+   "tip": "An embedding comparison is milliseconds and cents cheaper than asking a model to classify intent.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install semantic-router",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Routes requests by embedding similarity instead of an LLM call.",
+    "ru": "Маршрутизирует запросы по сходству эмбеддингов вместо вызова LLM."
+   },
+   "localizedTip": {
+    "en": "An embedding comparison is milliseconds and cents cheaper than asking a model to classify intent."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
   },
@@ -32209,6 +32489,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-unify-ai",
+   "name": "Unify",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Unified API across providers with routing driven by live quality and latency benchmarks.",
+   "url": "https://docs.unify.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "routing",
+    "benchmarks",
+    "unified-api",
+    "providers"
+   ],
+   "tip": "Routing on live benchmarks adapts automatically when a provider degrades.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unified API across providers with routing driven by live quality and latency benchmarks.",
+    "ru": "Единый API для разных провайдеров с маршрутизацией по актуальным замерам качества и задержки."
+   },
+   "localizedTip": {
+    "en": "Routing on live benchmarks adapts automatically when a provider degrades."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -35194,6 +35509,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-apisix",
+   "name": "Apache APISIX",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "High-performance API gateway with fully dynamic configuration.",
+   "url": "https://apisix.apache.org/docs/apisix/getting-started/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-gateway",
+    "dynamic",
+    "etcd",
+    "high-performance"
+   ],
+   "tip": "Routes change without a reload, which matters when configuration updates are frequent.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance API gateway with fully dynamic configuration.",
+    "ru": "Высокопроизводительный API-шлюз с полностью динамической конфигурацией."
+   },
+   "localizedTip": {
+    "en": "Routes change without a reload, which matters when configuration updates are frequent."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-apache-thrift",
    "name": "Apache Thrift",
    "kind": "library",
@@ -35364,6 +35714,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-blackbird",
+   "name": "Blackbird",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "API development platform with instant mock endpoints and gateway integration.",
+   "url": "https://www.getambassador.io/docs/blackbird",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-development",
+    "mocking",
+    "gateway",
+    "ambassador"
+   ],
+   "tip": "Spinning up a mock from a spec lets client work start before any backend exists.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API development platform with instant mock endpoints and gateway integration.",
+    "ru": "Платформа разработки API с мгновенными mock-эндпоинтами и интеграцией со шлюзом."
+   },
+   "localizedTip": {
+    "en": "Spinning up a mock from a spec lets client work start before any backend exists."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -36085,6 +36470,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-gravitee",
+   "name": "Gravitee",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "API management platform covering REST, GraphQL and event streams.",
+   "url": "https://documentation.gravitee.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-management",
+    "event-native",
+    "portal",
+    "access-control"
+   ],
+   "tip": "Its event-native support exposes Kafka topics as managed APIs, which most gateways cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API management platform covering REST, GraphQL and event streams.",
+    "ru": "Платформа управления API для REST, GraphQL и потоков событий."
+   },
+   "localizedTip": {
+    "en": "Its event-native support exposes Kafka topics as managed APIs, which most gateways cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-grpc",
    "name": "gRPC",
    "kind": "library",
@@ -36458,6 +36878,76 @@
    },
    "localizedTip": {
     "en": "Its middleware cascade unwinds after the response, which makes timing and cleanup logic natural."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-kong-gateway",
+   "name": "Kong Gateway",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Widely deployed API gateway with a large plugin ecosystem.",
+   "url": "https://developer.konghq.com/gateway/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-gateway",
+    "plugins",
+    "lua",
+    "scalable"
+   ],
+   "tip": "Its AI plugins add prompt caching and token rate limiting in front of LLM providers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Widely deployed API gateway with a large plugin ecosystem.",
+    "ru": "Широко распространённый API-шлюз с большой экосистемой плагинов."
+   },
+   "localizedTip": {
+    "en": "Its AI plugins add prompt caching and token rate limiting in front of LLM providers."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-krakend",
+   "name": "KrakenD",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Stateless API gateway that aggregates several backend calls into one response.",
+   "url": "https://www.krakend.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-gateway",
+    "aggregation",
+    "stateless",
+    "declarative"
+   ],
+   "tip": "Aggregation at the gateway removes a whole backend-for-frontend service in many architectures.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Stateless API gateway that aggregates several backend calls into one response.",
+    "ru": "Stateless API-шлюз, объединяющий несколько бэкенд-вызовов в один ответ."
+   },
+   "localizedTip": {
+    "en": "Aggregation at the gateway removes a whole backend-for-frontend service in many architectures."
    },
    "pricing": {
     "model": "openSource",
@@ -37370,6 +37860,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-tyk",
+   "name": "Tyk",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Open-source API gateway and management platform written in Go.",
+   "url": "https://tyk.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-gateway",
+    "go",
+    "management",
+    "graphql"
+   ],
+   "tip": "Its GraphQL federation support inside the gateway is unusual in this category.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source API gateway and management platform written in Go.",
+    "ru": "Открытый API-шлюз и платформа управления, написанные на Go."
+   },
+   "localizedTip": {
+    "en": "Its GraphQL federation support inside the gateway is unusual in this category."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-uvicorn",
    "name": "Uvicorn",
    "kind": "library",
@@ -37432,6 +37957,41 @@
    },
    "localizedTip": {
     "en": "Use it over Socket.IO when both ends are yours and you do not need automatic reconnect and fallbacks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-wso2-api-manager",
+   "name": "WSO2 API Manager",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Full open-source API management suite with governance and a developer portal.",
+   "url": "https://apim.docs.wso2.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-management",
+    "enterprise",
+    "governance",
+    "portal"
+   ],
+   "tip": "Enterprise-oriented and heavy — overkill unless you genuinely need formal API governance.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Full open-source API management suite with governance and a developer portal.",
+    "ru": "Полный открытый набор управления API с governance и порталом разработчика."
+   },
+   "localizedTip": {
+    "en": "Enterprise-oriented and heavy — overkill unless you genuinely need formal API governance."
    },
    "pricing": {
     "model": "openSource",
@@ -37505,6 +38065,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-zuplo",
+   "name": "Zuplo",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Programmable API gateway running at the edge, configured in TypeScript.",
+   "url": "https://zuplo.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-gateway",
+    "edge",
+    "typescript",
+    "programmable"
+   ],
+   "tip": "Custom policies are ordinary TypeScript, avoiding the Lua or config-DSL layer other gateways impose.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Programmable API gateway running at the edge, configured in TypeScript.",
+    "ru": "Программируемый API-шлюз на edge, настраиваемый на TypeScript."
+   },
+   "localizedTip": {
+    "en": "Custom policies are ordinary TypeScript, avoiding the Lua or config-DSL layer other gateways impose."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -52440,6 +53035,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-42crunch",
+   "name": "42Crunch",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "OpenAPI security auditing and runtime conformance enforcement.",
+   "url": "https://docs.42crunch.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "openapi",
+    "security",
+    "audit",
+    "conformance"
+   ],
+   "tip": "Auditing the spec catches missing auth definitions before a single line is implemented.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "OpenAPI security auditing and runtime conformance enforcement.",
+    "ru": "Аудит безопасности OpenAPI и контроль соответствия во время выполнения."
+   },
+   "localizedTip": {
+    "en": "Auditing the spec catches missing auth definitions before a single line is implemented."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-age-encryption",
    "name": "age",
    "kind": "library",
@@ -52470,6 +53100,46 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-noname-security",
+   "name": "Akamai API Security",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Enterprise API discovery and posture management, formerly Noname Security.",
+   "url": "https://techdocs.akamai.com/api-security/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-security",
+    "discovery",
+    "posture",
+    "enterprise",
+    "pricing"
+   ],
+   "tip": "Its shadow API discovery finds endpoints that no inventory or spec ever recorded.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise API discovery and posture management, formerly Noname Security.",
+    "ru": "Корпоративное обнаружение API и управление их защищённостью, ранее Noname Security."
+   },
+   "localizedTip": {
+    "en": "Its shadow API discovery finds endpoints that no inventory or spec ever recorded."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "product demo",
+    "url": "https://www.akamai.com/products/api-security",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -52790,6 +53460,48 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-escape-tech",
+   "name": "Escape",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "API security testing with strong GraphQL and business-logic coverage.",
+   "url": "https://docs.escape.tech/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-security",
+    "dast",
+    "graphql",
+    "discovery",
+    "pricing",
+    "per-api",
+    "subscription"
+   ],
+   "tip": "GraphQL introspection abuse is a class of flaw generic web scanners do not look for.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API security testing with strong GraphQL and business-logic coverage.",
+    "ru": "Тестирование безопасности API с сильным покрытием GraphQL и бизнес-логики."
+   },
+   "localizedTip": {
+    "en": "GraphQL introspection abuse is a class of flaw generic web scanners do not look for."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "custom quote (per API)",
+    "freeQuota": "free trial",
+    "url": "https://escape.tech/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-falco",
    "name": "Falco",
    "kind": "library",
@@ -52890,6 +53602,48 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-impart-security",
+   "name": "Impart Security",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Runtime API protection with programmable detection rules.",
+   "url": "https://docs.impart.security/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-security",
+    "waf",
+    "runtime",
+    "rules",
+    "pricing",
+    "traffic",
+    "subscription"
+   ],
+   "tip": "Rules deploy without a restart, so a live attack can be mitigated in minutes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runtime API protection with programmable detection rules.",
+    "ru": "Защита API во время выполнения с программируемыми правилами обнаружения."
+   },
+   "localizedTip": {
+    "en": "Rules deploy without a restart, so a live attack can be mitigated in minutes."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote (by request volume)",
+    "freeQuota": "free trial",
+    "url": "https://impart.security/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -53210,6 +53964,47 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-salt-security",
+   "name": "Salt Security",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Runtime API security using behavioural analysis to detect attacks.",
+   "url": "https://salt.security/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-security",
+    "runtime",
+    "behavioural",
+    "enterprise",
+    "pricing",
+    "traffic"
+   ],
+   "tip": "Behavioural baselining catches business-logic abuse that signature-based tools miss entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runtime API security using behavioural analysis to detect attacks.",
+    "ru": "Безопасность API во время выполнения с поведенческим анализом для обнаружения атак."
+   },
+   "localizedTip": {
+    "en": "Behavioural baselining catches business-logic abuse that signature-based tools miss entirely."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "product demo",
+    "url": "https://salt.security/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-semgrep-2",
    "name": "Semgrep",
    "kind": "library",
@@ -53315,6 +54110,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-stackhawk",
+   "name": "StackHawk",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Developer-focused dynamic security testing built to run in CI.",
+   "url": "https://docs.stackhawk.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dast",
+    "ci",
+    "api-security",
+    "developer-first"
+   ],
+   "tip": "Scanning against a running test environment in the pipeline catches issues pre-merge.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Developer-focused dynamic security testing built to run in CI.",
+    "ru": "Динамическое тестирование безопасности для разработчиков, рассчитанное на запуск в CI."
+   },
+   "localizedTip": {
+    "en": "Scanning against a running test environment in the pipeline catches issues pre-merge."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-suricata",
    "name": "Suricata",
    "kind": "library",
@@ -53415,6 +54245,48 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-traceable",
+   "name": "Traceable",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "API security built on distributed tracing for full request context.",
+   "url": "https://docs.traceable.ai/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-security",
+    "distributed-tracing",
+    "protection",
+    "discovery",
+    "pricing",
+    "enterprise",
+    "custom"
+   ],
+   "tip": "Tracing across services shows the full path of an attack, not just the entry point.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API security built on distributed tracing for full request context.",
+    "ru": "Безопасность API на основе распределённой трассировки с полным контекстом запроса."
+   },
+   "localizedTip": {
+    "en": "Tracing across services shows the full path of an attack, not just the entry point."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "product demo",
+    "url": "https://www.traceable.ai/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -55564,6 +56436,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-akita",
+   "name": "Akita (Postman Insights)",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Infers API models from live traffic to reveal undocumented endpoints.",
+   "url": "https://www.postman.com/product/insights/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-discovery",
+    "traffic",
+    "drift",
+    "postman"
+   ],
+   "tip": "Discovering endpoints nobody documented is usually the first step in taming a legacy API.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Infers API models from live traffic to reveal undocumented endpoints.",
+    "ru": "Выводит модели API из живого трафика, выявляя недокументированные эндпоинты."
+   },
+   "localizedTip": {
+    "en": "Discovering endpoints nobody documented is usually the first step in taming a legacy API."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-apitoolkit",
+   "name": "APIToolkit",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "API monitoring detecting breaking changes and payload anomalies.",
+   "url": "https://apitoolkit.io/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-monitoring",
+    "anomalies",
+    "contracts",
+    "errors"
+   ],
+   "tip": "It flags a field that silently changed type, which error-rate monitoring never catches.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API monitoring detecting breaking changes and payload anomalies.",
+    "ru": "Мониторинг API, обнаруживающий ломающие изменения и аномалии в полезной нагрузке."
+   },
+   "localizedTip": {
+    "en": "It flags a field that silently changed type, which error-rate monitoring never catches."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-bugsnag",
    "name": "Bugsnag",
    "kind": "library",
@@ -55992,6 +56934,41 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-moesif",
+   "name": "Moesif",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "API analytics with usage-based billing and customer behaviour tracking.",
+   "url": "https://www.moesif.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-analytics",
+    "monetization",
+    "billing",
+    "user-behaviour"
+   ],
+   "tip": "Its metering feeds usage-based billing directly, which few analytics tools attempt.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API analytics with usage-based billing and customer behaviour tracking.",
+    "ru": "Аналитика API с биллингом по использованию и отслеживанием поведения клиентов."
+   },
+   "localizedTip": {
+    "en": "Its metering feeds usage-based billing directly, which few analytics tools attempt."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -56454,6 +57431,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-treblle",
+   "name": "Treblle",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "API observability with automatic documentation and security scoring.",
+   "url": "https://docs.treblle.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-observability",
+    "documentation",
+    "security-scoring",
+    "realtime"
+   ],
+   "tip": "Documentation generated from real traffic stays accurate, unlike a spec that drifts from the code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API observability with automatic documentation and security scoring.",
+    "ru": "Observability API с автоматической документацией и оценкой безопасности."
+   },
+   "localizedTip": {
+    "en": "Documentation generated from real traffic stays accurate, unlike a spec that drifts from the code."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
