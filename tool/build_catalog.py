@@ -173,6 +173,15 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-zyte': 'api-zyte',
+ 'paid-oxylabs': 'api-oxylabs',
+ 'paid-smartproxy': 'api-smartproxy',
+ 'paid-dataforseo': 'api-dataforseo',
+ 'paid-ahrefs': 'api-ahrefs',
+ 'paid-semrush': 'api-semrush',
+ 'paid-moz': 'api-moz',
+ 'paid-builtwith': 'api-builtwith',
+ 'paid-wappalyzer': 'api-wappalyzer',
  'paid-gurobi': 'lib-gurobi',
  'paid-appsflyer': 'lib-appsflyer',
  'paid-adjust': 'lib-adjust',

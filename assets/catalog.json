@@ -10444,6 +10444,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-locationiq",
+   "name": "LocationIQ",
+   "kind": "api",
+   "category": "Карты и навигация",
+   "summary": "Geocoding and reverse geocoding on OpenStreetMap data with a generous free tier.",
+   "url": "https://docs.locationiq.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "geocoding",
+    "osm",
+    "reverse",
+    "affordable"
+   ],
+   "tip": "Its free tier allows commercial use, which most geocoding free tiers explicitly forbid.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Geocoding and reverse geocoding on OpenStreetMap data with a generous free tier.",
+    "ru": "Прямое и обратное геокодирование на данных OpenStreetMap с щедрым бесплатным тарифом."
+   },
+   "localizedTip": {
+    "en": "Its free tier allows commercial use, which most geocoding free tiers explicitly forbid."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-mapbox-directions",
    "name": "Mapbox Directions API",
    "kind": "api",
@@ -10624,6 +10659,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-radar-io",
+   "name": "Radar",
+   "kind": "api",
+   "category": "Карты и навигация",
+   "summary": "Location platform with geofencing, trip tracking and place detection SDKs.",
+   "url": "https://radar.com/documentation",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "geofencing",
+    "sdk",
+    "location",
+    "tracking"
+   ],
+   "tip": "Its on-device geofencing avoids the constant location polling that drains mobile batteries.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Location platform with geofencing, trip tracking and place detection SDKs.",
+    "ru": "Платформа геолокации с геозонами, отслеживанием поездок и SDK определения мест."
+   },
+   "localizedTip": {
+    "en": "Its on-device geofencing avoids the constant location polling that drains mobile batteries."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-stadia-maps",
    "name": "Stadia Maps",
    "kind": "api",
@@ -10689,6 +10759,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-what3words",
+   "name": "what3words",
+   "kind": "api",
+   "category": "Карты и навигация",
+   "summary": "Addresses every three-metre square on earth with a unique three-word phrase.",
+   "url": "https://developer.what3words.com/public-api",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "addressing",
+    "three-words",
+    "precise",
+    "global"
+   ],
+   "tip": "Useful for delivery in places with no street addresses, though it is a proprietary scheme.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Addresses every three-metre square on earth with a unique three-word phrase.",
+    "ru": "Адресует каждый трёхметровый квадрат на Земле уникальной фразой из трёх слов."
+   },
+   "localizedTip": {
+    "en": "Useful for delivery in places with no street addresses, though it is a proprietary scheme."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -12149,6 +12254,83 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-builtwith",
+   "name": "BuiltWith",
+   "kind": "api",
+   "category": "Открытые данные",
+   "summary": "Detects which technologies a website is built with.",
+   "url": "https://api.builtwith.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "technology-profiling",
+    "lead-generation",
+    "stacks",
+    "detection",
+    "pricing",
+    "subscription",
+    "lists"
+   ],
+   "tip": "Widely used for lead generation — finding every site running a competitor's product.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Detects which technologies a website is built with.",
+    "ru": "Определяет, на каких технологиях построен веб-сайт."
+   },
+   "localizedTip": {
+    "en": "Widely used for lead generation — finding every site running a competitor's product."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$295 per month",
+    "freeQuota": "free single-site lookup",
+    "url": "https://builtwith.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-cloudflare-radar",
+   "name": "Cloudflare Radar",
+   "kind": "api",
+   "category": "Открытые данные",
+   "summary": "Free internet traffic, security and adoption trend data from Cloudflare's network.",
+   "url": "https://developers.cloudflare.com/radar/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "internet-trends",
+    "traffic",
+    "security",
+    "free"
+   ],
+   "tip": "A rare free window into internet-scale traffic patterns, including outages by country.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free internet traffic, security and adoption trend data from Cloudflare's network.",
+    "ru": "Бесплатные данные о трафике, безопасности и трендах интернета из сети Cloudflare."
+   },
+   "localizedTip": {
+    "en": "A rare free window into internet-scale traffic patterns, including outages by country."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-congress-gov",
    "name": "Congress.gov API",
    "kind": "api",
@@ -12394,6 +12576,76 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-ipapi",
+   "name": "ipapi",
+   "kind": "api",
+   "category": "Открытые данные",
+   "summary": "IP geolocation returning country, region, city and network details.",
+   "url": "https://ipapi.com/documentation",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "geolocation",
+    "ip",
+    "json",
+    "simple"
+   ],
+   "tip": "City-level accuracy is unreliable on mobile networks — treat country as the only firm signal.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "IP geolocation returning country, region, city and network details.",
+    "ru": "IP-геолокация, возвращающая страну, регион, город и сведения о сети."
+   },
+   "localizedTip": {
+    "en": "City-level accuracy is unreliable on mobile networks — treat country as the only firm signal."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-maxmind-geoip2",
+   "name": "MaxMind GeoIP2",
+   "kind": "api",
+   "category": "Открытые данные",
+   "summary": "IP intelligence available both as an API and as a downloadable local database.",
+   "url": "https://dev.maxmind.com/geoip",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "geolocation",
+    "ip",
+    "offline-database",
+    "accuracy"
+   ],
+   "tip": "The local database means lookups add no network latency, which suits per-request use.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "IP intelligence available both as an API and as a downloadable local database.",
+    "ru": "IP-аналитика, доступная и как API, и как загружаемая локальная база данных."
+   },
+   "localizedTip": {
+    "en": "The local database means lookups add no network latency, which suits per-request use."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-nager-date",
    "name": "Nager.Date",
    "kind": "api",
@@ -12567,6 +12819,48 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-wappalyzer",
+   "name": "Wappalyzer",
+   "kind": "api",
+   "category": "Открытые данные",
+   "summary": "Technology stack detection with company enrichment data.",
+   "url": "https://www.wappalyzer.com/docs/api/v2/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "technology-detection",
+    "stacks",
+    "lookup",
+    "enrichment",
+    "pricing",
+    "credits",
+    "lookups"
+   ],
+   "tip": "Its open-source detection rules are public, so you can self-host the detection logic.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Technology stack detection with company enrichment data.",
+    "ru": "Определение технологического стека с обогащением данными о компаниях."
+   },
+   "localizedTip": {
+    "en": "Its open-source detection rules are public, so you can self-host the detection logic."
+   },
+   "pricing": {
+    "model": "credits",
+    "from": "from ~$149 per month",
+    "freeQuota": "free browser extension",
+    "url": "https://www.wappalyzer.com/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -13416,6 +13710,48 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-ahrefs",
+   "name": "Ahrefs API",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Backlink and keyword data from one of the largest web crawl indexes.",
+   "url": "https://docs.ahrefs.com/docs/api/reference/introduction",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "seo",
+    "backlinks",
+    "keywords",
+    "authority",
+    "pricing",
+    "subscription",
+    "api-units"
+   ],
+   "tip": "Its backlink index is the main draw — few competitors crawl at comparable depth.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Backlink and keyword data from one of the largest web crawl indexes.",
+    "ru": "Данные об обратных ссылках и ключевых словах из одного из крупнейших индексов веб-краулинга."
+   },
+   "localizedTip": {
+    "en": "Its backlink index is the main draw — few competitors crawl at comparable depth."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$129 per month plus API units",
+    "freeQuota": "free webmaster tools for own site",
+    "url": "https://ahrefs.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "paid-algolia",
    "name": "Algolia",
    "kind": "api",
@@ -13520,6 +13856,48 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-dataforseo",
+   "name": "DataForSEO",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Comprehensive SEO data APIs covering SERPs, keywords and backlinks.",
+   "url": "https://docs.dataforseo.com/v3/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "seo",
+    "serp",
+    "keywords",
+    "backlinks",
+    "pricing",
+    "per-request",
+    "prepaid"
+   ],
+   "tip": "Priced per request rather than per seat, which suits building your own SEO tooling.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Comprehensive SEO data APIs covering SERPs, keywords and backlinks.",
+    "ru": "Полные SEO-API с данными по выдаче, ключевым словам и обратным ссылкам."
+   },
+   "localizedTip": {
+    "en": "Priced per request rather than per seat, which suits building your own SEO tooling."
+   },
+   "pricing": {
+    "model": "credits",
+    "from": "from ~$0.0006 per SERP request",
+    "freeQuota": "free trial credit",
+    "url": "https://dataforseo.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -13846,6 +14224,48 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-moz",
+   "name": "Moz API",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Link metrics including the widely cited Domain Authority score.",
+   "url": "https://moz.com/products/api",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "seo",
+    "domain-authority",
+    "links",
+    "metrics",
+    "pricing",
+    "per-row",
+    "subscription"
+   ],
+   "tip": "Domain Authority is Moz's own model, not a Google signal — useful comparatively, not absolutely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Link metrics including the widely cited Domain Authority score.",
+    "ru": "Метрики ссылок, включая широко цитируемый показатель Domain Authority."
+   },
+   "localizedTip": {
+    "en": "Domain Authority is Moz's own model, not a Google signal — useful comparatively, not absolutely."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$99 per month",
+    "freeQuota": "free tier with limited rows",
+    "url": "https://moz.com/products/api/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-openai-embeddings",
    "name": "OpenAI Embeddings",
    "kind": "api",
@@ -13987,6 +14407,83 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-searchapi",
+   "name": "SearchApi",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Structured search engine results from Google, Bing and others.",
+   "url": "https://www.searchapi.io/docs/google",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serp",
+    "google",
+    "structured",
+    "real-time"
+   ],
+   "tip": "Structured JSON avoids parsing search HTML, which changes without warning.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Structured search engine results from Google, Bing and others.",
+    "ru": "Структурированные результаты поисковой выдачи Google, Bing и других систем."
+   },
+   "localizedTip": {
+    "en": "Structured JSON avoids parsing search HTML, which changes without warning."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-semrush",
+   "name": "Semrush API",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Competitive research data on keywords, traffic and advertising.",
+   "url": "https://developer.semrush.com/api/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "seo",
+    "competitive",
+    "keywords",
+    "traffic",
+    "pricing",
+    "subscription",
+    "api-add-on"
+   ],
+   "tip": "Its paid-advertising data is the differentiator over backlink-focused competitors.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Competitive research data on keywords, traffic and advertising.",
+    "ru": "Данные конкурентного анализа по ключевым словам, трафику и рекламе."
+   },
+   "localizedTip": {
+    "en": "Its paid-advertising data is the differentiator over backlink-focused competitors."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$139 per month plus API add-on",
+    "freeQuota": "free limited account",
+    "url": "https://www.semrush.com/prices/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -14140,6 +14637,41 @@
     "freeQuota": "starter token allowance",
     "url": "https://docs.voyageai.com/docs/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-zenserp",
+   "name": "Zenserp",
+   "kind": "api",
+   "category": "Поиск и retrieval",
+   "summary": "Search engine results API for rank tracking and SERP analysis.",
+   "url": "https://app.zenserp.com/documentation",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serp",
+    "scraping",
+    "google",
+    "rankings"
+   ],
+   "tip": "Results vary by location parameter, so always pin the locale when tracking rankings over time.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Search engine results API for rank tracking and SERP analysis.",
+    "ru": "API результатов поисковой выдачи для отслеживания позиций и анализа SERP."
+   },
+   "localizedTip": {
+    "en": "Results vary by location parameter, so always pin the locale when tracking rankings over time."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -15104,6 +15636,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-currencylayer",
+   "name": "Currencylayer",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Real-time and historical exchange rates for many world currencies.",
+   "url": "https://currencylayer.com/documentation",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "exchange-rates",
+    "currency",
+    "real-time",
+    "conversion"
+   ],
+   "tip": "Always compare against the free Frankfurter API before paying — it covers many of the same pairs.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Real-time and historical exchange rates for many world currencies.",
+    "ru": "Курсы валют в реальном времени и исторические данные по многим мировым валютам."
+   },
+   "localizedTip": {
+    "en": "Always compare against the free Frankfurter API before paying — it covers many of the same pairs."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-bundesbank",
    "name": "Deutsche Bundesbank API",
    "kind": "api",
@@ -15343,6 +15910,41 @@
    },
    "localizedTip": {
     "en": "Websocket quotes are free but delayed on the base plan: label the delay in your UI."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-fixer-io",
+   "name": "Fixer.io",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Foreign exchange rates with historical data and conversion endpoints.",
+   "url": "https://fixer.io/documentation",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "exchange-rates",
+    "currency",
+    "historical",
+    "simple"
+   ],
+   "tip": "Its free tier is HTTP-only and euro-based, which rules it out for most production use.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Foreign exchange rates with historical data and conversion endpoints.",
+    "ru": "Курсы валют с историческими данными и эндпоинтами конвертации."
+   },
+   "localizedTip": {
+    "en": "Its free tier is HTTP-only and euro-based, which rules it out for most production use."
    },
    "pricing": {
     "model": "freemium",
@@ -15866,6 +16468,41 @@
     "freeQuota": "sandbox access",
     "url": "https://www.nium.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-open-exchange-rates",
+   "name": "Open Exchange Rates",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Reliable exchange rate data with a long historical archive.",
+   "url": "https://docs.openexchangerates.org/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "exchange-rates",
+    "currency",
+    "reliable",
+    "historical"
+   ],
+   "tip": "Rates update hourly on lower tiers — not suitable for anything trading-sensitive.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reliable exchange rate data with a long historical archive.",
+    "ru": "Надёжные данные о курсах валют с обширным историческим архивом."
+   },
+   "localizedTip": {
+    "en": "Rates update hourly on lower tiers — not suitable for anything trading-sensitive."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -16601,6 +17238,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-vatlayer",
+   "name": "Vatlayer",
+   "kind": "api",
+   "category": "Юридические и налоговые API",
+   "summary": "EU VAT number validation and VAT rate lookup.",
+   "url": "https://vatlayer.com/documentation",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vat",
+    "validation",
+    "eu",
+    "tax-rates"
+   ],
+   "tip": "Validating a customer's VAT number is what allows the reverse-charge exemption on B2B invoices.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "EU VAT number validation and VAT rate lookup.",
+    "ru": "Проверка номеров НДС ЕС и получение ставок НДС."
+   },
+   "localizedTip": {
+    "en": "Validating a customer's VAT number is what allows the reverse-charge exemption on B2B invoices."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-optimizely",
    "name": "Optimizely",
    "kind": "api",
@@ -17243,6 +17915,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-censys",
+   "name": "Censys",
+   "kind": "api",
+   "category": "Безопасность и секреты",
+   "summary": "Internet-wide scan data on hosts, services and certificates.",
+   "url": "https://docs.censys.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "internet-scanning",
+    "hosts",
+    "certificates",
+    "recon"
+   ],
+   "tip": "Useful for auditing your own external attack surface, not only for researching others.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Internet-wide scan data on hosts, services and certificates.",
+    "ru": "Данные интернет-сканирования по хостам, сервисам и сертификатам."
+   },
+   "localizedTip": {
+    "en": "Useful for auditing your own external attack surface, not only for researching others."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-codeql",
    "name": "CodeQL",
    "kind": "api",
@@ -17712,6 +18419,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-crawlbase",
+   "name": "Crawlbase",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Crawling and scraping API with built-in proxy handling and storage.",
+   "url": "https://crawlbase.com/docs/crawling-api/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scraping",
+    "crawling",
+    "proxies",
+    "storage"
+   ],
+   "tip": "Its free tier of a thousand requests is enough to validate a scraper before committing.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Crawling and scraping API with built-in proxy handling and storage.",
+    "ru": "API краулинга и скрейпинга со встроенной работой с прокси и хранилищем."
+   },
+   "localizedTip": {
+    "en": "Its free tier of a thousand requests is enough to validate a scraper before committing."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-daytona",
    "name": "Daytona",
    "kind": "api",
@@ -17742,6 +18484,47 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-smartproxy",
+   "name": "Decodo (Smartproxy)",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Proxy network with residential and datacenter pools for data collection.",
+   "url": "https://help.decodo.com/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "proxies",
+    "residential",
+    "scraping",
+    "rotation",
+    "pricing",
+    "per-gb"
+   ],
+   "tip": "Cheaper than the enterprise providers, with correspondingly smaller pools and less support.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Proxy network with residential and datacenter pools for data collection.",
+    "ru": "Прокси-сеть с резидентными и датацентровыми пулами для сбора данных."
+   },
+   "localizedTip": {
+    "en": "Cheaper than the enterprise providers, with correspondingly smaller pools and less support."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$1.5 per GB",
+    "freeQuota": "free trial",
+    "url": "https://decodo.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -17856,6 +18639,82 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-oxylabs",
+   "name": "Oxylabs",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Large proxy network and scraping APIs aimed at enterprise data collection.",
+   "url": "https://developers.oxylabs.io/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "proxies",
+    "scraping",
+    "residential",
+    "enterprise",
+    "pricing",
+    "per-gb"
+   ],
+   "tip": "Residential proxies raise real legal and ethical questions — confirm your use case is permitted.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Large proxy network and scraping APIs aimed at enterprise data collection.",
+    "ru": "Крупная прокси-сеть и API скрейпинга для корпоративного сбора данных."
+   },
+   "localizedTip": {
+    "en": "Residential proxies raise real legal and ethical questions — confirm your use case is permitted."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$4 per GB (residential)",
+    "freeQuota": "free trial",
+    "url": "https://oxylabs.io/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-scraperapi",
+   "name": "ScraperAPI",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Handles proxy rotation, CAPTCHAs and browser rendering behind one request.",
+   "url": "https://docs.scraperapi.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scraping",
+    "proxies",
+    "rendering",
+    "rotation"
+   ],
+   "tip": "Enable JavaScript rendering only where needed — it costs several times a plain request.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Handles proxy rotation, CAPTCHAs and browser rendering behind one request.",
+    "ru": "Берёт на себя ротацию прокси, CAPTCHA и рендеринг браузера за один запрос."
+   },
+   "localizedTip": {
+    "en": "Enable JavaScript rendering only where needed — it costs several times a plain request."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-scrapfly",
    "name": "Scrapfly",
    "kind": "api",
@@ -17960,6 +18819,48 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-zyte",
+   "name": "Zyte",
+   "kind": "api",
+   "category": "Браузер и автоматизация",
+   "summary": "Web scraping platform from the Scrapy team, with automatic extraction.",
+   "url": "https://docs.zyte.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scraping",
+    "scrapy",
+    "extraction",
+    "ai",
+    "pricing",
+    "usage",
+    "api"
+   ],
+   "tip": "Its automatic extraction infers product and article fields without site-specific selectors.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Web scraping platform from the Scrapy team, with automatic extraction.",
+    "ru": "Платформа веб-скрейпинга от команды Scrapy с автоматическим извлечением данных."
+   },
+   "localizedTip": {
+    "en": "Its automatic extraction infers product and article fields without site-specific selectors."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$100 per month",
+    "freeQuota": "free trial credit",
+    "url": "https://www.zyte.com/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -19172,6 +20073,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-pagespeed-insights",
+   "name": "PageSpeed Insights API",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Runs Lighthouse audits and returns real-world Core Web Vitals data.",
+   "url": "https://developers.google.com/speed/docs/insights/v5/get-started",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "performance",
+    "lighthouse",
+    "core-web-vitals",
+    "google"
+   ],
+   "tip": "Its field data comes from real Chrome users, which lab scores alone never reflect.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs Lighthouse audits and returns real-world Core Web Vitals data.",
+    "ru": "Запускает аудиты Lighthouse и возвращает реальные данные Core Web Vitals."
+   },
+   "localizedTip": {
+    "en": "Its field data comes from real Chrome users, which lab scores alone never reflect."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "paid-plausible",
    "name": "Plausible Analytics",
    "kind": "api",
@@ -19357,6 +20293,41 @@
     "freeQuota": "50 monitors at 5-minute checks",
     "url": "https://uptimerobot.com/pricing/",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-webpagetest",
+   "name": "WebPageTest API",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Detailed performance testing from many real locations and devices.",
+   "url": "https://docs.webpagetest.org/api/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "performance",
+    "waterfall",
+    "locations",
+    "filmstrip"
+   ],
+   "tip": "Its waterfall and filmstrip views diagnose why a page is slow, where a score only says that it is.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Detailed performance testing from many real locations and devices.",
+    "ru": "Детальное тестирование производительности из множества реальных локаций и на разных устройствах."
+   },
+   "localizedTip": {
+    "en": "Its waterfall and filmstrip views diagnose why a page is slow, where a score only says that it is."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -21362,6 +22333,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-abstractapi",
+   "name": "AbstractAPI",
+   "kind": "api",
+   "category": "Утилиты",
+   "summary": "Suite of small utility APIs for email, phone, IP and address validation.",
+   "url": "https://docs.abstractapi.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "validation",
+    "utilities",
+    "multi-api",
+    "suite"
+   ],
+   "tip": "Each API has its own quota, so a free plan covers several different validations at once.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Suite of small utility APIs for email, phone, IP and address validation.",
+    "ru": "Набор небольших утилитарных API для проверки email, телефонов, IP и адресов."
+   },
+   "localizedTip": {
+    "en": "Each API has its own quota, so a free plan covers several different validations at once."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-apilayer",
+   "name": "APILayer",
+   "kind": "api",
+   "category": "Утилиты",
+   "summary": "Marketplace of small production APIs under a single account and key.",
+   "url": "https://apilayer.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "marketplace",
+    "utilities",
+    "currency",
+    "validation"
+   ],
+   "tip": "One key across many APIs simplifies credential handling for a project using several of them.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Marketplace of small production APIs under a single account and key.",
+    "ru": "Маркетплейс небольших продакшн-API под одним аккаунтом и ключом."
+   },
+   "localizedTip": {
+    "en": "One key across many APIs simplifies credential handling for a project using several of them."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-cloudmersive",
    "name": "Cloudmersive",
    "kind": "api",
@@ -21462,6 +22503,41 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-neutrino",
+   "name": "Neutrino API",
+   "kind": "api",
+   "category": "Утилиты",
+   "summary": "General-purpose API collection covering validation, security and data tools.",
+   "url": "https://www.neutrinoapi.com/api/api-basics/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "utilities",
+    "validation",
+    "security",
+    "multi-purpose"
+   ],
+   "tip": "Self-hostable as a container, which is unusual for a utility API service.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "General-purpose API collection covering validation, security and data tools.",
+    "ru": "Универсальная коллекция API для валидации, безопасности и работы с данными."
+   },
+   "localizedTip": {
+    "en": "Self-hostable as a container, which is unusual for a utility API service."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
