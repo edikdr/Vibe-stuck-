@@ -38245,6 +38245,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-nuxt-content",
+   "name": "Nuxt Content",
+   "kind": "library",
+   "category": "CMS и контент",
+   "summary": "File-based content system for Nuxt with a query API over Markdown.",
+   "url": "https://content.nuxt.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nuxt",
+    "markdown",
+    "file-based",
+    "queries"
+   ],
+   "tip": "Querying Markdown files like a database avoids standing up a CMS for a content site.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @nuxt/content",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "File-based content system for Nuxt with a query API over Markdown.",
+    "ru": "Файловая система контента для Nuxt с API запросов к Markdown."
+   },
+   "localizedTip": {
+    "en": "Querying Markdown files like a database avoids standing up a CMS for a content site."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-payload",
    "name": "Payload CMS",
    "kind": "library",
@@ -55803,6 +55838,146 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-antora",
+   "name": "Antora",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Documentation site generator assembling content from many repositories.",
+   "url": "https://docs.antora.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "asciidoc",
+    "multi-repo",
+    "versioning",
+    "modular"
+   ],
+   "tip": "Multi-repository aggregation is its distinguishing feature, which suits large product suites.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g @antora/cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Documentation site generator assembling content from many repositories.",
+    "ru": "Генератор сайтов документации, собирающий контент из множества репозиториев."
+   },
+   "localizedTip": {
+    "en": "Multi-repository aggregation is its distinguishing feature, which suits large product suites."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-asciinema",
+   "name": "asciinema",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Records terminal sessions as text rather than video.",
+   "url": "https://docs.asciinema.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "terminal",
+    "recording",
+    "text-based",
+    "embeddable"
+   ],
+   "tip": "Viewers can select and copy the commands, which a screen recording never allows.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Records terminal sessions as text rather than video.",
+    "ru": "Записывает сессии терминала как текст, а не как видео."
+   },
+   "localizedTip": {
+    "en": "Viewers can select and copy the commands, which a screen recording never allows."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-d2",
+   "name": "D2",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Modern declarative diagram language with automatic layout.",
+   "url": "https://d2lang.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diagrams",
+    "declarative",
+    "layout",
+    "go"
+   ],
+   "tip": "Its layout engines produce noticeably cleaner results than Mermaid on dense diagrams.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern declarative diagram language with automatic layout.",
+    "ru": "Современный декларативный язык диаграмм с автоматической раскладкой."
+   },
+   "localizedTip": {
+    "en": "Its layout engines produce noticeably cleaner results than Mermaid on dense diagrams."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-docsify",
+   "name": "Docsify",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Renders Markdown documentation at runtime with no build step.",
+   "url": "https://docsify.js.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "markdown",
+    "no-build",
+    "runtime",
+    "lightweight"
+   ],
+   "tip": "No build means no pipeline, at the cost of client-side rendering that search engines index poorly.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g docsify-cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Renders Markdown documentation at runtime with no build step.",
+    "ru": "Отрисовывает документацию Markdown во время выполнения, без этапа сборки."
+   },
+   "localizedTip": {
+    "en": "No build means no pipeline, at the cost of client-side rendering that search engines index poorly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-docusaurus",
    "name": "Docusaurus",
    "kind": "library",
@@ -55850,6 +56025,251 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-gitbook",
+   "name": "GitBook",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Documentation platform with a visual editor and Git synchronization.",
+   "url": "https://gitbook.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docs",
+    "collaboration",
+    "git-sync",
+    "editor"
+   ],
+   "tip": "Non-engineers edit in the browser while the content still lands in your repository.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Documentation platform with a visual editor and Git synchronization.",
+    "ru": "Платформа документации с визуальным редактором и синхронизацией через Git."
+   },
+   "localizedTip": {
+    "en": "Non-engineers edit in the browser while the content still lands in your repository."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-graphviz",
+   "name": "Graphviz",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "The foundational graph layout toolkit, driven by the DOT language.",
+   "url": "https://graphviz.org/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphs",
+    "dot",
+    "layout",
+    "foundational"
+   ],
+   "tip": "Many diagram tools use its layout engines underneath, so learning DOT transfers widely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The foundational graph layout toolkit, driven by the DOT language.",
+    "ru": "Фундаментальный набор инструментов раскладки графов на языке DOT."
+   },
+   "localizedTip": {
+    "en": "Many diagram tools use its layout engines underneath, so learning DOT transfers widely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-jekyll",
+   "name": "Jekyll",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Ruby static site generator with native GitHub Pages support.",
+   "url": "https://jekyllrb.com/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ruby",
+    "static",
+    "github-pages",
+    "blogging"
+   ],
+   "tip": "GitHub Pages builds it server-side, so a repository alone is enough to publish a site.",
+   "verifiedAt": "2026-08-17",
+   "install": "gem install jekyll",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Ruby static site generator with native GitHub Pages support.",
+    "ru": "Генератор статических сайтов на Ruby с нативной поддержкой GitHub Pages."
+   },
+   "localizedTip": {
+    "en": "GitHub Pages builds it server-side, so a repository alone is enough to publish a site."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-kroki",
+   "name": "Kroki",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Unified HTTP API rendering diagrams from many text formats.",
+   "url": "https://kroki.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diagrams",
+    "api",
+    "unified",
+    "self-host"
+   ],
+   "tip": "One endpoint covers Mermaid, PlantUML, D2 and others, so docs tooling needs a single integration.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unified HTTP API rendering diagrams from many text formats.",
+    "ru": "Единый HTTP API, отрисовывающий диаграммы из множества текстовых форматов."
+   },
+   "localizedTip": {
+    "en": "One endpoint covers Mermaid, PlantUML, D2 and others, so docs tooling needs a single integration."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-marp",
+   "name": "Marp",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Markdown presentation ecosystem with PDF and HTML export.",
+   "url": "https://marp.app/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "markdown",
+    "slides",
+    "export",
+    "cli"
+   ],
+   "tip": "Its CLI renders slides in CI, so a deck can be built from a repository automatically.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g @marp-team/marp-cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Markdown presentation ecosystem with PDF and HTML export.",
+    "ru": "Экосистема презентаций на Markdown с экспортом в PDF и HTML."
+   },
+   "localizedTip": {
+    "en": "Its CLI renders slides in CI, so a deck can be built from a repository automatically."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-material-mkdocs",
+   "name": "Material for MkDocs",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "The dominant MkDocs theme, with search, tabs and annotations.",
+   "url": "https://squidfunk.github.io/mkdocs-material/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mkdocs",
+    "theme",
+    "search",
+    "python"
+   ],
+   "tip": "Some features sit behind sponsorship, which is worth knowing before designing around them.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install mkdocs-material",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The dominant MkDocs theme, with search, tabs and annotations.",
+    "ru": "Доминирующая тема для MkDocs с поиском, вкладками и аннотациями."
+   },
+   "localizedTip": {
+    "en": "Some features sit behind sponsorship, which is worth knowing before designing around them."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-mermaid",
+   "name": "Mermaid",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Generates diagrams from text, rendered natively by GitHub and many docs tools.",
+   "url": "https://mermaid.js.org/intro/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diagrams",
+    "text",
+    "markdown",
+    "flowcharts"
+   ],
+   "tip": "Diagrams live in the same file as the prose, so they get reviewed and updated with it.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i mermaid",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates diagrams from text, rendered natively by GitHub and many docs tools.",
+    "ru": "Генерирует диаграммы из текста, отрисовывается нативно в GitHub и многих инструментах документации."
+   },
+   "localizedTip": {
+    "en": "Diagrams live in the same file as the prose, so they get reviewed and updated with it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-mkdocs",
    "name": "MkDocs",
    "kind": "library",
@@ -55877,6 +56297,111 @@
    },
    "localizedTip": {
     "en": "Material for MkDocs is the theme most projects actually use — install it alongside from the start."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nextra",
+   "name": "Nextra",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Next.js documentation framework driven by MDX files.",
+   "url": "https://nextra.site/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nextjs",
+    "mdx",
+    "docs",
+    "themes"
+   ],
+   "tip": "React components inside documentation pages let you embed live examples rather than screenshots.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i nextra",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Next.js documentation framework driven by MDX files.",
+    "ru": "Фреймворк документации на Next.js, работающий на MDX-файлах."
+   },
+   "localizedTip": {
+    "en": "React components inside documentation pages let you embed live examples rather than screenshots."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pelican",
+   "name": "Pelican",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Python static site generator supporting Markdown and reStructuredText.",
+   "url": "https://docs.getpelican.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "static",
+    "blogging",
+    "restructuredtext"
+   ],
+   "tip": "A natural fit for a Python team that would rather not add a JavaScript toolchain.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pelican",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python static site generator supporting Markdown and reStructuredText.",
+    "ru": "Генератор статических сайтов на Python с поддержкой Markdown и reStructuredText."
+   },
+   "localizedTip": {
+    "en": "A natural fit for a Python team that would rather not add a JavaScript toolchain."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-plantuml",
+   "name": "PlantUML",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Text-based UML and architecture diagram generator.",
+   "url": "https://plantuml.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "uml",
+    "diagrams",
+    "text",
+    "java"
+   ],
+   "tip": "Covers formal UML diagram types that lighter text-to-diagram tools do not attempt.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Text-based UML and architecture diagram generator.",
+    "ru": "Генератор UML и архитектурных диаграмм из текста."
+   },
+   "localizedTip": {
+    "en": "Covers formal UML diagram types that lighter text-to-diagram tools do not attempt."
    },
    "pricing": {
     "model": "openSource",
@@ -55920,6 +56445,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-readthedocs",
+   "name": "Read the Docs",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Documentation hosting with automatic versioning and pull request previews.",
+   "url": "https://docs.readthedocs.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hosting",
+    "versioning",
+    "sphinx",
+    "free-for-oss"
+   ],
+   "tip": "Free for open-source projects, and its per-version docs match what library users actually need.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Documentation hosting with automatic versioning and pull request previews.",
+    "ru": "Хостинг документации с автоматическим версионированием и превью для pull request."
+   },
+   "localizedTip": {
+    "en": "Free for open-source projects, and its per-version docs match what library users actually need."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-redocly",
    "name": "Redocly",
    "kind": "library",
@@ -55950,6 +56510,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-revealjs",
+   "name": "reveal.js",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "HTML presentation framework with nested slides and transitions.",
+   "url": "https://revealjs.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "html",
+    "presentations",
+    "web",
+    "framework"
+   ],
+   "tip": "Slides are a web page, so anything embeddable in a browser can go on a slide.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i reveal.js",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "HTML presentation framework with nested slides and transitions.",
+    "ru": "HTML-фреймворк презентаций с вложенными слайдами и переходами."
+   },
+   "localizedTip": {
+    "en": "Slides are a web page, so anything embeddable in a browser can go on a slide."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -55990,6 +56585,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-slidev",
+   "name": "Slidev",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Presentation slides written in Markdown, aimed at developers.",
+   "url": "https://sli.dev/guide/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "markdown",
+    "presentations",
+    "vue",
+    "developer"
+   ],
+   "tip": "Live code execution and diagrams in slides make technical talks far easier to keep accurate.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g @slidev/cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Presentation slides written in Markdown, aimed at developers.",
+    "ru": "Слайды презентаций на Markdown для разработчиков."
+   },
+   "localizedTip": {
+    "en": "Live code execution and diagrams in slides make technical talks far easier to keep accurate."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-sphinx",
    "name": "Sphinx",
    "kind": "library",
@@ -56020,6 +56650,76 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-starlight",
+   "name": "Starlight",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Astro's documentation theme, fast and accessible by default.",
+   "url": "https://starlight.astro.build/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "astro",
+    "docs",
+    "fast",
+    "accessible"
+   ],
+   "tip": "Ships with search, dark mode and internationalization configured, which is most of the setup work.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm create astro@latest -- --template starlight",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Astro's documentation theme, fast and accessible by default.",
+    "ru": "Тема документации для Astro, быстрая и доступная по умолчанию."
+   },
+   "localizedTip": {
+    "en": "Ships with search, dark mode and internationalization configured, which is most of the setup work."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-structurizr",
+   "name": "Structurizr",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Architecture diagrams as code, built around the C4 model.",
+   "url": "https://docs.structurizr.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "c4-model",
+    "architecture",
+    "diagrams-as-code",
+    "views"
+   ],
+   "tip": "One model generates every zoom level, so the context and container views can never disagree.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Architecture diagrams as code, built around the C4 model.",
+    "ru": "Архитектурные диаграммы как код на основе модели C4."
+   },
+   "localizedTip": {
+    "en": "One model generates every zoom level, so the context and container views can never disagree."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -56095,6 +56795,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-vhs",
+   "name": "VHS",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Generates terminal GIFs from a script, reproducibly.",
+   "url": "https://github.com/charmbracelet/vhs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "terminal",
+    "gif",
+    "scripted",
+    "reproducible"
+   ],
+   "tip": "Scripted recordings regenerate when the CLI changes, so demo GIFs never go stale.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates terminal GIFs from a script, reproducibly.",
+    "ru": "Генерирует GIF терминала из скрипта, воспроизводимо."
+   },
+   "localizedTip": {
+    "en": "Scripted recordings regenerate when the CLI changes, so demo GIFs never go stale."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-vitepress",
    "name": "VitePress",
    "kind": "library",
@@ -56135,6 +56870,41 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-zola",
+   "name": "Zola",
+   "kind": "library",
+   "category": "Документация и контекст",
+   "summary": "Fast static site generator shipped as a single Rust binary.",
+   "url": "https://www.getzola.org/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rust",
+    "static",
+    "single-binary",
+    "fast"
+   ],
+   "tip": "No Node or Ruby toolchain to install, which makes CI configuration trivially simple.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast static site generator shipped as a single Rust binary.",
+    "ru": "Быстрый генератор статических сайтов в виде одного бинарника на Rust."
+   },
+   "localizedTip": {
+    "en": "No Node or Ruby toolchain to install, which makes CI configuration trivially simple."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -69118,6 +69888,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-gatsby",
+   "name": "Gatsby",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "React static site generator with a GraphQL data layer.",
+   "url": "https://www.gatsbyjs.com/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "graphql",
+    "static",
+    "plugins"
+   ],
+   "tip": "Development has slowed considerably since Netlify acquired it — check activity before starting.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g gatsby-cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "React static site generator with a GraphQL data layer.",
+    "ru": "Генератор статических сайтов на React с GraphQL-слоем данных."
+   },
+   "localizedTip": {
+    "en": "Development has slowed considerably since Netlify acquired it — check activity before starting."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-glide-js",
    "name": "Glide.js",
    "kind": "library",
@@ -69250,6 +70055,41 @@
    },
    "localizedTip": {
     "en": "Renamed from NextUI to HeroUI — older tutorials referencing NextUI describe the same library."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-highlightjs",
+   "name": "highlight.js",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Syntax highlighter with automatic language detection.",
+   "url": "https://highlightjs.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "syntax-highlighting",
+    "auto-detect",
+    "browser",
+    "node"
+   ],
+   "tip": "Auto-detection is convenient and unreliable — specify the language when you know it.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i highlight.js",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Syntax highlighter with automatic language detection.",
+    "ru": "Подсветка синтаксиса с автоматическим определением языка."
+   },
+   "localizedTip": {
+    "en": "Auto-detection is convenient and unreliable — specify the language when you know it."
    },
    "pricing": {
     "model": "openSource",
@@ -69965,6 +70805,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-monaco-editor",
+   "name": "Monaco Editor",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "The editor that powers VS Code, embeddable in a web page.",
+   "url": "https://microsoft.github.io/monaco-editor/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vscode",
+    "editor",
+    "intellisense",
+    "typescript"
+   ],
+   "tip": "Its IntelliSense is unmatched, at a bundle size that only suits a genuine code-editing surface.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i monaco-editor",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The editor that powers VS Code, embeddable in a web page.",
+    "ru": "Редактор, лежащий в основе VS Code, встраиваемый в веб-страницу."
+   },
+   "localizedTip": {
+    "en": "Its IntelliSense is unmatched, at a bundle size that only suits a genuine code-editing surface."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-naive-ui",
    "name": "Naive UI",
    "kind": "library",
@@ -70445,6 +71320,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-prismjs",
+   "name": "Prism.js",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Lightweight client-side syntax highlighter with a plugin system.",
+   "url": "https://prismjs.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "syntax-highlighting",
+    "lightweight",
+    "plugins",
+    "browser"
+   ],
+   "tip": "Load only the languages you use — the full bundle is far larger than most pages need.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i prismjs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight client-side syntax highlighter with a plugin system.",
+    "ru": "Лёгкая клиентская подсветка синтаксиса с системой плагинов."
+   },
+   "localizedTip": {
+    "en": "Load only the languages you use — the full bundle is far larger than most pages need."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-prosemirror",
    "name": "ProseMirror",
    "kind": "library",
@@ -70843,6 +71753,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-sandpack",
+   "name": "Sandpack",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Embeddable live coding environment from CodeSandbox.",
+   "url": "https://sandpack.codesandbox.io/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "live-code",
+    "bundler",
+    "react",
+    "embeddable"
+   ],
+   "tip": "It bundles in the browser, so live examples work with no backend at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @codesandbox/sandpack-react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Embeddable live coding environment from CodeSandbox.",
+    "ru": "Встраиваемая среда живого написания кода от CodeSandbox."
+   },
+   "localizedTip": {
+    "en": "It bundles in the browser, so live examples work with no backend at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-shadcn",
    "name": "shadcn/ui",
    "kind": "library",
@@ -70923,6 +71868,41 @@
    },
    "localizedTip": {
     "en": "Focus management and keyboard navigation work correctly, which most tour libraries neglect."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-shiki",
+   "name": "Shiki",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Syntax highlighter using the same grammars as VS Code.",
+   "url": "https://shiki.style/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "syntax-highlighting",
+    "textmate",
+    "accurate",
+    "build-time"
+   ],
+   "tip": "Highlighting at build time ships zero JavaScript, unlike client-side highlighters.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i shiki",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Syntax highlighter using the same grammars as VS Code.",
+    "ru": "Подсветка синтаксиса на тех же грамматиках, что и в VS Code."
+   },
+   "localizedTip": {
+    "en": "Highlighting at build time ships zero JavaScript, unlike client-side highlighters."
    },
    "pricing": {
     "model": "openSource",
@@ -72042,6 +73022,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-webcontainers",
+   "name": "WebContainers",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Runs Node.js entirely inside the browser via WebAssembly.",
+   "url": "https://webcontainers.io/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stackblitz",
+    "node-in-browser",
+    "wasm",
+    "sandbox"
+   ],
+   "tip": "A real Node runtime in a tab means full-stack tutorials need no server or install step.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs Node.js entirely inside the browser via WebAssembly.",
+    "ru": "Запускает Node.js полностью внутри браузера через WebAssembly."
+   },
+   "localizedTip": {
+    "en": "A real Node runtime in a tab means full-stack tutorials need no server or install step."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -74565,6 +75580,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-carbon-sh",
+   "name": "Carbon",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Creates shareable images of source code.",
+   "url": "https://carbon.now.sh/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-images",
+    "sharing",
+    "themes",
+    "screenshots"
+   ],
+   "tip": "Good for social posts, though a real code block is better anywhere text is selectable.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Creates shareable images of source code.",
+    "ru": "Создаёт изображения исходного кода для публикации."
+   },
+   "localizedTip": {
+    "en": "Good for social posts, though a real code block is better anywhere text is selectable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-compressorjs",
    "name": "Compressor.js",
    "kind": "library",
@@ -74627,6 +75677,76 @@
    },
    "localizedTip": {
     "en": "Crop on the client before upload — it cuts both bandwidth and server-side processing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-drawio",
+   "name": "draw.io",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Free diagramming editor that works offline and embeds in other tools.",
+   "url": "https://www.drawio.com/doc/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diagrams",
+    "editor",
+    "offline",
+    "integrations"
+   ],
+   "tip": "Its files are XML, so diagrams can be diffed in version control, if awkwardly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free diagramming editor that works offline and embeds in other tools.",
+    "ru": "Бесплатный редактор диаграмм, работающий офлайн и встраиваемый в другие инструменты."
+   },
+   "localizedTip": {
+    "en": "Its files are XML, so diagrams can be diffed in version control, if awkwardly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-excalidraw",
+   "name": "Excalidraw",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Virtual whiteboard with a hand-drawn look, embeddable as a component.",
+   "url": "https://docs.excalidraw.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "whiteboard",
+    "hand-drawn",
+    "collaborative",
+    "embeddable"
+   ],
+   "tip": "The sketchy style signals a draft, which invites feedback that a polished diagram discourages.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @excalidraw/excalidraw",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Virtual whiteboard with a hand-drawn look, embeddable as a component.",
+    "ru": "Виртуальная доска с рисунком от руки, встраиваемая как компонент."
+   },
+   "localizedTip": {
+    "en": "The sketchy style signals a draft, which invites feedback that a polished diagram discourages."
    },
    "pricing": {
     "model": "openSource",
@@ -75068,6 +76188,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-ray-so",
+   "name": "ray.so",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Fast code image generator from the Raycast team.",
+   "url": "https://ray.so/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-images",
+    "raycast",
+    "themes",
+    "fast"
+   ],
+   "tip": "Its presets produce a clean result without the tweaking Carbon tends to invite.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast code image generator from the Raycast team.",
+    "ru": "Быстрый генератор изображений кода от команды Raycast."
+   },
+   "localizedTip": {
+    "en": "Its presets produce a clean result without the tweaking Carbon tends to invite."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-react-image-crop",
    "name": "react-image-crop",
    "kind": "library",
@@ -75203,6 +76358,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-tldraw",
+   "name": "tldraw",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Infinite canvas SDK for building drawing and diagramming features.",
+   "url": "https://tldraw.dev/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "canvas",
+    "sdk",
+    "collaborative",
+    "react"
+   ],
+   "tip": "Free for non-commercial use; a licence is required to ship it in a commercial product.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i tldraw",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Infinite canvas SDK for building drawing and diagramming features.",
+    "ru": "SDK бесконечного холста для создания функций рисования и построения диаграмм."
+   },
+   "localizedTip": {
+    "en": "Free for non-commercial use; a licence is required to ship it in a commercial product."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
