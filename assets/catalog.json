@@ -39729,6 +39729,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-argo-rollouts",
+   "name": "Argo Rollouts",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Progressive delivery controller for canary and blue-green Kubernetes deployments.",
+   "url": "https://argo-rollouts.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "canary",
+    "blue-green",
+    "progressive-delivery",
+    "kubernetes"
+   ],
+   "tip": "Automated rollback on metric regression is the part that makes canaries safe to run unattended.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Progressive delivery controller for canary and blue-green Kubernetes deployments.",
+    "ru": "Контроллер прогрессивной доставки для canary и blue-green развёртываний в Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Automated rollback on metric regression is the part that makes canaries safe to run unattended."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-argo-workflows",
+   "name": "Argo Workflows",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Container-native workflow engine running DAGs of steps on Kubernetes.",
+   "url": "https://argo-workflows.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "workflows",
+    "dag",
+    "containers"
+   ],
+   "tip": "Every step is a container, which makes polyglot pipelines trivial compared to a single-language runner.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Container-native workflow engine running DAGs of steps on Kubernetes.",
+    "ru": "Нативный для контейнеров движок workflow, выполняющий DAG шагов в Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Every step is a container, which makes polyglot pipelines trivial compared to a single-language runner."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-calico",
+   "name": "Calico",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Widely deployed Kubernetes CNI with mature network policy enforcement.",
+   "url": "https://docs.tigera.io/calico/latest/about/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cni",
+    "network-policy",
+    "bgp",
+    "kubernetes"
+   ],
+   "tip": "The conservative default when you want proven policy enforcement rather than eBPF's newer capabilities.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Widely deployed Kubernetes CNI with mature network policy enforcement.",
+    "ru": "Широко распространённый CNI для Kubernetes со зрелым применением сетевых политик."
+   },
+   "localizedTip": {
+    "en": "The conservative default when you want proven policy enforcement rather than eBPF's newer capabilities."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-cert-manager",
    "name": "cert-manager",
    "kind": "library",
@@ -39756,6 +39861,111 @@
    },
    "localizedTip": {
     "en": "Set up a staging ClusterIssuer first — Let's Encrypt production rate limits are easy to hit while debugging."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-cilium",
+   "name": "Cilium",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "eBPF-based Kubernetes networking, security policy and observability.",
+   "url": "https://docs.cilium.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ebpf",
+    "networking",
+    "network-policy",
+    "observability"
+   ],
+   "tip": "Its Hubble component gives network flow visibility that traditional CNIs simply cannot provide.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "eBPF-based Kubernetes networking, security policy and observability.",
+    "ru": "Сетевой стек Kubernetes на eBPF с политиками безопасности и наблюдаемостью."
+   },
+   "localizedTip": {
+    "en": "Its Hubble component gives network flow visibility that traditional CNIs simply cannot provide."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-cluster-autoscaler",
+   "name": "Cluster Autoscaler",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Adds and removes cluster nodes based on pending pods.",
+   "url": "https://kubernetes.io/docs/concepts/cluster-administration/cluster-autoscaling/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nodes",
+    "autoscaling",
+    "kubernetes",
+    "capacity"
+   ],
+   "tip": "Works on node groups, where Karpenter provisions individual right-sized nodes — a real design difference.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Adds and removes cluster nodes based on pending pods.",
+    "ru": "Добавляет и удаляет узлы кластера в зависимости от ожидающих подов."
+   },
+   "localizedTip": {
+    "en": "Works on node groups, where Karpenter provisions individual right-sized nodes — a real design difference."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-devspace",
+   "name": "DevSpace",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Developer tooling for building and debugging applications directly inside a cluster.",
+   "url": "https://www.devspace.sh/docs/getting-started/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "development",
+    "kubernetes",
+    "hot-reload",
+    "profiles"
+   ],
+   "tip": "Running the dev loop in-cluster removes the 'works locally, breaks in Kubernetes' class of bug.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Developer tooling for building and debugging applications directly inside a cluster.",
+    "ru": "Инструменты разработчика для сборки и отладки приложений прямо внутри кластера."
+   },
+   "localizedTip": {
+    "en": "Running the dev loop in-cluster removes the 'works locally, breaks in Kubernetes' class of bug."
    },
    "pricing": {
     "model": "openSource",
@@ -39834,6 +40044,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-garden-io",
+   "name": "Garden",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Builds, tests and deploys multi-service stacks with aggressive result caching.",
+   "url": "https://docs.garden.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "development",
+    "testing",
+    "caching",
+    "kubernetes"
+   ],
+   "tip": "Caching test results per service means a monorepo CI run only redoes what actually changed.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds, tests and deploys multi-service stacks with aggressive result caching.",
+    "ru": "Собирает, тестирует и развёртывает многосервисные стеки с агрессивным кэшированием результатов."
+   },
+   "localizedTip": {
+    "en": "Caching test results per service means a monorepo CI run only redoes what actually changed."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-headlamp",
+   "name": "Headlamp",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Extensible open-source Kubernetes UI, usable in-cluster or as a desktop app.",
+   "url": "https://headlamp.dev/docs/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "ui",
+    "extensible",
+    "cncf"
+   ],
+   "tip": "Its plugin system lets you surface your own CRDs as first-class UI, which generic dashboards cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Extensible open-source Kubernetes UI, usable in-cluster or as a desktop app.",
+    "ru": "Расширяемый открытый интерфейс Kubernetes, работает в кластере или как desktop-приложение."
+   },
+   "localizedTip": {
+    "en": "Its plugin system lets you surface your own CRDs as first-class UI, which generic dashboards cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-helmfile",
+   "name": "Helmfile",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Declarative spec for deploying and templating many Helm releases together.",
+   "url": "https://helmfile.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "helm",
+    "declarative",
+    "multi-chart",
+    "environments"
+   ],
+   "tip": "One file describes a whole environment, which plain helm install scripts never manage cleanly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Declarative spec for deploying and templating many Helm releases together.",
+    "ru": "Декларативная спецификация для совместного развёртывания и шаблонизации множества Helm-релизов."
+   },
+   "localizedTip": {
+    "en": "One file describes a whole environment, which plain helm install scripts never manage cleanly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-k3s",
    "name": "K3s",
    "kind": "library",
@@ -39904,6 +40219,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-keda",
+   "name": "KEDA",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Event-driven autoscaling that scales workloads on queue depth and other external metrics.",
+   "url": "https://keda.sh/docs/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "autoscaling",
+    "event-driven",
+    "queues",
+    "scale-to-zero"
+   ],
+   "tip": "Scaling on queue depth rather than CPU is what makes worker autoscaling actually responsive.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Event-driven autoscaling that scales workloads on queue depth and other external metrics.",
+    "ru": "Событийное автомасштабирование по глубине очереди и другим внешним метрикам."
+   },
+   "localizedTip": {
+    "en": "Scaling on queue depth rather than CPU is what makes worker autoscaling actually responsive."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-kind",
    "name": "kind",
    "kind": "library",
@@ -39966,6 +40316,391 @@
    },
    "localizedTip": {
     "en": "Pair with a shell prompt showing the current context — most production incidents start with the wrong context."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-kuma",
+   "name": "Kuma",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Envoy-based service mesh working on both Kubernetes and plain virtual machines.",
+   "url": "https://kuma.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "service-mesh",
+    "envoy",
+    "multi-zone",
+    "universal"
+   ],
+   "tip": "Its universal mode covers VM workloads, which most Kubernetes-only meshes cannot reach.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Envoy-based service mesh working on both Kubernetes and plain virtual machines.",
+    "ru": "Service mesh на Envoy, работающий и в Kubernetes, и на обычных виртуальных машинах."
+   },
+   "localizedTip": {
+    "en": "Its universal mode covers VM workloads, which most Kubernetes-only meshes cannot reach."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-kyverno",
+   "name": "Kyverno",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Kubernetes policy engine with rules written as ordinary Kubernetes resources.",
+   "url": "https://kyverno.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "policy",
+    "kubernetes",
+    "yaml",
+    "admission"
+   ],
+   "tip": "Policies in YAML rather than Rego is why teams pick it over Gatekeeper for the same job.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Kubernetes policy engine with rules written as ordinary Kubernetes resources.",
+    "ru": "Движок политик Kubernetes с правилами в виде обычных ресурсов Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Policies in YAML rather than Rego is why teams pick it over Gatekeeper for the same job."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-lens-k8s",
+   "name": "Lens",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Desktop IDE for viewing and managing Kubernetes clusters.",
+   "url": "https://docs.k8slens.dev/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "ide",
+    "gui",
+    "cluster-management"
+   ],
+   "tip": "Now requires a subscription for commercial use — Headlamp is the fully open alternative.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Desktop IDE for viewing and managing Kubernetes clusters.",
+    "ru": "Desktop-IDE для просмотра и управления кластерами Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Now requires a subscription for commercial use — Headlamp is the fully open alternative."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-longhorn",
+   "name": "Longhorn",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Distributed block storage for Kubernetes with replication and snapshots.",
+   "url": "https://longhorn.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "storage",
+    "block",
+    "replicated",
+    "cncf"
+   ],
+   "tip": "Simpler to operate than Ceph for small clusters that still need replicated persistent volumes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed block storage for Kubernetes with replication and snapshots.",
+    "ru": "Распределённое блочное хранилище для Kubernetes с репликацией и снапшотами."
+   },
+   "localizedTip": {
+    "en": "Simpler to operate than Ceph for small clusters that still need replicated persistent volumes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-gatekeeper",
+   "name": "OPA Gatekeeper",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Admission controller enforcing OPA policies against Kubernetes resources.",
+   "url": "https://open-policy-agent.github.io/gatekeeper/website/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "policy",
+    "admission",
+    "rego",
+    "opa"
+   ],
+   "tip": "Run new policies in dry-run mode first — a strict admission policy can block every deploy at once.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Admission controller enforcing OPA policies against Kubernetes resources.",
+    "ru": "Admission-контроллер, применяющий политики OPA к ресурсам Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Run new policies in dry-run mode first — a strict admission policy can block every deploy at once."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-popeye",
+   "name": "Popeye",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Scans live clusters for misconfigurations and unused resources.",
+   "url": "https://popeyecli.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "linting",
+    "cluster-scan",
+    "misconfiguration",
+    "report"
+   ],
+   "tip": "Catches the missing resource limits and dangling config maps that accumulate silently over time.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Scans live clusters for misconfigurations and unused resources.",
+    "ru": "Сканирует работающие кластеры на ошибки конфигурации и неиспользуемые ресурсы."
+   },
+   "localizedTip": {
+    "en": "Catches the missing resource limits and dangling config maps that accumulate silently over time."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-rook",
+   "name": "Rook",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Kubernetes operator running Ceph storage clusters.",
+   "url": "https://rook.io/docs/rook/latest-release/Getting-Started/intro/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "storage",
+    "ceph",
+    "operator",
+    "kubernetes"
+   ],
+   "tip": "You still need to understand Ceph — the operator automates operations, not the underlying model.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Kubernetes operator running Ceph storage clusters.",
+    "ru": "Kubernetes-оператор, управляющий кластерами хранилища Ceph."
+   },
+   "localizedTip": {
+    "en": "You still need to understand Ceph — the operator automates operations, not the underlying model."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-skaffold",
+   "name": "Skaffold",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Automates the build, push and deploy loop for Kubernetes development.",
+   "url": "https://skaffold.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "build",
+    "deploy",
+    "kubernetes",
+    "google"
+   ],
+   "tip": "The same config drives both local dev and CI, which keeps the two from drifting apart.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automates the build, push and deploy loop for Kubernetes development.",
+    "ru": "Автоматизирует цикл сборки, публикации и развёртывания при разработке под Kubernetes."
+   },
+   "localizedTip": {
+    "en": "The same config drives both local dev and CI, which keeps the two from drifting apart."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-stern",
+   "name": "stern",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Tails logs from multiple pods and containers simultaneously with colour coding.",
+   "url": "https://github.com/stern/stern",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "logs",
+    "tailing",
+    "multi-pod",
+    "colors"
+   ],
+   "tip": "Follows pods matched by a pattern, so it keeps working across restarts and rollouts.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install stern",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Tails logs from multiple pods and containers simultaneously with colour coding.",
+    "ru": "Одновременно читает логи нескольких подов и контейнеров с цветовой маркировкой."
+   },
+   "localizedTip": {
+    "en": "Follows pods matched by a pattern, so it keeps working across restarts and rollouts."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-tilt",
+   "name": "Tilt",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Live-updating local development loop for multi-service Kubernetes applications.",
+   "url": "https://docs.tilt.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "development",
+    "live-update",
+    "kubernetes",
+    "inner-loop"
+   ],
+   "tip": "Live update syncs files into a running container instead of rebuilding the image on every save.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Live-updating local development loop for multi-service Kubernetes applications.",
+    "ru": "Локальный цикл разработки с живым обновлением для многосервисных Kubernetes-приложений."
+   },
+   "localizedTip": {
+    "en": "Live update syncs files into a running container instead of rebuilding the image on every save."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-velero",
+   "name": "Velero",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Backup, restore and migration for Kubernetes cluster resources and volumes.",
+   "url": "https://velero.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "backup",
+    "restore",
+    "migration",
+    "disaster-recovery"
+   ],
+   "tip": "Test a restore, not just the backup — an untested backup is a guess about your recovery time.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Backup, restore and migration for Kubernetes cluster resources and volumes.",
+    "ru": "Резервное копирование, восстановление и миграция ресурсов и томов кластера Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Test a restore, not just the backup — an untested backup is a guess about your recovery time."
    },
    "pricing": {
     "model": "openSource",
@@ -40386,6 +41121,41 @@
    },
    "localizedTip": {
     "en": "Always verify the algorithm explicitly when validating a token — accepting 'none' is a classic JWT vulnerability."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-kube-bench",
+   "name": "kube-bench",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Checks a Kubernetes cluster against the CIS security benchmark.",
+   "url": "https://github.com/aquasecurity/kube-bench",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cis-benchmark",
+    "kubernetes",
+    "audit",
+    "hardening"
+   ],
+   "tip": "Managed control planes fail checks you cannot fix — use the managed-provider profile for real results.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Checks a Kubernetes cluster against the CIS security benchmark.",
+    "ru": "Проверяет кластер Kubernetes на соответствие CIS-бенчмарку безопасности."
+   },
+   "localizedTip": {
+    "en": "Managed control planes fail checks you cannot fix — use the managed-provider profile for real results."
    },
    "pricing": {
     "model": "openSource",
@@ -42923,6 +43693,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-grafana-mimir",
+   "name": "Grafana Mimir",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Horizontally scalable long-term storage for Prometheus metrics.",
+   "url": "https://grafana.com/docs/mimir/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prometheus",
+    "metrics",
+    "long-term",
+    "horizontal-scale"
+   ],
+   "tip": "Prometheus alone keeps weeks of data — this is what you add when you need years of it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Horizontally scalable long-term storage for Prometheus metrics.",
+    "ru": "Горизонтально масштабируемое долговременное хранилище метрик Prometheus."
+   },
+   "localizedTip": {
+    "en": "Prometheus alone keeps weeks of data — this is what you add when you need years of it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pyroscope",
+   "name": "Grafana Pyroscope",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Continuous profiling storing CPU and memory flame graphs over time.",
+   "url": "https://grafana.com/docs/pyroscope/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "profiling",
+    "continuous",
+    "flamegraphs",
+    "performance"
+   ],
+   "tip": "Profiling in production catches the slow path that never reproduces on a developer machine.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Continuous profiling storing CPU and memory flame graphs over time.",
+    "ru": "Непрерывное профилирование, сохраняющее flame-графы CPU и памяти во времени."
+   },
+   "localizedTip": {
+    "en": "Profiling in production catches the slow path that never reproduces on a developer machine."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-netdata",
+   "name": "Netdata",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Real-time per-second infrastructure monitoring with zero-configuration auto-discovery.",
+   "url": "https://learn.netdata.cloud/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "metrics",
+    "real-time",
+    "per-second",
+    "auto-discovery"
+   ],
+   "tip": "Per-second granularity catches short spikes that a 15-second scrape interval averages away entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Real-time per-second infrastructure monitoring with zero-configuration auto-discovery.",
+    "ru": "Мониторинг инфраструктуры в реальном времени с посекундным разрешением и автообнаружением без настройки."
+   },
+   "localizedTip": {
+    "en": "Per-second granularity catches short spikes that a 15-second scrape interval averages away entirely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-opentelemetry",
    "name": "OpenTelemetry",
    "kind": "library",
@@ -42993,6 +43868,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-parca",
+   "name": "Parca",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "eBPF-based continuous profiling with very low runtime overhead.",
+   "url": "https://www.parca.dev/docs/overview/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "profiling",
+    "ebpf",
+    "continuous",
+    "low-overhead"
+   ],
+   "tip": "Requires no code changes or agent library, since eBPF samples the process from the kernel.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "eBPF-based continuous profiling with very low runtime overhead.",
+    "ru": "Непрерывное профилирование на eBPF с очень низкими накладными расходами."
+   },
+   "localizedTip": {
+    "en": "Requires no code changes or agent library, since eBPF samples the process from the kernel."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-alertmanager",
+   "name": "Prometheus Alertmanager",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Handles deduplication, grouping and routing of alerts fired by Prometheus.",
+   "url": "https://prometheus.io/docs/alerting/latest/alertmanager/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "alerting",
+    "routing",
+    "deduplication",
+    "silencing"
+   ],
+   "tip": "Alert grouping is what stops one failing node from paging you two hundred times.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Handles deduplication, grouping and routing of alerts fired by Prometheus.",
+    "ru": "Обрабатывает дедупликацию, группировку и маршрутизацию оповещений, порождённых Prometheus."
+   },
+   "localizedTip": {
+    "en": "Alert grouping is what stops one failing node from paging you two hundred times."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-prometheus-client",
    "name": "Prometheus client libraries",
    "kind": "library",
@@ -43020,6 +43965,41 @@
    },
    "localizedTip": {
     "en": "Stick to the four standard metric types — inventing custom aggregation in-app defeats Prometheus's model."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-robusta",
+   "name": "Robusta",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Enriches Kubernetes alerts with context and can run automated remediation.",
+   "url": "https://docs.robusta.dev/master/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "alerting",
+    "enrichment",
+    "automation"
+   ],
+   "tip": "Attaching pod logs and recent changes to the alert removes the first ten minutes of every incident.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enriches Kubernetes alerts with context and can run automated remediation.",
+    "ru": "Обогащает оповещения Kubernetes контекстом и может запускать автоматическое устранение."
+   },
+   "localizedTip": {
+    "en": "Attaching pod logs and recent changes to the alert removes the first ten minutes of every incident."
    },
    "pricing": {
     "model": "openSource",
@@ -43063,6 +44043,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-telegraf",
+   "name": "Telegraf",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Plugin-driven agent collecting metrics from systems, services and APIs.",
+   "url": "https://docs.influxdata.com/telegraf/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "metrics",
+    "plugins",
+    "influxdb",
+    "agent"
+   ],
+   "tip": "Its several hundred input plugins usually cover a system you would otherwise write an exporter for.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Plugin-driven agent collecting metrics from systems, services and APIs.",
+    "ru": "Агент на плагинах, собирающий метрики с систем, сервисов и API."
+   },
+   "localizedTip": {
+    "en": "Its several hundred input plugins usually cover a system you would otherwise write an exporter for."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-thanos",
+   "name": "Thanos",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Adds global query view and unlimited retention across many Prometheus instances.",
+   "url": "https://thanos.io/tip/thanos/getting-started.md/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prometheus",
+    "global-view",
+    "object-storage",
+    "ha"
+   ],
+   "tip": "Querying across clusters from one endpoint is the feature — retention is almost a side effect.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Adds global query view and unlimited retention across many Prometheus instances.",
+    "ru": "Добавляет глобальное представление запросов и неограниченное хранение для множества инстансов Prometheus."
+   },
+   "localizedTip": {
+    "en": "Querying across clusters from one endpoint is the feature — retention is almost a side effect."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-vector-dev",
    "name": "Vector",
    "kind": "library",
@@ -43098,6 +44148,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-victoriametrics",
+   "name": "VictoriaMetrics",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Fast time-series database compatible with Prometheus, using far less storage.",
+   "url": "https://docs.victoriametrics.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "metrics",
+    "prometheus-compatible",
+    "efficient",
+    "tsdb"
+   ],
+   "tip": "Its compression typically cuts storage several-fold versus Prometheus for the same retention.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast time-series database compatible with Prometheus, using far less storage.",
+    "ru": "Быстрая база временных рядов, совместимая с Prometheus, с существенно меньшим расходом хранилища."
+   },
+   "localizedTip": {
+    "en": "Its compression typically cuts storage several-fold versus Prometheus for the same retention."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-web-vitals",
    "name": "web-vitals",
    "kind": "library",
@@ -43125,6 +44210,146 @@
    },
    "localizedTip": {
     "en": "Field data from real users differs a lot from lab scores — this is what search ranking actually uses."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-fluentd",
+   "name": "Fluentd",
+   "kind": "library",
+   "category": "Наблюдаемость трасс",
+   "summary": "Unified logging layer with a very large plugin ecosystem.",
+   "url": "https://docs.fluentd.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "logs",
+    "plugins",
+    "cncf",
+    "unified-logging"
+   ],
+   "tip": "Heavier than Fluent Bit — the usual pattern is Fluent Bit on nodes forwarding to Fluentd aggregators.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unified logging layer with a very large plugin ecosystem.",
+    "ru": "Единый слой логирования с очень большой экосистемой плагинов."
+   },
+   "localizedTip": {
+    "en": "Heavier than Fluent Bit — the usual pattern is Fluent Bit on nodes forwarding to Fluentd aggregators."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-hyperdx",
+   "name": "HyperDX",
+   "kind": "library",
+   "category": "Наблюдаемость трасс",
+   "summary": "Open-source observability correlating logs, traces and session replays in one view.",
+   "url": "https://www.hyperdx.io/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "logs",
+    "traces",
+    "session-replay",
+    "clickhouse"
+   ],
+   "tip": "Jumping from a user session replay straight to the backend trace is what shortens debugging most.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source observability correlating logs, traces and session replays in one view.",
+    "ru": "Открытая observability-платформа, связывающая логи, трассы и записи сессий в одном представлении."
+   },
+   "localizedTip": {
+    "en": "Jumping from a user session replay straight to the backend trace is what shortens debugging most."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-otel-collector",
+   "name": "OpenTelemetry Collector",
+   "kind": "library",
+   "category": "Наблюдаемость трасс",
+   "summary": "Vendor-neutral agent receiving, processing and exporting traces, metrics and logs.",
+   "url": "https://opentelemetry.io/docs/collector/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "telemetry",
+    "pipeline",
+    "vendor-neutral",
+    "processors"
+   ],
+   "tip": "Point applications at the collector, not at a vendor — switching backends becomes a config change.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Vendor-neutral agent receiving, processing and exporting traces, metrics and logs.",
+    "ru": "Вендоронезависимый агент приёма, обработки и экспорта трасс, метрик и логов."
+   },
+   "localizedTip": {
+    "en": "Point applications at the collector, not at a vendor — switching backends becomes a config change."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-uptrace",
+   "name": "Uptrace",
+   "kind": "library",
+   "category": "Наблюдаемость трасс",
+   "summary": "OpenTelemetry-native tracing and metrics backend built on ClickHouse.",
+   "url": "https://uptrace.dev/get/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "opentelemetry",
+    "traces",
+    "metrics",
+    "clickhouse"
+   ],
+   "tip": "ClickHouse storage keeps high-cardinality trace data queryable at a cost column stores make bearable.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "OpenTelemetry-native tracing and metrics backend built on ClickHouse.",
+    "ru": "Нативный для OpenTelemetry бэкенд трасс и метрик на ClickHouse."
+   },
+   "localizedTip": {
+    "en": "ClickHouse storage keeps high-cardinality trace data queryable at a cost column stores make bearable."
    },
    "pricing": {
     "model": "openSource",
