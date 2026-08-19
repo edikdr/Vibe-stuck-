@@ -1,5 +1,10 @@
 import '../models/catalog_item.dart';
 
+/// Normalized text of entries that did not come from the database — custom
+/// entries and entries discovered by the live update. Keyed by the entry
+/// itself, so it is dropped as soon as the entry is.
+final Expando<SearchIndex> _computedIndex = Expando<SearchIndex>('atlas-search-index');
+
 class SearchEngine {
   static const _intentMap = <String, List<String>>{
     'сайт': ['frontend', 'ui', 'css', 'component', 'web'],
@@ -163,11 +168,33 @@ class SearchEngine {
     return result;
   }
 
+  /// Normalized text for [item], from the database when it has it.
+  ///
+  /// Normalizing runs two regular expressions over the entry's whole text.
+  /// Doing that per entry per keystroke is what made a large catalog feel
+  /// slow, so it happens once — at build time for the shipped catalog, on
+  /// first use for everything else.
+  SearchIndex indexOf(CatalogItem item) {
+    final shipped = item.searchIndex;
+    if (shipped != null) return shipped;
+    final cached = _computedIndex[item];
+    if (cached != null) return cached;
+    final built = SearchIndex(
+      name: _normalize(item.name),
+      category: _normalize(item.category),
+      tags: item.tags.map(_normalize).toList(growable: false),
+      text: _normalize(item.searchableText),
+    );
+    _computedIndex[item] = built;
+    return built;
+  }
+
   int _score(CatalogItem item, String query, Set<String> tokens) {
-    final name = _normalize(item.name);
-    final category = _normalize(item.category);
-    final tags = item.tags.map(_normalize).toList();
-    final body = _normalize(item.searchableText);
+    final index = indexOf(item);
+    final name = index.name;
+    final category = index.category;
+    final tags = index.tags;
+    final body = index.text;
     var score = 0;
 
     if (name == query) score += 240;
@@ -176,6 +203,7 @@ class SearchEngine {
     if (category.contains(query)) score += 55;
     if (body.contains(query)) score += 45;
 
+    final words = name.split(' ');
     for (final token in tokens) {
       if (token.length < 2) continue;
       if (name == token) score += 90;
@@ -184,7 +212,7 @@ class SearchEngine {
       if (tags.any((tag) => tag.contains(token))) score += 28;
       if (category.contains(token)) score += 20;
       if (body.contains(token)) score += 10;
-      if (name.split(' ').any((word) => _distance(word, token) <= 1)) score += 18;
+      if (words.any((word) => _distance(word, token) <= 1)) score += 18;
     }
     return score;
   }

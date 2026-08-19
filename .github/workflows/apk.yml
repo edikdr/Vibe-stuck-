@@ -1,0 +1,79 @@
+name: APK
+
+# The fast path for "I just want an installable APK", without cutting a
+# release. Actions tab -> APK -> Run workflow, then download the artifact.
+# Publishing to the releases page is release.yml's job.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Build mode
+        type: choice
+        default: release
+        options: [release, debug]
+
+permissions:
+  contents: read
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4.9.1
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      # assets/catalog.db is a build artifact, not a checked-in file.
+      - name: Build the catalog
+        run: python tool/build_catalog.py
+
+      # subosito/flutter-action is a composite action whose action.yaml
+      # unconditionally *declares* two `uses: actions/cache@v5` steps (guarded
+      # only by a runtime `if:`), and the repo's action-pinning policy scans
+      # that declared dependency graph regardless of whether the step would
+      # actually run — cache:true or cache:false makes no difference, the
+      # reference in someone else's action.yaml is what gets flagged.
+      # Installing the SDK directly avoids depending on any third-party
+      # action for this step at all.
+      - name: Install Flutter SDK
+        run: |
+          git clone --depth 1 --branch stable https://github.com/flutter/flutter.git "$HOME/flutter"
+          echo "$HOME/flutter/bin" >> "$GITHUB_PATH"
+
+      - name: Generate Android runner
+        run: flutter create --project-name vibestack_atlas --platforms=android .
+
+      - name: Configure Android runner
+        run: dart run tool/post_create.dart
+
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+
+      - name: Build APK
+        run: flutter build apk --${{ inputs.mode }}
+
+      # Without a keystore Flutter signs the release build with the debug key.
+      # That installs on a normal phone, which is what this artifact is for;
+      # a Play Store upload needs a real keystore instead.
+      - name: Name the artifact
+        run: |
+          set -euo pipefail
+          version=$(grep '^version:' pubspec.yaml | cut -d' ' -f2 | cut -d'+' -f1)
+          cp "build/app/outputs/flutter-apk/app-${{ inputs.mode }}.apk" \
+             "VibeStack-Atlas-${version}-${{ inputs.mode }}.apk"
+          ls -lh VibeStack-Atlas-*.apk
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: vibestack-atlas-apk
+          path: VibeStack-Atlas-*.apk
+          if-no-files-found: error

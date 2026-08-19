@@ -1,0 +1,71 @@
+name: Запись каталога
+description: Добавить, поправить или убрать инструмент из каталога
+title: "catalog: "
+labels: [catalog]
+body:
+  - type: dropdown
+    id: action
+    attributes:
+      label: Что нужно сделать
+      options:
+        - Добавить запись
+        - Поправить существующую
+        - Убрать: сервис закрылся или больше не подходит
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Название
+      placeholder: Open-Meteo
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Официальная ссылка
+      description: Документация или главная страница проекта. Только https, никаких агрегаторов и реф-ссылок.
+      placeholder: https://open-meteo.com/en/docs
+    validations:
+      required: true
+
+  - type: dropdown
+    id: access
+    attributes:
+      label: Доступ
+      options:
+        - noKey — работает без ключа
+        - free — бесплатно, но нужна регистрация
+        - freeTier — есть бесплатный лимит
+        - openSource — открытый исходный код
+        - mixed — бесплатный и платный уровни
+        - paid — только платно
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Чем полезно
+      description: Одно-два предложения. Что это даёт и в какой момент к этому тянутся.
+    validations:
+      required: true
+
+  - type: input
+    id: pricing
+    attributes:
+      label: Цена, если платно
+      description: Стартовая цена, бесплатный лимит и ссылка на прайс.
+      placeholder: from ~$20 / month · 100 запросов бесплатно · https://…/pricing
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Проверено
+      options:
+        - label: Ссылка ведёт на официальный источник и открывается
+          required: true
+        - label: Такого инструмента в каталоге ещё нет
+          required: true

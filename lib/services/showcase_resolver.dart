@@ -23,7 +23,7 @@ extension PreviewProviderInfo on PreviewProvider {
 /// Resolves the list of examples shown for an entry and the image URL used for
 /// each one.
 ///
-/// Curated examples live in `assets/catalog.json`. Entries without curated
+/// Curated examples live in the catalog database. Entries without curated
 /// examples still get one card pointing at their official page, so every item
 /// in the catalog is visual.
 class ShowcaseResolver {

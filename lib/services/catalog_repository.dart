@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../i18n/app_strings.dart';
 import '../models/catalog_item.dart';
+import 'catalog_database.dart';
 
 AppLanguage _languageFromCode(String code) {
   for (final value in AppLanguage.values) {
@@ -31,6 +31,13 @@ class BackupData {
 }
 
 class CatalogRepository {
+  CatalogRepository({CatalogDatabase? catalog})
+      : catalog = catalog ?? CatalogDatabase();
+
+  /// The shipped catalog. Read-only, replaced wholesale by an update — which
+  /// is exactly why none of the user's own data below is kept in it.
+  final CatalogDatabase catalog;
+
   static const _customKey = 'custom_items_v1';
   static const _feedItemsKey = 'remote_items_v1';
   static const _liveItemsKey = 'live_items_v2';
@@ -53,12 +60,34 @@ class CatalogRepository {
   static const _backgroundResultKey = 'background_result_v1';
   static const _sortModeKey = 'sort_mode_v1';
   static const _starsKey = 'github_stars_v1';
+  static const _catalogUrlKey = 'catalog_manifest_url_v1';
+  static const _catalogCheckKey = 'catalog_checked_v1';
 
+  /// The curated catalog, read from SQLite instead of parsed from a JSON asset.
   Future<List<CatalogItem>> loadBundled() async {
-    final raw = await rootBundle.loadString('assets/catalog.json');
-    final decoded = jsonDecode(raw) as Map<String, dynamic>;
-    return (decoded['items'] as List).map((item) => CatalogItem.fromJson(item as Map<String, dynamic>)).toList(growable: false);
+    await catalog.ensureOpen();
+    return catalog.loadItems();
   }
+
+  /// Version of the installed catalog file, or an empty string if it has not
+  /// been opened yet.
+  String get catalogVersion =>
+      catalog.isOpen ? catalog.metadata.catalogVersion : '';
+
+  /// Where catalog updates are published. Empty means the built-in release
+  /// feed; a custom value is for forks and for testing a release privately.
+  Future<String> loadCatalogManifestUrl() => _loadString(_catalogUrlKey, '');
+  Future<void> saveCatalogManifestUrl(String value) =>
+      _saveString(_catalogUrlKey, value.trim());
+
+  Future<DateTime?> loadCatalogCheckedAt() async {
+    final prefs = await SharedPreferences.getInstance();
+    final value = prefs.getString(_catalogCheckKey);
+    return value == null ? null : DateTime.tryParse(value);
+  }
+
+  Future<void> saveCatalogCheckedAt(DateTime value) =>
+      _saveString(_catalogCheckKey, value.toIso8601String());
 
   Future<List<CatalogItem>> _loadItems(String key) async {
     final prefs = await SharedPreferences.getInstance();

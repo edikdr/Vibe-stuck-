@@ -1,0 +1,1025 @@
+{
+  "groups": [
+    {
+      "id": "ai",
+      "labels": {
+        "en": "AI and agents",
+        "ru": "ИИ и агенты",
+        "de": "KI und Agenten"
+      }
+    },
+    {
+      "id": "frontend",
+      "labels": {
+        "en": "Frontend and UI",
+        "ru": "Frontend и UI",
+        "de": "Frontend und UI"
+      }
+    },
+    {
+      "id": "backend",
+      "labels": {
+        "en": "Backend and data",
+        "ru": "Backend и данные",
+        "de": "Backend und Daten"
+      }
+    },
+    {
+      "id": "devtools",
+      "labels": {
+        "en": "Developer tooling",
+        "ru": "Инструменты разработки",
+        "de": "Entwickler-Tools"
+      }
+    },
+    {
+      "id": "data",
+      "labels": {
+        "en": "Data and science",
+        "ru": "Данные и наука",
+        "de": "Daten und Wissenschaft"
+      }
+    },
+    {
+      "id": "media",
+      "labels": {
+        "en": "Media and content",
+        "ru": "Медиа и контент",
+        "de": "Medien und Inhalte"
+      }
+    },
+    {
+      "id": "skills",
+      "labels": {
+        "en": "Skills and practices",
+        "ru": "Skills и практики",
+        "de": "Skills und Praktiken"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "name": ".NET экосистема",
+      "group": "devtools",
+      "labels": {
+        "en": ".NET ecosystem",
+        "ru": ".NET экосистема",
+        "de": ".NET-Ökosystem"
+      }
+    },
+    {
+      "name": "A/B-тестирование",
+      "group": "devtools",
+      "labels": {
+        "en": "A/B testing",
+        "ru": "A/B-тестирование",
+        "de": "A/B-Tests"
+      }
+    },
+    {
+      "name": "AI skills",
+      "group": "skills",
+      "labels": {
+        "en": "AI skills",
+        "ru": "AI skills",
+        "de": "KI-Skills"
+      }
+    },
+    {
+      "name": "AI и агенты",
+      "group": "ai",
+      "labels": {
+        "en": "AI and agents",
+        "ru": "AI и агенты",
+        "de": "KI und Agenten"
+      }
+    },
+    {
+      "name": "AI-оценка и safety",
+      "group": "ai",
+      "labels": {
+        "en": "AI evaluation and safety",
+        "ru": "AI-оценка и safety",
+        "de": "KI-Evaluation und Sicherheit"
+      }
+    },
+    {
+      "name": "AI-фреймворки",
+      "group": "ai",
+      "labels": {
+        "en": "AI frameworks",
+        "ru": "AI-фреймворки",
+        "de": "KI-Frameworks"
+      }
+    },
+    {
+      "name": "Backend и API",
+      "group": "backend",
+      "labels": {
+        "en": "Backend and APIs",
+        "ru": "Backend и API",
+        "de": "Backend und APIs"
+      }
+    },
+    {
+      "name": "CDP и маркетинг-данные",
+      "group": "data",
+      "labels": {
+        "en": "CDP and marketing data",
+        "ru": "CDP и маркетинг-данные",
+        "de": "CDP und Marketingdaten"
+      }
+    },
+    {
+      "name": "CLI и терминал",
+      "group": "devtools",
+      "labels": {
+        "en": "CLI and terminal",
+        "ru": "CLI и терминал",
+        "de": "CLI und Terminal"
+      }
+    },
+    {
+      "name": "CMS и контент",
+      "group": "backend",
+      "labels": {
+        "en": "CMS and content",
+        "ru": "CMS и контент",
+        "de": "CMS und Inhalte"
+      }
+    },
+    {
+      "name": "CRM и продажи",
+      "group": "backend",
+      "labels": {
+        "en": "CRM and sales",
+        "ru": "CRM и продажи",
+        "de": "CRM und Vertrieb"
+      }
+    },
+    {
+      "name": "Data engineering",
+      "group": "data",
+      "labels": {
+        "en": "Data engineering",
+        "ru": "Data engineering",
+        "de": "Data Engineering"
+      }
+    },
+    {
+      "name": "Elixir экосистема",
+      "group": "devtools",
+      "labels": {
+        "en": "Elixir ecosystem",
+        "ru": "Elixir экосистема",
+        "de": "Elixir-Ökosystem"
+      }
+    },
+    {
+      "name": "Email-маркетинг",
+      "group": "backend",
+      "labels": {
+        "en": "Email marketing",
+        "ru": "Email-маркетинг",
+        "de": "E-Mail-Marketing"
+      }
+    },
+    {
+      "name": "Feature flags и эксперименты",
+      "group": "devtools",
+      "labels": {
+        "en": "Feature flags and experiments",
+        "ru": "Feature flags и эксперименты",
+        "de": "Feature Flags und Experimente"
+      }
+    },
+    {
+      "name": "Frontend skills",
+      "group": "skills",
+      "labels": {
+        "en": "Frontend skills",
+        "ru": "Frontend skills",
+        "de": "Frontend-Skills"
+      }
+    },
+    {
+      "name": "Git и совместная работа",
+      "group": "devtools",
+      "labels": {
+        "en": "Git and collaboration",
+        "ru": "Git и совместная работа",
+        "de": "Git und Zusammenarbeit"
+      }
+    },
+    {
+      "name": "Go экосистема",
+      "group": "devtools",
+      "labels": {
+        "en": "Go ecosystem",
+        "ru": "Go экосистема",
+        "de": "Go-Ökosystem"
+      }
+    },
+    {
+      "name": "HR и рекрутинг",
+      "group": "backend",
+      "labels": {
+        "en": "HR and recruiting",
+        "ru": "HR и рекрутинг",
+        "de": "HR und Recruiting"
+      }
+    },
+    {
+      "name": "IoT и встраиваемые системы",
+      "group": "devtools",
+      "labels": {
+        "en": "IoT and embedded systems",
+        "ru": "IoT и встраиваемые системы",
+        "de": "IoT und eingebettete Systeme"
+      }
+    },
+    {
+      "name": "JVM экосистема",
+      "group": "devtools",
+      "labels": {
+        "en": "JVM ecosystem",
+        "ru": "JVM экосистема",
+        "de": "JVM-Ökosystem"
+      }
+    },
+    {
+      "name": "MLOps и эксперименты",
+      "group": "ai",
+      "labels": {
+        "en": "MLOps and experiment tracking",
+        "ru": "MLOps и эксперименты",
+        "de": "MLOps und Experiment-Tracking"
+      }
+    },
+    {
+      "name": "Message queues и брокеры",
+      "group": "backend",
+      "labels": {
+        "en": "Message queues and brokers",
+        "ru": "Message queues и брокеры",
+        "de": "Message Queues und Broker"
+      }
+    },
+    {
+      "name": "Mobile skills",
+      "group": "skills",
+      "labels": {
+        "en": "Mobile skills",
+        "ru": "Mobile skills",
+        "de": "Mobile-Skills"
+      }
+    },
+    {
+      "name": "NLP и обработка текста",
+      "group": "ai",
+      "labels": {
+        "en": "NLP and text processing",
+        "ru": "NLP и обработка текста",
+        "de": "NLP und Textverarbeitung"
+      }
+    },
+    {
+      "name": "OCR и распознавание документов",
+      "group": "ai",
+      "labels": {
+        "en": "OCR and document AI",
+        "ru": "OCR и распознавание документов",
+        "de": "OCR und Dokumenten-KI"
+      }
+    },
+    {
+      "name": "Rust экосистема",
+      "group": "devtools",
+      "labels": {
+        "en": "Rust ecosystem",
+        "ru": "Rust экосистема",
+        "de": "Rust-Ökosystem"
+      }
+    },
+    {
+      "name": "Service mesh и Kubernetes",
+      "group": "devtools",
+      "labels": {
+        "en": "Service mesh and Kubernetes",
+        "ru": "Service mesh и Kubernetes",
+        "de": "Service Mesh und Kubernetes"
+      }
+    },
+    {
+      "name": "UI и frontend",
+      "group": "frontend",
+      "labels": {
+        "en": "UI and frontend",
+        "ru": "UI и frontend",
+        "de": "UI und Frontend"
+      }
+    },
+    {
+      "name": "Web3 и блокчейн",
+      "group": "backend",
+      "labels": {
+        "en": "Web3 and blockchain",
+        "ru": "Web3 и блокчейн",
+        "de": "Web3 und Blockchain"
+      }
+    },
+    {
+      "name": "Workflow skills",
+      "group": "skills",
+      "labels": {
+        "en": "Workflow skills",
+        "ru": "Workflow skills",
+        "de": "Workflow-Skills"
+      }
+    },
+    {
+      "name": "Анимация и 3D",
+      "group": "frontend",
+      "labels": {
+        "en": "Animation and 3D",
+        "ru": "Анимация и 3D",
+        "de": "Animation und 3D"
+      }
+    },
+    {
+      "name": "Аудио и голос",
+      "group": "media",
+      "labels": {
+        "en": "Audio and voice",
+        "ru": "Аудио и голос",
+        "de": "Audio und Sprache"
+      }
+    },
+    {
+      "name": "Аутентификация",
+      "group": "backend",
+      "labels": {
+        "en": "Authentication",
+        "ru": "Аутентификация",
+        "de": "Authentifizierung"
+      }
+    },
+    {
+      "name": "Базы данных и ORM",
+      "group": "backend",
+      "labels": {
+        "en": "Databases and ORM",
+        "ru": "Базы данных и ORM",
+        "de": "Datenbanken und ORM"
+      }
+    },
+    {
+      "name": "Базы данных и backend",
+      "group": "backend",
+      "labels": {
+        "en": "Databases and backend",
+        "ru": "Базы данных и backend",
+        "de": "Datenbanken und Backend"
+      }
+    },
+    {
+      "name": "Безопасность и секреты",
+      "group": "devtools",
+      "labels": {
+        "en": "Security and secrets",
+        "ru": "Безопасность и секреты",
+        "de": "Sicherheit und Secrets"
+      }
+    },
+    {
+      "name": "Браузер и автоматизация",
+      "group": "devtools",
+      "labels": {
+        "en": "Browser and automation",
+        "ru": "Браузер и автоматизация",
+        "de": "Browser und Automatisierung"
+      }
+    },
+    {
+      "name": "Векторные базы",
+      "group": "ai",
+      "labels": {
+        "en": "Vector databases",
+        "ru": "Векторные базы",
+        "de": "Vektordatenbanken"
+      }
+    },
+    {
+      "name": "Видео и медиа",
+      "group": "media",
+      "labels": {
+        "en": "Video and media",
+        "ru": "Видео и медиа",
+        "de": "Video und Medien"
+      }
+    },
+    {
+      "name": "Видео и медиа skills",
+      "group": "skills",
+      "labels": {
+        "en": "Video and media skills",
+        "ru": "Видео и медиа skills",
+        "de": "Video- und Medien-Skills"
+      }
+    },
+    {
+      "name": "Видеоконференции",
+      "group": "media",
+      "labels": {
+        "en": "Video conferencing",
+        "ru": "Видеоконференции",
+        "de": "Videokonferenzen"
+      }
+    },
+    {
+      "name": "Визуальное тестирование",
+      "group": "devtools",
+      "labels": {
+        "en": "Visual regression testing",
+        "ru": "Визуальное тестирование",
+        "de": "Visuelle Regressionstests"
+      }
+    },
+    {
+      "name": "Гайды и практики",
+      "group": "skills",
+      "labels": {
+        "en": "Guides and practices",
+        "ru": "Гайды и практики",
+        "de": "Leitfäden und Praktiken"
+      }
+    },
+    {
+      "name": "Голосовые агенты",
+      "group": "ai",
+      "labels": {
+        "en": "Voice agents",
+        "ru": "Голосовые агенты",
+        "de": "Sprachagenten"
+      }
+    },
+    {
+      "name": "Графики и визуализация",
+      "group": "frontend",
+      "labels": {
+        "en": "Charts and visualization",
+        "ru": "Графики и визуализация",
+        "de": "Diagramme und Visualisierung"
+      }
+    },
+    {
+      "name": "Данные и ML",
+      "group": "data",
+      "labels": {
+        "en": "Data and ML",
+        "ru": "Данные и ML",
+        "de": "Daten und ML"
+      }
+    },
+    {
+      "name": "Дизайн-системы",
+      "group": "frontend",
+      "labels": {
+        "en": "Design systems",
+        "ru": "Дизайн-системы",
+        "de": "Designsysteme"
+      }
+    },
+    {
+      "name": "Документация и контекст",
+      "group": "devtools",
+      "labels": {
+        "en": "Documentation and context",
+        "ru": "Документация и контекст",
+        "de": "Dokumentation und Kontext"
+      }
+    },
+    {
+      "name": "Документы и PDF",
+      "group": "media",
+      "labels": {
+        "en": "Documents and PDF",
+        "ru": "Документы и PDF",
+        "de": "Dokumente und PDF"
+      }
+    },
+    {
+      "name": "Доступность (a11y)",
+      "group": "devtools",
+      "labels": {
+        "en": "Accessibility",
+        "ru": "Доступность (a11y)",
+        "de": "Barrierefreiheit"
+      }
+    },
+    {
+      "name": "Еда и быт",
+      "group": "media",
+      "labels": {
+        "en": "Food and lifestyle",
+        "ru": "Еда и быт",
+        "de": "Essen und Alltag"
+      }
+    },
+    {
+      "name": "Здоровье и медицина",
+      "group": "data",
+      "labels": {
+        "en": "Health and medicine",
+        "ru": "Здоровье и медицина",
+        "de": "Gesundheit und Medizin"
+      }
+    },
+    {
+      "name": "Игровые движки",
+      "group": "media",
+      "labels": {
+        "en": "Game engines",
+        "ru": "Игровые движки",
+        "de": "Game-Engines"
+      }
+    },
+    {
+      "name": "Игры и развлечения",
+      "group": "media",
+      "labels": {
+        "en": "Games and entertainment",
+        "ru": "Игры и развлечения",
+        "de": "Spiele und Unterhaltung"
+      }
+    },
+    {
+      "name": "Идентификация и KYC",
+      "group": "backend",
+      "labels": {
+        "en": "Identity verification and KYC",
+        "ru": "Идентификация и KYC",
+        "de": "Identitätsprüfung und KYC"
+      }
+    },
+    {
+      "name": "Изображения и дизайн",
+      "group": "frontend",
+      "labels": {
+        "en": "Images and design",
+        "ru": "Изображения и дизайн",
+        "de": "Bilder und Design"
+      }
+    },
+    {
+      "name": "Инфраструктура MCP",
+      "group": "ai",
+      "labels": {
+        "en": "MCP infrastructure",
+        "ru": "Инфраструктура MCP",
+        "de": "MCP-Infrastruktur"
+      }
+    },
+    {
+      "name": "Инфраструктура как код",
+      "group": "devtools",
+      "labels": {
+        "en": "Infrastructure as code",
+        "ru": "Инфраструктура как код",
+        "de": "Infrastructure as Code"
+      }
+    },
+    {
+      "name": "Карты и навигация",
+      "group": "data",
+      "labels": {
+        "en": "Maps and navigation",
+        "ru": "Карты и навигация",
+        "de": "Karten und Navigation"
+      }
+    },
+    {
+      "name": "Каталоги skills",
+      "group": "skills",
+      "labels": {
+        "en": "Skill catalogs",
+        "ru": "Каталоги skills",
+        "de": "Skill-Kataloge"
+      }
+    },
+    {
+      "name": "Книги и знания",
+      "group": "media",
+      "labels": {
+        "en": "Books and knowledge",
+        "ru": "Книги и знания",
+        "de": "Bücher und Wissen"
+      }
+    },
+    {
+      "name": "Коммуникации",
+      "group": "media",
+      "labels": {
+        "en": "Communication",
+        "ru": "Коммуникации",
+        "de": "Kommunikation"
+      }
+    },
+    {
+      "name": "Компьютерное зрение",
+      "group": "ai",
+      "labels": {
+        "en": "Computer vision",
+        "ru": "Компьютерное зрение",
+        "de": "Computer Vision"
+      }
+    },
+    {
+      "name": "Космос и наука",
+      "group": "data",
+      "labels": {
+        "en": "Space and science",
+        "ru": "Космос и наука",
+        "de": "Weltraum und Wissenschaft"
+      }
+    },
+    {
+      "name": "Логистика и доставка",
+      "group": "data",
+      "labels": {
+        "en": "Logistics and shipping",
+        "ru": "Логистика и доставка",
+        "de": "Logistik und Versand"
+      }
+    },
+    {
+      "name": "Локализация и i18n",
+      "group": "devtools",
+      "labels": {
+        "en": "Localization and i18n",
+        "ru": "Локализация и i18n",
+        "de": "Lokalisierung und i18n"
+      }
+    },
+    {
+      "name": "Локальные инструменты",
+      "group": "devtools",
+      "labels": {
+        "en": "Local tools",
+        "ru": "Локальные инструменты",
+        "de": "Lokale Tools"
+      }
+    },
+    {
+      "name": "Локальные модели",
+      "group": "ai",
+      "labels": {
+        "en": "Local models",
+        "ru": "Локальные модели",
+        "de": "Lokale Modelle"
+      }
+    },
+    {
+      "name": "Мобильная и desktop разработка",
+      "group": "devtools",
+      "labels": {
+        "en": "Mobile and desktop development",
+        "ru": "Мобильная и desktop разработка",
+        "de": "Mobile- und Desktop-Entwicklung"
+      }
+    },
+    {
+      "name": "Мониторинг и аналитика",
+      "group": "devtools",
+      "labels": {
+        "en": "Monitoring and analytics",
+        "ru": "Мониторинг и аналитика",
+        "de": "Monitoring und Analytik"
+      }
+    },
+    {
+      "name": "Музыка и медиа",
+      "group": "media",
+      "labels": {
+        "en": "Music and media",
+        "ru": "Музыка и медиа",
+        "de": "Musik und Medien"
+      }
+    },
+    {
+      "name": "Наблюдаемость трасс",
+      "group": "devtools",
+      "labels": {
+        "en": "Distributed tracing",
+        "ru": "Наблюдаемость трасс",
+        "de": "Verteiltes Tracing"
+      }
+    },
+    {
+      "name": "Наука и исследования",
+      "group": "data",
+      "labels": {
+        "en": "Science and research",
+        "ru": "Наука и исследования",
+        "de": "Wissenschaft und Forschung"
+      }
+    },
+    {
+      "name": "Недвижимость",
+      "group": "data",
+      "labels": {
+        "en": "Real estate",
+        "ru": "Недвижимость",
+        "de": "Immobilien"
+      }
+    },
+    {
+      "name": "Новости и сообщества",
+      "group": "media",
+      "labels": {
+        "en": "News and communities",
+        "ru": "Новости и сообщества",
+        "de": "Nachrichten und Communities"
+      }
+    },
+    {
+      "name": "Облако и деплой",
+      "group": "devtools",
+      "labels": {
+        "en": "Cloud and deployment",
+        "ru": "Облако и деплой",
+        "de": "Cloud und Deployment"
+      }
+    },
+    {
+      "name": "Образование",
+      "group": "data",
+      "labels": {
+        "en": "Education",
+        "ru": "Образование",
+        "de": "Bildung"
+      }
+    },
+    {
+      "name": "Открытые данные",
+      "group": "data",
+      "labels": {
+        "en": "Open data",
+        "ru": "Открытые данные",
+        "de": "Offene Daten"
+      }
+    },
+    {
+      "name": "Очереди и события",
+      "group": "backend",
+      "labels": {
+        "en": "Queues and events",
+        "ru": "Очереди и события",
+        "de": "Queues und Events"
+      }
+    },
+    {
+      "name": "Память и знания",
+      "group": "ai",
+      "labels": {
+        "en": "Memory and knowledge",
+        "ru": "Память и знания",
+        "de": "Gedächtnis und Wissen"
+      }
+    },
+    {
+      "name": "Переводы и языки",
+      "group": "media",
+      "labels": {
+        "en": "Translation and languages",
+        "ru": "Переводы и языки",
+        "de": "Übersetzung und Sprachen"
+      }
+    },
+    {
+      "name": "Планирование и reasoning",
+      "group": "ai",
+      "labels": {
+        "en": "Planning and reasoning",
+        "ru": "Планирование и reasoning",
+        "de": "Planung und Reasoning"
+      }
+    },
+    {
+      "name": "Планирование и календари",
+      "group": "backend",
+      "labels": {
+        "en": "Scheduling and calendars",
+        "ru": "Планирование и календари",
+        "de": "Terminplanung und Kalender"
+      }
+    },
+    {
+      "name": "Платежи и commerce",
+      "group": "backend",
+      "labels": {
+        "en": "Payments and commerce",
+        "ru": "Платежи и commerce",
+        "de": "Zahlungen und Commerce"
+      }
+    },
+    {
+      "name": "Погода и геоданные",
+      "group": "data",
+      "labels": {
+        "en": "Weather and geodata",
+        "ru": "Погода и геоданные",
+        "de": "Wetter und Geodaten"
+      }
+    },
+    {
+      "name": "Поиск и retrieval",
+      "group": "data",
+      "labels": {
+        "en": "Search and retrieval",
+        "ru": "Поиск и retrieval",
+        "de": "Suche und Retrieval"
+      }
+    },
+    {
+      "name": "Почта и уведомления",
+      "group": "backend",
+      "labels": {
+        "en": "Email and notifications",
+        "ru": "Почта и уведомления",
+        "de": "E-Mail und Benachrichtigungen"
+      }
+    },
+    {
+      "name": "Разработка и DevOps",
+      "group": "devtools",
+      "labels": {
+        "en": "Development and DevOps",
+        "ru": "Разработка и DevOps",
+        "de": "Entwicklung und DevOps"
+      }
+    },
+    {
+      "name": "Рекомендательные системы",
+      "group": "ai",
+      "labels": {
+        "en": "Recommendation engines",
+        "ru": "Рекомендательные системы",
+        "de": "Empfehlungssysteme"
+      }
+    },
+    {
+      "name": "Робототехника",
+      "group": "data",
+      "labels": {
+        "en": "Robotics",
+        "ru": "Робототехника",
+        "de": "Robotik"
+      }
+    },
+    {
+      "name": "Сборка и bundlers",
+      "group": "devtools",
+      "labels": {
+        "en": "Build and bundlers",
+        "ru": "Сборка и bundlers",
+        "de": "Build und Bundler"
+      }
+    },
+    {
+      "name": "Секреты и конфигурация",
+      "group": "devtools",
+      "labels": {
+        "en": "Secrets and configuration",
+        "ru": "Секреты и конфигурация",
+        "de": "Secrets und Konfiguration"
+      }
+    },
+    {
+      "name": "Словари и лексика",
+      "group": "media",
+      "labels": {
+        "en": "Dictionaries and vocabulary",
+        "ru": "Словари и лексика",
+        "de": "Wörterbücher und Wortschatz"
+      }
+    },
+    {
+      "name": "Создание skills",
+      "group": "skills",
+      "labels": {
+        "en": "Creating skills",
+        "ru": "Создание skills",
+        "de": "Skills erstellen"
+      }
+    },
+    {
+      "name": "Состояние и данные",
+      "group": "backend",
+      "labels": {
+        "en": "State and data",
+        "ru": "Состояние и данные",
+        "de": "Zustand und Daten"
+      }
+    },
+    {
+      "name": "Стриминг видео",
+      "group": "media",
+      "labels": {
+        "en": "Video streaming",
+        "ru": "Стриминг видео",
+        "de": "Video-Streaming"
+      }
+    },
+    {
+      "name": "Таблицы и no-code",
+      "group": "backend",
+      "labels": {
+        "en": "Spreadsheets and no-code",
+        "ru": "Таблицы и no-code",
+        "de": "Tabellen und No-Code"
+      }
+    },
+    {
+      "name": "Тестирование и качество",
+      "group": "devtools",
+      "labels": {
+        "en": "Testing and quality",
+        "ru": "Тестирование и качество",
+        "de": "Tests und Qualität"
+      }
+    },
+    {
+      "name": "Тестовые и mock API",
+      "group": "devtools",
+      "labels": {
+        "en": "Test and mock APIs",
+        "ru": "Тестовые и mock API",
+        "de": "Test- und Mock-APIs"
+      }
+    },
+    {
+      "name": "Транспорт и город",
+      "group": "data",
+      "labels": {
+        "en": "Transport and city",
+        "ru": "Транспорт и город",
+        "de": "Verkehr und Stadt"
+      }
+    },
+    {
+      "name": "Установка и миграция",
+      "group": "devtools",
+      "labels": {
+        "en": "Installation and migration",
+        "ru": "Установка и миграция",
+        "de": "Installation und Migration"
+      }
+    },
+    {
+      "name": "Утилиты",
+      "group": "devtools",
+      "labels": {
+        "en": "Utilities",
+        "ru": "Утилиты",
+        "de": "Dienstprogramme"
+      }
+    },
+    {
+      "name": "Финансы",
+      "group": "data",
+      "labels": {
+        "en": "Finance",
+        "ru": "Финансы",
+        "de": "Finanzen"
+      }
+    },
+    {
+      "name": "Формы и опросы",
+      "group": "backend",
+      "labels": {
+        "en": "Forms and surveys",
+        "ru": "Формы и опросы",
+        "de": "Formulare und Umfragen"
+      }
+    },
+    {
+      "name": "Юридические и налоговые API",
+      "group": "data",
+      "labels": {
+        "en": "Legal and tax APIs",
+        "ru": "Юридические и налоговые API",
+        "de": "Rechts- und Steuer-APIs"
+      }
+    },
+    {
+      "name": "Языки и рантаймы",
+      "group": "devtools",
+      "labels": {
+        "en": "Languages and runtimes",
+        "ru": "Языки и рантаймы",
+        "de": "Sprachen und Runtimes"
+      }
+    }
+  ]
+}
