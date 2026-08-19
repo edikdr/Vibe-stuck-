@@ -173,6 +173,16 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-appsflyer': 'lib-appsflyer',
+ 'paid-adjust': 'lib-adjust',
+ 'paid-singular': 'lib-singular',
+ 'paid-fullstory': 'lib-fullstory',
+ 'paid-contentsquare': 'lib-contentsquare',
+ 'paid-embrace-io': 'lib-embrace-io',
+ 'paid-pendo': 'lib-pendo',
+ 'paid-appcues': 'lib-appcues',
+ 'paid-userpilot': 'lib-userpilot',
+ 'paid-chameleon': 'lib-chameleon',
  'paid-commercetools': 'api-commercetools',
  'paid-bigcommerce': 'api-bigcommerce',
  'paid-squarespace': 'api-squarespace',

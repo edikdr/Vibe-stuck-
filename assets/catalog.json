@@ -36360,6 +36360,146 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-adapty",
+   "name": "Adapty",
+   "kind": "library",
+   "category": "Платежи и commerce",
+   "summary": "Subscription infrastructure with remotely configurable paywalls and A/B testing.",
+   "url": "https://adapty.io/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "subscriptions",
+    "paywalls",
+    "ab-testing",
+    "analytics"
+   ],
+   "tip": "Changing a paywall without an app release is what makes pricing experiments actually feasible.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Subscription infrastructure with remotely configurable paywalls and A/B testing.",
+    "ru": "Инфраструктура подписок с удалённо настраиваемыми paywall и A/B-тестированием."
+   },
+   "localizedTip": {
+    "en": "Changing a paywall without an app release is what makes pricing experiments actually feasible."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-qonversion",
+   "name": "Qonversion",
+   "kind": "library",
+   "category": "Платежи и commerce",
+   "summary": "Subscription management with revenue analytics and user segmentation.",
+   "url": "https://documentation.qonversion.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "subscriptions",
+    "analytics",
+    "segmentation",
+    "mobile"
+   ],
+   "tip": "Combines the entitlement layer with cohort revenue reporting, avoiding a second analytics tool.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Subscription management with revenue analytics and user segmentation.",
+    "ru": "Управление подписками с аналитикой выручки и сегментацией пользователей."
+   },
+   "localizedTip": {
+    "en": "Combines the entitlement layer with cohort revenue reporting, avoiding a second analytics tool."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-revenuecat-sdk",
+   "name": "RevenueCat SDK",
+   "kind": "library",
+   "category": "Платежи и commerce",
+   "summary": "Cross-platform in-app subscription infrastructure with server-side entitlements.",
+   "url": "https://www.revenuecat.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "subscriptions",
+    "iap",
+    "cross-platform",
+    "entitlements"
+   ],
+   "tip": "Its entitlement model means you check one flag rather than reconciling App Store and Play receipts.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cross-platform in-app subscription infrastructure with server-side entitlements.",
+    "ru": "Кроссплатформенная инфраструктура подписок в приложении с серверными правами доступа."
+   },
+   "localizedTip": {
+    "en": "Its entitlement model means you check one flag rather than reconciling App Store and Play receipts."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-superwall",
+   "name": "Superwall",
+   "kind": "library",
+   "category": "Платежи и commerce",
+   "summary": "Remotely built and tested paywalls, decoupled from app releases.",
+   "url": "https://superwall.com/docs/home",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "paywalls",
+    "experiments",
+    "remote-config",
+    "mobile"
+   ],
+   "tip": "Focused purely on the paywall layer — it pairs with, rather than replaces, subscription backends.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Remotely built and tested paywalls, decoupled from app releases.",
+    "ru": "Paywall, создаваемые и тестируемые удалённо, независимо от релизов приложения."
+   },
+   "localizedTip": {
+    "en": "Focused purely on the paywall layer — it pairs with, rather than replaces, subscription backends."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-maizzle",
    "name": "Maizzle",
    "kind": "library",
@@ -37746,6 +37886,166 @@
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-adjust",
+   "name": "Adjust",
+   "kind": "library",
+   "category": "CDP и маркетинг-данные",
+   "summary": "Mobile measurement platform with strong ad-fraud prevention.",
+   "url": "https://dev.adjust.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "attribution",
+    "fraud-prevention",
+    "mobile",
+    "analytics",
+    "pricing",
+    "per-install",
+    "custom"
+   ],
+   "tip": "Its fraud filtering typically pays for itself on any meaningful paid acquisition budget.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mobile measurement platform with strong ad-fraud prevention.",
+    "ru": "Платформа мобильных измерений с сильной защитой от рекламного фрода."
+   },
+   "localizedTip": {
+    "en": "Its fraud filtering typically pays for itself on any meaningful paid acquisition budget."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote (per attributed install)",
+    "freeQuota": "product demo",
+    "url": "https://www.adjust.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-appsflyer",
+   "name": "AppsFlyer",
+   "kind": "library",
+   "category": "CDP и маркетинг-данные",
+   "summary": "Mobile attribution platform measuring which campaigns drive installs and revenue.",
+   "url": "https://dev.appsflyer.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "attribution",
+    "mobile",
+    "campaigns",
+    "deep-links",
+    "pricing",
+    "per-conversion"
+   ],
+   "tip": "Post-ATT attribution is probabilistic on iOS — treat the numbers as directional, not exact.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mobile attribution platform measuring which campaigns drive installs and revenue.",
+    "ru": "Платформа мобильной атрибуции, измеряющая, какие кампании приносят установки и выручку."
+   },
+   "localizedTip": {
+    "en": "Post-ATT attribution is probabilistic on iOS — treat the numbers as directional, not exact."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.05 per conversion",
+    "freeQuota": "free tier up to 12k conversions/month",
+    "url": "https://www.appsflyer.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-branch-io",
+   "name": "Branch",
+   "kind": "library",
+   "category": "CDP и маркетинг-данные",
+   "summary": "Deep linking and attribution, including deferred links that survive app installation.",
+   "url": "https://help.branch.io/developers-hub/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "deep-links",
+    "attribution",
+    "deferred",
+    "mobile"
+   ],
+   "tip": "Deferred deep linking routes a new user to the right screen after install, which plain links cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Deep linking and attribution, including deferred links that survive app installation.",
+    "ru": "Диплинки и атрибуция, включая отложенные ссылки, переживающие установку приложения."
+   },
+   "localizedTip": {
+    "en": "Deferred deep linking routes a new user to the right screen after install, which plain links cannot."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-singular",
+   "name": "Singular",
+   "kind": "library",
+   "category": "CDP и маркетинг-данные",
+   "summary": "Marketing analytics unifying attribution with ad spend for ROI reporting.",
+   "url": "https://support.singular.net/hc/en-us/categories/360002441132",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "attribution",
+    "marketing-analytics",
+    "roi",
+    "mobile",
+    "pricing",
+    "volume",
+    "custom"
+   ],
+   "tip": "Joining cost data to attribution is the part that turns installs into an actual ROI figure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Marketing analytics unifying attribution with ad spend for ROI reporting.",
+    "ru": "Маркетинговая аналитика, объединяющая атрибуцию с рекламными расходами для отчётов по ROI."
+   },
+   "localizedTip": {
+    "en": "Joining cost data to attribution is the part that turns installs into an actual ROI figure."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "product demo",
+    "url": "https://www.singular.net/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
   },
   {
    "id": "lib-apache-airflow",
@@ -47781,6 +48081,82 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-bugsnag",
+   "name": "Bugsnag",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Error monitoring organized around a stability score per release.",
+   "url": "https://docs.bugsnag.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "errors",
+    "stability",
+    "releases",
+    "cross-platform"
+   ],
+   "tip": "Its stability target turns 'should we roll back' into a threshold rather than a judgement call.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Error monitoring organized around a stability score per release.",
+    "ru": "Мониторинг ошибок, построенный вокруг оценки стабильности каждого релиза."
+   },
+   "localizedTip": {
+    "en": "Its stability target turns 'should we roll back' into a threshold rather than a judgement call."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-contentsquare",
+   "name": "Contentsquare",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Enterprise digital experience analytics measuring engagement zone by zone.",
+   "url": "https://docs.contentsquare.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "experience-analytics",
+    "enterprise",
+    "journeys",
+    "zoning",
+    "pricing",
+    "pageviews"
+   ],
+   "tip": "Its zoning analysis quantifies which page regions earn attention, beyond click counts.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise digital experience analytics measuring engagement zone by zone.",
+    "ru": "Корпоративная аналитика цифрового опыта, измеряющая вовлечённость по зонам страницы."
+   },
+   "localizedTip": {
+    "en": "Its zoning analysis quantifies which page regions earn attention, beyond click counts."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "free trial",
+    "url": "https://contentsquare.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-fluent-bit",
    "name": "Fluent Bit",
    "kind": "library",
@@ -47811,6 +48187,48 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-fullstory",
+   "name": "FullStory",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Session replay and behavioural analytics with automatic frustration detection.",
+   "url": "https://developer.fullstory.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "session-replay",
+    "analytics",
+    "frustration-signals",
+    "web",
+    "pricing",
+    "sessions",
+    "subscription"
+   ],
+   "tip": "Its rage-click and dead-click signals surface broken interactions no error tracker reports.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Session replay and behavioural analytics with automatic frustration detection.",
+    "ru": "Запись сессий и поведенческая аналитика с автоматическим выявлением признаков раздражения."
+   },
+   "localizedTip": {
+    "en": "Its rage-click and dead-click signals surface broken interactions no error tracker reports."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "custom quote (by monthly sessions)",
+    "freeQuota": "free trial",
+    "url": "https://www.fullstory.com/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -47916,6 +48334,146 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-heap",
+   "name": "Heap",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Analytics that autocaptures every interaction, allowing retroactive event definition.",
+   "url": "https://developers.heap.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "autocapture",
+    "retroactive",
+    "analytics",
+    "events"
+   ],
+   "tip": "You can answer questions about the past without having instrumented them in advance.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Analytics that autocaptures every interaction, allowing retroactive event definition.",
+    "ru": "Аналитика с автозахватом всех взаимодействий, позволяющая определять события задним числом."
+   },
+   "localizedTip": {
+    "en": "You can answer questions about the past without having instrumented them in advance."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-hotjar",
+   "name": "Hotjar",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Heatmaps, session recordings and on-site surveys for understanding user behaviour.",
+   "url": "https://help.hotjar.com/hc/en-us",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "heatmaps",
+    "recordings",
+    "surveys",
+    "feedback"
+   ],
+   "tip": "Its on-page surveys collect the 'why' that heatmaps and analytics can only hint at.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Heatmaps, session recordings and on-site surveys for understanding user behaviour.",
+    "ru": "Тепловые карты, записи сессий и опросы на сайте для понимания поведения пользователей."
+   },
+   "localizedTip": {
+    "en": "Its on-page surveys collect the 'why' that heatmaps and analytics can only hint at."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-logrocket",
+   "name": "LogRocket",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Session replay combined with console logs, network traffic and Redux state.",
+   "url": "https://docs.logrocket.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "session-replay",
+    "console-logs",
+    "network",
+    "debugging"
+   ],
+   "tip": "Replaying a bug with the network calls and state attached removes most reproduction guesswork.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Session replay combined with console logs, network traffic and Redux state.",
+    "ru": "Запись сессий вместе с логами консоли, сетевым трафиком и состоянием Redux."
+   },
+   "localizedTip": {
+    "en": "Replaying a bug with the network calls and state attached removes most reproduction guesswork."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-microsoft-clarity",
+   "name": "Microsoft Clarity",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Free unlimited heatmaps and session recordings from Microsoft.",
+   "url": "https://learn.microsoft.com/en-us/clarity/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "heatmaps",
+    "session-replay",
+    "free",
+    "unlimited"
+   ],
+   "tip": "Genuinely free at any traffic volume, which makes the paid alternatives a harder sell.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free unlimited heatmaps and session recordings from Microsoft.",
+    "ru": "Бесплатные безлимитные тепловые карты и записи сессий от Microsoft."
+   },
+   "localizedTip": {
+    "en": "Genuinely free at any traffic volume, which makes the paid alternatives a harder sell."
+   },
+   "pricing": {
+    "model": "free",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -48061,6 +48619,48 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-pendo",
+   "name": "Pendo",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Product analytics combined with in-app guides and user feedback collection.",
+   "url": "https://support.pendo.io/hc/en-us",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "product-analytics",
+    "in-app-guides",
+    "feedback",
+    "adoption",
+    "pricing",
+    "mau",
+    "subscription"
+   ],
+   "tip": "Measuring a feature and guiding users to it in one tool shortens the adoption feedback loop.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Product analytics combined with in-app guides and user feedback collection.",
+    "ru": "Продуктовая аналитика вместе с внутриприложенческими подсказками и сбором обратной связи."
+   },
+   "localizedTip": {
+    "en": "Measuring a feature and guiding users to it in one tool shortens the adoption feedback loop."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "free up to 500 MAU, then custom quote",
+    "freeQuota": "free tier",
+    "url": "https://www.pendo.io/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-alertmanager",
    "name": "Prometheus Alertmanager",
    "kind": "library",
@@ -48193,6 +48793,41 @@
    },
    "localizedTip": {
     "en": "Enable release tracking and source maps together — without both, stack traces on minified frontend code are useless."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-smartlook",
+   "name": "Smartlook",
+   "kind": "library",
+   "category": "Мониторинг и аналитика",
+   "summary": "Session recording and heatmaps covering both web and native mobile apps.",
+   "url": "https://docs.smartlook.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "session-replay",
+    "mobile",
+    "heatmaps",
+    "events"
+   ],
+   "tip": "Native mobile replay is the differentiator — most replay tools are web-only.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Session recording and heatmaps covering both web and native mobile apps.",
+    "ru": "Запись сессий и тепловые карты для веба и нативных мобильных приложений."
+   },
+   "localizedTip": {
+    "en": "Native mobile replay is the differentiator — most replay tools are web-only."
    },
    "pricing": {
     "model": "freemium",
@@ -52749,6 +53384,48 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-appcues",
+   "name": "Appcues",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "No-code in-app onboarding flows and product tours.",
+   "url": "https://docs.appcues.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "onboarding",
+    "tours",
+    "no-code",
+    "adoption",
+    "pricing",
+    "mau",
+    "subscription"
+   ],
+   "tip": "Product teams ship onboarding changes without engineering, which is the entire value proposition.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "No-code in-app onboarding flows and product tours.",
+    "ru": "No-code онбординг и продуктовые туры внутри приложения."
+   },
+   "localizedTip": {
+    "en": "Product teams ship onboarding changes without engineering, which is the entire value proposition."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$249 per month",
+    "freeQuota": "free trial",
+    "url": "https://www.appcues.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-ark-ui",
    "name": "Ark UI",
    "kind": "library",
@@ -52946,6 +53623,48 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-chameleon",
+   "name": "Chameleon",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Highly customizable in-product tours, tooltips and microsurveys.",
+   "url": "https://help.chameleon.io/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "product-tours",
+    "tooltips",
+    "surveys",
+    "customization",
+    "pricing",
+    "mau",
+    "subscription"
+   ],
+   "tip": "Its styling control is the reason to pick it when tours must look native to your design system.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Highly customizable in-product tours, tooltips and microsurveys.",
+    "ru": "Гибко настраиваемые продуктовые туры, подсказки и микроопросы внутри продукта."
+   },
+   "localizedTip": {
+    "en": "Its styling control is the reason to pick it when tours must look native to your design system."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$279 per month",
+    "freeQuota": "free trial",
+    "url": "https://www.chameleon.io/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
   },
@@ -53199,6 +53918,41 @@
    },
    "localizedTip": {
     "en": "Keyboard-accessible dragging out of the box is the main reason to pick it over react-beautiful-dnd."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-driver-js",
+   "name": "Driver.js",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Tiny dependency-free library for highlighting elements and driving tours.",
+   "url": "https://driverjs.com/docs/installation",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tours",
+    "highlight",
+    "tiny",
+    "vanilla"
+   ],
+   "tip": "A few kilobytes with no dependencies, which suits a simple one-off walkthrough.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i driver.js",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Tiny dependency-free library for highlighting elements and driving tours.",
+    "ru": "Крошечная библиотека без зависимостей для подсветки элементов и проведения туров."
+   },
+   "localizedTip": {
+    "en": "A few kilobytes with no dependencies, which suits a simple one-off walkthrough."
    },
    "pricing": {
     "model": "openSource",
@@ -53808,6 +54562,41 @@
    ],
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-intro-js",
+   "name": "Intro.js",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Lightweight library for step-by-step product tours and hints.",
+   "url": "https://introjs.com/docs",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tours",
+    "onboarding",
+    "lightweight",
+    "vanilla"
+   ],
+   "tip": "Free under AGPL; commercial use in a closed-source product requires a paid licence.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i intro.js",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight library for step-by-step product tours and hints.",
+    "ru": "Лёгкая библиотека пошаговых продуктовых туров и подсказок."
+   },
+   "localizedTip": {
+    "en": "Free under AGPL; commercial use in a closed-source product requires a paid licence."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -54909,6 +55698,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-react-joyride",
+   "name": "React Joyride",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Step-by-step product tours as a React component with lifecycle callbacks.",
+   "url": "https://docs.react-joyride.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "tours",
+    "steps",
+    "callbacks"
+   ],
+   "tip": "Its callbacks let you record tour progress as analytics events to see where users abandon.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i react-joyride",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Step-by-step product tours as a React component with lifecycle callbacks.",
+    "ru": "Пошаговые продуктовые туры как React-компонент с колбэками жизненного цикла."
+   },
+   "localizedTip": {
+    "en": "Its callbacks let you record tour progress as analytics events to see where users abandon."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-react-router",
    "name": "React Router",
    "kind": "library",
@@ -55028,6 +55852,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-shepherd-js",
+   "name": "Shepherd.js",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Guided tour library built on Floating UI with solid accessibility.",
+   "url": "https://shepherdjs.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tours",
+    "guides",
+    "accessible",
+    "floating-ui"
+   ],
+   "tip": "Focus management and keyboard navigation work correctly, which most tour libraries neglect.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i shepherd.js",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Guided tour library built on Floating UI with solid accessibility.",
+    "ru": "Библиотека пошаговых туров на Floating UI с хорошей доступностью."
+   },
+   "localizedTip": {
+    "en": "Focus management and keyboard navigation work correctly, which most tour libraries neglect."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
   },
@@ -55665,6 +56524,48 @@
    ],
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-userpilot",
+   "name": "Userpilot",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "In-app onboarding and engagement flows targeted by user segment.",
+   "url": "https://docs.userpilot.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "onboarding",
+    "engagement",
+    "surveys",
+    "segmentation",
+    "pricing",
+    "mau",
+    "subscription"
+   ],
+   "tip": "Segment-targeted flows avoid showing a power user the same tour as a first-time visitor.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "In-app onboarding and engagement flows targeted by user segment.",
+    "ru": "Онбординг и вовлечение внутри приложения с таргетингом по сегментам пользователей."
+   },
+   "localizedTip": {
+    "en": "Segment-targeted flows avoid showing a power user the same tour as a first-time visitor."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$249 per month",
+    "freeQuota": "free trial",
+    "url": "https://userpilot.com/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -60159,6 +61060,608 @@
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
+  },
+  {
+   "id": "lib-appium",
+   "name": "Appium",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "WebDriver-based mobile automation across iOS, Android and beyond.",
+   "url": "https://appium.io/docs/en/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mobile",
+    "webdriver",
+    "cross-platform",
+    "automation"
+   ],
+   "tip": "One test suite drives both platforms, at the cost of being slower than each platform's native runner.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g appium",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "WebDriver-based mobile automation across iOS, Android and beyond.",
+    "ru": "Мобильная автоматизация на основе WebDriver для iOS, Android и других платформ."
+   },
+   "localizedTip": {
+    "en": "One test suite drives both platforms, at the cost of being slower than each platform's native runner."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-bitrise",
+   "name": "Bitrise",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Mobile CI/CD platform built from composable workflow steps.",
+   "url": "https://devcenter.bitrise.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ci-cd",
+    "mobile",
+    "workflows",
+    "steps"
+   ],
+   "tip": "Its step library covers most mobile release chores without writing shell scripts.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mobile CI/CD platform built from composable workflow steps.",
+    "ru": "Платформа мобильного CI/CD, собираемая из композируемых шагов workflow."
+   },
+   "localizedTip": {
+    "en": "Its step library covers most mobile release chores without writing shell scripts."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-codemagic",
+   "name": "Codemagic",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Mobile-focused CI/CD with first-class Flutter support and macOS build machines.",
+   "url": "https://docs.codemagic.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ci-cd",
+    "flutter",
+    "mobile",
+    "macos-runners"
+   ],
+   "tip": "Its free tier includes real macOS minutes, which most general CI providers charge heavily for.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mobile-focused CI/CD with first-class Flutter support and macOS build machines.",
+    "ru": "CI/CD с фокусом на мобильную разработку, полноценной поддержкой Flutter и macOS-раннерами."
+   },
+   "localizedTip": {
+    "en": "Its free tier includes real macOS minutes, which most general CI providers charge heavily for."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-detox",
+   "name": "Detox",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Grey-box end-to-end testing for React Native that waits for the app to settle.",
+   "url": "https://wix.github.io/Detox/docs/introduction/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react-native",
+    "e2e",
+    "grey-box",
+    "synchronization"
+   ],
+   "tip": "Automatic synchronization with the app's event loop removes almost all arbitrary sleep calls.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D detox",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Grey-box end-to-end testing for React Native that waits for the app to settle.",
+    "ru": "Grey-box E2E тестирование для React Native, ожидающее стабилизации приложения."
+   },
+   "localizedTip": {
+    "en": "Automatic synchronization with the app's event loop removes almost all arbitrary sleep calls."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-eas-build",
+   "name": "EAS Build",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Expo's cloud build service for React Native apps, including credential management.",
+   "url": "https://docs.expo.dev/build/introduction/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "expo",
+    "react-native",
+    "cloud-builds",
+    "credentials"
+   ],
+   "tip": "Handles iOS signing credentials for you, which removes the usual reason to own a Mac.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g eas-cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Expo's cloud build service for React Native apps, including credential management.",
+    "ru": "Облачный сервис сборки Expo для приложений React Native, включая управление сертификатами."
+   },
+   "localizedTip": {
+    "en": "Handles iOS signing credentials for you, which removes the usual reason to own a Mac."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-embrace-io",
+   "name": "Embrace",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Mobile observability reconstructing complete user sessions around each problem.",
+   "url": "https://embrace.io/docs/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mobile",
+    "observability",
+    "sessions",
+    "performance",
+    "mobile-observability",
+    "pricing",
+    "custom"
+   ],
+   "tip": "Session-level context catches non-crash failures — frozen frames, silent network errors — that crash tools miss.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mobile observability reconstructing complete user sessions around each problem.",
+    "ru": "Мобильная observability, восстанавливающая полные пользовательские сессии вокруг каждой проблемы."
+   },
+   "localizedTip": {
+    "en": "Session-level context catches non-crash failures — frozen frames, silent network errors — that crash tools miss."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote (by monthly sessions)",
+    "freeQuota": "free trial",
+    "url": "https://embrace.io/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-espresso",
+   "name": "Espresso",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Google's native Android UI testing framework with automatic synchronization.",
+   "url": "https://developer.android.com/training/testing/espresso",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "android",
+    "ui-testing",
+    "google",
+    "native"
+   ],
+   "tip": "Its idling resource mechanism handles async work that would otherwise need explicit waits.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's native Android UI testing framework with automatic synchronization.",
+    "ru": "Нативный фреймворк UI-тестирования Android от Google с автоматической синхронизацией."
+   },
+   "localizedTip": {
+    "en": "Its idling resource mechanism handles async work that would otherwise need explicit waits."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-fastlane",
+   "name": "Fastlane",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Automates mobile builds, signing, screenshots and store submission.",
+   "url": "https://docs.fastlane.tools/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ios",
+    "android",
+    "automation",
+    "release"
+   ],
+   "tip": "Its match tool for shared signing certificates solves the single worst part of iOS releases.",
+   "verifiedAt": "2026-08-17",
+   "install": "gem install fastlane",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automates mobile builds, signing, screenshots and store submission.",
+    "ru": "Автоматизирует сборку, подписание, скриншоты и публикацию мобильных приложений."
+   },
+   "localizedTip": {
+    "en": "Its match tool for shared signing certificates solves the single worst part of iOS releases."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-firebase-app-distribution",
+   "name": "Firebase App Distribution",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Free pre-release app distribution to testers on iOS and Android.",
+   "url": "https://firebase.google.com/docs/app-distribution",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "beta",
+    "testing",
+    "distribution",
+    "free"
+   ],
+   "tip": "Free at any scale, and unlike TestFlight it needs no App Store review for each build.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free pre-release app distribution to testers on iOS and Android.",
+    "ru": "Бесплатное распространение предрелизных сборок тестировщикам на iOS и Android."
+   },
+   "localizedTip": {
+    "en": "Free at any scale, and unlike TestFlight it needs no App Store review for each build."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-firebase-crashlytics",
+   "name": "Firebase Crashlytics",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Free crash reporting for mobile apps with grouped, prioritized issues.",
+   "url": "https://firebase.google.com/docs/crashlytics",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "crashes",
+    "mobile",
+    "free",
+    "google"
+   ],
+   "tip": "Free without volume limits, which is why it remains the default even alongside paid alternatives.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free crash reporting for mobile apps with grouped, prioritized issues.",
+    "ru": "Бесплатные отчёты о падениях мобильных приложений с группировкой и приоритизацией проблем."
+   },
+   "localizedTip": {
+    "en": "Free without volume limits, which is why it remains the default even alongside paid alternatives."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-instabug",
+   "name": "Instabug",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "In-app bug reporting capturing screenshots, logs and device state from users.",
+   "url": "https://docs.instabug.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bug-reporting",
+    "in-app",
+    "feedback",
+    "mobile"
+   ],
+   "tip": "Shake-to-report gets reproduction details from real users that a store review never contains.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "In-app bug reporting capturing screenshots, logs and device state from users.",
+    "ru": "Внутриприложенческие баг-репорты со скриншотами, логами и состоянием устройства от пользователей."
+   },
+   "localizedTip": {
+    "en": "Shake-to-report gets reproduction details from real users that a store review never contains."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-maestro",
+   "name": "Maestro",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Mobile UI testing driven by simple YAML flows, tolerant of timing and flakiness.",
+   "url": "https://docs.maestro.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mobile",
+    "e2e",
+    "yaml",
+    "simple"
+   ],
+   "tip": "Built-in tolerance for slow rendering means far fewer flaky failures than raw Appium scripts.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mobile UI testing driven by simple YAML flows, tolerant of timing and flakiness.",
+    "ru": "Тестирование мобильного интерфейса простыми YAML-сценариями, устойчивое к таймингам и нестабильности."
+   },
+   "localizedTip": {
+    "en": "Built-in tolerance for slow rendering means far fewer flaky failures than raw Appium scripts."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-patrol",
+   "name": "Patrol",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Flutter integration testing that can also drive native permission dialogs.",
+   "url": "https://patrol.leancode.co/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flutter",
+    "integration-tests",
+    "native-interactions",
+    "permissions"
+   ],
+   "tip": "Handling the OS permission prompt is exactly where plain Flutter integration tests give up.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Flutter integration testing that can also drive native permission dialogs.",
+    "ru": "Интеграционное тестирование Flutter, способное управлять и нативными диалогами разрешений."
+   },
+   "localizedTip": {
+    "en": "Handling the OS permission prompt is exactly where plain Flutter integration tests give up."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-robolectric",
+   "name": "Robolectric",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Runs Android unit tests on the JVM without an emulator or device.",
+   "url": "https://robolectric.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "android",
+    "unit-tests",
+    "jvm",
+    "fast"
+   ],
+   "tip": "Seconds instead of minutes per run, which is what makes Android TDD practical at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs Android unit tests on the JVM without an emulator or device.",
+    "ru": "Запускает модульные тесты Android на JVM без эмулятора или устройства."
+   },
+   "localizedTip": {
+    "en": "Seconds instead of minutes per run, which is what makes Android TDD practical at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-sentry-mobile",
+   "name": "Sentry for Mobile",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Sentry's mobile SDKs for crash reporting and performance across iOS, Android and Flutter.",
+   "url": "https://docs.sentry.io/platforms/apple/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "crashes",
+    "performance",
+    "sessions",
+    "cross-platform"
+   ],
+   "tip": "Sharing one error platform with your backend makes cross-tier incidents far easier to correlate.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Sentry's mobile SDKs for crash reporting and performance across iOS, Android and Flutter.",
+    "ru": "Мобильные SDK Sentry для отчётов о падениях и производительности на iOS, Android и Flutter."
+   },
+   "localizedTip": {
+    "en": "Sharing one error platform with your backend makes cross-tier incidents far easier to correlate."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-testflight",
+   "name": "TestFlight",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Apple's official beta distribution for iOS apps, up to ten thousand testers.",
+   "url": "https://developer.apple.com/testflight/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ios",
+    "beta",
+    "apple",
+    "distribution"
+   ],
+   "tip": "External testing needs a review pass, so plan a day of lead time before a public beta.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Apple's official beta distribution for iOS apps, up to ten thousand testers.",
+    "ru": "Официальное бета-распространение iOS-приложений от Apple, до десяти тысяч тестировщиков."
+   },
+   "localizedTip": {
+    "en": "External testing needs a review pass, so plan a day of lead time before a public beta."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "lib-xcuitest",
+   "name": "XCUITest",
+   "kind": "library",
+   "category": "Mobile skills",
+   "summary": "Apple's native UI testing framework for iOS and macOS apps.",
+   "url": "https://developer.apple.com/documentation/xctest/user-interface-tests",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ios",
+    "apple",
+    "ui-testing",
+    "native"
+   ],
+   "tip": "Fastest and most reliable on iOS, since it runs inside Apple's own testing infrastructure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Apple's native UI testing framework for iOS and macOS apps.",
+    "ru": "Нативный фреймворк UI-тестирования Apple для приложений iOS и macOS."
+   },
+   "localizedTip": {
+    "en": "Fastest and most reliable on iOS, since it runs inside Apple's own testing infrastructure."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
   },
   {
    "id": "mcp-fireworks-ai",
