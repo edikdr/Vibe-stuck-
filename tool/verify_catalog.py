@@ -11,6 +11,7 @@ import json
 import pathlib
 import re
 import sys
+import unicodedata
 from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -25,6 +26,34 @@ ID = re.compile(r'^[a-z0-9-]+$')
 MIN_ITEMS = 380
 MIN_SHOWCASE_CARDS = 90
 MIN_PER_KIND = 20
+
+# Ids are internal, but one copied from a neighbouring entry while writing a
+# pack (`lib-rambda` holding Ramda) silently blocks the real product's id later.
+# Abbreviations and acronyms are legitimate, so only flag an id that shares no
+# word at all with its own name, and keep a list of the deliberate ones.
+ID_NAME_EXEMPT = {
+    'api-fcm', 'api-fec', 'api-fmp', 'api-hibp', 'api-nws', 'api-qrserver',
+    'api-dnd5e', 'api-x-twitter', 'lib-wandb', 'mcp-wandb', 'mcp-azure',
+    'lib-tflite', 'lib-tgi', 'lib-msgpack', 'lib-protobuf', 'lib-opa',
+    'lib-pyarrow', 'lib-kmp', 'lib-msw', 'lib-cva', 'lib-mui', 'lib-popmotion',
+    'lib-json-schema', 'lib-bundle-analyzer', 'lib-asyncio-tools',
+    'skill-use-examples',
+}
+
+
+def words(text):
+    plain = unicodedata.normalize('NFKD', text.lower())
+    return {w for w in re.split(r'[^a-z0-9]+', plain) if len(w) > 2}
+
+
+def id_matches_name(iid, name):
+    """True when the id slug and the name share a word, or one extends the other."""
+    slug = words(re.sub(r'^(api|lib|mcp|skill|paid)-', '', iid))
+    label = words(name)
+    if not slug or not label:
+        return True
+    return bool(slug & label) or any(
+        a.startswith(b) or b.startswith(a) for a in slug for b in label)
 
 
 def main():
@@ -89,6 +118,9 @@ def main():
                 problems.append(f'{iid}: showcase url is not https')
             if showcase.get('kind') not in SHOWCASE_KINDS:
                 problems.append(f"{iid}: bad showcase kind {showcase.get('kind')}")
+
+        if iid not in ID_NAME_EXEMPT and not id_matches_name(iid, name):
+            problems.append(f'{iid}: id does not match its name {name!r}')
 
         pricing = item.get('pricing') or {}
         if item.get('access') == 'paid':

@@ -41,7 +41,7 @@ LIBS_5A = [
      "Lightweight multilingual OCR with particularly strong Chinese and mobile-friendly models.",
      "Лёгкий мультиязычный OCR с особенно сильными моделями для китайского и мобильных устройств.",
      "The mobile-optimized model runs on-device in under 10MB — check it before shipping the full model."),
-    ("lib-docling-2", "Marker", "OCR и распознавание документов", "https://github.com/VikParuchuri/marker", "openSource", "ocr,pdf,markdown,layout", "pip install marker-pdf",
+    ("lib-marker", "Marker", "OCR и распознавание документов", "https://github.com/VikParuchuri/marker", "openSource", "ocr,pdf,markdown,layout", "pip install marker-pdf",
      "Converts PDFs to clean Markdown, keeping tables and equations intact.",
      "Конвертирует PDF в чистый Markdown, сохраняя таблицы и формулы.",
      "Runs a layout model first, which is why it keeps structure that raw text extraction loses."),
@@ -151,7 +151,7 @@ LIBS_5A = [
      "Flashing it removes cloud dependency from budget smart plugs — check device compatibility first."),
 
     # ---------- Дизайн-системы ----------
-    ("lib-storybook-2", "Style Dictionary", "Дизайн-системы", "https://styledictionary.com/", "openSource", "design-tokens,build,cross-platform", "npm i -D style-dictionary",
+    ("lib-style-dictionary", "Style Dictionary", "Дизайн-системы", "https://styledictionary.com/", "openSource", "design-tokens,build,cross-platform", "npm i -D style-dictionary",
      "Transforms one set of design tokens into platform-specific formats (CSS, iOS, Android).",
      "Превращает один набор дизайн-токенов в форматы для разных платформ (CSS, iOS, Android).",
      "Define tokens once as JSON; the build step is what keeps web and native colors in sync."),

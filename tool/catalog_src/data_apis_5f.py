@@ -31,7 +31,7 @@ APIS_5F = [
      "Hosted deployment removes the need to run a server process yourself for simple stdio servers."),
 
     # ---------- Здоровье и медицина (deepen further) ----------
-    ("api-nutritionvalue", "USDA FoodData Central (SR Legacy)", "Здоровье и медицина", "https://fdc.nal.usda.gov/", "free", "nutrition,food,usda,reference", "",
+    ("api-usda-fooddata", "USDA FoodData Central (SR Legacy)", "Здоровье и медицина", "https://fdc.nal.usda.gov/", "free", "nutrition,food,usda,reference", "",
      "The reference USDA nutrient database, an alternative dataset within FoodData Central.",
      "Эталонная база нутриентов USDA — альтернативный датасет внутри FoodData Central.",
      "SR Legacy has cleaner per-100g values than the Branded Foods dataset for whole-food nutrition lookups."),

@@ -107,7 +107,7 @@ LIBS_5C = [
      "The classic JavaScript utility library: deep clone, debounce, grouping and dozens more.",
      "Классическая библиотека утилит JavaScript: глубокое клонирование, debounce, группировка и десятки других.",
      "Import individual functions (lodash/debounce) rather than the whole library to keep bundles small."),
-    ("lib-rambda", "Ramda", "Утилиты", "https://ramdajs.com/docs/", "openSource", "functional,javascript,immutable,composition", "npm i ramda",
+    ("lib-ramda", "Ramda", "Утилиты", "https://ramdajs.com/docs/", "openSource", "functional,javascript,immutable,composition", "npm i ramda",
      "Functional programming utility library built around currying and immutability by default.",
      "Библиотека функциональных утилит на каррировании и неизменяемости по умолчанию.",
      "Every function is auto-curried, which is what makes point-free composition read naturally here."),

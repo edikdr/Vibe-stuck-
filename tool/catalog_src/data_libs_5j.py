@@ -33,7 +33,7 @@ LIBS_5J = [
      "Rules look like the code they match, so writing a custom rule for your codebase takes minutes, not hours."),
 
     # ---------- Утилиты: parsing (deepen) ----------
-    ("lib-zod-2", "Valibot", "Утилиты", "https://valibot.dev/guides/introduction/", "openSource", "validation,typescript,tiny,tree-shakeable", "npm i valibot",
+    ("lib-valibot", "Valibot", "Утилиты", "https://valibot.dev/guides/introduction/", "openSource", "validation,typescript,tiny,tree-shakeable", "npm i valibot",
      "Schema validation for TypeScript with a much smaller bundle than Zod.",
      "Валидация схем для TypeScript с заметно меньшим размером бандла, чем у Zod.",
      "Its modular API means you only bundle the validators you actually import — the main win over Zod on the client."),

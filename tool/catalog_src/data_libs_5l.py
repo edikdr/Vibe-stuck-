@@ -67,7 +67,7 @@ LIBS_5L = [
      "Simple audio manipulation in Python: slice, concatenate, adjust volume, convert formats.",
      "Простая работа с аудио в Python: нарезка, склейка, громкость, конвертация форматов.",
      "It shells out to FFmpeg, so FFmpeg must be installed separately or format conversion silently fails."),
-    ("lib-tone-js-2", "Web Audio API", "Аудио и голос", "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API", "free", "audio,browser,synthesis,standard", "",
+    ("lib-web-audio-api", "Web Audio API", "Аудио и голос", "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API", "free", "audio,browser,synthesis,standard", "",
      "The browser's native audio processing and synthesis API.",
      "Нативный API браузера для обработки и синтеза аудио.",
      "Audio context must start from a user gesture — browsers block autoplay audio without one."),

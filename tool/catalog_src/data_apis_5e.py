@@ -31,7 +31,7 @@ APIS_5E = [
      "Speedrun leaderboards, categories and world records, no key required.",
      "Таблицы лидеров спидранов, категории и мировые рекорды, ключ не нужен.",
      "Game and category IDs are opaque strings — resolve them once via the search endpoint and cache the mapping."),
-    ("api-open-mtg", "Scryfall", "Игры и развлечения", "https://scryfall.com/docs/api", "noKey", "magic-the-gathering,cards,tcg,no-key", "",
+    ("api-scryfall", "Scryfall", "Игры и развлечения", "https://scryfall.com/docs/api", "noKey", "magic-the-gathering,cards,tcg,no-key", "",
      "Comprehensive Magic: The Gathering card database with prices and images, no key required.",
      "Полная база карт Magic: The Gathering с ценами и изображениями, ключ не нужен.",
      "Bulk data downloads are far more efficient than paging the API for anything covering the whole card set."),

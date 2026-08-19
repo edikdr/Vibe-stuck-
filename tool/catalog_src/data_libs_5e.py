@@ -17,7 +17,7 @@ LIBS_5E = [
      "Point it at an HTML entry file and it resolves the rest — no config file needed for a first build."),
 
     # ---------- Анимация и 3D (deepen) ----------
-    ("lib-anime-js-2", "GSAP ScrollTrigger", "Анимация и 3D", "https://gsap.com/docs/v3/Plugins/ScrollTrigger/", "openSource", "gsap,scroll,animation,plugin", "",
+    ("lib-gsap-scrolltrigger", "GSAP ScrollTrigger", "Анимация и 3D", "https://gsap.com/docs/v3/Plugins/ScrollTrigger/", "openSource", "gsap,scroll,animation,plugin", "",
      "GSAP's scroll-driven animation plugin, now free including what used to be paid plugins.",
      "Плагин GSAP для анимации по скроллу, теперь бесплатен вместе с бывшими платными плагинами.",
      "Use scrub for animation tied directly to scroll position instead of a one-shot trigger."),
