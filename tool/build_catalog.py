@@ -173,6 +173,16 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-prodigy': 'lib-prodigy',
+ 'paid-encord': 'lib-encord',
+ 'paid-v7-darwin': 'lib-v7-darwin',
+ 'paid-labelbox-2': 'lib-labelbox',
+ 'paid-kili-technology': 'lib-kili-technology',
+ 'paid-superannotate': 'lib-superannotate',
+ 'paid-scale-ai': 'lib-scale-ai',
+ 'paid-surge-ai': 'lib-surge-ai',
+ 'paid-toloka': 'lib-toloka',
+ 'paid-mturk': 'lib-mturk',
  'paid-vast-ai': 'api-vast-ai',
  'paid-midjourney': 'api-midjourney',
  'paid-magnific': 'api-magnific',

@@ -34400,6 +34400,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-cleanlab",
+   "name": "Cleanlab",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Finds label errors and data quality problems in training sets.",
+   "url": "https://docs.cleanlab.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "label-errors",
+    "data-quality",
+    "confident-learning",
+    "detection"
+   ],
+   "tip": "Mislabelled training data caps model accuracy in a way more training never fixes.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install cleanlab",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Finds label errors and data quality problems in training sets.",
+    "ru": "Находит ошибки разметки и проблемы качества данных в обучающих выборках."
+   },
+   "localizedTip": {
+    "en": "Mislabelled training data caps model accuracy in a way more training never fixes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-deepchecks",
    "name": "Deepchecks",
    "kind": "library",
@@ -37014,6 +37049,76 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-bertopic",
+   "name": "BERTopic",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "Topic modelling using transformer embeddings and clustering.",
+   "url": "https://maartengr.github.io/BERTopic/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "topic-modeling",
+    "embeddings",
+    "clustering",
+    "interpretable"
+   ],
+   "tip": "Its topics are far more coherent than classic LDA on short texts like reviews or tickets.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install bertopic",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Topic modelling using transformer embeddings and clustering.",
+    "ru": "Тематическое моделирование на эмбеддингах трансформеров и кластеризации."
+   },
+   "localizedTip": {
+    "en": "Its topics are far more coherent than classic LDA on short texts like reviews or tickets."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-flair",
+   "name": "Flair",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "NLP framework with strong named entity recognition and sequence labelling.",
+   "url": "https://flairnlp.github.io/docs/intro",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "embeddings",
+    "ner",
+    "sequence-labeling",
+    "pytorch"
+   ],
+   "tip": "Its stacked embeddings often beat a single transformer on entity recognition tasks.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install flair",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "NLP framework with strong named entity recognition and sequence labelling.",
+    "ru": "NLP-фреймворк с сильным распознаванием именованных сущностей и разметкой последовательностей."
+   },
+   "localizedTip": {
+    "en": "Its stacked embeddings often beat a single transformer on entity recognition tasks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-gensim",
    "name": "Gensim",
    "kind": "library",
@@ -37084,6 +37189,76 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-keybert",
+   "name": "KeyBERT",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "Keyword extraction using BERT embeddings.",
+   "url": "https://maartengr.github.io/KeyBERT/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "keywords",
+    "embeddings",
+    "extraction",
+    "simple"
+   ],
+   "tip": "Its keywords are semantically relevant rather than merely frequent, which statistical methods miss.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install keybert",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Keyword extraction using BERT embeddings.",
+    "ru": "Извлечение ключевых слов с использованием эмбеддингов BERT."
+   },
+   "localizedTip": {
+    "en": "Its keywords are semantically relevant rather than merely frequent, which statistical methods miss."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-lexrank",
+   "name": "LexRank",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "Graph-based extractive summarization ranking sentences by centrality.",
+   "url": "https://github.com/crabcamp/lexrank",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "summarization",
+    "graph-based",
+    "extractive",
+    "unsupervised"
+   ],
+   "tip": "Requires no training data, which suits domains where no summarization corpus exists.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install lexrank",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Graph-based extractive summarization ranking sentences by centrality.",
+    "ru": "Графовая экстрактивная суммаризация, ранжирующая предложения по центральности."
+   },
+   "localizedTip": {
+    "en": "Requires no training data, which suits domains where no summarization corpus exists."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-nltk",
    "name": "NLTK",
    "kind": "library",
@@ -37111,6 +37286,111 @@
    },
    "localizedTip": {
     "en": "Reach for spaCy in production code; NLTK is better suited to learning and one-off exploration."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-polyglot",
+   "name": "Polyglot",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "Multilingual NLP toolkit covering more than a hundred languages.",
+   "url": "https://polyglot.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "multilingual",
+    "detection",
+    "transliteration",
+    "ner"
+   ],
+   "tip": "Its language coverage exceeds most modern toolkits, though maintenance has largely stopped.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install polyglot",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Multilingual NLP toolkit covering more than a hundred languages.",
+    "ru": "Многоязычный NLP-инструментарий, покрывающий более сотни языков."
+   },
+   "localizedTip": {
+    "en": "Its language coverage exceeds most modern toolkits, though maintenance has largely stopped."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-rake-nltk",
+   "name": "RAKE",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "Rapid automatic keyword extraction using word co-occurrence.",
+   "url": "https://github.com/csurfer/rake-nltk",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "keywords",
+    "rapid",
+    "unsupervised",
+    "phrases"
+   ],
+   "tip": "Very fast and language-independent, at noticeably lower quality than embedding methods.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install rake-nltk",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Rapid automatic keyword extraction using word co-occurrence.",
+    "ru": "Быстрое автоматическое извлечение ключевых слов по совместной встречаемости слов."
+   },
+   "localizedTip": {
+    "en": "Very fast and language-independent, at noticeably lower quality than embedding methods."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-setfit",
+   "name": "SetFit",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "Few-shot text classification that trains well on very small datasets.",
+   "url": "https://huggingface.co/docs/setfit",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "few-shot",
+    "classification",
+    "efficient",
+    "sentence-transformers"
+   ],
+   "tip": "A few dozen labelled examples often match a fine-tuned model trained on thousands.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install setfit",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Few-shot text classification that trains well on very small datasets.",
+    "ru": "Few-shot классификация текста, обучающаяся на очень малых наборах данных."
+   },
+   "localizedTip": {
+    "en": "A few dozen labelled examples often match a fine-tuned model trained on thousands."
    },
    "pricing": {
     "model": "openSource",
@@ -37154,6 +37434,76 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-stanza",
+   "name": "Stanza",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "Stanford's neural NLP pipeline covering many languages.",
+   "url": "https://stanfordnlp.github.io/stanza/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stanford",
+    "multilingual",
+    "neural",
+    "linguistics"
+   ],
+   "tip": "Its linguistic annotations are more accurate than spaCy's on lower-resource languages.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install stanza",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Stanford's neural NLP pipeline covering many languages.",
+    "ru": "Нейросетевой NLP-конвейер Stanford для множества языков."
+   },
+   "localizedTip": {
+    "en": "Its linguistic annotations are more accurate than spaCy's on lower-resource languages."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-sumy",
+   "name": "sumy",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "Extractive text summarization with several classic algorithms.",
+   "url": "https://github.com/miso-belica/sumy",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "summarization",
+    "extractive",
+    "classic",
+    "multilingual"
+   ],
+   "tip": "Extractive summaries quote the source verbatim, which avoids the fabrication risk of generation.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install sumy",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Extractive text summarization with several classic algorithms.",
+    "ru": "Экстрактивная суммаризация текста несколькими классическими алгоритмами."
+   },
+   "localizedTip": {
+    "en": "Extractive summaries quote the source verbatim, which avoids the fabrication risk of generation."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-textblob",
    "name": "TextBlob",
    "kind": "library",
@@ -37181,6 +37531,76 @@
    },
    "localizedTip": {
     "en": "Fine for a quick prototype; swap to spaCy or a proper model before anything production-facing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-top2vec",
+   "name": "Top2Vec",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "Topic modelling that discovers the number of topics automatically.",
+   "url": "https://top2vec.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "topic-modeling",
+    "embeddings",
+    "automatic",
+    "no-preprocessing"
+   ],
+   "tip": "Not having to guess the topic count in advance is its main practical advantage over LDA.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install top2vec",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Topic modelling that discovers the number of topics automatically.",
+    "ru": "Тематическое моделирование с автоматическим определением числа тем."
+   },
+   "localizedTip": {
+    "en": "Not having to guess the topic count in advance is its main practical advantage over LDA."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-yake",
+   "name": "YAKE",
+   "kind": "library",
+   "category": "NLP и обработка текста",
+   "summary": "Unsupervised statistical keyword extraction with no training required.",
+   "url": "https://github.com/LIAAD/yake",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "keywords",
+    "unsupervised",
+    "statistical",
+    "lightweight"
+   ],
+   "tip": "It needs no model at all, which makes it viable where a transformer would be too heavy.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install yake",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unsupervised statistical keyword extraction with no training required.",
+    "ru": "Неконтролируемое статистическое извлечение ключевых слов без обучения."
+   },
+   "localizedTip": {
+    "en": "It needs no model at all, which makes it viable where a transformer would be too heavy."
    },
    "pricing": {
     "model": "openSource",
@@ -37993,6 +38413,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-cvat",
+   "name": "CVAT",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Computer vision annotation tool with strong video labelling support.",
+   "url": "https://docs.cvat.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "video",
+    "image",
+    "annotation",
+    "computer-vision"
+   ],
+   "tip": "Its interpolation between keyframes makes video annotation far faster than frame-by-frame work.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Computer vision annotation tool with strong video labelling support.",
+    "ru": "Инструмент разметки для компьютерного зрения с сильной поддержкой видео."
+   },
+   "localizedTip": {
+    "en": "Its interpolation between keyframes makes video annotation far faster than frame-by-frame work."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-detectron2",
    "name": "Detectron2",
    "kind": "library",
@@ -38055,6 +38510,82 @@
    },
    "localizedTip": {
     "en": "Its 68-point facial landmark model remains a common baseline despite the library's age."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-encord",
+   "name": "Encord",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Enterprise data platform for annotating and curating training data.",
+   "url": "https://docs.encord.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "annotation",
+    "active-learning",
+    "enterprise",
+    "multimodal",
+    "pricing",
+    "custom"
+   ],
+   "tip": "Its quality control workflows matter when annotation is outsourced to a large team.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise data platform for annotating and curating training data.",
+    "ru": "Корпоративная платформа данных для разметки и курирования обучающих выборок."
+   },
+   "localizedTip": {
+    "en": "Its quality control workflows matter when annotation is outsourced to a large team."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "free trial",
+    "url": "https://encord.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-fiftyone",
+   "name": "FiftyOne",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Tool for visualizing, curating and evaluating computer vision datasets.",
+   "url": "https://docs.voxel51.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "datasets",
+    "visualization",
+    "curation",
+    "evaluation"
+   ],
+   "tip": "Looking at your data properly finds more model problems than another round of hyperparameter tuning.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install fiftyone",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Tool for visualizing, curating and evaluating computer vision datasets.",
+    "ru": "Инструмент визуализации, курирования и оценки датасетов компьютерного зрения."
+   },
+   "localizedTip": {
+    "en": "Looking at your data properly finds more model problems than another round of hyperparameter tuning."
    },
    "pricing": {
     "model": "openSource",
@@ -38168,6 +38699,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-supervisely",
+   "name": "Supervisely",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Computer vision platform combining annotation, training and deployment.",
+   "url": "https://docs.supervisely.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "annotation",
+    "platform",
+    "apps",
+    "computer-vision"
+   ],
+   "tip": "Its app ecosystem covers the whole pipeline, which suits teams without ML infrastructure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Computer vision platform combining annotation, training and deployment.",
+    "ru": "Платформа компьютерного зрения, объединяющая разметку, обучение и развёртывание."
+   },
+   "localizedTip": {
+    "en": "Its app ecosystem covers the whole pipeline, which suits teams without ML infrastructure."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-ultralytics",
    "name": "Ultralytics YOLO",
    "kind": "library",
@@ -38198,6 +38764,48 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-v7-darwin",
+   "name": "V7",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Annotation platform with automated labelling, strong in medical imaging.",
+   "url": "https://docs.v7labs.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "annotation",
+    "automation",
+    "medical",
+    "video",
+    "pricing",
+    "per-seat",
+    "enterprise"
+   ],
+   "tip": "Its medical imaging support handles DICOM natively, which general tools do not.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Annotation platform with automated labelling, strong in medical imaging.",
+    "ru": "Платформа разметки с автоматизацией, сильна в медицинской визуализации."
+   },
+   "localizedTip": {
+    "en": "Its medical imaging support handles DICOM natively, which general tools do not."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "custom quote (per seat)",
+    "freeQuota": "free trial",
+    "url": "https://www.v7labs.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -50832,6 +51440,48 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-mturk",
+   "name": "Amazon Mechanical Turk",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "The original crowdsourcing marketplace for human microtasks.",
+   "url": "https://docs.aws.amazon.com/mturk/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "crowdsourcing",
+    "aws",
+    "microtasks",
+    "api",
+    "pricing",
+    "commission",
+    "per-task"
+   ],
+   "tip": "Quality depends entirely on how carefully you design qualification and review steps.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The original crowdsourcing marketplace for human microtasks.",
+    "ru": "Первый краудсорсинговый маркетплейс микрозадач для людей."
+   },
+   "localizedTip": {
+    "en": "Quality depends entirely on how carefully you design qualification and review steps."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "20% commission on top of your task reward",
+    "freeQuota": "free tier credit",
+    "url": "https://aws.amazon.com/mturk/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-pyarrow",
    "name": "Apache Arrow",
    "kind": "library",
@@ -50859,6 +51509,41 @@
    },
    "localizedTip": {
     "en": "Passing Arrow tables between libraries avoids a copy and a conversion each way."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-argilla",
+   "name": "Argilla",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Collaboration platform for building and curating LLM datasets.",
+   "url": "https://docs.argilla.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "llm-data",
+    "feedback",
+    "annotation",
+    "huggingface"
+   ],
+   "tip": "It is built around human feedback collection, which generic annotation tools handle awkwardly.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install argilla",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Collaboration platform for building and curating LLM datasets.",
+    "ru": "Платформа совместной работы для построения и курирования датасетов LLM."
+   },
+   "localizedTip": {
+    "en": "It is built around human feedback collection, which generic annotation tools handle awkwardly."
    },
    "pricing": {
     "model": "openSource",
@@ -51034,6 +51719,41 @@
    },
    "localizedTip": {
     "en": "Its distributed training support handles graphs too large for a single machine."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-doccano",
+   "name": "doccano",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Open-source text annotation tool for classification and sequence labelling.",
+   "url": "https://doccano.github.io/doccano/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "text-annotation",
+    "self-host",
+    "simple",
+    "collaborative"
+   ],
+   "tip": "Lightweight enough to stand up for a one-off labelling project without much setup.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install doccano",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source text annotation tool for classification and sequence labelling.",
+    "ru": "Открытый инструмент разметки текста для классификации и разметки последовательностей."
+   },
+   "localizedTip": {
+    "en": "Lightweight enough to stand up for a one-off labelling project without much setup."
    },
    "pricing": {
     "model": "openSource",
@@ -51509,6 +52229,125 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-kili-technology",
+   "name": "Kili Technology",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Data labelling platform focused on quality metrics and LLM datasets.",
+   "url": "https://docs.kili-technology.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "annotation",
+    "quality",
+    "llm",
+    "enterprise",
+    "pricing",
+    "per-seat",
+    "custom"
+   ],
+   "tip": "Its inter-annotator agreement metrics quantify label reliability rather than assuming it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Data labelling platform focused on quality metrics and LLM datasets.",
+    "ru": "Платформа разметки данных с фокусом на метрики качества и датасеты LLM."
+   },
+   "localizedTip": {
+    "en": "Its inter-annotator agreement metrics quantify label reliability rather than assuming it."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "free trial",
+    "url": "https://kili-technology.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-label-studio",
+   "name": "Label Studio",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Open-source annotation tool covering text, image, audio and video.",
+   "url": "https://labelstud.io/guide/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "annotation",
+    "multi-modal",
+    "open-source",
+    "self-host"
+   ],
+   "tip": "Its configurable label interface handles unusual annotation schemas that fixed tools cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install label-studio",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source annotation tool covering text, image, audio and video.",
+    "ru": "Открытый инструмент разметки для текста, изображений, аудио и видео."
+   },
+   "localizedTip": {
+    "en": "Its configurable label interface handles unusual annotation schemas that fixed tools cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-labelbox",
+   "name": "Labelbox",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Data labelling platform with workforce management and quality review.",
+   "url": "https://docs.labelbox.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "annotation",
+    "enterprise",
+    "workforce",
+    "quality",
+    "pricing",
+    "units",
+    "subscription"
+   ],
+   "tip": "Its review workflows catch the annotator drift that silently degrades a large dataset.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Data labelling platform with workforce management and quality review.",
+    "ru": "Платформа разметки данных с управлением исполнителями и контролем качества."
+   },
+   "localizedTip": {
+    "en": "Its review workflows catch the annotator drift that silently degrades a large dataset."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "free tier, then custom quote",
+    "freeQuota": "free tier",
+    "url": "https://labelbox.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-lightgbm",
    "name": "LightGBM",
    "kind": "library",
@@ -51894,6 +52733,48 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-prodigy",
+   "name": "Prodigy",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Scriptable annotation tool with active learning, from the spaCy team.",
+   "url": "https://prodi.gy/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "annotation",
+    "active-learning",
+    "scriptable",
+    "explosion",
+    "pricing",
+    "one-time",
+    "perpetual"
+   ],
+   "tip": "Active learning surfaces the examples the model is least sure about, which cuts labelling volume.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Scriptable annotation tool with active learning, from the spaCy team.",
+    "ru": "Скриптуемый инструмент разметки с активным обучением от команды spaCy."
+   },
+   "localizedTip": {
+    "en": "Active learning surfaces the examples the model is least sure about, which cuts labelling volume."
+   },
+   "pricing": {
+    "model": "one-time",
+    "from": "from ~$390 per user",
+    "freeQuota": "free demo",
+    "url": "https://prodi.gy/buy",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-prophet",
    "name": "Prophet",
    "kind": "library",
@@ -52069,6 +52950,47 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-scale-ai",
+   "name": "Scale AI",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Managed data labelling service, including human feedback for model training.",
+   "url": "https://docs.scale.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "labeling",
+    "rlhf",
+    "enterprise",
+    "managed",
+    "pricing",
+    "per-label"
+   ],
+   "tip": "It is a service rather than a tool — you send data and receive labels, with no platform to run.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Managed data labelling service, including human feedback for model training.",
+    "ru": "Управляемая служба разметки данных, включая обратную связь людей для обучения моделей."
+   },
+   "localizedTip": {
+    "en": "It is a service rather than a tool — you send data and receive labels, with no platform to run."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "custom quote (per labelled item)",
+    "freeQuota": "product demo",
+    "url": "https://scale.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-scikit-learn",
    "name": "scikit-learn",
    "kind": "library",
@@ -52201,6 +53123,41 @@
    },
    "localizedTip": {
     "en": "Its familiar fit/predict API lets you compare very different forecasters with one code path."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-snorkel",
+   "name": "Snorkel",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Programmatic labelling through weak supervision rules.",
+   "url": "https://www.snorkel.org/get-started/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "weak-supervision",
+    "labeling-functions",
+    "programmatic",
+    "stanford"
+   ],
+   "tip": "Writing labelling functions scales to datasets that manual annotation never could.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install snorkel",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Programmatic labelling through weak supervision rules.",
+    "ru": "Программная разметка через правила слабого контроля."
+   },
+   "localizedTip": {
+    "en": "Writing labelling functions scales to datasets that manual annotation never could."
    },
    "pricing": {
     "model": "openSource",
@@ -52361,6 +53318,88 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-superannotate",
+   "name": "SuperAnnotate",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Annotation platform with an integrated marketplace of annotation teams.",
+   "url": "https://doc.superannotate.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "annotation",
+    "multimodal",
+    "marketplace",
+    "automation",
+    "pricing",
+    "per-seat"
+   ],
+   "tip": "Sourcing annotators through the same platform removes a separate vendor relationship.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Annotation platform with an integrated marketplace of annotation teams.",
+    "ru": "Платформа разметки со встроенным маркетплейсом команд разметчиков."
+   },
+   "localizedTip": {
+    "en": "Sourcing annotators through the same platform removes a separate vendor relationship."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "free trial",
+    "url": "https://www.superannotate.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-surge-ai",
+   "name": "Surge AI",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Human data platform for high-quality annotation and model feedback.",
+   "url": "https://app.surgehq.ai/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rlhf",
+    "human-data",
+    "quality",
+    "api",
+    "pricing",
+    "per-task"
+   ],
+   "tip": "It pays annotators well, which shows in the quality on nuanced judgement tasks.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Human data platform for high-quality annotation and model feedback.",
+    "ru": "Платформа данных от людей для качественной разметки и обратной связи для моделей."
+   },
+   "localizedTip": {
+    "en": "It pays annotators well, which shows in the quality on nuanced judgement tasks."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "custom quote (per task)",
+    "freeQuota": "product demo",
+    "url": "https://www.surgehq.ai/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-tensorflow",
    "name": "TensorFlow",
    "kind": "library",
@@ -52391,6 +53430,48 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-toloka",
+   "name": "Toloka",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Crowdsourcing platform for data labelling at scale.",
+   "url": "https://toloka.ai/docs/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "crowdsourcing",
+    "annotation",
+    "global",
+    "api",
+    "pricing",
+    "per-task",
+    "commission"
+   ],
+   "tip": "Crowdsourced labels need aggregation across annotators — a single response is rarely reliable.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Crowdsourcing platform for data labelling at scale.",
+    "ru": "Краудсорсинговая платформа разметки данных в больших объёмах."
+   },
+   "localizedTip": {
+    "en": "Crowdsourced labels need aggregation across annotators — a single response is rarely reliable."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "your task price plus platform commission",
+    "freeQuota": "free trial credit",
+    "url": "https://toloka.ai/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -60357,6 +61438,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-presidio",
+   "name": "Presidio",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Microsoft's toolkit for detecting and anonymizing personal data in text and images.",
+   "url": "https://microsoft.github.io/presidio/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pii",
+    "redaction",
+    "microsoft",
+    "anonymization"
+   ],
+   "tip": "Redacting personal data before it reaches an LLM is often what makes the use case legal at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install presidio-analyzer",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Microsoft's toolkit for detecting and anonymizing personal data in text and images.",
+    "ru": "Набор инструментов Microsoft для обнаружения и анонимизации персональных данных в тексте и изображениях."
+   },
+   "localizedTip": {
+    "en": "Redacting personal data before it reaches an LLM is often what makes the use case legal at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-salt-security",
    "name": "Salt Security",
    "kind": "library",
@@ -60393,6 +61509,41 @@
     "freeQuota": "product demo",
     "url": "https://salt.security/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-scrubadub",
+   "name": "scrubadub",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Removes personally identifiable information from free text.",
+   "url": "https://scrubadub.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pii",
+    "cleaning",
+    "python",
+    "simple"
+   ],
+   "tip": "Simpler than Presidio and correspondingly less thorough — verify recall on your own data.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install scrubadub",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Removes personally identifiable information from free text.",
+    "ru": "Удаляет персональные данные из свободного текста."
+   },
+   "localizedTip": {
+    "en": "Simpler than Presidio and correspondingly less thorough — verify recall on your own data."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
