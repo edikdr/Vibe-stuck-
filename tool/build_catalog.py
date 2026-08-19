@@ -173,6 +173,7 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-okta': 'lib-okta',
  'paid-splunk': 'api-splunk',
  'paid-sumologic': 'api-sumologic',
  'paid-lightstep-cloud': 'api-lightstep-cloud',

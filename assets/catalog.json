@@ -38262,6 +38262,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-devise",
+   "name": "Devise",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "The standard authentication solution for Rails applications.",
+   "url": "https://github.com/heartcombo/devise",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rails",
+    "ruby",
+    "authentication",
+    "modular"
+   ],
+   "tip": "Its modules cover confirmation, lockout and recovery, which are the parts people forget to build.",
+   "verifiedAt": "2026-08-17",
+   "install": "gem install devise",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard authentication solution for Rails applications.",
+    "ru": "Стандартное решение аутентификации для приложений Rails."
+   },
+   "localizedTip": {
+    "en": "Its modules cover confirmation, lockout and recovery, which are the parts people forget to build."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-django",
    "name": "Django",
    "kind": "library",
@@ -38342,6 +38377,76 @@
    },
    "localizedTip": {
     "en": "Squash migrations periodically — a long history slows every test database setup."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-django-allauth",
+   "name": "django-allauth",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Authentication for Django covering local accounts, social login and MFA.",
+   "url": "https://docs.allauth.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "django",
+    "social-login",
+    "providers",
+    "mfa"
+   ],
+   "tip": "It supports dozens of social providers, which is most of the value over Django's built-in auth.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install django-allauth",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Authentication for Django covering local accounts, social login and MFA.",
+    "ru": "Аутентификация для Django с локальными аккаунтами, социальным входом и MFA."
+   },
+   "localizedTip": {
+    "en": "It supports dozens of social providers, which is most of the value over Django's built-in auth."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-doorkeeper",
+   "name": "Doorkeeper",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "OAuth 2 provider for Rails applications.",
+   "url": "https://doorkeeper.gitbook.io/guides",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "oauth2",
+    "rails",
+    "provider",
+    "ruby"
+   ],
+   "tip": "Use it when you need to be an OAuth provider — being a consumer is a much simpler problem.",
+   "verifiedAt": "2026-08-17",
+   "install": "gem install doorkeeper",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "OAuth 2 provider for Rails applications.",
+    "ru": "Провайдер OAuth 2 для приложений Rails."
+   },
+   "localizedTip": {
+    "en": "Use it when you need to be an OAuth provider — being a consumer is a much simpler problem."
    },
    "pricing": {
     "model": "openSource",
@@ -38624,6 +38729,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-flask-login",
+   "name": "Flask-Login",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Session management for Flask applications.",
+   "url": "https://flask-login.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flask",
+    "sessions",
+    "python",
+    "minimal"
+   ],
+   "tip": "It handles sessions only — password hashing and registration remain entirely yours to build.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install flask-login",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Session management for Flask applications.",
+    "ru": "Управление сессиями для приложений Flask."
+   },
+   "localizedTip": {
+    "en": "It handles sessions only — password hashing and registration remain entirely yours to build."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
   },
@@ -39316,6 +39456,41 @@
    },
    "localizedTip": {
     "en": "Its ecosystem (Forge, Vapor, Livewire) is a large part of the value beyond the framework itself."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-laravel-sanctum",
+   "name": "Laravel Sanctum",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Lightweight API token and SPA authentication for Laravel.",
+   "url": "https://laravel.com/docs/sanctum",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "laravel",
+    "tokens",
+    "spa",
+    "api"
+   ],
+   "tip": "Its SPA mode uses cookies rather than tokens, which avoids storing credentials in the browser.",
+   "verifiedAt": "2026-08-17",
+   "install": "composer require laravel/sanctum",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight API token and SPA authentication for Laravel.",
+    "ru": "Лёгкая аутентификация API-токенами и для SPA в Laravel."
+   },
+   "localizedTip": {
+    "en": "Its SPA mode uses cookies rather than tokens, which avoids storing credentials in the browser."
    },
    "pricing": {
     "model": "openSource",
@@ -40683,6 +40858,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-dynamic-xyz",
+   "name": "Dynamic",
+   "kind": "library",
+   "category": "Web3 и блокчейн",
+   "summary": "Wallet connection and authentication across many chains.",
+   "url": "https://docs.dynamic.xyz/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web3",
+    "wallets",
+    "auth",
+    "multi-chain"
+   ],
+   "tip": "Its wallet connector handles the long tail of wallets that hand-rolled integrations miss.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @dynamic-labs/sdk-react-core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Wallet connection and authentication across many chains.",
+    "ru": "Подключение кошельков и аутентификация в множестве блокчейнов."
+   },
+   "localizedTip": {
+    "en": "Its wallet connector handles the long tail of wallets that hand-rolled integrations miss."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-ethers-js",
    "name": "Ethers.js",
    "kind": "library",
@@ -40818,6 +41028,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-privy",
+   "name": "Privy",
+   "kind": "library",
+   "category": "Web3 и блокчейн",
+   "summary": "Authentication with embedded wallets for onboarding non-crypto users.",
+   "url": "https://docs.privy.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web3",
+    "embedded-wallets",
+    "onboarding",
+    "auth"
+   ],
+   "tip": "Embedded wallets let someone use a web3 app without ever installing a browser extension.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @privy-io/react-auth",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Authentication with embedded wallets for onboarding non-crypto users.",
+    "ru": "Аутентификация со встроенными кошельками для онбординга пользователей без криптоопыта."
+   },
+   "localizedTip": {
+    "en": "Embedded wallets let someone use a web3 app without ever installing a browser extension."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -40993,6 +41238,76 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-web3auth",
+   "name": "Web3Auth",
+   "kind": "library",
+   "category": "Web3 и блокчейн",
+   "summary": "Non-custodial key management using social logins and MPC.",
+   "url": "https://web3auth.io/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mpc",
+    "social-login",
+    "keys",
+    "non-custodial"
+   ],
+   "tip": "Splitting the key across parties means a social login never gives anyone full custody.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @web3auth/modal",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Non-custodial key management using social logins and MPC.",
+    "ru": "Некастодиальное управление ключами через социальные логины и MPC."
+   },
+   "localizedTip": {
+    "en": "Splitting the key across parties means a social login never gives anyone full custody."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-amazon-cognito",
+   "name": "Amazon Cognito",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "AWS user directory and authentication service.",
+   "url": "https://docs.aws.amazon.com/cognito/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "aws",
+    "user-pools",
+    "oauth",
+    "scalable"
+   ],
+   "tip": "Cheap at scale and awkward to work with — budget more integration time than the docs suggest.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AWS user directory and authentication service.",
+    "ru": "Служба каталога пользователей и аутентификации от AWS."
+   },
+   "localizedTip": {
+    "en": "Cheap at scale and awkward to work with — budget more integration time than the docs suggest."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -41243,6 +41558,146 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-corbado",
+   "name": "Corbado",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Passkey authentication with automatic fallback for unsupported devices.",
+   "url": "https://docs.corbado.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "passkeys",
+    "fallback",
+    "integration",
+    "analytics"
+   ],
+   "tip": "Device support is still uneven, so the fallback path is what makes passkeys deployable today.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Passkey authentication with automatic fallback for unsupported devices.",
+    "ru": "Аутентификация по passkey с автоматическим откатом для неподдерживаемых устройств."
+   },
+   "localizedTip": {
+    "en": "Device support is still uneven, so the fallback path is what makes passkeys deployable today."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-firebase-auth",
+   "name": "Firebase Authentication",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Authentication service with many social providers and mobile SDKs.",
+   "url": "https://firebase.google.com/docs/auth",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "google",
+    "mobile",
+    "providers",
+    "simple"
+   ],
+   "tip": "The fastest path to working login in a mobile app, and hard to migrate away from later.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Authentication service with many social providers and mobile SDKs.",
+    "ru": "Служба аутентификации с множеством социальных провайдеров и мобильными SDK."
+   },
+   "localizedTip": {
+    "en": "The fastest path to working login in a mobile app, and hard to migrate away from later."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-hanko",
+   "name": "Hanko",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Open-source passkey-first authentication with drop-in web components.",
+   "url": "https://docs.hanko.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "passkeys",
+    "passwordless",
+    "self-host",
+    "components"
+   ],
+   "tip": "Its prebuilt component gives a working passkey flow without designing one yourself.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source passkey-first authentication with drop-in web components.",
+    "ru": "Открытая аутентификация с приоритетом passkey и готовыми веб-компонентами."
+   },
+   "localizedTip": {
+    "en": "Its prebuilt component gives a working passkey flow without designing one yourself."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-iron-session",
+   "name": "Iron Session",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Stateless sessions stored in signed and encrypted cookies.",
+   "url": "https://github.com/vvo/iron-session",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stateless",
+    "cookies",
+    "encrypted",
+    "nextjs"
+   ],
+   "tip": "No session store to run, at the cost of not being able to revoke a session server-side.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i iron-session",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Stateless sessions stored in signed and encrypted cookies.",
+    "ru": "Stateless-сессии в подписанных и зашифрованных cookie."
+   },
+   "localizedTip": {
+    "en": "No session store to run, at the cost of not being able to revoke a session server-side."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-keycloak",
    "name": "Keycloak",
    "kind": "library",
@@ -41308,6 +41763,153 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-magic-link",
+   "name": "Magic",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Passwordless login via email links, with optional wallet support.",
+   "url": "https://magic.link/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "passwordless",
+    "email",
+    "wallet",
+    "sdk"
+   ],
+   "tip": "Email deliverability becomes your login availability — monitor it as a production dependency.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i magic-sdk",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Passwordless login via email links, with optional wallet support.",
+    "ru": "Беспарольный вход по ссылкам в письме с опциональной поддержкой кошельков."
+   },
+   "localizedTip": {
+    "en": "Email deliverability becomes your login availability — monitor it as a production dependency."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-entra-external-id",
+   "name": "Microsoft Entra External ID",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Microsoft's customer identity service, formerly Azure AD B2C.",
+   "url": "https://learn.microsoft.com/en-us/entra/external-id/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "microsoft",
+    "customer-identity",
+    "b2c",
+    "policies"
+   ],
+   "tip": "Its custom policy language is powerful and genuinely difficult — plan for a learning curve.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Microsoft's customer identity service, formerly Azure AD B2C.",
+    "ru": "Служба клиентской идентификации Microsoft, ранее Azure AD B2C."
+   },
+   "localizedTip": {
+    "en": "Its custom policy language is powerful and genuinely difficult — plan for a learning curve."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-nextauth",
+   "name": "NextAuth.js",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Authentication for Next.js, now continued as Auth.js.",
+   "url": "https://next-auth.js.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nextjs",
+    "providers",
+    "legacy",
+    "sessions"
+   ],
+   "tip": "New projects should start on Auth.js — this name refers to the older Next.js-only line.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i next-auth",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Authentication for Next.js, now continued as Auth.js.",
+    "ru": "Аутентификация для Next.js, продолженная как Auth.js."
+   },
+   "localizedTip": {
+    "en": "New projects should start on Auth.js — this name refers to the older Next.js-only line."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-okta",
+   "name": "Okta",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Enterprise identity platform for workforce and customer authentication.",
+   "url": "https://developer.okta.com/docs/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "enterprise",
+    "sso",
+    "workforce",
+    "saml",
+    "identity",
+    "pricing",
+    "per-user"
+   ],
+   "tip": "Enterprise buyers frequently require it, which often decides the choice regardless of technical merit.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise identity platform for workforce and customer authentication.",
+    "ru": "Корпоративная платформа идентификации для сотрудников и клиентов."
+   },
+   "localizedTip": {
+    "en": "Enterprise buyers frequently require it, which often decides the choice regardless of technical merit."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$2 per user per month",
+    "freeQuota": "free developer tier",
+    "url": "https://www.okta.com/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -41488,6 +42090,76 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-passage",
+   "name": "Passage by 1Password",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Passwordless authentication service from 1Password.",
+   "url": "https://docs.passage.id/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "passkeys",
+    "1password",
+    "passwordless",
+    "elements"
+   ],
+   "tip": "Its prebuilt elements cover the whole passkey enrolment and login flow.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Passwordless authentication service from 1Password.",
+    "ru": "Служба беспарольной аутентификации от 1Password."
+   },
+   "localizedTip": {
+    "en": "Its prebuilt elements cover the whole passkey enrolment and login flow."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-passkeys",
+   "name": "Passkeys",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Passwordless credentials that sync across a user's devices.",
+   "url": "https://passkeys.dev/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "passwordless",
+    "fido",
+    "sync",
+    "cross-device"
+   ],
+   "tip": "Keep a fallback method — account recovery is the hard part of any passkey rollout.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Passwordless credentials that sync across a user's devices.",
+    "ru": "Беспарольные учётные данные, синхронизируемые между устройствами пользователя."
+   },
+   "localizedTip": {
+    "en": "Keep a fallback method — account recovery is the hard part of any passkey rollout."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-passport-js",
    "name": "Passport.js",
    "kind": "library",
@@ -41593,6 +42265,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-simplewebauthn",
+   "name": "SimpleWebAuthn",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "TypeScript libraries for implementing WebAuthn on both server and browser.",
+   "url": "https://simplewebauthn.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "webauthn",
+    "typescript",
+    "server",
+    "browser"
+   ],
+   "tip": "It handles the attestation parsing that makes raw WebAuthn implementation error-prone.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @simplewebauthn/server",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "TypeScript libraries for implementing WebAuthn on both server and browser.",
+    "ru": "TypeScript-библиотеки для реализации WebAuthn на сервере и в браузере."
+   },
+   "localizedTip": {
+    "en": "It handles the attestation parsing that makes raw WebAuthn implementation error-prone."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-spicedb",
    "name": "SpiceDB",
    "kind": "library",
@@ -41623,6 +42330,76 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-stack-auth",
+   "name": "Stack Auth",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Open-source authentication and user management, an alternative to Clerk.",
+   "url": "https://docs.stack-auth.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "open-source",
+    "nextjs",
+    "self-host",
+    "clerk-alternative"
+   ],
+   "tip": "Self-hostable, which removes the per-user pricing that hosted auth services charge.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @stackframe/stack",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source authentication and user management, an alternative to Clerk.",
+    "ru": "Открытая аутентификация и управление пользователями, альтернатива Clerk."
+   },
+   "localizedTip": {
+    "en": "Self-hostable, which removes the per-user pricing that hosted auth services charge."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-webauthn",
+   "name": "WebAuthn",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "The browser standard behind passkeys and hardware security keys.",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "standard",
+    "passkeys",
+    "phishing-resistant",
+    "browser"
+   ],
+   "tip": "Phishing resistance is structural here — the credential is bound to the origin and cannot be replayed.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The browser standard behind passkeys and hardware security keys.",
+    "ru": "Браузерный стандарт, лежащий в основе passkey и аппаратных ключей безопасности."
+   },
+   "localizedTip": {
+    "en": "Phishing resistance is structural here — the credential is bound to the origin and cannot be replayed."
+   },
+   "pricing": {
+    "model": "free",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -55255,6 +56032,41 @@
    },
    "localizedTip": {
     "en": "Generates both the provider test and the consumer stub from one contract definition."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-spring-security",
+   "name": "Spring Security",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Comprehensive authentication and authorization for Spring applications.",
+   "url": "https://docs.spring.io/spring-security/reference/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "spring",
+    "authorization",
+    "filters"
+   ],
+   "tip": "Powerful and easy to misconfigure — its filter chain rewards reading the reference properly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Comprehensive authentication and authorization for Spring applications.",
+    "ru": "Полноценная аутентификация и авторизация для приложений Spring."
+   },
+   "localizedTip": {
+    "en": "Powerful and easy to misconfigure — its filter chain rewards reading the reference properly."
    },
    "pricing": {
     "model": "openSource",

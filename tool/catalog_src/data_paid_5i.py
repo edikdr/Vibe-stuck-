@@ -62,4 +62,9 @@ PAID_5I = [
  "Платформа надёжности и SLO по корпоративным контрактам.",
  "Its value depends on already having SLOs defined — the tool does not create that discipline.",
  "custom","custom quote","product demo","https://www.blameless.com/pricing"),
+("paid-okta","Okta (pricing)","Аутентификация","https://www.okta.com/pricing/","paid","identity,pricing,per-user,enterprise",
+ "Enterprise identity billed per monthly active user, per product module.",
+ "Корпоративная идентификация с оплатой за активного пользователя в месяц по каждому модулю.",
+ "Modules price separately, so a quote for single sign-on alone understates the full deployment.",
+ "subscription","from ~$2 per user per month","free developer tier","https://www.okta.com/pricing/"),
 ]
