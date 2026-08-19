@@ -57,6 +57,7 @@ class ItemDetailView extends StatelessWidget {
     final s = state.s;
     final version = state.versionFor(item.id);
     final health = state.healthFor(item.id);
+    final stars = state.starsFor(item.id);
     final favorite = state.isFavorite(item.id);
 
     return ListView(
@@ -108,6 +109,8 @@ class ItemDetailView extends StatelessWidget {
             _Chip(label: s.category(item.category)),
             if (item.isLive) _Chip(label: s.t('liveSource'), color: AtlasTheme.positive),
             if (version != null) _Chip(label: '${s.t('latestVersion')}: $version'),
+            if (stars != null)
+              _Chip(label: '${formatStars(stars)} ${s.t('starsLabel')}', color: AtlasTheme.warning),
             if (health != null)
               _Chip(
                 label: health ? s.t('reachable') : s.t('unreachable'),
@@ -333,6 +336,13 @@ class _CopyBox extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Compact star count: 128000 reads as "128k", which fits a chip.
+String formatStars(int value) {
+  if (value >= 1000000) return '${(value / 1000000).toStringAsFixed(1)}M';
+  if (value >= 1000) return '${(value / 1000).toStringAsFixed(value >= 10000 ? 0 : 1)}k';
+  return '$value';
 }
 
 class _Chip extends StatelessWidget {

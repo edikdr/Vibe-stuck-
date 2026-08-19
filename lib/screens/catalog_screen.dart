@@ -317,12 +317,13 @@ class _SortMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final s = state.s;
-    const modes = ['relevance', 'name', 'new', 'freeFirst'];
+    const modes = ['relevance', 'name', 'new', 'free', 'popular'];
     final labels = {
       'relevance': s.t('sortRelevance'),
       'name': s.t('sortName'),
       'new': s.t('sortNew'),
-      'freeFirst': s.t('sortFreeFirst'),
+      'free': s.t('sortFreeFirst'),
+      'popular': s.t('sortPopular'),
     };
 
     return PopupMenuButton<String>(

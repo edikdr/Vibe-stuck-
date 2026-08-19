@@ -12,6 +12,7 @@ class HeadlessSyncResult {
     this.added = 0,
     this.versions = 0,
     this.links = 0,
+    this.stars = 0,
     this.reason = '',
   });
 
@@ -19,6 +20,7 @@ class HeadlessSyncResult {
   final int added;
   final int versions;
   final int links;
+  final int stars;
   final String reason;
 
   @override
@@ -73,16 +75,19 @@ class SyncRunner {
 
     final versions = await _repository.loadVersions();
     final health = await _repository.loadLinkHealth();
+    final stars = await _repository.loadStars();
     final events = await _repository.loadEvents();
 
     final result = await _liveUpdateService.sync(
       existing: existing,
       currentVersions: versions,
+      currentStars: stars,
       lastSync: lastSync,
       syncMcp: await _repository.loadSyncMcp(),
       syncSkills: await _repository.loadSyncSkills(),
       syncVersions: await _repository.loadSyncVersions(),
       syncLinks: await _repository.loadSyncLinks(),
+      syncStars: await _repository.loadSyncStars(),
     );
 
     final merged = <String, CatalogItem>{for (final item in live) item.id: item};
@@ -91,6 +96,7 @@ class SyncRunner {
     }
     versions.addAll(result.versions);
     health.addAll(result.linkHealth);
+    stars.addAll(result.stars);
     events.insertAll(0, result.events.reversed);
     if (events.length > 150) events.removeRange(150, events.length);
 
@@ -98,6 +104,7 @@ class SyncRunner {
     await _repository.saveLiveItems(merged.values.toList(growable: false));
     await _repository.saveVersions(versions);
     await _repository.saveLinkHealth(health);
+    await _repository.saveStars(stars);
     await _repository.saveEvents(events);
     await _repository.saveLastSync(now);
     await _repository.saveBackgroundResult(
@@ -110,6 +117,7 @@ class SyncRunner {
       added: result.addedCount,
       versions: result.versions.length,
       links: result.linkHealth.length,
+      stars: result.stars.length,
     );
   }
 }

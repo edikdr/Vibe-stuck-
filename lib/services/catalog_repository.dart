@@ -46,11 +46,13 @@ class CatalogRepository {
   static const _syncSkillsKey = 'sync_skills_v2';
   static const _syncVersionsKey = 'sync_versions_v2';
   static const _syncLinksKey = 'sync_links_v2';
+  static const _syncStarsKey = 'sync_stars_v1';
   static const _syncHourKey = 'sync_hour_v1';
   static const _syncMinuteKey = 'sync_minute_v1';
   static const _previewProviderKey = 'preview_provider_v1';
   static const _backgroundResultKey = 'background_result_v1';
   static const _sortModeKey = 'sort_mode_v1';
+  static const _starsKey = 'github_stars_v1';
 
   Future<List<CatalogItem>> loadBundled() async {
     final raw = await rootBundle.loadString('assets/catalog.json');
@@ -123,6 +125,9 @@ class CatalogRepository {
   Future<bool> loadSyncLinks() => _loadBool(_syncLinksKey, true);
   Future<void> saveSyncLinks(bool value) => _saveBool(_syncLinksKey, value);
 
+  Future<bool> loadSyncStars() => _loadBool(_syncStarsKey, true);
+  Future<void> saveSyncStars(bool value) => _saveBool(_syncStarsKey, value);
+
   Future<bool> _loadBool(String key, bool fallback) async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool(key) ?? fallback;
@@ -162,7 +167,12 @@ class CatalogRepository {
   Future<String> loadPreviewProvider() => _loadString(_previewProviderKey, 'mshots');
   Future<void> savePreviewProvider(String value) => _saveString(_previewProviderKey, value);
 
-  Future<String> loadSortMode() => _loadString(_sortModeKey, 'relevance');
+  /// Older builds stored 'freeFirst', which the search engine never matched,
+  /// so that sort silently behaved like relevance. Map it onto the real value.
+  Future<String> loadSortMode() async {
+    final stored = await _loadString(_sortModeKey, 'relevance');
+    return stored == 'freeFirst' ? 'free' : stored;
+  }
   Future<void> saveSortMode(String value) => _saveString(_sortModeKey, value);
 
   /// Set by the headless runner so the UI can report what happened while the
@@ -198,6 +208,27 @@ class CatalogRepository {
   Future<void> saveLinkHealth(Map<String, bool> value) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_healthKey, jsonEncode(value));
+  }
+
+  /// Star counts per entry id, refreshed a slice at a time by the daily sync.
+  ///
+  /// Stored separately from the catalog so a popularity refresh never rewrites
+  /// entry data, and so a cleared cache degrades to "no ranking" rather than a
+  /// broken catalog.
+  Future<Map<String, int>> loadStars() async {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getString(_starsKey);
+    if (raw == null) return {};
+    try {
+      return Map<String, int>.from(jsonDecode(raw) as Map);
+    } catch (_) {
+      return {};
+    }
+  }
+
+  Future<void> saveStars(Map<String, int> value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_starsKey, jsonEncode(value));
   }
 
   Future<Map<String, String>> _loadStringMap(String key) async {

@@ -42,6 +42,7 @@ class AppState extends ChangeNotifier {
   final Set<String> _favorites = {};
   final Map<String, String> _versions = {};
   final Map<String, bool> _linkHealth = {};
+  final Map<String, int> _stars = {};
   final List<UpdateEvent> _events = [];
 
   AppLanguage language = AppLanguage.en;
@@ -67,6 +68,7 @@ class AppState extends ChangeNotifier {
   bool syncSkills = true;
   bool syncVersions = true;
   bool syncLinks = true;
+  bool syncStars = true;
   bool syncing = false;
   DateTime? lastSync;
   String? syncMessage;
@@ -98,6 +100,7 @@ class AppState extends ChangeNotifier {
         onlyFavorites: onlyFavorites,
         favorites: _favorites,
         sort: sortMode,
+        stars: _stars,
       );
 
   int get activeFilterCount => [
@@ -158,6 +161,20 @@ class AppState extends ChangeNotifier {
   String? versionFor(String id) => _versions[id];
   bool? healthFor(String id) => _linkHealth[id];
 
+  /// GitHub star count for an entry, or null when it is not tracked yet.
+  int? starsFor(String id) => _stars[id];
+
+  /// Whether any popularity data has arrived, used to decide if the
+  /// "popular" sort and the most-used section have anything to show.
+  bool get hasStars => _stars.isNotEmpty;
+
+  /// Highest-starred entries currently in view, for the "most used" section.
+  List<CatalogItem> mostUsed({int limit = 12}) {
+    final ranked = allItems.where((item) => _stars.containsKey(item.id)).toList()
+      ..sort((a, b) => _stars[b.id]!.compareTo(_stars[a.id]!));
+    return ranked.take(limit).toList(growable: false);
+  }
+
   Future<void> load() async {
     final results = await Future.wait<Object?>([
       _repository.loadBundled(),
@@ -181,6 +198,8 @@ class AppState extends ChangeNotifier {
       _repository.loadPreviewProvider(),
       _repository.loadSortMode(),
       _repository.loadBackgroundResult(),
+      _repository.loadStars(),
+      _repository.loadSyncStars(),
     ]);
     _bundled
       ..clear()
@@ -219,6 +238,10 @@ class AppState extends ChangeNotifier {
     previewProvider = PreviewProviderInfo.fromCode(results[18]! as String);
     sortMode = results[19]! as String;
     backgroundResult = results[20]! as String;
+    _stars
+      ..clear()
+      ..addAll(results[21]! as Map<String, int>);
+    syncStars = results[22]! as bool;
     notifyListeners();
 
     await _scheduler.configure(enabled: autoSync, hour: syncHour, minute: syncMinute);
@@ -409,6 +432,12 @@ class AppState extends ChangeNotifier {
     await _repository.saveSyncLinks(value);
   }
 
+  Future<void> updateSyncStars(bool value) async {
+    syncStars = value;
+    notifyListeners();
+    await _repository.saveSyncStars(value);
+  }
+
   Future<void> syncCatalog({bool silent = false}) async {
     if (syncing) return;
     syncing = true;
@@ -432,11 +461,13 @@ class AppState extends ChangeNotifier {
       final live = await _liveUpdateService.sync(
         existing: allItems,
         currentVersions: _versions,
+        currentStars: _stars,
         lastSync: lastSync,
         syncMcp: syncMcp,
         syncSkills: syncSkills,
         syncVersions: syncVersions,
         syncLinks: syncLinks,
+        syncStars: syncStars,
       );
       final mergedLive = <String, CatalogItem>{for (final item in _live) item.id: item};
       for (final item in live.items) {
@@ -447,6 +478,7 @@ class AppState extends ChangeNotifier {
         ..addAll(mergedLive.values);
       _versions.addAll(live.versions);
       _linkHealth.addAll(live.linkHealth);
+      _stars.addAll(live.stars);
       _events.insertAll(0, live.events.reversed);
       if (_events.length > 150) _events.removeRange(150, _events.length);
       syncErrors.addAll(live.errors);
@@ -460,6 +492,7 @@ class AppState extends ChangeNotifier {
         _repository.saveLiveItems(_live),
         _repository.saveVersions(_versions),
         _repository.saveLinkHealth(_linkHealth),
+        _repository.saveStars(_stars),
         _repository.saveEvents(_events),
         _repository.saveLastSync(lastSync!),
       ]);
@@ -482,6 +515,7 @@ class AppState extends ChangeNotifier {
           'syncSkills': syncSkills,
           'syncVersions': syncVersions,
           'syncLinks': syncLinks,
+          'syncStars': syncStars,
         },
       );
 
@@ -500,6 +534,7 @@ class AppState extends ChangeNotifier {
     syncSkills = data.settings['syncSkills'] ?? true;
     syncVersions = data.settings['syncVersions'] ?? true;
     syncLinks = data.settings['syncLinks'] ?? true;
+    syncStars = data.settings['syncStars'] ?? true;
     notifyListeners();
     await Future.wait([
       _repository.saveCustom(_custom),

@@ -10,6 +10,7 @@ class LiveSyncResult {
     required this.addedCount,
     required this.versions,
     required this.linkHealth,
+    required this.stars,
     required this.events,
     required this.errors,
   });
@@ -18,6 +19,7 @@ class LiveSyncResult {
   final int addedCount;
   final Map<String, String> versions;
   final Map<String, bool> linkHealth;
+  final Map<String, int> stars;
   final List<UpdateEvent> events;
   final List<String> errors;
 }
@@ -92,15 +94,18 @@ class LiveUpdateService {
   Future<LiveSyncResult> sync({
     required List<CatalogItem> existing,
     required Map<String, String> currentVersions,
+    Map<String, int> currentStars = const {},
     required DateTime? lastSync,
     bool syncMcp = true,
     bool syncSkills = true,
     bool syncVersions = true,
     bool syncLinks = true,
+    bool syncStars = true,
   }) async {
     final items = <CatalogItem>[];
     final versions = <String, String>{};
     final health = <String, bool>{};
+    final stars = <String, int>{};
     final events = <UpdateEvent>[];
     final errors = <String>[];
     final existingIds = existing.map((item) => item.id).toSet();
@@ -146,6 +151,14 @@ class LiveUpdateService {
       }
     }
 
+    if (syncStars) {
+      try {
+        stars.addAll(await _fetchGithubStars(existing, currentStars));
+      } catch (error) {
+        errors.add('GitHub stars: ${error.runtimeType}');
+      }
+    }
+
     final addedCount = items.where((item) => !existingIds.contains(item.id)).length;
     for (final item in items.where((item) => !existingIds.contains(item.id))) {
       events.add(_event('added', '${item.kind.name.toUpperCase()}: ${item.name}'));
@@ -155,6 +168,7 @@ class LiveUpdateService {
       addedCount: addedCount,
       versions: versions,
       linkHealth: health,
+      stars: stars,
       events: events,
       errors: errors,
     );
@@ -316,6 +330,82 @@ class LiveUpdateService {
       }
     }
     return result;
+  }
+
+  /// How many repositories one daily run refreshes.
+  ///
+  /// Unauthenticated GitHub allows 60 requests an hour, so a full catalogue
+  /// sweep in one run is impossible. A daily slice keeps every entry refreshed
+  /// on a rolling basis instead, the same approach `_checkApiLinks` uses.
+  static const starsPerRun = 40;
+
+  /// Star counts for entries that point at a GitHub repository.
+  ///
+  /// Entries whose star count is already known are refreshed last, so a first
+  /// run fills in unranked entries rather than re-fetching what it already has.
+  Future<Map<String, int>> _fetchGithubStars(
+    List<CatalogItem> existing,
+    Map<String, int> currentStars,
+  ) async {
+    final candidates = <(String, String)>[];
+    for (final item in existing) {
+      if (item.isCustom) continue;
+      final repository = githubRepositoryOf(item.url);
+      if (repository != null) candidates.add((item.id, repository));
+    }
+    if (candidates.isEmpty) return {};
+
+    final unranked = candidates.where((entry) => !currentStars.containsKey(entry.$1)).toList();
+    final ranked = candidates.where((entry) => currentStars.containsKey(entry.$1)).toList();
+    // Rotate the already-ranked ones by day so refreshes spread over the month.
+    if (ranked.isNotEmpty) {
+      final offset = DateTime.now().day % ranked.length;
+      ranked
+        ..addAll(ranked.sublist(0, offset))
+        ..removeRange(0, offset);
+    }
+    final selection = [...unranked, ...ranked].take(starsPerRun);
+
+    final result = <String, int>{};
+    for (final (id, repository) in selection) {
+      try {
+        final uri = Uri.parse('https://api.github.com/repos/$repository');
+        final response = await _client.get(uri, headers: const {
+          'Accept': 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2026-03-10',
+        }).timeout(const Duration(seconds: 8));
+        // 403 means the hourly limit is spent; stop rather than burn the rest.
+        if (response.statusCode == 403 || response.statusCode == 429) break;
+        if (response.statusCode != 200) continue;
+        final decoded = jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
+        final count = decoded['stargazers_count'];
+        if (count is int) result[id] = count;
+      } catch (_) {
+        // One unreachable repository must not end the sweep.
+      }
+    }
+    return result;
+  }
+
+  /// `owner/repo` for a GitHub URL, or null when the URL points elsewhere.
+  ///
+  /// Deliberately rejects the reserved paths that look like repositories but
+  /// are not, so `github.com/features/actions` is never treated as one.
+  static String? githubRepositoryOf(String url) {
+    final uri = Uri.tryParse(url);
+    if (uri == null || uri.host != 'github.com') return null;
+    final segments = uri.pathSegments.where((part) => part.isNotEmpty).toList();
+    if (segments.length < 2) return null;
+    const reserved = {
+      'features', 'about', 'pricing', 'marketplace', 'sponsors', 'topics',
+      'collections', 'trending', 'explore', 'settings', 'orgs', 'apps', 'login',
+    };
+    if (reserved.contains(segments[0])) return null;
+    final name = segments[1].endsWith('.git')
+        ? segments[1].substring(0, segments[1].length - 4)
+        : segments[1];
+    if (name.isEmpty) return null;
+    return '${segments[0]}/$name';
   }
 
   UpdateEvent _event(String kind, String message) {

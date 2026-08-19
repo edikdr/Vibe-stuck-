@@ -67,6 +67,7 @@ class SearchEngine {
     bool onlyFavorites = false,
     Set<String> favorites = const {},
     String sort = 'relevance',
+    Map<String, int> stars = const {},
   }) {
     final query = _normalize(rawQuery);
     final queryTokens = _expandedTokens(query);
@@ -95,6 +96,7 @@ class SearchEngine {
           'name' => _byName(a.item, b.item),
           'new' => _byVerified(a.item, b.item),
           'free' => _byFreeFirst(a.item, b.item),
+          'popular' => _byStars(a.item, b.item, stars),
           _ => _byScore(a, b),
         });
     return scored.map((entry) => entry.item).toList(growable: false);
@@ -118,6 +120,18 @@ class SearchEngine {
   int _byScore(({CatalogItem item, int score}) a, ({CatalogItem item, int score}) b) {
     final order = b.score.compareTo(a.score);
     return order != 0 ? order : _byName(a.item, b.item);
+  }
+
+  /// Entries with no known star count sort last rather than as zero, so an
+  /// unranked entry never outranks a genuinely small project.
+  int _byStars(CatalogItem a, CatalogItem b, Map<String, int> stars) {
+    final left = stars[a.id];
+    final right = stars[b.id];
+    if (left == null && right == null) return _byName(a, b);
+    if (left == null) return 1;
+    if (right == null) return -1;
+    final order = right.compareTo(left);
+    return order != 0 ? order : _byName(a, b);
   }
 
   int _byName(CatalogItem a, CatalogItem b) =>

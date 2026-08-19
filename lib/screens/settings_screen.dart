@@ -183,6 +183,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   value: state.syncLinks,
                   onChanged: state.updateSyncLinks,
                 ),
+                _Toggle(
+                  title: s.t('syncStars'),
+                  hint: s.t('syncStarsHint'),
+                  value: state.syncStars,
+                  onChanged: state.updateSyncStars,
+                ),
                 const Divider(height: 22),
                 Text(s.t('customFeed'),
                     style: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w600)),
