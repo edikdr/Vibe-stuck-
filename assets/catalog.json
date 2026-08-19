@@ -37507,6 +37507,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-server-sent-events",
+   "name": "Server-Sent Events",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Browser-native one-way streaming from server to client over plain HTTP.",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sse",
+    "http",
+    "one-way",
+    "built-in"
+   ],
+   "tip": "Automatic reconnection is built in, which you would otherwise implement yourself over WebSocket.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Browser-native one-way streaming from server to client over plain HTTP.",
+    "ru": "Нативная для браузера односторонняя потоковая передача от сервера к клиенту по обычному HTTP."
+   },
+   "localizedTip": {
+    "en": "Automatic reconnection is built in, which you would otherwise implement yourself over WebSocket."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-socketio",
    "name": "Socket.IO",
    "kind": "library",
@@ -37930,7 +37965,77 @@
    "categoryGroup": "backend"
   },
   {
-   "id": "lib-socket-io-2",
+   "id": "lib-uwebsockets",
+   "name": "uWebSockets.js",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Extremely fast WebSocket and HTTP server for Node.",
+   "url": "https://github.com/uNetworking/uWebSockets.js",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "websocket",
+    "performance",
+    "c-plus-plus",
+    "node"
+   ],
+   "tip": "Handles far more concurrent connections per process than the standard ws library.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Extremely fast WebSocket and HTTP server for Node.",
+    "ru": "Крайне быстрый WebSocket и HTTP-сервер для Node."
+   },
+   "localizedTip": {
+    "en": "Handles far more concurrent connections per process than the standard ws library."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-webtransport",
+   "name": "WebTransport",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Modern low-latency transport over HTTP/3, supporting streams and datagrams.",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebTransport_API",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "http3",
+    "quic",
+    "streams",
+    "datagrams"
+   ],
+   "tip": "Unreliable datagrams suit games and live media where a late packet is worse than a lost one.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern low-latency transport over HTTP/3, supporting streams and datagrams.",
+    "ru": "Современный транспорт с низкой задержкой поверх HTTP/3 с потоками и датаграммами."
+   },
+   "localizedTip": {
+    "en": "Unreliable datagrams suit games and live media where a late packet is worse than a lost one."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-ws",
    "name": "ws",
    "kind": "library",
    "category": "Backend и API",
@@ -41472,6 +41577,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-centrifugo",
+   "name": "Centrifugo",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Standalone realtime messaging server usable from any backend language.",
+   "url": "https://centrifugal.dev/docs/getting-started/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "realtime",
+    "pubsub",
+    "language-agnostic",
+    "scalable"
+   ],
+   "tip": "Running it beside an existing backend adds realtime without rewriting anything in Node.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Standalone realtime messaging server usable from any backend language.",
+    "ru": "Автономный сервер realtime-сообщений, используемый из любого языка бэкенда."
+   },
+   "localizedTip": {
+    "en": "Running it beside an existing backend adds realtime without rewriting anything in Node."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-cloudflare-queues",
    "name": "Cloudflare Queues",
    "kind": "library",
@@ -41968,6 +42108,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-mercure",
+   "name": "Mercure",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Open protocol for server-sent updates, built on Server-Sent Events.",
+   "url": "https://mercure.rocks/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sse",
+    "protocol",
+    "push",
+    "open-standard"
+   ],
+   "tip": "Simpler than WebSocket when updates only flow from server to client.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open protocol for server-sent updates, built on Server-Sent Events.",
+    "ru": "Открытый протокол серверных обновлений на основе Server-Sent Events."
+   },
+   "localizedTip": {
+    "en": "Simpler than WebSocket when updates only flow from server to client."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-pg-boss",
    "name": "pg-boss",
    "kind": "library",
@@ -41998,6 +42173,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-pubnub",
+   "name": "PubNub",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Managed realtime messaging network with global points of presence.",
+   "url": "https://www.pubnub.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "realtime",
+    "global",
+    "presence",
+    "managed"
+   ],
+   "tip": "Its global edge network keeps latency low for geographically spread users.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Managed realtime messaging network with global points of presence.",
+    "ru": "Управляемая сеть realtime-сообщений с точками присутствия по всему миру."
+   },
+   "localizedTip": {
+    "en": "Its global edge network keeps latency low for geographically spread users."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -42215,6 +42425,41 @@
     "freeQuota": "free open-source edition",
     "url": "https://sidekiq.org/products/enterprise.html",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-soketi",
+   "name": "Soketi",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Self-hosted WebSocket server compatible with the Pusher protocol.",
+   "url": "https://docs.soketi.app/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pusher-compatible",
+    "websocket",
+    "self-host",
+    "fast"
+   ],
+   "tip": "Drop-in for Pusher client libraries, so migrating off Pusher is a configuration change.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g @soketi/soketi",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted WebSocket server compatible with the Pusher protocol.",
+    "ru": "Self-hosted WebSocket-сервер, совместимый с протоколом Pusher."
+   },
+   "localizedTip": {
+    "en": "Drop-in for Pusher client libraries, so migrating off Pusher is a configuration change."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -42570,6 +42815,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-automerge",
+   "name": "Automerge",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "CRDT library for local-first applications, with a JSON-like data model.",
+   "url": "https://automerge.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "crdt",
+    "local-first",
+    "json",
+    "rust"
+   ],
+   "tip": "Its full edit history enables time travel, which Yjs discards by default for size.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @automerge/automerge",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "CRDT library for local-first applications, with a JSON-like data model.",
+    "ru": "CRDT-библиотека для local-first приложений с моделью данных в духе JSON."
+   },
+   "localizedTip": {
+    "en": "Its full edit history enables time travel, which Yjs discards by default for size."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-bloc",
    "name": "Bloc",
    "kind": "library",
@@ -42757,6 +43037,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-hocuspocus",
+   "name": "Hocuspocus",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Yjs collaboration backend from the Tiptap team.",
+   "url": "https://tiptap.dev/docs/hocuspocus/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "yjs",
+    "backend",
+    "extensions",
+    "tiptap"
+   ],
+   "tip": "Its extension hooks cover authentication and persistence, which raw Yjs providers leave open.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @hocuspocus/server",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Yjs collaboration backend from the Tiptap team.",
+    "ru": "Бэкенд совместной работы Yjs от команды Tiptap."
+   },
+   "localizedTip": {
+    "en": "Its extension hooks cover authentication and persistence, which raw Yjs providers leave open."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-idb",
    "name": "idb",
    "kind": "library",
@@ -42819,6 +43134,41 @@
    },
    "localizedTip": {
     "en": "It removes the deep-spread ceremony that makes nested reducers unreadable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-jazz-tools",
+   "name": "Jazz",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Local-first framework with built-in sync, permissions and end-to-end encryption.",
+   "url": "https://jazz.tools/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "local-first",
+    "collaboration",
+    "encryption",
+    "sync"
+   ],
+   "tip": "Permissions are part of the data model, which most local-first frameworks leave to the application.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i jazz-tools",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Local-first framework with built-in sync, permissions and end-to-end encryption.",
+    "ru": "Local-first фреймворк со встроенной синхронизацией, правами доступа и сквозным шифрованием."
+   },
+   "localizedTip": {
+    "en": "Permissions are part of the data model, which most local-first frameworks leave to the application."
    },
    "pricing": {
     "model": "openSource",
@@ -42892,6 +43242,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-liveblocks",
+   "name": "Liveblocks",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Hosted collaboration infrastructure with presence, comments and notifications.",
+   "url": "https://liveblocks.io/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "collaboration",
+    "presence",
+    "comments",
+    "hosted"
+   ],
+   "tip": "Presence and cursors are the fiddly part of collaboration, and it handles them out of the box.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @liveblocks/client",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted collaboration infrastructure with presence, comments and notifications.",
+    "ru": "Размещённая инфраструктура совместной работы с присутствием, комментариями и уведомлениями."
+   },
+   "localizedTip": {
+    "en": "Presence and cursors are the fiddly part of collaboration, and it handles them out of the box."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -43032,6 +43417,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-partykit",
+   "name": "PartyKit",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Realtime multiplayer backends running on Cloudflare Durable Objects.",
+   "url": "https://docs.partykit.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "realtime",
+    "durable-objects",
+    "edge",
+    "multiplayer"
+   ],
+   "tip": "Each room is a stateful object at the edge, which removes the usual pub/sub coordination layer.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i partykit",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Realtime multiplayer backends running on Cloudflare Durable Objects.",
+    "ru": "Realtime-бэкенды для многопользовательских приложений на Cloudflare Durable Objects."
+   },
+   "localizedTip": {
+    "en": "Each room is a stateful object at the edge, which removes the usual pub/sub coordination layer."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -43272,6 +43692,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-replicache",
+   "name": "Replicache",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Sync framework with optimistic mutations and automatic rollback on conflict.",
+   "url": "https://doc.replicache.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sync",
+    "offline",
+    "optimistic",
+    "rollback"
+   ],
+   "tip": "Optimistic updates make the interface instant, and the rollback keeps it correct when the server disagrees.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i replicache",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Sync framework with optimistic mutations and automatic rollback on conflict.",
+    "ru": "Фреймворк синхронизации с оптимистичными мутациями и автоматическим откатом при конфликте."
+   },
+   "localizedTip": {
+    "en": "Optimistic updates make the interface instant, and the rollback keeps it correct when the server disagrees."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-riverpod",
    "name": "Riverpod",
    "kind": "library",
@@ -43349,6 +43804,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-sharedb",
+   "name": "ShareDB",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Realtime database backend using operational transformation.",
+   "url": "https://share.github.io/sharedb/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "operational-transform",
+    "realtime",
+    "json",
+    "database"
+   ],
+   "tip": "OT requires a central server to order operations, unlike CRDTs which merge peer to peer.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i sharedb",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Realtime database backend using operational transformation.",
+    "ru": "Realtime-бэкенд базы данных на операционных преобразованиях."
+   },
+   "localizedTip": {
+    "en": "OT requires a central server to order operations, unlike CRDTs which merge peer to peer."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -43502,6 +43992,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-triplit",
+   "name": "Triplit",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Full-stack database with realtime sync and relational queries on the client.",
+   "url": "https://www.triplit.dev/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "local-first",
+    "sync",
+    "relational",
+    "typescript"
+   ],
+   "tip": "Relational queries against local data are what most sync engines cannot offer.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @triplit/client",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Full-stack database with realtime sync and relational queries on the client.",
+    "ru": "Full-stack база данных с realtime-синхронизацией и реляционными запросами на клиенте."
+   },
+   "localizedTip": {
+    "en": "Relational queries against local data are what most sync engines cannot offer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-urql",
    "name": "urql",
    "kind": "library",
@@ -43633,6 +44158,76 @@
    },
    "localizedTip": {
     "en": "Model complex multi-step flows (checkout, onboarding) as a machine — impossible transitions become impossible."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-y-sweet",
+   "name": "Y-Sweet",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Yjs synchronization server with persistence to object storage.",
+   "url": "https://docs.jamsocket.com/y-sweet/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "yjs",
+    "server",
+    "persistence",
+    "s3"
+   ],
+   "tip": "Persisting documents to S3 makes a Yjs deployment durable without running a database.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Yjs synchronization server with persistence to object storage.",
+    "ru": "Сервер синхронизации Yjs с сохранением в объектное хранилище."
+   },
+   "localizedTip": {
+    "en": "Persisting documents to S3 makes a Yjs deployment durable without running a database."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-yjs",
+   "name": "Yjs",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "CRDT framework for building collaborative applications.",
+   "url": "https://docs.yjs.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "crdt",
+    "collaboration",
+    "offline",
+    "realtime"
+   ],
+   "tip": "Concurrent edits merge without a central authority, which is what makes offline editing work.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i yjs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "CRDT framework for building collaborative applications.",
+    "ru": "CRDT-фреймворк для создания приложений с совместной работой."
+   },
+   "localizedTip": {
+    "en": "Concurrent edits merge without a central authority, which is what makes offline editing work."
    },
    "pricing": {
     "model": "openSource",
@@ -48636,6 +49231,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-signalr",
+   "name": "SignalR",
+   "kind": "library",
+   "category": ".NET экосистема",
+   "summary": "Realtime communication library for .NET with automatic transport fallback.",
+   "url": "https://learn.microsoft.com/en-us/aspnet/core/signalr/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dotnet",
+    "realtime",
+    "hubs",
+    "fallback"
+   ],
+   "tip": "Falling back from WebSocket to long polling keeps it working behind restrictive proxies.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Realtime communication library for .NET with automatic transport fallback.",
+    "ru": "Библиотека realtime-коммуникации для .NET с автоматическим переключением транспорта."
+   },
+   "localizedTip": {
+    "en": "Falling back from WebSocket to long polling keeps it working behind restrictive proxies."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-bat",
    "name": "bat",
    "kind": "library",
@@ -49515,6 +50145,41 @@
    },
    "localizedTip": {
     "en": "No Redis or separate queue service needed — the database you already have is the whole job store."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-phoenix-channels",
+   "name": "Phoenix Channels",
+   "kind": "library",
+   "category": "Elixir экосистема",
+   "summary": "Elixir's realtime abstraction, handling very large numbers of connections.",
+   "url": "https://hexdocs.pm/phoenix/channels.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "elixir",
+    "realtime",
+    "websocket",
+    "scalable"
+   ],
+   "tip": "The BEAM's lightweight processes are why a single node holds hundreds of thousands of sockets.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Elixir's realtime abstraction, handling very large numbers of connections.",
+    "ru": "Realtime-абстракция Elixir, выдерживающая очень большое число соединений."
+   },
+   "localizedTip": {
+    "en": "The BEAM's lightweight processes are why a single node holds hundreds of thousands of sockets."
    },
    "pricing": {
     "model": "openSource",
@@ -66489,6 +67154,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-blocknote",
+   "name": "BlockNote",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Notion-style block editor for React with collaboration support.",
+   "url": "https://www.blocknotejs.org/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "block-editor",
+    "notion-like",
+    "react",
+    "collaboration"
+   ],
+   "tip": "Ships with a working interface, unlike headless editors that leave the UI entirely to you.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @blocknote/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Notion-style block editor for React with collaboration support.",
+    "ru": "Блочный редактор в стиле Notion для React с поддержкой совместной работы."
+   },
+   "localizedTip": {
+    "en": "Ships with a working interface, unlike headless editors that leave the UI entirely to you."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-chakra",
    "name": "Chakra UI",
    "kind": "library",
@@ -66569,6 +67269,41 @@
     "freeQuota": "free trial",
     "url": "https://www.chameleon.io/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-ckeditor",
+   "name": "CKEditor 5",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Mature WYSIWYG editor with optional real-time collaboration features.",
+   "url": "https://ckeditor.com/docs/ckeditor5/latest/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "editor",
+    "wysiwyg",
+    "collaboration",
+    "enterprise"
+   ],
+   "tip": "Open source under GPL; a commercial licence is needed for closed-source products.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i ckeditor5",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mature WYSIWYG editor with optional real-time collaboration features.",
+    "ru": "Зрелый WYSIWYG-редактор с опциональной совместной работой в реальном времени."
+   },
+   "localizedTip": {
+    "en": "Open source under GPL; a commercial licence is needed for closed-source products."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -66893,6 +67628,41 @@
    },
    "localizedTip": {
     "en": "A few kilobytes with no dependencies, which suits a simple one-off walkthrough."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-editorjs",
+   "name": "Editor.js",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Block-style editor producing clean JSON rather than HTML.",
+   "url": "https://editorjs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "block-editor",
+    "json",
+    "clean-output",
+    "plugins"
+   ],
+   "tip": "JSON output is safe to render anywhere, which sidesteps the sanitization problem HTML brings.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @editorjs/editorjs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Block-style editor producing clean JSON rather than HTML.",
+    "ru": "Блочный редактор, выдающий чистый JSON вместо HTML."
+   },
+   "localizedTip": {
+    "en": "JSON output is safe to render anywhere, which sidesteps the sanitization problem HTML brings."
    },
    "pricing": {
     "model": "openSource",
@@ -68075,6 +68845,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-milkdown",
+   "name": "Milkdown",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Plugin-driven WYSIWYG Markdown editor built on ProseMirror.",
+   "url": "https://milkdown.dev/docs/guide/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "markdown",
+    "wysiwyg",
+    "prosemirror",
+    "plugin-driven"
+   ],
+   "tip": "It edits Markdown visually while keeping Markdown as the source of truth on disk.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @milkdown/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Plugin-driven WYSIWYG Markdown editor built on ProseMirror.",
+    "ru": "WYSIWYG-редактор Markdown на плагинах, построенный на ProseMirror."
+   },
+   "localizedTip": {
+    "en": "It edits Markdown visually while keeping Markdown as the source of truth on disk."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-million-js",
    "name": "Million.js",
    "kind": "library",
@@ -68346,6 +69151,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-plate",
+   "name": "Plate",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Rich text editor framework layering plugins and components over Slate.",
+   "url": "https://platejs.org/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "slate",
+    "react",
+    "plugins",
+    "components"
+   ],
+   "tip": "It supplies the behaviours Slate leaves unimplemented, which is most of the work in practice.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i platejs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Rich text editor framework layering plugins and components over Slate.",
+    "ru": "Фреймворк редактора форматированного текста: плагины и компоненты поверх Slate."
+   },
+   "localizedTip": {
+    "en": "It supplies the behaviours Slate leaves unimplemented, which is most of the work in practice."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-postcss",
    "name": "PostCSS",
    "kind": "library",
@@ -68555,6 +69395,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-prosemirror",
+   "name": "ProseMirror",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Toolkit for building rich text editors around an explicit document schema.",
+   "url": "https://prosemirror.net/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "editor",
+    "schema",
+    "transactions",
+    "foundation"
+   ],
+   "tip": "Its schema guarantees the document can never enter an invalid state, which contenteditable cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i prosemirror-view",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Toolkit for building rich text editors around an explicit document schema.",
+    "ru": "Набор инструментов для создания редакторов форматированного текста вокруг явной схемы документа."
+   },
+   "localizedTip": {
+    "en": "Its schema guarantees the document can never enter an invalid state, which contenteditable cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-quasar",
    "name": "Quasar",
    "kind": "library",
@@ -68582,6 +69457,41 @@
    },
    "localizedTip": {
     "en": "Its multi-target build story is the differentiator, not just the component set."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-quill",
+   "name": "Quill",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Straightforward WYSIWYG editor with a clean document model.",
+   "url": "https://quilljs.com/docs/quickstart",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "editor",
+    "wysiwyg",
+    "delta",
+    "simple"
+   ],
+   "tip": "Its Delta format describes changes rather than state, which makes diffing and syncing simpler.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i quill",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Straightforward WYSIWYG editor with a clean document model.",
+    "ru": "Простой WYSIWYG-редактор с чистой моделью документа."
+   },
+   "localizedTip": {
+    "en": "Its Delta format describes changes rather than state, which makes diffing and syncing simpler."
    },
    "pricing": {
     "model": "openSource",
@@ -68997,6 +69907,41 @@
    },
    "localizedTip": {
     "en": "Web components work in any framework or none, which makes them a safe bet for long-lived design systems."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-slate",
+   "name": "Slate",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Completely customizable framework for building React text editors.",
+   "url": "https://docs.slatejs.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "editor",
+    "react",
+    "customizable",
+    "plugin"
+   ],
+   "tip": "Maximum flexibility and correspondingly more work — you implement behaviours others ship built in.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i slate slate-react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Completely customizable framework for building React text editors.",
+    "ru": "Полностью настраиваемый фреймворк для создания текстовых редакторов на React."
+   },
+   "localizedTip": {
+    "en": "Maximum flexibility and correspondingly more work — you implement behaviours others ship built in."
    },
    "pricing": {
     "model": "openSource",
@@ -69662,6 +70607,76 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-tinymce",
+   "name": "TinyMCE",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Long-established WYSIWYG editor with an extensive plugin catalogue.",
+   "url": "https://www.tiny.cloud/docs/tinymce/latest/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "editor",
+    "wysiwyg",
+    "plugins",
+    "mature"
+   ],
+   "tip": "Its self-hosted core is free; the cloud features and premium plugins are what you pay for.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i tinymce",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Long-established WYSIWYG editor with an extensive plugin catalogue.",
+    "ru": "Давно устоявшийся WYSIWYG-редактор с обширным каталогом плагинов."
+   },
+   "localizedTip": {
+    "en": "Its self-hosted core is free; the cloud features and premium plugins are what you pay for."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-tiptap",
+   "name": "Tiptap",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Headless rich text editor built on ProseMirror with an extension system.",
+   "url": "https://tiptap.dev/docs",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "editor",
+    "prosemirror",
+    "headless",
+    "extensions"
+   ],
+   "tip": "Headless means you own every pixel of the toolbar, unlike editors that ship a fixed interface.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @tiptap/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless rich text editor built on ProseMirror with an extension system.",
+    "ru": "Headless-редактор форматированного текста на ProseMirror с системой расширений."
+   },
+   "localizedTip": {
+    "en": "Headless means you own every pixel of the toolbar, unlike editors that ship a fixed interface."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -74022,6 +75037,181 @@
    },
    "localizedTip": {
     "en": "Still the safest fallback rendition — every device made in the last fifteen years decodes it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-janus-webrtc",
+   "name": "Janus WebRTC Server",
+   "kind": "library",
+   "category": "Видеоконференции",
+   "summary": "General-purpose WebRTC server with a plugin architecture.",
+   "url": "https://janus.conf.meetecho.com/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "webrtc",
+    "gateway",
+    "plugins",
+    "c"
+   ],
+   "tip": "Its plugins cover streaming, recording and SIP gateway roles in one deployment.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "General-purpose WebRTC server with a plugin architecture.",
+    "ru": "Универсальный WebRTC-сервер с архитектурой плагинов."
+   },
+   "localizedTip": {
+    "en": "Its plugins cover streaming, recording and SIP gateway roles in one deployment."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-mediasoup",
+   "name": "mediasoup",
+   "kind": "library",
+   "category": "Видеоконференции",
+   "summary": "WebRTC selective forwarding unit for scalable multi-party video.",
+   "url": "https://mediasoup.org/documentation/v3/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sfu",
+    "webrtc",
+    "scalable",
+    "node"
+   ],
+   "tip": "An SFU is required past a handful of participants — peer-to-peer mesh stops scaling quickly.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i mediasoup",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "WebRTC selective forwarding unit for scalable multi-party video.",
+    "ru": "WebRTC SFU для масштабируемого многостороннего видео."
+   },
+   "localizedTip": {
+    "en": "An SFU is required past a handful of participants — peer-to-peer mesh stops scaling quickly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-peerjs",
+   "name": "PeerJS",
+   "kind": "library",
+   "category": "Видеоконференции",
+   "summary": "Simplifies WebRTC peer connections with a small friendly API.",
+   "url": "https://peerjs.com/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "webrtc",
+    "peer-to-peer",
+    "simple",
+    "signalling"
+   ],
+   "tip": "You still need a TURN server for users behind restrictive network address translation.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i peerjs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simplifies WebRTC peer connections with a small friendly API.",
+    "ru": "Упрощает WebRTC-соединения между пирами с небольшим удобным API."
+   },
+   "localizedTip": {
+    "en": "You still need a TURN server for users behind restrictive network address translation."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-pion",
+   "name": "Pion",
+   "kind": "library",
+   "category": "Видеоконференции",
+   "summary": "Pure Go implementation of WebRTC.",
+   "url": "https://github.com/pion/webrtc",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "webrtc",
+    "go",
+    "pure-go",
+    "building-blocks"
+   ],
+   "tip": "No cgo dependency means it cross-compiles as easily as any other Go program.",
+   "verifiedAt": "2026-08-17",
+   "install": "go get github.com/pion/webrtc/v4",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pure Go implementation of WebRTC.",
+    "ru": "Реализация WebRTC на чистом Go."
+   },
+   "localizedTip": {
+    "en": "No cgo dependency means it cross-compiles as easily as any other Go program."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-simple-peer",
+   "name": "simple-peer",
+   "kind": "library",
+   "category": "Видеоконференции",
+   "summary": "Minimal WebRTC wrapper with a Node stream interface.",
+   "url": "https://github.com/feross/simple-peer",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "webrtc",
+    "minimal",
+    "streams",
+    "node"
+   ],
+   "tip": "Small enough to read completely, which helps a great deal when debugging WebRTC negotiation.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i simple-peer",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal WebRTC wrapper with a Node stream interface.",
+    "ru": "Минималистичная обёртка WebRTC с интерфейсом потоков Node."
+   },
+   "localizedTip": {
+    "en": "Small enough to read completely, which helps a great deal when debugging WebRTC negotiation."
    },
    "pricing": {
     "model": "openSource",

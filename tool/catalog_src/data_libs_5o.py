@@ -45,7 +45,7 @@ LIBS_5O = [
      "Compact binary serialization format, schemaless like JSON but smaller and faster.",
      "Компактный бинарный формат сериализации, без схемы как JSON, но меньше и быстрее.",
      "Good middle ground when you want JSON's flexibility without its size, and no schema registry."),
-    ("lib-socket-io-2", "ws", "Backend и API", "https://github.com/websockets/ws", "openSource", "websocket,node,minimal,performance", "npm i ws",
+    ("lib-ws", "ws", "Backend и API", "https://github.com/websockets/ws", "openSource", "websocket,node,minimal,performance", "npm i ws",
      "Minimal, fast WebSocket implementation for Node without Socket.IO's extra protocol.",
      "Минимальная быстрая реализация WebSocket для Node без дополнительного протокола Socket.IO.",
      "Use it over Socket.IO when both ends are yours and you do not need automatic reconnect and fallbacks."),
