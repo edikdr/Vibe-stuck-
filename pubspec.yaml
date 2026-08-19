@@ -11,8 +11,10 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  # Integrity checking of downloaded catalog releases.
+  # Integrity and authenticity of downloaded catalog releases: crypto for the
+  # SHA-256 the manifest names, cryptography for the Ed25519 signature over it.
   crypto: ^3.0.3
+  cryptography: ^2.7.0
   file_selector: ^1.1.0
   http: ^1.4.0
   path: ^1.9.0

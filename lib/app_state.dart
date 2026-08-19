@@ -536,11 +536,14 @@ class AppState extends ChangeNotifier {
     catalogUpdating = true;
     notifyListeners();
     try {
+      // A custom source replaces the built-in mirrors rather than joining
+      // them: someone testing their own release does not want the official
+      // one answering first.
       final updater = _catalogUpdater ??= CatalogUpdateService(
         database: _repository.catalog,
-        manifestUrl: catalogManifestUrl.isEmpty
-            ? defaultCatalogManifestUrl
-            : catalogManifestUrl,
+        manifestUrls: catalogManifestUrl.isEmpty
+            ? defaultCatalogManifestUrls
+            : [catalogManifestUrl],
       );
       final result = await updater.update(appVersion: appVersion, force: force);
       catalogCheckedAt = DateTime.now();
