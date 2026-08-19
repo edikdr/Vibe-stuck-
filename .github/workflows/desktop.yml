@@ -33,14 +33,26 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
-      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
-        with:
-          channel: stable
-          # cache: true makes this action call actions/cache internally by
-          # tag, which the repo's action-pinning policy rejects (that nested
-          # call is out of this workflow's control). Disabled until either
-          # flutter-action pins its own dependency or the policy allows it.
-          cache: false
+      # subosito/flutter-action is a composite action whose action.yaml
+      # unconditionally *declares* two `uses: actions/cache@v5` steps (guarded
+      # only by a runtime `if:`), and the repo's action-pinning policy scans
+      # that declared dependency graph regardless of whether the step would
+      # actually run. Installing the SDK directly avoids depending on any
+      # third-party action for this step at all. Split by shell so PATH ends
+      # up in the syntax each OS's default shell expects.
+      - name: Install Flutter SDK (Linux/macOS)
+        if: matrix.target != 'windows'
+        shell: bash
+        run: |
+          git clone --depth 1 --branch stable https://github.com/flutter/flutter.git "$HOME/flutter"
+          echo "$HOME/flutter/bin" >> "$GITHUB_PATH"
+
+      - name: Install Flutter SDK (Windows)
+        if: matrix.target == 'windows'
+        shell: pwsh
+        run: |
+          git clone --depth 1 --branch stable https://github.com/flutter/flutter.git "$env:USERPROFILE\flutter"
+          Add-Content -Path $env:GITHUB_PATH -Value "$env:USERPROFILE\flutter\bin"
 
       - name: Install Linux dependencies
         if: matrix.target == 'linux'
