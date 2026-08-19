@@ -43669,6 +43669,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-release-please",
+   "name": "release-please",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Generates release pull requests with changelogs from conventional commits.",
+   "url": "https://github.com/googleapis/release-please",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "google",
+    "changelog",
+    "release-pr",
+    "conventional-commits"
+   ],
+   "tip": "The release PR gives a human review step that fully automated publishing skips.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates release pull requests with changelogs from conventional commits.",
+    "ru": "Формирует релизные pull request с changelog на основе conventional commits."
+   },
+   "localizedTip": {
+    "en": "The release PR gives a human review step that fully automated publishing skips."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-semantic-release",
+   "name": "semantic-release",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Fully automated versioning and publishing driven by commit messages.",
+   "url": "https://semantic-release.gitbook.io/semantic-release/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "versioning",
+    "changelog",
+    "automation",
+    "commits"
+   ],
+   "tip": "Requires disciplined conventional commits — the whole version number derives from them.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D semantic-release",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fully automated versioning and publishing driven by commit messages.",
+    "ru": "Полностью автоматизированное версионирование и публикация на основе сообщений коммитов."
+   },
+   "localizedTip": {
+    "en": "Requires disciplined conventional commits — the whole version number derives from them."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-air-go",
    "name": "Air",
    "kind": "library",
@@ -44614,6 +44684,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-maven",
+   "name": "Apache Maven",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Convention-based Java build tool with a very large plugin and repository ecosystem.",
+   "url": "https://maven.apache.org/guides/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "build",
+    "dependencies",
+    "convention"
+   ],
+   "tip": "Its XML verbosity is the usual complaint, but its predictability is why enterprises keep it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Convention-based Java build tool with a very large plugin and repository ecosystem.",
+    "ru": "Java-инструмент сборки на соглашениях с очень большой экосистемой плагинов и репозиториев."
+   },
+   "localizedTip": {
+    "en": "Its XML verbosity is the usual complaint, but its predictability is why enterprises keep it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-vertx",
    "name": "Eclipse Vert.x",
    "kind": "library",
@@ -44641,6 +44746,41 @@
    },
    "localizedTip": {
     "en": "The event bus lets independently deployed verticles communicate without direct coupling."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-gradle",
+   "name": "Gradle",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Flexible JVM build tool with incremental builds and a build cache.",
+   "url": "https://docs.gradle.org/current/userguide/userguide.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "kotlin",
+    "android",
+    "incremental"
+   ],
+   "tip": "Use the Kotlin DSL for new builds — the type safety catches script errors the Groovy DSL hides.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Flexible JVM build tool with incremental builds and a build cache.",
+    "ru": "Гибкий инструмент сборки для JVM с инкрементальными сборками и кэшем сборки."
+   },
+   "localizedTip": {
+    "en": "Use the Kotlin DSL for new builds — the type safety catches script errors the Groovy DSL hides."
    },
    "pricing": {
     "model": "openSource",
@@ -44754,6 +44894,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-mill",
+   "name": "Mill",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "JVM build tool aiming for simpler, more predictable builds than sbt.",
+   "url": "https://mill-build.org/mill/Intro_to_Mill.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scala",
+    "java",
+    "build",
+    "simple"
+   ],
+   "tip": "Its build files are plain Scala objects, which makes build logic far easier to follow than sbt's DSL.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "JVM build tool aiming for simpler, more predictable builds than sbt.",
+    "ru": "Инструмент сборки для JVM, стремящийся к более простым и предсказуемым сборкам, чем sbt."
+   },
+   "localizedTip": {
+    "en": "Its build files are plain Scala objects, which makes build logic far easier to follow than sbt's DSL."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-quarkus",
    "name": "Quarkus",
    "kind": "library",
@@ -44781,6 +44956,41 @@
    },
    "localizedTip": {
     "en": "Native compilation via GraalVM cuts startup to milliseconds — worth it specifically for serverless Java."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-sbt",
+   "name": "sbt",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "The standard Scala build tool, with incremental compilation and an interactive shell.",
+   "url": "https://www.scala-sbt.org/documentation.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scala",
+    "build",
+    "incremental",
+    "interactive"
+   ],
+   "tip": "Keeping its shell open avoids repeated JVM startup, which dominates short Scala build times.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard Scala build tool, with incremental compilation and an interactive shell.",
+    "ru": "Стандартный инструмент сборки Scala с инкрементальной компиляцией и интерактивной оболочкой."
+   },
+   "localizedTip": {
+    "en": "Keeping its shell open avoids repeated JVM startup, which dominates short Scala build times."
    },
    "pricing": {
     "model": "openSource",
@@ -44886,6 +45096,41 @@
    },
    "localizedTip": {
     "en": "Tower middleware works unmodified here, so the ecosystem is bigger than it first appears."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-cargo",
+   "name": "Cargo",
+   "kind": "library",
+   "category": "Rust экосистема",
+   "summary": "Rust's official build tool and package manager.",
+   "url": "https://doc.rust-lang.org/cargo/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rust",
+    "build",
+    "dependencies",
+    "official"
+   ],
+   "tip": "Widely treated as the reference design for what a language's package manager should be.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Rust's official build tool and package manager.",
+    "ru": "Официальный инструмент сборки и менеджер пакетов Rust."
+   },
+   "localizedTip": {
+    "en": "Widely treated as the reference design for what a language's package manager should be."
    },
    "pricing": {
     "model": "openSource",
@@ -46189,6 +46434,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-chainguard-images",
+   "name": "Chainguard Images",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Minimal hardened container base images maintained with near-zero known CVEs.",
+   "url": "https://images.chainguard.dev/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "containers",
+    "minimal",
+    "cve-free",
+    "hardened"
+   ],
+   "tip": "Fewer packages means fewer CVEs to triage — most of the security benefit is simply less software.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal hardened container base images maintained with near-zero known CVEs.",
+    "ru": "Минимальные усиленные базовые образы контейнеров с почти нулевым числом известных CVE."
+   },
+   "localizedTip": {
+    "en": "Fewer packages means fewer CVEs to triage — most of the security benefit is simply less software."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-checkov",
    "name": "Checkov",
    "kind": "library",
@@ -46286,6 +46566,41 @@
    },
    "localizedTip": {
     "en": "The shared blocklist means you benefit from attacks against other participants, not just your own logs."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-distroless",
+   "name": "Distroless",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Google's base images containing only your application and its runtime dependencies.",
+   "url": "https://github.com/GoogleContainerTools/distroless",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "containers",
+    "minimal",
+    "google",
+    "no-shell"
+   ],
+   "tip": "No shell in the image means debugging needs an ephemeral sidecar — plan for that before adopting.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's base images containing only your application and its runtime dependencies.",
+    "ru": "Базовые образы Google, содержащие только ваше приложение и его рантайм-зависимости."
+   },
+   "localizedTip": {
+    "en": "No shell in the image means debugging needs an ephemeral sidecar — plan for that before adopting."
    },
    "pricing": {
     "model": "openSource",
@@ -50208,6 +50523,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-apko",
+   "name": "apko",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Builds minimal container images declaratively from APK packages.",
+   "url": "https://github.com/chainguard-dev/apko",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "images",
+    "declarative",
+    "apk",
+    "reproducible"
+   ],
+   "tip": "Images are bit-for-bit reproducible, which makes supply-chain attestation meaningful.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds minimal container images declaratively from APK packages.",
+    "ru": "Декларативно собирает минимальные образы контейнеров из APK-пакетов."
+   },
+   "localizedTip": {
+    "en": "Images are bit-for-bit reproducible, which makes supply-chain attestation meaningful."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-arduino-cli",
    "name": "Arduino CLI",
    "kind": "library",
@@ -50348,6 +50698,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-buildkit",
+   "name": "BuildKit",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Docker's modern build engine with parallel stages and advanced caching.",
+   "url": "https://docs.docker.com/build/buildkit/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docker",
+    "builds",
+    "cache",
+    "parallel"
+   ],
+   "tip": "Cache mounts keep package downloads between builds, which is usually the biggest single speedup.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Docker's modern build engine with parallel stages and advanced caching.",
+    "ru": "Современный движок сборки Docker с параллельными стадиями и продвинутым кэшированием."
+   },
+   "localizedTip": {
+    "en": "Cache mounts keep package downloads between builds, which is usually the biggest single speedup."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-buildroot",
    "name": "Buildroot",
    "kind": "library",
@@ -50418,6 +50803,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-conda",
+   "name": "Conda",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Cross-language package manager handling binary scientific dependencies.",
+   "url": "https://docs.conda.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "scientific",
+    "binaries",
+    "environments"
+   ],
+   "tip": "It installs non-Python binaries like CUDA and MKL, which is why scientific stacks still rely on it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cross-language package manager handling binary scientific dependencies.",
+    "ru": "Кроссязыковой менеджер пакетов, работающий с бинарными научными зависимостями."
+   },
+   "localizedTip": {
+    "en": "It installs non-Python binaries like CUDA and MKL, which is why scientific stacks still rely on it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-dagger-io",
    "name": "Dagger",
    "kind": "library",
@@ -50445,6 +50865,41 @@
    },
    "localizedTip": {
     "en": "Pipelines run in containers, which is why 'works locally but fails in CI' largely disappears."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-devenv",
+   "name": "devenv",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Declarative development environments built on Nix, including background services.",
+   "url": "https://devenv.sh/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nix",
+    "dev-environments",
+    "declarative",
+    "services"
+   ],
+   "tip": "It makes Nix approachable by hiding most of the language behind a simple configuration file.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Declarative development environments built on Nix, including background services.",
+    "ru": "Декларативные среды разработки на базе Nix, включая фоновые сервисы."
+   },
+   "localizedTip": {
+    "en": "It makes Nix approachable by hiding most of the language behind a simple configuration file."
    },
    "pricing": {
     "model": "openSource",
@@ -50491,6 +50946,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-docker-bake",
+   "name": "Docker Bake",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Declarative multi-target Docker builds defined in a single file.",
+   "url": "https://docs.docker.com/build/bake/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docker",
+    "build",
+    "declarative",
+    "multi-target"
+   ],
+   "tip": "Building several images with shared configuration becomes one command instead of a shell loop.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Declarative multi-target Docker builds defined in a single file.",
+    "ru": "Декларативные многоцелевые сборки Docker, описанные в одном файле."
+   },
+   "localizedTip": {
+    "en": "Building several images with shared configuration becomes one command instead of a shell loop."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -50565,6 +51055,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-flox",
+   "name": "Flox",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Nix-backed environments with a conventional command-line interface.",
+   "url": "https://flox.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nix",
+    "environments",
+    "cross-platform",
+    "simple"
+   ],
+   "tip": "Gives most of Nix's reproducibility without requiring anyone to write Nix expressions.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Nix-backed environments with a conventional command-line interface.",
+    "ru": "Окружения на основе Nix с привычным интерфейсом командной строки."
+   },
+   "localizedTip": {
+    "en": "Gives most of Nix's reproducibility without requiring anyone to write Nix expressions."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-fnm",
+   "name": "fnm",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Fast Node version manager written in Rust, compatible with .nvmrc.",
+   "url": "https://github.com/Schniz/fnm",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "version-manager",
+    "fast",
+    "rust"
+   ],
+   "tip": "Noticeably faster shell startup than nvm, which matters if you open many terminals.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast Node version manager written in Rust, compatible with .nvmrc.",
+    "ru": "Быстрый менеджер версий Node на Rust, совместимый с .nvmrc."
+   },
+   "localizedTip": {
+    "en": "Noticeably faster shell startup than nvm, which matters if you open many terminals."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-hatch",
+   "name": "Hatch",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "PyPA's project manager covering environments, builds and publishing.",
+   "url": "https://hatch.pypa.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "packaging",
+    "environments",
+    "pypa"
+   ],
+   "tip": "Its build backend, Hatchling, is widely used even by projects that do not use the rest of Hatch.",
+   "verifiedAt": "2026-08-17",
+   "install": "pipx install hatch",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "PyPA's project manager covering environments, builds and publishing.",
+    "ru": "Менеджер проектов от PyPA, охватывающий окружения, сборку и публикацию."
+   },
+   "localizedTip": {
+    "en": "Its build backend, Hatchling, is widely used even by projects that do not use the rest of Hatch."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-inquirer",
    "name": "Inquirer.js",
    "kind": "library",
@@ -50592,6 +51187,76 @@
    },
    "localizedTip": {
     "en": "The newer @inquirer/prompts packages are far lighter than the legacy monolithic import."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-jib",
+   "name": "Jib",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Builds optimized Java container images from Maven or Gradle without Docker.",
+   "url": "https://github.com/GoogleContainerTools/jib",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "containers",
+    "no-docker-daemon",
+    "layers"
+   ],
+   "tip": "Its layering separates dependencies from your code, so a code change rebuilds only a tiny layer.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds optimized Java container images from Maven or Gradle without Docker.",
+    "ru": "Собирает оптимизированные Java-образы контейнеров из Maven или Gradle без Docker."
+   },
+   "localizedTip": {
+    "en": "Its layering separates dependencies from your code, so a code change rebuilds only a tiny layer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-ko-build",
+   "name": "ko",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Builds container images for Go applications without a Dockerfile.",
+   "url": "https://ko.build/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "go",
+    "containers",
+    "no-dockerfile",
+    "fast"
+   ],
+   "tip": "Produces small reproducible images in seconds, since it skips the Docker build machinery entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "go install github.com/google/ko@latest",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds container images for Go applications without a Dockerfile.",
+    "ru": "Собирает образы контейнеров для Go-приложений без Dockerfile."
+   },
+   "localizedTip": {
+    "en": "Produces small reproducible images in seconds, since it skips the Docker build machinery entirely."
    },
    "pricing": {
     "model": "openSource",
@@ -50705,6 +51370,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-nix",
+   "name": "Nix",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Purely functional package manager producing fully reproducible environments.",
+   "url": "https://nix.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "reproducible",
+    "declarative",
+    "packages",
+    "environments"
+   ],
+   "tip": "The reproducibility is real, and so is the learning curve — budget time before committing a team.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Purely functional package manager producing fully reproducible environments.",
+    "ru": "Чисто функциональный менеджер пакетов, создающий полностью воспроизводимые окружения."
+   },
+   "localizedTip": {
+    "en": "The reproducibility is real, and so is the learning curve — budget time before committing a team."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-nushell",
    "name": "Nushell",
    "kind": "library",
@@ -50732,6 +51432,41 @@
    },
    "localizedTip": {
     "en": "Removes the awk/cut/sed parsing layer entirely — columns are real fields, not character offsets."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nvm",
+   "name": "nvm",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "The original Node version manager, implemented as shell functions.",
+   "url": "https://github.com/nvm-sh/nvm",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "version-manager",
+    "shell",
+    "ubiquitous"
+   ],
+   "tip": "Ubiquitous and reliable, though its shell implementation slows down every new terminal.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The original Node version manager, implemented as shell functions.",
+    "ru": "Оригинальный менеджер версий Node, реализованный как shell-функции."
+   },
+   "localizedTip": {
+    "en": "Ubiquitous and reliable, though its shell implementation slows down every new terminal."
    },
    "pricing": {
     "model": "openSource",
@@ -50810,6 +51545,146 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-pdm",
+   "name": "PDM",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Standards-based Python package manager following modern packaging PEPs.",
+   "url": "https://pdm-project.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "pep-582",
+    "standards",
+    "packaging"
+   ],
+   "tip": "Sticks closely to the official standards, which keeps projects portable between tools.",
+   "verifiedAt": "2026-08-17",
+   "install": "pipx install pdm",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Standards-based Python package manager following modern packaging PEPs.",
+    "ru": "Менеджер пакетов Python на основе стандартов, следующий современным PEP по упаковке."
+   },
+   "localizedTip": {
+    "en": "Sticks closely to the official standards, which keeps projects portable between tools."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pip-tools",
+   "name": "pip-tools",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Compiles loose requirements into fully pinned, reproducible lock files.",
+   "url": "https://pip-tools.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "pinning",
+    "requirements",
+    "compile"
+   ],
+   "tip": "A minimal way to add real pinning to an existing requirements.txt project with no restructuring.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pip-tools",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compiles loose requirements into fully pinned, reproducible lock files.",
+    "ru": "Компилирует свободные требования в полностью зафиксированные воспроизводимые lock-файлы."
+   },
+   "localizedTip": {
+    "en": "A minimal way to add real pinning to an existing requirements.txt project with no restructuring."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pipx",
+   "name": "pipx",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Installs Python CLI applications into isolated environments.",
+   "url": "https://pipx.pypa.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "cli-tools",
+    "isolation",
+    "global"
+   ],
+   "tip": "Keeps tool dependencies out of your project environments, which prevents a common class of conflict.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pipx",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Installs Python CLI applications into isolated environments.",
+    "ru": "Устанавливает Python-приложения командной строки в изолированные окружения."
+   },
+   "localizedTip": {
+    "en": "Keeps tool dependencies out of your project environments, which prevents a common class of conflict."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pixi-pkg",
+   "name": "Pixi",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Fast Rust-based package manager for the conda ecosystem with proper lock files.",
+   "url": "https://pixi.sh/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "conda",
+    "fast",
+    "rust",
+    "lockfile"
+   ],
+   "tip": "Brings reproducible lock files to conda packages, which conda itself never handled well.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast Rust-based package manager for the conda ecosystem with proper lock files.",
+    "ru": "Быстрый менеджер пакетов на Rust для экосистемы conda с полноценными lock-файлами."
+   },
+   "localizedTip": {
+    "en": "Brings reproducible lock files to conda packages, which conda itself never handled well."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-pnpm",
    "name": "pnpm",
    "kind": "library",
@@ -50837,6 +51712,76 @@
    },
    "localizedTip": {
     "en": "Strict linking exposes phantom dependencies early, which is exactly what you want before deploying."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-poetry",
+   "name": "Poetry",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Python dependency management and packaging with a proper lock file.",
+   "url": "https://python-poetry.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "dependencies",
+    "packaging",
+    "lockfile"
+   ],
+   "tip": "Its resolver is thorough but slow — uv is dramatically faster for the same dependency graph.",
+   "verifiedAt": "2026-08-17",
+   "install": "pipx install poetry",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python dependency management and packaging with a proper lock file.",
+    "ru": "Управление зависимостями и упаковка Python с полноценным lock-файлом."
+   },
+   "localizedTip": {
+    "en": "Its resolver is thorough but slow — uv is dramatically faster for the same dependency graph."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-rye",
+   "name": "Rye",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Experimental Python project manager from Astral, now largely folded into uv.",
+   "url": "https://rye.astral.sh/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "toolchain",
+    "astral",
+    "experimental"
+   ],
+   "tip": "Start new projects on uv — Rye exists mainly for repositories that already adopted it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Experimental Python project manager from Astral, now largely folded into uv.",
+    "ru": "Экспериментальный менеджер Python-проектов от Astral, во многом влившийся в uv."
+   },
+   "localizedTip": {
+    "en": "Start new projects on uv — Rye exists mainly for repositories that already adopted it."
    },
    "pricing": {
     "model": "openSource",
@@ -50950,6 +51895,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-volta",
+   "name": "Volta",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Pins Node and package manager versions per project and switches automatically.",
+   "url": "https://docs.volta.sh/guide/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "toolchain",
+    "per-project",
+    "rust"
+   ],
+   "tip": "Switching happens on directory entry with no shell hook, unlike nvm's manual model.",
+   "verifiedAt": "2026-08-17",
+   "install": "curl https://get.volta.sh | bash",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pins Node and package manager versions per project and switches automatically.",
+    "ru": "Фиксирует версии Node и менеджера пакетов для каждого проекта и переключает их автоматически."
+   },
+   "localizedTip": {
+    "en": "Switching happens on directory entry with no shell hook, unlike nvm's manual model."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-yocto",
    "name": "Yocto Project",
    "kind": "library",
@@ -51020,6 +52000,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-buck2",
+   "name": "Buck2",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Meta's Rust-based build system, a faster successor to Buck.",
+   "url": "https://buck2.build/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "build-system",
+    "meta",
+    "rust",
+    "remote-execution"
+   ],
+   "tip": "Its incremental engine is fast, but expect a real investment in writing build definitions.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Meta's Rust-based build system, a faster successor to Buck.",
+    "ru": "Система сборки Meta на Rust, более быстрый преемник Buck."
+   },
+   "localizedTip": {
+    "en": "Its incremental engine is fast, but expect a real investment in writing build definitions."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-bun-install",
+   "name": "Bun install",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Very fast npm-compatible package installer built into the Bun runtime.",
+   "url": "https://bun.com/docs/cli/install",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "package-manager",
+    "fast",
+    "node-compatible",
+    "lockfile"
+   ],
+   "tip": "Usable purely as an installer in an otherwise Node project, without adopting the Bun runtime.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Very fast npm-compatible package installer built into the Bun runtime.",
+    "ru": "Очень быстрый npm-совместимый установщик пакетов, встроенный в рантайм Bun."
+   },
+   "localizedTip": {
+    "en": "Usable purely as an installer in an otherwise Node project, without adopting the Bun runtime."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-corepack",
+   "name": "Corepack",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Node's built-in shim pinning which package manager version a project uses.",
+   "url": "https://nodejs.org/api/corepack.html",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "package-manager",
+    "versions",
+    "built-in"
+   ],
+   "tip": "The packageManager field guarantees every contributor resolves dependencies identically.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Node's built-in shim pinning which package manager version a project uses.",
+    "ru": "Встроенный в Node механизм, фиксирующий версию используемого проектом менеджера пакетов."
+   },
+   "localizedTip": {
+    "en": "The packageManager field guarantees every contributor resolves dependencies identically."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-esbuild",
    "name": "esbuild",
    "kind": "library",
@@ -51047,6 +52132,76 @@
    },
    "localizedTip": {
     "en": "Great for library builds and scripts even when your app bundler is something else."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-lerna",
+   "name": "Lerna",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Long-standing JavaScript monorepo tool for versioning and publishing packages.",
+   "url": "https://lerna.js.org/docs/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "monorepo",
+    "javascript",
+    "versioning",
+    "publishing"
+   ],
+   "tip": "Now maintained by the Nx team and largely a thin layer over it for new projects.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D lerna",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Long-standing JavaScript monorepo tool for versioning and publishing packages.",
+    "ru": "Давний инструмент JavaScript-монорепозиториев для версионирования и публикации пакетов."
+   },
+   "localizedTip": {
+    "en": "Now maintained by the Nx team and largely a thin layer over it for new projects."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-npm-check-updates",
+   "name": "npm-check-updates",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Upgrades package.json dependencies past their declared semver ranges.",
+   "url": "https://github.com/raineorshine/npm-check-updates",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dependencies",
+    "upgrades",
+    "cli",
+    "semver"
+   ],
+   "tip": "Upgrade in batches by risk level — one command bumping everything makes failures impossible to bisect.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g npm-check-updates",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Upgrades package.json dependencies past their declared semver ranges.",
+    "ru": "Обновляет зависимости package.json за пределы объявленных диапазонов semver."
+   },
+   "localizedTip": {
+    "en": "Upgrade in batches by risk level — one command bumping everything makes failures impossible to bisect."
    },
    "pricing": {
     "model": "openSource",
@@ -51230,6 +52385,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-rush",
+   "name": "Rush",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Microsoft's monorepo manager built for very large repositories with strict policies.",
+   "url": "https://rushjs.io/pages/intro/welcome/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "monorepo",
+    "microsoft",
+    "scalable",
+    "strict"
+   ],
+   "tip": "Its strict dependency policies prevent the phantom-dependency problems that grow with repo size.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g @microsoft/rush",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Microsoft's monorepo manager built for very large repositories with strict policies.",
+    "ru": "Менеджер монорепозиториев от Microsoft для очень больших репозиториев со строгими политиками."
+   },
+   "localizedTip": {
+    "en": "Its strict dependency policies prevent the phantom-dependency problems that grow with repo size."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-size-limit",
    "name": "Size Limit",
    "kind": "library",
@@ -51257,6 +52447,41 @@
    },
    "localizedTip": {
     "en": "Set the budget slightly above current size — a budget you constantly override stops meaning anything."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-syncpack",
+   "name": "Syncpack",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Finds and fixes mismatched dependency versions across a monorepo.",
+   "url": "https://jamiemason.github.io/syncpack/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "monorepo",
+    "dependencies",
+    "versions",
+    "consistency"
+   ],
+   "tip": "Two packages on different versions of the same library is a classic source of subtle monorepo bugs.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D syncpack",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Finds and fixes mismatched dependency versions across a monorepo.",
+    "ru": "Находит и исправляет расхождения версий зависимостей в монорепозитории."
+   },
+   "localizedTip": {
+    "en": "Two packages on different versions of the same library is a classic source of subtle monorepo bugs."
    },
    "pricing": {
     "model": "openSource",
@@ -51370,6 +52595,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-verdaccio",
+   "name": "Verdaccio",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Lightweight private npm registry that proxies and caches the public one.",
+   "url": "https://verdaccio.org/docs/what-is-verdaccio",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "registry",
+    "private",
+    "npm",
+    "proxy"
+   ],
+   "tip": "Excellent for end-to-end testing a publish flow without pushing anything to the real registry.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g verdaccio",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight private npm registry that proxies and caches the public one.",
+    "ru": "Лёгкий приватный npm-реестр, проксирующий и кэширующий публичный."
+   },
+   "localizedTip": {
+    "en": "Excellent for end-to-end testing a publish flow without pushing anything to the real registry."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-webpack",
    "name": "Webpack",
    "kind": "library",
@@ -51397,6 +52657,41 @@
    },
    "localizedTip": {
     "en": "Worth learning for maintenance work even if new projects start on Vite."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-yarn-berry",
+   "name": "Yarn (Berry)",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Modern Yarn with Plug'n'Play resolution and optional zero-install workflows.",
+   "url": "https://yarnpkg.com/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "package-manager",
+    "pnp",
+    "zero-installs",
+    "workspaces"
+   ],
+   "tip": "Plug'n'Play removes node_modules entirely, which some tooling still does not expect.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern Yarn with Plug'n'Play resolution and optional zero-install workflows.",
+    "ru": "Современный Yarn с разрешением Plug'n'Play и опциональным подходом zero-install."
+   },
+   "localizedTip": {
+    "en": "Plug'n'Play removes node_modules entirely, which some tooling still does not expect."
    },
    "pricing": {
     "model": "openSource",
