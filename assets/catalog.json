@@ -3786,6 +3786,47 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-blockdaemon",
+   "name": "Blockdaemon",
+   "kind": "api",
+   "category": "Web3 и блокчейн",
+   "summary": "Institutional node infrastructure and staking APIs across many chains.",
+   "url": "https://docs.blockdaemon.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nodes",
+    "staking",
+    "institutional",
+    "multichain",
+    "pricing",
+    "sla"
+   ],
+   "tip": "Aimed at institutional SLAs — overkill for a hobby project versus a free-tier RPC provider.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Institutional node infrastructure and staking APIs across many chains.",
+    "ru": "Институциональная инфраструктура узлов и API стейкинга для множества сетей."
+   },
+   "localizedTip": {
+    "en": "Aimed at institutional SLAs — overkill for a hobby project versus a free-tier RPC provider."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "free tier for basic RPC",
+    "url": "https://www.blockdaemon.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-covalent",
    "name": "Covalent (GoldRush)",
    "kind": "api",
@@ -3813,6 +3854,111 @@
    },
    "localizedTip": {
     "en": "One consistent schema across every supported chain removes the need to write per-chain parsers."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-dune",
+   "name": "Dune Analytics API",
+   "kind": "api",
+   "category": "Web3 и блокчейн",
+   "summary": "Runs SQL queries over decoded blockchain data and returns results via API.",
+   "url": "https://docs.dune.com/api-reference/overview/introduction",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "blockchain",
+    "sql",
+    "analytics",
+    "queries"
+   ],
+   "tip": "Community-built queries cover most common metrics — fork one rather than writing from scratch.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs SQL queries over decoded blockchain data and returns results via API.",
+    "ru": "Выполняет SQL-запросы к декодированным блокчейн-данным и возвращает результаты через API."
+   },
+   "localizedTip": {
+    "en": "Community-built queries cover most common metrics — fork one rather than writing from scratch."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-helius",
+   "name": "Helius",
+   "kind": "api",
+   "category": "Web3 и блокчейн",
+   "summary": "Solana RPC, webhooks and enhanced transaction parsing.",
+   "url": "https://www.helius.dev/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "solana",
+    "rpc",
+    "webhooks",
+    "indexing"
+   ],
+   "tip": "Its parsed transaction format saves decoding Solana's raw instruction data by hand.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Solana RPC, webhooks and enhanced transaction parsing.",
+    "ru": "RPC для Solana, вебхуки и расширенный разбор транзакций."
+   },
+   "localizedTip": {
+    "en": "Its parsed transaction format saves decoding Solana's raw instruction data by hand."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-infura",
+   "name": "Infura",
+   "kind": "api",
+   "category": "Web3 и блокчейн",
+   "summary": "Hosted RPC endpoints for Ethereum and other chains, so you run no node yourself.",
+   "url": "https://docs.metamask.io/services/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ethereum",
+    "rpc",
+    "nodes",
+    "infrastructure"
+   ],
+   "tip": "Archive node access is the paid feature — normal RPC covers recent state only.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted RPC endpoints for Ethereum and other chains, so you run no node yourself.",
+    "ru": "Размещённые RPC-эндпоинты для Ethereum и других сетей — свой узел запускать не нужно."
+   },
+   "localizedTip": {
+    "en": "Archive node access is the paid feature — normal RPC covers recent state only."
    },
    "pricing": {
     "model": "freemium",
@@ -12797,6 +12943,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-airwallex",
+   "name": "Airwallex",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Global payments, FX and business account APIs for cross-border commerce.",
+   "url": "https://www.airwallex.com/docs",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payments",
+    "fx",
+    "global-accounts",
+    "cards"
+   ],
+   "tip": "Local collection accounts in many countries avoid the FX conversion on every incoming payment.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Global payments, FX and business account APIs for cross-border commerce.",
+    "ru": "API глобальных платежей, FX и бизнес-счетов для трансграничной коммерции."
+   },
+   "localizedTip": {
+    "en": "Local collection accounts in many countries avoid the FX conversion on every incoming payment."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-alchemy",
    "name": "Alchemy",
    "kind": "api",
@@ -12824,6 +13005,41 @@
    },
    "localizedTip": {
     "en": "Enhanced APIs (NFT, token balances) save you from indexing chain data yourself for common queries."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-alpaca",
+   "name": "Alpaca",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Commission-free stock and crypto trading API with a full paper-trading environment.",
+   "url": "https://docs.alpaca.markets/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "brokerage",
+    "trading",
+    "stocks",
+    "paper-trading"
+   ],
+   "tip": "Paper trading uses the same endpoints as live, so a strategy is tested before any money moves.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Commission-free stock and crypto trading API with a full paper-trading environment.",
+    "ru": "API безкомиссионной торговли акциями и криптовалютой с полноценной средой бумажной торговли."
+   },
+   "localizedTip": {
+    "en": "Paper trading uses the same endpoints as live, so a strategy is tested before any money moves."
    },
    "pricing": {
     "model": "freemium",
@@ -12867,6 +13083,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-binance",
+   "name": "Binance API",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Large crypto exchange API with deep market data and trading endpoints.",
+   "url": "https://developers.binance.com/docs",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "crypto",
+    "exchange",
+    "trading",
+    "high-volume"
+   ],
+   "tip": "Availability varies by jurisdiction — confirm regional access before building on it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Large crypto exchange API with deep market data and trading endpoints.",
+    "ru": "API крупной криптобиржи с подробными рыночными данными и торговыми эндпоинтами."
+   },
+   "localizedTip": {
+    "en": "Availability varies by jurisdiction — confirm regional access before building on it."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-binance-public",
    "name": "Binance Public API",
    "kind": "api",
@@ -12894,6 +13145,41 @@
    },
    "localizedTip": {
     "en": "Market data needs no key; use the websocket stream instead of polling the REST endpoint."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-coinbase-advanced",
+   "name": "Coinbase Advanced Trade API",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Coinbase's trading API for orders, portfolios and real-time market data.",
+   "url": "https://docs.cdp.coinbase.com/advanced-trade/docs/welcome",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "crypto",
+    "exchange",
+    "trading",
+    "coinbase"
+   ],
+   "tip": "Use the WebSocket feed for prices — polling REST for quotes hits rate limits fast.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Coinbase's trading API for orders, portfolios and real-time market data.",
+    "ru": "Торговый API Coinbase для ордеров, портфелей и рыночных данных в реальном времени."
+   },
+   "localizedTip": {
+    "en": "Use the WebSocket feed for prices — polling REST for quotes hits rate limits fast."
    },
    "pricing": {
     "model": "free",
@@ -12968,6 +13254,48 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-column-bank",
+   "name": "Column",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Nationally chartered bank offering direct developer APIs without a middleman.",
+   "url": "https://column.com/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bank",
+    "api",
+    "ach",
+    "developer-first",
+    "pricing",
+    "per-transaction",
+    "direct"
+   ],
+   "tip": "Being the bank itself removes the sponsor-bank layer that most BaaS providers depend on.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Nationally chartered bank offering direct developer APIs without a middleman.",
+    "ru": "Банк с национальной лицензией, предоставляющий прямые API для разработчиков без посредников."
+   },
+   "localizedTip": {
+    "en": "Being the bank itself removes the sponsor-bank layer that most BaaS providers depend on."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.05 per ACH transfer",
+    "freeQuota": "sandbox access",
+    "url": "https://column.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-bundesbank",
    "name": "Deutsche Bundesbank API",
    "kind": "api",
@@ -12998,6 +13326,48 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-dwolla",
+   "name": "Dwolla",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "White-label ACH bank transfer API for US account-to-account payments.",
+   "url": "https://developers.dwolla.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ach",
+    "bank-transfers",
+    "us",
+    "white-label",
+    "pricing",
+    "subscription",
+    "volume"
+   ],
+   "tip": "ACH is slow but far cheaper than cards, which is the whole reason to build on it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "White-label ACH bank transfer API for US account-to-account payments.",
+    "ru": "White-label API банковских переводов ACH для платежей между счетами в США."
+   },
+   "localizedTip": {
+    "en": "ACH is slow but far cheaper than cards, which is the whole reason to build on it."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$250 per month",
+    "freeQuota": "sandbox access",
+    "url": "https://www.dwolla.com/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -13204,6 +13574,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-gocardless-bank-data",
+   "name": "GoCardless Bank Account Data",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "PSD2 open banking access to European bank account data, with a free tier.",
+   "url": "https://developer.gocardless.com/bank-account-data/overview",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "open-banking",
+    "psd2",
+    "europe",
+    "accounts"
+   ],
+   "tip": "Free for a limited number of accounts per month, which is unusual in European open banking.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "PSD2 open banking access to European bank account data, with a free tier.",
+    "ru": "Доступ к данным банковских счетов Европы по PSD2 open banking с бесплатным тарифом."
+   },
+   "localizedTip": {
+    "en": "Free for a limited number of accounts per month, which is unusual in European open banking."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-iex-cloud",
    "name": "IEX Cloud",
    "kind": "api",
@@ -13274,6 +13679,160 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-increase-bank",
+   "name": "Increase",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Direct bank infrastructure API for ACH, wires and real-time payments.",
+   "url": "https://increase.com/documentation",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "banking",
+    "ach",
+    "wire",
+    "api-first",
+    "pricing",
+    "per-transaction",
+    "transparent"
+   ],
+   "tip": "Talks to the bank rails directly rather than through a BaaS middle layer, which reduces failure modes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Direct bank infrastructure API for ACH, wires and real-time payments.",
+    "ru": "API прямой банковской инфраструктуры для ACH, банковских переводов и платежей в реальном времени."
+   },
+   "localizedTip": {
+    "en": "Talks to the bank rails directly rather than through a BaaS middle layer, which reduces failure modes."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.10 per ACH transfer",
+    "freeQuota": "sandbox access",
+    "url": "https://increase.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-intrinio",
+   "name": "Intrinio",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Institutional-grade fundamentals, filings and market data.",
+   "url": "https://docs.intrinio.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fundamentals",
+    "market-data",
+    "filings",
+    "institutional",
+    "pricing",
+    "per-feed",
+    "subscription"
+   ],
+   "tip": "Data is sold per feed, so cost depends heavily on which specific datasets you actually need.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Institutional-grade fundamentals, filings and market data.",
+    "ru": "Фундаментальные данные, отчётность и рыночные данные институционального уровня."
+   },
+   "localizedTip": {
+    "en": "Data is sold per feed, so cost depends heavily on which specific datasets you actually need."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$100 per month per feed",
+    "freeQuota": "limited free sandbox",
+    "url": "https://intrinio.com/financial-market-data-pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-kraken",
+   "name": "Kraken API",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Crypto exchange REST and WebSocket APIs for market data and trading.",
+   "url": "https://docs.kraken.com/api/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "crypto",
+    "exchange",
+    "trading",
+    "websocket"
+   ],
+   "tip": "Public market data endpoints need no account, which makes them easy to prototype against.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Crypto exchange REST and WebSocket APIs for market data and trading.",
+    "ru": "REST и WebSocket API криптобиржи для рыночных данных и торговли."
+   },
+   "localizedTip": {
+    "en": "Public market data endpoints need no account, which makes them easy to prototype against."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-lithic",
+   "name": "Lithic",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Card issuing API for virtual and physical cards with programmable spend controls.",
+   "url": "https://docs.lithic.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cards",
+    "issuing",
+    "virtual-cards",
+    "api"
+   ],
+   "tip": "Its sandbox is genuinely usable without a signed contract, unlike most issuing platforms.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Card issuing API for virtual and physical cards with programmable spend controls.",
+    "ru": "API выпуска виртуальных и физических карт с программируемыми правилами трат."
+   },
+   "localizedTip": {
+    "en": "Its sandbox is genuinely usable without a signed contract, unlike most issuing platforms."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-marqeta",
    "name": "Marqeta",
    "kind": "api",
@@ -13308,6 +13867,49 @@
     "from": "custom per-card and interchange pricing",
     "freeQuota": "free sandbox environment",
     "url": "https://www.marqeta.com/platform/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-modern-treasury",
+   "name": "Modern Treasury",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Payment operations and double-entry ledger APIs for money movement at scale.",
+   "url": "https://docs.moderntreasury.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payment-operations",
+    "ledger",
+    "ach",
+    "reconciliation",
+    "payment-ops",
+    "pricing",
+    "platform-fee",
+    "volume"
+   ],
+   "tip": "Its ledger product is the part worth studying — most teams build this badly in-house first.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Payment operations and double-entry ledger APIs for money movement at scale.",
+    "ru": "API платёжных операций и двойной бухгалтерии для перемещения денег в больших объёмах."
+   },
+   "localizedTip": {
+    "en": "Its ledger product is the part worth studying — most teams build this badly in-house first."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "custom quote (platform fee + volume)",
+    "freeQuota": "sandbox access",
+    "url": "https://www.moderntreasury.com/pricing",
     "currency": "USD",
     "checkedAt": "2026-08-17"
    },
@@ -13349,6 +13951,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-moov",
+   "name": "Moov",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Payments platform with open-source components for ACH and wallet flows.",
+   "url": "https://docs.moov.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payments",
+    "ach",
+    "wallets",
+    "open-source"
+   ],
+   "tip": "Its open-source ACH file libraries are useful on their own, even outside the hosted platform.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Payments platform with open-source components for ACH and wallet flows.",
+    "ru": "Платёжная платформа с открытыми компонентами для ACH и кошельков."
+   },
+   "localizedTip": {
+    "en": "Its open-source ACH file libraries are useful on their own, even outside the hosted platform."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-nasdaq-data-link",
    "name": "Nasdaq Data Link",
    "kind": "api",
@@ -13379,6 +14016,48 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-nium",
+   "name": "Nium",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Global payout and embedded finance infrastructure covering many corridors.",
+   "url": "https://docs.nium.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payouts",
+    "global",
+    "cards",
+    "embedded-finance",
+    "pricing",
+    "per-transaction",
+    "corridors"
+   ],
+   "tip": "Corridor coverage and settlement speed vary widely — verify your specific country pairs.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Global payout and embedded finance infrastructure covering many corridors.",
+    "ru": "Инфраструктура глобальных выплат и встроенных финансов, покрывающая множество коридоров."
+   },
+   "localizedTip": {
+    "en": "Corridor coverage and settlement speed vary widely — verify your specific country pairs."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "custom quote (per payout)",
+    "freeQuota": "sandbox access",
+    "url": "https://www.nium.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -13454,6 +14133,47 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-rapyd",
+   "name": "Rapyd",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Payment platform supporting many local payment methods across regions.",
+   "url": "https://docs.rapyd.net/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "payments",
+    "local-methods",
+    "payouts",
+    "global",
+    "pricing",
+    "per-transaction"
+   ],
+   "tip": "Local method support is the reason to choose it over card-first processors in emerging markets.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Payment platform supporting many local payment methods across regions.",
+    "ru": "Платёжная платформа с поддержкой множества локальных способов оплаты по регионам."
+   },
+   "localizedTip": {
+    "en": "Local method support is the reason to choose it over card-first processors in emerging markets."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~2.9% + fixed fee per transaction",
+    "freeQuota": "sandbox access",
+    "url": "https://www.rapyd.net/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-stripe-treasury",
    "name": "Stripe Treasury",
    "kind": "api",
@@ -13490,6 +14210,111 @@
     "freeQuota": "partnership approval required",
     "url": "https://stripe.com/treasury/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-teller",
+   "name": "Teller",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "US bank account connectivity API positioned as a leaner Plaid alternative.",
+   "url": "https://teller.io/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "banking",
+    "open-banking",
+    "accounts",
+    "us"
+   ],
+   "tip": "Direct bank connections rather than screen scraping, which makes link stability noticeably better.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "US bank account connectivity API positioned as a leaner Plaid alternative.",
+    "ru": "API подключения к банковским счетам США, позиционируется как более лёгкая альтернатива Plaid."
+   },
+   "localizedTip": {
+    "en": "Direct bank connections rather than screen scraping, which makes link stability noticeably better."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-tiingo",
+   "name": "Tiingo",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Affordable end-of-day prices, fundamentals and financial news.",
+   "url": "https://www.tiingo.com/documentation/general/overview",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "market-data",
+    "eod",
+    "news",
+    "affordable"
+   ],
+   "tip": "Its free tier covers end-of-day history well enough for backtesting non-intraday strategies.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Affordable end-of-day prices, fundamentals and financial news.",
+    "ru": "Доступные цены на конец дня, фундаментальные данные и финансовые новости."
+   },
+   "localizedTip": {
+    "en": "Its free tier covers end-of-day history well enough for backtesting non-intraday strategies."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-tradier",
+   "name": "Tradier",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Brokerage and market data API with strong options chain support.",
+   "url": "https://documentation.tradier.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "brokerage",
+    "options",
+    "market-data",
+    "trading"
+   ],
+   "tip": "Options chain data is where it beats general market data APIs that treat options as an afterthought.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Brokerage and market data API with strong options chain support.",
+    "ru": "API брокериджа и рыночных данных с сильной поддержкой опционных цепочек."
+   },
+   "localizedTip": {
+    "en": "Options chain data is where it beats general market data APIs that treat options as an afterthought."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -13560,6 +14385,48 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-unit-banking",
+   "name": "Unit",
+   "kind": "api",
+   "category": "Финансы",
+   "summary": "Banking-as-a-service platform for embedding accounts, cards and payments in your product.",
+   "url": "https://docs.unit.co/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "banking-as-a-service",
+    "accounts",
+    "cards",
+    "embedded",
+    "baas",
+    "pricing",
+    "platform-fee"
+   ],
+   "tip": "Compliance and sponsor-bank relationships are the real product — the API is the easy part.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Banking-as-a-service platform for embedding accounts, cards and payments in your product.",
+    "ru": "Платформа banking-as-a-service для встраивания счетов, карт и платежей в ваш продукт."
+   },
+   "localizedTip": {
+    "en": "Compliance and sponsor-bank relationships are the real product — the API is the easy part."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "custom quote (platform fee + per account)",
+    "freeQuota": "sandbox access",
+    "url": "https://www.unit.co/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"

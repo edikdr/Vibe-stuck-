@@ -173,6 +173,15 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-nium': 'api-nium',
+ 'paid-rapyd': 'api-rapyd',
+ 'paid-modern-treasury': 'api-modern-treasury',
+ 'paid-increase': 'api-increase-bank',
+ 'paid-unit-banking': 'api-unit-banking',
+ 'paid-column-bank': 'api-column-bank',
+ 'paid-dwolla': 'api-dwolla',
+ 'paid-intrinio': 'api-intrinio',
+ 'paid-blockdaemon': 'api-blockdaemon',
  'paid-wiz': 'lib-wiz-security',
  'paid-deel': 'api-deel', 'paid-remote-com': 'api-remote-com',
  'paid-weglot': 'api-weglot',
