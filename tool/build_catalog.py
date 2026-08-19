@@ -173,6 +173,11 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-devin': 'api-devin',
+ 'paid-amp-code': 'api-amp-code',
+ 'paid-augment-code': 'api-augment-code',
+ 'paid-greptile': 'api-greptile',
+ 'paid-ellipsis': 'api-ellipsis',
  'paid-backblaze-b2': 'lib-backblaze-b2',
  'paid-wasabi': 'lib-wasabi',
  'paid-filebase': 'lib-filebase',

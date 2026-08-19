@@ -18444,6 +18444,356 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-delta-diff",
+   "name": "delta",
+   "kind": "api",
+   "category": "Git и совместная работа",
+   "summary": "Syntax-highlighting pager for git diff output.",
+   "url": "https://dandavison.github.io/delta/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diff",
+    "syntax-highlighting",
+    "git",
+    "pager"
+   ],
+   "tip": "Its side-by-side mode with word-level highlighting makes large diffs far easier to read.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Syntax-highlighting pager for git diff output.",
+    "ru": "Пейджер с подсветкой синтаксиса для вывода git diff."
+   },
+   "localizedTip": {
+    "en": "Its side-by-side mode with word-level highlighting makes large diffs far easier to read."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-difftastic",
+   "name": "Difftastic",
+   "kind": "api",
+   "category": "Git и совместная работа",
+   "summary": "Structural diff tool that compares syntax trees rather than lines.",
+   "url": "https://difftastic.wilfred.me.uk/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diff",
+    "syntax-aware",
+    "structural",
+    "rust"
+   ],
+   "tip": "A reformatting-only change shows as no change at all, which line diffs cannot express.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Structural diff tool that compares syntax trees rather than lines.",
+    "ru": "Инструмент структурного сравнения, сопоставляющий синтаксические деревья, а не строки."
+   },
+   "localizedTip": {
+    "en": "A reformatting-only change shows as no change at all, which line diffs cannot express."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-gerrit",
+   "name": "Gerrit",
+   "kind": "api",
+   "category": "Git и совместная работа",
+   "summary": "Change-based code review system used by Android and Chromium.",
+   "url": "https://gerrit-review.googlesource.com/Documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-review",
+    "change-based",
+    "self-host",
+    "google"
+   ],
+   "tip": "Reviewing individual commits rather than branches enforces a much tighter commit discipline.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Change-based code review system used by Android and Chromium.",
+    "ru": "Система ревью кода на основе changes, используемая в Android и Chromium."
+   },
+   "localizedTip": {
+    "en": "Reviewing individual commits rather than branches enforces a much tighter commit discipline."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-git-absorb",
+   "name": "git-absorb",
+   "kind": "api",
+   "category": "Git и совместная работа",
+   "summary": "Automatically creates fixup commits targeting the right earlier commit.",
+   "url": "https://github.com/tummychow/git-absorb",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "git",
+    "fixup",
+    "rebase",
+    "automation"
+   ],
+   "tip": "It removes the manual work of finding which commit in a stack a change belongs to.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automatically creates fixup commits targeting the right earlier commit.",
+    "ru": "Автоматически создаёт fixup-коммиты, направленные в нужный более ранний коммит."
+   },
+   "localizedTip": {
+    "en": "It removes the manual work of finding which commit in a stack a change belongs to."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-graphite",
+   "name": "Graphite",
+   "kind": "api",
+   "category": "Git и совместная работа",
+   "summary": "Stacked pull request workflow with a CLI and review interface.",
+   "url": "https://graphite.dev/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stacked-prs",
+    "workflow",
+    "review",
+    "cli"
+   ],
+   "tip": "Stacking keeps each PR small and reviewable while still shipping a large change coherently.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Stacked pull request workflow with a CLI and review interface.",
+    "ru": "Рабочий процесс со стопками pull request, CLI и интерфейсом ревью."
+   },
+   "localizedTip": {
+    "en": "Stacking keeps each PR small and reviewable while still shipping a large change coherently."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-jujutsu",
+   "name": "Jujutsu (jj)",
+   "kind": "api",
+   "category": "Git и совместная работа",
+   "summary": "Version control system with a simpler model, backed by Git repositories.",
+   "url": "https://jj-vcs.github.io/jj/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vcs",
+    "git-compatible",
+    "rebase",
+    "undo"
+   ],
+   "tip": "It works against an existing Git repo, so you can try it without migrating anything.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Version control system with a simpler model, backed by Git repositories.",
+    "ru": "Система контроля версий с более простой моделью поверх Git-репозиториев."
+   },
+   "localizedTip": {
+    "en": "It works against an existing Git repo, so you can try it without migrating anything."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-phabricator",
+   "name": "Phorge (Phabricator)",
+   "kind": "api",
+   "category": "Git и совместная работа",
+   "summary": "Community-maintained fork of Phabricator's development platform.",
+   "url": "https://we.phorge.it/book/phorge/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-review",
+    "self-host",
+    "community-fork",
+    "tools"
+   ],
+   "tip": "Phabricator itself was discontinued — this fork carries the ongoing maintenance.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community-maintained fork of Phabricator's development platform.",
+    "ru": "Поддерживаемый сообществом форк платформы разработки Phabricator."
+   },
+   "localizedTip": {
+    "en": "Phabricator itself was discontinued — this fork carries the ongoing maintenance."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-reviewable",
+   "name": "Reviewable",
+   "kind": "api",
+   "category": "Git и совместная работа",
+   "summary": "Detailed code review tool layered on top of GitHub pull requests.",
+   "url": "https://docs.reviewable.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-review",
+    "github",
+    "thorough",
+    "tracking"
+   ],
+   "tip": "It tracks which revisions each reviewer has seen, which GitHub's own interface loses.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Detailed code review tool layered on top of GitHub pull requests.",
+    "ru": "Инструмент детального ревью кода поверх pull request GitHub."
+   },
+   "localizedTip": {
+    "en": "It tracks which revisions each reviewer has seen, which GitHub's own interface loses."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-sapling",
+   "name": "Sapling",
+   "kind": "api",
+   "category": "Git и совместная работа",
+   "summary": "Meta's version control system, designed for very large repositories.",
+   "url": "https://sapling-scm.com/docs/introduction/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vcs",
+    "meta",
+    "stacked",
+    "scalable"
+   ],
+   "tip": "Its stacked commit workflow is the part most worth borrowing, even if you stay on Git.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Meta's version control system, designed for very large repositories.",
+    "ru": "Система контроля версий Meta, рассчитанная на очень большие репозитории."
+   },
+   "localizedTip": {
+    "en": "Its stacked commit workflow is the part most worth borrowing, even if you stay on Git."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-semantic-diff",
+   "name": "SemanticDiff",
+   "kind": "api",
+   "category": "Git и совместная работа",
+   "summary": "Language-aware diffs that hide refactoring noise in pull requests.",
+   "url": "https://semanticdiff.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diff",
+    "language-aware",
+    "pull-requests",
+    "noise-reduction"
+   ],
+   "tip": "Filtering out renames and moves leaves only the behavioural change to review.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Language-aware diffs that hide refactoring noise in pull requests.",
+    "ru": "Диффы с учётом языка, скрывающие шум рефакторинга в pull request."
+   },
+   "localizedTip": {
+    "en": "Filtering out renames and moves leaves only the behavioural change to review."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-aws-iot-core",
    "name": "AWS IoT Core",
    "kind": "api",
@@ -22972,6 +23322,83 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-amazon-q-developer",
+   "name": "Amazon Q Developer",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "AWS coding assistant with code transformation and security scanning.",
+   "url": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "aws",
+    "assistant",
+    "transformation",
+    "security-scans"
+   ],
+   "tip": "Its Java version upgrade transformation is the standout feature for legacy AWS estates.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AWS coding assistant with code transformation and security scanning.",
+    "ru": "Ассистент кодирования AWS с преобразованием кода и сканированием безопасности."
+   },
+   "localizedTip": {
+    "en": "Its Java version upgrade transformation is the standout feature for legacy AWS estates."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-amp-code",
+   "name": "Amp",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Agentic coding tool from Sourcegraph with deep codebase context.",
+   "url": "https://ampcode.com/manual",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sourcegraph",
+    "agent",
+    "terminal",
+    "codebase-aware",
+    "pricing",
+    "usage",
+    "tokens"
+   ],
+   "tip": "Sourcegraph's code search underneath it is what gives it context across a large repository.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Agentic coding tool from Sourcegraph with deep codebase context.",
+    "ru": "Агентный инструмент кодирования от Sourcegraph с глубоким контекстом кодовой базы."
+   },
+   "localizedTip": {
+    "en": "Sourcegraph's code search underneath it is what gives it context across a large repository."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "pay-as-you-go by token usage",
+    "freeQuota": "free trial credit",
+    "url": "https://ampcode.com/manual#pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-appsmith",
    "name": "Appsmith",
    "kind": "api",
@@ -23002,6 +23429,49 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-augment-code",
+   "name": "Augment Code",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Coding assistant built around deep retrieval over large codebases.",
+   "url": "https://docs.augmentcode.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "codebase-context",
+    "enterprise",
+    "retrieval",
+    "agent",
+    "assistant",
+    "pricing",
+    "per-user",
+    "subscription"
+   ],
+   "tip": "It is aimed at repositories too large for a model's context window to hold directly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Coding assistant built around deep retrieval over large codebases.",
+    "ru": "Ассистент кодирования, построенный на глубоком поиске по большим кодовым базам."
+   },
+   "localizedTip": {
+    "en": "It is aimed at repositories too large for a model's context window to hold directly."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$50 per user per month",
+    "freeQuota": "free trial",
+    "url": "https://www.augmentcode.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -23107,6 +23577,118 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-devin",
+   "name": "Devin",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Autonomous software engineering agent working from task descriptions.",
+   "url": "https://docs.devin.ai/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "autonomous",
+    "agent",
+    "cognition",
+    "tasks",
+    "pricing",
+    "acu",
+    "subscription"
+   ],
+   "tip": "Best suited to well-scoped repetitive tasks rather than open-ended feature work.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Autonomous software engineering agent working from task descriptions.",
+    "ru": "Автономный агент разработки ПО, работающий по описанию задачи."
+   },
+   "localizedTip": {
+    "en": "Best suited to well-scoped repetitive tasks rather than open-ended feature work."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$20 per month plus usage",
+    "freeQuota": "free trial credit",
+    "url": "https://devin.ai/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-gemini-cli",
+   "name": "Gemini CLI",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Google's open-source terminal coding agent.",
+   "url": "https://google-gemini.github.io/gemini-cli/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "google",
+    "terminal",
+    "agent",
+    "open-source"
+   ],
+   "tip": "Its free tier includes a substantial daily request allowance for individual use.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g @google/gemini-cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's open-source terminal coding agent.",
+    "ru": "Открытый терминальный агент кодирования от Google."
+   },
+   "localizedTip": {
+    "en": "Its free tier includes a substantial daily request allowance for individual use."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-copilot-workspace",
+   "name": "GitHub Copilot Workspace",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Experimental GitHub environment taking an issue through to a pull request.",
+   "url": "https://githubnext.com/projects/copilot-workspace",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "github",
+    "issue-to-pr",
+    "planning",
+    "experimental"
+   ],
+   "tip": "Its editable plan step is the useful part — you correct the approach before any code is written.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Experimental GitHub environment taking an issue through to a pull request.",
+    "ru": "Экспериментальная среда GitHub, проводящая задачу от issue до pull request."
+   },
+   "localizedTip": {
+    "en": "Its editable plan step is the useful part — you correct the approach before any code is written."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -23239,6 +23821,41 @@
    },
    "pricing": {
     "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-kilo-code",
+   "name": "Kilo Code",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Open-source VS Code coding agent supporting many model providers.",
+   "url": "https://kilocode.ai/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vscode",
+    "agent",
+    "open-source",
+    "multi-model"
+   ],
+   "tip": "It merges features from several agent forks, so its capability set moves quickly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source VS Code coding agent supporting many model providers.",
+    "ru": "Открытый агент кодирования для VS Code с поддержкой множества провайдеров моделей."
+   },
+   "localizedTip": {
+    "en": "It merges features from several agent forks, so its capability set moves quickly."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -23384,6 +24001,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-openhands",
+   "name": "OpenHands",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Open-source autonomous software development agent running in a sandbox.",
+   "url": "https://docs.all-hands.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "autonomous",
+    "sandbox",
+    "agent",
+    "research"
+   ],
+   "tip": "Sandboxed execution is what makes letting an agent run arbitrary commands acceptable.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source autonomous software development agent running in a sandbox.",
+    "ru": "Открытый автономный агент разработки ПО, работающий в песочнице."
+   },
+   "localizedTip": {
+    "en": "Sandboxed execution is what makes letting an agent run arbitrary commands acceptable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-pipedream",
    "name": "Pipedream",
    "kind": "api",
@@ -23524,6 +24176,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-roo-code",
+   "name": "Roo Code",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Autonomous coding agent for VS Code with configurable operating modes.",
+   "url": "https://docs.roocode.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vscode",
+    "agent",
+    "modes",
+    "autonomous"
+   ],
+   "tip": "Its per-mode permissions let a review mode read without granting it write access.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Autonomous coding agent for VS Code with configurable operating modes.",
+    "ru": "Автономный агент кодирования для VS Code с настраиваемыми режимами работы."
+   },
+   "localizedTip": {
+    "en": "Its per-mode permissions let a review mode read without granting it write access."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-rubygems",
    "name": "RubyGems API",
    "kind": "api",
@@ -23606,6 +24293,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-supermaven",
+   "name": "Supermaven",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Very fast code completion with an unusually long context window.",
+   "url": "https://supermaven.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "completion",
+    "fast",
+    "long-context",
+    "low-latency"
+   ],
+   "tip": "Its latency is low enough that completions keep pace with fast typing, which most tools do not.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Very fast code completion with an unusually long context window.",
+    "ru": "Очень быстрое автодополнение кода с необычно большим контекстным окном."
+   },
+   "localizedTip": {
+    "en": "Its latency is low enough that completions keep pace with fast typing, which most tools do not."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-swe-agent",
+   "name": "SWE-agent",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "Research agent that resolves GitHub issues autonomously.",
+   "url": "https://swe-agent.com/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "research",
+    "benchmarks",
+    "github-issues",
+    "princeton"
+   ],
+   "tip": "Its agent-computer interface design is the interesting contribution, beyond the benchmark scores.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Research agent that resolves GitHub issues autonomously.",
+    "ru": "Исследовательский агент, автономно решающий задачи из GitHub."
+   },
+   "localizedTip": {
+    "en": "Its agent-computer interface design is the interesting contribution, beyond the benchmark scores."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-windmill",
    "name": "Windmill",
    "kind": "api",
@@ -23675,6 +24432,41 @@
     "freeQuota": "100 free tasks per month",
     "url": "https://zapier.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-zed-editor",
+   "name": "Zed",
+   "kind": "api",
+   "category": "Разработка и DevOps",
+   "summary": "High-performance collaborative code editor written in Rust.",
+   "url": "https://zed.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "editor",
+    "rust",
+    "collaborative",
+    "fast"
+   ],
+   "tip": "Its GPU-accelerated rendering keeps typing latency low in files where other editors stutter.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance collaborative code editor written in Rust.",
+    "ru": "Высокопроизводительный совместный редактор кода, написанный на Rust."
+   },
+   "localizedTip": {
+    "en": "Its GPU-accelerated rendering keeps typing latency low in files where other editors stutter."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -23972,6 +24764,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-coderabbit",
+   "name": "CodeRabbit",
+   "kind": "api",
+   "category": "Тестирование и качество",
+   "summary": "AI pull request reviewer leaving line-level comments.",
+   "url": "https://docs.coderabbit.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-review",
+    "pull-requests",
+    "context",
+    "line-comments"
+   ],
+   "tip": "Free for open-source repositories, which makes it easy to evaluate on real code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AI pull request reviewer leaving line-level comments.",
+    "ru": "AI-ревьюер pull request, оставляющий комментарии на уровне строк."
+   },
+   "localizedTip": {
+    "en": "Free for open-source repositories, which makes it easy to evaluate on real code."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-danger-js",
+   "name": "Danger",
+   "kind": "api",
+   "category": "Тестирование и качество",
+   "summary": "Automates team conventions as pull request checks.",
+   "url": "https://danger.systems/js/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ci",
+    "conventions",
+    "pull-requests",
+    "automation"
+   ],
+   "tip": "It codifies the review comments you write repeatedly, so a bot leaves them instead.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D danger",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automates team conventions as pull request checks.",
+    "ru": "Автоматизирует командные соглашения как проверки pull request."
+   },
+   "localizedTip": {
+    "en": "It codifies the review comments you write repeatedly, so a bot leaves them instead."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-deepsource",
    "name": "DeepSource",
    "kind": "api",
@@ -24002,6 +24864,90 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-ellipsis",
+   "name": "Ellipsis",
+   "kind": "api",
+   "category": "Тестирование и качество",
+   "summary": "AI reviewer that comments on pull requests and can push fixes.",
+   "url": "https://docs.ellipsis.dev/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-review",
+    "bug-detection",
+    "pull-requests",
+    "fixes",
+    "pricing",
+    "per-seat",
+    "subscription"
+   ],
+   "tip": "Having it fix its own findings shortens the loop, provided review discipline stays intact.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AI reviewer that comments on pull requests and can push fixes.",
+    "ru": "AI-ревьюер, комментирующий pull request и способный отправлять исправления."
+   },
+   "localizedTip": {
+    "en": "Having it fix its own findings shortens the loop, provided review discipline stays intact."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$20 per seat per month",
+    "freeQuota": "free for open source",
+    "url": "https://www.ellipsis.dev/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-greptile",
+   "name": "Greptile",
+   "kind": "api",
+   "category": "Тестирование и качество",
+   "summary": "Code review and search built on a graph of your entire codebase.",
+   "url": "https://docs.greptile.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-review",
+    "codebase-graph",
+    "context",
+    "api",
+    "pricing",
+    "per-developer",
+    "subscription"
+   ],
+   "tip": "Whole-repository context lets it flag a change that breaks a distant caller.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Code review and search built on a graph of your entire codebase.",
+    "ru": "Ревью и поиск по коду на основе графа всей вашей кодовой базы."
+   },
+   "localizedTip": {
+    "en": "Whole-repository context lets it flag a change that breaks a distant caller."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$30 per developer per month",
+    "freeQuota": "free trial",
+    "url": "https://www.greptile.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -24065,6 +25011,41 @@
    },
    "localizedTip": {
     "en": "The free tier's manual live-testing minutes are enough for occasional browser-specific bug reproduction."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-qodo",
+   "name": "Qodo",
+   "kind": "api",
+   "category": "Тестирование и качество",
+   "summary": "AI code review and test generation, formerly Codium.",
+   "url": "https://docs.qodo.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "code-review",
+    "tests",
+    "pr-agent",
+    "quality"
+   ],
+   "tip": "Its open-source PR agent runs in your own CI, which keeps code inside your infrastructure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AI code review and test generation, formerly Codium.",
+    "ru": "AI-ревью кода и генерация тестов, ранее Codium."
+   },
+   "localizedTip": {
+    "en": "Its open-source PR agent runs in your own CI, which keeps code inside your infrastructure."
    },
    "pricing": {
     "model": "freemium",
