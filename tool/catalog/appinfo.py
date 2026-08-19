@@ -26,6 +26,18 @@ def read_app_version(root: pathlib.Path) -> str:
     return match.group(1)
 
 
+def read_release_key(root: pathlib.Path) -> str:
+    """The public key releases are signed with, or an empty string.
+
+    Empty means signing is not switched on for this project yet: the client
+    then verifies SHA-256 and trusts HTTPS to the forge, which is what it did
+    before signing existed. A non-empty key is a promise — an app carrying one
+    refuses a catalog that is not signed by it.
+    """
+    path = root / 'data' / 'release-key.pub'
+    return path.read_text(encoding='utf-8').strip() if path.exists() else ''
+
+
 def write_app_info(catalog: Catalog, root: pathlib.Path) -> pathlib.Path:
     path = root / 'lib' / 'app_info.dart'
     body = f"""{HEADER}
@@ -45,6 +57,14 @@ const bundledCatalogSchema = {CATALOG_SCHEMA_VERSION};
 
 /// Entries in the bundled catalog, for the empty and error states.
 const bundledCatalogItemCount = {len(catalog.items)};
+
+/// Ed25519 public key that catalog releases are signed with, base64, or empty.
+///
+/// Empty disables signature checking: downloads are still verified against the
+/// SHA-256 in the manifest, which is itself fetched over HTTPS. Non-empty makes
+/// a signature mandatory — an unsigned or wrongly signed catalog is refused
+/// rather than installed. Set from data/release-key.pub; see SECURITY.md.
+const releasePublicKey = '{read_release_key(root)}';
 """
     path.write_text(body, encoding='utf-8')
     return path

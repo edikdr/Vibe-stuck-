@@ -10,7 +10,9 @@ body:
       options:
         - Добавить запись
         - Поправить существующую
-        - Убрать: сервис закрылся или больше не подходит
+        # Quoted: an unquoted value containing ": " is a YAML mapping, and
+        # GitHub rejects the template because the option is not a string.
+        - "Убрать — сервис закрылся или больше не подходит"
     validations:
       required: true
 

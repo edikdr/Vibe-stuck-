@@ -14,6 +14,7 @@ import json
 import pathlib
 
 from .model import CATALOG_SCHEMA_VERSION, Catalog
+from .signing import sign, verify
 
 MANIFEST_NAME = 'manifest.json'
 ARCHIVE_NAME = 'catalog.db.gz'
@@ -50,9 +51,15 @@ def write_manifest(
     target: pathlib.Path,
     min_app_version: str = MIN_APP_VERSION,
     download_url: str = '',
-    signature: str = '',
+    signing_key: str = '',
+    public_key: str = '',
 ) -> dict:
-    """Write the update manifest next to the archive and return it."""
+    """Write the update manifest next to the archive and return it.
+
+    With `signing_key` set the manifest is signed and the signature is checked
+    against `public_key` before anything is written — a release job that
+    publishes a signature it never verified has tested nothing.
+    """
     manifest = {
         'schemaVersion': CATALOG_SCHEMA_VERSION,
         'catalogVersion': catalog.version,
@@ -68,10 +75,17 @@ def write_manifest(
         'databaseSha256': sha256_of(database),
         # A client older than this cannot read the schema and must not try.
         'minAppVersion': min_app_version,
-        # Reserved: filled in by the release workflow when a signing key is
-        # configured. The client verifies sha256 today and ignores this field.
-        'signature': signature,
     }
+
+    # Signed last: the payload covers the fields above, so nothing may change
+    # after this point.
+    manifest['signature'] = sign(manifest, signing_key) if signing_key else ''
+    if manifest['signature'] and public_key:
+        if not verify(manifest, manifest['signature'], public_key):
+            raise SystemExit(
+                'the signature does not verify against data/release-key.pub — '
+                'the signing secret and the committed public key disagree')
+
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     return manifest

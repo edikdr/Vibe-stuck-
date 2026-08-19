@@ -49,12 +49,37 @@ jobs:
         with:
           python-version: "3.12"
 
+      # Signing is optional and fails loudly rather than silently: if the app
+      # has a public key compiled in but the secret is missing, every install
+      # would reject the release, so it is better not to publish one.
+      - name: Check the signing key
+        env:
+          CATALOG_SIGNING_KEY: ${{ secrets.CATALOG_SIGNING_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -f data/release-key.pub ] && [ -z "${CATALOG_SIGNING_KEY:-}" ]; then
+            echo "::error::data/release-key.pub is committed but CATALOG_SIGNING_KEY is not set — apps built from this commit would refuse this release"
+            exit 1
+          fi
+          if [ -n "${CATALOG_SIGNING_KEY:-}" ]; then
+            pip install --quiet cryptography
+            python tool/release_key.py check "$CATALOG_SIGNING_KEY"
+          else
+            echo "::notice::No signing key configured; the release will be unsigned."
+          fi
+
       - name: Build the catalog and its manifest
         id: build
+        env:
+          CATALOG_SIGNING_KEY: ${{ secrets.CATALOG_SIGNING_KEY }}
         run: |
           set -euo pipefail
           url="https://github.com/${{ github.repository }}/releases/download/${TAG}/catalog.db.gz"
-          python tool/build_catalog.py --release --download-url "$url"
+          # Spelled out rather than `[ -n … ] && sign=…`: under `set -e` an
+          # and-list whose test fails is a trap that depends on the shell.
+          sign=""
+          if [ -n "${CATALOG_SIGNING_KEY:-}" ]; then sign="--sign"; fi
+          python tool/build_catalog.py --release --download-url "$url" $sign
           python tool/verify_catalog.py | tee -a "$GITHUB_STEP_SUMMARY"
           echo "catalog=$(python -c "import json;print(json.load(open('dist/manifest.json'))['catalogVersion'])")" >> "$GITHUB_OUTPUT"
           echo "app=$(grep '^version:' pubspec.yaml | cut -d' ' -f2 | cut -d'+' -f1)" >> "$GITHUB_OUTPUT"
