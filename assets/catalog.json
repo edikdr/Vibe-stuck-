@@ -25345,6 +25345,111 @@
    "categoryGroup": "media"
   },
   {
+   "id": "lib-deepchecks",
+   "name": "Deepchecks",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Test suites validating data and models, from splits and leakage to performance.",
+   "url": "https://docs.deepchecks.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "validation",
+    "testing",
+    "ml",
+    "suites"
+   ],
+   "tip": "Its train/test leakage checks catch a mistake that silently inflates every offline metric.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install deepchecks",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Test suites validating data and models, from splits and leakage to performance.",
+    "ru": "Наборы тестов, проверяющие данные и модели — от сплитов и утечек до производительности."
+   },
+   "localizedTip": {
+    "en": "Its train/test leakage checks catch a mistake that silently inflates every offline metric."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-evidently",
+   "name": "Evidently",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Detects data and model drift, producing shareable reports and monitoring dashboards.",
+   "url": "https://docs.evidentlyai.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "drift",
+    "monitoring",
+    "reports",
+    "ml"
+   ],
+   "tip": "Drift detection catches silent model degradation long before accuracy metrics visibly drop.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install evidently",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Detects data and model drift, producing shareable reports and monitoring dashboards.",
+    "ru": "Обнаруживает дрейф данных и модели, формируя отчёты и дашборды мониторинга."
+   },
+   "localizedTip": {
+    "en": "Drift detection catches silent model degradation long before accuracy metrics visibly drop."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-whylogs",
+   "name": "whylogs",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Lightweight data profiling that logs statistical summaries rather than raw records.",
+   "url": "https://docs.whylabs.ai/docs/whylogs-overview/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "profiling",
+    "logging",
+    "drift",
+    "lightweight"
+   ],
+   "tip": "Profiles contain no raw data, so they can leave a regulated environment when the data cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install whylogs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight data profiling that logs statistical summaries rather than raw records.",
+    "ru": "Лёгкое профилирование данных: логирует статистические сводки вместо сырых записей."
+   },
+   "localizedTip": {
+    "en": "Profiles contain no raw data, so they can leave a regulated environment when the data cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-agno",
    "name": "Agno",
    "kind": "library",
@@ -26090,6 +26195,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-aim-stack",
+   "name": "Aim",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Self-hosted experiment tracker with a fast comparison UI and no account required.",
+   "url": "https://aimstack.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tracking",
+    "self-host",
+    "ui",
+    "comparison"
+   ],
+   "tip": "Fully local, so it works for research on data that cannot leave your network.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install aim",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted experiment tracker with a fast comparison UI and no account required.",
+    "ru": "Self-hosted трекер экспериментов с быстрым интерфейсом сравнения и без регистрации."
+   },
+   "localizedTip": {
+    "en": "Fully local, so it works for research on data that cannot leave your network."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-bentoml",
    "name": "BentoML",
    "kind": "library",
@@ -26160,6 +26300,146 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-comet-ml",
+   "name": "Comet ML",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Experiment tracking and model registry with production monitoring.",
+   "url": "https://www.comet.com/docs/v2/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tracking",
+    "experiments",
+    "model-registry",
+    "monitoring"
+   ],
+   "tip": "Its model registry ties a deployed model back to the exact run that produced it.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install comet-ml",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Experiment tracking and model registry with production monitoring.",
+    "ru": "Отслеживание экспериментов и реестр моделей с мониторингом в продакшне."
+   },
+   "localizedTip": {
+    "en": "Its model registry ties a deployed model back to the exact run that produced it."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-cortex-ml",
+   "name": "Cortex",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Model deployment platform for AWS with autoscaling inference APIs.",
+   "url": "https://github.com/cortexlabs/cortex",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serving",
+    "aws",
+    "autoscaling",
+    "inference"
+   ],
+   "tip": "Project activity has slowed considerably — verify maintenance status before adopting it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Model deployment platform for AWS with autoscaling inference APIs.",
+    "ru": "Платформа развёртывания моделей для AWS с автомасштабируемыми API инференса."
+   },
+   "localizedTip": {
+    "en": "Project activity has slowed considerably — verify maintenance status before adopting it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-deepspeed",
+   "name": "DeepSpeed",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Training optimization library whose ZeRO stages cut memory use for very large models.",
+   "url": "https://www.deepspeed.ai/getting-started/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "training",
+    "zero",
+    "memory",
+    "large-models"
+   ],
+   "tip": "ZeRO-3 lets a model larger than one GPU's memory train by sharding optimizer state and parameters.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install deepspeed",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Training optimization library whose ZeRO stages cut memory use for very large models.",
+    "ru": "Библиотека оптимизации обучения: стадии ZeRO снижают потребление памяти для очень больших моделей."
+   },
+   "localizedTip": {
+    "en": "ZeRO-3 lets a model larger than one GPU's memory train by sharding optimizer state and parameters."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-determined-ai",
+   "name": "Determined AI",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Deep learning training platform with distributed training and hyperparameter search.",
+   "url": "https://docs.determined.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "training",
+    "hyperparameter",
+    "distributed",
+    "gpu"
+   ],
+   "tip": "Its GPU scheduling and preemption handle shared cluster contention that plain scripts do not.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Deep learning training platform with distributed training and hyperparameter search.",
+    "ru": "Платформа обучения глубоких сетей с распределённым обучением и подбором гиперпараметров."
+   },
+   "localizedTip": {
+    "en": "Its GPU scheduling and preemption handle shared cluster contention that plain scripts do not."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-dvc",
    "name": "DVC",
    "kind": "library",
@@ -26187,6 +26467,216 @@
    },
    "localizedTip": {
     "en": "Point it at S3 or GCS as remote storage — the repo itself stays small no matter the dataset size."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-flyte",
+   "name": "Flyte",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Strongly typed workflow orchestrator for data and ML, with caching and versioning.",
+   "url": "https://docs.flyte.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "workflows",
+    "typed",
+    "kubernetes",
+    "reproducible"
+   ],
+   "tip": "Task-level caching skips recomputation across runs, which is a large saving on expensive training steps.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Strongly typed workflow orchestrator for data and ML, with caching and versioning.",
+    "ru": "Строго типизированный оркестратор workflow для данных и ML с кэшированием и версионированием."
+   },
+   "localizedTip": {
+    "en": "Task-level caching skips recomputation across runs, which is a large saving on expensive training steps."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-horovod",
+   "name": "Horovod",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Distributed deep learning training framework built on ring all-reduce.",
+   "url": "https://horovod.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "distributed",
+    "allreduce",
+    "mpi",
+    "training"
+   ],
+   "tip": "Largely superseded by native PyTorch DDP — check whether you still need the extra dependency.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install horovod",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed deep learning training framework built on ring all-reduce.",
+    "ru": "Фреймворк распределённого обучения глубоких сетей на основе ring all-reduce."
+   },
+   "localizedTip": {
+    "en": "Largely superseded by native PyTorch DDP — check whether you still need the extra dependency."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-kserve",
+   "name": "KServe",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Serverless model inference on Kubernetes with scale-to-zero.",
+   "url": "https://kserve.github.io/website/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serving",
+    "kubernetes",
+    "serverless",
+    "autoscaling"
+   ],
+   "tip": "Scale-to-zero makes hosting many rarely-used models affordable, unlike always-on deployments.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Serverless model inference on Kubernetes with scale-to-zero.",
+    "ru": "Serverless-инференс моделей в Kubernetes с масштабированием до нуля."
+   },
+   "localizedTip": {
+    "en": "Scale-to-zero makes hosting many rarely-used models affordable, unlike always-on deployments."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-kubeflow",
+   "name": "Kubeflow",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "ML platform running training pipelines and notebooks on Kubernetes.",
+   "url": "https://www.kubeflow.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "pipelines",
+    "ml",
+    "platform"
+   ],
+   "tip": "Heavy to operate — worth it only if you already run Kubernetes and need multi-team isolation.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "ML platform running training pipelines and notebooks on Kubernetes.",
+    "ru": "ML-платформа, запускающая обучающие пайплайны и ноутбуки в Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Heavy to operate — worth it only if you already run Kubernetes and need multi-team isolation."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-megatron-lm",
+   "name": "Megatron-LM",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "NVIDIA's framework for training very large transformers with tensor and pipeline parallelism.",
+   "url": "https://github.com/NVIDIA/Megatron-LM",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "training",
+    "tensor-parallel",
+    "nvidia",
+    "large-models"
+   ],
+   "tip": "Aimed at multi-node GPU clusters — overkill unless you are training models at billion-parameter scale.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "NVIDIA's framework for training very large transformers with tensor and pipeline parallelism.",
+    "ru": "Фреймворк NVIDIA для обучения очень крупных трансформеров с тензорным и конвейерным параллелизмом."
+   },
+   "localizedTip": {
+    "en": "Aimed at multi-node GPU clusters — overkill unless you are training models at billion-parameter scale."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-metaflow",
+   "name": "Metaflow",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Netflix's framework for structuring ML workflows as versioned Python flows.",
+   "url": "https://docs.metaflow.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pipelines",
+    "python",
+    "netflix",
+    "versioning"
+   ],
+   "tip": "Local runs and cloud runs use identical code, so you scale up without rewriting the pipeline.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install metaflow",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Netflix's framework for structuring ML workflows as versioned Python flows.",
+    "ru": "Фреймворк Netflix для структурирования ML-workflow как версионируемых Python-потоков."
+   },
+   "localizedTip": {
+    "en": "Local runs and cloud runs use identical code, so you scale up without rewriting the pipeline."
    },
    "pricing": {
     "model": "openSource",
@@ -26225,6 +26715,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-neptune-ai",
+   "name": "Neptune.ai",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Experiment metadata store built for very high volumes of logged runs.",
+   "url": "https://docs.neptune.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tracking",
+    "metadata",
+    "experiments",
+    "scale"
+   ],
+   "tip": "Handles thousands of concurrent runs better than most alternatives, which matters for large sweeps.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install neptune",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Experiment metadata store built for very high volumes of logged runs.",
+    "ru": "Хранилище метаданных экспериментов, рассчитанное на очень большие объёмы логируемых запусков."
+   },
+   "localizedTip": {
+    "en": "Handles thousands of concurrent runs better than most alternatives, which matters for large sweeps."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -26300,6 +26825,146 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-ray-train",
+   "name": "Ray Train",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Distributed training library scaling PyTorch and TensorFlow jobs across a Ray cluster.",
+   "url": "https://docs.ray.io/en/latest/train/train.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "distributed",
+    "training",
+    "ray",
+    "scaling"
+   ],
+   "tip": "Wrapping an existing single-node training loop is usually a few lines, not a rewrite.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install 'ray[train]'",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed training library scaling PyTorch and TensorFlow jobs across a Ray cluster.",
+    "ru": "Библиотека распределённого обучения, масштабирующая задачи PyTorch и TensorFlow по кластеру Ray."
+   },
+   "localizedTip": {
+    "en": "Wrapping an existing single-node training loop is usually a few lines, not a rewrite."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-seldon-core",
+   "name": "Seldon Core",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Kubernetes-native model serving with inference graphs and explainability hooks.",
+   "url": "https://docs.seldon.ai/seldon-core-2",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serving",
+    "kubernetes",
+    "inference",
+    "graphs"
+   ],
+   "tip": "Inference graphs let you chain transformers, models and explainers as one deployed unit.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Kubernetes-native model serving with inference graphs and explainability hooks.",
+    "ru": "Kubernetes-нативное обслуживание моделей с графами инференса и хуками объяснимости."
+   },
+   "localizedTip": {
+    "en": "Inference graphs let you chain transformers, models and explainers as one deployed unit."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-triton-server",
+   "name": "Triton Inference Server",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "NVIDIA's inference server running models from many frameworks with dynamic batching.",
+   "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nvidia",
+    "serving",
+    "gpu",
+    "multi-framework"
+   ],
+   "tip": "Dynamic batching alone often doubles GPU throughput versus serving requests one at a time.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "NVIDIA's inference server running models from many frameworks with dynamic batching.",
+    "ru": "Сервер инференса NVIDIA, запускающий модели многих фреймворков с динамическим батчингом."
+   },
+   "localizedTip": {
+    "en": "Dynamic batching alone often doubles GPU throughput versus serving requests one at a time."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-wandb",
+   "name": "Weights & Biases",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Experiment tracking with run comparison, artifact versioning and hosted dashboards.",
+   "url": "https://docs.wandb.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tracking",
+    "experiments",
+    "artifacts",
+    "visualization"
+   ],
+   "tip": "Free for personal and academic work, which covers most individual research use.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install wandb",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Experiment tracking with run comparison, artifact versioning and hosted dashboards.",
+    "ru": "Отслеживание экспериментов со сравнением запусков, версионированием артефактов и облачными дашбордами."
+   },
+   "localizedTip": {
+    "en": "Free for personal and academic work, which covers most individual research use."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-wandb-client",
    "name": "Weights & Biases (client)",
    "kind": "library",
@@ -26330,6 +26995,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-zenml",
+   "name": "ZenML",
+   "kind": "library",
+   "category": "MLOps и эксперименты",
+   "summary": "Portable ML pipelines that swap backends without changing pipeline code.",
+   "url": "https://docs.zenml.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pipelines",
+    "portable",
+    "stacks",
+    "mlops"
+   ],
+   "tip": "Its stack abstraction is the point — the same pipeline runs on local, Kubeflow or Vertex.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install zenml",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Portable ML pipelines that swap backends without changing pipeline code.",
+    "ru": "Переносимые ML-пайплайны, меняющие бэкенды без изменения кода пайплайна."
+   },
+   "localizedTip": {
+    "en": "Its stack abstraction is the point — the same pipeline runs on local, Kubeflow or Vertex."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -27062,6 +27762,76 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-apache-tvm",
+   "name": "Apache TVM",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Compiler stack that auto-tunes models for a wide range of hardware backends.",
+   "url": "https://tvm.apache.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "compiler",
+    "optimization",
+    "hardware",
+    "portable"
+   ],
+   "tip": "Auto-tuning takes hours but produces kernels beating hand-written ones on unusual hardware.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compiler stack that auto-tunes models for a wide range of hardware backends.",
+    "ru": "Компиляторный стек, автоматически тюнингующий модели под широкий набор аппаратных бэкендов."
+   },
+   "localizedTip": {
+    "en": "Auto-tuning takes hours but produces kernels beating hand-written ones on unusual hardware."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-coreml-tools",
+   "name": "Core ML Tools",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Converts trained models into Core ML format for on-device Apple inference.",
+   "url": "https://apple.github.io/coremltools/docs-guides/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "apple",
+    "on-device",
+    "conversion",
+    "ios"
+   ],
+   "tip": "Quantize during conversion — on-device model size affects app download size directly.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install coremltools",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Converts trained models into Core ML format for on-device Apple inference.",
+    "ru": "Конвертирует обученные модели в формат Core ML для инференса на устройствах Apple."
+   },
+   "localizedTip": {
+    "en": "Quantize during conversion — on-device model size affects app download size directly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-exllamav2",
    "name": "ExLlamaV2",
    "kind": "library",
@@ -27128,6 +27898,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-ggml",
+   "name": "GGML",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Minimal C tensor library behind llama.cpp and whisper.cpp, tuned for quantized CPU inference.",
+   "url": "https://github.com/ggml-org/ggml",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tensor",
+    "c",
+    "quantization",
+    "cpu"
+   ],
+   "tip": "Zero dependencies and a single file output is why it ports to phones, browsers and microcontrollers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal C tensor library behind llama.cpp and whisper.cpp, tuned for quantized CPU inference.",
+    "ru": "Минимальная C-библиотека тензоров, лежащая в основе llama.cpp и whisper.cpp, для квантованного CPU-инференса."
+   },
+   "localizedTip": {
+    "en": "Zero dependencies and a single file output is why it ports to phones, browsers and microcontrollers."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-gpt4all",
    "name": "GPT4All",
    "kind": "library",
@@ -27163,7 +27968,77 @@
    "categoryGroup": "ai"
   },
   {
-   "id": "lib-vitepress-none",
+   "id": "lib-jan-ai",
+   "name": "Jan",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Open-source desktop app for running LLMs entirely offline.",
+   "url": "https://jan.ai/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "desktop",
+    "local-llm",
+    "offline",
+    "privacy"
+   ],
+   "tip": "Exposes an OpenAI-compatible local endpoint, so existing client code points at it unchanged.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source desktop app for running LLMs entirely offline.",
+    "ru": "Открытое desktop-приложение для полностью офлайнового запуска LLM."
+   },
+   "localizedTip": {
+    "en": "Exposes an OpenAI-compatible local endpoint, so existing client code points at it unchanged."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-tflite",
+   "name": "LiteRT (TensorFlow Lite)",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "On-device inference runtime for mobile, embedded and edge hardware.",
+   "url": "https://ai.google.dev/edge/litert",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mobile",
+    "edge",
+    "inference",
+    "quantization"
+   ],
+   "tip": "Post-training quantization to int8 typically cuts model size fourfold with modest accuracy loss.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "On-device inference runtime for mobile, embedded and edge hardware.",
+    "ru": "Рантайм инференса на устройстве для мобильных, встраиваемых и edge-платформ."
+   },
+   "localizedTip": {
+    "en": "Post-training quantization to int8 typically cuts model size fourfold with modest accuracy loss."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-llama-cpp",
    "name": "llama.cpp",
    "kind": "library",
    "category": "Локальные модели",
@@ -27428,6 +28303,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-openvino",
+   "name": "OpenVINO",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Intel's toolkit for optimizing and running inference on CPUs, iGPUs and NPUs.",
+   "url": "https://docs.openvino.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "intel",
+    "inference",
+    "cpu",
+    "optimization"
+   ],
+   "tip": "Makes CPU-only inference genuinely viable for vision models, which is its main practical use.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install openvino",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Intel's toolkit for optimizing and running inference on CPUs, iGPUs and NPUs.",
+    "ru": "Набор инструментов Intel для оптимизации и запуска инференса на CPU, встроенных GPU и NPU."
+   },
+   "localizedTip": {
+    "en": "Makes CPU-only inference genuinely viable for vision models, which is its main practical use."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-sentence-transformers",
    "name": "Sentence Transformers",
    "kind": "library",
@@ -27455,6 +28365,111 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-sglang",
+   "name": "SGLang",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "High-throughput LLM serving runtime with prefix caching and structured output support.",
+   "url": "https://docs.sglang.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serving",
+    "llm",
+    "throughput",
+    "structured"
+   ],
+   "tip": "Its RadixAttention prefix cache is a large win when many requests share a long system prompt.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install sglang",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-throughput LLM serving runtime with prefix caching and structured output support.",
+    "ru": "Высокопроизводительный рантайм обслуживания LLM с кэшированием префиксов и структурированным выводом."
+   },
+   "localizedTip": {
+    "en": "Its RadixAttention prefix cache is a large win when many requests share a long system prompt."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-tensorrt",
+   "name": "TensorRT",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "NVIDIA's inference optimizer producing highly tuned GPU engines from trained models.",
+   "url": "https://docs.nvidia.com/deeplearning/tensorrt/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nvidia",
+    "inference",
+    "optimization",
+    "gpu"
+   ],
+   "tip": "Engines are built for a specific GPU and driver version — rebuild them when the hardware changes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "NVIDIA's inference optimizer producing highly tuned GPU engines from trained models.",
+    "ru": "Оптимизатор инференса NVIDIA, создающий высокооптимизированные GPU-движки из обученных моделей."
+   },
+   "localizedTip": {
+    "en": "Engines are built for a specific GPU and driver version — rebuild them when the hardware changes."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-tgi",
+   "name": "Text Generation Inference",
+   "kind": "library",
+   "category": "Локальные модели",
+   "summary": "Hugging Face's production LLM serving container with continuous batching.",
+   "url": "https://huggingface.co/docs/text-generation-inference/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "huggingface",
+    "serving",
+    "llm",
+    "production"
+   ],
+   "tip": "Continuous batching keeps the GPU busy between requests, unlike static batch inference.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hugging Face's production LLM serving container with continuous batching.",
+    "ru": "Продакшн-контейнер обслуживания LLM от Hugging Face с непрерывным батчингом."
+   },
+   "localizedTip": {
+    "en": "Continuous batching keeps the GPU busy between requests, unlike static batch inference."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
   },
@@ -32688,6 +33703,76 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-lakefs",
+   "name": "lakeFS",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Git-like branching, committing and rollback over object-storage data lakes.",
+   "url": "https://docs.lakefs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "data-versioning",
+    "git-like",
+    "object-storage",
+    "branches"
+   ],
+   "tip": "Branch the lake before a risky transformation — rollback is instant and costs no data copy.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Git-like branching, committing and rollback over object-storage data lakes.",
+    "ru": "Git-подобное ветвление, коммиты и откат поверх озёр данных в объектном хранилище."
+   },
+   "localizedTip": {
+    "en": "Branch the lake before a risky transformation — rollback is instant and costs no data copy."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-pachyderm",
+   "name": "Pachyderm",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Data versioning and pipelines with automatic lineage tracking on Kubernetes.",
+   "url": "https://docs.pachyderm.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "data-versioning",
+    "pipelines",
+    "lineage",
+    "kubernetes"
+   ],
+   "tip": "Pipelines rerun only on the data that actually changed, which is its core efficiency claim.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Data versioning and pipelines with automatic lineage tracking on Kubernetes.",
+    "ru": "Версионирование данных и пайплайны с автоматическим отслеживанием происхождения в Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Pipelines rerun only on the data that actually changed, which is its core efficiency claim."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-prefect",
    "name": "Prefect",
    "kind": "library",
@@ -32715,6 +33800,41 @@
    },
    "localizedTip": {
     "en": "Plain Python functions become tasks with one decorator — no separate DAG-definition language to learn."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-soda-core",
+   "name": "Soda Core",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Data quality checks written in a readable YAML dialect and run against your warehouse.",
+   "url": "https://docs.soda.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "data-quality",
+    "checks",
+    "yaml",
+    "testing"
+   ],
+   "tip": "Its check language is approachable enough that analysts write their own quality rules.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install soda-core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Data quality checks written in a readable YAML dialect and run against your warehouse.",
+    "ru": "Проверки качества данных на читаемом YAML-диалекте, выполняемые против вашего хранилища."
+   },
+   "localizedTip": {
+    "en": "Its check language is approachable enough that analysts write their own quality rules."
    },
    "pricing": {
     "model": "openSource",

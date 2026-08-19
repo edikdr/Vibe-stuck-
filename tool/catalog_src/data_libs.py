@@ -272,7 +272,7 @@ LIBS = [
  "Test utilities that query the DOM the way a user would.",
  "Тестовые утилиты, которые ищут элементы так же, как это делает пользователь.",
  "Querying by role and label improves accessibility as a side effect of writing tests."),
-("lib-vitepress-none","llama.cpp","Локальные модели","https://github.com/ggml-org/llama.cpp","openSource","local,gguf,cpu,inference","",
+("lib-llama-cpp","llama.cpp","Локальные модели","https://github.com/ggml-org/llama.cpp","openSource","local,gguf,cpu,inference","",
  "Runs GGUF language models locally on CPU or GPU with minimal dependencies.",
  "Запускает GGUF-модели локально на CPU или GPU с минимумом зависимостей.",
  "Quantised models let a laptop run useful assistants entirely offline."),
