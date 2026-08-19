@@ -36076,6 +36076,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-mapbox-gl-js",
+   "name": "Mapbox GL JS",
+   "kind": "library",
+   "category": "Карты и навигация",
+   "summary": "WebGL vector-tile map renderer with runtime styling and smooth zooming.",
+   "url": "https://docs.mapbox.com/mapbox-gl-js/guides/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "maps",
+    "vector-tiles",
+    "webgl",
+    "styling"
+   ],
+   "tip": "Version 2 onward is not open source — MapLibre is the fork to use if the licence matters.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i mapbox-gl",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "WebGL vector-tile map renderer with runtime styling and smooth zooming.",
+    "ru": "WebGL-рендерер векторных тайлов с рантайм-стилизацией и плавным зумом."
+   },
+   "localizedTip": {
+    "en": "Version 2 onward is not open source — MapLibre is the fork to use if the licence matters."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-maplibre",
    "name": "MapLibre GL JS",
    "kind": "library",
@@ -36116,6 +36151,251 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-martin-tiles",
+   "name": "Martin",
+   "kind": "library",
+   "category": "Карты и навигация",
+   "summary": "Fast Rust tile server publishing vector tiles straight from PostGIS.",
+   "url": "https://maplibre.org/martin/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tile-server",
+    "postgis",
+    "rust",
+    "mvt"
+   ],
+   "tip": "Serving tiles directly from the database keeps them live without a regeneration pipeline.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast Rust tile server publishing vector tiles straight from PostGIS.",
+    "ru": "Быстрый tile-сервер на Rust, публикующий векторные тайлы прямо из PostGIS."
+   },
+   "localizedTip": {
+    "en": "Serving tiles directly from the database keeps them live without a regeneration pipeline."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-openlayers",
+   "name": "OpenLayers",
+   "kind": "library",
+   "category": "Карты и навигация",
+   "summary": "Feature-rich web mapping library with strong OGC standards and projection support.",
+   "url": "https://openlayers.org/doc/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "maps",
+    "web",
+    "ogc",
+    "projections"
+   ],
+   "tip": "The right choice when you need WMS, WFS and arbitrary projections that lighter libraries skip.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i ol",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Feature-rich web mapping library with strong OGC standards and projection support.",
+    "ru": "Богатая веб-картографическая библиотека с сильной поддержкой стандартов OGC и проекций."
+   },
+   "localizedTip": {
+    "en": "The right choice when you need WMS, WFS and arbitrary projections that lighter libraries skip."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-osrm",
+   "name": "OSRM",
+   "kind": "library",
+   "category": "Карты и навигация",
+   "summary": "Very fast routing engine for OpenStreetMap data, self-hostable.",
+   "url": "https://project-osrm.org/docs/v5.24.0/api/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "routing",
+    "osm",
+    "c-plus-plus",
+    "fast"
+   ],
+   "tip": "Preprocessing a country's data takes hours and lots of RAM, but queries then run in milliseconds.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Very fast routing engine for OpenStreetMap data, self-hostable.",
+    "ru": "Очень быстрый движок маршрутизации по данным OpenStreetMap, разворачивается самостоятельно."
+   },
+   "localizedTip": {
+    "en": "Preprocessing a country's data takes hours and lots of RAM, but queries then run in milliseconds."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-pelias",
+   "name": "Pelias",
+   "kind": "library",
+   "category": "Карты и навигация",
+   "summary": "Open-source geocoder built on Elasticsearch, combining several open data sources.",
+   "url": "https://pelias.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "geocoding",
+    "search",
+    "elasticsearch",
+    "self-host"
+   ],
+   "tip": "Self-hosting removes per-request geocoding costs, which dominate at high address volumes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source geocoder built on Elasticsearch, combining several open data sources.",
+    "ru": "Открытый геокодер на Elasticsearch, объединяющий несколько открытых источников данных."
+   },
+   "localizedTip": {
+    "en": "Self-hosting removes per-request geocoding costs, which dominate at high address volumes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-pmtiles",
+   "name": "PMTiles",
+   "kind": "library",
+   "category": "Карты и навигация",
+   "summary": "Single-file tile archive format read directly over HTTP range requests.",
+   "url": "https://docs.protomaps.com/pmtiles/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tiles",
+    "single-file",
+    "range-requests",
+    "cloud"
+   ],
+   "tip": "The browser fetches only the byte ranges it needs, so a huge archive costs no extra bandwidth.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Single-file tile archive format read directly over HTTP range requests.",
+    "ru": "Однофайловый формат архива тайлов, читаемый напрямую через HTTP range-запросы."
+   },
+   "localizedTip": {
+    "en": "The browser fetches only the byte ranges it needs, so a huge archive costs no extra bandwidth."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-protomaps",
+   "name": "Protomaps",
+   "kind": "library",
+   "category": "Карты и навигация",
+   "summary": "Serves entire vector basemaps from a single static file, with no tile server.",
+   "url": "https://docs.protomaps.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tiles",
+    "static",
+    "pmtiles",
+    "serverless"
+   ],
+   "tip": "A whole-planet basemap on static hosting removes the map server bill entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Serves entire vector basemaps from a single static file, with no tile server.",
+    "ru": "Отдаёт целые векторные базовые карты из одного статического файла без тайл-сервера."
+   },
+   "localizedTip": {
+    "en": "A whole-planet basemap on static hosting removes the map server bill entirely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-tippecanoe",
+   "name": "Tippecanoe",
+   "kind": "library",
+   "category": "Карты и навигация",
+   "summary": "Builds vector tilesets from large GeoJSON inputs with automatic zoom-level simplification.",
+   "url": "https://github.com/felt/tippecanoe",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tiles",
+    "generation",
+    "geojson",
+    "mbtiles"
+   ],
+   "tip": "Its per-zoom feature dropping is what keeps a million-point dataset renderable at low zoom.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install tippecanoe",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds vector tilesets from large GeoJSON inputs with automatic zoom-level simplification.",
+    "ru": "Строит наборы векторных тайлов из больших GeoJSON с автоматическим упрощением по уровням зума."
+   },
+   "localizedTip": {
+    "en": "Its per-zoom feature dropping is what keeps a million-point dataset renderable at low zoom."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -36220,6 +36500,76 @@
    },
    "localizedTip": {
     "en": "Use it to derive an exact formula, then lambdify it into a fast numeric function for actual computation."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-overture-maps",
+   "name": "Overture Maps",
+   "kind": "library",
+   "category": "Открытые данные",
+   "summary": "Open map dataset of places, buildings, transportation and boundaries.",
+   "url": "https://docs.overturemaps.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "open-data",
+    "basemap",
+    "places",
+    "buildings"
+   ],
+   "tip": "Distributed as GeoParquet, so you query it with DuckDB rather than importing a whole database.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open map dataset of places, buildings, transportation and boundaries.",
+    "ru": "Открытый набор картографических данных: места, здания, транспорт и границы."
+   },
+   "localizedTip": {
+    "en": "Distributed as GeoParquet, so you query it with DuckDB rather than importing a whole database."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-gdal",
+   "name": "GDAL",
+   "kind": "library",
+   "category": "Погода и геоданные",
+   "summary": "The foundational translator library for raster and vector geospatial formats.",
+   "url": "https://gdal.org/en/stable/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "raster",
+    "vector",
+    "conversion",
+    "geospatial"
+   ],
+   "tip": "Almost every geospatial tool wraps it — learning ogr2ogr and gdal_translate pays off everywhere.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The foundational translator library for raster and vector geospatial formats.",
+    "ru": "Фундаментальная библиотека-транслятор растровых и векторных геопространственных форматов."
+   },
+   "localizedTip": {
+    "en": "Almost every geospatial tool wraps it — learning ogr2ogr and gdal_translate pays off everywhere."
    },
    "pricing": {
     "model": "openSource",
@@ -36333,6 +36683,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-pygeos-shapely2",
+   "name": "pygeos",
+   "kind": "library",
+   "category": "Погода и геоданные",
+   "summary": "Vectorized geometry operations for Python, now merged into Shapely 2.",
+   "url": "https://pygeos.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "vectorized",
+    "geometry",
+    "numpy"
+   ],
+   "tip": "Use Shapely 2 directly for new code — this package exists mainly for legacy compatibility.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Vectorized geometry operations for Python, now merged into Shapely 2.",
+    "ru": "Векторизованные геометрические операции для Python, теперь объединены в Shapely 2."
+   },
+   "localizedTip": {
+    "en": "Use Shapely 2 directly for new code — this package exists mainly for legacy compatibility."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-rasterio",
    "name": "Rasterio",
    "kind": "library",
@@ -36360,6 +36745,41 @@
    },
    "localizedTip": {
     "en": "Read windows rather than whole files — satellite scenes are far too large to load into memory entirely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-s2-geometry",
+   "name": "S2 Geometry",
+   "kind": "library",
+   "category": "Погода и геоданные",
+   "summary": "Google's spherical geometry library indexing the globe as hierarchical cells.",
+   "url": "https://s2geometry.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "spherical",
+    "indexing",
+    "google",
+    "cells"
+   ],
+   "tip": "Spherical rather than planar math avoids the distortion that bites flat projections near the poles.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's spherical geometry library indexing the globe as hierarchical cells.",
+    "ru": "Библиотека сферической геометрии Google, индексирующая земной шар иерархическими ячейками."
+   },
+   "localizedTip": {
+    "en": "Spherical rather than planar math avoids the distortion that bites flat projections near the poles."
    },
    "pricing": {
     "model": "openSource",
@@ -49393,6 +49813,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-a-frame",
+   "name": "A-Frame",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Declarative HTML framework for building WebXR and VR scenes.",
+   "url": "https://aframe.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "webxr",
+    "vr",
+    "html",
+    "declarative"
+   ],
+   "tip": "Writing a VR scene in HTML tags makes it approachable to anyone who knows the DOM.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i aframe",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Declarative HTML framework for building WebXR and VR scenes.",
+    "ru": "Декларативный HTML-фреймворк для создания сцен WebXR и VR."
+   },
+   "localizedTip": {
+    "en": "Writing a VR scene in HTML tags makes it approachable to anyone who knows the DOM."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-animejs",
    "name": "Anime.js",
    "kind": "library",
@@ -49525,6 +49980,76 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-blender-python",
+   "name": "Blender Python API",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Scripting API for automating modelling, rendering and asset pipelines in Blender.",
+   "url": "https://docs.blender.org/api/current/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "3d",
+    "scripting",
+    "automation",
+    "rendering"
+   ],
+   "tip": "Blender runs headless, so batch rendering and asset generation work fine on a server.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Scripting API for automating modelling, rendering and asset pipelines in Blender.",
+    "ru": "API скриптования для автоматизации моделирования, рендеринга и пайплайнов ассетов в Blender."
+   },
+   "localizedTip": {
+    "en": "Blender runs headless, so batch rendering and asset generation work fine on a server."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-cesium",
+   "name": "CesiumJS",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "3D globe and map engine for geospatial visualization with real terrain data.",
+   "url": "https://cesium.com/learn/cesiumjs-learn/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "3d-globe",
+    "terrain",
+    "geospatial",
+    "webgl"
+   ],
+   "tip": "The only mainstream option when altitude and true 3D terrain actually matter to the visualization.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i cesium",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "3D globe and map engine for geospatial visualization with real terrain data.",
+    "ru": "Движок 3D-глобуса и карт для геопространственной визуализации с реальными данными рельефа."
+   },
+   "localizedTip": {
+    "en": "The only mainstream option when altitude and true 3D terrain actually matter to the visualization."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -50468,6 +50993,41 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-kepler-gl",
+   "name": "Kepler.gl",
+   "kind": "library",
+   "category": "Графики и визуализация",
+   "summary": "Geospatial analysis and visualization tool for large location datasets.",
+   "url": "https://docs.kepler.gl/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "geospatial",
+    "visualization",
+    "exploration",
+    "uber"
+   ],
+   "tip": "Its no-code browser UI lets analysts explore data before anyone writes a visualization.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i kepler.gl",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Geospatial analysis and visualization tool for large location datasets.",
+    "ru": "Инструмент геопространственного анализа и визуализации для больших наборов геоданных."
+   },
+   "localizedTip": {
+    "en": "Its no-code browser UI lets analysts explore data before anyone writes a visualization."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
