@@ -173,6 +173,18 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-twilio-verify': 'api-twilio-verify',
+ 'paid-bandwidth': 'api-bandwidth',
+ 'paid-infobip': 'api-infobip',
+ 'paid-zendesk': 'api-zendesk',
+ 'paid-help-scout': 'api-help-scout',
+ 'paid-gorgias': 'api-gorgias',
+ 'paid-pylon-support': 'api-pylon-support',
+ 'paid-missive': 'api-missive',
+ 'paid-customer-io': 'api-customer-io',
+ 'paid-braze': 'api-braze',
+ 'paid-iterable': 'api-iterable',
+ 'paid-moengage': 'api-moengage',
  'paid-nium': 'api-nium',
  'paid-rapyd': 'api-rapyd',
  'paid-modern-treasury': 'api-modern-treasury',

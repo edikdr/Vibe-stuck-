@@ -2986,6 +2986,125 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-freshdesk",
+   "name": "Freshdesk",
+   "kind": "api",
+   "category": "CRM и продажи",
+   "summary": "Helpdesk and ticketing APIs with a free tier for small teams.",
+   "url": "https://developers.freshdesk.com/api/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "support",
+    "tickets",
+    "helpdesk",
+    "affordable"
+   ],
+   "tip": "Its free plan covers a real small-team helpdesk, which is rare in this category.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Helpdesk and ticketing APIs with a free tier for small teams.",
+    "ru": "API службы поддержки и тикетов с бесплатным тарифом для небольших команд."
+   },
+   "localizedTip": {
+    "en": "Its free plan covers a real small-team helpdesk, which is rare in this category."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-gorgias",
+   "name": "Gorgias",
+   "kind": "api",
+   "category": "CRM и продажи",
+   "summary": "Helpdesk built for e-commerce, with deep Shopify order context in each ticket.",
+   "url": "https://developers.gorgias.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ecommerce",
+    "support",
+    "shopify",
+    "helpdesk",
+    "pricing",
+    "per-ticket",
+    "subscription"
+   ],
+   "tip": "Seeing and refunding the order inside the ticket is what makes it worth more than a generic desk.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Helpdesk built for e-commerce, with deep Shopify order context in each ticket.",
+    "ru": "Служба поддержки для e-commerce с глубоким контекстом заказов Shopify в каждом тикете."
+   },
+   "localizedTip": {
+    "en": "Seeing and refunding the order inside the ticket is what makes it worth more than a generic desk."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$10 per month",
+    "freeQuota": "free trial",
+    "url": "https://www.gorgias.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-help-scout",
+   "name": "Help Scout",
+   "kind": "api",
+   "category": "CRM и продажи",
+   "summary": "Shared inbox and knowledge base APIs oriented around conversations, not tickets.",
+   "url": "https://developer.helpscout.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "support",
+    "shared-inbox",
+    "conversations",
+    "docs",
+    "pricing",
+    "per-user",
+    "contacts"
+   ],
+   "tip": "The conversation model keeps customer-facing replies feeling like email rather than a ticket system.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Shared inbox and knowledge base APIs oriented around conversations, not tickets.",
+    "ru": "API общего почтового ящика и базы знаний, построенные вокруг диалогов, а не тикетов."
+   },
+   "localizedTip": {
+    "en": "The conversation model keeps customer-facing replies feeling like email rather than a ticket system."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$50 per month",
+    "freeQuota": "free trial",
+    "url": "https://www.helpscout.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-hubspot",
    "name": "HubSpot API",
    "kind": "api",
@@ -3056,6 +3175,83 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-plain-support",
+   "name": "Plain",
+   "kind": "api",
+   "category": "CRM и продажи",
+   "summary": "API-first customer support tool designed for engineering-led teams.",
+   "url": "https://www.plain.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "support",
+    "api-first",
+    "developer",
+    "customer-cards"
+   ],
+   "tip": "Customer cards pull live data from your own systems into the support view via your API.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API-first customer support tool designed for engineering-led teams.",
+    "ru": "Инструмент клиентской поддержки с приоритетом API для команд, ведомых инженерами."
+   },
+   "localizedTip": {
+    "en": "Customer cards pull live data from your own systems into the support view via your API."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-pylon-support",
+   "name": "Pylon",
+   "kind": "api",
+   "category": "CRM и продажи",
+   "summary": "B2B support platform operating inside shared Slack and Teams channels.",
+   "url": "https://docs.usepylon.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "b2b",
+    "support",
+    "slack",
+    "shared-channels",
+    "pricing",
+    "per-seat",
+    "subscription"
+   ],
+   "tip": "Meets enterprise customers where they already are instead of forcing them into a portal.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "B2B support platform operating inside shared Slack and Teams channels.",
+    "ru": "Платформа B2B-поддержки, работающая внутри общих каналов Slack и Teams."
+   },
+   "localizedTip": {
+    "en": "Meets enterprise customers where they already are instead of forcing them into a portal."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "custom quote (per seat)",
+    "freeQuota": "free trial",
+    "url": "https://usepylon.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-salesforce",
    "name": "Salesforce REST API",
    "kind": "api",
@@ -3091,6 +3287,90 @@
     "from": "from ~$25 per seat per month",
     "freeQuota": "free Developer Edition for building",
     "url": "https://www.salesforce.com/editions-pricing/sales-cloud/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-zendesk",
+   "name": "Zendesk API",
+   "kind": "api",
+   "category": "CRM и продажи",
+   "summary": "Customer support ticketing APIs for the widely used Zendesk platform.",
+   "url": "https://developer.zendesk.com/api-reference/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "support",
+    "tickets",
+    "helpdesk",
+    "enterprise",
+    "pricing",
+    "per-agent",
+    "subscription"
+   ],
+   "tip": "Rate limits are per account and fairly tight — batch operations rather than looping single calls.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Customer support ticketing APIs for the widely used Zendesk platform.",
+    "ru": "API тикетов клиентской поддержки для широко используемой платформы Zendesk."
+   },
+   "localizedTip": {
+    "en": "Rate limits are per account and fairly tight — batch operations rather than looping single calls."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$19 per agent per month",
+    "freeQuota": "free trial",
+    "url": "https://www.zendesk.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-customer-io",
+   "name": "Customer.io",
+   "kind": "api",
+   "category": "Email-маркетинг",
+   "summary": "Behavioural messaging platform triggering campaigns from product events.",
+   "url": "https://docs.customer.io/api/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "lifecycle",
+    "messaging",
+    "segmentation",
+    "workflows",
+    "pricing",
+    "profiles",
+    "subscription"
+   ],
+   "tip": "Its visual workflow builder is genuinely usable by marketers without engineering involvement.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Behavioural messaging platform triggering campaigns from product events.",
+    "ru": "Платформа поведенческих сообщений, запускающая кампании по продуктовым событиям."
+   },
+   "localizedTip": {
+    "en": "Its visual workflow builder is genuinely usable by marketers without engineering involvement."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$100 per month",
+    "freeQuota": "free trial",
+    "url": "https://customer.io/pricing",
     "currency": "USD",
     "checkedAt": "2026-08-17"
    },
@@ -3159,6 +3439,41 @@
    },
    "localizedTip": {
     "en": "Track ecommerce events (viewed product, placed order) — segments are built almost entirely from these."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-loops-so",
+   "name": "Loops",
+   "kind": "api",
+   "category": "Email-маркетинг",
+   "summary": "Modern email platform built for SaaS lifecycle and transactional messages.",
+   "url": "https://loops.so/docs/api-reference/intro",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "email",
+    "saas",
+    "transactional",
+    "simple"
+   ],
+   "tip": "Much simpler than enterprise marketing suites, which suits a small product team well.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern email platform built for SaaS lifecycle and transactional messages.",
+    "ru": "Современная email-платформа для жизненного цикла SaaS и транзакционных писем."
+   },
+   "localizedTip": {
+    "en": "Much simpler than enterprise marketing suites, which suits a small product team well."
    },
    "pricing": {
     "model": "freemium",
@@ -6575,6 +6890,76 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-expo-push",
+   "name": "Expo Push Notifications",
+   "kind": "api",
+   "category": "Почта и уведомления",
+   "summary": "Push notifications for React Native apps without configuring APNs and FCM separately.",
+   "url": "https://docs.expo.dev/push-notifications/overview/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react-native",
+    "expo",
+    "push",
+    "cross-platform"
+   ],
+   "tip": "Handles both platform credentials for you, which removes the most error-prone part of mobile push.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Push notifications for React Native apps without configuring APNs and FCM separately.",
+    "ru": "Push-уведомления для React Native без отдельной настройки APNs и FCM."
+   },
+   "localizedTip": {
+    "en": "Handles both platform credentials for you, which removes the most error-prone part of mobile push."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-fcm",
+   "name": "Firebase Cloud Messaging",
+   "kind": "api",
+   "category": "Почта и уведомления",
+   "summary": "Google's free push notification service for Android, iOS and web.",
+   "url": "https://firebase.google.com/docs/cloud-messaging",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "push",
+    "mobile",
+    "google",
+    "free"
+   ],
+   "tip": "Free at any volume, which is why most push vendors ultimately deliver through it anyway.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's free push notification service for Android, iOS and web.",
+    "ru": "Бесплатный сервис push-уведомлений Google для Android, iOS и web."
+   },
+   "localizedTip": {
+    "en": "Free at any volume, which is why most push vendors ultimately deliver through it anyway."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-knock",
    "name": "Knock",
    "kind": "api",
@@ -6748,6 +7133,41 @@
    },
    "localizedTip": {
     "en": "Web push needs HTTPS and a service worker, so plan for a tunnel during local development."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-pusher-beams",
+   "name": "Pusher Beams",
+   "kind": "api",
+   "category": "Почта и уведомления",
+   "summary": "Push notification delivery for iOS, Android and web from a single API.",
+   "url": "https://pusher.com/docs/beams/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "push",
+    "mobile",
+    "web",
+    "transactional"
+   ],
+   "tip": "Its per-user publishing handles device token management, which is the tedious part of push.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Push notification delivery for iOS, Android and web from a single API.",
+    "ru": "Доставка push-уведомлений на iOS, Android и web через единый API."
+   },
+   "localizedTip": {
+    "en": "Its per-user publishing handles device token management, which is the tedious part of push."
    },
    "pricing": {
     "model": "freemium",
@@ -7281,6 +7701,125 @@
    "categoryGroup": "data"
   },
   {
+   "id": "api-braze",
+   "name": "Braze",
+   "kind": "api",
+   "category": "CDP и маркетинг-данные",
+   "summary": "Enterprise customer engagement platform spanning push, email, in-app and SMS.",
+   "url": "https://www.braze.com/docs/api/basics/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "engagement",
+    "cross-channel",
+    "enterprise",
+    "personalization",
+    "pricing",
+    "custom"
+   ],
+   "tip": "Enterprise pricing and a real implementation project — not something adopted in an afternoon.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise customer engagement platform spanning push, email, in-app and SMS.",
+    "ru": "Корпоративная платформа вовлечения клиентов: push, email, in-app и SMS."
+   },
+   "localizedTip": {
+    "en": "Enterprise pricing and a real implementation project — not something adopted in an afternoon."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "product demo",
+    "url": "https://www.braze.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-clevertap",
+   "name": "CleverTap",
+   "kind": "api",
+   "category": "CDP и маркетинг-данные",
+   "summary": "Mobile-first retention and engagement platform combining analytics with messaging.",
+   "url": "https://developer.clevertap.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "retention",
+    "mobile",
+    "segmentation",
+    "analytics"
+   ],
+   "tip": "Analytics and messaging in one system removes the export step between measuring and acting.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mobile-first retention and engagement platform combining analytics with messaging.",
+    "ru": "Mobile-first платформа удержания и вовлечения, сочетающая аналитику с рассылками."
+   },
+   "localizedTip": {
+    "en": "Analytics and messaging in one system removes the export step between measuring and acting."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-iterable",
+   "name": "Iterable",
+   "kind": "api",
+   "category": "CDP и маркетинг-данные",
+   "summary": "Cross-channel marketing automation with workflow-based campaign orchestration.",
+   "url": "https://api.iterable.com/api/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cross-channel",
+    "campaigns",
+    "workflows",
+    "personalization",
+    "marketing",
+    "pricing",
+    "contacts",
+    "enterprise"
+   ],
+   "tip": "Its data feeds pull live content into messages at send time rather than at campaign build time.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cross-channel marketing automation with workflow-based campaign orchestration.",
+    "ru": "Кроссканальная маркетинговая автоматизация с оркестрацией кампаний на основе workflow."
+   },
+   "localizedTip": {
+    "en": "Its data feeds pull live content into messages at send time rather than at campaign build time."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote (by contact volume)",
+    "freeQuota": "product demo",
+    "url": "https://iterable.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "api-june-so",
    "name": "June",
    "kind": "api",
@@ -7346,6 +7885,48 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "api-moengage",
+   "name": "MoEngage",
+   "kind": "api",
+   "category": "CDP и маркетинг-данные",
+   "summary": "Customer engagement platform with a strong mobile and emerging-markets focus.",
+   "url": "https://developers.moengage.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "engagement",
+    "mobile",
+    "analytics",
+    "personalization",
+    "pricing",
+    "mau",
+    "custom"
+   ],
+   "tip": "Well established in Asian markets where the US-centric platforms have weaker local support.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Customer engagement platform with a strong mobile and emerging-markets focus.",
+    "ru": "Платформа вовлечения клиентов с сильным фокусом на мобильные и развивающиеся рынки."
+   },
+   "localizedTip": {
+    "en": "Well established in Asian markets where the US-centric platforms have weaker local support."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote (by monthly active users)",
+    "freeQuota": "product demo",
+    "url": "https://www.moengage.com/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -23765,6 +24346,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-46elks",
+   "name": "46elks",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Simple SMS and voice API popular in the Nordics and wider Europe.",
+   "url": "https://46elks.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sms",
+    "voice",
+    "europe",
+    "simple"
+   ],
+   "tip": "Its API is small enough to learn in an afternoon, which suits straightforward notification needs.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple SMS and voice API popular in the Nordics and wider Europe.",
+    "ru": "Простой API SMS и голоса, популярный в Северной Европе и Европе в целом."
+   },
+   "localizedTip": {
+    "en": "Its API is small enough to learn in an afternoon, which suits straightforward notification needs."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-ably",
    "name": "Ably",
    "kind": "api",
@@ -23800,6 +24416,82 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-africas-talking",
+   "name": "Africa's Talking",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "SMS, USSD, voice and airtime APIs built for African markets.",
+   "url": "https://developers.africastalking.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sms",
+    "ussd",
+    "airtime",
+    "africa"
+   ],
+   "tip": "USSD support matters where feature phones dominate and app-based flows simply do not reach users.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "SMS, USSD, voice and airtime APIs built for African markets.",
+    "ru": "API SMS, USSD, голоса и пополнения счёта, созданные для африканских рынков."
+   },
+   "localizedTip": {
+    "en": "USSD support matters where feature phones dominate and app-based flows simply do not reach users."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-bandwidth",
+   "name": "Bandwidth",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Carrier-level voice and messaging APIs with emergency calling support.",
+   "url": "https://dev.bandwidth.com/docs/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "voice",
+    "messaging",
+    "911",
+    "carrier",
+    "pricing",
+    "per-minute"
+   ],
+   "tip": "Direct carrier status matters for regulated use cases like E911 that aggregators cannot offer.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Carrier-level voice and messaging APIs with emergency calling support.",
+    "ru": "API голоса и сообщений операторского уровня с поддержкой экстренных вызовов."
+   },
+   "localizedTip": {
+    "en": "Direct carrier status matters for regulated use cases like E911 that aggregators cannot offer."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.007 per minute",
+    "freeQuota": "free trial credit",
+    "url": "https://www.bandwidth.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-chatwoot",
    "name": "Chatwoot",
    "kind": "api",
@@ -23830,6 +24522,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-clicksend",
+   "name": "ClickSend",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Multi-channel messaging including SMS, email and physical post.",
+   "url": "https://developers.clicksend.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sms",
+    "email",
+    "post",
+    "fax"
+   ],
+   "tip": "Physical letter delivery via API is unusual and genuinely useful for regulated notifications.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Multi-channel messaging including SMS, email and physical post.",
+    "ru": "Многоканальная отправка сообщений: SMS, email и обычная почта."
+   },
+   "localizedTip": {
+    "en": "Physical letter delivery via API is unusual and genuinely useful for regulated notifications."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -23946,6 +24673,47 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-infobip",
+   "name": "Infobip",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Global omnichannel communications platform with wide carrier coverage.",
+   "url": "https://www.infobip.com/docs/api",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "omnichannel",
+    "global",
+    "sms",
+    "enterprise",
+    "pricing",
+    "per-message"
+   ],
+   "tip": "Its coverage in emerging markets is the usual reason to pick it over US-centric providers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Global omnichannel communications platform with wide carrier coverage.",
+    "ru": "Глобальная омниканальная коммуникационная платформа с широким покрытием операторов."
+   },
+   "localizedTip": {
+    "en": "Its coverage in emerging markets is the usual reason to pick it over US-centric providers."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "custom quote (per message by country)",
+    "freeQuota": "free trial credit",
+    "url": "https://www.infobip.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-intercom",
    "name": "Intercom API",
    "kind": "api",
@@ -23988,6 +24756,76 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-matrix",
+   "name": "Matrix",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Open federated protocol for real-time communication with end-to-end encryption.",
+   "url": "https://spec.matrix.org/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "federated",
+    "protocol",
+    "chat",
+    "e2ee"
+   ],
+   "tip": "Federation means no single vendor owns your chat history, which is why governments adopt it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open federated protocol for real-time communication with end-to-end encryption.",
+    "ru": "Открытый федеративный протокол коммуникации в реальном времени со сквозным шифрованием."
+   },
+   "localizedTip": {
+    "en": "Federation means no single vendor owns your chat history, which is why governments adopt it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-mattermost",
+   "name": "Mattermost",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Self-hosted team messaging platform with a full REST API and plugin system.",
+   "url": "https://developers.mattermost.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-host",
+    "chat",
+    "slack-alternative",
+    "teams"
+   ],
+   "tip": "The obvious pick when chat data must stay inside your own infrastructure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted team messaging platform with a full REST API and plugin system.",
+    "ru": "Self-hosted платформа командных сообщений с полным REST API и системой плагинов."
+   },
+   "localizedTip": {
+    "en": "The obvious pick when chat data must stay inside your own infrastructure."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-messagebird",
    "name": "MessageBird (Bird)",
    "kind": "api",
@@ -24018,6 +24856,48 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-missive",
+   "name": "Missive",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Collaborative shared inbox with internal discussion attached to each thread.",
+   "url": "https://missiveapp.com/help/api-documentation",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "shared-inbox",
+    "collaboration",
+    "email",
+    "teams",
+    "pricing",
+    "per-user",
+    "subscription"
+   ],
+   "tip": "Internal comments live beside the customer thread, so context is not scattered across chat.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Collaborative shared inbox with internal discussion attached to each thread.",
+    "ru": "Совместный общий почтовый ящик с внутренним обсуждением, привязанным к каждой переписке."
+   },
+   "localizedTip": {
+    "en": "Internal comments live beside the customer thread, so context is not scattered across chat."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$18 per user per month",
+    "freeQuota": "free trial",
+    "url": "https://missiveapp.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -24203,6 +25083,41 @@
     "freeQuota": "3000 emails per month free",
     "url": "https://resend.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-rocket-chat",
+   "name": "Rocket.Chat",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Open-source communications platform with team chat and customer omnichannel support.",
+   "url": "https://developer.rocket.chat/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-host",
+    "chat",
+    "omnichannel",
+    "apps"
+   ],
+   "tip": "Combines internal chat and customer support in one deployment, unlike most alternatives.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source communications platform with team chat and customer omnichannel support.",
+    "ru": "Открытая коммуникационная платформа с командным чатом и омниканальной поддержкой клиентов."
+   },
+   "localizedTip": {
+    "en": "Combines internal chat and customer support in one deployment, unlike most alternatives."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -24422,6 +25337,76 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-telnyx",
+   "name": "Telnyx",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Communications platform running its own IP network for voice and messaging.",
+   "url": "https://developers.telnyx.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sms",
+    "voice",
+    "sip",
+    "private-network"
+   ],
+   "tip": "Owning the network rather than reselling is what keeps its per-minute voice rates low.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Communications platform running its own IP network for voice and messaging.",
+    "ru": "Коммуникационная платформа с собственной IP-сетью для голоса и сообщений."
+   },
+   "localizedTip": {
+    "en": "Owning the network rather than reselling is what keeps its per-minute voice rates low."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-termii",
+   "name": "Termii",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Messaging and verification APIs focused on African markets.",
+   "url": "https://developer.termii.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sms",
+    "otp",
+    "africa",
+    "verification"
+   ],
+   "tip": "Local sender-ID registration is required in several countries — plan for that lead time.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Messaging and verification APIs focused on African markets.",
+    "ru": "API сообщений и верификации с фокусом на африканские рынки."
+   },
+   "localizedTip": {
+    "en": "Local sender-ID registration is required in several countries — plan for that lead time."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "paid-twilio",
    "name": "Twilio",
    "kind": "api",
@@ -24455,6 +25440,48 @@
     "from": "Per message and per minute, country dependent",
     "freeQuota": "Trial balance on sign-up",
     "url": "https://www.twilio.com/en-us/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-twilio-verify",
+   "name": "Twilio Verify",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Managed one-time-passcode verification across SMS, voice, email and WhatsApp.",
+   "url": "https://www.twilio.com/docs/verify",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "otp",
+    "2fa",
+    "multi-channel",
+    "verification",
+    "pricing",
+    "per-verification",
+    "usage"
+   ],
+   "tip": "Priced per successful verification, which is usually cheaper than paying per SMS attempt.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Managed one-time-passcode verification across SMS, voice, email and WhatsApp.",
+    "ru": "Управляемая проверка одноразовыми кодами по SMS, голосу, email и WhatsApp."
+   },
+   "localizedTip": {
+    "en": "Priced per successful verification, which is usually cheaper than paying per SMS attempt."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.05 per verification",
+    "freeQuota": "free trial credit",
+    "url": "https://www.twilio.com/en-us/verify/pricing",
     "currency": "USD",
     "checkedAt": "2026-08-17"
    },
@@ -24526,6 +25553,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-zulip",
+   "name": "Zulip",
+   "kind": "api",
+   "category": "Коммуникации",
+   "summary": "Team chat organized by topic threads rather than a single channel stream.",
+   "url": "https://zulip.com/api/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "threading",
+    "topics",
+    "async",
+    "open-source"
+   ],
+   "tip": "Topic-based threading makes catching up after time away genuinely feasible, unlike flat channels.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Team chat organized by topic threads rather than a single channel stream.",
+    "ru": "Командный чат, организованный по темам-тредам вместо единого потока канала."
+   },
+   "localizedTip": {
+    "en": "Topic-based threading makes catching up after time away genuinely feasible, unlike flat channels."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
