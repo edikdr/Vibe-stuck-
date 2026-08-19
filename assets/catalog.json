@@ -29633,6 +29633,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-authentik",
+   "name": "authentik",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Self-hosted identity provider with SSO, a forward-auth proxy and flexible flows.",
+   "url": "https://docs.goauthentik.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sso",
+    "idp",
+    "proxy",
+    "self-host"
+   ],
+   "tip": "Its proxy provider adds authentication in front of apps that have none of their own.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted identity provider with SSO, a forward-auth proxy and flexible flows.",
+    "ru": "Self-hosted провайдер идентификации с SSO, forward-auth прокси и гибкими сценариями."
+   },
+   "localizedTip": {
+    "en": "Its proxy provider adds authentication in front of apps that have none of their own."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-oauthlib",
    "name": "Authlib",
    "kind": "library",
@@ -29738,6 +29773,111 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-cedar-policy",
+   "name": "Cedar",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "AWS's authorization policy language, designed to be analyzable and fast to evaluate.",
+   "url": "https://docs.cedarpolicy.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "authorization",
+    "policy",
+    "aws",
+    "verifiable"
+   ],
+   "tip": "Formal analysis tooling can prove properties about your policies, which Rego cannot offer.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AWS's authorization policy language, designed to be analyzable and fast to evaluate.",
+    "ru": "Язык политик авторизации от AWS, спроектированный анализируемым и быстрым в вычислении."
+   },
+   "localizedTip": {
+    "en": "Formal analysis tooling can prove properties about your policies, which Rego cannot offer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-cerbos",
+   "name": "Cerbos",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Stateless authorization service with policies defined in readable YAML.",
+   "url": "https://docs.cerbos.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "authorization",
+    "policy",
+    "yaml",
+    "stateless"
+   ],
+   "tip": "Policies in YAML are reviewable by non-engineers, unlike Rego — often the deciding factor over OPA.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Stateless authorization service with policies defined in readable YAML.",
+    "ru": "Stateless-сервис авторизации с политиками в читаемом YAML."
+   },
+   "localizedTip": {
+    "en": "Policies in YAML are reviewable by non-engineers, unlike Rego — often the deciding factor over OPA."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-keycloak",
+   "name": "Keycloak",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Full-featured open-source identity and access management server.",
+   "url": "https://www.keycloak.org/documentation",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sso",
+    "oidc",
+    "saml",
+    "identity"
+   ],
+   "tip": "Covers SAML alongside OIDC, which is what enterprise customers ask for and lighter alternatives lack.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Full-featured open-source identity and access management server.",
+    "ru": "Полнофункциональный открытый сервер управления идентификацией и доступом."
+   },
+   "localizedTip": {
+    "en": "Covers SAML alongside OIDC, which is what enterprise customers ask for and lighter alternatives lack."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-lucia-auth",
    "name": "Lucia",
    "kind": "library",
@@ -29773,6 +29913,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-opa",
+   "name": "Open Policy Agent",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "General-purpose policy engine using the Rego language, decoupled from your application.",
+   "url": "https://www.openpolicyagent.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "policy",
+    "rego",
+    "authorization",
+    "cncf"
+   ],
+   "tip": "Rego has a real learning curve — write tests for policies, they are as easy to get wrong as code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "General-purpose policy engine using the Rego language, decoupled from your application.",
+    "ru": "Универсальный движок политик на языке Rego, отделённый от вашего приложения."
+   },
+   "localizedTip": {
+    "en": "Rego has a real learning curve — write tests for policies, they are as easy to get wrong as code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-openfga",
    "name": "OpenFGA",
    "kind": "library",
@@ -29800,6 +29975,76 @@
    },
    "localizedTip": {
     "en": "The right model when permissions come from object relationships rather than static user roles."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-ory-hydra",
+   "name": "Ory Hydra",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Certified OAuth 2.0 and OpenID Connect provider, deliberately without its own user store.",
+   "url": "https://www.ory.sh/docs/hydra",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "oauth2",
+    "oidc",
+    "provider",
+    "certified"
+   ],
+   "tip": "Pairs with Kratos or your existing user database — it issues tokens, it does not manage accounts.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Certified OAuth 2.0 and OpenID Connect provider, deliberately without its own user store.",
+    "ru": "Сертифицированный провайдер OAuth 2.0 и OpenID Connect, намеренно без собственного хранилища пользователей."
+   },
+   "localizedTip": {
+    "en": "Pairs with Kratos or your existing user database — it issues tokens, it does not manage accounts."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-ory-kratos",
+   "name": "Ory Kratos",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Headless identity server handling registration, login and account recovery flows.",
+   "url": "https://www.ory.sh/docs/kratos",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "identity",
+    "self-hosted",
+    "api-first",
+    "flows"
+   ],
+   "tip": "API-first with no bundled UI — you own the login screens, which is exactly why teams pick it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless identity server handling registration, login and account recovery flows.",
+    "ru": "Headless-сервер идентификации, обрабатывающий регистрацию, вход и восстановление аккаунта."
+   },
+   "localizedTip": {
+    "en": "API-first with no bundled UI — you own the login screens, which is exactly why teams pick it."
    },
    "pricing": {
     "model": "openSource",
@@ -29878,6 +30123,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-permit-io",
+   "name": "Permit.io",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Authorization platform with a UI for managing RBAC and ReBAC policies across services.",
+   "url": "https://docs.permit.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "authorization",
+    "rbac",
+    "rebac",
+    "ui"
+   ],
+   "tip": "The admin UI lets product owners change permissions without a deploy, which is its main selling point.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Authorization platform with a UI for managing RBAC and ReBAC policies across services.",
+    "ru": "Платформа авторизации с интерфейсом управления политиками RBAC и ReBAC между сервисами."
+   },
+   "localizedTip": {
+    "en": "The admin UI lets product owners change permissions without a deploy, which is its main selling point."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-python-jose",
    "name": "PyJWT",
    "kind": "library",
@@ -29905,6 +30185,76 @@
    },
    "localizedTip": {
     "en": "Always pass the algorithms parameter explicitly on decode — omitting it has caused real CVEs."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-spicedb",
+   "name": "SpiceDB",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Google Zanzibar-inspired database for fine-grained relationship-based permissions.",
+   "url": "https://authzed.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "zanzibar",
+    "relationships",
+    "fine-grained",
+    "graph"
+   ],
+   "tip": "The right model when permissions are graph-shaped ('editors of the parent folder'), not role-shaped.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google Zanzibar-inspired database for fine-grained relationship-based permissions.",
+    "ru": "База данных на идеях Google Zanzibar для детальных разрешений на основе отношений."
+   },
+   "localizedTip": {
+    "en": "The right model when permissions are graph-shaped ('editors of the parent folder'), not role-shaped."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-zitadel",
+   "name": "Zitadel",
+   "kind": "library",
+   "category": "Аутентификация",
+   "summary": "Cloud-native identity platform with multi-tenancy and audit trails built in.",
+   "url": "https://zitadel.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "identity",
+    "multi-tenant",
+    "go",
+    "cloud-native"
+   ],
+   "tip": "Multi-tenancy at the core makes it a better fit than Keycloak for B2B SaaS with customer organizations.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cloud-native identity platform with multi-tenancy and audit trails built in.",
+    "ru": "Cloud-native платформа идентификации со встроенной мультиарендностью и журналами аудита."
+   },
+   "localizedTip": {
+    "en": "Multi-tenancy at the core makes it a better fit than Keycloak for B2B SaaS with customer organizations."
    },
    "pricing": {
     "model": "openSource",
@@ -34358,356 +34708,6 @@
    "categoryGroup": "data"
   },
   {
-   "id": "lib-blynk",
-   "name": "Blynk",
-   "kind": "library",
-   "category": "Умный дом и IoT",
-   "summary": "Builds mobile apps for IoT devices with a drag-and-drop widget interface.",
-   "url": "https://docs.blynk.io/",
-   "access": "freeTier",
-   "compatibility": [
-    "both"
-   ],
-   "tags": [
-    "iot",
-    "mobile-app",
-    "dashboards",
-    "no-code"
-   ],
-   "tip": "Fastest path to a phone UI for a hobby device, without writing any mobile code.",
-   "verifiedAt": "2026-08-17",
-   "install": "",
-   "source": "curated",
-   "sourceLanguage": "en",
-   "localizedSummary": {
-    "en": "Builds mobile apps for IoT devices with a drag-and-drop widget interface.",
-    "ru": "Создаёт мобильные приложения для IoT-устройств через drag-and-drop интерфейс виджетов."
-   },
-   "localizedTip": {
-    "en": "Fastest path to a phone UI for a hobby device, without writing any mobile code."
-   },
-   "pricing": {
-    "model": "freemium",
-    "checkedAt": "2026-08-17"
-   },
-   "categoryGroup": "data"
-  },
-  {
-   "id": "lib-emqx",
-   "name": "EMQX",
-   "kind": "library",
-   "category": "Умный дом и IoT",
-   "summary": "Distributed MQTT broker built to handle millions of concurrent device connections.",
-   "url": "https://docs.emqx.com/en/emqx/latest/",
-   "access": "openSource",
-   "compatibility": [
-    "both"
-   ],
-   "tags": [
-    "mqtt",
-    "broker",
-    "clustered",
-    "scalable"
-   ],
-   "tip": "Clustering and rule engine are what you move to Mosquitto from once device count grows.",
-   "verifiedAt": "2026-08-17",
-   "install": "",
-   "source": "curated",
-   "sourceLanguage": "en",
-   "localizedSummary": {
-    "en": "Distributed MQTT broker built to handle millions of concurrent device connections.",
-    "ru": "Распределённый MQTT-брокер, рассчитанный на миллионы одновременных подключений устройств."
-   },
-   "localizedTip": {
-    "en": "Clustering and rule engine are what you move to Mosquitto from once device count grows."
-   },
-   "pricing": {
-    "model": "openSource",
-    "checkedAt": "2026-08-17"
-   },
-   "categoryGroup": "data"
-  },
-  {
-   "id": "lib-golioth",
-   "name": "Golioth",
-   "kind": "library",
-   "category": "Умный дом и IoT",
-   "summary": "Device management cloud for embedded firmware, with first-class Zephyr support.",
-   "url": "https://docs.golioth.io/",
-   "access": "freeTier",
-   "compatibility": [
-    "both"
-   ],
-   "tags": [
-    "iot",
-    "device-management",
-    "zephyr",
-    "cloud"
-   ],
-   "tip": "Handles OTA, logging and settings so firmware teams do not build a device backend themselves.",
-   "verifiedAt": "2026-08-17",
-   "install": "",
-   "source": "curated",
-   "sourceLanguage": "en",
-   "localizedSummary": {
-    "en": "Device management cloud for embedded firmware, with first-class Zephyr support.",
-    "ru": "Облако управления устройствами для встраиваемой прошивки с полноценной поддержкой Zephyr."
-   },
-   "localizedTip": {
-    "en": "Handles OTA, logging and settings so firmware teams do not build a device backend themselves."
-   },
-   "pricing": {
-    "model": "freemium",
-    "checkedAt": "2026-08-17"
-   },
-   "categoryGroup": "data"
-  },
-  {
-   "id": "lib-home-assistant",
-   "name": "Home Assistant",
-   "kind": "library",
-   "category": "Умный дом и IoT",
-   "summary": "Open-source home automation platform with thousands of device integrations.",
-   "url": "https://developers.home-assistant.io/",
-   "access": "openSource",
-   "compatibility": [
-    "both"
-   ],
-   "tags": [
-    "smart-home",
-    "automation",
-    "python",
-    "integrations"
-   ],
-   "tip": "Its local-first design keeps automations working when the internet or a vendor cloud goes down.",
-   "verifiedAt": "2026-08-17",
-   "install": "",
-   "source": "curated",
-   "sourceLanguage": "en",
-   "localizedSummary": {
-    "en": "Open-source home automation platform with thousands of device integrations.",
-    "ru": "Открытая платформа домашней автоматизации с тысячами интеграций устройств."
-   },
-   "localizedTip": {
-    "en": "Its local-first design keeps automations working when the internet or a vendor cloud goes down."
-   },
-   "pricing": {
-    "model": "openSource",
-    "checkedAt": "2026-08-17"
-   },
-   "categoryGroup": "data"
-  },
-  {
-   "id": "lib-losant",
-   "name": "Losant",
-   "kind": "library",
-   "category": "Умный дом и IoT",
-   "summary": "Enterprise IoT platform with a visual workflow engine and end-user dashboards.",
-   "url": "https://docs.losant.com/",
-   "access": "freeTier",
-   "compatibility": [
-    "both"
-   ],
-   "tags": [
-    "iot",
-    "workflows",
-    "dashboards",
-    "enterprise"
-   ],
-   "tip": "Its white-label experience layer is what separates it from purely internal telemetry platforms.",
-   "verifiedAt": "2026-08-17",
-   "install": "",
-   "source": "curated",
-   "sourceLanguage": "en",
-   "localizedSummary": {
-    "en": "Enterprise IoT platform with a visual workflow engine and end-user dashboards.",
-    "ru": "Корпоративная IoT-платформа с визуальным движком workflow и дашбордами для конечных пользователей."
-   },
-   "localizedTip": {
-    "en": "Its white-label experience layer is what separates it from purely internal telemetry platforms."
-   },
-   "pricing": {
-    "model": "freemium",
-    "checkedAt": "2026-08-17"
-   },
-   "categoryGroup": "data"
-  },
-  {
-   "id": "lib-opcua",
-   "name": "OPC UA (open62541)",
-   "kind": "library",
-   "category": "Умный дом и IoT",
-   "summary": "Open-source implementation of the OPC UA industrial automation protocol.",
-   "url": "https://www.open62541.org/documentation/",
-   "access": "openSource",
-   "compatibility": [
-    "both"
-   ],
-   "tags": [
-    "opc-ua",
-    "industrial",
-    "protocol",
-    "c"
-   ],
-   "tip": "The protocol of record for factory-floor equipment — expect it in any industrial integration.",
-   "verifiedAt": "2026-08-17",
-   "install": "",
-   "source": "curated",
-   "sourceLanguage": "en",
-   "localizedSummary": {
-    "en": "Open-source implementation of the OPC UA industrial automation protocol.",
-    "ru": "Открытая реализация промышленного протокола автоматизации OPC UA."
-   },
-   "localizedTip": {
-    "en": "The protocol of record for factory-floor equipment — expect it in any industrial integration."
-   },
-   "pricing": {
-    "model": "openSource",
-    "checkedAt": "2026-08-17"
-   },
-   "categoryGroup": "data"
-  },
-  {
-   "id": "lib-thingsboard",
-   "name": "ThingsBoard",
-   "kind": "library",
-   "category": "Умный дом и IoT",
-   "summary": "IoT platform for device management, telemetry collection and dashboards.",
-   "url": "https://thingsboard.io/docs/",
-   "access": "openSource",
-   "compatibility": [
-    "both"
-   ],
-   "tags": [
-    "iot",
-    "dashboards",
-    "telemetry",
-    "rules"
-   ],
-   "tip": "Its rule engine handles alerting and transformation server-side, keeping device firmware simple.",
-   "verifiedAt": "2026-08-17",
-   "install": "",
-   "source": "curated",
-   "sourceLanguage": "en",
-   "localizedSummary": {
-    "en": "IoT platform for device management, telemetry collection and dashboards.",
-    "ru": "IoT-платформа для управления устройствами, сбора телеметрии и дашбордов."
-   },
-   "localizedTip": {
-    "en": "Its rule engine handles alerting and transformation server-side, keeping device firmware simple."
-   },
-   "pricing": {
-    "model": "openSource",
-    "checkedAt": "2026-08-17"
-   },
-   "categoryGroup": "data"
-  },
-  {
-   "id": "lib-vernemq",
-   "name": "VerneMQ",
-   "kind": "library",
-   "category": "Умный дом и IoT",
-   "summary": "Erlang-based clustered MQTT broker with a plugin system for auth and routing.",
-   "url": "https://docs.vernemq.com/",
-   "access": "openSource",
-   "compatibility": [
-    "both"
-   ],
-   "tags": [
-    "mqtt",
-    "broker",
-    "erlang",
-    "clustered"
-   ],
-   "tip": "The BEAM runtime gives it graceful degradation under connection storms rather than hard failure.",
-   "verifiedAt": "2026-08-17",
-   "install": "",
-   "source": "curated",
-   "sourceLanguage": "en",
-   "localizedSummary": {
-    "en": "Erlang-based clustered MQTT broker with a plugin system for auth and routing.",
-    "ru": "Кластерный MQTT-брокер на Erlang с системой плагинов для аутентификации и маршрутизации."
-   },
-   "localizedTip": {
-    "en": "The BEAM runtime gives it graceful degradation under connection storms rather than hard failure."
-   },
-   "pricing": {
-    "model": "openSource",
-    "checkedAt": "2026-08-17"
-   },
-   "categoryGroup": "data"
-  },
-  {
-   "id": "lib-zenoh",
-   "name": "Zenoh",
-   "kind": "library",
-   "category": "Умный дом и IoT",
-   "summary": "Pub/sub, storage and query protocol unifying cloud, edge and robotics data flows.",
-   "url": "https://zenoh.io/docs/",
-   "access": "openSource",
-   "compatibility": [
-    "both"
-   ],
-   "tags": [
-    "pubsub",
-    "robotics",
-    "edge",
-    "protocol"
-   ],
-   "tip": "Lower overhead than MQTT or DDS on constrained links, which is why ROS 2 adopted it as a transport.",
-   "verifiedAt": "2026-08-17",
-   "install": "",
-   "source": "curated",
-   "sourceLanguage": "en",
-   "localizedSummary": {
-    "en": "Pub/sub, storage and query protocol unifying cloud, edge and robotics data flows.",
-    "ru": "Протокол pub/sub, хранения и запросов, объединяющий потоки данных облака, edge и робототехники."
-   },
-   "localizedTip": {
-    "en": "Lower overhead than MQTT or DDS on constrained links, which is why ROS 2 adopted it as a transport."
-   },
-   "pricing": {
-    "model": "openSource",
-    "checkedAt": "2026-08-17"
-   },
-   "categoryGroup": "data"
-  },
-  {
-   "id": "lib-zigbee2mqtt",
-   "name": "Zigbee2MQTT",
-   "kind": "library",
-   "category": "Умный дом и IoT",
-   "summary": "Bridges Zigbee devices onto MQTT, freeing them from vendor hubs.",
-   "url": "https://www.zigbee2mqtt.io/guide/getting-started/",
-   "access": "openSource",
-   "compatibility": [
-    "both"
-   ],
-   "tags": [
-    "zigbee",
-    "mqtt",
-    "smart-home",
-    "bridge"
-   ],
-   "tip": "Removes the vendor cloud from the loop entirely, which is the main reason to run it over a stock hub.",
-   "verifiedAt": "2026-08-17",
-   "install": "",
-   "source": "curated",
-   "sourceLanguage": "en",
-   "localizedSummary": {
-    "en": "Bridges Zigbee devices onto MQTT, freeing them from vendor hubs.",
-    "ru": "Мост Zigbee-устройств в MQTT, освобождающий их от вендорских хабов."
-   },
-   "localizedTip": {
-    "en": "Removes the vendor cloud from the loop entirely, which is the main reason to run it over a stock hub."
-   },
-   "pricing": {
-    "model": "openSource",
-    "checkedAt": "2026-08-17"
-   },
-   "categoryGroup": "data"
-  },
-  {
    "id": "lib-aspnet-core",
    "name": "ASP.NET Core",
    "kind": "library",
@@ -36202,6 +36202,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-blynk",
+   "name": "Blynk",
+   "kind": "library",
+   "category": "IoT и встраиваемые системы",
+   "summary": "Builds mobile apps for IoT devices with a drag-and-drop widget interface.",
+   "url": "https://docs.blynk.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iot",
+    "mobile-app",
+    "dashboards",
+    "no-code"
+   ],
+   "tip": "Fastest path to a phone UI for a hobby device, without writing any mobile code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds mobile apps for IoT devices with a drag-and-drop widget interface.",
+    "ru": "Создаёт мобильные приложения для IoT-устройств через drag-and-drop интерфейс виджетов."
+   },
+   "localizedTip": {
+    "en": "Fastest path to a phone UI for a hobby device, without writing any mobile code."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-circuitpython",
    "name": "CircuitPython",
    "kind": "library",
@@ -36264,6 +36299,41 @@
    },
    "localizedTip": {
     "en": "Enable TLS and auth by default — an open MQTT broker on the public internet gets found fast."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-emqx",
+   "name": "EMQX",
+   "kind": "library",
+   "category": "IoT и встраиваемые системы",
+   "summary": "Distributed MQTT broker built to handle millions of concurrent device connections.",
+   "url": "https://docs.emqx.com/en/emqx/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mqtt",
+    "broker",
+    "clustered",
+    "scalable"
+   ],
+   "tip": "Clustering and rule engine are what you move to Mosquitto from once device count grows.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed MQTT broker built to handle millions of concurrent device connections.",
+    "ru": "Распределённый MQTT-брокер, рассчитанный на миллионы одновременных подключений устройств."
+   },
+   "localizedTip": {
+    "en": "Clustering and rule engine are what you move to Mosquitto from once device count grows."
    },
    "pricing": {
     "model": "openSource",
@@ -36342,6 +36412,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-golioth",
+   "name": "Golioth",
+   "kind": "library",
+   "category": "IoT и встраиваемые системы",
+   "summary": "Device management cloud for embedded firmware, with first-class Zephyr support.",
+   "url": "https://docs.golioth.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iot",
+    "device-management",
+    "zephyr",
+    "cloud"
+   ],
+   "tip": "Handles OTA, logging and settings so firmware teams do not build a device backend themselves.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Device management cloud for embedded firmware, with first-class Zephyr support.",
+    "ru": "Облако управления устройствами для встраиваемой прошивки с полноценной поддержкой Zephyr."
+   },
+   "localizedTip": {
+    "en": "Handles OTA, logging and settings so firmware teams do not build a device backend themselves."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-home-assistant",
+   "name": "Home Assistant",
+   "kind": "library",
+   "category": "IoT и встраиваемые системы",
+   "summary": "Open-source home automation platform with thousands of device integrations.",
+   "url": "https://developers.home-assistant.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "smart-home",
+    "automation",
+    "python",
+    "integrations"
+   ],
+   "tip": "Its local-first design keeps automations working when the internet or a vendor cloud goes down.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source home automation platform with thousands of device integrations.",
+    "ru": "Открытая платформа домашней автоматизации с тысячами интеграций устройств."
+   },
+   "localizedTip": {
+    "en": "Its local-first design keeps automations working when the internet or a vendor cloud goes down."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-losant",
+   "name": "Losant",
+   "kind": "library",
+   "category": "IoT и встраиваемые системы",
+   "summary": "Enterprise IoT platform with a visual workflow engine and end-user dashboards.",
+   "url": "https://docs.losant.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iot",
+    "workflows",
+    "dashboards",
+    "enterprise"
+   ],
+   "tip": "Its white-label experience layer is what separates it from purely internal telemetry platforms.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise IoT platform with a visual workflow engine and end-user dashboards.",
+    "ru": "Корпоративная IoT-платформа с визуальным движком workflow и дашбордами для конечных пользователей."
+   },
+   "localizedTip": {
+    "en": "Its white-label experience layer is what separates it from purely internal telemetry platforms."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-micropython",
    "name": "MicroPython",
    "kind": "library",
@@ -36404,6 +36579,41 @@
    },
    "localizedTip": {
     "en": "Community-contributed nodes cover most protocols — check the flow library before writing a custom node."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-opcua",
+   "name": "OPC UA (open62541)",
+   "kind": "library",
+   "category": "IoT и встраиваемые системы",
+   "summary": "Open-source implementation of the OPC UA industrial automation protocol.",
+   "url": "https://www.open62541.org/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "opc-ua",
+    "industrial",
+    "protocol",
+    "c"
+   ],
+   "tip": "The protocol of record for factory-floor equipment — expect it in any industrial integration.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source implementation of the OPC UA industrial automation protocol.",
+    "ru": "Открытая реализация промышленного протокола автоматизации OPC UA."
+   },
+   "localizedTip": {
+    "en": "The protocol of record for factory-floor equipment — expect it in any industrial integration."
    },
    "pricing": {
     "model": "openSource",
@@ -36482,6 +36692,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-thingsboard",
+   "name": "ThingsBoard",
+   "kind": "library",
+   "category": "IoT и встраиваемые системы",
+   "summary": "IoT platform for device management, telemetry collection and dashboards.",
+   "url": "https://thingsboard.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iot",
+    "dashboards",
+    "telemetry",
+    "rules"
+   ],
+   "tip": "Its rule engine handles alerting and transformation server-side, keeping device firmware simple.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "IoT platform for device management, telemetry collection and dashboards.",
+    "ru": "IoT-платформа для управления устройствами, сбора телеметрии и дашбордов."
+   },
+   "localizedTip": {
+    "en": "Its rule engine handles alerting and transformation server-side, keeping device firmware simple."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-vernemq",
+   "name": "VerneMQ",
+   "kind": "library",
+   "category": "IoT и встраиваемые системы",
+   "summary": "Erlang-based clustered MQTT broker with a plugin system for auth and routing.",
+   "url": "https://docs.vernemq.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mqtt",
+    "broker",
+    "erlang",
+    "clustered"
+   ],
+   "tip": "The BEAM runtime gives it graceful degradation under connection storms rather than hard failure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Erlang-based clustered MQTT broker with a plugin system for auth and routing.",
+    "ru": "Кластерный MQTT-брокер на Erlang с системой плагинов для аутентификации и маршрутизации."
+   },
+   "localizedTip": {
+    "en": "The BEAM runtime gives it graceful degradation under connection storms rather than hard failure."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-zenoh",
+   "name": "Zenoh",
+   "kind": "library",
+   "category": "IoT и встраиваемые системы",
+   "summary": "Pub/sub, storage and query protocol unifying cloud, edge and robotics data flows.",
+   "url": "https://zenoh.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pubsub",
+    "robotics",
+    "edge",
+    "protocol"
+   ],
+   "tip": "Lower overhead than MQTT or DDS on constrained links, which is why ROS 2 adopted it as a transport.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pub/sub, storage and query protocol unifying cloud, edge and robotics data flows.",
+    "ru": "Протокол pub/sub, хранения и запросов, объединяющий потоки данных облака, edge и робототехники."
+   },
+   "localizedTip": {
+    "en": "Lower overhead than MQTT or DDS on constrained links, which is why ROS 2 adopted it as a transport."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-zephyr-rtos",
    "name": "Zephyr RTOS",
    "kind": "library",
@@ -36509,6 +36824,41 @@
    },
    "localizedTip": {
     "en": "Board support is broad — check the supported-boards list before committing hardware."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-zigbee2mqtt",
+   "name": "Zigbee2MQTT",
+   "kind": "library",
+   "category": "IoT и встраиваемые системы",
+   "summary": "Bridges Zigbee devices onto MQTT, freeing them from vendor hubs.",
+   "url": "https://www.zigbee2mqtt.io/guide/getting-started/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "zigbee",
+    "mqtt",
+    "smart-home",
+    "bridge"
+   ],
+   "tip": "Removes the vendor cloud from the loop entirely, which is the main reason to run it over a stock hub.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Bridges Zigbee devices onto MQTT, freeing them from vendor hubs.",
+    "ru": "Мост Zigbee-устройств в MQTT, освобождающий их от вендорских хабов."
+   },
+   "localizedTip": {
+    "en": "Removes the vendor cloud from the loop entirely, which is the main reason to run it over a stock hub."
    },
    "pricing": {
     "model": "openSource",
@@ -37217,6 +37567,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-age-encryption",
+   "name": "age",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Simple modern file encryption tool with no configuration knobs to get wrong.",
+   "url": "https://github.com/FiloSottile/age",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "encryption",
+    "files",
+    "simple",
+    "modern"
+   ],
+   "tip": "Deliberately has no options — that is the security feature, versus GPG's many footguns.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install age",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple modern file encryption tool with no configuration knobs to get wrong.",
+    "ru": "Простой современный инструмент шифрования файлов без настроек, которые можно испортить."
+   },
+   "localizedTip": {
+    "en": "Deliberately has no options — that is the security feature, versus GPG's many footguns."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-argon2",
    "name": "Argon2",
    "kind": "library",
@@ -37287,6 +37672,181 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-burp-suite",
+   "name": "Burp Suite",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "The standard interception proxy and web security testing toolkit.",
+   "url": "https://portswigger.net/burp/documentation",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web-security",
+    "proxy",
+    "pentest",
+    "intercept"
+   ],
+   "tip": "The Community edition covers manual testing; the scanner and automation are what the licence buys.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard interception proxy and web security testing toolkit.",
+    "ru": "Стандартный перехватывающий прокси и набор инструментов тестирования веб-безопасности."
+   },
+   "localizedTip": {
+    "en": "The Community edition covers manual testing; the scanner and automation are what the licence buys."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-checkov",
+   "name": "Checkov",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Static analysis for infrastructure as code, catching misconfigurations before apply.",
+   "url": "https://www.checkov.io/1.Welcome/What%20is%20Checkov.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "iac",
+    "policy",
+    "terraform",
+    "static-analysis"
+   ],
+   "tip": "Run it in the PR check rather than pre-apply — a public S3 bucket caught in review costs nothing.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install checkov",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Static analysis for infrastructure as code, catching misconfigurations before apply.",
+    "ru": "Статический анализ infrastructure as code, ловящий ошибки конфигурации до применения."
+   },
+   "localizedTip": {
+    "en": "Run it in the PR check rather than pre-apply — a public S3 bucket caught in review costs nothing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-cosign",
+   "name": "cosign",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Signs and verifies container images and other OCI artifacts.",
+   "url": "https://docs.sigstore.dev/cosign/signing/overview/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "containers",
+    "signing",
+    "verification",
+    "sigstore"
+   ],
+   "tip": "Enforce verification in an admission controller — signing without verification changes nothing.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install cosign",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Signs and verifies container images and other OCI artifacts.",
+    "ru": "Подписывает и проверяет образы контейнеров и другие OCI-артефакты."
+   },
+   "localizedTip": {
+    "en": "Enforce verification in an admission controller — signing without verification changes nothing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-crowdsec",
+   "name": "CrowdSec",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Behaviour-based intrusion prevention that shares attacker signals across a community network.",
+   "url": "https://docs.crowdsec.net/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ips",
+    "behavioral",
+    "community",
+    "blocklists"
+   ],
+   "tip": "The shared blocklist means you benefit from attacks against other participants, not just your own logs.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Behaviour-based intrusion prevention that shares attacker signals across a community network.",
+    "ru": "Предотвращение вторжений на основе поведения с обменом сигналами об атакующих внутри сообщества."
+   },
+   "localizedTip": {
+    "en": "The shared blocklist means you benefit from attacks against other participants, not just your own logs."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-falco",
+   "name": "Falco",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Runtime security monitoring detecting anomalous behaviour in containers via kernel events.",
+   "url": "https://falco.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "runtime-security",
+    "kubernetes",
+    "ebpf",
+    "detection"
+   ],
+   "tip": "Tune the default ruleset before enabling alerts — out of the box it is noisy on normal workloads.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runtime security monitoring detecting anomalous behaviour in containers via kernel events.",
+    "ru": "Мониторинг безопасности во время выполнения: выявляет аномальное поведение контейнеров по событиям ядра."
+   },
+   "localizedTip": {
+    "en": "Tune the default ruleset before enabling alerts — out of the box it is noisy on normal workloads."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-gitleaks",
    "name": "Gitleaks",
    "kind": "library",
@@ -37314,6 +37874,76 @@
    },
    "localizedTip": {
     "en": "Run it as a pre-commit hook — catching a key before it enters history saves a painful rotation later."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-grype",
+   "name": "Grype",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Vulnerability scanner for container images and filesystems, driven by SBOM data.",
+   "url": "https://github.com/anchore/grype",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vulnerabilities",
+    "containers",
+    "sbom",
+    "scanner"
+   ],
+   "tip": "Pairs with Syft: generate the SBOM once, then rescan it as new CVEs are published without rebuilding.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install grype",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Vulnerability scanner for container images and filesystems, driven by SBOM data.",
+    "ru": "Сканер уязвимостей для образов контейнеров и файловых систем на основе данных SBOM."
+   },
+   "localizedTip": {
+    "en": "Pairs with Syft: generate the SBOM once, then rescan it as new CVEs are published without rebuilding."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-in-toto",
+   "name": "in-toto",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Framework for cryptographically attesting each step of a software supply chain.",
+   "url": "https://in-toto.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "supply-chain",
+    "attestation",
+    "provenance",
+    "framework"
+   ],
+   "tip": "Proves the artifact came from the build you think it did, not merely that someone signed it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Framework for cryptographically attesting each step of a software supply chain.",
+    "ru": "Фреймворк криптографического подтверждения каждого шага цепочки поставок ПО."
+   },
+   "localizedTip": {
+    "en": "Proves the artifact came from the build you think it did, not merely that someone signed it."
    },
    "pricing": {
     "model": "openSource",
@@ -37392,6 +38022,181 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-nuclei",
+   "name": "Nuclei",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Template-driven vulnerability scanner with a large community template library.",
+   "url": "https://docs.projectdiscovery.io/tools/nuclei/overview",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scanning",
+    "templates",
+    "dast",
+    "community"
+   ],
+   "tip": "Only scan systems you own or are authorized to test — the templates are genuinely intrusive.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Template-driven vulnerability scanner with a large community template library.",
+    "ru": "Сканер уязвимостей на шаблонах с большой библиотекой шаблонов от сообщества."
+   },
+   "localizedTip": {
+    "en": "Only scan systems you own or are authorized to test — the templates are genuinely intrusive."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-ossf-scorecard",
+   "name": "OpenSSF Scorecard",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Automated checks scoring an open-source project's security practices.",
+   "url": "https://github.com/ossf/scorecard",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "supply-chain",
+    "health",
+    "checks",
+    "open-source"
+   ],
+   "tip": "Useful as a dependency-selection input — a low score is a signal about maintenance, not just security.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automated checks scoring an open-source project's security practices.",
+    "ru": "Автоматические проверки, оценивающие практики безопасности open-source проекта."
+   },
+   "localizedTip": {
+    "en": "Useful as a dependency-selection input — a low score is a signal about maintenance, not just security."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-openvas",
+   "name": "OpenVAS / Greenbone",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Open-source network vulnerability scanner with a large regularly updated test feed.",
+   "url": "https://greenbone.github.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vulnerability-scanning",
+    "network",
+    "infrastructure",
+    "open-source"
+   ],
+   "tip": "Feed synchronization is the slow part of setup — plan for the initial sync before the first scan.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source network vulnerability scanner with a large regularly updated test feed.",
+    "ru": "Открытый сетевой сканер уязвимостей с большим регулярно обновляемым набором тестов."
+   },
+   "localizedTip": {
+    "en": "Feed synchronization is the slow part of setup — plan for the initial sync before the first scan."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-osquery",
+   "name": "osquery",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Exposes operating system state as SQL tables you can query across a fleet.",
+   "url": "https://osquery.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "endpoint",
+    "sql",
+    "visibility",
+    "fleet"
+   ],
+   "tip": "Asking 'which hosts run this vulnerable version' becomes one SQL query rather than a survey.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Exposes operating system state as SQL tables you can query across a fleet.",
+    "ru": "Представляет состояние операционной системы как SQL-таблицы, доступные для запросов по всему парку машин."
+   },
+   "localizedTip": {
+    "en": "Asking 'which hosts run this vulnerable version' becomes one SQL query rather than a survey."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-owasp-zap",
+   "name": "OWASP ZAP",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Open-source dynamic application security testing proxy for web applications.",
+   "url": "https://www.zaproxy.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dast",
+    "web-security",
+    "proxy",
+    "owasp"
+   ],
+   "tip": "Its baseline scan runs in CI in a couple of minutes, unlike the full active scan.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source dynamic application security testing proxy for web applications.",
+    "ru": "Открытый прокси динамического тестирования безопасности веб-приложений."
+   },
+   "localizedTip": {
+    "en": "Its baseline scan runs in CI in a couple of minutes, unlike the full active scan."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-semgrep-2",
    "name": "Semgrep",
    "kind": "library",
@@ -37427,6 +38232,181 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-sigstore",
+   "name": "Sigstore",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Keyless artifact signing backed by a public transparency log.",
+   "url": "https://docs.sigstore.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "signing",
+    "supply-chain",
+    "transparency",
+    "keyless"
+   ],
+   "tip": "Keyless signing removes long-lived private keys entirely, which is where most signing schemes fail in practice.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Keyless artifact signing backed by a public transparency log.",
+    "ru": "Подписание артефактов без ключей с публичным журналом прозрачности."
+   },
+   "localizedTip": {
+    "en": "Keyless signing removes long-lived private keys entirely, which is where most signing schemes fail in practice."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-slsa",
+   "name": "SLSA",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Graded framework of supply chain security levels, from source to build provenance.",
+   "url": "https://slsa.dev/spec/v1.0/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "supply-chain",
+    "levels",
+    "provenance",
+    "framework"
+   ],
+   "tip": "Start at level 1 (provenance exists) — the higher levels require build-platform changes, not just policy.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Graded framework of supply chain security levels, from source to build provenance.",
+    "ru": "Градуированный фреймворк уровней безопасности цепочки поставок — от исходников до провенанса сборки."
+   },
+   "localizedTip": {
+    "en": "Start at level 1 (provenance exists) — the higher levels require build-platform changes, not just policy."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-suricata",
+   "name": "Suricata",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "High-performance network IDS/IPS with deep packet inspection and protocol parsing.",
+   "url": "https://docs.suricata.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ids",
+    "ips",
+    "network",
+    "packet-inspection"
+   ],
+   "tip": "Multi-threaded, unlike Snort's classic engine, which is why it keeps up on high-bandwidth links.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance network IDS/IPS with deep packet inspection and protocol parsing.",
+    "ru": "Высокопроизводительная сетевая IDS/IPS с глубоким анализом пакетов и разбором протоколов."
+   },
+   "localizedTip": {
+    "en": "Multi-threaded, unlike Snort's classic engine, which is why it keeps up on high-bandwidth links."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-syft",
+   "name": "Syft",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Generates a software bill of materials from container images and source trees.",
+   "url": "https://github.com/anchore/syft",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sbom",
+    "inventory",
+    "containers",
+    "supply-chain"
+   ],
+   "tip": "An SBOM committed with each release is what makes 'are we affected by this CVE' answerable in minutes.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install syft",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates a software bill of materials from container images and source trees.",
+    "ru": "Генерирует software bill of materials из образов контейнеров и исходных деревьев."
+   },
+   "localizedTip": {
+    "en": "An SBOM committed with each release is what makes 'are we affected by this CVE' answerable in minutes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-tfsec",
+   "name": "tfsec",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Terraform-focused security scanner, now merged into the Trivy project.",
+   "url": "https://aquasecurity.github.io/tfsec/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "terraform",
+    "security",
+    "static-analysis",
+    "iac"
+   ],
+   "tip": "New work goes into Trivy's IaC mode — prefer that for greenfield rather than the standalone binary.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install tfsec",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Terraform-focused security scanner, now merged into the Trivy project.",
+    "ru": "Сканер безопасности, ориентированный на Terraform, теперь объединён с проектом Trivy."
+   },
+   "localizedTip": {
+    "en": "New work goes into Trivy's IaC mode — prefer that for greenfield rather than the standalone binary."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-trivy",
    "name": "Trivy",
    "kind": "library",
@@ -37454,6 +38434,152 @@
    },
    "localizedTip": {
     "en": "Add it as a CI step on your Dockerfile build — it catches vulnerable base images before they ship."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-trufflehog",
+   "name": "TruffleHog",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Scans repositories and history for leaked credentials, then verifies whether they still work.",
+   "url": "https://github.com/trufflesecurity/trufflehog",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "secrets",
+    "scanning",
+    "git-history",
+    "verification"
+   ],
+   "tip": "Live verification is the differentiator — it separates real active leaks from expired noise.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Scans repositories and history for leaked credentials, then verifies whether they still work.",
+    "ru": "Сканирует репозитории и историю на утёкшие учётные данные и проверяет, работают ли они ещё."
+   },
+   "localizedTip": {
+    "en": "Live verification is the differentiator — it separates real active leaks from expired noise."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-wazuh",
+   "name": "Wazuh",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Open-source SIEM and XDR platform with agents for endpoint detection and compliance.",
+   "url": "https://documentation.wazuh.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "siem",
+    "xdr",
+    "endpoint",
+    "compliance"
+   ],
+   "tip": "A full SIEM without licence cost, at the price of running and tuning the whole stack yourself.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source SIEM and XDR platform with agents for endpoint detection and compliance.",
+    "ru": "Открытая платформа SIEM и XDR с агентами для обнаружения на конечных точках и комплаенса."
+   },
+   "localizedTip": {
+    "en": "A full SIEM without licence cost, at the price of running and tuning the whole stack yourself."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-wiz-security",
+   "name": "Wiz",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Agentless cloud security platform scanning workloads and mapping attack paths.",
+   "url": "https://www.wiz.io/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cnapp",
+    "cloud-security",
+    "agentless",
+    "enterprise",
+    "pricing",
+    "workloads"
+   ],
+   "tip": "Attack-path analysis prioritizes the handful of findings that actually chain into a breach.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Agentless cloud security platform scanning workloads and mapping attack paths.",
+    "ru": "Безагентная платформа облачной безопасности: сканирует нагрузки и строит пути атак."
+   },
+   "localizedTip": {
+    "en": "Attack-path analysis prioritizes the handful of findings that actually chain into a breach."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote (per workload)",
+    "freeQuota": "free cloud risk assessment",
+    "url": "https://www.wiz.io/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-zeek",
+   "name": "Zeek",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Network analysis framework producing rich connection logs rather than firing alerts.",
+   "url": "https://docs.zeek.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "network-monitoring",
+    "logs",
+    "forensics",
+    "scripting"
+   ],
+   "tip": "Its logs are the forensic record — you use them after an incident, where an IDS alert tells you nothing.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Network analysis framework producing rich connection logs rather than firing alerts.",
+    "ru": "Фреймворк сетевого анализа, выдающий подробные логи соединений, а не срабатывающие оповещения."
+   },
+   "localizedTip": {
+    "en": "Its logs are the forensic record — you use them after an incident, where an IDS alert tells you nothing."
    },
    "pricing": {
     "model": "openSource",

@@ -169,11 +169,11 @@ CATEGORIES = {
  'Секреты и конфигурация':         ('devtools', 'Secrets and configuration', 'Secrets und Konfiguration'),
  'Message queues и брокеры':       ('backend', 'Message queues and brokers', 'Message Queues und Broker'),
  'Data engineering':               ('data', 'Data engineering', 'Data Engineering'),
- 'Умный дом и IoT':                ('data', 'Умный дом и IoT', 'Smart home & IoT'),
  'Робототехника':                  ('data', 'Robotics', 'Robotik'),
 }
 
 MERGE = {
+ 'paid-wiz': 'lib-wiz-security',
  'paid-deel': 'api-deel', 'paid-remote-com': 'api-remote-com',
  'paid-weglot': 'api-weglot',
  'paid-openai': 'api-openai-platform', 'paid-anthropic': 'api-anthropic',

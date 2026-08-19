@@ -147,4 +147,9 @@ PAID_5B = [
  "Перевод сайта с оплатой по числу переведённых слов и количеству языков.",
  "Word count is cumulative across the site, so a large content site outgrows the lower tiers quickly.",
  "subscription","from ~€15 per month","free trial","https://www.weglot.com/pricing"),
+("paid-wiz","Wiz (pricing)","Безопасность и секреты","https://www.wiz.io/pricing","paid","cloud-security,pricing,workloads,enterprise",
+ "Cloud security platform quoted per billable cloud workload, enterprise contracts only.",
+ "Платформа облачной безопасности с ценой за оплачиваемую облачную нагрузку, только корпоративные контракты.",
+ "Pricing is quote-only and scales with cloud footprint — expect a sales process, not self-serve signup.",
+ "custom","custom quote (per workload)","free cloud risk assessment","https://www.wiz.io/pricing"),
 ]
