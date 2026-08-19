@@ -10,6 +10,7 @@ Usage: python3 tool/check_names.py "Redis" "Bubble Tea" ...
        python3 tool/check_names.py --file catalog_src/data_libs_5x.py
 """
 import ast
+import json
 import pathlib
 import sys
 
@@ -50,19 +51,29 @@ def rows_in_pack(path):
     return rows
 
 
+def seed_rows():
+    """(id, name) from the JSON seed, which supplies entries no pack defines."""
+    seed = SRC / 'catalog.seed.json'
+    if not seed.exists():
+        return []
+    data = json.loads(seed.read_text(encoding='utf-8'))
+    items = data['items'] if isinstance(data, dict) else data
+    return [(item['id'], item['name']) for item in items]
+
+
 def catalog_excluding(pack):
-    """Every (id, name) defined by the packs other than `pack`."""
+    """Every (id, name) defined by the packs other than `pack`, plus the seed."""
     skip = pathlib.Path(pack).resolve() if pack else None
     sidecars = merged_ids()
     by_name, ids = {}, set()
-    for path in sorted(SRC.glob('data_*.py')):
-        if skip and path.resolve() == skip:
+    sources = [rows_in_pack(path) for path in sorted(SRC.glob('data_*.py'))
+               if not (skip and path.resolve() == skip)]
+    sources.append(seed_rows())
+    for iid, name in (row for rows in sources for row in rows):
+        if iid in sidecars:
             continue
-        for iid, name in rows_in_pack(path):
-            if iid in sidecars:
-                continue
-            by_name.setdefault(name.strip().lower(), iid)
-            ids.add(iid)
+        by_name.setdefault(name.strip().lower(), iid)
+        ids.add(iid)
     return by_name, ids
 
 

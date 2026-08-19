@@ -33413,6 +33413,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-edgedb-gel",
+   "name": "Gel (EdgeDB)",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Graph-relational database on Postgres with its own strongly typed query language.",
+   "url": "https://docs.geldata.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graph-relational",
+    "typed",
+    "query-language",
+    "postgres"
+   ],
+   "tip": "Its query language returns nested object shapes directly, removing most ORM mapping code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Graph-relational database on Postgres with its own strongly typed query language.",
+    "ru": "Графово-реляционная база на Postgres с собственным строго типизированным языком запросов."
+   },
+   "localizedTip": {
+    "en": "Its query language returns nested object shapes directly, removing most ORM mapping code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-knex",
    "name": "Knex.js",
    "kind": "library",
@@ -33693,6 +33728,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-pglite",
+   "name": "PGlite",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Full Postgres compiled to WebAssembly, running in the browser or Node.",
+   "url": "https://pglite.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "wasm",
+    "browser",
+    "embedded"
+   ],
+   "tip": "Real Postgres in a test process starts in milliseconds and needs no Docker container.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @electric-sql/pglite",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Full Postgres compiled to WebAssembly, running in the browser or Node.",
+    "ru": "Полноценный Postgres, скомпилированный в WebAssembly, работает в браузере или Node."
+   },
+   "localizedTip": {
+    "en": "Real Postgres in a test process starts in milliseconds and needs no Docker container."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-prisma",
    "name": "Prisma ORM",
    "kind": "library",
@@ -33824,6 +33894,76 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-sqlparse",
+   "name": "sqlparse",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Non-validating SQL parser and formatter for Python.",
+   "url": "https://sqlparse.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sql",
+    "parsing",
+    "formatting",
+    "python"
+   ],
+   "tip": "Fine for splitting and prettifying statements; use SQLGlot when you need real dialect awareness.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install sqlparse",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Non-validating SQL parser and formatter for Python.",
+    "ru": "Невалидирующий парсер и форматтер SQL для Python."
+   },
+   "localizedTip": {
+    "en": "Fine for splitting and prettifying statements; use SQLGlot when you need real dialect awareness."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-tidb",
+   "name": "TiDB",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Distributed MySQL-compatible database supporting both transactional and analytical queries.",
+   "url": "https://docs.pingcap.com/tidb/stable/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "distributed",
+    "mysql-compatible",
+    "htap",
+    "scaling"
+   ],
+   "tip": "Its HTAP design runs analytics on a columnar replica without touching transactional performance.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed MySQL-compatible database supporting both transactional and analytical queries.",
+    "ru": "Распределённая MySQL-совместимая база, поддерживающая транзакционные и аналитические запросы."
+   },
+   "localizedTip": {
+    "en": "Its HTAP design runs analytics on a columnar replica without touching transactional performance."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-typeorm",
    "name": "TypeORM",
    "kind": "library",
@@ -33851,6 +33991,41 @@
    },
    "localizedTip": {
     "en": "Pick Data Mapper (repositories) over Active Record for anything beyond a small project — it tests more easily."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-yugabytedb",
+   "name": "YugabyteDB",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Distributed SQL database with PostgreSQL wire compatibility.",
+   "url": "https://docs.yugabyte.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "distributed",
+    "postgres-compatible",
+    "ha",
+    "sql"
+   ],
+   "tip": "Reuses the actual PostgreSQL query layer, so extension and syntax support is unusually complete.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed SQL database with PostgreSQL wire compatibility.",
+    "ru": "Распределённая SQL-база с совместимостью по протоколу PostgreSQL."
+   },
+   "localizedTip": {
+    "en": "Reuses the actual PostgreSQL query layer, so extension and syntax support is unusually complete."
    },
    "pricing": {
     "model": "openSource",
@@ -34536,6 +34711,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-electric-sql",
+   "name": "Electric SQL",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Syncs subsets of a Postgres database into local clients for local-first apps.",
+   "url": "https://electric-sql.com/docs/intro",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sync",
+    "postgres",
+    "local-first",
+    "partial-replication"
+   ],
+   "tip": "Partial replication is the hard part it solves — syncing a whole database to a client never scales.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Syncs subsets of a Postgres database into local clients for local-first apps.",
+    "ru": "Синхронизирует подмножества базы Postgres в локальные клиенты для local-first приложений."
+   },
+   "localizedTip": {
+    "en": "Partial replication is the hard part it solves — syncing a whole database to a client never scales."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-dexie-2",
    "name": "idb",
    "kind": "library",
@@ -34816,6 +35026,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-powersync",
+   "name": "PowerSync",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Offline-first sync between server databases and on-device SQLite.",
+   "url": "https://docs.powersync.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sync",
+    "offline-first",
+    "sqlite",
+    "postgres"
+   ],
+   "tip": "Its sync rules define per-user data scope declaratively rather than in hand-written sync code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Offline-first sync between server databases and on-device SQLite.",
+    "ru": "Offline-first синхронизация между серверными базами и локальным SQLite на устройстве."
+   },
+   "localizedTip": {
+    "en": "Its sync rules define per-user data scope declaratively rather than in hand-written sync code."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-pydantic",
    "name": "Pydantic",
    "kind": "library",
@@ -34993,6 +35238,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-rxdb",
+   "name": "RxDB",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Reactive offline-first NoSQL database for JavaScript with pluggable replication.",
+   "url": "https://rxdb.info/quickstart.html",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "offline-first",
+    "reactive",
+    "replication",
+    "nosql"
+   ],
+   "tip": "Queries are observables, so the UI updates on replicated changes without any manual refresh.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i rxdb",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reactive offline-first NoSQL database for JavaScript with pluggable replication.",
+    "ru": "Реактивная offline-first NoSQL база для JavaScript с подключаемой репликацией."
+   },
+   "localizedTip": {
+    "en": "Queries are observables, so the UI updates on replicated changes without any manual refresh."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-swr",
    "name": "SWR",
    "kind": "library",
@@ -35098,6 +35378,41 @@
    },
    "localizedTip": {
     "en": "Useful as the shared state layer under a TanStack Query + Router stack in non-React frameworks too."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-tinybase",
+   "name": "TinyBase",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Small reactive data store for local-first apps, with optional persistence and sync.",
+   "url": "https://tinybase.org/guides/the-basics/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "local-first",
+    "reactive",
+    "tiny",
+    "structured"
+   ],
+   "tip": "A few kilobytes, which makes it viable where a full local database would dominate the bundle.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i tinybase",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Small reactive data store for local-first apps, with optional persistence and sync.",
+    "ru": "Небольшое реактивное хранилище данных для local-first приложений с опциональной персистентностью и синхронизацией."
+   },
+   "localizedTip": {
+    "en": "A few kilobytes, which makes it viable where a full local database would dominate the bundle."
    },
    "pricing": {
     "model": "openSource",
@@ -35237,6 +35552,41 @@
    },
    "localizedTip": {
     "en": "Model complex multi-step flows (checkout, onboarding) as a machine — impossible transitions become impossible."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-zero-sync",
+   "name": "Zero",
+   "kind": "library",
+   "category": "Состояние и данные",
+   "summary": "Sync engine running queries locally against a synced subset of server data.",
+   "url": "https://zero.rocicorp.dev/docs/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sync",
+    "queries",
+    "local-first",
+    "realtime"
+   ],
+   "tip": "Queries resolve instantly from the local cache and reconcile in the background, hiding network latency.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Sync engine running queries locally against a synced subset of server data.",
+    "ru": "Движок синхронизации, выполняющий запросы локально по синхронизированному подмножеству серверных данных."
+   },
+   "localizedTip": {
+    "en": "Queries resolve instantly from the local cache and reconcile in the background, hiding network latency."
    },
    "pricing": {
     "model": "openSource",
@@ -35457,6 +35807,321 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-apache-doris",
+   "name": "Apache Doris",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "MPP analytical database with MySQL protocol compatibility.",
+   "url": "https://doris.apache.org/docs/gettingStarted/what-is-apache-doris",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "olap",
+    "mpp",
+    "real-time",
+    "mysql-compatible"
+   ],
+   "tip": "MySQL wire compatibility means existing BI tools connect with no new driver.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "MPP analytical database with MySQL protocol compatibility.",
+    "ru": "MPP-аналитическая база данных с совместимостью по протоколу MySQL."
+   },
+   "localizedTip": {
+    "en": "MySQL wire compatibility means existing BI tools connect with no new driver."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-apache-drill",
+   "name": "Apache Drill",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Schema-free SQL engine querying files and NoSQL stores without predefined schemas.",
+   "url": "https://drill.apache.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sql",
+    "schema-free",
+    "files",
+    "json"
+   ],
+   "tip": "Querying a directory of JSON files directly is useful for exploration before any modelling.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Schema-free SQL engine querying files and NoSQL stores without predefined schemas.",
+    "ru": "SQL-движок без схемы, запрашивающий файлы и NoSQL-хранилища без предварительных определений."
+   },
+   "localizedTip": {
+    "en": "Querying a directory of JSON files directly is useful for exploration before any modelling."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-apache-druid",
+   "name": "Apache Druid",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Real-time analytics database for event and time-series data at scale.",
+   "url": "https://druid.apache.org/docs/latest/design/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "olap",
+    "time-series",
+    "real-time",
+    "ingestion"
+   ],
+   "tip": "Operationally heavy — several node types to run, which is the main cost of its ingestion speed.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Real-time analytics database for event and time-series data at scale.",
+    "ru": "База аналитики реального времени для событийных и временных данных большого объёма."
+   },
+   "localizedTip": {
+    "en": "Operationally heavy — several node types to run, which is the main cost of its ingestion speed."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-apache-hudi",
+   "name": "Apache Hudi",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Lakehouse format specialising in upserts and incremental data processing.",
+   "url": "https://hudi.apache.org/docs/overview",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "table-format",
+    "upserts",
+    "incremental",
+    "cdc"
+   ],
+   "tip": "Its incremental pull model suits CDC ingestion better than full-snapshot table formats.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lakehouse format specialising in upserts and incremental data processing.",
+    "ru": "Формат lakehouse, специализирующийся на upsert и инкрементальной обработке данных."
+   },
+   "localizedTip": {
+    "en": "Its incremental pull model suits CDC ingestion better than full-snapshot table formats."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-apache-iceberg",
+   "name": "Apache Iceberg",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Open table format bringing ACID transactions and schema evolution to data lakes.",
+   "url": "https://iceberg.apache.org/docs/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "table-format",
+    "acid",
+    "time-travel",
+    "lakehouse"
+   ],
+   "tip": "Hidden partitioning means queries stay correct when you change the partition scheme later.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open table format bringing ACID transactions and schema evolution to data lakes.",
+    "ru": "Открытый табличный формат, приносящий ACID-транзакции и эволюцию схемы в озёра данных."
+   },
+   "localizedTip": {
+    "en": "Hidden partitioning means queries stay correct when you change the partition scheme later."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-apache-paimon",
+   "name": "Apache Paimon",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Streaming-first lakehouse format designed to work closely with Apache Flink.",
+   "url": "https://paimon.apache.org/docs/master/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "table-format",
+    "streaming",
+    "flink",
+    "lakehouse"
+   ],
+   "tip": "Built for streaming updates first, where Iceberg and Delta started from batch workloads.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Streaming-first lakehouse format designed to work closely with Apache Flink.",
+    "ru": "Формат lakehouse с приоритетом потоковой обработки, тесно работающий с Apache Flink."
+   },
+   "localizedTip": {
+    "en": "Built for streaming updates first, where Iceberg and Delta started from batch workloads."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-apache-pinot",
+   "name": "Apache Pinot",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Real-time OLAP store built for user-facing analytics at very low latency.",
+   "url": "https://docs.pinot.apache.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "olap",
+    "real-time",
+    "low-latency",
+    "user-facing"
+   ],
+   "tip": "Designed for analytics shown to end users, where a two-second dashboard query is already too slow.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Real-time OLAP store built for user-facing analytics at very low latency.",
+    "ru": "OLAP-хранилище реального времени для пользовательской аналитики с очень низкой задержкой."
+   },
+   "localizedTip": {
+    "en": "Designed for analytics shown to end users, where a two-second dashboard query is already too slow."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-cudf",
+   "name": "cuDF",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "GPU dataframe library with a pandas-compatible API, part of NVIDIA RAPIDS.",
+   "url": "https://docs.rapids.ai/api/cudf/stable/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gpu",
+    "pandas",
+    "rapids",
+    "nvidia"
+   ],
+   "tip": "Its pandas accelerator mode falls back to CPU automatically for unsupported operations.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GPU dataframe library with a pandas-compatible API, part of NVIDIA RAPIDS.",
+    "ru": "GPU-библиотека датафреймов с pandas-совместимым API, часть NVIDIA RAPIDS."
+   },
+   "localizedTip": {
+    "en": "Its pandas accelerator mode falls back to CPU automatically for unsupported operations."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-daft",
+   "name": "Daft",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Distributed dataframe engine handling multimodal data such as images and embeddings.",
+   "url": "https://docs.daft.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dataframe",
+    "distributed",
+    "multimodal",
+    "rust"
+   ],
+   "tip": "Treating images and tensors as ordinary columns is what separates it from tabular-only engines.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install daft",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed dataframe engine handling multimodal data such as images and embeddings.",
+    "ru": "Распределённый движок датафреймов, работающий с мультимодальными данными вроде изображений и эмбеддингов."
+   },
+   "localizedTip": {
+    "en": "Treating images and tensors as ordinary columns is what separates it from tabular-only engines."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-dagster",
    "name": "Dagster",
    "kind": "library",
@@ -35484,6 +36149,41 @@
    },
    "localizedTip": {
     "en": "Model pipelines as assets rather than tasks — lineage and backfills become far easier to reason about."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-dask",
+   "name": "Dask",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Parallel computing for Python, scaling NumPy, pandas and scikit-learn workloads.",
+   "url": "https://docs.dask.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "parallel",
+    "python",
+    "scaling",
+    "scheduler"
+   ],
+   "tip": "Its familiar APIs ease adoption, but a single-machine Polars job often beats a small Dask cluster.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install dask",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Parallel computing for Python, scaling NumPy, pandas and scikit-learn workloads.",
+    "ru": "Параллельные вычисления для Python, масштабирующие задачи NumPy, pandas и scikit-learn."
+   },
+   "localizedTip": {
+    "en": "Its familiar APIs ease adoption, but a single-machine Polars job often beats a small Dask cluster."
    },
    "pricing": {
     "model": "openSource",
@@ -35562,6 +36262,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-delta-lake",
+   "name": "Delta Lake",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Transactional storage layer over object storage, originating at Databricks.",
+   "url": "https://docs.delta.io/latest/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "table-format",
+    "acid",
+    "databricks",
+    "time-travel"
+   ],
+   "tip": "Time travel makes 'what did this table look like last Tuesday' a query rather than a restore.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install deltalake",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Transactional storage layer over object storage, originating at Databricks.",
+    "ru": "Транзакционный слой хранения поверх объектного хранилища, созданный в Databricks."
+   },
+   "localizedTip": {
+    "en": "Time travel makes 'what did this table look like last Tuesday' a query rather than a restore."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-dlt",
    "name": "dlt",
    "kind": "library",
@@ -35632,6 +36367,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-greptimedb",
+   "name": "GreptimeDB",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Unified time-series database for metrics, logs and events, written in Rust.",
+   "url": "https://docs.greptime.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "time-series",
+    "metrics",
+    "logs",
+    "rust"
+   ],
+   "tip": "Handling metrics and logs in one engine removes a whole second system from an observability stack.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unified time-series database for metrics, logs and events, written in Rust.",
+    "ru": "Единая база временных рядов для метрик, логов и событий, написанная на Rust."
+   },
+   "localizedTip": {
+    "en": "Handling metrics and logs in one engine removes a whole second system from an observability stack."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-lakefs",
    "name": "lakeFS",
    "kind": "library",
@@ -35659,6 +36429,111 @@
    },
    "localizedTip": {
     "en": "Branch the lake before a risky transformation — rollback is instant and costs no data copy."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-malloy",
+   "name": "Malloy",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Experimental analytical language expressing nested, reusable data models.",
+   "url": "https://docs.malloydata.dev/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "query-language",
+    "semantic",
+    "analytics",
+    "composable"
+   ],
+   "tip": "Nested query results avoid the join-and-flatten dance that SQL forces on hierarchical questions.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Experimental analytical language expressing nested, reusable data models.",
+    "ru": "Экспериментальный аналитический язык для вложенных переиспользуемых моделей данных."
+   },
+   "localizedTip": {
+    "en": "Nested query results avoid the join-and-flatten dance that SQL forces on hierarchical questions."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-modin",
+   "name": "Modin",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Parallelizes pandas by changing a single import line.",
+   "url": "https://modin.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pandas",
+    "parallel",
+    "drop-in",
+    "scaling"
+   ],
+   "tip": "A genuine drop-in for existing pandas code, though coverage of rarer methods is incomplete.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install modin",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Parallelizes pandas by changing a single import line.",
+    "ru": "Распараллеливает pandas изменением одной строки импорта."
+   },
+   "localizedTip": {
+    "en": "A genuine drop-in for existing pandas code, though coverage of rarer methods is incomplete."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-narwhals",
+   "name": "Narwhals",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Compatibility layer letting a library support pandas, Polars and others from one code path.",
+   "url": "https://narwhals-dev.github.io/narwhals/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "compatibility",
+    "dataframe",
+    "library-authors",
+    "zero-dependency"
+   ],
+   "tip": "Aimed at library authors — it removes the 'which dataframe do you support' question entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install narwhals",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compatibility layer letting a library support pandas, Polars and others from one code path.",
+    "ru": "Слой совместимости, позволяющий библиотеке поддерживать pandas, Polars и другие через один код."
+   },
+   "localizedTip": {
+    "en": "Aimed at library authors — it removes the 'which dataframe do you support' question entirely."
    },
    "pricing": {
     "model": "openSource",
@@ -35737,6 +36612,76 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-presto",
+   "name": "Presto",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Distributed SQL query engine, the project Trino forked from.",
+   "url": "https://prestodb.io/docs/current/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sql",
+    "distributed",
+    "facebook",
+    "federated"
+   ],
+   "tip": "Trino carries most of the active development — check both before starting something new.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed SQL query engine, the project Trino forked from.",
+    "ru": "Распределённый движок SQL-запросов, из которого был форкнут Trino."
+   },
+   "localizedTip": {
+    "en": "Trino carries most of the active development — check both before starting something new."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-prql",
+   "name": "PRQL",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Pipelined relational query language that compiles to SQL.",
+   "url": "https://prql-lang.org/book/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "query-language",
+    "pipeline",
+    "compiles-to-sql",
+    "readable"
+   ],
+   "tip": "Reads top-to-bottom in execution order, which makes long analytical chains far easier to follow.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pipelined relational query language that compiles to SQL.",
+    "ru": "Конвейерный реляционный язык запросов, компилируемый в SQL."
+   },
+   "localizedTip": {
+    "en": "Reads top-to-bottom in execution order, which makes long analytical chains far easier to follow."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-soda-core",
    "name": "Soda Core",
    "kind": "library",
@@ -35799,6 +36744,111 @@
    },
    "localizedTip": {
     "en": "Useful for migrating queries between warehouses, and for programmatically analysing SQL safely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-starrocks",
+   "name": "StarRocks",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "High-performance OLAP database with strong multi-table join performance.",
+   "url": "https://docs.starrocks.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "olap",
+    "mysql-protocol",
+    "real-time",
+    "joins"
+   ],
+   "tip": "Fast joins let you keep a normalized model, where many OLAP stores force wide denormalized tables.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance OLAP database with strong multi-table join performance.",
+    "ru": "Высокопроизводительная OLAP-база с сильной производительностью многотабличных join."
+   },
+   "localizedTip": {
+    "en": "Fast joins let you keep a normalized model, where many OLAP stores force wide denormalized tables."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-trino",
+   "name": "Trino",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Distributed SQL engine querying across many data sources without moving the data.",
+   "url": "https://trino.io/docs/current/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sql",
+    "federated",
+    "query-engine",
+    "connectors"
+   ],
+   "tip": "Joining a warehouse table to a Kafka topic in one query is the capability people adopt it for.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed SQL engine querying across many data sources without moving the data.",
+    "ru": "Распределённый SQL-движок, выполняющий запросы по множеству источников без перемещения данных."
+   },
+   "localizedTip": {
+    "en": "Joining a warehouse table to a Kafka topic in one query is the capability people adopt it for."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-vaex",
+   "name": "Vaex",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Out-of-core dataframes processing datasets larger than memory via memory mapping.",
+   "url": "https://vaex.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dataframe",
+    "out-of-core",
+    "lazy",
+    "memory-mapped"
+   ],
+   "tip": "Memory mapping means opening a 100 GB file is instant — only the columns you touch are read.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install vaex",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Out-of-core dataframes processing datasets larger than memory via memory mapping.",
+    "ru": "Датафреймы out-of-core: обрабатывают наборы данных больше объёма памяти через отображение в память."
+   },
+   "localizedTip": {
+    "en": "Memory mapping means opening a 100 GB file is instant — only the columns you touch are read."
    },
    "pricing": {
     "model": "openSource",
