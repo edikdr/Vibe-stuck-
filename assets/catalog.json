@@ -47567,6 +47567,76 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-cva",
+   "name": "class-variance-authority",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Builds type-safe class name variants, the standard companion to Tailwind components.",
+   "url": "https://cva.style/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "variants",
+    "tailwind",
+    "typed",
+    "classnames"
+   ],
+   "tip": "Turns a sprawl of conditional class strings into one declarative variant table.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i class-variance-authority",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds type-safe class name variants, the standard companion to Tailwind components.",
+    "ru": "Строит типобезопасные варианты имён классов — стандартный спутник Tailwind-компонентов."
+   },
+   "localizedTip": {
+    "en": "Turns a sprawl of conditional class strings into one declarative variant table."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-clsx",
+   "name": "clsx",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Tiny utility for building conditional class name strings.",
+   "url": "https://github.com/lukeed/clsx",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "classnames",
+    "tiny",
+    "utility",
+    "conditional"
+   ],
+   "tip": "Under 300 bytes and used almost universally — a faster drop-in for the older classnames package.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i clsx",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Tiny utility for building conditional class name strings.",
+    "ru": "Крошечная утилита для построения условных строк имён классов."
+   },
+   "localizedTip": {
+    "en": "Under 300 bytes and used almost universally — a faster drop-in for the older classnames package."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-cmdk",
    "name": "cmdk",
    "kind": "library",
@@ -47754,6 +47824,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-element-plus",
+   "name": "Element Plus",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Mature Vue 3 component library widely used for admin and internal tools.",
+   "url": "https://element-plus.org/en-US/guide/design.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vue",
+    "components",
+    "admin",
+    "mature"
+   ],
+   "tip": "Its form and table components are tuned for dense data-entry screens rather than marketing pages.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i element-plus",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mature Vue 3 component library widely used for admin and internal tools.",
+    "ru": "Зрелая библиотека компонентов Vue 3, широко используемая для админок и внутренних инструментов."
+   },
+   "localizedTip": {
+    "en": "Its form and table components are tuned for dense data-entry screens rather than marketing pages."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-eleventy",
    "name": "Eleventy",
    "kind": "library",
@@ -47871,6 +47976,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-emotion",
+   "name": "Emotion",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Popular runtime CSS-in-JS library with composable style objects.",
+   "url": "https://emotion.sh/docs/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "css-in-js",
+    "runtime",
+    "react",
+    "composable"
+   ],
+   "tip": "Runtime style injection conflicts with React Server Components — check that before adopting it now.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @emotion/react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Popular runtime CSS-in-JS library with composable style objects.",
+    "ru": "Популярная рантайм CSS-in-JS библиотека с композируемыми объектами стилей."
+   },
+   "localizedTip": {
+    "en": "Runtime style injection conflicts with React Server Components — check that before adopting it now."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-enhance-dev",
    "name": "Enhance",
    "kind": "library",
@@ -47933,6 +48073,41 @@
    },
    "localizedTip": {
     "en": "It handles viewport collision and flipping, which is the part everyone gets wrong hand-rolling a tooltip."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-flowbite",
+   "name": "Flowbite",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Tailwind component library with React, Vue and Svelte bindings.",
+   "url": "https://flowbite.com/docs/getting-started/introduction/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tailwind",
+    "components",
+    "html",
+    "multi-framework"
+   ],
+   "tip": "The plain-HTML variants work in server-rendered templates with no JavaScript framework at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i flowbite",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Tailwind component library with React, Vue and Svelte bindings.",
+    "ru": "Библиотека компонентов Tailwind с биндингами для React, Vue и Svelte."
+   },
+   "localizedTip": {
+    "en": "The plain-HTML variants work in server-rendered templates with no JavaScript framework at all."
    },
    "pricing": {
     "model": "openSource",
@@ -48011,6 +48186,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-heroui",
+   "name": "HeroUI",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "React component library built on Tailwind, formerly NextUI.",
+   "url": "https://www.heroui.com/docs/guide/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "tailwind",
+    "components",
+    "themeable"
+   ],
+   "tip": "Themeable through Tailwind config rather than a separate theme object, which keeps styling in one place.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @heroui/react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "React component library built on Tailwind, formerly NextUI.",
+    "ru": "Библиотека React-компонентов на Tailwind, ранее известная как NextUI."
+   },
+   "localizedTip": {
+    "en": "Themeable through Tailwind config rather than a separate theme object, which keeps styling in one place."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-nextui",
    "name": "HeroUI (NextUI)",
    "kind": "library",
@@ -48038,6 +48248,41 @@
    },
    "localizedTip": {
     "en": "Renamed from NextUI to HeroUI — older tutorials referencing NextUI describe the same library."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-histoire",
+   "name": "Histoire",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Vite-native component story environment focused on Vue and Svelte.",
+   "url": "https://histoire.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stories",
+    "vite",
+    "vue",
+    "svelte"
+   ],
+   "tip": "Considerably lighter than Storybook if you only need isolated component development.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i histoire",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Vite-native component story environment focused on Vue and Svelte.",
+    "ru": "Нативная для Vite среда историй компонентов с фокусом на Vue и Svelte."
+   },
+   "localizedTip": {
+    "en": "Considerably lighter than Storybook if you only need isolated component development."
    },
    "pricing": {
     "model": "openSource",
@@ -48185,6 +48430,76 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-kobalte",
+   "name": "Kobalte",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Accessible unstyled component primitives for SolidJS.",
+   "url": "https://kobalte.dev/docs/core/overview/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "solidjs",
+    "headless",
+    "accessible",
+    "primitives"
+   ],
+   "tip": "The Solid equivalent of Radix — same design goals, framework-native reactivity.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @kobalte/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Accessible unstyled component primitives for SolidJS.",
+    "ru": "Доступные нестилизованные примитивы компонентов для SolidJS."
+   },
+   "localizedTip": {
+    "en": "The Solid equivalent of Radix — same design goals, framework-native reactivity."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-ladle",
+   "name": "Ladle",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Fast Vite-based environment for developing React components in isolation.",
+   "url": "https://ladle.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stories",
+    "vite",
+    "fast",
+    "storybook-alternative"
+   ],
+   "tip": "Reads Storybook's CSF story format, so migrating existing stories is mostly a config change.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @ladle/react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast Vite-based environment for developing React components in isolation.",
+    "ru": "Быстрая среда на Vite для разработки React-компонентов в изоляции."
+   },
+   "localizedTip": {
+    "en": "Reads Storybook's CSF story format, so migrating existing stories is mostly a config change."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-lexical",
    "name": "Lexical",
    "kind": "library",
@@ -48259,6 +48574,41 @@
    },
    "localizedTip": {
     "en": "It handles prefixing and minification in one pass, replacing several PostCSS plugins at once."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-linaria",
+   "name": "Linaria",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Zero-runtime CSS-in-JS extracting styles to real CSS files at build time.",
+   "url": "https://linaria.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "css-in-js",
+    "zero-runtime",
+    "build-time",
+    "tagged-templates"
+   ],
+   "tip": "Familiar tagged-template syntax without shipping a styling runtime to the browser.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @linaria/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Zero-runtime CSS-in-JS extracting styles to real CSS files at build time.",
+    "ru": "CSS-in-JS без рантайма: извлекает стили в настоящие CSS-файлы на этапе сборки."
+   },
+   "localizedTip": {
+    "en": "Familiar tagged-template syntax without shipping a styling runtime to the browser."
    },
    "pricing": {
     "model": "openSource",
@@ -48438,6 +48788,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-melt-ui",
+   "name": "Melt UI",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Headless, accessible component builders for Svelte.",
+   "url": "https://melt-ui.com/docs/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "svelte",
+    "headless",
+    "builders",
+    "accessible"
+   ],
+   "tip": "Builders return attribute spreads rather than components, which keeps your markup fully yours.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @melt-ui/svelte",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless, accessible component builders for Svelte.",
+    "ru": "Headless-конструкторы доступных компонентов для Svelte."
+   },
+   "localizedTip": {
+    "en": "Builders return attribute spreads rather than components, which keeps your markup fully yours."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-million-js",
    "name": "Million.js",
    "kind": "library",
@@ -48465,6 +48850,41 @@
    },
    "localizedTip": {
     "en": "The automatic mode requires no code changes at all — try it before hand-optimizing hot components."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-naive-ui",
+   "name": "Naive UI",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "TypeScript-first Vue 3 component library with deep runtime theming.",
+   "url": "https://www.naiveui.com/en-US/os-theme/docs/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vue",
+    "typescript",
+    "themeable",
+    "tree-shakeable"
+   ],
+   "tip": "Themes are plain objects adjusted at runtime, so a dark mode toggle needs no CSS rebuild.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i naive-ui",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "TypeScript-first Vue 3 component library with deep runtime theming.",
+    "ru": "Библиотека компонентов Vue 3 с приоритетом TypeScript и глубокой рантайм-темизацией."
+   },
+   "localizedTip": {
+    "en": "Themes are plain objects adjusted at runtime, so a dark mode toggle needs no CSS rebuild."
    },
    "pricing": {
     "model": "openSource",
@@ -48778,6 +49198,76 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-preline",
+   "name": "Preline UI",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Tailwind CSS component set delivered as a plugin with interactive behaviours.",
+   "url": "https://preline.co/docs/index.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tailwind",
+    "components",
+    "plugin",
+    "html"
+   ],
+   "tip": "Its JavaScript layer is optional — the markup works statically if you only need the styling.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i preline",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Tailwind CSS component set delivered as a plugin with interactive behaviours.",
+    "ru": "Набор компонентов Tailwind CSS в виде плагина с интерактивным поведением."
+   },
+   "localizedTip": {
+    "en": "Its JavaScript layer is optional — the markup works statically if you only need the styling."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-primereact",
+   "name": "PrimeReact",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Large React component suite including a very capable data table.",
+   "url": "https://primereact.org/installation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "components",
+    "datatable",
+    "enterprise"
+   ],
+   "tip": "Its DataTable covers filtering, grouping and virtual scroll out of the box, which saves weeks.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i primereact",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Large React component suite including a very capable data table.",
+    "ru": "Большой набор React-компонентов, включая весьма мощную таблицу данных."
+   },
+   "localizedTip": {
+    "en": "Its DataTable covers filtering, grouping and virtual scroll out of the box, which saves weeks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-primevue",
    "name": "PrimeVue",
    "kind": "library",
@@ -48805,6 +49295,41 @@
    },
    "localizedTip": {
     "en": "Its DataTable covers virtual scroll, grouping, filtering and export — rarely worth rebuilding by hand."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-quasar",
+   "name": "Quasar",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Vue framework targeting web, mobile and desktop from one component codebase.",
+   "url": "https://quasar.dev/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vue",
+    "components",
+    "multi-platform",
+    "cli"
+   ],
+   "tip": "Its multi-target build story is the differentiator, not just the component set.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i quasar",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Vue framework targeting web, mobile and desktop from one component codebase.",
+    "ru": "Vue-фреймворк, собирающий web, мобильные и desktop-приложения из одной кодовой базы компонентов."
+   },
+   "localizedTip": {
+    "en": "Its multi-target build story is the differentiator, not just the component set."
    },
    "pricing": {
     "model": "openSource",
@@ -48909,6 +49434,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-radix-ui",
+   "name": "Radix UI",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Unstyled, accessible React primitives handling focus, keyboard and ARIA correctly.",
+   "url": "https://www.radix-ui.com/primitives/docs/overview/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "headless",
+    "accessible",
+    "primitives"
+   ],
+   "tip": "The accessibility work in a dialog or combobox is the hard part — this is why shadcn/ui builds on it.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i radix-ui",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Unstyled, accessible React primitives handling focus, keyboard and ARIA correctly.",
+    "ru": "Нестилизованные доступные React-примитивы, корректно обрабатывающие фокус, клавиатуру и ARIA."
+   },
+   "localizedTip": {
+    "en": "The accessibility work in a dialog or combobox is the hard part — this is why shadcn/ui builds on it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
   },
@@ -49205,6 +49765,111 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-stencil",
+   "name": "Stencil",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Compiler that generates standards-based web components with framework wrappers.",
+   "url": "https://stenciljs.com/docs/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web-components",
+    "compiler",
+    "typescript",
+    "output-targets"
+   ],
+   "tip": "Its output targets emit React and Vue wrappers automatically from one component source.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @stencil/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compiler that generates standards-based web components with framework wrappers.",
+    "ru": "Компилятор, генерирующий стандартные веб-компоненты с обёртками под фреймворки."
+   },
+   "localizedTip": {
+    "en": "Its output targets emit React and Vue wrappers automatically from one component source."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-stitches",
+   "name": "Stitches",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "CSS-in-JS with a first-class variants API and near-zero runtime.",
+   "url": "https://stitches.dev/docs/introduction",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "css-in-js",
+    "variants",
+    "near-zero-runtime",
+    "typed"
+   ],
+   "tip": "Development has stopped — treat it as a reference for the variants pattern rather than a new dependency.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @stitches/react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "CSS-in-JS with a first-class variants API and near-zero runtime.",
+    "ru": "CSS-in-JS с полноценным API вариантов и почти нулевым рантаймом."
+   },
+   "localizedTip": {
+    "en": "Development has stopped — treat it as a reference for the variants pattern rather than a new dependency."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-styled-components",
+   "name": "styled-components",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "The library that popularised CSS-in-JS via tagged template literals.",
+   "url": "https://styled-components.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "css-in-js",
+    "react",
+    "tagged-templates",
+    "theming"
+   ],
+   "tip": "Now in maintenance mode — the maintainers themselves point new projects at build-time alternatives.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i styled-components",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The library that popularised CSS-in-JS via tagged template literals.",
+    "ru": "Библиотека, популяризировавшая CSS-in-JS через тегированные шаблонные литералы."
+   },
+   "localizedTip": {
+    "en": "Now in maintenance mode — the maintainers themselves point new projects at build-time alternatives."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-svelte",
    "name": "Svelte",
    "kind": "library",
@@ -49431,6 +50096,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-tailwind-variants",
+   "name": "Tailwind Variants",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Variant API for Tailwind with slots and automatic class conflict resolution.",
+   "url": "https://www.tailwind-variants.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tailwind",
+    "variants",
+    "slots",
+    "conflict-resolution"
+   ],
+   "tip": "Conflict resolution means a passed-in override actually wins, which raw string concatenation cannot guarantee.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i tailwind-variants",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Variant API for Tailwind with slots and automatic class conflict resolution.",
+    "ru": "API вариантов для Tailwind со слотами и автоматическим разрешением конфликтов классов."
+   },
+   "localizedTip": {
+    "en": "Conflict resolution means a passed-in override actually wins, which raw string concatenation cannot guarantee."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
   },
@@ -49743,6 +50443,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-vuetify",
+   "name": "Vuetify",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Comprehensive Material Design component framework for Vue.",
+   "url": "https://vuetifyjs.com/en/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vue",
+    "material-design",
+    "components",
+    "comprehensive"
+   ],
+   "tip": "Opinionated Material styling is a poor fit if you have your own design language — check that first.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i vuetify",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Comprehensive Material Design component framework for Vue.",
+    "ru": "Полный фреймворк компонентов Material Design для Vue."
+   },
+   "localizedTip": {
+    "en": "Opinionated Material styling is a poor fit if you have your own design language — check that first."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-vueuse",
    "name": "VueUse",
    "kind": "library",
@@ -49805,6 +50540,41 @@
    },
    "localizedTip": {
     "en": "Pick the caching strategy per route deliberately — a wrong strategy serves stale content indefinitely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-zag-js",
+   "name": "Zag.js",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Component behaviour modelled as state machines, usable from React, Vue or Solid.",
+   "url": "https://zagjs.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "state-machines",
+    "headless",
+    "framework-agnostic",
+    "accessible"
+   ],
+   "tip": "One machine drives every framework binding, so component behaviour cannot drift between them.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Component behaviour modelled as state machines, usable from React, Vue or Solid.",
+    "ru": "Поведение компонентов как конечные автоматы, доступно из React, Vue и Solid."
+   },
+   "localizedTip": {
+    "en": "One machine drives every framework binding, so component behaviour cannot drift between them."
    },
    "pricing": {
     "model": "openSource",
@@ -51380,6 +52150,146 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-adobe-spectrum",
+   "name": "Adobe Spectrum",
+   "kind": "library",
+   "category": "Дизайн-системы",
+   "summary": "Adobe's design system, backed by the React Aria accessibility primitives.",
+   "url": "https://spectrum.adobe.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "adobe",
+    "design-system",
+    "accessible",
+    "tokens"
+   ],
+   "tip": "React Aria underneath it is arguably the more valuable export — usable without Spectrum's visuals.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Adobe's design system, backed by the React Aria accessibility primitives.",
+    "ru": "Дизайн-система Adobe, построенная на примитивах доступности React Aria."
+   },
+   "localizedTip": {
+    "en": "React Aria underneath it is arguably the more valuable export — usable without Spectrum's visuals."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-carbon-design",
+   "name": "Carbon Design System",
+   "kind": "library",
+   "category": "Дизайн-системы",
+   "summary": "IBM's open-source design system with components, tokens and guidelines.",
+   "url": "https://carbondesignsystem.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ibm",
+    "design-system",
+    "components",
+    "enterprise"
+   ],
+   "tip": "The written guidelines are useful even if you never use the components — they explain the reasoning.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "IBM's open-source design system with components, tokens and guidelines.",
+    "ru": "Открытая дизайн-система IBM с компонентами, токенами и руководствами."
+   },
+   "localizedTip": {
+    "en": "The written guidelines are useful even if you never use the components — they explain the reasoning."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-fluent-ui",
+   "name": "Fluent UI",
+   "kind": "library",
+   "category": "Дизайн-системы",
+   "summary": "Microsoft's design system and React components used across Microsoft 365.",
+   "url": "https://react.fluentui.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "microsoft",
+    "design-system",
+    "react",
+    "components"
+   ],
+   "tip": "The obvious pick if your app lives inside Teams or Office and should feel native there.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @fluentui/react-components",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Microsoft's design system and React components used across Microsoft 365.",
+    "ru": "Дизайн-система Microsoft и React-компоненты, используемые в Microsoft 365."
+   },
+   "localizedTip": {
+    "en": "The obvious pick if your app lives inside Teams or Office and should feel native there."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-shopify-polaris",
+   "name": "Shopify Polaris",
+   "kind": "library",
+   "category": "Дизайн-системы",
+   "summary": "Shopify's design system for building apps that live inside the Shopify admin.",
+   "url": "https://polaris.shopify.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "shopify",
+    "design-system",
+    "admin",
+    "react"
+   ],
+   "tip": "Required in practice for embedded Shopify apps — merchants expect the native admin look.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @shopify/polaris",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Shopify's design system for building apps that live inside the Shopify admin.",
+    "ru": "Дизайн-система Shopify для приложений, встроенных в админку Shopify."
+   },
+   "localizedTip": {
+    "en": "Required in practice for embedded Shopify apps — merchants expect the native admin look."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"

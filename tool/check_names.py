@@ -16,35 +16,47 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 
 def known():
+    """Both lookups: name -> id, and the set of ids already taken.
+
+    Names and ids collide independently — an entry can reuse an existing id
+    while spelling its name differently (or vice versa), and the build rejects
+    either. Checking only one of them lets the other through to the build.
+    """
     data = json.loads((ROOT / 'assets' / 'catalog.json').read_text(encoding='utf-8'))
-    return {item['name'].strip().lower(): item['id'] for item in data['items']}
+    by_name = {item['name'].strip().lower(): item['id'] for item in data['items']}
+    ids = {item['id'] for item in data['items']}
+    return by_name, ids
 
 
-def names_in_pack(path):
-    """Second tuple element of every row in every top-level list literal."""
+def rows_in_pack(path):
+    """(id, name) of every row in every list literal in the pack."""
     tree = ast.parse(pathlib.Path(path).read_text(encoding='utf-8'))
     out = []
     for node in ast.walk(tree):
         if isinstance(node, (ast.Tuple, ast.List)) and len(getattr(node, 'elts', [])) >= 2:
-            second = node.elts[1]
-            first = node.elts[0]
+            first, second = node.elts[0], node.elts[1]
             if isinstance(first, ast.Constant) and isinstance(second, ast.Constant) \
                     and isinstance(first.value, str) and isinstance(second.value, str):
-                out.append(second.value)
+                out.append((first.value, second.value))
     return out
 
 
 def main(argv):
-    if argv[:1] == ['--file']:
-        queries = names_in_pack(argv[1])
-    else:
-        queries = argv
-    catalog = known()
-    hits = [(q, catalog[q.strip().lower()]) for q in queries if q.strip().lower() in catalog]
-    for name, iid in hits:
-        print(f'TAKEN  {name}  ->  {iid}')
-    free = len(queries) - len(hits)
-    print(f'{free}/{len(queries)} name(s) available')
+    by_name, taken_ids = known()
+    rows = rows_in_pack(argv[1]) if argv[:1] == ['--file'] else [(None, q) for q in argv]
+
+    # A pack that already built is present in catalog.json, so every row matches
+    # itself. Only a match pointing at a *different* id is a real collision.
+    hits = []
+    for iid, name in rows:
+        owner = by_name.get(name.strip().lower())
+        if owner is not None and owner != iid:
+            hits.append(f'TAKEN name  {name}  ->  {owner}')
+        elif owner is None and iid in taken_ids:
+            hits.append(f'TAKEN id    {iid}  ({name})')
+    for line in hits:
+        print(line)
+    print(f'{len(rows) - len(hits)}/{len(rows)} entr(ies) available')
     return 1 if hits else 0
 
 
