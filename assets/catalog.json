@@ -48466,6 +48466,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-gofmt",
+   "name": "gofmt",
+   "kind": "library",
+   "category": "Go экосистема",
+   "summary": "Go's canonical formatter, shipped with the toolchain.",
+   "url": "https://pkg.go.dev/cmd/gofmt",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "go",
+    "formatter",
+    "official",
+    "canonical"
+   ],
+   "tip": "Go settled formatting debates by shipping one formatter with no options at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Go's canonical formatter, shipped with the toolchain.",
+    "ru": "Канонический форматтер Go, поставляемый вместе с тулчейном."
+   },
+   "localizedTip": {
+    "en": "Go settled formatting debates by shipping one formatter with no options at all."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-golang-migrate",
    "name": "golang-migrate",
    "kind": "library",
@@ -48493,6 +48528,41 @@
    },
    "localizedTip": {
     "en": "Usable as a CLI or embedded in the application so migrations run on startup."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-golangci-lint",
+   "name": "golangci-lint",
+   "kind": "library",
+   "category": "Go экосистема",
+   "summary": "Runs dozens of Go linters in parallel from one configuration.",
+   "url": "https://golangci-lint.run/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "go",
+    "linters",
+    "aggregator",
+    "fast"
+   ],
+   "tip": "Enable linters gradually on an existing codebase — the full default set buries you in findings.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs dozens of Go linters in parallel from one configuration.",
+    "ru": "Запускает десятки линтеров Go параллельно из одной конфигурации."
+   },
+   "localizedTip": {
+    "en": "Enable linters gradually on an existing codebase — the full default set buries you in findings."
    },
    "pricing": {
     "model": "openSource",
@@ -48598,6 +48668,41 @@
    },
    "localizedTip": {
     "en": "Generating resolvers from the schema means a schema change becomes a compile error, not a runtime bug."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-staticcheck",
+   "name": "Staticcheck",
+   "kind": "library",
+   "category": "Go экосистема",
+   "summary": "Advanced Go static analysis focused on correctness with very few false positives.",
+   "url": "https://staticcheck.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "go",
+    "static-analysis",
+    "correctness",
+    "precise"
+   ],
+   "tip": "Its low false-positive rate is why it is worth running even when other linters are noisy.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Advanced Go static analysis focused on correctness with very few false positives.",
+    "ru": "Продвинутый статический анализ Go с упором на корректность и очень малым числом ложных срабатываний."
+   },
+   "localizedTip": {
+    "en": "Its low false-positive rate is why it is worth running even when other linters are noisy."
    },
    "pricing": {
     "model": "openSource",
@@ -49341,6 +49446,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-checkstyle",
+   "name": "Checkstyle",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Enforces Java coding conventions and style rules.",
+   "url": "https://checkstyle.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "style",
+    "conventions",
+    "configurable"
+   ],
+   "tip": "Adopt a published configuration (Google or Sun) rather than writing rules from scratch.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enforces Java coding conventions and style rules.",
+    "ru": "Обеспечивает соблюдение соглашений и правил стиля в Java."
+   },
+   "localizedTip": {
+    "en": "Adopt a published configuration (Google or Sun) rather than writing rules from scratch."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-detekt",
+   "name": "Detekt",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Static analysis for Kotlin covering code smells and complexity.",
+   "url": "https://detekt.dev/docs/intro",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kotlin",
+    "static-analysis",
+    "complexity",
+    "rules"
+   ],
+   "tip": "Its complexity thresholds give an objective signal for when a function needs splitting.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Static analysis for Kotlin covering code smells and complexity.",
+    "ru": "Статический анализ Kotlin с проверкой запахов кода и сложности."
+   },
+   "localizedTip": {
+    "en": "Its complexity thresholds give an objective signal for when a function needs splitting."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-vertx",
    "name": "Eclipse Vert.x",
    "kind": "library",
@@ -49368,6 +49543,41 @@
    },
    "localizedTip": {
     "en": "The event bus lets independently deployed verticles communicate without direct coupling."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-errorprone",
+   "name": "Error Prone",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Catches common Java mistakes at compile time, from Google.",
+   "url": "https://errorprone.info/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "compile-time",
+    "bug-patterns",
+    "google"
+   ],
+   "tip": "Many of its checks ship automatic fixes, so it repairs findings rather than only reporting them.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Catches common Java mistakes at compile time, from Google.",
+    "ru": "Ловит распространённые ошибки Java на этапе компиляции, разработка Google."
+   },
+   "localizedTip": {
+    "en": "Many of its checks ship automatic fixes, so it repairs findings rather than only reporting them."
    },
    "pricing": {
     "model": "openSource",
@@ -49481,6 +49691,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-ktlint",
+   "name": "ktlint",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Kotlin linter and formatter following the official style guide.",
+   "url": "https://pinterest.github.io/ktlint/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kotlin",
+    "formatter",
+    "linter",
+    "official-style"
+   ],
+   "tip": "Following the official guide avoids a per-team style debate that never actually converges.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Kotlin linter and formatter following the official style guide.",
+    "ru": "Линтер и форматтер Kotlin по официальному руководству по стилю."
+   },
+   "localizedTip": {
+    "en": "Following the official guide avoids a per-team style debate that never actually converges."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-micronaut",
    "name": "Micronaut",
    "kind": "library",
@@ -49543,6 +49788,76 @@
    },
    "localizedTip": {
     "en": "Its build files are plain Scala objects, which makes build logic far easier to follow than sbt's DSL."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-openrewrite",
+   "name": "OpenRewrite",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Automated large-scale refactoring for JVM projects, driven by reusable recipes.",
+   "url": "https://docs.openrewrite.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "refactoring",
+    "java",
+    "recipes",
+    "automated"
+   ],
+   "tip": "Its framework migration recipes handle Spring Boot upgrades that would otherwise be manual work.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automated large-scale refactoring for JVM projects, driven by reusable recipes.",
+    "ru": "Автоматический масштабный рефакторинг JVM-проектов на основе переиспользуемых рецептов."
+   },
+   "localizedTip": {
+    "en": "Its framework migration recipes handle Spring Boot upgrades that would otherwise be manual work."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pmd",
+   "name": "PMD",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Source code analyzer for many languages, including copy-paste detection.",
+   "url": "https://pmd.github.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "static-analysis",
+    "multi-language",
+    "rules",
+    "copy-paste"
+   ],
+   "tip": "Its copy-paste detector finds duplication across files that ordinary linters never compare.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Source code analyzer for many languages, including copy-paste detection.",
+    "ru": "Анализатор исходного кода для многих языков, включая обнаружение копипаста."
+   },
+   "localizedTip": {
+    "en": "Its copy-paste detector finds duplication across files that ordinary linters never compare."
    },
    "pricing": {
     "model": "openSource",
@@ -49683,6 +49998,41 @@
    },
    "localizedTip": {
     "en": "Keeping its shell open avoids repeated JVM startup, which dominates short Scala build times."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-spotbugs",
+   "name": "SpotBugs",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Finds bug patterns in Java bytecode, the successor to FindBugs.",
+   "url": "https://spotbugs.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "bytecode",
+    "bug-patterns",
+    "static-analysis"
+   ],
+   "tip": "Analyzing bytecode means it also inspects dependencies you have no source for.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Finds bug patterns in Java bytecode, the successor to FindBugs.",
+    "ru": "Находит шаблоны ошибок в байткоде Java, преемник FindBugs."
+   },
+   "localizedTip": {
+    "en": "Analyzing bytecode means it also inspects dependencies you have no source for."
    },
    "pricing": {
     "model": "openSource",
@@ -49901,6 +50251,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-clippy",
+   "name": "Clippy",
+   "kind": "library",
+   "category": "Rust экосистема",
+   "summary": "Official Rust linter with hundreds of idiom and correctness lints.",
+   "url": "https://doc.rust-lang.org/clippy/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rust",
+    "linter",
+    "official",
+    "idiomatic"
+   ],
+   "tip": "It teaches idiomatic Rust as you go, which makes it valuable well beyond catching bugs.",
+   "verifiedAt": "2026-08-17",
+   "install": "rustup component add clippy",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Official Rust linter with hundreds of idiom and correctness lints.",
+    "ru": "Официальный линтер Rust с сотнями правил идиоматичности и корректности."
+   },
+   "localizedTip": {
+    "en": "It teaches idiomatic Rust as you go, which makes it valuable well beyond catching bugs."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-leptos",
    "name": "Leptos",
    "kind": "library",
@@ -49963,6 +50348,41 @@
    },
    "localizedTip": {
     "en": "Request guards catch invalid requests at the type level before your handler code even runs."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-rustfmt",
+   "name": "rustfmt",
+   "kind": "library",
+   "category": "Rust экосистема",
+   "summary": "The official Rust code formatter.",
+   "url": "https://rust-lang.github.io/rustfmt/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rust",
+    "formatter",
+    "official",
+    "consistent"
+   ],
+   "tip": "Near-universal adoption means Rust code looks the same across essentially every project.",
+   "verifiedAt": "2026-08-17",
+   "install": "rustup component add rustfmt",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The official Rust code formatter.",
+    "ru": "Официальный форматтер кода Rust."
+   },
+   "localizedTip": {
+    "en": "Near-universal adoption means Rust code looks the same across essentially every project."
    },
    "pricing": {
     "model": "openSource",
@@ -51118,6 +51538,41 @@
    },
    "localizedTip": {
     "en": "Prefer this over bcrypt for new projects; both are far better than any general-purpose hash like SHA-256."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-bandit",
+   "name": "Bandit",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Finds common security issues in Python code.",
+   "url": "https://bandit.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "security",
+    "static-analysis",
+    "ast"
+   ],
+   "tip": "Its shell-injection and weak-crypto checks catch the mistakes that most often reach production.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install bandit",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Finds common security issues in Python code.",
+    "ru": "Находит распространённые проблемы безопасности в коде Python."
+   },
+   "localizedTip": {
+    "en": "Its shell-injection and weak-crypto checks catch the mistakes that most often reach production."
    },
    "pricing": {
     "model": "openSource",
@@ -55565,6 +56020,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-ast-grep",
+   "name": "ast-grep",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Structural code search and rewriting using syntax patterns rather than regex.",
+   "url": "https://ast-grep.github.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "structural-search",
+    "codemod",
+    "rust",
+    "tree-sitter"
+   ],
+   "tip": "Patterns match the syntax tree, so formatting and whitespace never break a search.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g @ast-grep/cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Structural code search and rewriting using syntax patterns rather than regex.",
+    "ru": "Структурный поиск и переписывание кода по синтаксическим шаблонам вместо регулярных выражений."
+   },
+   "localizedTip": {
+    "en": "Patterns match the syntax tree, so formatting and whitespace never break a search."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-balena-os",
    "name": "balenaOS",
    "kind": "library",
@@ -55732,6 +56222,41 @@
    },
    "localizedTip": {
     "en": "Handles Ctrl+C cancellation properly by default, which hand-rolled prompt loops usually get wrong."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-comby",
+   "name": "Comby",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Language-agnostic structural search and replace across many syntaxes.",
+   "url": "https://comby.dev/docs/overview",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "structural-search",
+    "rewriting",
+    "language-agnostic",
+    "patterns"
+   ],
+   "tip": "It understands balanced delimiters, which is exactly where regex-based rewrites go wrong.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Language-agnostic structural search and replace across many syntaxes.",
+    "ru": "Языконезависимый структурный поиск и замена для множества синтаксисов."
+   },
+   "localizedTip": {
+    "en": "It understands balanced delimiters, which is exactly where regex-based rewrites go wrong."
    },
    "pricing": {
     "model": "openSource",
@@ -56159,6 +56684,41 @@
    },
    "localizedTip": {
     "en": "Its layering separates dependencies from your code, so a code change rebuilds only a tiny layer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-jscodeshift",
+   "name": "jscodeshift",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "JavaScript codemod toolkit for large-scale automated refactoring.",
+   "url": "https://jscodeshift.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "codemod",
+    "javascript",
+    "ast",
+    "migration"
+   ],
+   "tip": "Many libraries ship codemods for their breaking changes — check before migrating by hand.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g jscodeshift",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "JavaScript codemod toolkit for large-scale automated refactoring.",
+    "ru": "Инструментарий кодмодов JavaScript для масштабного автоматического рефакторинга."
+   },
+   "localizedTip": {
+    "en": "Many libraries ship codemods for their breaking changes — check before migrating by hand."
    },
    "pricing": {
     "model": "openSource",
@@ -57007,6 +57567,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-bunchee",
+   "name": "Bunchee",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Zero-configuration bundler for npm packages, driven by package.json exports.",
+   "url": "https://github.com/huozhi/bunchee",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "library",
+    "zero-config",
+    "bundler",
+    "exports"
+   ],
+   "tip": "It reads your exports map, so the build matches what consumers actually import.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D bunchee",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Zero-configuration bundler for npm packages, driven by package.json exports.",
+    "ru": "Бандлер без конфигурации для npm-пакетов, работающий по полю exports в package.json."
+   },
+   "localizedTip": {
+    "en": "It reads your exports map, so the build matches what consumers actually import."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-corepack",
    "name": "Corepack",
    "kind": "library",
@@ -57104,6 +57699,41 @@
    },
    "localizedTip": {
     "en": "Now maintained by the Nx team and largely a thin layer over it for new projects."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-microbundle",
+   "name": "Microbundle",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Zero-configuration bundler for tiny modules, built on Rollup.",
+   "url": "https://github.com/developit/microbundle",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "library",
+    "tiny",
+    "rollup",
+    "zero-config"
+   ],
+   "tip": "Emits every module format at once, which suits a library supporting old and new consumers.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D microbundle",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Zero-configuration bundler for tiny modules, built on Rollup.",
+    "ru": "Бандлер без конфигурации для маленьких модулей на базе Rollup."
+   },
+   "localizedTip": {
+    "en": "Emits every module format at once, which suits a library supporting old and new consumers."
    },
    "pricing": {
     "model": "openSource",
@@ -57384,6 +58014,41 @@
    },
    "localizedTip": {
     "en": "Set the budget slightly above current size — a budget you constantly override stops meaning anything."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-swc",
+   "name": "SWC",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Rust-based TypeScript and JavaScript compiler, a fast Babel replacement.",
+   "url": "https://swc.rs/docs/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rust",
+    "transpiler",
+    "fast",
+    "babel-alternative"
+   ],
+   "tip": "Next.js and Jest both use it under the hood, so many projects already depend on it indirectly.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D @swc/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Rust-based TypeScript and JavaScript compiler, a fast Babel replacement.",
+    "ru": "Компилятор TypeScript и JavaScript на Rust, быстрая замена Babel."
+   },
+   "localizedTip": {
+    "en": "Next.js and Jest both use it under the hood, so many projects already depend on it indirectly."
    },
    "pricing": {
     "model": "openSource",
@@ -57878,6 +58543,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-black",
+   "name": "Black",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Uncompromising Python formatter with almost no configuration.",
+   "url": "https://black.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "formatter",
+    "opinionated",
+    "deterministic"
+   ],
+   "tip": "Removing formatting from code review entirely is the point — that is why it refuses options.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install black",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Uncompromising Python formatter with almost no configuration.",
+    "ru": "Бескомпромиссный форматтер Python практически без настроек."
+   },
+   "localizedTip": {
+    "en": "Removing formatting from code review entirely is the point — that is why it refuses options."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-cypress",
    "name": "Cypress",
    "kind": "library",
@@ -57935,6 +58635,41 @@
    },
    "localizedTip": {
     "en": "Component tests run much faster than full e2e tests — use them for logic-heavy components specifically."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-dprint",
+   "name": "dprint",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Pluggable code formatter written in Rust, supporting several languages.",
+   "url": "https://dprint.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "formatter",
+    "rust",
+    "plugins",
+    "fast"
+   ],
+   "tip": "Its incremental formatting only touches changed files, which is noticeable on a large repository.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pluggable code formatter written in Rust, supporting several languages.",
+    "ru": "Подключаемый форматтер кода на Rust с поддержкой нескольких языков."
+   },
+   "localizedTip": {
+    "en": "Its incremental formatting only touches changed files, which is noticeable on a large repository."
    },
    "pricing": {
     "model": "openSource",
@@ -58323,6 +59058,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-infer",
+   "name": "Infer",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Meta's static analyzer finding null dereferences and resource leaks across procedures.",
+   "url": "https://fbinfer.com/docs/getting-started/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "static-analysis",
+    "meta",
+    "null-safety",
+    "interprocedural"
+   ],
+   "tip": "Interprocedural analysis catches bugs spanning several functions that per-file linters cannot see.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Meta's static analyzer finding null dereferences and resource leaks across procedures.",
+    "ru": "Статический анализатор Meta, находящий разыменования null и утечки ресурсов между процедурами."
+   },
+   "localizedTip": {
+    "en": "Interprocedural analysis catches bugs spanning several functions that per-file linters cannot see."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-inspect-ai",
    "name": "Inspect AI",
    "kind": "library",
@@ -58350,6 +59120,41 @@
    },
    "localizedTip": {
     "en": "Designed for real evaluation work, so logs are inspectable rather than a single score."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-isort",
+   "name": "isort",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Sorts and groups Python imports consistently.",
+   "url": "https://pycqa.github.io/isort/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "imports",
+    "sorting",
+    "formatter"
+   ],
+   "tip": "Ruff implements the same rules, so a project already using Ruff needs no separate tool.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install isort",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Sorts and groups Python imports consistently.",
+    "ru": "Сортирует и группирует импорты Python единообразно."
+   },
+   "localizedTip": {
+    "en": "Ruff implements the same rules, so a project already using Ruff needs no separate tool."
    },
    "pricing": {
     "model": "openSource",
@@ -59295,6 +60100,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-pylint",
+   "name": "Pylint",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Thorough Python linter checking style, errors and code smells.",
+   "url": "https://pylint.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "linter",
+    "thorough",
+    "configurable"
+   ],
+   "tip": "Its design checks (too many arguments, too many branches) catch complexity other linters ignore.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pylint",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Thorough Python linter checking style, errors and code smells.",
+    "ru": "Тщательный линтер Python, проверяющий стиль, ошибки и запахи кода."
+   },
+   "localizedTip": {
+    "en": "Its design checks (too many arguments, too many branches) catch complexity other linters ignore."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pyright",
+   "name": "Pyright",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Fast Python type checker from Microsoft, the engine behind Pylance.",
+   "url": "https://microsoft.github.io/pyright/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "type-checker",
+    "fast",
+    "microsoft"
+   ],
+   "tip": "Considerably faster than mypy and stricter by default, which surfaces more genuine errors.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g pyright",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast Python type checker from Microsoft, the engine behind Pylance.",
+    "ru": "Быстрый проверщик типов Python от Microsoft, движок Pylance."
+   },
+   "localizedTip": {
+    "en": "Considerably faster than mypy and stricter by default, which surfaces more genuine errors."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-pytest",
    "name": "pytest",
    "kind": "library",
@@ -59526,6 +60401,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-sourcery",
+   "name": "Sourcery",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Suggests and applies Python refactorings as you write code.",
+   "url": "https://docs.sourcery.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "refactoring",
+    "suggestions",
+    "ide"
+   ],
+   "tip": "Free for open-source projects, and its suggestions double as a way to learn idiomatic Python.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install sourcery",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Suggests and applies Python refactorings as you write code.",
+    "ru": "Предлагает и применяет рефакторинги Python прямо во время написания кода."
+   },
+   "localizedTip": {
+    "en": "Free for open-source projects, and its suggestions double as a way to learn idiomatic Python."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -59810,6 +60720,41 @@
    },
    "localizedTip": {
     "en": "Catches version-specific breakage locally, before a CI matrix finds it for you."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-ty",
+   "name": "ty",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Extremely fast Python type checker in Rust, from the Ruff team.",
+   "url": "https://github.com/astral-sh/ty",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "type-checker",
+    "rust",
+    "astral"
+   ],
+   "tip": "Still pre-release — worth tracking, but keep mypy or Pyright as the checker CI depends on.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Extremely fast Python type checker in Rust, from the Ruff team.",
+    "ru": "Крайне быстрый проверщик типов Python на Rust от команды Ruff."
+   },
+   "localizedTip": {
+    "en": "Still pre-release — worth tracking, but keep mypy or Pyright as the checker CI depends on."
    },
    "pricing": {
     "model": "openSource",
