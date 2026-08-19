@@ -38738,6 +38738,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-agenda",
+   "name": "Agenda",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "MongoDB-backed job scheduling for Node.",
+   "url": "https://github.com/agenda/agenda",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "mongodb",
+    "scheduling",
+    "jobs"
+   ],
+   "tip": "Useful when you already run MongoDB and would rather not add Redis for queues alone.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i agenda",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "MongoDB-backed job scheduling for Node.",
+    "ru": "Планирование задач для Node на основе MongoDB."
+   },
+   "localizedTip": {
+    "en": "Useful when you already run MongoDB and would rather not add Redis for queues alone."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-arq",
    "name": "arq",
    "kind": "library",
@@ -38765,6 +38800,159 @@
    },
    "localizedTip": {
     "en": "A natural fit when your app is already fully async — Celery's sync-first model fights asyncio codebases."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-asynq",
+   "name": "Asynq",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Simple, reliable Redis-backed task queue for Go with a web dashboard.",
+   "url": "https://github.com/hibiken/asynq",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "go",
+    "redis",
+    "jobs",
+    "web-ui"
+   ],
+   "tip": "Its dashboard makes inspecting and retrying failed jobs straightforward without extra tooling.",
+   "verifiedAt": "2026-08-17",
+   "install": "go get github.com/hibiken/asynq",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple, reliable Redis-backed task queue for Go with a web dashboard.",
+    "ru": "Простая надёжная очередь задач для Go на Redis с веб-дашбордом."
+   },
+   "localizedTip": {
+    "en": "Its dashboard makes inspecting and retrying failed jobs straightforward without extra tooling."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-aws-step-functions",
+   "name": "AWS Step Functions",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Managed state machine orchestration across AWS services.",
+   "url": "https://docs.aws.amazon.com/step-functions/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "aws",
+    "state-machines",
+    "serverless",
+    "orchestration",
+    "pricing",
+    "per-transition"
+   ],
+   "tip": "Express workflows cost far less than standard ones for short high-volume executions.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Managed state machine orchestration across AWS services.",
+    "ru": "Управляемая оркестрация конечных автоматов между сервисами AWS."
+   },
+   "localizedTip": {
+    "en": "Express workflows cost far less than standard ones for short high-volume executions."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.025 per 1000 state transitions",
+    "freeQuota": "free tier of 4000 transitions/month",
+    "url": "https://aws.amazon.com/step-functions/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-azure-durable-functions",
+   "name": "Azure Durable Functions",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Stateful serverless orchestration written as ordinary code on Azure Functions.",
+   "url": "https://learn.microsoft.com/en-us/azure/azure-functions/durable/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "azure",
+    "serverless",
+    "orchestration",
+    "code-first",
+    "pricing",
+    "executions",
+    "storage"
+   ],
+   "tip": "Orchestrator code must be deterministic — replays re-execute it from the start every time.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Stateful serverless orchestration written as ordinary code on Azure Functions.",
+    "ru": "Serverless-оркестрация с состоянием, написанная обычным кодом на Azure Functions."
+   },
+   "localizedTip": {
+    "en": "Orchestrator code must be deterministic — replays re-execute it from the start every time."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.20 per million executions",
+    "freeQuota": "free grant of 1M executions/month",
+    "url": "https://azure.microsoft.com/en-us/pricing/details/functions/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-bee-queue",
+   "name": "Bee-Queue",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Fast Redis-backed job queue for Node, focused on short live jobs.",
+   "url": "https://github.com/bee-queue/bee-queue",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "redis",
+    "fast",
+    "simple"
+   ],
+   "tip": "Optimized for throughput on short jobs where BullMQ's richer features are unnecessary.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i bee-queue",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast Redis-backed job queue for Node, focused on short live jobs.",
+    "ru": "Быстрая очередь задач для Node на Redis, ориентированная на короткие задачи."
+   },
+   "localizedTip": {
+    "en": "Optimized for throughput on short jobs where BullMQ's richer features are unnecessary."
    },
    "pricing": {
     "model": "openSource",
@@ -38803,6 +38991,76 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-cadence",
+   "name": "Cadence",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Fault-tolerant workflow orchestration engine from Uber.",
+   "url": "https://cadenceworkflow.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "workflows",
+    "uber",
+    "durable",
+    "fault-tolerant"
+   ],
+   "tip": "Temporal was forked from it and carries most of the community — check both before choosing.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fault-tolerant workflow orchestration engine from Uber.",
+    "ru": "Отказоустойчивый движок оркестрации workflow от Uber."
+   },
+   "localizedTip": {
+    "en": "Temporal was forked from it and carries most of the community — check both before choosing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-zeebe",
+   "name": "Camunda 8 (Zeebe)",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Horizontally scalable BPMN workflow engine behind Camunda 8.",
+   "url": "https://docs.camunda.io/docs/components/zeebe/zeebe-overview/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bpmn",
+    "workflow",
+    "scalable",
+    "orchestration"
+   ],
+   "tip": "Its event-sourced design handles far higher process throughput than the older Camunda 7 engine.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Horizontally scalable BPMN workflow engine behind Camunda 8.",
+    "ru": "Горизонтально масштабируемый BPMN-движок workflow, лежащий в основе Camunda 8."
+   },
+   "localizedTip": {
+    "en": "Its event-sourced design handles far higher process throughput than the older Camunda 7 engine."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -38870,6 +39128,397 @@
    },
    "localizedTip": {
     "en": "Run exactly one beat process cluster-wide, or every scheduled task fires once per beat instance."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-cloudflare-queues",
+   "name": "Cloudflare Queues",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Managed message queues integrated with Cloudflare Workers.",
+   "url": "https://developers.cloudflare.com/queues/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serverless",
+    "queues",
+    "workers",
+    "batching"
+   ],
+   "tip": "Batched consumers reduce invocation count, which is what keeps serverless queue costs low.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Managed message queues integrated with Cloudflare Workers.",
+    "ru": "Управляемые очереди сообщений, интегрированные с Cloudflare Workers."
+   },
+   "localizedTip": {
+    "en": "Batched consumers reduce invocation count, which is what keeps serverless queue costs low."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-cloudflare-workflows",
+   "name": "Cloudflare Workflows",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Durable multi-step workflows running on Cloudflare Workers.",
+   "url": "https://developers.cloudflare.com/workflows/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "durable",
+    "serverless",
+    "steps",
+    "workers"
+   ],
+   "tip": "Each step's result is persisted, so a workflow resumes mid-run rather than restarting.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Durable multi-step workflows running on Cloudflare Workers.",
+    "ru": "Надёжные многошаговые workflow, выполняемые на Cloudflare Workers."
+   },
+   "localizedTip": {
+    "en": "Each step's result is persisted, so a workflow resumes mid-run rather than restarting."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-conductor",
+   "name": "Conductor",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Microservice orchestration engine originally built at Netflix.",
+   "url": "https://docs.conductor-oss.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "workflows",
+    "netflix",
+    "json",
+    "microservices"
+   ],
+   "tip": "Workflows are JSON definitions, so non-developers can review the orchestration logic.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Microservice orchestration engine originally built at Netflix.",
+    "ru": "Движок оркестрации микросервисов, изначально созданный в Netflix."
+   },
+   "localizedTip": {
+    "en": "Workflows are JSON definitions, so non-developers can review the orchestration logic."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-dbos",
+   "name": "DBOS",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Durable execution as a library, storing workflow state in Postgres.",
+   "url": "https://docs.dbos.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "durable-execution",
+    "postgres",
+    "typescript",
+    "python"
+   ],
+   "tip": "It is a library, not a cluster, so a crashed process resumes without operating a workflow service.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @dbos-inc/dbos-sdk",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Durable execution as a library, storing workflow state in Postgres.",
+    "ru": "Durable execution в виде библиотеки, хранящей состояние workflow в Postgres."
+   },
+   "localizedTip": {
+    "en": "It is a library, not a cluster, so a crashed process resumes without operating a workflow service."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-dramatiq",
+   "name": "Dramatiq",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Python task processing library emphasising reliability and simplicity.",
+   "url": "https://dramatiq.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "reliable",
+    "rabbitmq",
+    "redis"
+   ],
+   "tip": "Its defaults around retries and acknowledgement are safer than Celery's out of the box.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install dramatiq",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python task processing library emphasising reliability and simplicity.",
+    "ru": "Библиотека обработки задач Python с упором на надёжность и простоту."
+   },
+   "localizedTip": {
+    "en": "Its defaults around retries and acknowledgement are safer than Celery's out of the box."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-faktory",
+   "name": "Faktory",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Language-agnostic background job server from the author of Sidekiq.",
+   "url": "https://github.com/contribsys/faktory/wiki",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "language-agnostic",
+    "jobs",
+    "server",
+    "sidekiq-author"
+   ],
+   "tip": "Workers in different languages share one queue, which per-language libraries cannot do.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Language-agnostic background job server from the author of Sidekiq.",
+    "ru": "Языконезависимый сервер фоновых задач от автора Sidekiq."
+   },
+   "localizedTip": {
+    "en": "Workers in different languages share one queue, which per-language libraries cannot do."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-golem-cloud",
+   "name": "Golem",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Durable computing platform running WebAssembly components that survive restarts.",
+   "url": "https://learn.golem.cloud/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "durable",
+    "wasm",
+    "invincible",
+    "components"
+   ],
+   "tip": "WASM state snapshotting means ordinary code becomes durable without workflow-specific structuring.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Durable computing platform running WebAssembly components that survive restarts.",
+    "ru": "Платформа durable-вычислений, запускающая WebAssembly-компоненты, переживающие перезапуски."
+   },
+   "localizedTip": {
+    "en": "WASM state snapshotting means ordinary code becomes durable without workflow-specific structuring."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-google-cloud-workflows",
+   "name": "Google Cloud Workflows",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Serverless orchestration of Google Cloud and HTTP services defined in YAML.",
+   "url": "https://cloud.google.com/workflows/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gcp",
+    "yaml",
+    "serverless",
+    "orchestration",
+    "pricing",
+    "per-step"
+   ],
+   "tip": "Billed per step, so a chatty workflow costs more than one that batches its calls.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Serverless orchestration of Google Cloud and HTTP services defined in YAML.",
+    "ru": "Serverless-оркестрация сервисов Google Cloud и HTTP, описанная в YAML."
+   },
+   "localizedTip": {
+    "en": "Billed per step, so a chatty workflow costs more than one that batches its calls."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.01 per 1000 internal steps",
+    "freeQuota": "free tier of 5000 steps/month",
+    "url": "https://cloud.google.com/workflows/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-graphile-worker",
+   "name": "Graphile Worker",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Postgres-backed job queue for Node with very low latency.",
+   "url": "https://worker.graphile.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "node",
+    "jobs",
+    "low-latency"
+   ],
+   "tip": "Using LISTEN/NOTIFY rather than polling is what keeps latency in milliseconds.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i graphile-worker",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Postgres-backed job queue for Node with very low latency.",
+    "ru": "Очередь задач для Node на Postgres с очень низкой задержкой."
+   },
+   "localizedTip": {
+    "en": "Using LISTEN/NOTIFY rather than polling is what keeps latency in milliseconds."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-hatchet",
+   "name": "Hatchet",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Postgres-backed distributed task queue with durable DAG workflows.",
+   "url": "https://docs.hatchet.run/home",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "durable",
+    "dag",
+    "workers"
+   ],
+   "tip": "Combines a queue and a workflow engine, which usually means running two separate systems.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Postgres-backed distributed task queue with durable DAG workflows.",
+    "ru": "Распределённая очередь задач на Postgres с надёжными DAG-workflow."
+   },
+   "localizedTip": {
+    "en": "Combines a queue and a workflow engine, which usually means running two separate systems."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-huey",
+   "name": "Huey",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Lightweight Python task queue with periodic task support.",
+   "url": "https://huey.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "lightweight",
+    "redis",
+    "scheduling"
+   ],
+   "tip": "Small enough to read end to end, which makes debugging queue behaviour genuinely feasible.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install huey",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight Python task queue with periodic task support.",
+    "ru": "Лёгкая очередь задач Python с поддержкой периодических задач."
+   },
+   "localizedTip": {
+    "en": "Small enough to read end to end, which makes debugging queue behaviour genuinely feasible."
    },
    "pricing": {
     "model": "openSource",
@@ -38948,6 +39597,76 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-machinery",
+   "name": "Machinery",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Distributed task queue for Go supporting several broker backends.",
+   "url": "https://github.com/RichardKnop/machinery",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "go",
+    "distributed",
+    "brokers",
+    "workflows"
+   ],
+   "tip": "Its chains and chords express multi-step job workflows without a separate orchestrator.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed task queue for Go supporting several broker backends.",
+    "ru": "Распределённая очередь задач для Go с поддержкой нескольких брокеров."
+   },
+   "localizedTip": {
+    "en": "Its chains and chords express multi-step job workflows without a separate orchestrator."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-pg-boss",
+   "name": "pg-boss",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Job queue for Node built entirely on Postgres.",
+   "url": "https://github.com/timgit/pg-boss",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "node",
+    "jobs",
+    "transactional"
+   ],
+   "tip": "Enqueuing inside the same transaction as your data change removes a whole class of consistency bug.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i pg-boss",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Job queue for Node built entirely on Postgres.",
+    "ru": "Очередь задач для Node, полностью построенная на Postgres."
+   },
+   "localizedTip": {
+    "en": "Enqueuing inside the same transaction as your data change removes a whole class of consistency bug."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-benthos",
    "name": "Redpanda Connect (Benthos)",
    "kind": "library",
@@ -38975,6 +39694,111 @@
    },
    "localizedTip": {
     "en": "Replaces a surprising amount of bespoke glue-code services with one config file and no deploy pipeline."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-resonate",
+   "name": "Resonate",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Durable promises making distributed async calls resumable after failure.",
+   "url": "https://docs.resonatehq.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "durable-promises",
+    "async",
+    "distributed",
+    "simple"
+   ],
+   "tip": "The promise abstraction is far smaller to learn than a full workflow DSL.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Durable promises making distributed async calls resumable after failure.",
+    "ru": "Durable promises, делающие распределённые асинхронные вызовы восстанавливаемыми после сбоя."
+   },
+   "localizedTip": {
+    "en": "The promise abstraction is far smaller to learn than a full workflow DSL."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-river-queue",
+   "name": "River",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Postgres-backed job queue for Go with transactional enqueueing.",
+   "url": "https://riverqueue.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "go",
+    "postgres",
+    "transactional",
+    "type-safe"
+   ],
+   "tip": "Its transactional guarantee means a job never runs for a transaction that rolled back.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Postgres-backed job queue for Go with transactional enqueueing.",
+    "ru": "Очередь задач для Go на Postgres с транзакционной постановкой задач."
+   },
+   "localizedTip": {
+    "en": "Its transactional guarantee means a job never runs for a transaction that rolled back."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-rq",
+   "name": "RQ",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Simple Python job queue backed by Redis.",
+   "url": "https://python-rq.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "redis",
+    "simple",
+    "jobs"
+   ],
+   "tip": "Far less to configure than Celery when you only need to run functions in the background.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install rq",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple Python job queue backed by Redis.",
+    "ru": "Простая очередь задач Python на основе Redis."
+   },
+   "localizedTip": {
+    "en": "Far less to configure than Celery when you only need to run functions in the background."
    },
    "pricing": {
     "model": "openSource",
@@ -39013,6 +39837,48 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-sidekiq-enterprise",
+   "name": "Sidekiq Enterprise",
+   "kind": "library",
+   "category": "Очереди и события",
+   "summary": "Commercial Sidekiq tier adding rate limiting, batches and reliable fetch.",
+   "url": "https://sidekiq.org/products/enterprise.html",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ruby",
+    "jobs",
+    "rate-limiting",
+    "reliability",
+    "pricing",
+    "subscription",
+    "per-thread"
+   ],
+   "tip": "Reliable fetch is the feature that prevents job loss when a worker is killed mid-job.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Commercial Sidekiq tier adding rate limiting, batches and reliable fetch.",
+    "ru": "Коммерческий уровень Sidekiq с ограничением частоты, батчами и надёжной выборкой."
+   },
+   "localizedTip": {
+    "en": "Reliable fetch is the feature that prevents job loss when a worker is killed mid-job."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$229 per month",
+    "freeQuota": "free open-source edition",
+    "url": "https://sidekiq.org/products/enterprise.html",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -41511,6 +42377,76 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-luigi",
+   "name": "Luigi",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Python pipeline framework from Spotify for dependency-resolved batch jobs.",
+   "url": "https://luigi.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "pipelines",
+    "dependencies",
+    "spotify"
+   ],
+   "tip": "Simpler than Airflow, though largely superseded by it and by Prefect for new work.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install luigi",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python pipeline framework from Spotify for dependency-resolved batch jobs.",
+    "ru": "Python-фреймворк пайплайнов от Spotify для пакетных задач с разрешением зависимостей."
+   },
+   "localizedTip": {
+    "en": "Simpler than Airflow, though largely superseded by it and by Prefect for new work."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-mage-ai",
+   "name": "Mage",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Data pipeline tool blending notebook-style development with production scheduling.",
+   "url": "https://docs.mage.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pipelines",
+    "notebooks",
+    "hybrid",
+    "data"
+   ],
+   "tip": "Each block runs and previews independently, which shortens the pipeline debugging loop.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install mage-ai",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Data pipeline tool blending notebook-style development with production scheduling.",
+    "ru": "Инструмент пайплайнов данных, сочетающий разработку в стиле ноутбуков с продакшн-планированием."
+   },
+   "localizedTip": {
+    "en": "Each block runs and previews independently, which shortens the pipeline debugging loop."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-malloy",
    "name": "Malloy",
    "kind": "library",
@@ -41608,6 +42544,41 @@
    },
    "localizedTip": {
     "en": "Aimed at library authors — it removes the 'which dataframe do you support' question entirely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-orchest",
+   "name": "Orchest",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Visual pipeline builder connecting notebooks and scripts.",
+   "url": "https://docs.orchest.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pipelines",
+    "visual",
+    "notebooks",
+    "kubernetes"
+   ],
+   "tip": "Project activity has slowed considerably — verify maintenance before adopting it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Visual pipeline builder connecting notebooks and scripts.",
+    "ru": "Визуальный конструктор пайплайнов, связывающий ноутбуки и скрипты."
+   },
+   "localizedTip": {
+    "en": "Project activity has slowed considerably — verify maintenance before adopting it."
    },
    "pricing": {
     "model": "openSource",
@@ -47587,6 +48558,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-quartz-scheduler",
+   "name": "Quartz Scheduler",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Mature Java job scheduling library with clustering support.",
+   "url": "https://www.quartz-scheduler.org/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "scheduling",
+    "cron",
+    "clustering"
+   ],
+   "tip": "Clustered mode ensures a scheduled job fires once across instances, not once per instance.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mature Java job scheduling library with clustering support.",
+    "ru": "Зрелая библиотека планирования задач для Java с поддержкой кластеризации."
+   },
+   "localizedTip": {
+    "en": "Clustered mode ensures a scheduled job fires once across instances, not once per instance."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-rest-assured",
    "name": "REST Assured",
    "kind": "library",
@@ -47649,6 +48655,41 @@
    },
    "localizedTip": {
     "en": "Keeping its shell open avoids repeated JVM startup, which dominates short Scala build times."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-spring-batch",
+   "name": "Spring Batch",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Batch processing framework for large-volume JVM jobs.",
+   "url": "https://docs.spring.io/spring-batch/reference/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "batch",
+    "chunking",
+    "restartable"
+   ],
+   "tip": "Chunk-based processing with restart from the last checkpoint is what suits it to very long jobs.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Batch processing framework for large-volume JVM jobs.",
+    "ru": "Фреймворк пакетной обработки для крупных задач на JVM."
+   },
+   "localizedTip": {
+    "en": "Chunk-based processing with restart from the last checkpoint is what suits it to very long jobs."
    },
    "pricing": {
     "model": "openSource",

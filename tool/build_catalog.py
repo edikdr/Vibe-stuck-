@@ -173,6 +173,10 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-sidekiq-enterprise': 'lib-sidekiq-enterprise',
+ 'paid-aws-step-functions': 'lib-aws-step-functions',
+ 'paid-azure-durable-functions': 'lib-azure-durable-functions',
+ 'paid-google-cloud-workflows': 'lib-google-cloud-workflows',
  'paid-stainless': 'lib-stainless',
  'paid-zyte': 'api-zyte',
  'paid-oxylabs': 'api-oxylabs',
