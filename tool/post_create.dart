@@ -11,7 +11,24 @@ void main() {
   _patchAndroidManifest();
   _patchWindowsTitle();
   _patchLinuxTitle();
+  _patchMacosTitle();
+  _removeGeneratedTemplateTest();
   stdout.writeln('post_create: done');
+}
+
+/// `flutter create` writes its counter-app smoke test whenever the file is
+/// absent, and that test fails against this app. Left in place it breaks
+/// `flutter test` in CI, where the runner directories are generated on every
+/// run, so the generated file is removed rather than committed.
+void _removeGeneratedTemplateTest() {
+  final generated = File('test/widget_test.dart');
+  if (!generated.existsSync()) return;
+  if (!generated.readAsStringSync().contains('Counter increments smoke test')) {
+    stdout.writeln('post_create: test/widget_test.dart is not the template, keeping it');
+    return;
+  }
+  generated.deleteSync();
+  stdout.writeln('post_create: removed generated template test');
 }
 
 void _patchAndroidManifest() {
@@ -54,6 +71,35 @@ void _patchWindowsTitle() {
   value = value.replaceAll('Win32Window::Size size(1280, 720);', 'Win32Window::Size size(1280, 820);');
   main.writeAsStringSync(value);
   stdout.writeln('post_create: windows runner patched');
+}
+
+void _patchMacosTitle() {
+  // Product name lives in the xcconfig; the window geometry lives in Swift.
+  final config = File('macos/Runner/Configs/AppInfo.xcconfig');
+  if (config.existsSync()) {
+    var value = config.readAsStringSync();
+    value = value.replaceAll('PRODUCT_NAME = vibestack_atlas', 'PRODUCT_NAME = VibeStack Atlas');
+    config.writeAsStringSync(value);
+  }
+
+  final window = File('macos/Runner/MainFlutterWindow.swift');
+  if (!window.existsSync()) {
+    stdout.writeln('post_create: no macOS runner, skipping');
+    return;
+  }
+  var value = window.readAsStringSync();
+  // flutter create restores a frame captured from the storyboard, so the size
+  // has to be set *after* that call or it is immediately overwritten. This puts
+  // the app straight into the master-detail breakpoint, as on Windows and Linux.
+  const anchor = 'self.setFrame(windowFrame, display: true)';
+  if (!value.contains('NSSize(width: 1280') && value.contains(anchor)) {
+    value = value.replaceFirst(
+      anchor,
+      '$anchor\n    self.setContentSize(NSSize(width: 1280, height: 820))',
+    );
+  }
+  window.writeAsStringSync(value);
+  stdout.writeln('post_create: macos runner patched');
 }
 
 void _patchLinuxTitle() {

@@ -63,8 +63,26 @@
 | Linux | `.AppImage`, `.deb` | `flutter_distributor` |
 | macOS | `.dmg`, нотаризация | `flutter_distributor` + Apple Developer ID |
 
-В CI сборка Windows и Linux уже есть; добавить job упаковки и загрузку
-артефактов в релиз по тегу.
+**Сделано.** `.github/workflows/desktop.yml` собирает Windows, Linux и macOS и
+упаковывает каждую платформу в один файл: `.tar.gz`, `.zip` и `.dmg`. Запуск —
+вручную через Actions (с выбором release/debug) или пушем тега `v*`.
+`build.yml` остаётся для быстрой проверки сборки без упаковки и покрывает те же
+платформы плюс Android.
+
+Осталось за скобками: подпись и нотаризация macOS (нужен Apple Developer ID) и
+`.msix`/`.deb` — текущие форматы ставятся без них, но macOS покажет
+предупреждение Gatekeeper при первом запуске.
+
+### Ежедневная синхронизация на десктопе
+
+Системная задача вызывает бинарник с `--headless-sync`; шаблоны лежат в
+`tool/desktop/`:
+
+| ОС | Файл | Механизм догона |
+|----|------|-----------------|
+| Linux | `vibestack-atlas-sync.service` + `.timer` | `Persistent=true` |
+| Windows | `register_task_windows.ps1` | `-StartWhenAvailable` |
+| macOS | `com.vibestack.atlas.sync.plist` | launchd запускает пропущенное задание при пробуждении |
 
 ## Чего делать не нужно
 

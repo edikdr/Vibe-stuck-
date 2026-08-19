@@ -1,4 +1,4 @@
-name: Build Android Windows Linux
+name: Build Android Windows Linux macOS
 
 on:
   workflow_dispatch:
@@ -23,6 +23,10 @@ jobs:
             os: windows-latest
             command: flutter build windows --release
             artifact: build/windows/x64/runner/Release
+          - target: macos
+            os: macos-latest
+            command: flutter build macos --release
+            artifact: build/macos/Build/Products/Release
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4

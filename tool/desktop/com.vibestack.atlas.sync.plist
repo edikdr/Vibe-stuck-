@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~/Library/LaunchAgents/com.vibestack.atlas.sync.plist
+
+  Runs one catalog update a day without opening a window, the macOS equivalent
+  of the systemd user timer on Linux and the Task Scheduler entry on Windows.
+
+  Install:
+    cp tool/desktop/com.vibestack.atlas.sync.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.vibestack.atlas.sync.plist
+
+  Remove:
+    launchctl unload ~/Library/LaunchAgents/com.vibestack.atlas.sync.plist
+
+  Run once by hand to check it works:
+    launchctl start com.vibestack.atlas.sync
+    cat /tmp/vibestack-atlas-sync.log
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.vibestack.atlas.sync</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <!-- Adjust if the app is installed somewhere other than /Applications. -->
+    <string>/Applications/VibeStack Atlas.app/Contents/MacOS/VibeStack Atlas</string>
+    <string>--headless-sync</string>
+  </array>
+
+  <!-- Change the hour to match the one selected in the app's settings. -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <!--
+    launchd fires a missed calendar job as soon as the machine wakes, which is
+    the same catch-up behaviour as Persistent=true on the systemd timer and
+    -StartWhenAvailable in Task Scheduler.
+  -->
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/vibestack-atlas-sync.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/vibestack-atlas-sync.log</string>
+</dict>
+</plist>

@@ -17,8 +17,9 @@ created, so the task is invisible to the user.
   `Persistent=true` catches up after the machine was off).
 * Windows — `register_task_windows.ps1` (Task Scheduler, `-StartWhenAvailable`
   is the same catch-up rule). No administrator rights required.
-* macOS — a launchd agent with `StartCalendarInterval` follows the same shape;
-  see DESKTOP.md.
+* macOS — `com.vibestack.atlas.sync.plist` (launchd user agent,
+  `StartCalendarInterval`; launchd runs a missed job on wake, which is the same
+  catch-up rule as the other two).
 
 Exit codes: `0` the catalog was updated, `2` the run was skipped because the
 data was still fresh or auto-update is off.

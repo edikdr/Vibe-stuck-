@@ -29,3 +29,7 @@ pubspec.lock
 # Python bytecode cache
 __pycache__/
 *.pyc
+
+# flutter create regenerates these on every CI run; the runner directories
+# above are ignored for the same reason.
+/.metadata
