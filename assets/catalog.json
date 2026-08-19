@@ -52265,6 +52265,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-cri-o",
+   "name": "CRI-O",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Lightweight container runtime built specifically for Kubernetes.",
+   "url": "https://github.com/cri-o/cri-o",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "runtime",
+    "minimal",
+    "cri"
+   ],
+   "tip": "Implements only what Kubernetes needs, which is a smaller surface than containerd.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight container runtime built specifically for Kubernetes.",
+    "ru": "Лёгкий рантайм контейнеров, созданный специально для Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Implements only what Kubernetes needs, which is a smaller surface than containerd."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-devspace",
    "name": "DevSpace",
    "kind": "library",
@@ -52467,6 +52502,76 @@
    },
    "localizedTip": {
     "en": "One file describes a whole environment, which plain helm install scripts never manage cleanly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-k0s",
+   "name": "k0s",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Kubernetes distribution shipped as a single binary with no OS dependencies.",
+   "url": "https://docs.k0sproject.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "lightweight",
+    "single-binary",
+    "zero-friction",
+    "production"
+   ],
+   "tip": "One binary and no host dependencies makes it unusually easy to run on unusual hardware.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Kubernetes distribution shipped as a single binary with no OS dependencies.",
+    "ru": "Дистрибутив Kubernetes в виде одного бинарника без зависимостей от ОС."
+   },
+   "localizedTip": {
+    "en": "One binary and no host dependencies makes it unusually easy to run on unusual hardware."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-k3d",
+   "name": "k3d",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Runs k3s clusters inside Docker for fast local Kubernetes.",
+   "url": "https://k3d.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "k3s",
+    "docker",
+    "local",
+    "fast"
+   ],
+   "tip": "Multi-node local clusters start in seconds, which suits testing scheduling behaviour.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install k3d",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs k3s clusters inside Docker for fast local Kubernetes.",
+    "ru": "Запускает кластеры k3s внутри Docker для быстрого локального Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Multi-node local clusters start in seconds, which suits testing scheduling behaviour."
    },
    "pricing": {
     "model": "openSource",
@@ -52790,6 +52895,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-microk8s",
+   "name": "MicroK8s",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Lightweight single-package Kubernetes from Canonical.",
+   "url": "https://microk8s.io/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "canonical",
+    "lightweight",
+    "snap",
+    "edge"
+   ],
+   "tip": "Its snap packaging makes installation and upgrades a single command on Ubuntu.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight single-package Kubernetes from Canonical.",
+    "ru": "Лёгкий Kubernetes в одном пакете от Canonical."
+   },
+   "localizedTip": {
+    "en": "Its snap packaging makes installation and upgrades a single command on Ubuntu."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-minikube",
+   "name": "Minikube",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Local Kubernetes cluster with a large set of optional addons.",
+   "url": "https://minikube.sigs.k8s.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "local",
+    "kubernetes",
+    "addons",
+    "learning"
+   ],
+   "tip": "Its addons enable ingress and metrics with one command, which suits learning and demos.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Local Kubernetes cluster with a large set of optional addons.",
+    "ru": "Локальный кластер Kubernetes с большим набором опциональных дополнений."
+   },
+   "localizedTip": {
+    "en": "Its addons enable ingress and metrics with one command, which suits learning and demos."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-gatekeeper",
    "name": "OPA Gatekeeper",
    "kind": "library",
@@ -52825,6 +53000,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-openshift",
+   "name": "OpenShift",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Red Hat's enterprise Kubernetes platform with integrated developer tooling.",
+   "url": "https://docs.redhat.com/en/documentation/openshift_container_platform",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "redhat",
+    "enterprise",
+    "kubernetes",
+    "opinionated"
+   ],
+   "tip": "Its stricter security defaults reject containers running as root, which surprises most first deployments.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Red Hat's enterprise Kubernetes platform with integrated developer tooling.",
+    "ru": "Корпоративная платформа Kubernetes от Red Hat с интегрированными инструментами разработки."
+   },
+   "localizedTip": {
+    "en": "Its stricter security defaults reject containers running as root, which surprises most first deployments."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-popeye",
    "name": "Popeye",
    "kind": "library",
@@ -52852,6 +53062,41 @@
    },
    "localizedTip": {
     "en": "Catches the missing resource limits and dangling config maps that accumulate silently over time."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-rancher",
+   "name": "Rancher",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Multi-cluster Kubernetes management platform with a full web interface.",
+   "url": "https://ranchermanager.docs.rancher.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "multi-cluster",
+    "management",
+    "ui",
+    "suse"
+   ],
+   "tip": "Managing clusters across several clouds from one place is where it earns its keep.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Multi-cluster Kubernetes management platform with a full web interface.",
+    "ru": "Платформа управления множеством кластеров Kubernetes с полноценным веб-интерфейсом."
+   },
+   "localizedTip": {
+    "en": "Managing clusters across several clouds from one place is where it earns its keep."
    },
    "pricing": {
     "model": "openSource",
@@ -52957,6 +53202,41 @@
    },
    "localizedTip": {
     "en": "Follows pods matched by a pattern, so it keeps working across restarts and rollouts."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-talos-linux",
+   "name": "Talos Linux",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Immutable Kubernetes-only Linux managed entirely through an API.",
+   "url": "https://www.talos.dev/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kubernetes",
+    "immutable",
+    "api-driven",
+    "minimal"
+   ],
+   "tip": "There is no SSH at all — configuration changes go through the API, which forces real reproducibility.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Immutable Kubernetes-only Linux managed entirely through an API.",
+    "ru": "Неизменяемый Linux исключительно для Kubernetes, управляемый полностью через API."
+   },
+   "localizedTip": {
+    "en": "There is no SSH at all — configuration changes go through the API, which forces real reproducibility."
    },
    "pricing": {
     "model": "openSource",
@@ -53607,6 +53887,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-gvisor",
+   "name": "gVisor",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Application kernel providing strong container isolation.",
+   "url": "https://gvisor.dev/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sandboxing",
+    "kernel",
+    "isolation",
+    "google"
+   ],
+   "tip": "Intercepting syscalls in userspace costs some performance and buys real multi-tenant isolation.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Application kernel providing strong container isolation.",
+    "ru": "Прикладное ядро, обеспечивающее сильную изоляцию контейнеров."
+   },
+   "localizedTip": {
+    "en": "Intercepting syscalls in userspace costs some performance and buys real multi-tenant isolation."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-impart-security",
    "name": "Impart Security",
    "kind": "library",
@@ -53711,6 +54026,41 @@
    },
    "localizedTip": {
     "en": "Always verify the algorithm explicitly when validating a token — accepting 'none' is a classic JWT vulnerability."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-kata-containers",
+   "name": "Kata Containers",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Runs containers inside lightweight virtual machines for hardware-level isolation.",
+   "url": "https://katacontainers.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vm-isolation",
+    "containers",
+    "security",
+    "oci"
+   ],
+   "tip": "VM-grade isolation with a container interface, which suits running untrusted customer workloads.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs containers inside lightweight virtual machines for hardware-level isolation.",
+    "ru": "Запускает контейнеры внутри лёгких виртуальных машин для аппаратной изоляции."
+   },
+   "localizedTip": {
+    "en": "VM-grade isolation with a container interface, which suits running untrusted customer workloads."
    },
    "pricing": {
     "model": "openSource",
@@ -55232,6 +55582,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-cfengine",
+   "name": "CFEngine",
+   "kind": "library",
+   "category": "Инфраструктура как код",
+   "summary": "The original configuration management system, with a very small agent footprint.",
+   "url": "https://docs.cfengine.com/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "configuration-management",
+    "lightweight",
+    "convergent",
+    "original"
+   ],
+   "tip": "Its tiny agent still suits embedded and heavily constrained systems others cannot reach.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The original configuration management system, with a very small agent footprint.",
+    "ru": "Первая система управления конфигурацией с очень малым размером агента."
+   },
+   "localizedTip": {
+    "en": "Its tiny agent still suits embedded and heavily constrained systems others cannot reach."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-chef",
+   "name": "Chef",
+   "kind": "library",
+   "category": "Инфраструктура как код",
+   "summary": "Ruby-based configuration management with reusable cookbooks.",
+   "url": "https://docs.chef.io/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "configuration-management",
+    "ruby",
+    "cookbooks",
+    "compliance"
+   ],
+   "tip": "Its compliance scanning is often the reason it persists in regulated enterprises.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Ruby-based configuration management with reusable cookbooks.",
+    "ru": "Управление конфигурацией на Ruby с переиспользуемыми cookbook."
+   },
+   "localizedTip": {
+    "en": "Its compliance scanning is often the reason it persists in regulated enterprises."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-crossplane",
    "name": "Crossplane",
    "kind": "library",
@@ -55302,6 +55722,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-packer",
+   "name": "Packer",
+   "kind": "library",
+   "category": "Инфраструктура как код",
+   "summary": "Builds identical machine images for multiple platforms from one configuration.",
+   "url": "https://developer.hashicorp.com/packer/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "images",
+    "hashicorp",
+    "automation",
+    "multi-cloud"
+   ],
+   "tip": "Baking dependencies into the image cuts boot time versus configuring instances after launch.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds identical machine images for multiple platforms from one configuration.",
+    "ru": "Создаёт идентичные образы машин для разных платформ из одной конфигурации."
+   },
+   "localizedTip": {
+    "en": "Baking dependencies into the image cuts boot time versus configuring instances after launch."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-pulumi",
    "name": "Pulumi",
    "kind": "library",
@@ -55332,6 +55787,76 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-puppet",
+   "name": "Puppet",
+   "kind": "library",
+   "category": "Инфраструктура как код",
+   "summary": "Declarative configuration management with an agent-based pull model.",
+   "url": "https://www.puppet.com/docs",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "configuration-management",
+    "declarative",
+    "agent",
+    "enterprise"
+   ],
+   "tip": "Agents continuously reconcile drift, unlike push tools that only apply when you run them.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Declarative configuration management with an agent-based pull model.",
+    "ru": "Декларативное управление конфигурацией с агентной pull-моделью."
+   },
+   "localizedTip": {
+    "en": "Agents continuously reconcile drift, unlike push tools that only apply when you run them."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-saltstack",
+   "name": "Salt",
+   "kind": "library",
+   "category": "Инфраструктура как код",
+   "summary": "Configuration management and remote execution built for very large fleets.",
+   "url": "https://docs.saltproject.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "configuration-management",
+    "remote-execution",
+    "fast",
+    "python"
+   ],
+   "tip": "Its event-driven message bus executes across thousands of nodes far faster than SSH-based tools.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Configuration management and remote execution built for very large fleets.",
+    "ru": "Управление конфигурацией и удалённое выполнение для очень больших парков машин."
+   },
+   "localizedTip": {
+    "en": "Its event-driven message bus executes across thousands of nodes far faster than SSH-based tools."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -57716,6 +58241,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-bottlerocket",
+   "name": "Bottlerocket",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Minimal immutable Linux distribution purpose-built for running containers.",
+   "url": "https://bottlerocket.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "container-os",
+    "aws",
+    "minimal",
+    "immutable"
+   ],
+   "tip": "No package manager and no shell means a far smaller attack surface than a general-purpose OS.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal immutable Linux distribution purpose-built for running containers.",
+    "ru": "Минималистичный неизменяемый дистрибутив Linux, созданный для запуска контейнеров."
+   },
+   "localizedTip": {
+    "en": "No package manager and no shell means a far smaller attack surface than a general-purpose OS."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-caddy",
    "name": "Caddy",
    "kind": "library",
@@ -57751,6 +58311,356 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-caprover",
+   "name": "CapRover",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Self-hosted PaaS on Docker Swarm with one-click application templates.",
+   "url": "https://caprover.com/docs/get-started.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-hosted",
+    "paas",
+    "docker-swarm",
+    "one-click"
+   ],
+   "tip": "Its one-click apps cover most self-hosted services people actually want to run.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted PaaS on Docker Swarm with one-click application templates.",
+    "ru": "Self-hosted PaaS на Docker Swarm с шаблонами приложений в один клик."
+   },
+   "localizedTip": {
+    "en": "Its one-click apps cover most self-hosted services people actually want to run."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-coolify",
+   "name": "Coolify",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Self-hosted platform-as-a-service, an open alternative to Heroku and Vercel.",
+   "url": "https://coolify.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-hosted",
+    "paas",
+    "docker",
+    "heroku-alternative"
+   ],
+   "tip": "One VPS running it replaces several paid hosting subscriptions, at the cost of owning the ops.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted platform-as-a-service, an open alternative to Heroku and Vercel.",
+    "ru": "Self-hosted платформа как сервис, открытая альтернатива Heroku и Vercel."
+   },
+   "localizedTip": {
+    "en": "One VPS running it replaces several paid hosting subscriptions, at the cost of owning the ops."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-docker-swarm",
+   "name": "Docker Swarm",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Container orchestration built into Docker, configured with compose files.",
+   "url": "https://docs.docker.com/engine/swarm/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "orchestration",
+    "simple",
+    "built-in",
+    "compose"
+   ],
+   "tip": "In maintenance rather than active development, but still the simplest path to multi-host containers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Container orchestration built into Docker, configured with compose files.",
+    "ru": "Оркестрация контейнеров, встроенная в Docker и настраиваемая через compose-файлы."
+   },
+   "localizedTip": {
+    "en": "In maintenance rather than active development, but still the simplest path to multi-host containers."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-dokku",
+   "name": "Dokku",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Minimal Heroku-style PaaS deploying via git push on a single host.",
+   "url": "https://dokku.com/docs/getting-started/installation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-hosted",
+    "paas",
+    "git-push",
+    "buildpacks"
+   ],
+   "tip": "It reproduces the Heroku workflow faithfully, which makes migrating off Heroku straightforward.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal Heroku-style PaaS deploying via git push on a single host.",
+    "ru": "Минималистичный PaaS в стиле Heroku с развёртыванием через git push на одном хосте."
+   },
+   "localizedTip": {
+    "en": "It reproduces the Heroku workflow faithfully, which makes migrating off Heroku straightforward."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-dokploy",
+   "name": "Dokploy",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Self-hosted deployment platform built around Docker Compose.",
+   "url": "https://docs.dokploy.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-hosted",
+    "paas",
+    "docker-compose",
+    "simple"
+   ],
+   "tip": "If your app already has a compose file, deployment is essentially just pointing it at a server.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted deployment platform built around Docker Compose.",
+    "ru": "Self-hosted платформа развёртывания, построенная вокруг Docker Compose."
+   },
+   "localizedTip": {
+    "en": "If your app already has a compose file, deployment is essentially just pointing it at a server."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-firecracker",
+   "name": "Firecracker",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "MicroVM technology behind AWS Lambda, booting in milliseconds.",
+   "url": "https://firecracker-microvm.github.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "microvm",
+    "aws",
+    "fast-boot",
+    "serverless"
+   ],
+   "tip": "Millisecond boots with full VM isolation is what makes secure multi-tenant serverless possible.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "MicroVM technology behind AWS Lambda, booting in milliseconds.",
+    "ru": "Технология microVM, лежащая в основе AWS Lambda, с запуском за миллисекунды."
+   },
+   "localizedTip": {
+    "en": "Millisecond boots with full VM isolation is what makes secure multi-tenant serverless possible."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-incus",
+   "name": "Incus",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Community fork of LXD under the Linux Containers project.",
+   "url": "https://linuxcontainers.org/incus/docs/main/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fork",
+    "containers",
+    "vm",
+    "community"
+   ],
+   "tip": "Forked after LXD moved under Canonical's CLA, and now carries much of the community development.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community fork of LXD under the Linux Containers project.",
+    "ru": "Форк LXD под управлением сообщества в рамках проекта Linux Containers."
+   },
+   "localizedTip": {
+    "en": "Forked after LXD moved under Canonical's CLA, and now carries much of the community development."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-kamal",
+   "name": "Kamal",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Deploys containers to any server over SSH, from the Rails team.",
+   "url": "https://kamal-deploy.org/docs/installation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "deployment",
+    "docker",
+    "ruby",
+    "zero-downtime"
+   ],
+   "tip": "Deliberately targets plain servers rather than Kubernetes, which is the whole appeal.",
+   "verifiedAt": "2026-08-17",
+   "install": "gem install kamal",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Deploys containers to any server over SSH, from the Rails team.",
+    "ru": "Развёртывает контейнеры на любой сервер через SSH, разработка команды Rails."
+   },
+   "localizedTip": {
+    "en": "Deliberately targets plain servers rather than Kubernetes, which is the whole appeal."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-lxd",
+   "name": "LXD",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "System container and virtual machine manager from Canonical.",
+   "url": "https://documentation.ubuntu.com/lxd/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "system-containers",
+    "vm",
+    "canonical",
+    "lightweight"
+   ],
+   "tip": "System containers behave like lightweight VMs, which suits workloads that expect a full init system.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "System container and virtual machine manager from Canonical.",
+    "ru": "Менеджер системных контейнеров и виртуальных машин от Canonical."
+   },
+   "localizedTip": {
+    "en": "System containers behave like lightweight VMs, which suits workloads that expect a full init system."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-netlify",
+   "name": "Netlify",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Static site and serverless function hosting with built-in forms and identity.",
+   "url": "https://docs.netlify.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "jamstack",
+    "static",
+    "functions",
+    "forms"
+   ],
+   "tip": "Its form handling covers a contact form with no backend at all, which is genuinely useful.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g netlify-cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Static site and serverless function hosting with built-in forms and identity.",
+    "ru": "Хостинг статических сайтов и serverless-функций со встроенными формами и идентификацией."
+   },
+   "localizedTip": {
+    "en": "Its form handling covers a contact form with no backend at all, which is genuinely useful."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-nginx",
    "name": "nginx",
    "kind": "library",
@@ -57778,6 +58688,76 @@
    },
    "localizedTip": {
     "en": "Test config with nginx -t before every reload — a syntax error takes the whole server down otherwise."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nomad",
+   "name": "Nomad",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Workload orchestrator running containers, binaries and virtual machines.",
+   "url": "https://developer.hashicorp.com/nomad/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "orchestration",
+    "simple",
+    "hashicorp",
+    "multi-workload"
+   ],
+   "tip": "Substantially simpler than Kubernetes, and it schedules non-container workloads Kubernetes cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Workload orchestrator running containers, binaries and virtual machines.",
+    "ru": "Оркестратор нагрузок, запускающий контейнеры, бинарники и виртуальные машины."
+   },
+   "localizedTip": {
+    "en": "Substantially simpler than Kubernetes, and it schedules non-container workloads Kubernetes cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-proxmox",
+   "name": "Proxmox VE",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Open-source virtualization platform combining KVM virtual machines and LXC containers.",
+   "url": "https://pve.proxmox.com/pve-docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "virtualization",
+    "kvm",
+    "lxc",
+    "web-ui"
+   ],
+   "tip": "The standard choice for a self-hosted homelab or small-office virtualization host.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source virtualization platform combining KVM virtual machines and LXC containers.",
+    "ru": "Открытая платформа виртуализации, объединяющая виртуальные машины KVM и контейнеры LXC."
+   },
+   "localizedTip": {
+    "en": "The standard choice for a self-hosted homelab or small-office virtualization host."
    },
    "pricing": {
     "model": "openSource",
@@ -57851,6 +58831,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-vercel",
+   "name": "Vercel",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Frontend hosting platform with serverless and edge functions.",
+   "url": "https://vercel.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "frontend",
+    "serverless",
+    "edge",
+    "nextjs"
+   ],
+   "tip": "Its bandwidth pricing is the line that surprises people — check it before a traffic spike does.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g vercel",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Frontend hosting platform with serverless and edge functions.",
+    "ru": "Платформа хостинга фронтенда с serverless и edge-функциями."
+   },
+   "localizedTip": {
+    "en": "Its bandwidth pricing is the line that surprises people — check it before a traffic spike does."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -58206,6 +59221,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-colima",
+   "name": "Colima",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Container runtime for macOS, a free alternative to Docker Desktop.",
+   "url": "https://github.com/abiosoft/colima",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docker",
+    "macos",
+    "lima",
+    "free"
+   ],
+   "tip": "No licence fee for commercial use, which is Docker Desktop's main friction in companies.",
+   "verifiedAt": "2026-08-17",
+   "install": "brew install colima",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Container runtime for macOS, a free alternative to Docker Desktop.",
+    "ru": "Рантайм контейнеров для macOS, бесплатная альтернатива Docker Desktop."
+   },
+   "localizedTip": {
+    "en": "No licence fee for commercial use, which is Docker Desktop's main friction in companies."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-comby",
    "name": "Comby",
    "kind": "library",
@@ -58268,6 +59318,41 @@
    },
    "localizedTip": {
     "en": "It installs non-Python binaries like CUDA and MKL, which is why scientific stacks still rely on it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-containerd",
+   "name": "containerd",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Core container runtime used by Docker and most Kubernetes clusters.",
+   "url": "https://containerd.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "runtime",
+    "cncf",
+    "core",
+    "kubernetes"
+   ],
+   "tip": "You are almost certainly already running it, whether or not you interact with it directly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Core container runtime used by Docker and most Kubernetes clusters.",
+    "ru": "Базовый рантайм контейнеров, используемый Docker и большинством кластеров Kubernetes."
+   },
+   "localizedTip": {
+    "en": "You are almost certainly already running it, whether or not you interact with it directly."
    },
    "pricing": {
     "model": "openSource",
@@ -58738,6 +59823,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-lima",
+   "name": "Lima",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Runs Linux virtual machines on macOS with automatic file and port forwarding.",
+   "url": "https://lima-vm.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "linux-vm",
+    "macos",
+    "containers",
+    "file-sharing"
+   ],
+   "tip": "It underpins Colima and Rancher Desktop, so many people run it without realizing.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs Linux virtual machines on macOS with automatic file and port forwarding.",
+    "ru": "Запускает виртуальные машины Linux на macOS с автоматическим пробросом файлов и портов."
+   },
+   "localizedTip": {
+    "en": "It underpins Colima and Rancher Desktop, so many people run it without realizing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-mender",
    "name": "Mender",
    "kind": "library",
@@ -58800,6 +59920,41 @@
    },
    "localizedTip": {
     "en": "Language-agnostic, unlike Turborepo and Nx which are strongest in the JS ecosystem."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-multipass",
+   "name": "Multipass",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Launches Ubuntu virtual machines on demand from a single command.",
+   "url": "https://documentation.ubuntu.com/multipass/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ubuntu",
+    "vm",
+    "lightweight",
+    "canonical"
+   ],
+   "tip": "Fastest way to get a disposable Ubuntu VM on macOS or Windows for testing install scripts.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Launches Ubuntu virtual machines on demand from a single command.",
+    "ru": "Запускает виртуальные машины Ubuntu по требованию одной командой."
+   },
+   "localizedTip": {
+    "en": "Fastest way to get a disposable Ubuntu VM on macOS or Windows for testing install scripts."
    },
    "pricing": {
     "model": "openSource",
@@ -58978,6 +60133,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-orbstack",
+   "name": "OrbStack",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Fast, lightweight Docker and Linux machine runtime for macOS.",
+   "url": "https://docs.orbstack.dev/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "macos",
+    "docker",
+    "fast",
+    "lightweight"
+   ],
+   "tip": "Noticeably faster startup and lower battery drain than Docker Desktop on the same hardware.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast, lightweight Docker and Linux machine runtime for macOS.",
+    "ru": "Быстрый лёгкий рантайм Docker и Linux-машин для macOS."
+   },
+   "localizedTip": {
+    "en": "Noticeably faster startup and lower battery drain than Docker Desktop on the same hardware."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -59193,6 +60383,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-podman",
+   "name": "Podman",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Daemonless container engine with rootless containers by default.",
+   "url": "https://docs.podman.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "containers",
+    "daemonless",
+    "rootless",
+    "redhat"
+   ],
+   "tip": "Rootless by default removes the root-equivalent access that Docker group membership grants.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Daemonless container engine with rootless containers by default.",
+    "ru": "Движок контейнеров без демона, по умолчанию с rootless-контейнерами."
+   },
+   "localizedTip": {
+    "en": "Rootless by default removes the root-equivalent access that Docker group membership grants."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-poetry",
    "name": "Poetry",
    "kind": "library",
@@ -59360,6 +60585,41 @@
    },
    "localizedTip": {
     "en": "It replaces pip, venv and pip-tools in one binary, which simplifies CI images a lot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-vagrant",
+   "name": "Vagrant",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Manages reproducible virtual machine development environments.",
+   "url": "https://developer.hashicorp.com/vagrant/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vm",
+    "development",
+    "reproducible",
+    "boxes"
+   ],
+   "tip": "Largely displaced by containers, but still the right tool when you need a real kernel.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Manages reproducible virtual machine development environments.",
+    "ru": "Управляет воспроизводимыми средами разработки на виртуальных машинах."
+   },
+   "localizedTip": {
+    "en": "Largely displaced by containers, but still the right tool when you need a real kernel."
    },
    "pricing": {
     "model": "openSource",
