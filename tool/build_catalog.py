@@ -173,6 +173,7 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-tonic-ai': 'lib-tonic-ai', 'paid-datagrip': 'lib-datagrip',
  'paid-sidekiq-enterprise': 'lib-sidekiq-enterprise',
  'paid-aws-step-functions': 'lib-aws-step-functions',
  'paid-azure-durable-functions': 'lib-azure-durable-functions',
