@@ -46985,6 +46985,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-rest-assured",
+   "name": "REST Assured",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Fluent Java DSL for testing REST services.",
+   "url": "https://rest-assured.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "api-testing",
+    "fluent",
+    "validation"
+   ],
+   "tip": "Its given/when/then chaining keeps API assertions readable inside ordinary JUnit tests.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fluent Java DSL for testing REST services.",
+    "ru": "Текучий Java-DSL для тестирования REST-сервисов."
+   },
+   "localizedTip": {
+    "en": "Its given/when/then chaining keeps API assertions readable inside ordinary JUnit tests."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-sbt",
    "name": "sbt",
    "kind": "library",
@@ -47047,6 +47082,41 @@
    },
    "localizedTip": {
     "en": "Spring Initializr generates a working starter project in seconds — start there, not from a blank repo."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-spring-cloud-contract",
+   "name": "Spring Cloud Contract",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Contract testing and stub generation for Spring-based services.",
+   "url": "https://docs.spring.io/spring-cloud-contract/reference/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "contract-testing",
+    "spring",
+    "jvm",
+    "stubs"
+   ],
+   "tip": "Generates both the provider test and the consumer stub from one contract definition.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Contract testing and stub generation for Spring-based services.",
+    "ru": "Контрактное тестирование и генерация заглушек для сервисов на Spring."
+   },
+   "localizedTip": {
+    "en": "Generates both the provider test and the consumer stub from one contract definition."
    },
    "pricing": {
     "model": "openSource",
@@ -54861,6 +54931,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-autocannon",
+   "name": "autocannon",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Fast HTTP benchmarking tool written in Node.",
+   "url": "https://github.com/mcollina/autocannon",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "benchmarking",
+    "node",
+    "http",
+    "fast"
+   ],
+   "tip": "Scriptable from Node, so benchmarks can live in the same repository as the service.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g autocannon",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast HTTP benchmarking tool written in Node.",
+    "ru": "Быстрый инструмент HTTP-бенчмаркинга, написанный на Node."
+   },
+   "localizedTip": {
+    "en": "Scriptable from Node, so benchmarks can live in the same repository as the service."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-ava",
+   "name": "AVA",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Concurrent test runner executing each file in its own process.",
+   "url": "https://github.com/avajs/ava",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "concurrent",
+    "minimal",
+    "isolated"
+   ],
+   "tip": "Process isolation makes shared-state leakage between tests structurally impossible.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D ava",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Concurrent test runner executing each file in its own process.",
+    "ru": "Конкурентный раннер тестов, выполняющий каждый файл в отдельном процессе."
+   },
+   "localizedTip": {
+    "en": "Process isolation makes shared-state leakage between tests structurally impossible."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-biome",
    "name": "Biome",
    "kind": "library",
@@ -54987,6 +55127,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-factory-boy",
+   "name": "factory_boy",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Test fixture factories for Python, with strong Django ORM support.",
+   "url": "https://factoryboy.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "fixtures",
+    "django",
+    "factories"
+   ],
+   "tip": "Its sub-factories build related object graphs, which flat fixture files handle badly.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install factory_boy",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Test fixture factories for Python, with strong Django ORM support.",
+    "ru": "Фабрики тестовых фикстур для Python с сильной поддержкой Django ORM."
+   },
+   "localizedTip": {
+    "en": "Its sub-factories build related object graphs, which flat fixture files handle badly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-faker-python",
    "name": "Faker (Python)",
    "kind": "library",
@@ -55049,6 +55224,111 @@
    },
    "localizedTip": {
     "en": "Set a fixed seed in tests so failures are reproducible instead of random."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-fast-check",
+   "name": "fast-check",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Property-based testing for JavaScript with automatic counterexample shrinking.",
+   "url": "https://fast-check.dev/docs/introduction/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "property-based",
+    "javascript",
+    "shrinking",
+    "generators"
+   ],
+   "tip": "Shrinking reduces a random failure to a minimal reproducible case, which is what makes it usable.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D fast-check",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Property-based testing for JavaScript with automatic counterexample shrinking.",
+    "ru": "Property-based тестирование для JavaScript с автоматическим упрощением контрпримеров."
+   },
+   "localizedTip": {
+    "en": "Shrinking reduces a random failure to a minimal reproducible case, which is what makes it usable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-fishery",
+   "name": "Fishery",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Typed test data factories for TypeScript.",
+   "url": "https://github.com/thoughtbot/fishery",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "factories",
+    "typescript",
+    "test-data",
+    "thoughtbot"
+   ],
+   "tip": "Factories keep tests readable by naming only the fields a given test actually cares about.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D fishery",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Typed test data factories for TypeScript.",
+    "ru": "Типизированные фабрики тестовых данных для TypeScript."
+   },
+   "localizedTip": {
+    "en": "Factories keep tests readable by naming only the fields a given test actually cares about."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-gatling",
+   "name": "Gatling",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "High-performance load testing on the JVM with detailed HTML reports.",
+   "url": "https://docs.gatling.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "load-testing",
+    "scala",
+    "jvm",
+    "reports"
+   ],
+   "tip": "Its async engine drives far more virtual users per machine than thread-per-user tools.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance load testing on the JVM with detailed HTML reports.",
+    "ru": "Высокопроизводительное нагрузочное тестирование на JVM с подробными HTML-отчётами."
+   },
+   "localizedTip": {
+    "en": "Its async engine drives far more virtual users per machine than thread-per-user tools."
    },
    "pricing": {
     "model": "openSource",
@@ -55262,6 +55542,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-jqwik",
+   "name": "jqwik",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Property-based testing for Java, integrated with JUnit 5.",
+   "url": "https://jqwik.net/docs/current/user-guide.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "property-based",
+    "junit5",
+    "generators"
+   ],
+   "tip": "Runs alongside ordinary JUnit tests, so adoption can be one test class at a time.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Property-based testing for Java, integrated with JUnit 5.",
+    "ru": "Property-based тестирование для Java, интегрированное с JUnit 5."
+   },
+   "localizedTip": {
+    "en": "Runs alongside ordinary JUnit tests, so adoption can be one test class at a time."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-jsdom",
+   "name": "jsdom",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Pure JavaScript implementation of web standards for Node environments.",
+   "url": "https://github.com/jsdom/jsdom",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dom",
+    "node",
+    "standards",
+    "simulation"
+   ],
+   "tip": "The most standards-complete option, and the default DOM behind Jest's test environment.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D jsdom",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pure JavaScript implementation of web standards for Node environments.",
+    "ru": "Реализация веб-стандартов на чистом JavaScript для окружений Node."
+   },
+   "localizedTip": {
+    "en": "The most standards-complete option, and the default DOM behind Jest's test environment."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-karate",
+   "name": "Karate",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "API test automation with a readable DSL requiring no Java code.",
+   "url": "https://karatelabs.github.io/karate/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "api-testing",
+    "bdd",
+    "no-code",
+    "java"
+   ],
+   "tip": "Its DSL is approachable enough that testers write API suites without a developer.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "API test automation with a readable DSL requiring no Java code.",
+    "ru": "Автоматизация тестирования API на читаемом DSL, не требующем Java-кода."
+   },
+   "localizedTip": {
+    "en": "Its DSL is approachable enough that testers write API suites without a developer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-lighthouse",
    "name": "Lighthouse",
    "kind": "library",
@@ -55402,6 +55787,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-mocha",
+   "name": "Mocha",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Long-established flexible JavaScript test runner with pluggable assertions.",
+   "url": "https://mochajs.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "test-runner",
+    "flexible",
+    "mature"
+   ],
+   "tip": "It brings no assertion library, so pair it with Chai — that flexibility is the point.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D mocha",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Long-established flexible JavaScript test runner with pluggable assertions.",
+    "ru": "Давно устоявшийся гибкий JavaScript-раннер тестов с подключаемыми библиотеками утверждений."
+   },
+   "localizedTip": {
+    "en": "It brings no assertion library, so pair it with Chai — that flexibility is the point."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-msw",
    "name": "Mock Service Worker",
    "kind": "library",
@@ -55502,6 +55922,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-newman",
+   "name": "Newman",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Command-line runner executing Postman collections in CI.",
+   "url": "https://github.com/postmanlabs/newman",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postman",
+    "cli",
+    "collections",
+    "ci"
+   ],
+   "tip": "Turns collections your team already maintains into automated CI checks with no rewriting.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g newman",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Command-line runner executing Postman collections in CI.",
+    "ru": "Раннер командной строки, выполняющий коллекции Postman в CI."
+   },
+   "localizedTip": {
+    "en": "Turns collections your team already maintains into automated CI checks with no rewriting."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nightwatch",
+   "name": "Nightwatch.js",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Integrated end-to-end testing framework with its own runner and assertions.",
+   "url": "https://nightwatchjs.org/guide/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "e2e",
+    "integrated",
+    "webdriver",
+    "component-testing"
+   ],
+   "tip": "Batteries-included setup avoids assembling a runner, driver and assertion library yourself.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D nightwatch",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Integrated end-to-end testing framework with its own runner and assertions.",
+    "ru": "Интегрированный фреймворк E2E-тестирования с собственным раннером и утверждениями."
+   },
+   "localizedTip": {
+    "en": "Batteries-included setup avoids assembling a runner, driver and assertion library yourself."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-nock",
    "name": "nock",
    "kind": "library",
@@ -55537,6 +56027,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-node-test-runner",
+   "name": "Node Test Runner",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Test runner built into Node, requiring no external dependency.",
+   "url": "https://nodejs.org/api/test.html",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "built-in",
+    "zero-dependency",
+    "stable"
+   ],
+   "tip": "Enough for a library with modest needs, and it removes a whole dependency tree from CI.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Test runner built into Node, requiring no external dependency.",
+    "ru": "Раннер тестов, встроенный в Node и не требующий внешних зависимостей."
+   },
+   "localizedTip": {
+    "en": "Enough for a library with modest needs, and it removes a whole dependency tree from CI."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nox",
+   "name": "nox",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Test automation where environments are configured in ordinary Python.",
+   "url": "https://nox.thea.codes/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "sessions",
+    "configuration-as-code",
+    "automation"
+   ],
+   "tip": "Python configuration handles conditional logic that tox's INI format cannot express.",
+   "verifiedAt": "2026-08-17",
+   "install": "pipx install nox",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Test automation where environments are configured in ordinary Python.",
+    "ru": "Автоматизация тестирования, где окружения настраиваются на обычном Python."
+   },
+   "localizedTip": {
+    "en": "Python configuration handles conditional logic that tox's INI format cannot express."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-oxlint",
    "name": "oxlint",
    "kind": "library",
@@ -55564,6 +56124,41 @@
    },
    "localizedTip": {
     "en": "Fast enough to run on every save in a monorepo where ESLint takes minutes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pact",
+   "name": "Pact",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Consumer-driven contract testing between services.",
+   "url": "https://docs.pact.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "contract-testing",
+    "consumer-driven",
+    "microservices",
+    "broker"
+   ],
+   "tip": "Catches breaking API changes in CI without standing up every service in an integration environment.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Consumer-driven contract testing between services.",
+    "ru": "Контрактное тестирование между сервисами, управляемое потребителем."
+   },
+   "localizedTip": {
+    "en": "Catches breaking API changes in CI without standing up every service in an integration environment."
    },
    "pricing": {
     "model": "openSource",
@@ -55641,6 +56236,41 @@
    },
    "localizedTip": {
     "en": "Worker-scoped fixtures let expensive setup (like login) run once per worker rather than per test."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-polly-js",
+   "name": "Polly.JS",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Records and replays HTTP interactions for deterministic tests.",
+   "url": "https://netflix.github.io/pollyjs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "http",
+    "record-replay",
+    "netflix",
+    "fixtures"
+   ],
+   "tip": "Recorded fixtures keep tests fast and offline while still matching the real API's responses.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D @pollyjs/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Records and replays HTTP interactions for deterministic tests.",
+    "ru": "Записывает и воспроизводит HTTP-взаимодействия для детерминированных тестов."
+   },
+   "localizedTip": {
+    "en": "Recorded fixtures keep tests fast and offline while still matching the real API's responses."
    },
    "pricing": {
     "model": "openSource",
@@ -55749,6 +56379,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-proper",
+   "name": "PropEr",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Property-based testing for Erlang and Elixir, including stateful models.",
+   "url": "https://proper-testing.github.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "erlang",
+    "elixir",
+    "property-based",
+    "state-machines"
+   ],
+   "tip": "Its state machine testing explores interleavings that hand-written concurrency tests never reach.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Property-based testing for Erlang and Elixir, including stateful models.",
+    "ru": "Property-based тестирование для Erlang и Elixir, включая модели с состоянием."
+   },
+   "localizedTip": {
+    "en": "Its state machine testing explores interleavings that hand-written concurrency tests never reach."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-pytest",
    "name": "pytest",
    "kind": "library",
@@ -55775,6 +56440,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-quickcheck",
+   "name": "QuickCheck",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "The original property-based testing library, from Haskell.",
+   "url": "https://hackage.haskell.org/package/QuickCheck",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "haskell",
+    "property-based",
+    "original",
+    "generators"
+   ],
+   "tip": "Every property testing tool in other languages traces its design back to this one.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The original property-based testing library, from Haskell.",
+    "ru": "Оригинальная библиотека property-based тестирования из Haskell."
+   },
+   "localizedTip": {
+    "en": "Every property testing tool in other languages traces its design back to this one."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -55872,6 +56572,76 @@
    },
    "localizedTip": {
     "en": "Point it at your OpenAPI spec and it finds edge cases no one thought to write a manual test for."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-selenium",
+   "name": "Selenium",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "The original browser automation standard, with bindings in every major language.",
+   "url": "https://www.selenium.dev/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "webdriver",
+    "standard",
+    "cross-browser",
+    "mature"
+   ],
+   "tip": "WebDriver is a W3C standard, which is why it survives where vendor-specific tools do not.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The original browser automation standard, with bindings in every major language.",
+    "ru": "Оригинальный стандарт автоматизации браузера с биндингами на всех основных языках."
+   },
+   "localizedTip": {
+    "en": "WebDriver is a W3C standard, which is why it survives where vendor-specific tools do not."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-sinon",
+   "name": "Sinon.JS",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Standalone spies, stubs, mocks and fake timers for JavaScript tests.",
+   "url": "https://sinonjs.org/releases/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "spies",
+    "stubs",
+    "mocks",
+    "timers"
+   ],
+   "tip": "Its fake timers make time-dependent code testable without any real waiting.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D sinon",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Standalone spies, stubs, mocks and fake timers for JavaScript tests.",
+    "ru": "Автономные шпионы, заглушки, моки и фиктивные таймеры для JavaScript-тестов."
+   },
+   "localizedTip": {
+    "en": "Its fake timers make time-dependent code testable without any real waiting."
    },
    "pricing": {
     "model": "openSource",
@@ -56027,6 +56797,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-testcafe",
+   "name": "TestCafe",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "End-to-end testing that needs no WebDriver and waits for elements automatically.",
+   "url": "https://testcafe.io/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "e2e",
+    "no-webdriver",
+    "automatic-waits",
+    "proxy"
+   ],
+   "tip": "Its proxy-based approach means no browser driver to install or keep in version sync.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -D testcafe",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "End-to-end testing that needs no WebDriver and waits for elements automatically.",
+    "ru": "E2E-тестирование без WebDriver с автоматическим ожиданием элементов."
+   },
+   "localizedTip": {
+    "en": "Its proxy-based approach means no browser driver to install or keep in version sync."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-testcontainers",
    "name": "Testcontainers",
    "kind": "library",
@@ -56089,6 +56894,111 @@
    },
    "localizedTip": {
     "en": "Querying by role and label improves accessibility as a side effect of writing tests."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-tox",
+   "name": "tox",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Runs Python test suites across multiple interpreter versions and environments.",
+   "url": "https://tox.wiki/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "matrix",
+    "environments",
+    "automation"
+   ],
+   "tip": "Catches version-specific breakage locally, before a CI matrix finds it for you.",
+   "verifiedAt": "2026-08-17",
+   "install": "pipx install tox",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs Python test suites across multiple interpreter versions and environments.",
+    "ru": "Запускает наборы тестов Python на нескольких версиях интерпретатора и в разных окружениях."
+   },
+   "localizedTip": {
+    "en": "Catches version-specific breakage locally, before a CI matrix finds it for you."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-unittest",
+   "name": "unittest",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Python's built-in xUnit-style testing framework.",
+   "url": "https://docs.python.org/3/library/unittest.html",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "standard-library",
+    "xunit",
+    "built-in"
+   ],
+   "tip": "pytest runs unittest tests unchanged, so migrating is additive rather than a rewrite.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python's built-in xUnit-style testing framework.",
+    "ru": "Встроенный в Python фреймворк тестирования в стиле xUnit."
+   },
+   "localizedTip": {
+    "en": "pytest runs unittest tests unchanged, so migrating is additive rather than a rewrite."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-vegeta",
+   "name": "Vegeta",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "HTTP load testing tool that sustains a constant request rate.",
+   "url": "https://github.com/tsenart/vegeta",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "load-testing",
+    "go",
+    "constant-rate",
+    "cli"
+   ],
+   "tip": "Constant-rate testing reveals latency under a fixed load, which concurrency-based tools obscure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "HTTP load testing tool that sustains a constant request rate.",
+    "ru": "Инструмент HTTP-нагрузки, удерживающий постоянную частоту запросов."
+   },
+   "localizedTip": {
+    "en": "Constant-rate testing reveals latency under a fixed load, which concurrency-based tools obscure."
    },
    "pricing": {
     "model": "openSource",
@@ -56189,6 +57099,146 @@
    },
    "localizedTip": {
     "en": "Good default for testing plain web components without pulling in a full framework's test setup."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-webdriverio",
+   "name": "WebdriverIO",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Automation framework covering web and mobile via WebDriver and DevTools.",
+   "url": "https://webdriver.io/docs/gettingstarted",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "webdriver",
+    "e2e",
+    "mobile",
+    "extensible"
+   ],
+   "tip": "One framework across browsers and native mobile apps, which most competitors do not span.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm init wdio@latest",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automation framework covering web and mobile via WebDriver and DevTools.",
+    "ru": "Фреймворк автоматизации для веба и мобильных устройств через WebDriver и DevTools."
+   },
+   "localizedTip": {
+    "en": "One framework across browsers and native mobile apps, which most competitors do not span."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-wrk",
+   "name": "wrk",
+   "kind": "library",
+   "category": "Тестирование и качество",
+   "summary": "Minimal high-performance HTTP benchmarking tool.",
+   "url": "https://github.com/wg/wrk",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "benchmarking",
+    "http",
+    "c",
+    "lua"
+   ],
+   "tip": "Its Lua scripting covers custom request patterns without leaving the single-binary model.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal high-performance HTTP benchmarking tool.",
+    "ru": "Минималистичный высокопроизводительный инструмент HTTP-бенчмаркинга."
+   },
+   "localizedTip": {
+    "en": "Its Lua scripting covers custom request patterns without leaving the single-binary model."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-prism-mock",
+   "name": "Prism",
+   "kind": "library",
+   "category": "Тестовые и mock API",
+   "summary": "Mock server generated directly from an OpenAPI description.",
+   "url": "https://docs.stoplight.io/docs/prism/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "openapi",
+    "mocking",
+    "validation",
+    "stoplight"
+   ],
+   "tip": "Frontend work can start against the spec before the backend exists, with no hand-written mocks.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g @stoplight/prism-cli",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mock server generated directly from an OpenAPI description.",
+    "ru": "Mock-сервер, генерируемый напрямую из OpenAPI-описания."
+   },
+   "localizedTip": {
+    "en": "Frontend work can start against the spec before the backend exists, with no hand-written mocks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-wiremock",
+   "name": "WireMock",
+   "kind": "library",
+   "category": "Тестовые и mock API",
+   "summary": "HTTP mock server for stubbing and verifying service interactions.",
+   "url": "https://wiremock.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "http",
+    "mocking",
+    "stubbing",
+    "java"
+   ],
+   "tip": "Its fault and delay injection tests how your client behaves when a dependency misbehaves.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "HTTP mock server for stubbing and verifying service interactions.",
+    "ru": "HTTP mock-сервер для заглушек и проверки взаимодействий между сервисами."
+   },
+   "localizedTip": {
+    "en": "Its fault and delay injection tests how your client behaves when a dependency misbehaves."
    },
    "pricing": {
     "model": "openSource",
