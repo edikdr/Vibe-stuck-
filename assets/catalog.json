@@ -31461,6 +31461,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-pgvector",
+   "name": "pgvector",
+   "kind": "library",
+   "category": "Векторные базы",
+   "summary": "Postgres extension adding vector storage and similarity search.",
+   "url": "https://github.com/pgvector/pgvector",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "embeddings",
+    "similarity",
+    "extension"
+   ],
+   "tip": "Keeping embeddings beside your relational data removes an entire separate vector database.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Postgres extension adding vector storage and similarity search.",
+    "ru": "Расширение Postgres, добавляющее хранение векторов и поиск по сходству."
+   },
+   "localizedTip": {
+    "en": "Keeping embeddings beside your relational data removes an entire separate vector database."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-qdrant",
    "name": "Qdrant",
    "kind": "library",
@@ -32979,6 +33014,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-adonisjs",
+   "name": "AdonisJS",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Full-featured TypeScript backend framework with ORM, auth and validation included.",
+   "url": "https://docs.adonisjs.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "typescript",
+    "fullstack",
+    "batteries-included"
+   ],
+   "tip": "The closest thing Node has to Laravel — conventions instead of assembling a stack yourself.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm init adonisjs@latest",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Full-featured TypeScript backend framework with ORM, auth and validation included.",
+    "ru": "Полнофункциональный TypeScript-фреймворк бэкенда с ORM, аутентификацией и валидацией из коробки."
+   },
+   "localizedTip": {
+    "en": "The closest thing Node has to Laravel — conventions instead of assembling a stack yourself."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-asyncio-tools",
    "name": "AnyIO",
    "kind": "library",
@@ -33014,6 +33084,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-apollo-federation",
+   "name": "Apollo Federation",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Composes many GraphQL services into a single federated supergraph.",
+   "url": "https://www.apollographql.com/docs/graphos/schema-design/federated-schemas/federation",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "federation",
+    "supergraph",
+    "microservices"
+   ],
+   "tip": "Entity resolution across services is powerful and easy to make slow — watch the query plans.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Composes many GraphQL services into a single federated supergraph.",
+    "ru": "Объединяет множество GraphQL-сервисов в единый федеративный supergraph."
+   },
+   "localizedTip": {
+    "en": "Entity resolution across services is powerful and easy to make slow — watch the query plans."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-apollo-server",
    "name": "Apollo Server",
    "kind": "library",
@@ -33041,6 +33146,41 @@
    },
    "localizedTip": {
     "en": "Federation is the specific reason to pick this over a simpler server when multiple teams own separate schemas."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-ariadne",
+   "name": "Ariadne",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Schema-first Python GraphQL library using standard SDL.",
+   "url": "https://ariadnegraphql.org/docs/intro",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "graphql",
+    "schema-first",
+    "sdl"
+   ],
+   "tip": "Keeping the schema in SDL lets frontend and backend share one canonical contract file.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install ariadne",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Schema-first Python GraphQL library using standard SDL.",
+    "ru": "Schema-first Python-библиотека GraphQL на стандартном SDL."
+   },
+   "localizedTip": {
+    "en": "Keeping the schema in SDL lets frontend and backend share one canonical contract file."
    },
    "pricing": {
     "model": "openSource",
@@ -33242,6 +33382,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-encore",
+   "name": "Encore",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Backend framework that provisions infrastructure from your application code.",
+   "url": "https://encore.dev/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "go",
+    "infrastructure-from-code",
+    "distributed"
+   ],
+   "tip": "Declaring a queue or database in code generates the real resource, removing a separate IaC layer.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i encore.dev",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Backend framework that provisions infrastructure from your application code.",
+    "ru": "Бэкенд-фреймворк, разворачивающий инфраструктуру на основе кода приложения."
+   },
+   "localizedTip": {
+    "en": "Declaring a queue or database in code generates the real resource, removing a separate IaC layer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-express",
    "name": "Express",
    "kind": "library",
@@ -33411,6 +33586,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-grafbase",
+   "name": "Grafbase",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "GraphQL federation gateway running at the edge.",
+   "url": "https://grafbase.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "federation",
+    "edge",
+    "gateway"
+   ],
+   "tip": "Its Rust gateway adds noticeably less latency than JavaScript federation gateways.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GraphQL federation gateway running at the edge.",
+    "ru": "Шлюз GraphQL-федерации, работающий на edge."
+   },
+   "localizedTip": {
+    "en": "Its Rust gateway adds noticeably less latency than JavaScript federation gateways."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
   },
@@ -33590,6 +33800,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-hasura",
+   "name": "Hasura",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Instant GraphQL API over your databases with a declarative permission system.",
+   "url": "https://hasura.io/docs/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "postgres",
+    "permissions",
+    "realtime"
+   ],
+   "tip": "Its subscriptions give realtime updates without writing any WebSocket handling code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Instant GraphQL API over your databases with a declarative permission system.",
+    "ru": "Мгновенный GraphQL API поверх ваших баз данных с декларативной системой разрешений."
+   },
+   "localizedTip": {
+    "en": "Its subscriptions give realtime updates without writing any WebSocket handling code."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-hono",
    "name": "Hono",
    "kind": "library",
@@ -33718,6 +33963,41 @@
    },
    "localizedTip": {
     "en": "Enable autoescaping explicitly outside Flask — it is off by default in raw Jinja2, which invites XSS."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-koa",
+   "name": "Koa",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Minimal Node framework from the Express team, built around async middleware.",
+   "url": "https://koajs.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "middleware",
+    "minimal",
+    "async"
+   ],
+   "tip": "Its middleware cascade unwinds after the response, which makes timing and cleanup logic natural.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i koa",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal Node framework from the Express team, built around async middleware.",
+    "ru": "Минималистичный Node-фреймворк от команды Express, построенный на асинхронных middleware."
+   },
+   "localizedTip": {
+    "en": "Its middleware cascade unwinds after the response, which makes timing and cleanup logic natural."
    },
    "pricing": {
     "model": "openSource",
@@ -33897,6 +34177,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-graphql-nexus",
+   "name": "Nexus",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Code-first GraphQL schema construction for TypeScript.",
+   "url": "https://nexusjs.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "code-first",
+    "typescript",
+    "schema"
+   ],
+   "tip": "Largely superseded by Pothos, which has better type inference for the same approach.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i nexus",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Code-first GraphQL schema construction for TypeScript.",
+    "ru": "Code-first построение GraphQL-схемы для TypeScript."
+   },
+   "localizedTip": {
+    "en": "Largely superseded by Pothos, which has better type inference for the same approach."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-nitro",
    "name": "Nitro",
    "kind": "library",
@@ -33958,6 +34273,111 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-orpc",
+   "name": "oRPC",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "End-to-end typed RPC that also emits a standard OpenAPI specification.",
+   "url": "https://orpc.unnoq.com/docs/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "rpc",
+    "openapi",
+    "end-to-end-types"
+   ],
+   "tip": "Gives tRPC's type safety while staying callable by clients that only speak REST.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @orpc/server",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "End-to-end typed RPC that also emits a standard OpenAPI specification.",
+    "ru": "Сквозная типизация RPC с генерацией стандартной OpenAPI-спецификации."
+   },
+   "localizedTip": {
+    "en": "Gives tRPC's type safety while staying callable by clients that only speak REST."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-postgraphile",
+   "name": "PostGraphile",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Generates a GraphQL schema by introspecting a Postgres database.",
+   "url": "https://www.graphile.org/postgraphile/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "postgres",
+    "introspection",
+    "plugins"
+   ],
+   "tip": "Database comments become GraphQL descriptions, so documentation lives with the schema itself.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates a GraphQL schema by introspecting a Postgres database.",
+    "ru": "Генерирует GraphQL-схему через интроспекцию базы данных Postgres."
+   },
+   "localizedTip": {
+    "en": "Database comments become GraphQL descriptions, so documentation lives with the schema itself."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-postgrest",
+   "name": "PostgREST",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Serves a full REST API generated directly from a Postgres schema.",
+   "url": "https://docs.postgrest.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "rest",
+    "auto-generated",
+    "rls"
+   ],
+   "tip": "Authorization lives in row-level security policies, so the database enforces access, not middleware.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Serves a full REST API generated directly from a Postgres schema.",
+    "ru": "Отдаёт полноценный REST API, сгенерированный напрямую из схемы Postgres."
+   },
+   "localizedTip": {
+    "en": "Authorization lives in row-level security policies, so the database enforces access, not middleware."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
   },
@@ -34137,6 +34557,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-strawberry-graphql",
+   "name": "Strawberry GraphQL",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Python GraphQL library defining schemas with ordinary type hints.",
+   "url": "https://strawberry.rocks/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "graphql",
+    "type-hints",
+    "dataclasses"
+   ],
+   "tip": "Its dataclass-style definitions read like normal Python, unlike older schema-string approaches.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install strawberry-graphql",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Python GraphQL library defining schemas with ordinary type hints.",
+    "ru": "Python-библиотека GraphQL, определяющая схемы обычными аннотациями типов."
+   },
+   "localizedTip": {
+    "en": "Its dataclass-style definitions read like normal Python, unlike older schema-string approaches."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-symfony",
    "name": "Symfony",
    "kind": "library",
@@ -34238,6 +34693,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-ts-rest",
+   "name": "ts-rest",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Type-safe REST contracts shared between client and server.",
+   "url": "https://ts-rest.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "rest",
+    "contracts",
+    "incremental"
+   ],
+   "tip": "Adopts incrementally on an existing REST API, unlike RPC layers that require rewriting endpoints.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @ts-rest/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Type-safe REST contracts shared between client and server.",
+    "ru": "Типобезопасные REST-контракты, общие для клиента и сервера."
+   },
+   "localizedTip": {
+    "en": "Adopts incrementally on an existing REST API, unlike RPC layers that require rewriting endpoints."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-uvicorn",
    "name": "Uvicorn",
    "kind": "library",
@@ -34300,6 +34790,76 @@
    },
    "localizedTip": {
     "en": "Use it over Socket.IO when both ends are yours and you do not need automatic reconnect and fallbacks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-wundergraph",
+   "name": "WunderGraph",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Composes REST, GraphQL and databases into one typed API layer.",
+   "url": "https://wundergraph.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "federation",
+    "bff",
+    "api-composition"
+   ],
+   "tip": "Compiles operations at build time, so clients send a short operation id rather than a full query.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Composes REST, GraphQL and databases into one typed API layer.",
+    "ru": "Объединяет REST, GraphQL и базы данных в один типизированный слой API."
+   },
+   "localizedTip": {
+    "en": "Compiles operations at build time, so clients send a short operation id rather than a full query."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-zodios",
+   "name": "Zodios",
+   "kind": "library",
+   "category": "Backend и API",
+   "summary": "Typed HTTP client and server built on Zod schemas and Axios.",
+   "url": "https://www.zodios.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "zod",
+    "axios",
+    "runtime-validation"
+   ],
+   "tip": "Validates responses at runtime, which catches a backend contract change the type system cannot see.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @zodios/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Typed HTTP client and server built on Zod schemas and Axios.",
+    "ru": "Типизированный HTTP-клиент и сервер на схемах Zod и Axios."
+   },
+   "localizedTip": {
+    "en": "Validates responses at runtime, which catches a backend contract change the type system cannot see."
    },
    "pricing": {
     "model": "openSource",
@@ -35879,6 +36439,76 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-node-postgres",
+   "name": "node-postgres (pg)",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "The long-established Postgres driver for Node, with connection pooling.",
+   "url": "https://node-postgres.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "driver",
+    "pooling",
+    "mature"
+   ],
+   "tip": "The most battle-tested option — many higher-level libraries ultimately sit on top of it.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i pg",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The long-established Postgres driver for Node, with connection pooling.",
+    "ru": "Давно устоявшийся драйвер Postgres для Node с пулом соединений."
+   },
+   "localizedTip": {
+    "en": "The most battle-tested option — many higher-level libraries ultimately sit on top of it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-objection-js",
+   "name": "Objection.js",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "SQL-friendly ORM built on Knex with strong relation handling.",
+   "url": "https://vincit.github.io/objection.js/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "orm",
+    "knex",
+    "relations"
+   ],
+   "tip": "Its eager loading expressions fetch deep relation graphs in a predictable number of queries.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i objection knex",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "SQL-friendly ORM built on Knex with strong relation handling.",
+    "ru": "SQL-ориентированная ORM на базе Knex с сильной работой со связями."
+   },
+   "localizedTip": {
+    "en": "Its eager loading expressions fetch deep relation graphs in a predictable number of queries."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-peewee",
    "name": "Peewee",
    "kind": "library",
@@ -35906,6 +36536,76 @@
    },
    "localizedTip": {
     "en": "Good fit for small scripts and services where SQLAlchemy's power is more than the project needs."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-pg-cron",
+   "name": "pg_cron",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Runs scheduled jobs inside Postgres using cron syntax.",
+   "url": "https://github.com/citusdata/pg_cron",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "scheduling",
+    "jobs",
+    "extension"
+   ],
+   "tip": "Good for database maintenance; a job that outlives a connection still belongs in a real queue.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Runs scheduled jobs inside Postgres using cron syntax.",
+    "ru": "Выполняет запланированные задачи внутри Postgres по синтаксису cron."
+   },
+   "localizedTip": {
+    "en": "Good for database maintenance; a job that outlives a connection still belongs in a real queue."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-pg-partman",
+   "name": "pg_partman",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Automates creation and retention of Postgres table partitions.",
+   "url": "https://github.com/pgpartman/pg_partman",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "partitioning",
+    "time-series",
+    "maintenance"
+   ],
+   "tip": "Automatic partition rotation makes dropping old data instant instead of a long DELETE.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automates creation and retention of Postgres table partitions.",
+    "ru": "Автоматизирует создание и удержание партиций таблиц Postgres."
+   },
+   "localizedTip": {
+    "en": "Automatic partition rotation makes dropping old data instant instead of a long DELETE."
    },
    "pricing": {
     "model": "openSource",
@@ -35984,6 +36684,111 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "lib-pgpool",
+   "name": "Pgpool-II",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Postgres middleware providing pooling, load balancing and replication management.",
+   "url": "https://www.pgpool.net/docs/latest/en/html/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "pooling",
+    "load-balancing",
+    "replication"
+   ],
+   "tip": "Does more than pooling, and that extra scope is also its main operational risk.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Postgres middleware providing pooling, load balancing and replication management.",
+    "ru": "Middleware для Postgres с пулом соединений, балансировкой нагрузки и управлением репликацией."
+   },
+   "localizedTip": {
+    "en": "Does more than pooling, and that extra scope is also its main operational risk."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-postgres-js",
+   "name": "postgres.js",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Fast, small Postgres client for Node using tagged template queries.",
+   "url": "https://github.com/porsager/postgres",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "fast",
+    "tagged-templates",
+    "node"
+   ],
+   "tip": "Its performance and pipelining are why Drizzle and others default to it as a driver.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i postgres",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast, small Postgres client for Node using tagged template queries.",
+    "ru": "Быстрый компактный клиент Postgres для Node с запросами через тегированные шаблоны."
+   },
+   "localizedTip": {
+    "en": "Its performance and pipelining are why Drizzle and others default to it as a driver."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-prisma-accelerate",
+   "name": "Prisma Accelerate",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Global connection pooling and query caching for Prisma at the edge.",
+   "url": "https://www.prisma.io/docs/accelerate",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prisma",
+    "connection-pooling",
+    "caching",
+    "edge"
+   ],
+   "tip": "Solves the serverless connection-exhaustion problem that plain Prisma hits at scale.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Global connection pooling and query caching for Prisma at the edge.",
+    "ru": "Глобальный пул соединений и кэширование запросов для Prisma на edge."
+   },
+   "localizedTip": {
+    "en": "Solves the serverless connection-exhaustion problem that plain Prisma hits at scale."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "lib-prisma",
    "name": "Prisma ORM",
    "kind": "library",
@@ -36042,6 +36847,41 @@
    },
    "localizedTip": {
     "en": "Its TypeScript support is weaker than Drizzle or Prisma — prefer those for new TypeScript projects."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-slonik",
+   "name": "Slonik",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Postgres client enforcing safe SQL through tagged template literals.",
+   "url": "https://github.com/gajus/slonik",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "sql",
+    "safety",
+    "tagged-templates"
+   ],
+   "tip": "It refuses plain string queries outright, which structurally eliminates SQL injection.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i slonik",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Postgres client enforcing safe SQL through tagged template literals.",
+    "ru": "Клиент Postgres, обеспечивающий безопасный SQL через тегированные шаблонные литералы."
+   },
+   "localizedTip": {
+    "en": "It refuses plain string queries outright, which structurally eliminates SQL injection."
    },
    "pricing": {
     "model": "openSource",
@@ -36142,6 +36982,41 @@
    },
    "localizedTip": {
     "en": "Fine for splitting and prettifying statements; use SQLGlot when you need real dialect awareness."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "lib-supavisor",
+   "name": "Supavisor",
+   "kind": "library",
+   "category": "Базы данных и ORM",
+   "summary": "Cloud-native Postgres connection pooler built for multi-tenant scale.",
+   "url": "https://supabase.github.io/supavisor/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "pooling",
+    "elixir",
+    "multi-tenant"
+   ],
+   "tip": "Handles far more concurrent clients than PgBouncer, which matters for serverless workloads.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cloud-native Postgres connection pooler built for multi-tenant scale.",
+    "ru": "Cloud-native пул соединений Postgres, рассчитанный на мультиарендный масштаб."
+   },
+   "localizedTip": {
+    "en": "Handles far more concurrent clients than PgBouncer, which matters for serverless workloads."
    },
    "pricing": {
     "model": "openSource",
@@ -39300,6 +40175,41 @@
    },
    "localizedTip": {
     "en": "Fast joins let you keep a normalized model, where many OLAP stores force wide denormalized tables."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-timescaledb-toolkit",
+   "name": "TimescaleDB Toolkit",
+   "kind": "library",
+   "category": "Data engineering",
+   "summary": "Time-series analysis functions for Postgres and TimescaleDB.",
+   "url": "https://github.com/timescale/timescaledb-toolkit",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "postgres",
+    "time-series",
+    "analytics",
+    "hyperfunctions"
+   ],
+   "tip": "Its hyperfunctions express downsampling and gap-filling in SQL that would otherwise need application code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Time-series analysis functions for Postgres and TimescaleDB.",
+    "ru": "Функции анализа временных рядов для Postgres и TimescaleDB."
+   },
+   "localizedTip": {
+    "en": "Its hyperfunctions express downsampling and gap-filling in SQL that would otherwise need application code."
    },
    "pricing": {
     "model": "openSource",
@@ -43976,6 +44886,41 @@
    },
    "localizedTip": {
     "en": "Auto-migrate is convenient in development but write real migrations before production."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-gqlgen",
+   "name": "gqlgen",
+   "kind": "library",
+   "category": "Go экосистема",
+   "summary": "Schema-first GraphQL server generator for Go.",
+   "url": "https://gqlgen.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "go",
+    "graphql",
+    "schema-first",
+    "codegen"
+   ],
+   "tip": "Generating resolvers from the schema means a schema change becomes a compile error, not a runtime bug.",
+   "verifiedAt": "2026-08-17",
+   "install": "go get github.com/99designs/gqlgen",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Schema-first GraphQL server generator for Go.",
+    "ru": "Генератор GraphQL-серверов для Go по схеме."
+   },
+   "localizedTip": {
+    "en": "Generating resolvers from the schema means a schema change becomes a compile error, not a runtime bug."
    },
    "pricing": {
     "model": "openSource",
@@ -55016,6 +55961,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-fp-ts",
+   "name": "fp-ts",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Functional programming primitives for TypeScript: Option, Either and type classes.",
+   "url": "https://gcanti.github.io/fp-ts/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "functional",
+    "algebraic",
+    "composition"
+   ],
+   "tip": "Effect absorbed most of its ideas with a friendlier API — check that first for new projects.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i fp-ts",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Functional programming primitives for TypeScript: Option, Either and type classes.",
+    "ru": "Примитивы функционального программирования для TypeScript: Option, Either и классы типов."
+   },
+   "localizedTip": {
+    "en": "Effect absorbed most of its ideas with a friendlier API — check that first for new projects."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-freertos",
    "name": "FreeRTOS",
    "kind": "library",
@@ -55078,6 +56058,41 @@
    },
    "localizedTip": {
     "en": "Development has slowed considerably — check project activity before starting something new on it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-neverthrow",
+   "name": "neverthrow",
+   "kind": "library",
+   "category": "Языки и рантаймы",
+   "summary": "Typed Result values making error paths explicit without exceptions.",
+   "url": "https://github.com/supermacro/neverthrow",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "result",
+    "error-handling",
+    "minimal"
+   ],
+   "tip": "A much smaller commitment than a full functional runtime when you only want typed errors.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i neverthrow",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Typed Result values making error paths explicit without exceptions.",
+    "ru": "Типизированные Result-значения, делающие пути ошибок явными без исключений."
+   },
+   "localizedTip": {
+    "en": "A much smaller commitment than a full functional runtime when you only want typed errors."
    },
    "pricing": {
     "model": "openSource",
