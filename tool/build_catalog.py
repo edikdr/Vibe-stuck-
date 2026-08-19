@@ -173,6 +173,11 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-commercetools': 'api-commercetools',
+ 'paid-bigcommerce': 'api-bigcommerce',
+ 'paid-squarespace': 'api-squarespace',
+ 'paid-buttercms': 'api-buttercms',
+ 'paid-kirby': 'api-kirby',
  'paid-humanloop': 'lib-humanloop', 'paid-vellum': 'lib-vellum',
  'paid-reducto': 'lib-reducto',
  'paid-twilio-verify': 'api-twilio-verify',

@@ -2554,6 +2554,119 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "api-astro-content",
+   "name": "Astro Content Collections",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Type-safe local content collections validated at build time in Astro.",
+   "url": "https://docs.astro.build/en/guides/content-collections/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "astro",
+    "typed",
+    "markdown",
+    "build-time"
+   ],
+   "tip": "Schema validation turns a malformed frontmatter field into a build error rather than a runtime blank.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Type-safe local content collections validated at build time in Astro.",
+    "ru": "Типобезопасные локальные коллекции контента с проверкой на этапе сборки в Astro."
+   },
+   "localizedTip": {
+    "en": "Schema validation turns a malformed frontmatter field into a build error rather than a runtime blank."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-builder-io",
+   "name": "Builder.io",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Visual content platform where marketers compose pages from your real components.",
+   "url": "https://www.builder.io/c/docs/developers",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "visual-editing",
+    "headless",
+    "components",
+    "personalization"
+   ],
+   "tip": "Registering your design-system components keeps visually built pages on brand automatically.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Visual content platform where marketers compose pages from your real components.",
+    "ru": "Визуальная контент-платформа, где маркетологи собирают страницы из ваших реальных компонентов."
+   },
+   "localizedTip": {
+    "en": "Registering your design-system components keeps visually built pages on brand automatically."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-buttercms",
+   "name": "ButterCMS",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Headless CMS focused on adding a blog and marketing pages to an existing app.",
+   "url": "https://buttercms.com/docs/api/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "blog",
+    "headless",
+    "simple",
+    "seo",
+    "cms",
+    "pricing",
+    "subscription",
+    "seats"
+   ],
+   "tip": "Deliberately narrow — a blog in an afternoon, rather than a general content platform.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless CMS focused on adding a blog and marketing pages to an existing app.",
+    "ru": "Headless CMS для добавления блога и маркетинговых страниц в существующее приложение."
+   },
+   "localizedTip": {
+    "en": "Deliberately narrow — a blog in an afternoon, rather than a general content platform."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$99 per month",
+    "freeQuota": "free trial",
+    "url": "https://buttercms.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-contentful",
    "name": "Contentful",
    "kind": "api",
@@ -2584,6 +2697,181 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-contentlayer",
+   "name": "Contentlayer",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Transforms local Markdown and MDX into typed data for your application.",
+   "url": "https://contentlayer.dev/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typed",
+    "markdown",
+    "mdx",
+    "nextjs"
+   ],
+   "tip": "Maintenance has stalled — Velite and Keystatic are the actively developed alternatives.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Transforms local Markdown and MDX into typed data for your application.",
+    "ru": "Преобразует локальные Markdown и MDX в типизированные данные для приложения."
+   },
+   "localizedTip": {
+    "en": "Maintenance has stalled — Velite and Keystatic are the actively developed alternatives."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-cosmic",
+   "name": "Cosmic",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Headless CMS with a flexible object model and both REST and GraphQL access.",
+   "url": "https://www.cosmicjs.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "headless",
+    "rest",
+    "graphql",
+    "objects"
+   ],
+   "tip": "Its generic object model adapts to non-article content that blog-shaped CMSes handle badly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless CMS with a flexible object model and both REST and GraphQL access.",
+    "ru": "Headless CMS с гибкой объектной моделью и доступом через REST и GraphQL."
+   },
+   "localizedTip": {
+    "en": "Its generic object model adapts to non-article content that blog-shaped CMSes handle badly."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-craft-cms",
+   "name": "Craft CMS",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "PHP CMS known for flexible content modelling and a clean authoring experience.",
+   "url": "https://craftcms.com/docs",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "php",
+    "flexible",
+    "graphql",
+    "content-modelling"
+   ],
+   "tip": "Its matrix fields handle irregular page structures that rigid post-and-page models cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "PHP CMS known for flexible content modelling and a clean authoring experience.",
+    "ru": "PHP-CMS, известная гибким моделированием контента и удобным интерфейсом редактора."
+   },
+   "localizedTip": {
+    "en": "Its matrix fields handle irregular page structures that rigid post-and-page models cannot."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-datocms",
+   "name": "DatoCMS",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Headless CMS with strong structured content modelling and image processing.",
+   "url": "https://www.datocms.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "images",
+    "headless",
+    "structured"
+   ],
+   "tip": "Its image API handles cropping and format negotiation, so you need no separate media service.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless CMS with strong structured content modelling and image processing.",
+    "ru": "Headless CMS с сильным структурированным моделированием контента и обработкой изображений."
+   },
+   "localizedTip": {
+    "en": "Its image API handles cropping and format negotiation, so you need no separate media service."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-decap-cms",
+   "name": "Decap CMS",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Git-based CMS for static sites, formerly Netlify CMS.",
+   "url": "https://decapcms.org/docs/intro/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "git-backed",
+    "static-sites",
+    "markdown",
+    "netlify"
+   ],
+   "tip": "Runs entirely in the browser against the Git provider's API, so there is no CMS server to host.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Git-based CMS for static sites, formerly Netlify CMS.",
+    "ru": "CMS на основе Git для статических сайтов, ранее Netlify CMS."
+   },
+   "localizedTip": {
+    "en": "Runs entirely in the browser against the Git provider's API, so there is no CMS server to host."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -2624,6 +2912,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-ghost",
+   "name": "Ghost",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Publishing platform with built-in newsletters, memberships and a content API.",
+   "url": "https://ghost.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "publishing",
+    "newsletters",
+    "memberships",
+    "headless"
+   ],
+   "tip": "Newsletters and paid memberships are native, which replaces a separate email and billing stack.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Publishing platform with built-in newsletters, memberships and a content API.",
+    "ru": "Издательская платформа со встроенными рассылками, подписками и content API."
+   },
+   "localizedTip": {
+    "en": "Newsletters and paid memberships are native, which replaces a separate email and billing stack."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-ghost-api",
    "name": "Ghost Content API",
    "kind": "api",
@@ -2654,6 +2977,154 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-hygraph",
+   "name": "Hygraph",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "GraphQL-native headless CMS with content federation across sources.",
+   "url": "https://hygraph.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "federation",
+    "headless",
+    "content"
+   ],
+   "tip": "Federation pulls remote data into the same GraphQL query as your content, removing a stitching layer.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GraphQL-native headless CMS with content federation across sources.",
+    "ru": "GraphQL-нативная headless CMS с федерацией контента из разных источников."
+   },
+   "localizedTip": {
+    "en": "Federation pulls remote data into the same GraphQL query as your content, removing a stitching layer."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-keystatic",
+   "name": "Keystatic",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Git-backed content editor running locally or against GitHub, with typed schemas.",
+   "url": "https://keystatic.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "git-backed",
+    "local",
+    "editor",
+    "typescript"
+   ],
+   "tip": "Its local mode edits files on disk directly, which makes authoring work offline with no server.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Git-backed content editor running locally or against GitHub, with typed schemas.",
+    "ru": "Редактор контента на основе Git, работающий локально или через GitHub, с типизированными схемами."
+   },
+   "localizedTip": {
+    "en": "Its local mode edits files on disk directly, which makes authoring work offline with no server."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-keystone",
+   "name": "Keystone",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "TypeScript headless CMS generating a GraphQL API and admin UI from your schema.",
+   "url": "https://keystonejs.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "typescript",
+    "schema",
+    "admin-ui"
+   ],
+   "tip": "Schema changes regenerate both the API and the admin interface, keeping them permanently in sync.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "TypeScript headless CMS generating a GraphQL API and admin UI from your schema.",
+    "ru": "Headless CMS на TypeScript, генерирующая GraphQL API и админку из вашей схемы."
+   },
+   "localizedTip": {
+    "en": "Schema changes regenerate both the API and the admin interface, keeping them permanently in sync."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-kirby",
+   "name": "Kirby",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "File-based PHP CMS storing content as plain text files with no database.",
+   "url": "https://getkirby.com/docs/guide",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "php",
+    "file-based",
+    "no-database",
+    "flexible",
+    "cms",
+    "pricing",
+    "one-time",
+    "perpetual"
+   ],
+   "tip": "No database means backup is a file copy and the whole site is version-controllable.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "File-based PHP CMS storing content as plain text files with no database.",
+    "ru": "Файловая PHP-CMS, хранящая контент в обычных текстовых файлах без базы данных."
+   },
+   "localizedTip": {
+    "en": "No database means backup is a file copy and the whole site is version-controllable."
+   },
+   "pricing": {
+    "model": "one-time",
+    "from": "from ~€99 per site",
+    "freeQuota": "free unlimited local development",
+    "url": "https://getkirby.com/buy",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -2729,6 +3200,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-plasmic",
+   "name": "Plasmic",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Visual builder that generates or integrates with real React codebases.",
+   "url": "https://docs.plasmic.app/learn/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "visual-builder",
+    "codegen",
+    "components",
+    "react"
+   ],
+   "tip": "Its codegen mode produces components you own outright, avoiding permanent platform lock-in.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Visual builder that generates or integrates with real React codebases.",
+    "ru": "Визуальный конструктор, генерирующий код или интегрирующийся с реальными React-проектами."
+   },
+   "localizedTip": {
+    "en": "Its codegen mode produces components you own outright, avoiding permanent platform lock-in."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-prismic",
    "name": "Prismic",
    "kind": "api",
@@ -2799,6 +3305,82 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-squarespace",
+   "name": "Squarespace API",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "APIs for Squarespace commerce inventory, orders and profiles.",
+   "url": "https://developers.squarespace.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "commerce",
+    "inventory",
+    "orders",
+    "sites",
+    "pricing",
+    "subscription"
+   ],
+   "tip": "Read-oriented and fairly narrow — it complements a Squarespace site rather than replacing its backend.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "APIs for Squarespace commerce inventory, orders and profiles.",
+    "ru": "API для товарных остатков, заказов и профилей Squarespace."
+   },
+   "localizedTip": {
+    "en": "Read-oriented and fairly narrow — it complements a Squarespace site rather than replacing its backend."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$16 per month",
+    "freeQuota": "free trial",
+    "url": "https://www.squarespace.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-statamic",
+   "name": "Statamic",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Laravel-based CMS that can store content flat-file or in a database.",
+   "url": "https://statamic.dev/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "laravel",
+    "flat-file",
+    "php",
+    "antlers"
+   ],
+   "tip": "Flat-file mode gives Git-tracked content while keeping the full Laravel ecosystem available.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Laravel-based CMS that can store content flat-file or in a database.",
+    "ru": "CMS на Laravel, хранящая контент в плоских файлах или в базе данных."
+   },
+   "localizedTip": {
+    "en": "Flat-file mode gives Git-tracked content while keeping the full Laravel ecosystem available."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-storyblok",
    "name": "Storyblok",
    "kind": "api",
@@ -2829,6 +3411,216 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-tina-cms",
+   "name": "TinaCMS",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Git-backed CMS with visual editing that commits content changes as ordinary commits.",
+   "url": "https://tina.io/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "git-backed",
+    "markdown",
+    "visual-editing",
+    "react"
+   ],
+   "tip": "Content stays in the repository, so it branches, reviews and rolls back exactly like code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Git-backed CMS with visual editing that commits content changes as ordinary commits.",
+    "ru": "CMS на основе Git с визуальным редактированием, сохраняющая изменения контента обычными коммитами."
+   },
+   "localizedTip": {
+    "en": "Content stays in the repository, so it branches, reviews and rolls back exactly like code."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-umbraco",
+   "name": "Umbraco",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Open-source .NET CMS with both traditional and headless delivery.",
+   "url": "https://docs.umbraco.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dotnet",
+    "csharp",
+    "headless",
+    "enterprise"
+   ],
+   "tip": "The default pick for content sites in a .NET shop, where PHP CMSes mean a second stack.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source .NET CMS with both traditional and headless delivery.",
+    "ru": "Открытая .NET CMS с традиционной и headless доставкой контента."
+   },
+   "localizedTip": {
+    "en": "The default pick for content sites in a .NET shop, where PHP CMSes mean a second stack."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-velite",
+   "name": "Velite",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Turns Markdown, MDX and YAML into type-safe data validated with Zod schemas.",
+   "url": "https://velite.js.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typed",
+    "markdown",
+    "zod",
+    "build-time"
+   ],
+   "tip": "Zod schemas mean content validation reuses the same types your application code already uses.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i velite",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Turns Markdown, MDX and YAML into type-safe data validated with Zod schemas.",
+    "ru": "Превращает Markdown, MDX и YAML в типобезопасные данные с валидацией по Zod-схемам."
+   },
+   "localizedTip": {
+    "en": "Zod schemas mean content validation reuses the same types your application code already uses."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-webflow",
+   "name": "Webflow API",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "APIs for Webflow site content, CMS collections and e-commerce data.",
+   "url": "https://developers.webflow.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cms",
+    "visual",
+    "sites",
+    "designer"
+   ],
+   "tip": "Its CMS API turns a visually designed site into a headless content source for other apps.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "APIs for Webflow site content, CMS collections and e-commerce data.",
+    "ru": "API для контента сайтов Webflow, коллекций CMS и данных e-commerce."
+   },
+   "localizedTip": {
+    "en": "Its CMS API turns a visually designed site into a headless content source for other apps."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-wix-headless",
+   "name": "Wix Headless",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "Wix business APIs (stores, bookings, data) usable from your own frontend.",
+   "url": "https://dev.wix.com/docs/go-headless",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "headless",
+    "commerce",
+    "bookings",
+    "apis"
+   ],
+   "tip": "Its bookings and events APIs are useful even if you never render a Wix-hosted page.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Wix business APIs (stores, bookings, data) usable from your own frontend.",
+    "ru": "Бизнес-API Wix (магазины, бронирования, данные), используемые из вашего собственного фронтенда."
+   },
+   "localizedTip": {
+    "en": "Its bookings and events APIs are useful even if you never render a Wix-hosted page."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-wordpress-rest",
+   "name": "WordPress REST API",
+   "kind": "api",
+   "category": "CMS и контент",
+   "summary": "REST API built into WordPress, enabling headless use of any WordPress site.",
+   "url": "https://developer.wordpress.org/rest-api/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "wordpress",
+    "headless",
+    "posts",
+    "ubiquitous"
+   ],
+   "tip": "Given WordPress's share of the web, this is often the fastest route to an existing content archive.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "REST API built into WordPress, enabling headless use of any WordPress site.",
+    "ru": "REST API, встроенный в WordPress, позволяющий использовать любой сайт WordPress как headless."
+   },
+   "localizedTip": {
+    "en": "Given WordPress's share of the web, this is often the fastest route to an existing content archive."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -6249,6 +7041,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-magento",
+   "name": "Adobe Commerce (Magento)",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Long-established PHP commerce platform with REST and GraphQL APIs.",
+   "url": "https://developer.adobe.com/commerce/webapi/rest/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "php",
+    "enterprise",
+    "rest",
+    "graphql"
+   ],
+   "tip": "Powerful but operationally heavy — factor hosting and upgrade effort into any comparison.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Long-established PHP commerce platform with REST and GraphQL APIs.",
+    "ru": "Давно устоявшаяся PHP-платформа коммерции с REST и GraphQL API."
+   },
+   "localizedTip": {
+    "en": "Powerful but operationally heavy — factor hosting and upgrade effort into any comparison."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-adyen",
    "name": "Adyen",
    "kind": "api",
@@ -6290,6 +7117,84 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-bagisto",
+   "name": "Bagisto",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Laravel-based open-source commerce platform with multi-vendor support.",
+   "url": "https://devdocs.bagisto.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "laravel",
+    "php",
+    "multi-vendor",
+    "free"
+   ],
+   "tip": "Free multi-vendor marketplace support is unusual — most platforms sell that as an add-on.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Laravel-based open-source commerce platform with multi-vendor support.",
+    "ru": "Открытая платформа коммерции на Laravel с поддержкой мультивендорности."
+   },
+   "localizedTip": {
+    "en": "Free multi-vendor marketplace support is unusual — most platforms sell that as an add-on."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-bigcommerce",
+   "name": "BigCommerce",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "SaaS commerce platform usable both hosted and as a headless backend.",
+   "url": "https://developer.bigcommerce.com/docs/build",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "saas",
+    "headless",
+    "catalog",
+    "storefront",
+    "commerce",
+    "pricing",
+    "subscription",
+    "no-transaction-fee"
+   ],
+   "tip": "No transaction fees on its own plans, unlike several competitors that take a cut per order.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "SaaS commerce platform usable both hosted and as a headless backend.",
+    "ru": "SaaS-платформа коммерции, используемая и как хостинг, и как headless-бэкенд."
+   },
+   "localizedTip": {
+    "en": "No transaction fees on its own plans, unlike several competitors that take a cut per order."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$39 per month",
+    "freeQuota": "free trial",
+    "url": "https://www.bigcommerce.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-btcpay",
    "name": "BTCPay Server",
    "kind": "api",
@@ -6320,6 +7225,83 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-commercetools",
+   "name": "commercetools",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Enterprise composable commerce platform with a fully API-first model.",
+   "url": "https://docs.commercetools.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "enterprise",
+    "headless",
+    "composable",
+    "api-first",
+    "commerce",
+    "pricing",
+    "gmv"
+   ],
+   "tip": "Its projection and product-type model is powerful but demands real upfront data modelling.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise composable commerce platform with a fully API-first model.",
+    "ru": "Корпоративная composable-платформа коммерции с полностью API-first моделью."
+   },
+   "localizedTip": {
+    "en": "Its projection and product-type model is powerful but demands real upfront data modelling."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "free developer trial",
+    "url": "https://commercetools.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-crystallize",
+   "name": "Crystallize",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Combined product information management and headless commerce over GraphQL.",
+   "url": "https://crystallize.com/learn",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "headless",
+    "graphql",
+    "content-commerce",
+    "pim"
+   ],
+   "tip": "Treating rich content and product data as one system suits catalogues that sell through storytelling.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Combined product information management and headless commerce over GraphQL.",
+    "ru": "Совмещённое управление информацией о товарах и headless-коммерция через GraphQL."
+   },
+   "localizedTip": {
+    "en": "Treating rich content and product data as one system suits catalogues that sell through storytelling."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -6587,6 +7569,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-saleor",
+   "name": "Saleor",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "GraphQL-first headless commerce platform written in Python.",
+   "url": "https://docs.saleor.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphql",
+    "headless",
+    "python",
+    "commerce"
+   ],
+   "tip": "Its single GraphQL schema covers storefront and admin, so one client library serves both.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GraphQL-first headless commerce platform written in Python.",
+    "ru": "Headless-платформа коммерции с приоритетом GraphQL, написанная на Python."
+   },
+   "localizedTip": {
+    "en": "Its single GraphQL schema covers storefront and admin, so one client library serves both."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-shopify-admin",
    "name": "Shopify Admin API",
    "kind": "api",
@@ -6657,6 +7674,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "api-shopware",
+   "name": "Shopware",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "PHP commerce platform with both traditional and headless storefront options.",
+   "url": "https://developer.shopware.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "php",
+    "symfony",
+    "headless",
+    "europe"
+   ],
+   "tip": "Widely used in German-speaking markets, with local payment and tax handling built in.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "PHP commerce platform with both traditional and headless storefront options.",
+    "ru": "PHP-платформа коммерции с традиционной и headless витриной."
+   },
+   "localizedTip": {
+    "en": "Widely used in German-speaking markets, with local payment and tax handling built in."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "api-snipcart",
    "name": "Snipcart",
    "kind": "api",
@@ -6687,6 +7739,76 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-solidus",
+   "name": "Solidus",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Community-governed Rails commerce platform, forked from Spree for stability.",
+   "url": "https://guides.solidus.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ruby",
+    "rails",
+    "fork",
+    "stable"
+   ],
+   "tip": "Its stricter backwards-compatibility policy is the main reason teams choose it over Spree.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community-governed Rails commerce platform, forked from Spree for stability.",
+    "ru": "Платформа коммерции на Rails под управлением сообщества, форк Spree ради стабильности."
+   },
+   "localizedTip": {
+    "en": "Its stricter backwards-compatibility policy is the main reason teams choose it over Spree."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-spree",
+   "name": "Spree Commerce",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Ruby on Rails commerce platform with headless APIs and multi-store support.",
+   "url": "https://docs.spreecommerce.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ruby",
+    "rails",
+    "headless",
+    "multi-store"
+   ],
+   "tip": "A natural fit if your team already runs Rails — it extends like any other Rails engine.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Ruby on Rails commerce platform with headless APIs and multi-store support.",
+    "ru": "Платформа коммерции на Ruby on Rails с headless API и поддержкой нескольких магазинов."
+   },
+   "localizedTip": {
+    "en": "A natural fit if your team already runs Rails — it extends like any other Rails engine."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -6775,6 +7897,111 @@
     "freeQuota": "No monthly fee",
     "url": "https://stripe.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-swell",
+   "name": "Swell",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Headless commerce backend with strong subscription and custom-model support.",
+   "url": "https://developers.swell.is/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "headless",
+    "subscriptions",
+    "flexible",
+    "api"
+   ],
+   "tip": "Handles subscription commerce natively, which most headless platforms bolt on through plugins.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Headless commerce backend with strong subscription and custom-model support.",
+    "ru": "Headless-бэкенд коммерции с сильной поддержкой подписок и произвольных моделей данных."
+   },
+   "localizedTip": {
+    "en": "Handles subscription commerce natively, which most headless platforms bolt on through plugins."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-sylius",
+   "name": "Sylius",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "Symfony-based commerce platform aimed at heavily customized B2B and B2C stores.",
+   "url": "https://docs.sylius.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "php",
+    "symfony",
+    "headless",
+    "customizable"
+   ],
+   "tip": "Built as a Symfony application, so customization is ordinary framework work rather than plugin hooks.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Symfony-based commerce platform aimed at heavily customized B2B and B2C stores.",
+    "ru": "Платформа коммерции на Symfony для сильно кастомизированных B2B и B2C магазинов."
+   },
+   "localizedTip": {
+    "en": "Built as a Symfony application, so customization is ordinary framework work rather than plugin hooks."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "api-vendure",
+   "name": "Vendure",
+   "kind": "api",
+   "category": "Платежи и commerce",
+   "summary": "TypeScript headless commerce framework built around a plugin architecture.",
+   "url": "https://docs.vendure.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typescript",
+    "graphql",
+    "headless",
+    "plugins"
+   ],
+   "tip": "Extending it means writing a plugin in the same TypeScript as your app, not a separate templating layer.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx @vendure/create",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "TypeScript headless commerce framework built around a plugin architecture.",
+    "ru": "TypeScript-фреймворк headless-коммерции, построенный вокруг архитектуры плагинов."
+   },
+   "localizedTip": {
+    "en": "Extending it means writing a plugin in the same TypeScript as your app, not a separate templating layer."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "backend"
@@ -20390,6 +21617,41 @@
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-framer",
+   "name": "Framer",
+   "kind": "api",
+   "category": "UI и frontend",
+   "summary": "Visual site builder whose custom components are ordinary React code.",
+   "url": "https://www.framer.com/developers/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "design",
+    "sites",
+    "components",
+    "react"
+   ],
+   "tip": "Dropping real React components into a visual canvas covers what a no-code builder cannot express.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Visual site builder whose custom components are ordinary React code.",
+    "ru": "Визуальный конструктор сайтов, где кастомные компоненты — обычный React-код."
+   },
+   "localizedTip": {
+    "en": "Dropping real React components into a visual canvas covers what a no-code builder cannot express."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
   },
   {
    "id": "api-8thwall",
