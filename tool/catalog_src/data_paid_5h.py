@@ -57,4 +57,9 @@ PAID_5H = [
  "Доставка конфигурации с оплатой за запрос конфигурации и за развёртывание.",
  "Cache configuration in the application — polling it per request makes the bill grow quickly.",
  "usage","from ~$0.0000002 per configuration request","free tier of requests","https://aws.amazon.com/systems-manager/pricing/"),
+("paid-turbopuffer","turbopuffer (pricing)","Векторные базы","https://turbopuffer.com/pricing","paid","vector,pricing,storage,queries",
+ "Vector search billed by stored data volume plus queries, on object-storage economics.",
+ "Векторный поиск с оплатой по объёму хранимых данных и запросам на экономике объектного хранилища.",
+ "Far cheaper per stored vector than memory-resident databases, with higher latency on cold namespaces.",
+ "usage","from ~$0.33 per GB-month stored","free trial credit","https://turbopuffer.com/pricing"),
 ]

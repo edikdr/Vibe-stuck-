@@ -173,6 +173,7 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-turbopuffer': 'lib-turbopuffer',
  'paid-stripe-billing': 'api-stripe-billing',
  'paid-chargebee': 'api-chargebee',
  'paid-recurly': 'api-recurly',
