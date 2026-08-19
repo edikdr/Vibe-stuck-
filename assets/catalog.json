@@ -56472,6 +56472,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-codeberg",
+   "name": "Codeberg",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Non-profit Git hosting for free and open-source projects.",
+   "url": "https://docs.codeberg.org/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "non-profit",
+    "forgejo",
+    "free",
+    "open-source-only"
+   ],
+   "tip": "Free with no commercial tier, funded by donations rather than by monetizing your code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Non-profit Git hosting for free and open-source projects.",
+    "ru": "Некоммерческий хостинг Git для свободных и открытых проектов."
+   },
+   "localizedTip": {
+    "en": "Free with no commercial tier, funded by donations rather than by monetizing your code."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-commitlint",
    "name": "commitlint",
    "kind": "library",
@@ -56499,6 +56534,76 @@
    },
    "localizedTip": {
     "en": "Conventional commits are what let changelog and version-bump tooling work automatically downstream."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-forgejo",
+   "name": "Forgejo",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Community-governed fork of Gitea, working toward federation.",
+   "url": "https://forgejo.org/docs/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gitea-fork",
+    "community",
+    "federation",
+    "self-host"
+   ],
+   "tip": "Forked over governance concerns, and it remains largely drop-in compatible with Gitea.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community-governed fork of Gitea, working toward federation.",
+    "ru": "Форк Gitea под управлением сообщества, движущийся к федерации."
+   },
+   "localizedTip": {
+    "en": "Forked over governance concerns, and it remains largely drop-in compatible with Gitea."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-gitea",
+   "name": "Gitea",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Lightweight self-hosted Git service with built-in CI.",
+   "url": "https://docs.gitea.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-host",
+    "lightweight",
+    "git",
+    "actions"
+   ],
+   "tip": "It runs comfortably on a very small server, which GitLab never has.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight self-hosted Git service with built-in CI.",
+    "ru": "Лёгкий self-hosted Git-сервис со встроенным CI."
+   },
+   "localizedTip": {
+    "en": "It runs comfortably on a very small server, which GitLab never has."
    },
    "pricing": {
     "model": "openSource",
@@ -56547,6 +56652,41 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-gitlab-ce",
+   "name": "GitLab Community Edition",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Self-hosted GitLab covering repositories, CI, registry and issues.",
+   "url": "https://docs.gitlab.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-host",
+    "devops-platform",
+    "ci",
+    "complete"
+   ],
+   "tip": "One platform replaces several services, at a substantial memory and operational cost.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted GitLab covering repositories, CI, registry and issues.",
+    "ru": "Self-hosted GitLab с репозиториями, CI, реестром и задачами."
+   },
+   "localizedTip": {
+    "en": "One platform replaces several services, at a substantial memory and operational cost."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -56624,6 +56764,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-onedev",
+   "name": "OneDev",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Self-hosted Git server with built-in CI and symbol-level code search.",
+   "url": "https://docs.onedev.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-host",
+    "ci",
+    "code-search",
+    "lightweight"
+   ],
+   "tip": "Its code search understands symbols rather than text, which few self-hosted forges offer.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted Git server with built-in CI and symbol-level code search.",
+    "ru": "Self-hosted Git-сервер со встроенным CI и поиском по символам кода."
+   },
+   "localizedTip": {
+    "en": "Its code search understands symbols rather than text, which few self-hosted forges offer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-radicle",
+   "name": "Radicle",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Peer-to-peer code collaboration with no central server.",
+   "url": "https://radicle.xyz/guides",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "peer-to-peer",
+    "decentralized",
+    "local-first",
+    "git"
+   ],
+   "tip": "Repositories replicate between peers, so the project survives any single host disappearing.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Peer-to-peer code collaboration with no central server.",
+    "ru": "Одноранговая совместная работа над кодом без центрального сервера."
+   },
+   "localizedTip": {
+    "en": "Repositories replicate between peers, so the project survives any single host disappearing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-release-please",
    "name": "release-please",
    "kind": "library",
@@ -56689,6 +56899,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-sourcehut",
+   "name": "SourceHut",
+   "kind": "library",
+   "category": "Git и совместная работа",
+   "summary": "Minimal software forge built around an email-based patch workflow.",
+   "url": "https://man.sr.ht/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "minimal",
+    "email-workflow",
+    "no-javascript",
+    "fast"
+   ],
+   "tip": "Its pages work without JavaScript entirely, which is a deliberate accessibility position.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal software forge built around an email-based patch workflow.",
+    "ru": "Минималистичная площадка для разработки с рабочим процессом патчей по электронной почте."
+   },
+   "localizedTip": {
+    "en": "Its pages work without JavaScript entirely, which is a deliberate accessibility position."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -68885,6 +69130,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-spinnaker",
+   "name": "Spinnaker",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Multi-cloud continuous delivery platform originating at Netflix.",
+   "url": "https://spinnaker.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "multi-cloud",
+    "canary",
+    "netflix",
+    "deployment"
+   ],
+   "tip": "Powerful canary analysis and heavy to operate — Argo Rollouts covers most of it more simply.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Multi-cloud continuous delivery platform originating at Netflix.",
+    "ru": "Мультиоблачная платформа непрерывной доставки, созданная в Netflix."
+   },
+   "localizedTip": {
+    "en": "Powerful canary analysis and heavy to operate — Argo Rollouts covers most of it more simply."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-squid",
    "name": "Squid",
    "kind": "library",
@@ -69103,6 +69383,48 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-actuated",
+   "name": "Actuated",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Self-hosted CI runners isolated in Firecracker microVMs.",
+   "url": "https://docs.actuated.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "firecracker",
+    "self-hosted",
+    "secure",
+    "github-actions",
+    "runners",
+    "pricing",
+    "subscription"
+   ],
+   "tip": "VM isolation per job is what makes self-hosted runners safe for public repositories.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted CI runners isolated in Firecracker microVMs.",
+    "ru": "Self-hosted CI-раннеры, изолированные в microVM Firecracker."
+   },
+   "localizedTip": {
+    "en": "VM isolation per job is what makes self-hosted runners safe for public repositories."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$249 per month",
+    "freeQuota": "free trial",
+    "url": "https://actuated.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-apko",
    "name": "apko",
    "kind": "library",
@@ -69133,6 +69455,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-appveyor",
+   "name": "AppVeyor",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "CI service with unusually strong Windows and .NET support.",
+   "url": "https://www.appveyor.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "windows",
+    "dotnet",
+    "ci",
+    "cross-platform"
+   ],
+   "tip": "Its Windows build environments are more complete than most cross-platform CI providers offer.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "CI service with unusually strong Windows and .NET support.",
+    "ru": "Сервис CI с необычно сильной поддержкой Windows и .NET."
+   },
+   "localizedTip": {
+    "en": "Its Windows build environments are more complete than most cross-platform CI providers offer."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -69278,6 +69635,49 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-bamboo",
+   "name": "Bamboo",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Atlassian CI server with deep Jira and Bitbucket integration.",
+   "url": "https://confluence.atlassian.com/bamboo/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "atlassian",
+    "jira-integration",
+    "on-premise",
+    "deployments",
+    "ci",
+    "pricing",
+    "perpetual",
+    "agents"
+   ],
+   "tip": "Its value is almost entirely the Atlassian integration — standalone it lags modern alternatives.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Atlassian CI server with deep Jira and Bitbucket integration.",
+    "ru": "CI-сервер Atlassian с глубокой интеграцией Jira и Bitbucket."
+   },
+   "localizedTip": {
+    "en": "Its value is almost entirely the Atlassian integration — standalone it lags modern alternatives."
+   },
+   "pricing": {
+    "model": "one-time",
+    "from": "from ~$1200 per agent tier",
+    "freeQuota": "free trial",
+    "url": "https://www.atlassian.com/software/bamboo/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-bazel",
    "name": "Bazel",
    "kind": "library",
@@ -69308,6 +69708,82 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-blacksmith",
+   "name": "Blacksmith",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Drop-in GitHub Actions runners on high-frequency processors.",
+   "url": "https://docs.blacksmith.sh/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "github-actions",
+    "gaming-cpus",
+    "fast",
+    "drop-in"
+   ],
+   "tip": "Single-threaded build steps benefit most, since clock speed is what it optimizes for.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Drop-in GitHub Actions runners on high-frequency processors.",
+    "ru": "Раннеры GitHub Actions на высокочастотных процессорах с простой заменой."
+   },
+   "localizedTip": {
+    "en": "Single-threaded build steps benefit most, since clock speed is what it optimizes for."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-buildjet",
+   "name": "BuildJet",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Faster GitHub Actions runners, including Arm machines.",
+   "url": "https://buildjet.com/for-github-actions/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "github-actions",
+    "runners",
+    "fast",
+    "arm",
+    "pricing",
+    "per-minute"
+   ],
+   "tip": "Swapping the runs-on label is the entire migration, which makes it easy to trial.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Faster GitHub Actions runners, including Arm machines.",
+    "ru": "Более быстрые раннеры GitHub Actions, включая машины Arm."
+   },
+   "localizedTip": {
+    "en": "Swapping the runs-on label is the entire migration, which makes it easy to trial."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.004 per minute",
+    "freeQuota": "free trial minutes",
+    "url": "https://buildjet.com/for-github-actions/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -69348,6 +69824,48 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-buildkite",
+   "name": "Buildkite",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Hosted CI control plane with build agents running on your own infrastructure.",
+   "url": "https://buildkite.com/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hybrid",
+    "self-hosted-agents",
+    "scalable",
+    "pipelines",
+    "ci",
+    "pricing",
+    "per-user"
+   ],
+   "tip": "Your code never leaves your infrastructure while the orchestration stays managed.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted CI control plane with build agents running on your own infrastructure.",
+    "ru": "Размещённый управляющий слой CI с агентами сборки на вашей инфраструктуре."
+   },
+   "localizedTip": {
+    "en": "Your code never leaves your infrastructure while the orchestration stays managed."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$20 per user per month",
+    "freeQuota": "free for small teams",
+    "url": "https://buildkite.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-buildroot",
    "name": "Buildroot",
    "kind": "library",
@@ -69383,6 +69901,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-circleci",
+   "name": "CircleCI",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Hosted CI with reusable configuration packages called orbs.",
+   "url": "https://circleci.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hosted",
+    "orbs",
+    "caching",
+    "parallelism"
+   ],
+   "tip": "Orbs turn common setup steps into one line, at the cost of another supply chain to trust.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted CI with reusable configuration packages called orbs.",
+    "ru": "Размещённый CI с переиспользуемыми конфигурационными пакетами orbs."
+   },
+   "localizedTip": {
+    "en": "Orbs turn common setup steps into one line, at the cost of another supply chain to trust."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-clack",
    "name": "Clack",
    "kind": "library",
@@ -69413,6 +69966,76 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-cloudsmith",
+   "name": "Cloudsmith",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Hosted package registry supporting many formats with security scanning.",
+   "url": "https://help.cloudsmith.io/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "registry",
+    "hosted",
+    "multi-format",
+    "security"
+   ],
+   "tip": "Hosted means no registry to operate, which is most of the cost of running Artifactory.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted package registry supporting many formats with security scanning.",
+    "ru": "Размещённый реестр пакетов с поддержкой множества форматов и сканированием безопасности."
+   },
+   "localizedTip": {
+    "en": "Hosted means no registry to operate, which is most of the cost of running Artifactory."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-codefresh",
+   "name": "Codefresh",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "GitOps-focused CI/CD built on Argo.",
+   "url": "https://codefresh.io/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gitops",
+    "argo",
+    "kubernetes",
+    "pipelines"
+   ],
+   "tip": "Its Argo foundation means the delivery model matches what Kubernetes teams already run.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GitOps-focused CI/CD built on Argo.",
+    "ru": "CI/CD с фокусом на GitOps, построенный на Argo."
+   },
+   "localizedTip": {
+    "en": "Its Argo foundation means the delivery model matches what Kubernetes teams already run."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -69480,6 +70103,41 @@
    },
    "localizedTip": {
     "en": "It understands balanced delimiters, which is exactly where regex-based rewrites go wrong."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-concourse",
+   "name": "Concourse CI",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Pipeline-centric CI built around stateless jobs and versioned resources.",
+   "url": "https://concourse-ci.org/docs.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pipelines",
+    "resources",
+    "stateless",
+    "declarative"
+   ],
+   "tip": "Its strict statelessness makes builds reproducible and its learning curve unusually steep.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pipeline-centric CI built around stateless jobs and versioned resources.",
+    "ru": "CI, построенный вокруг stateless-задач и версионированных ресурсов."
+   },
+   "localizedTip": {
+    "en": "Its strict statelessness makes builds reproducible and its learning curve unusually steep."
    },
    "pricing": {
     "model": "openSource",
@@ -69593,6 +70251,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-depot",
+   "name": "Depot",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Remote container build service with persistent layer caching.",
+   "url": "https://depot.dev/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "docker-builds",
+    "cache",
+    "fast",
+    "remote"
+   ],
+   "tip": "Persistent cache across CI runs is what GitHub Actions runners cannot provide natively.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Remote container build service with persistent layer caching.",
+    "ru": "Удалённый сервис сборки контейнеров с постоянным кэшем слоёв."
+   },
+   "localizedTip": {
+    "en": "Persistent cache across CI runs is what GitHub Actions runners cannot provide natively."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-devenv",
    "name": "devenv",
    "kind": "library",
@@ -69700,6 +70393,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-drone-ci",
+   "name": "Drone",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Container-native CI platform, now part of Harness.",
+   "url": "https://docs.drone.io/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "containers",
+    "pipelines",
+    "self-host",
+    "harness"
+   ],
+   "tip": "Its licence changed after the acquisition — Woodpecker is the open continuation.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Container-native CI platform, now part of Harness.",
+    "ru": "CI-платформа на контейнерах, теперь часть Harness."
+   },
+   "localizedTip": {
+    "en": "Its licence changed after the acquisition — Woodpecker is the open continuation."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -69845,6 +70573,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-github-packages",
+   "name": "GitHub Packages",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Package registry integrated with GitHub repositories and permissions.",
+   "url": "https://docs.github.com/en/packages",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "registry",
+    "github",
+    "integrated",
+    "multi-format"
+   ],
+   "tip": "Repository permissions carry over to packages, so there is no second access model to manage.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Package registry integrated with GitHub repositories and permissions.",
+    "ru": "Реестр пакетов, интегрированный с репозиториями и правами GitHub."
+   },
+   "localizedTip": {
+    "en": "Repository permissions carry over to packages, so there is no second access model to manage."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-harness",
+   "name": "Harness",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Delivery platform with automated deployment verification.",
+   "url": "https://developer.harness.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cd",
+    "verification",
+    "feature-flags",
+    "platform"
+   ],
+   "tip": "It watches metrics after a deploy and rolls back automatically when they degrade.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Delivery platform with automated deployment verification.",
+    "ru": "Платформа доставки с автоматической проверкой развёртываний."
+   },
+   "localizedTip": {
+    "en": "It watches metrics after a deploy and rolls back automatically when they degrade."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-hatch",
    "name": "Hatch",
    "kind": "library",
@@ -69910,6 +70708,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-artifactory",
+   "name": "JFrog Artifactory",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Universal artifact repository supporting most package formats.",
+   "url": "https://jfrog.com/help/r/jfrog-artifactory-documentation",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "registry",
+    "universal",
+    "binaries",
+    "enterprise"
+   ],
+   "tip": "One registry across every language removes a per-ecosystem registry to run and secure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Universal artifact repository supporting most package formats.",
+    "ru": "Универсальный репозиторий артефактов с поддержкой большинства форматов пакетов."
+   },
+   "localizedTip": {
+    "en": "One registry across every language removes a per-ecosystem registry to run and secure."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -70230,6 +71063,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-namespace-so",
+   "name": "Namespace",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Fast CI runners with built-in caching and container builds.",
+   "url": "https://namespace.so/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "runners",
+    "caching",
+    "builds",
+    "fast"
+   ],
+   "tip": "Its cache volumes persist between runs, which removes most dependency install time.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast CI runners with built-in caching and container builds.",
+    "ru": "Быстрые CI-раннеры со встроенным кэшированием и сборкой контейнеров."
+   },
+   "localizedTip": {
+    "en": "Its cache volumes persist between runs, which removes most dependency install time."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nexus-repository",
+   "name": "Nexus Repository",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Artifact repository manager with proxying and caching of public registries.",
+   "url": "https://help.sonatype.com/en/sonatype-nexus-repository.html",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "registry",
+    "proxy",
+    "maven",
+    "sonatype"
+   ],
+   "tip": "Proxying public registries keeps builds working when an upstream package is yanked.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Artifact repository manager with proxying and caching of public registries.",
+    "ru": "Менеджер репозиториев артефактов с проксированием и кэшированием публичных реестров."
+   },
+   "localizedTip": {
+    "en": "Proxying public registries keeps builds working when an upstream package is yanked."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-ngrok",
    "name": "ngrok",
    "kind": "library",
@@ -70400,6 +71303,48 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-octopus-deploy",
+   "name": "Octopus Deploy",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Deployment automation with strong release and environment management.",
+   "url": "https://octopus.com/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "deployment",
+    "releases",
+    "environments",
+    "dotnet",
+    "pricing",
+    "per-target",
+    "subscription"
+   ],
+   "tip": "It separates build from deploy explicitly, which suits regulated release processes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Deployment automation with strong release and environment management.",
+    "ru": "Автоматизация развёртывания с сильным управлением релизами и окружениями."
+   },
+   "localizedTip": {
+    "en": "It separates build from deploy explicitly, which suits regulated release processes."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$360 per year for 10 targets",
+    "freeQuota": "free tier for small deployments",
+    "url": "https://octopus.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -70755,6 +71700,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-semaphore-ci",
+   "name": "Semaphore",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Hosted CI focused on fast builds with monorepo change detection.",
+   "url": "https://docs.semaphoreci.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fast",
+    "pipelines",
+    "hosted",
+    "monorepo"
+   ],
+   "tip": "Its change detection skips jobs for untouched parts of a monorepo, which cuts build time sharply.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted CI focused on fast builds with monorepo change detection.",
+    "ru": "Размещённый CI с фокусом на быстрые сборки и определение изменений в монорепозитории."
+   },
+   "localizedTip": {
+    "en": "Its change detection skips jobs for untouched parts of a monorepo, which cuts build time sharply."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-starship",
    "name": "Starship",
    "kind": "library",
@@ -70785,6 +71765,84 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-teamcity",
+   "name": "TeamCity",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "JetBrains CI server with strong build chain and JVM support.",
+   "url": "https://www.jetbrains.com/help/teamcity/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "jetbrains",
+    "build-chains",
+    "jvm",
+    "on-premise"
+   ],
+   "tip": "Its free tier covers a real small team on-premise, which most commercial CI servers do not.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "JetBrains CI server with strong build chain and JVM support.",
+    "ru": "CI-сервер JetBrains с сильной поддержкой цепочек сборки и JVM."
+   },
+   "localizedTip": {
+    "en": "Its free tier covers a real small team on-premise, which most commercial CI servers do not."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-travis-ci",
+   "name": "Travis CI",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Hosted CI service, historically the default for open-source projects.",
+   "url": "https://docs.travis-ci.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hosted",
+    "legacy",
+    "open-source-history",
+    "simple",
+    "ci",
+    "pricing",
+    "credits",
+    "concurrency"
+   ],
+   "tip": "Most open-source projects moved to GitHub Actions after its free tier was withdrawn.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted CI service, historically the default for open-source projects.",
+    "ru": "Размещённый сервис CI, исторически стандарт для open-source проектов."
+   },
+   "localizedTip": {
+    "en": "Most open-source projects moved to GitHub Actions after its free tier was withdrawn."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$64 per month",
+    "freeQuota": "free trial credits",
+    "url": "https://www.travis-ci.com/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -70922,6 +71980,76 @@
    },
    "localizedTip": {
     "en": "Switching happens on directory entry with no shell hook, unlike nvm's manual model."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-warpbuild",
+   "name": "WarpBuild",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Faster CI runners, optionally running in your own cloud account.",
+   "url": "https://docs.warpbuild.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "runners",
+    "byoc",
+    "fast",
+    "github-actions"
+   ],
+   "tip": "Running in your own account keeps build machines inside your network boundary.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Faster CI runners, optionally running in your own cloud account.",
+    "ru": "Более быстрые CI-раннеры, опционально в вашем собственном облачном аккаунте."
+   },
+   "localizedTip": {
+    "en": "Running in your own account keeps build machines inside your network boundary."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-woodpecker-ci",
+   "name": "Woodpecker CI",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Lightweight self-hosted CI engine running each step in a container.",
+   "url": "https://woodpecker-ci.org/docs/intro",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-host",
+    "containers",
+    "lightweight",
+    "drone-fork"
+   ],
+   "tip": "A community fork of Drone that stayed fully open source after Drone's licence changed.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight self-hosted CI engine running each step in a container.",
+    "ru": "Лёгкий self-hosted движок CI, выполняющий каждый шаг в контейнере."
+   },
+   "localizedTip": {
+    "en": "A community fork of Drone that stayed fully open source after Drone's licence changed."
    },
    "pricing": {
     "model": "openSource",

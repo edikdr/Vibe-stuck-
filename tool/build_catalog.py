@@ -173,6 +173,12 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-buildkite': 'lib-buildkite',
+ 'paid-bamboo': 'lib-bamboo',
+ 'paid-travis-ci': 'lib-travis-ci',
+ 'paid-octopus-deploy': 'lib-octopus-deploy',
+ 'paid-buildjet': 'lib-buildjet',
+ 'paid-actuated': 'lib-actuated',
  'paid-prodigy': 'lib-prodigy',
  'paid-encord': 'lib-encord',
  'paid-v7-darwin': 'lib-v7-darwin',
