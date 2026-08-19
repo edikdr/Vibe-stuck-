@@ -1886,6 +1886,76 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "api-daily-bots",
+   "name": "Daily Bots",
+   "kind": "api",
+   "category": "Голосовые агенты",
+   "summary": "Hosted voice agent infrastructure built on WebRTC and Pipecat.",
+   "url": "https://docs.daily.co/products/bots",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "voice-agent",
+    "webrtc",
+    "open-source",
+    "low-latency"
+   ],
+   "tip": "WebRTC transport handles packet loss far better than raw WebSocket audio on mobile networks.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted voice agent infrastructure built on WebRTC and Pipecat.",
+    "ru": "Размещённая инфраструктура голосовых агентов на WebRTC и Pipecat."
+   },
+   "localizedTip": {
+    "en": "WebRTC transport handles packet loss far better than raw WebSocket audio on mobile networks."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-deepgram-voice-agent",
+   "name": "Deepgram Voice Agent",
+   "kind": "api",
+   "category": "Голосовые агенты",
+   "summary": "Single API combining speech recognition, a language model and synthesis for voice agents.",
+   "url": "https://developers.deepgram.com/docs/voice-agent",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "voice-agent",
+    "realtime",
+    "websocket",
+    "unified"
+   ],
+   "tip": "One WebSocket instead of three services removes most of the latency stacking in voice pipelines.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Single API combining speech recognition, a language model and synthesis for voice agents.",
+    "ru": "Единый API, объединяющий распознавание речи, языковую модель и синтез для голосовых агентов."
+   },
+   "localizedTip": {
+    "en": "One WebSocket instead of three services removes most of the latency stacking in voice pipelines."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "api-hume-ai",
    "name": "Hume AI",
    "kind": "api",
@@ -2058,6 +2128,41 @@
    },
    "localizedTip": {
     "en": "Turn on backchannel words (\"mm-hm\") — it measurably reduces users talking over the agent."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "api-ultravox",
+   "name": "Ultravox",
+   "kind": "api",
+   "category": "Голосовые агенты",
+   "summary": "Speech-native model that understands audio directly without a transcription step.",
+   "url": "https://docs.ultravox.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "speech-native",
+    "llm",
+    "low-latency",
+    "open-weights"
+   ],
+   "tip": "Skipping transcription removes both latency and the errors a recognizer would introduce.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Speech-native model that understands audio directly without a transcription step.",
+    "ru": "Речевая модель, понимающая аудио напрямую, без этапа транскрипции."
+   },
+   "localizedTip": {
+    "en": "Skipping transcription removes both latency and the errors a recognizer would introduce."
    },
    "pricing": {
     "model": "freemium",
@@ -24300,6 +24405,117 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-gladia",
+   "name": "Gladia",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Speech recognition API with built-in diarization and translation.",
+   "url": "https://docs.gladia.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stt",
+    "whisper",
+    "diarization",
+    "translation"
+   ],
+   "tip": "Diarization and transcription in one call avoids running and aligning two separate pipelines.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Speech recognition API with built-in diarization and translation.",
+    "ru": "API распознавания речи со встроенной диаризацией и переводом."
+   },
+   "localizedTip": {
+    "en": "Diarization and transcription in one call avoids running and aligning two separate pipelines."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-kaldi",
+   "name": "Kaldi",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Long-established speech recognition research toolkit.",
+   "url": "https://kaldi-asr.org/doc/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "research",
+    "asr",
+    "toolkit",
+    "classical"
+   ],
+   "tip": "Largely superseded by end-to-end neural models, but still the reference for classical ASR pipelines.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Long-established speech recognition research toolkit.",
+    "ru": "Давно устоявшийся исследовательский набор инструментов распознавания речи."
+   },
+   "localizedTip": {
+    "en": "Largely superseded by end-to-end neural models, but still the reference for classical ASR pipelines."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-krisp",
+   "name": "Krisp",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Real-time background noise and voice cancellation SDK.",
+   "url": "https://sdk.krisp.ai/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "noise-cancellation",
+    "sdk",
+    "voice-clarity",
+    "realtime",
+    "pricing",
+    "per-user"
+   ],
+   "tip": "Cleaning audio before recognition measurably improves transcription accuracy in noisy environments.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Real-time background noise and voice cancellation SDK.",
+    "ru": "SDK подавления фонового шума и посторонних голосов в реальном времени."
+   },
+   "localizedTip": {
+    "en": "Cleaning audio before recognition measurably improves transcription accuracy in noisy environments."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$8 per user per month",
+    "freeQuota": "free tier with limited minutes",
+    "url": "https://krisp.ai/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-lalal-ai",
    "name": "LALAL.AI",
    "kind": "api",
@@ -24341,6 +24557,146 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-neuphonic",
+   "name": "Neuphonic",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Efficient text-to-speech designed to run at low latency, including on-device.",
+   "url": "https://docs.neuphonic.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tts",
+    "efficient",
+    "on-device",
+    "low-latency"
+   ],
+   "tip": "On-device synthesis removes network round trips entirely from the response path.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Efficient text-to-speech designed to run at low latency, including on-device.",
+    "ru": "Эффективный синтез речи с низкой задержкой, в том числе на устройстве."
+   },
+   "localizedTip": {
+    "en": "On-device synthesis removes network round trips entirely from the response path."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-nvidia-nemo",
+   "name": "NVIDIA NeMo",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "NVIDIA's framework for training speech and language models.",
+   "url": "https://docs.nvidia.com/nemo-framework/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nvidia",
+    "speech",
+    "llm",
+    "training"
+   ],
+   "tip": "Its pretrained ASR checkpoints are competitive and freely usable without training anything.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install nemo_toolkit",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "NVIDIA's framework for training speech and language models.",
+    "ru": "Фреймворк NVIDIA для обучения речевых и языковых моделей."
+   },
+   "localizedTip": {
+    "en": "Its pretrained ASR checkpoints are competitive and freely usable without training anything."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-nvidia-riva",
+   "name": "NVIDIA Riva",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "GPU-accelerated speech recognition and synthesis you deploy yourself.",
+   "url": "https://docs.nvidia.com/deeplearning/riva/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gpu",
+    "speech",
+    "self-host",
+    "nvidia"
+   ],
+   "tip": "Self-hosted on your own GPUs, which keeps audio inside your infrastructure at high volume.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GPU-accelerated speech recognition and synthesis you deploy yourself.",
+    "ru": "Распознавание и синтез речи с GPU-ускорением для самостоятельного развёртывания."
+   },
+   "localizedTip": {
+    "en": "Self-hosted on your own GPUs, which keeps audio inside your infrastructure at high volume."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-picovoice",
+   "name": "Picovoice",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "On-device voice AI with wake word detection and offline speech recognition.",
+   "url": "https://picovoice.ai/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "on-device",
+    "wake-word",
+    "offline",
+    "edge"
+   ],
+   "tip": "Everything runs locally, so no audio leaves the device — often the deciding privacy factor.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "On-device voice AI with wake word detection and offline speech recognition.",
+    "ru": "Голосовой AI на устройстве с детекцией ключевого слова и офлайн-распознаванием речи."
+   },
+   "localizedTip": {
+    "en": "Everything runs locally, so no audio leaves the device — often the deciding privacy factor."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-playht",
    "name": "PlayAI (Play.ht)",
    "kind": "api",
@@ -24376,6 +24732,195 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-respeecher",
+   "name": "Respeecher",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Speech-to-speech voice conversion used in film and game production.",
+   "url": "https://docs.respeecher.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "voice-conversion",
+    "film",
+    "ethical",
+    "cloning",
+    "pricing",
+    "minutes",
+    "production"
+   ],
+   "tip": "It preserves the source performance's timing and emotion, which text-to-speech cannot reproduce.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Speech-to-speech voice conversion used in film and game production.",
+    "ru": "Конверсия речи в речь, используемая в кино- и игровом производстве."
+   },
+   "localizedTip": {
+    "en": "It preserves the source performance's timing and emotion, which text-to-speech cannot reproduce."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "custom quote (per minute)",
+    "freeQuota": "free trial",
+    "url": "https://www.respeecher.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-rev-ai",
+   "name": "Rev AI",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Speech-to-text API backed by a company that also sells human transcription.",
+   "url": "https://docs.rev.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stt",
+    "transcription",
+    "human-option",
+    "accurate"
+   ],
+   "tip": "You can escalate a difficult file to human transcription through the same account.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Speech-to-text API backed by a company that also sells human transcription.",
+    "ru": "API распознавания речи от компании, которая также продаёт транскрипцию людьми."
+   },
+   "localizedTip": {
+    "en": "You can escalate a difficult file to human transcription through the same account."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-rime-ai",
+   "name": "Rime AI",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Text-to-speech tuned for natural conversational delivery.",
+   "url": "https://docs.rime.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tts",
+    "conversational",
+    "realistic",
+    "low-latency"
+   ],
+   "tip": "Its voices include the disfluencies real speech has, which matters for phone conversations.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Text-to-speech tuned for natural conversational delivery.",
+    "ru": "Синтез речи, настроенный на естественную разговорную подачу."
+   },
+   "localizedTip": {
+    "en": "Its voices include the disfluencies real speech has, which matters for phone conversations."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-sonix",
+   "name": "Sonix",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Automated transcription and translation with a browser-based editor.",
+   "url": "https://sonix.ai/docs/api",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "transcription",
+    "translation",
+    "subtitles",
+    "editing",
+    "pricing",
+    "per-hour",
+    "subscription"
+   ],
+   "tip": "Its editor keeps the transcript synced to audio, which makes correcting errors quick.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automated transcription and translation with a browser-based editor.",
+    "ru": "Автоматическая транскрипция и перевод с редактором в браузере."
+   },
+   "localizedTip": {
+    "en": "Its editor keeps the transcript synced to audio, which makes correcting errors quick."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$10 per hour of audio",
+    "freeQuota": "free trial minutes",
+    "url": "https://sonix.ai/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-speechbrain",
+   "name": "SpeechBrain",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "PyTorch speech toolkit covering recognition, enhancement and speaker tasks.",
+   "url": "https://speechbrain.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pytorch",
+    "toolkit",
+    "research",
+    "all-in-one"
+   ],
+   "tip": "One framework across speech tasks makes it a good starting point for research work.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install speechbrain",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "PyTorch speech toolkit covering recognition, enhancement and speaker tasks.",
+    "ru": "PyTorch-набор для речи: распознавание, улучшение и задачи идентификации говорящего."
+   },
+   "localizedTip": {
+    "en": "One framework across speech tasks makes it a good starting point for research work."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-speechify",
    "name": "Speechify API",
    "kind": "api",
@@ -24403,6 +24948,41 @@
    },
    "localizedTip": {
     "en": "Its voices are tuned for sustained listening rather than short prompts, which suits article narration."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-speechmatics",
+   "name": "Speechmatics",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Speech recognition with unusually strong accent and dialect coverage.",
+   "url": "https://docs.speechmatics.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stt",
+    "accents",
+    "realtime",
+    "multilingual"
+   ],
+   "tip": "Its accent robustness is the main reason to choose it over the larger general providers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Speech recognition with unusually strong accent and dialect coverage.",
+    "ru": "Распознавание речи с необычно широким покрытием акцентов и диалектов."
+   },
+   "localizedTip": {
+    "en": "Its accent robustness is the main reason to choose it over the larger general providers."
    },
    "pricing": {
     "model": "freemium",
@@ -24511,6 +25091,118 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-voicegain",
+   "name": "Voicegain",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Speech recognition for telephony and contact centres, self-hostable.",
+   "url": "https://www.voicegain.ai/api",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "stt",
+    "telephony",
+    "self-host",
+    "contact-center"
+   ],
+   "tip": "It handles narrowband telephone audio, which models trained on wideband speech transcribe poorly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Speech recognition for telephony and contact centres, self-hostable.",
+    "ru": "Распознавание речи для телефонии и контакт-центров с возможностью self-hosting."
+   },
+   "localizedTip": {
+    "en": "It handles narrowband telephone audio, which models trained on wideband speech transcribe poorly."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-vosk",
+   "name": "Vosk",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Offline speech recognition toolkit with small models for many languages.",
+   "url": "https://alphacephei.com/vosk/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "offline",
+    "stt",
+    "lightweight",
+    "multilingual"
+   ],
+   "tip": "Its models run on a Raspberry Pi, which Whisper-class models generally cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install vosk",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Offline speech recognition toolkit with small models for many languages.",
+    "ru": "Офлайновый набор инструментов распознавания речи с компактными моделями для многих языков."
+   },
+   "localizedTip": {
+    "en": "Its models run on a Raspberry Pi, which Whisper-class models generally cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-wellsaid",
+   "name": "WellSaid Labs",
+   "kind": "api",
+   "category": "Аудио и голос",
+   "summary": "Studio-quality synthetic voices aimed at corporate narration and training content.",
+   "url": "https://docs.wellsaidlabs.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tts",
+    "studio",
+    "corporate",
+    "narration",
+    "pricing",
+    "subscription",
+    "seats"
+   ],
+   "tip": "Its voices are licensed from paid voice actors, which resolves the consent question cleanly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Studio-quality synthetic voices aimed at corporate narration and training content.",
+    "ru": "Синтетические голоса студийного качества для корпоративной озвучки и обучающего контента."
+   },
+   "localizedTip": {
+    "en": "Its voices are licensed from paid voice actors, which resolves the consent question cleanly."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$44 per month",
+    "freeQuota": "free trial",
+    "url": "https://wellsaidlabs.com/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -24902,6 +25594,47 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-attend",
+   "name": "Attend.com",
+   "kind": "api",
+   "category": "Видеоконференции",
+   "summary": "AI meeting assistant producing notes and CRM updates automatically.",
+   "url": "https://docs.attend.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "meetings",
+    "ai-notes",
+    "crm",
+    "automation",
+    "pricing",
+    "per-seat"
+   ],
+   "tip": "Writing meeting outcomes straight into the CRM is what removes the post-call admin work.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AI meeting assistant producing notes and CRM updates automatically.",
+    "ru": "AI-ассистент встреч, автоматически формирующий заметки и обновления CRM."
+   },
+   "localizedTip": {
+    "en": "Writing meeting outcomes straight into the CRM is what removes the post-call admin work."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$29 per seat per month",
+    "freeQuota": "free trial",
+    "url": "https://www.attend.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-daily-co",
    "name": "Daily",
    "kind": "api",
@@ -24932,6 +25665,83 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-fireflies-ai",
+   "name": "Fireflies.ai",
+   "kind": "api",
+   "category": "Видеоконференции",
+   "summary": "Meeting recorder and transcription with a GraphQL API and CRM integrations.",
+   "url": "https://docs.fireflies.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "meetings",
+    "transcription",
+    "graphql",
+    "crm"
+   ],
+   "tip": "Its GraphQL API makes pulling structured meeting data considerably easier than scraping exports.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Meeting recorder and transcription with a GraphQL API and CRM integrations.",
+    "ru": "Запись и транскрипция встреч с GraphQL API и интеграциями CRM."
+   },
+   "localizedTip": {
+    "en": "Its GraphQL API makes pulling structured meeting data considerably easier than scraping exports."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-grain",
+   "name": "Grain",
+   "kind": "api",
+   "category": "Видеоконференции",
+   "summary": "Meeting recording with highlight clips aimed at sales coaching.",
+   "url": "https://grainhq.notion.site/Grain-Public-API-Documentation-d0a7e3e0e3d94e7a9e3f4b0e8e0e0e0e",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "meetings",
+    "highlights",
+    "sales",
+    "coaching",
+    "pricing",
+    "per-seat",
+    "subscription"
+   ],
+   "tip": "Sharing a thirty-second clip beats sending a colleague an hour-long recording.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Meeting recording with highlight clips aimed at sales coaching.",
+    "ru": "Запись встреч с выделением фрагментов для обучения отделов продаж."
+   },
+   "localizedTip": {
+    "en": "Sharing a thirty-second clip beats sending a colleague an hour-long recording."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$19 per seat per month",
+    "freeQuota": "free tier",
+    "url": "https://grain.com/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
@@ -25007,6 +25817,125 @@
    "categoryGroup": "media"
   },
   {
+   "id": "api-otter-ai",
+   "name": "Otter.ai",
+   "kind": "api",
+   "category": "Видеоконференции",
+   "summary": "Meeting transcription with searchable notes and summaries.",
+   "url": "https://otter.ai/api",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "transcription",
+    "meetings",
+    "notes",
+    "collaboration",
+    "pricing",
+    "subscription",
+    "minutes"
+   ],
+   "tip": "Its API surface is narrow — it is a product with an API, not an API-first service.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Meeting transcription with searchable notes and summaries.",
+    "ru": "Транскрипция встреч с поиском по заметкам и резюме."
+   },
+   "localizedTip": {
+    "en": "Its API surface is narrow — it is a product with an API, not an API-first service."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$16.99 per user per month",
+    "freeQuota": "free tier with monthly minutes",
+    "url": "https://otter.ai/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-recall-ai",
+   "name": "Recall.ai",
+   "kind": "api",
+   "category": "Видеоконференции",
+   "summary": "Single API for meeting bots joining Zoom, Meet and Teams calls.",
+   "url": "https://docs.recall.ai/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "meeting-bots",
+    "recording",
+    "transcription",
+    "unified",
+    "pricing",
+    "per-hour",
+    "usage"
+   ],
+   "tip": "One integration instead of three separate platform-specific bot implementations.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Single API for meeting bots joining Zoom, Meet and Teams calls.",
+    "ru": "Единый API для ботов, подключающихся к звонкам Zoom, Meet и Teams."
+   },
+   "localizedTip": {
+    "en": "One integration instead of three separate platform-specific bot implementations."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.70 per hour",
+    "freeQuota": "free trial credit",
+    "url": "https://www.recall.ai/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-tactiq",
+   "name": "Tactiq",
+   "kind": "api",
+   "category": "Видеоконференции",
+   "summary": "Live meeting transcription running as a browser extension, with no bot joining.",
+   "url": "https://tactiq.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "live-transcription",
+    "browser",
+    "meetings",
+    "summaries"
+   ],
+   "tip": "No visible bot in the call, which avoids the consent awkwardness a joining participant creates.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Live meeting transcription running as a browser extension, with no bot joining.",
+    "ru": "Живая транскрипция встреч как расширение браузера, без подключения бота."
+   },
+   "localizedTip": {
+    "en": "No visible bot in the call, which avoids the consent awkwardness a joining participant creates."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "api-twilio-video",
    "name": "Twilio Video",
    "kind": "api",
@@ -25037,6 +25966,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "api-vexa",
+   "name": "Vexa",
+   "kind": "api",
+   "category": "Видеоконференции",
+   "summary": "Open-source meeting bot API for real-time transcription, self-hostable.",
+   "url": "https://github.com/Vexa-ai/vexa",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "meeting-bots",
+    "self-host",
+    "transcription",
+    "open-source"
+   ],
+   "tip": "Self-hosting keeps meeting audio inside your infrastructure, unlike hosted bot services.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source meeting bot API for real-time transcription, self-hostable.",
+    "ru": "Открытый API ботов для встреч с транскрипцией в реальном времени и self-hosting."
+   },
+   "localizedTip": {
+    "en": "Self-hosting keeps meeting audio inside your infrastructure, unlike hosted bot services."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"

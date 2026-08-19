@@ -173,6 +173,14 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-wellsaid': 'api-wellsaid',
+ 'paid-respeecher': 'api-respeecher',
+ 'paid-krisp': 'api-krisp',
+ 'paid-sonix': 'api-sonix',
+ 'paid-recall-ai': 'api-recall-ai',
+ 'paid-otter-ai': 'api-otter-ai',
+ 'paid-grain': 'api-grain',
+ 'paid-attend': 'api-attend',
  'paid-tonic-ai': 'lib-tonic-ai', 'paid-datagrip': 'lib-datagrip',
  'paid-sidekiq-enterprise': 'lib-sidekiq-enterprise',
  'paid-aws-step-functions': 'lib-aws-step-functions',
