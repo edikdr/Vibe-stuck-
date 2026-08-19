@@ -37,7 +37,7 @@ ID_NAME_EXEMPT = {
     'lib-tflite', 'lib-tgi', 'lib-msgpack', 'lib-protobuf', 'lib-opa',
     'lib-pyarrow', 'lib-kmp', 'lib-msw', 'lib-cva', 'lib-mui', 'lib-popmotion',
     'lib-json-schema', 'lib-bundle-analyzer', 'lib-asyncio-tools',
-    'skill-use-examples', 'lib-aif360', 'lib-pyg', 'lib-mturk', 'skill-semver', 'skill-ddia',
+    'skill-use-examples', 'lib-aif360', 'lib-pyg', 'lib-mturk', 'skill-semver', 'skill-ddia', 'api-csm-ai',
 }
 
 
