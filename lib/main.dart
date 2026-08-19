@@ -84,7 +84,7 @@ class ClearSelectionIntent extends Intent {
 }
 
 /// Keyboard twin of the scroll hook, so the desktop build can reach the top of
-/// a 562-entry list without touching the mouse.
+/// a catalogue of a few thousand entries without touching the mouse.
 class ScrollTopIntent extends Intent {
   const ScrollTopIntent();
 }

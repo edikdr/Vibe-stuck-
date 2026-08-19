@@ -46,7 +46,7 @@ SKILLS = SKILLS + _skills_extra
 PAID = PAID + _paid_extra
 
 ROOT = str(pathlib.Path(__file__).resolve().parent.parent)
-TODAY = '2026-08-17'
+TODAY = '2026-08-19'
 
 # ---------------------------------------------------------------- categories
 GROUPS = {
@@ -507,7 +507,8 @@ def main():
     items.sort(key=lambda i: (i['kind'], i['categoryGroup'], i['category'], i['name'].lower()))
     out = {
         'schemaVersion': 3,
-        'catalogVersion': '2026.08.17',
+        # Derived so it can never drift from the date stamped on the entries.
+        'catalogVersion': TODAY.replace('-', '.'),
         'verifiedAt': TODAY,
         'groups': [{'id': g, 'labels': GROUPS[g]} for g in GROUPS],
         'items': items,

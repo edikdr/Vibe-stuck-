@@ -1,7 +1,7 @@
 name: vibestack_atlas
 description: Offline-first catalog of APIs, libraries, MCP servers and agent skills for Codex and Claude Code.
 publish_to: "none"
-version: 0.5.0+5
+version: 0.6.0+6
 
 environment:
   sdk: ">=3.10.0 <4.0.0"
