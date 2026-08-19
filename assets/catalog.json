@@ -59179,6 +59179,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-zookeeper",
+   "name": "Apache ZooKeeper",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Distributed coordination service for configuration and locking.",
+   "url": "https://zookeeper.apache.org/documentation.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "coordination",
+    "consensus",
+    "locks",
+    "mature"
+   ],
+   "tip": "Kafka and HBase have historically depended on it, though both are moving away.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed coordination service for configuration and locking.",
+    "ru": "Служба распределённой координации для конфигурации и блокировок."
+   },
+   "localizedTip": {
+    "en": "Kafka and HBase have historically depended on it, though both are moving away."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-argo-rollouts",
    "name": "Argo Rollouts",
    "kind": "library",
@@ -59389,6 +59424,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-consul",
+   "name": "Consul",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Service discovery, health checking and service mesh from HashiCorp.",
+   "url": "https://developer.hashicorp.com/consul/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "service-discovery",
+    "mesh",
+    "kv",
+    "health-checks"
+   ],
+   "tip": "Its DNS interface means existing applications discover services without any code change.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Service discovery, health checking and service mesh from HashiCorp.",
+    "ru": "Обнаружение сервисов, проверки состояния и service mesh от HashiCorp."
+   },
+   "localizedTip": {
+    "en": "Its DNS interface means existing applications discover services without any code change."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-coredns",
+   "name": "CoreDNS",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Plugin-based DNS server, the default resolver inside Kubernetes.",
+   "url": "https://coredns.io/manual/toc/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dns",
+    "plugins",
+    "kubernetes",
+    "go"
+   ],
+   "tip": "Its plugin chain lets you add caching or rewriting without a separate DNS layer.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Plugin-based DNS server, the default resolver inside Kubernetes.",
+    "ru": "DNS-сервер на плагинах, стандартный резолвер внутри Kubernetes."
+   },
+   "localizedTip": {
+    "en": "Its plugin chain lets you add caching or rewriting without a separate DNS layer."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-cri-o",
    "name": "CRI-O",
    "kind": "library",
@@ -59486,6 +59591,41 @@
    },
    "localizedTip": {
     "en": "You usually configure it through Istio or another control plane rather than writing its config directly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-etcd",
+   "name": "etcd",
+   "kind": "library",
+   "category": "Service mesh и Kubernetes",
+   "summary": "Distributed key-value store providing strong consistency via Raft.",
+   "url": "https://etcd.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "key-value",
+    "raft",
+    "consistent",
+    "kubernetes"
+   ],
+   "tip": "Kubernetes stores all its state here, which makes etcd backups your cluster backups.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed key-value store providing strong consistency via Raft.",
+    "ru": "Распределённое хранилище ключ-значение со строгой согласованностью через Raft."
+   },
+   "localizedTip": {
+    "en": "Kubernetes stores all its state here, which makes etcd backups your cluster backups."
    },
    "pricing": {
     "model": "openSource",
@@ -60474,6 +60614,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-acme-sh",
+   "name": "acme.sh",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Pure shell ACME client with no dependencies.",
+   "url": "https://github.com/acmesh-official/acme.sh",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "acme",
+    "shell",
+    "lightweight",
+    "dns-api"
+   ],
+   "tip": "It runs where Python is unavailable, and its DNS API support covers dozens of providers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pure shell ACME client with no dependencies.",
+    "ru": "ACME-клиент на чистом shell без зависимостей."
+   },
+   "localizedTip": {
+    "en": "It runs where Python is unavailable, and its DNS API support covers dozens of providers."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-adguard-home",
+   "name": "AdGuard Home",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Network-wide DNS filtering with encrypted DNS support.",
+   "url": "https://adguard-dns.io/kb/adguard-home/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dns",
+    "filtering",
+    "doh",
+    "self-host"
+   ],
+   "tip": "It serves DNS-over-HTTPS itself, which Pi-hole needs a separate component for.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Network-wide DNS filtering with encrypted DNS support.",
+    "ru": "Сетевая DNS-фильтрация с поддержкой зашифрованного DNS."
+   },
+   "localizedTip": {
+    "en": "It serves DNS-over-HTTPS itself, which Pi-hole needs a separate component for."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-age-encryption",
    "name": "age",
    "kind": "library",
@@ -60684,6 +60894,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-certbot",
+   "name": "Certbot",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "The reference ACME client for obtaining and renewing certificates.",
+   "url": "https://eff-certbot.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "acme",
+    "certificates",
+    "automation",
+    "eff"
+   ],
+   "tip": "Test renewal with a dry run — a renewal that fails silently expires without warning.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The reference ACME client for obtaining and renewing certificates.",
+    "ru": "Эталонный ACME-клиент для получения и обновления сертификатов."
+   },
+   "localizedTip": {
+    "en": "Test renewal with a dry run — a renewal that fails silently expires without warning."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -61046,6 +61291,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-boundary",
+   "name": "HashiCorp Boundary",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Identity-based access to infrastructure without distributing credentials.",
+   "url": "https://developer.hashicorp.com/boundary/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "access",
+    "identity-based",
+    "sessions",
+    "zero-trust"
+   ],
+   "tip": "Sessions are brokered per request, so there are no long-lived SSH keys to rotate or leak.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Identity-based access to infrastructure without distributing credentials.",
+    "ru": "Доступ к инфраструктуре на основе идентификации без раздачи учётных данных."
+   },
+   "localizedTip": {
+    "en": "Sessions are brokered per request, so there are no long-lived SSH keys to rotate or leak."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-headscale",
+   "name": "Headscale",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Open-source self-hosted coordination server for Tailscale clients.",
+   "url": "https://headscale.net/stable/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tailscale",
+    "self-host",
+    "coordination",
+    "open-source"
+   ],
+   "tip": "It removes the dependency on Tailscale's control plane while keeping their clients.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source self-hosted coordination server for Tailscale clients.",
+    "ru": "Открытый self-hosted координационный сервер для клиентов Tailscale."
+   },
+   "localizedTip": {
+    "en": "It removes the dependency on Tailscale's control plane while keeping their clients."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-impart-security",
    "name": "Impart Security",
    "kind": "library",
@@ -61228,6 +61543,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-letsencrypt",
+   "name": "Let's Encrypt",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Free automated certificate authority.",
+   "url": "https://letsencrypt.org/docs/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tls",
+    "certificates",
+    "free",
+    "automated"
+   ],
+   "tip": "It made universal HTTPS practical by removing both the cost and the manual renewal.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free automated certificate authority.",
+    "ru": "Бесплатный автоматизированный удостоверяющий центр."
+   },
+   "localizedTip": {
+    "en": "It made universal HTTPS practical by removing both the cost and the manual renewal."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-libsodium",
    "name": "libsodium",
    "kind": "library",
@@ -61258,6 +61608,111 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nebula",
+   "name": "Nebula",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Scalable overlay networking tool created at Slack.",
+   "url": "https://nebula.defined.net/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "overlay",
+    "slack",
+    "certificates",
+    "mesh"
+   ],
+   "tip": "Its certificate-based identity model scales to very large fleets without a coordination server.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Scalable overlay networking tool created at Slack.",
+    "ru": "Масштабируемый инструмент оверлейных сетей, созданный в Slack."
+   },
+   "localizedTip": {
+    "en": "Its certificate-based identity model scales to very large fleets without a coordination server."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-netbird",
+   "name": "NetBird",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Open-source zero-trust overlay network built on WireGuard.",
+   "url": "https://docs.netbird.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "wireguard",
+    "zero-trust",
+    "self-host",
+    "mesh"
+   ],
+   "tip": "Fully self-hostable including the control plane, unlike Tailscale's hosted coordination.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source zero-trust overlay network built on WireGuard.",
+    "ru": "Открытая zero-trust оверлейная сеть на базе WireGuard."
+   },
+   "localizedTip": {
+    "en": "Fully self-hostable including the control plane, unlike Tailscale's hosted coordination."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nextdns",
+   "name": "NextDNS",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Hosted DNS filtering with privacy controls and per-device profiles.",
+   "url": "https://nextdns.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dns",
+    "filtering",
+    "privacy",
+    "hosted"
+   ],
+   "tip": "Hosted means it protects devices outside your home network too, which Pi-hole cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Hosted DNS filtering with privacy controls and per-device profiles.",
+    "ru": "Размещённая DNS-фильтрация с контролем приватности и профилями по устройствам."
+   },
+   "localizedTip": {
+    "en": "Hosted means it protects devices outside your home network too, which Pi-hole cannot."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -61368,6 +61823,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-openvpn",
+   "name": "OpenVPN",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Long-established TLS-based VPN with very broad platform support.",
+   "url": "https://openvpn.net/community-resources/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vpn",
+    "mature",
+    "tls",
+    "cross-platform"
+   ],
+   "tip": "Slower than WireGuard, and it traverses restrictive firewalls that block UDP more reliably.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Long-established TLS-based VPN with very broad platform support.",
+    "ru": "Давно устоявшийся VPN на основе TLS с очень широкой поддержкой платформ."
+   },
+   "localizedTip": {
+    "en": "Slower than WireGuard, and it traverses restrictive firewalls that block UDP more reliably."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-osquery",
    "name": "osquery",
    "kind": "library",
@@ -61430,6 +61920,41 @@
    },
    "localizedTip": {
     "en": "Its baseline scan runs in CI in a couple of minutes, unlike the full active scan."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pi-hole",
+   "name": "Pi-hole",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Network-wide ad and tracker blocking at the DNS level.",
+   "url": "https://docs.pi-hole.net/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dns",
+    "ad-blocking",
+    "network-wide",
+    "self-host"
+   ],
+   "tip": "Blocking at DNS covers every device on the network, including ones that run no extensions.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Network-wide ad and tracker blocking at the DNS level.",
+    "ru": "Блокировка рекламы и трекеров на уровне DNS для всей сети."
+   },
+   "localizedTip": {
+    "en": "Blocking at DNS covers every device on the network, including ones that run no extensions."
    },
    "pricing": {
     "model": "openSource",
@@ -61689,6 +62214,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-step-ca",
+   "name": "step-ca",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Private certificate authority with ACME support for internal services.",
+   "url": "https://smallstep.com/docs/step-ca/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "private-ca",
+    "acme",
+    "certificates",
+    "internal"
+   ],
+   "tip": "It brings automated certificates to internal names that public CAs cannot issue for.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Private certificate authority with ACME support for internal services.",
+    "ru": "Приватный удостоверяющий центр с поддержкой ACME для внутренних сервисов."
+   },
+   "localizedTip": {
+    "en": "It brings automated certificates to internal names that public CAs cannot issue for."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-suricata",
    "name": "Suricata",
    "kind": "library",
@@ -61751,6 +62311,76 @@
    },
    "localizedTip": {
     "en": "An SBOM committed with each release is what makes 'are we affected by this CVE' answerable in minutes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-tailscale",
+   "name": "Tailscale",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Zero-configuration mesh VPN built on WireGuard.",
+   "url": "https://tailscale.com/kb",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "wireguard",
+    "mesh-vpn",
+    "zero-config",
+    "acl"
+   ],
+   "tip": "It traverses network address translation automatically, which is what makes it feel effortless.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Zero-configuration mesh VPN built on WireGuard.",
+    "ru": "Mesh-VPN без настройки на базе WireGuard."
+   },
+   "localizedTip": {
+    "en": "It traverses network address translation automatically, which is what makes it feel effortless."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-teleport",
+   "name": "Teleport",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Access platform for SSH, Kubernetes, databases and web apps with session recording.",
+   "url": "https://goteleport.com/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "access",
+    "ssh",
+    "kubernetes",
+    "audit"
+   ],
+   "tip": "Session recording and audit logs are what make production access reviewable after the fact.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Access platform for SSH, Kubernetes, databases and web apps with session recording.",
+    "ru": "Платформа доступа к SSH, Kubernetes, базам данных и веб-приложениям с записью сессий."
+   },
+   "localizedTip": {
+    "en": "Session recording and audit logs are what make production access reviewable after the fact."
    },
    "pricing": {
     "model": "openSource",
@@ -61906,6 +62536,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-unbound",
+   "name": "Unbound",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Validating recursive DNS resolver with DNSSEC support.",
+   "url": "https://unbound.docs.nlnetlabs.nl/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dns",
+    "recursive",
+    "validating",
+    "dnssec"
+   ],
+   "tip": "Running your own recursive resolver means no upstream provider sees your query history.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Validating recursive DNS resolver with DNSSEC support.",
+    "ru": "Проверяющий рекурсивный DNS-резолвер с поддержкой DNSSEC."
+   },
+   "localizedTip": {
+    "en": "Running your own recursive resolver means no upstream provider sees your query history."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-wazuh",
    "name": "Wazuh",
    "kind": "library",
@@ -61933,6 +62598,41 @@
    },
    "localizedTip": {
     "en": "A full SIEM without licence cost, at the price of running and tuning the whole stack yourself."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-wireguard",
+   "name": "WireGuard",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Modern VPN protocol with a very small, auditable codebase.",
+   "url": "https://www.wireguard.com/quickstart/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vpn",
+    "kernel",
+    "fast",
+    "simple"
+   ],
+   "tip": "A few thousand lines of code, against OpenVPN's hundreds of thousands — that is the security argument.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern VPN protocol with a very small, auditable codebase.",
+    "ru": "Современный VPN-протокол с очень небольшой проверяемой кодовой базой."
+   },
+   "localizedTip": {
+    "en": "A few thousand lines of code, against OpenVPN's hundreds of thousands — that is the security argument."
    },
    "pricing": {
     "model": "openSource",
@@ -62012,6 +62712,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-zerotier",
+   "name": "ZeroTier",
+   "kind": "library",
+   "category": "Безопасность и секреты",
+   "summary": "Virtual network creating a layer 2 network across the internet.",
+   "url": "https://docs.zerotier.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sdn",
+    "layer-2",
+    "virtual-network",
+    "cross-platform"
+   ],
+   "tip": "Layer 2 emulation carries broadcast protocols that layer 3 overlays like WireGuard drop.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Virtual network creating a layer 2 network across the internet.",
+    "ru": "Виртуальная сеть, создающая сеть второго уровня поверх интернета."
+   },
+   "localizedTip": {
+    "en": "Layer 2 emulation carries broadcast protocols that layer 3 overlays like WireGuard drop."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -67045,6 +67780,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-apache-httpd",
+   "name": "Apache HTTP Server",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "The long-established modular web server.",
+   "url": "https://httpd.apache.org/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web-server",
+    "modules",
+    "htaccess",
+    "mature"
+   ],
+   "tip": "Its per-directory .htaccess configuration is why shared hosting still runs on it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The long-established modular web server.",
+    "ru": "Давно устоявшийся модульный веб-сервер."
+   },
+   "localizedTip": {
+    "en": "Its per-directory .htaccess configuration is why shared hosting still runs on it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-backblaze-b2",
    "name": "Backblaze B2",
    "kind": "library",
@@ -67082,6 +67852,41 @@
     "freeQuota": "10GB free storage",
     "url": "https://www.backblaze.com/cloud-storage/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-bind",
+   "name": "BIND 9",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "The reference DNS server implementation.",
+   "url": "https://bind9.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dns",
+    "reference",
+    "authoritative",
+    "mature"
+   ],
+   "tip": "Feature-complete and correspondingly complex — lighter servers cover most modern use cases.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The reference DNS server implementation.",
+    "ru": "Эталонная реализация DNS-сервера."
+   },
+   "localizedTip": {
+    "en": "Feature-complete and correspondingly complex — lighter servers cover most modern use cases."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -67227,6 +68032,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-cloudflare-tunnel",
+   "name": "Cloudflare Tunnel",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Connects a local service to Cloudflare without opening any inbound ports.",
+   "url": "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tunnel",
+    "zero-trust",
+    "no-open-ports",
+    "free"
+   ],
+   "tip": "No inbound ports means no exposed attack surface, which port forwarding always creates.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Connects a local service to Cloudflare without opening any inbound ports.",
+    "ru": "Подключает локальный сервис к Cloudflare без открытия входящих портов."
+   },
+   "localizedTip": {
+    "en": "No inbound ports means no exposed attack surface, which port forwarding always creates."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-coolify",
    "name": "Coolify",
    "kind": "library",
@@ -67254,6 +68094,41 @@
    },
    "localizedTip": {
     "en": "One VPS running it replaces several paid hosting subscriptions, at the cost of owning the ops."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-dnsmasq",
+   "name": "dnsmasq",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Lightweight DNS forwarder and DHCP server for small networks.",
+   "url": "https://thekelleys.org.uk/dnsmasq/doc.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dns",
+    "dhcp",
+    "lightweight",
+    "embedded"
+   ],
+   "tip": "One small binary covering DNS and DHCP is why it ships on most home routers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight DNS forwarder and DHCP server for small networks.",
+    "ru": "Лёгкий DNS-форвардер и DHCP-сервер для небольших сетей."
+   },
+   "localizedTip": {
+    "en": "One small binary covering DNS and DHCP is why it ships on most home routers."
    },
    "pricing": {
     "model": "openSource",
@@ -67479,6 +68354,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-haproxy",
+   "name": "HAProxy",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "High-performance TCP and HTTP load balancer.",
+   "url": "https://docs.haproxy.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "load-balancer",
+    "tcp",
+    "http",
+    "high-performance"
+   ],
+   "tip": "Its layer 4 mode balances any TCP protocol, which HTTP-only proxies cannot handle.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance TCP and HTTP load balancer.",
+    "ru": "Высокопроизводительный балансировщик нагрузки TCP и HTTP."
+   },
+   "localizedTip": {
+    "en": "Its layer 4 mode balances any TCP protocol, which HTTP-only proxies cannot handle."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-incus",
    "name": "Incus",
    "kind": "library",
@@ -67585,6 +68495,41 @@
     "freeQuota": "free trial credit",
     "url": "https://www.keycdn.com/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-knot-dns",
+   "name": "Knot DNS",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "High-performance authoritative DNS server with automated DNSSEC.",
+   "url": "https://www.knot-dns.cz/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dns",
+    "authoritative",
+    "performance",
+    "dnssec"
+   ],
+   "tip": "Its automatic DNSSEC key management removes the manual rollover that breaks zones.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance authoritative DNS server with automated DNSSEC.",
+    "ru": "Высокопроизводительный авторитативный DNS-сервер с автоматизированным DNSSEC."
+   },
+   "localizedTip": {
+    "en": "Its automatic DNSSEC key management removes the manual rollover that breaks zones."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -67765,6 +68710,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-openlitespeed",
+   "name": "OpenLiteSpeed",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "High-performance web server compatible with Apache configuration.",
+   "url": "https://openlitespeed.org/kb/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "web-server",
+    "performance",
+    "apache-compatible",
+    "caching"
+   ],
+   "tip": "Its built-in page cache is why it dominates managed WordPress hosting.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance web server compatible with Apache configuration.",
+    "ru": "Высокопроизводительный веб-сервер, совместимый с конфигурацией Apache."
+   },
+   "localizedTip": {
+    "en": "Its built-in page cache is why it dominates managed WordPress hosting."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-pingora",
+   "name": "Pingora",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Rust framework for building fast proxies, from Cloudflare.",
+   "url": "https://github.com/cloudflare/pingora",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rust",
+    "proxy",
+    "cloudflare",
+    "framework"
+   ],
+   "tip": "It is a library for writing your own proxy, not a drop-in server like nginx.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Rust framework for building fast proxies, from Cloudflare.",
+    "ru": "Rust-фреймворк для построения быстрых прокси от Cloudflare."
+   },
+   "localizedTip": {
+    "en": "It is a library for writing your own proxy, not a drop-in server like nginx."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-powerdns",
+   "name": "PowerDNS",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Authoritative DNS server with a REST API and database backends.",
+   "url": "https://doc.powerdns.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dns",
+    "authoritative",
+    "api",
+    "database-backed"
+   ],
+   "tip": "Its API makes DNS records manageable as code rather than through zone file edits.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Authoritative DNS server with a REST API and database backends.",
+    "ru": "Авторитативный DNS-сервер с REST API и бэкендами на базах данных."
+   },
+   "localizedTip": {
+    "en": "Its API makes DNS records manageable as code rather than through zone file edits."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-proxmox",
    "name": "Proxmox VE",
    "kind": "library",
@@ -67827,6 +68877,41 @@
    },
    "localizedTip": {
     "en": "Small-file performance is where it beats general object stores, which struggle with billions of objects."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-squid",
+   "name": "Squid",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Caching forward proxy for outbound web traffic.",
+   "url": "https://www.squid-cache.org/Doc/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "forward-proxy",
+    "caching",
+    "filtering",
+    "mature"
+   ],
+   "tip": "Its access control lists are how many corporate networks filter outbound traffic.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Caching forward proxy for outbound web traffic.",
+    "ru": "Кэширующий forward-прокси для исходящего веб-трафика."
+   },
+   "localizedTip": {
+    "en": "Its access control lists are how many corporate networks filter outbound traffic."
    },
    "pricing": {
     "model": "openSource",
@@ -68970,6 +70055,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-localtunnel",
+   "name": "localtunnel",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Simple open-source tunnel for exposing a local port.",
+   "url": "https://theboroer.github.io/localtunnel-www/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tunnel",
+    "simple",
+    "free",
+    "self-host"
+   ],
+   "tip": "Self-hostable, which avoids the session limits free hosted tunnels impose.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i -g localtunnel",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple open-source tunnel for exposing a local port.",
+    "ru": "Простой открытый туннель для проброса локального порта."
+   },
+   "localizedTip": {
+    "en": "Self-hostable, which avoids the session limits free hosted tunnels impose."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-mender",
    "name": "Mender",
    "kind": "library",
@@ -69102,6 +70222,41 @@
    },
    "localizedTip": {
     "en": "Good glue for scheduled jobs you do not want to write and host yourself."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-ngrok",
+   "name": "ngrok",
+   "kind": "library",
+   "category": "Разработка и DevOps",
+   "summary": "Exposes a local server to the public internet over a secure tunnel.",
+   "url": "https://ngrok.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tunnel",
+    "webhooks",
+    "local",
+    "https"
+   ],
+   "tip": "The standard way to test webhooks against a service running on your laptop.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Exposes a local server to the public internet over a secure tunnel.",
+    "ru": "Открывает локальный сервер в интернет через защищённый туннель."
+   },
+   "localizedTip": {
+    "en": "The standard way to test webhooks against a service running on your laptop."
    },
    "pricing": {
     "model": "freemium",
