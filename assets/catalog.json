@@ -60004,6 +60004,111 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "mcp-hubspot",
+   "name": "HubSpot MCP",
+   "kind": "mcp",
+   "category": "CRM и продажи",
+   "summary": "HubSpot's official server for contacts, deals and CRM objects.",
+   "url": "https://developers.hubspot.com/mcp",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hubspot",
+    "crm",
+    "official",
+    "contacts"
+   ],
+   "tip": "Its association tools are what make multi-object CRM questions answerable in one pass.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx -y @hubspot/mcp-server",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "HubSpot's official server for contacts, deals and CRM objects.",
+    "ru": "Официальный сервер HubSpot для контактов, сделок и объектов CRM."
+   },
+   "localizedTip": {
+    "en": "Its association tools are what make multi-object CRM questions answerable in one pass."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "mcp-intercom",
+   "name": "Intercom MCP",
+   "kind": "mcp",
+   "category": "CRM и продажи",
+   "summary": "Intercom's official server for conversations, contacts and help articles.",
+   "url": "https://developers.intercom.com/docs/guides/mcp",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "intercom",
+    "support",
+    "official",
+    "conversations"
+   ],
+   "tip": "Useful for summarizing support themes across conversations rather than reading them one by one.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Intercom's official server for conversations, contacts and help articles.",
+    "ru": "Официальный сервер Intercom для диалогов, контактов и статей справки."
+   },
+   "localizedTip": {
+    "en": "Useful for summarizing support themes across conversations rather than reading them one by one."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "mcp-salesforce",
+   "name": "Salesforce MCP",
+   "kind": "mcp",
+   "category": "CRM и продажи",
+   "summary": "Salesforce's official server for CRM records and Apex metadata.",
+   "url": "https://developer.salesforce.com/docs/einstein/genai/guide/mcp.html",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "salesforce",
+    "crm",
+    "official",
+    "records"
+   ],
+   "tip": "Field-level security applies to the agent as to any user, so permissions carry over unchanged.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Salesforce's official server for CRM records and Apex metadata.",
+    "ru": "Официальный сервер Salesforce для записей CRM и метаданных Apex."
+   },
+   "localizedTip": {
+    "en": "Field-level security applies to the agent as to any user, so permissions carry over unchanged."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "mcp-sqlite-official",
    "name": "SQLite MCP (official)",
    "kind": "mcp",
@@ -60303,6 +60408,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "mcp-monday",
+   "name": "Monday.com MCP",
+   "kind": "mcp",
+   "category": "Планирование и календари",
+   "summary": "Monday.com's official server for boards, items and updates.",
+   "url": "https://developer.monday.com/apps/docs/mondaycom-mcp-integration",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "monday",
+    "boards",
+    "official",
+    "work-management"
+   ],
+   "tip": "Column types are strongly typed — have the agent read the board schema before writing values.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Monday.com's official server for boards, items and updates.",
+    "ru": "Официальный сервер Monday.com для досок, элементов и обновлений."
+   },
+   "localizedTip": {
+    "en": "Column types are strongly typed — have the agent read the board schema before writing values."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "mcp-todoist",
    "name": "Todoist MCP",
    "kind": "mcp",
@@ -60443,6 +60583,41 @@
    "categoryGroup": "backend"
   },
   {
+   "id": "mcp-shopify",
+   "name": "Shopify MCP",
+   "kind": "mcp",
+   "category": "Платежи и commerce",
+   "summary": "Shopify's official server exposing store data and development documentation.",
+   "url": "https://shopify.dev/docs/apps/build/devmcp",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "shopify",
+    "commerce",
+    "official",
+    "storefront"
+   ],
+   "tip": "Its docs-search tools keep an agent on current Shopify APIs rather than deprecated ones.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Shopify's official server exposing store data and development documentation.",
+    "ru": "Официальный сервер Shopify с данными магазина и документацией для разработки."
+   },
+   "localizedTip": {
+    "en": "Its docs-search tools keep an agent on current Shopify APIs rather than deprecated ones."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
    "id": "mcp-square-official",
    "name": "Square MCP (official)",
    "kind": "mcp",
@@ -60507,6 +60682,181 @@
     "checkedAt": "2026-08-12"
    },
    "categoryGroup": "backend"
+  },
+  {
+   "id": "mcp-sendgrid",
+   "name": "SendGrid MCP",
+   "kind": "mcp",
+   "category": "Почта и уведомления",
+   "summary": "Community server for SendGrid contacts, templates and email sending.",
+   "url": "https://github.com/Garoth/sendgrid-mcp",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "sendgrid",
+    "email",
+    "community",
+    "campaigns"
+   ],
+   "tip": "Keep sending permissions off unless you intend the agent to actually mail your contact list.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community server for SendGrid contacts, templates and email sending.",
+    "ru": "Сервер сообщества для контактов, шаблонов и отправки писем SendGrid."
+   },
+   "localizedTip": {
+    "en": "Keep sending permissions off unless you intend the agent to actually mail your contact list."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "mcp-airtable",
+   "name": "Airtable MCP",
+   "kind": "mcp",
+   "category": "Таблицы и no-code",
+   "summary": "Community server for reading and writing Airtable bases and records.",
+   "url": "https://github.com/domdomegg/airtable-mcp-server",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "airtable",
+    "records",
+    "bases",
+    "community"
+   ],
+   "tip": "Use a scoped personal access token — Airtable tokens can otherwise reach every base you own.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx -y airtable-mcp-server",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community server for reading and writing Airtable bases and records.",
+    "ru": "Сервер сообщества для чтения и записи баз и записей Airtable."
+   },
+   "localizedTip": {
+    "en": "Use a scoped personal access token — Airtable tokens can otherwise reach every base you own."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "backend"
+  },
+  {
+   "id": "mcp-bigquery",
+   "name": "BigQuery MCP",
+   "kind": "mcp",
+   "category": "Data engineering",
+   "summary": "BigQuery access through Google's MCP Toolbox for databases.",
+   "url": "https://github.com/googleapis/genai-toolbox",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bigquery",
+    "google",
+    "sql",
+    "toolbox"
+   ],
+   "tip": "BigQuery bills by bytes scanned, so cap the maximum bytes billed before letting an agent query.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "BigQuery access through Google's MCP Toolbox for databases.",
+    "ru": "Доступ к BigQuery через MCP Toolbox for Databases от Google."
+   },
+   "localizedTip": {
+    "en": "BigQuery bills by bytes scanned, so cap the maximum bytes billed before letting an agent query."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "mcp-databricks",
+   "name": "Databricks MCP",
+   "kind": "mcp",
+   "category": "Data engineering",
+   "summary": "Databricks' managed servers for Unity Catalog data and functions.",
+   "url": "https://docs.databricks.com/aws/en/generative-ai/mcp/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "databricks",
+    "lakehouse",
+    "official",
+    "unity-catalog"
+   ],
+   "tip": "Unity Catalog permissions still apply, so the agent inherits exactly the access its identity has.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Databricks' managed servers for Unity Catalog data and functions.",
+    "ru": "Управляемые серверы Databricks для данных и функций Unity Catalog."
+   },
+   "localizedTip": {
+    "en": "Unity Catalog permissions still apply, so the agent inherits exactly the access its identity has."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "mcp-snowflake",
+   "name": "Snowflake MCP",
+   "kind": "mcp",
+   "category": "Data engineering",
+   "summary": "Snowflake Labs' server for warehouse queries and Cortex AI features.",
+   "url": "https://github.com/Snowflake-Labs/mcp",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "snowflake",
+    "warehouse",
+    "sql",
+    "official"
+   ],
+   "tip": "Set a query timeout and warehouse size limit — an agent can start a very expensive query easily.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Snowflake Labs' server for warehouse queries and Cortex AI features.",
+    "ru": "Сервер Snowflake Labs для запросов к хранилищу и функций Cortex AI."
+   },
+   "localizedTip": {
+    "en": "Set a query timeout and warehouse size limit — an agent can start a very expensive query easily."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
   },
   {
    "id": "mcp-pubmed",
@@ -60785,6 +61135,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "mcp-bitbucket",
+   "name": "Bitbucket MCP",
+   "kind": "mcp",
+   "category": "Git и совместная работа",
+   "summary": "Community server for Bitbucket repositories and pull requests.",
+   "url": "https://github.com/MatanYemini/bitbucket-mcp",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "bitbucket",
+    "pull-requests",
+    "community",
+    "repos"
+   ],
+   "tip": "App passwords are scoped per permission — grant only pull request read for review workflows.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx -y bitbucket-mcp",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Community server for Bitbucket repositories and pull requests.",
+    "ru": "Сервер сообщества для репозиториев и pull request Bitbucket."
+   },
+   "localizedTip": {
+    "en": "App passwords are scoped per permission — grant only pull request read for review workflows."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "mcp-bitbucket-community",
    "name": "Bitbucket MCP (community)",
    "kind": "mcp",
@@ -60913,6 +61298,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "mcp-gitlab",
+   "name": "GitLab MCP",
+   "kind": "mcp",
+   "category": "Git и совместная работа",
+   "summary": "GitLab's official server for issues, merge requests and pipelines.",
+   "url": "https://docs.gitlab.com/user/gitlab_duo/model_context_protocol/mcp_server/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gitlab",
+    "official",
+    "merge-requests",
+    "pipelines"
+   ],
+   "tip": "Token scopes decide what the agent can do — a read_api token covers most review workflows.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "GitLab's official server for issues, merge requests and pipelines.",
+    "ru": "Официальный сервер GitLab для задач, merge request и пайплайнов."
+   },
+   "localizedTip": {
+    "en": "Token scopes decide what the agent can do — a read_api token covers most review workflows."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -61331,6 +61751,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "mcp-puppeteer",
+   "name": "Puppeteer MCP",
+   "kind": "mcp",
+   "category": "Браузер и автоматизация",
+   "summary": "Reference server for browser automation and screenshots via Puppeteer.",
+   "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "puppeteer",
+    "browser",
+    "screenshots",
+    "reference"
+   ],
+   "tip": "Now archived — the Playwright server is the maintained option for the same job.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx -y @modelcontextprotocol/server-puppeteer",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reference server for browser automation and screenshots via Puppeteer.",
+    "ru": "Эталонный сервер автоматизации браузера и снимков экрана через Puppeteer."
+   },
+   "localizedTip": {
+    "en": "Now archived — the Playwright server is the maintained option for the same job."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
   },
@@ -62777,6 +63232,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "mcp-twilio",
+   "name": "Twilio MCP",
+   "kind": "mcp",
+   "category": "Коммуникации",
+   "summary": "Twilio Labs' server exposing the Twilio API surface to agents.",
+   "url": "https://github.com/twilio-labs/mcp",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "twilio",
+    "messaging",
+    "official",
+    "api"
+   ],
+   "tip": "An agent with send permissions can spend real money per message — restrict the API key scope.",
+   "verifiedAt": "2026-08-17",
+   "install": "npx -y @twilio-alpha/mcp",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Twilio Labs' server exposing the Twilio API surface to agents.",
+    "ru": "Сервер Twilio Labs, открывающий агентам поверхность API Twilio."
+   },
+   "localizedTip": {
+    "en": "An agent with send permissions can spend real money per message — restrict the API key scope."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "mcp-zendesk-community",
    "name": "Zendesk MCP (community)",
    "kind": "mcp",
@@ -62944,6 +63434,41 @@
    },
    "localizedTip": {
     "en": "Evaluate the trajectory, not just the final answer — a right answer via a dangerous path is still a failure."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "skill-mcp-security",
+   "name": "MCP Security Best Practices",
+   "kind": "skill",
+   "category": "AI-оценка и safety",
+   "summary": "Security guidance for MCP servers, covering token handling and confused-deputy risks.",
+   "url": "https://modelcontextprotocol.io/specification/draft/basic/security_best_practices",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mcp",
+    "security",
+    "tokens",
+    "confused-deputy"
+   ],
+   "tip": "Read this before exposing any server that holds credentials on behalf of multiple users.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Security guidance for MCP servers, covering token handling and confused-deputy risks.",
+    "ru": "Руководство по безопасности MCP-серверов: работа с токенами и риски confused deputy."
+   },
+   "localizedTip": {
+    "en": "Read this before exposing any server that holds credentials on behalf of multiple users."
    },
    "pricing": {
     "model": "free",
@@ -65681,6 +66206,41 @@
    "categoryGroup": "skills"
   },
   {
+   "id": "skill-tool-use-guide",
+   "name": "Tool Use with Claude",
+   "kind": "skill",
+   "category": "Гайды и практики",
+   "summary": "How tool definitions, invocation and results work with the Claude API.",
+   "url": "https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tools",
+    "function-calling",
+    "schemas",
+    "claude"
+   ],
+   "tip": "Tool descriptions are prompt text — a vague description is the usual cause of wrong tool selection.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "How tool definitions, invocation and results work with the Claude API.",
+    "ru": "Как работают определения инструментов, их вызов и результаты в Claude API."
+   },
+   "localizedTip": {
+    "en": "Tool descriptions are prompt text — a vague description is the usual cause of wrong tool selection."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "skills"
+  },
+  {
    "id": "skill-vision-guide",
    "name": "Vision Guide",
    "kind": "skill",
@@ -66132,6 +66692,41 @@
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-12"
+   },
+   "categoryGroup": "skills"
+  },
+  {
+   "id": "skill-mcp-build-server",
+   "name": "Build an MCP Server",
+   "kind": "skill",
+   "category": "Создание skills",
+   "summary": "Official walkthrough for writing your first MCP server.",
+   "url": "https://modelcontextprotocol.io/docs/develop/build-server",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mcp",
+    "tutorial",
+    "server",
+    "sdk"
+   ],
+   "tip": "Start with stdio transport — remote servers add auth concerns you do not need while learning.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Official walkthrough for writing your first MCP server.",
+    "ru": "Официальное руководство по написанию первого MCP-сервера."
+   },
+   "localizedTip": {
+    "en": "Start with stdio transport — remote servers add auth concerns you do not need while learning."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
    },
    "categoryGroup": "skills"
   },
