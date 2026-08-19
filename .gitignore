@@ -30,6 +30,17 @@ pubspec.lock
 __pycache__/
 *.pyc
 
+# Built catalog. Both are derived from data/catalog/*.jsonl by
+# tool/build_catalog.py: assets/catalog.db is the copy that ships inside the
+# app, dist/ holds the release assets. Neither is committed — the catalog is
+# what changes most often here, and a multi-megabyte binary that changes with
+# it does not belong in the history. The generated Dart is committed, because
+# it has to compile.
+#
+#   python3 tool/build_catalog.py    # before flutter run / build / test
+/assets/catalog.db
+/dist/
+
 # flutter create regenerates these on every CI run; the runner directories
 # above are ignored for the same reason.
 /.metadata

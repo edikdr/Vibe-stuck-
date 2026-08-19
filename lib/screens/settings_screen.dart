@@ -22,6 +22,7 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   final _feedController = TextEditingController();
+  final _catalogUrlController = TextEditingController();
   int _cachedImages = 0;
   bool _primed = false;
 
@@ -33,13 +34,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
     super.didChangeDependencies();
     if (_primed) return;
     _primed = true;
-    _feedController.text = AppScope.of(context).feedUrl;
+    final state = AppScope.of(context);
+    _feedController.text = state.feedUrl;
+    _catalogUrlController.text = state.catalogManifestUrl;
     _refreshCacheCount();
   }
 
   @override
   void dispose() {
     _feedController.dispose();
+    _catalogUrlController.dispose();
     super.dispose();
   }
 
@@ -151,6 +155,59 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text('· $error',
                       style: const TextStyle(fontSize: 12, color: AtlasTheme.warning)),
                 ],
+              ],
+            ),
+            const SizedBox(height: 16),
+
+            // ------------------------------------------------ catalog database
+            _Section(title: s.t('catalogDatabase')),
+            _Card(
+              children: [
+                Text(s.t('catalogDatabaseHint'),
+                    style: const TextStyle(fontSize: 12.5, height: 1.45, color: AtlasTheme.textMuted)),
+                const SizedBox(height: 12),
+                Text(
+                  s.t('catalogVersion', {
+                    'version': state.catalogVersion.isEmpty ? '—' : state.catalogVersion,
+                    'count': state.catalogItemCount,
+                  }),
+                  style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w600),
+                ),
+                if (state.catalogMessage.isNotEmpty) ...[
+                  const SizedBox(height: 6),
+                  Text(state.catalogMessage,
+                      style: const TextStyle(fontSize: 12, height: 1.4, color: AtlasTheme.textFaint)),
+                ],
+                const SizedBox(height: 12),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: FilledButton.tonalIcon(
+                    onPressed: state.catalogUpdating
+                        ? null
+                        : () => state.updateCatalogData(force: true),
+                    icon: state.catalogUpdating
+                        ? const SizedBox(
+                            width: 16, height: 16,
+                            child: CircularProgressIndicator(strokeWidth: 2))
+                        : const Icon(Icons.cloud_download_outlined, size: 18),
+                    label: Text(state.catalogUpdating
+                        ? s.t('checking')
+                        : s.t('catalogCheckNow')),
+                  ),
+                ),
+                const Divider(height: 22),
+                Text(s.t('catalogSource'),
+                    style: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w600)),
+                const SizedBox(height: 4),
+                Text(s.t('catalogSourceHint'),
+                    style: const TextStyle(fontSize: 12, height: 1.4, color: AtlasTheme.textFaint)),
+                const SizedBox(height: 10),
+                TextField(
+                  controller: _catalogUrlController,
+                  decoration: const InputDecoration(
+                      hintText: 'https://example.com/manifest.json'),
+                  onSubmitted: state.updateCatalogManifestUrl,
+                ),
               ],
             ),
             const SizedBox(height: 16),

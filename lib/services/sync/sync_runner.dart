@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
 
+import '../../app_info.dart';
 import '../../models/catalog_item.dart';
 import '../catalog_repository.dart';
+import '../catalog_update_service.dart';
 import '../live_update_service.dart';
 
 /// Result of one headless run, small enough to store in preferences and show
@@ -14,6 +16,7 @@ class HeadlessSyncResult {
     this.links = 0,
     this.stars = 0,
     this.reason = '',
+    this.catalogVersion = '',
   });
 
   final bool ran;
@@ -23,9 +26,13 @@ class HeadlessSyncResult {
   final int stars;
   final String reason;
 
+  /// Catalog version installed by this run, empty when nothing was installed.
+  final String catalogVersion;
+
   @override
   String toString() => ran
       ? 'ok added=$added versions=$versions links=$links'
+          '${catalogVersion.isEmpty ? '' : ' catalog=$catalogVersion'}'
       : 'skipped ($reason)';
 }
 
@@ -60,12 +67,24 @@ class SyncRunner {
       return const HeadlessSyncResult(ran: false, reason: 'already fresh');
     }
 
+    // A published catalog release is installed before anything else runs, so
+    // the rest of the sync compares against the newest entries there are.
+    var catalogVersion = '';
+    try {
+      final catalog = await CatalogUpdateService(database: _repository.catalog)
+          .update(appVersion: appVersion);
+      if (catalog.changed) catalogVersion = catalog.version;
+    } catch (_) {
+      // No network, or a release that cannot be read: the installed catalog
+      // stays exactly as it was, which is the whole point of shipping one.
+    }
+
     final existing = <CatalogItem>[];
     try {
       existing.addAll(await _repository.loadBundled());
     } catch (_) {
-      // Asset loading can fail in a background isolate on some OEM builds.
-      // Deduplication then falls back to persisted entries only.
+      // Opening the database can fail in a background isolate on some OEM
+      // builds. Deduplication then falls back to persisted entries only.
     }
     final live = await _repository.loadLiveItems();
     existing
@@ -118,6 +137,7 @@ class SyncRunner {
       versions: result.versions.length,
       links: result.linkHealth.length,
       stars: result.stars.length,
+      catalogVersion: catalogVersion,
     );
   }
 }

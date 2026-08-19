@@ -1,5 +1,7 @@
+import 'search_index.dart';
 import 'showcase.dart';
 
+export 'search_index.dart';
 export 'showcase.dart';
 
 enum ItemKind { api, library, mcp, skill }
@@ -29,6 +31,7 @@ class CatalogItem {
     this.categoryGroup = 'devtools',
     this.showcases = const [],
     this.pricing = const PricingInfo(),
+    this.searchIndex,
   });
 
   final String id;
@@ -52,6 +55,10 @@ class CatalogItem {
   final String categoryGroup;
   final List<Showcase> showcases;
   final PricingInfo pricing;
+
+  /// Normalized search text, supplied by the database and absent for entries
+  /// built at runtime. [SearchEngine] falls back to computing it once.
+  final SearchIndex? searchIndex;
 
   bool get hasExamples => showcases.isNotEmpty;
   bool get hasPricing => pricing.hasPrice;
