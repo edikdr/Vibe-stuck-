@@ -173,6 +173,18 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-splunk': 'api-splunk',
+ 'paid-sumologic': 'api-sumologic',
+ 'paid-lightstep-cloud': 'api-lightstep-cloud',
+ 'paid-instana': 'api-instana',
+ 'paid-appdynamics': 'api-appdynamics',
+ 'paid-raygun': 'api-raygun',
+ 'paid-trackjs': 'api-trackjs',
+ 'paid-pingdom': 'api-pingdom',
+ 'paid-incident-io': 'api-incident-io',
+ 'paid-firehydrant': 'api-firehydrant',
+ 'paid-rootly': 'api-rootly',
+ 'paid-blameless': 'api-blameless',
  'paid-turbopuffer': 'lib-turbopuffer',
  'paid-stripe-billing': 'api-stripe-billing',
  'paid-chargebee': 'api-chargebee',

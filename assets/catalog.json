@@ -20522,6 +20522,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-airbrake",
+   "name": "Airbrake",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Long-established error and performance monitoring service.",
+   "url": "https://docs.airbrake.io/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "errors",
+    "performance",
+    "lightweight",
+    "mature"
+   ],
+   "tip": "Simpler and cheaper than the large APM platforms if you only need error tracking.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Long-established error and performance monitoring service.",
+    "ru": "Давно работающий сервис мониторинга ошибок и производительности."
+   },
+   "localizedTip": {
+    "en": "Simpler and cheaper than the large APM platforms if you only need error tracking."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-superset",
    "name": "Apache Superset",
    "kind": "api",
@@ -20557,6 +20592,47 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-appdynamics",
+   "name": "AppDynamics",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Enterprise APM organized around business transactions rather than services.",
+   "url": "https://docs.appdynamics.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "apm",
+    "business-transactions",
+    "enterprise",
+    "cisco",
+    "pricing",
+    "per-agent"
+   ],
+   "tip": "Framing performance as business transactions makes impact legible to non-engineers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise APM organized around business transactions rather than services.",
+    "ru": "Корпоративный APM, построенный вокруг бизнес-транзакций, а не сервисов."
+   },
+   "localizedTip": {
+    "en": "Framing performance as business transactions makes impact legible to non-engineers."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$60 per agent per month",
+    "freeQuota": "free trial",
+    "url": "https://www.appdynamics.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-axiom",
    "name": "Axiom",
    "kind": "api",
@@ -20584,6 +20660,41 @@
    },
    "localizedTip": {
     "en": "Send structured JSON events rather than text lines; the query language pays you back for it."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-betterstack",
+   "name": "Better Stack",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Combined logs, uptime monitoring, incident management and status pages.",
+   "url": "https://betterstack.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "logs",
+    "uptime",
+    "incidents",
+    "unified"
+   ],
+   "tip": "One product covering four categories is unusual, and it removes several integrations.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Combined logs, uptime monitoring, incident management and status pages.",
+    "ru": "Совмещённые логи, мониторинг доступности, управление инцидентами и страницы статуса."
+   },
+   "localizedTip": {
+    "en": "One product covering four categories is unusual, and it removes several integrations."
    },
    "pricing": {
     "model": "freemium",
@@ -20627,6 +20738,118 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-blackbox-exporter",
+   "name": "Blackbox Exporter",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Probes endpoints over HTTP, TCP and ICMP for Prometheus.",
+   "url": "https://github.com/prometheus/blackbox_exporter",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prometheus",
+    "probing",
+    "http",
+    "tls"
+   ],
+   "tip": "Its TLS certificate expiry metric prevents the outage nobody schedules but everyone eventually has.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Probes endpoints over HTTP, TCP and ICMP for Prometheus.",
+    "ru": "Проверяет эндпоинты по HTTP, TCP и ICMP для Prometheus."
+   },
+   "localizedTip": {
+    "en": "Its TLS certificate expiry metric prevents the outage nobody schedules but everyone eventually has."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-blameless",
+   "name": "Blameless",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Reliability platform combining SLO tracking with incident retrospectives.",
+   "url": "https://www.blameless.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "slo",
+    "incidents",
+    "reliability",
+    "retrospectives",
+    "pricing",
+    "enterprise",
+    "custom"
+   ],
+   "tip": "Tying incidents to error budgets makes reliability tradeoffs a data question rather than an argument.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reliability platform combining SLO tracking with incident retrospectives.",
+    "ru": "Платформа надёжности, объединяющая отслеживание SLO и разборы инцидентов."
+   },
+   "localizedTip": {
+    "en": "Tying incidents to error budgets makes reliability tradeoffs a data question rather than an argument."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "product demo",
+    "url": "https://www.blameless.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-cachet",
+   "name": "Cachet",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Open-source self-hosted status page system.",
+   "url": "https://docs.cachethq.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "status-page",
+    "self-host",
+    "php",
+    "free"
+   ],
+   "tip": "Host it outside your main infrastructure — a status page inside the outage is useless.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source self-hosted status page system.",
+    "ru": "Открытая self-hosted система страниц статуса."
+   },
+   "localizedTip": {
+    "en": "Host it outside your main infrastructure — a status page inside the outage is useless."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-checkly",
    "name": "Checkly",
    "kind": "api",
@@ -20654,6 +20877,41 @@
    },
    "localizedTip": {
     "en": "Reuse your existing Playwright e2e tests as monitoring checks instead of writing separate synthetic scripts."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-cronitor",
+   "name": "Cronitor",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Monitors scheduled jobs and cron tasks via heartbeat pings.",
+   "url": "https://cronitor.io/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cron",
+    "heartbeat",
+    "uptime",
+    "jobs"
+   ],
+   "tip": "A job that silently stops running is invisible to uptime checks — this is what catches it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Monitors scheduled jobs and cron tasks via heartbeat pings.",
+    "ru": "Мониторит запланированные задачи и cron через heartbeat-пинги."
+   },
+   "localizedTip": {
+    "en": "A job that silently stops running is invisible to uptime checks — this is what catches it."
    },
    "pricing": {
     "model": "freemium",
@@ -20807,6 +21065,342 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-firehydrant",
+   "name": "FireHydrant",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Incident response with runbooks and structured retrospectives.",
+   "url": "https://docs.firehydrant.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "incidents",
+    "runbooks",
+    "retrospectives",
+    "reliability",
+    "pricing",
+    "per-user",
+    "subscription"
+   ],
+   "tip": "Its retrospective templates make postmortems consistent rather than dependent on who writes them.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Incident response with runbooks and structured retrospectives.",
+    "ru": "Реагирование на инциденты с runbook и структурированными разборами."
+   },
+   "localizedTip": {
+    "en": "Its retrospective templates make postmortems consistent rather than dependent on who writes them."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$25 per user per month",
+    "freeQuota": "free tier for small teams",
+    "url": "https://firehydrant.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-gatus",
+   "name": "Gatus",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Health check dashboard configured entirely in YAML.",
+   "url": "https://gatus.io/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "health-checks",
+    "yaml",
+    "self-host",
+    "go"
+   ],
+   "tip": "Configuration as code means the monitoring setup is reviewed and versioned like the service.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Health check dashboard configured entirely in YAML.",
+    "ru": "Дашборд health-check, настраиваемый полностью в YAML."
+   },
+   "localizedTip": {
+    "en": "Configuration as code means the monitoring setup is reviewed and versioned like the service."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-glitchtip",
+   "name": "GlitchTip",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Lightweight open-source error tracking compatible with Sentry SDKs.",
+   "url": "https://glitchtip.com/documentation",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "errors",
+    "sentry-compatible",
+    "self-host",
+    "lightweight"
+   ],
+   "tip": "Existing Sentry clients point at it unchanged, so migrating is a DSN change.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight open-source error tracking compatible with Sentry SDKs.",
+    "ru": "Лёгкое открытое отслеживание ошибок, совместимое с SDK Sentry."
+   },
+   "localizedTip": {
+    "en": "Existing Sentry clients point at it unchanged, so migrating is a DSN change."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-grafana-oncall",
+   "name": "Grafana OnCall",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Open-source on-call management integrated with Grafana alerting.",
+   "url": "https://grafana.com/docs/oncall/latest/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "on-call",
+    "grafana",
+    "open-source",
+    "escalation"
+   ],
+   "tip": "Alerts and on-call in one system removes an integration that frequently breaks silently.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source on-call management integrated with Grafana alerting.",
+    "ru": "Открытое управление дежурствами, интегрированное с алертингом Grafana."
+   },
+   "localizedTip": {
+    "en": "Alerts and on-call in one system removes an integration that frequently breaks silently."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-healthchecks-io",
+   "name": "Healthchecks.io",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Cron job monitoring service, self-hostable and open source.",
+   "url": "https://healthchecks.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cron",
+    "heartbeat",
+    "self-host",
+    "simple"
+   ],
+   "tip": "Adding a curl at the end of a cron line is the entire integration.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cron job monitoring service, self-hostable and open source.",
+    "ru": "Сервис мониторинга cron-задач, открытый и с возможностью self-hosting."
+   },
+   "localizedTip": {
+    "en": "Adding a curl at the end of a cron line is the entire integration."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-highlight-io",
+   "name": "Highlight.io",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Open-source observability combining session replay, errors and logs.",
+   "url": "https://www.highlight.io/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "session-replay",
+    "errors",
+    "logs",
+    "open-source"
+   ],
+   "tip": "Self-hostable in full, which is rare for session replay and matters for sensitive interfaces.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source observability combining session replay, errors and logs.",
+    "ru": "Открытая observability, объединяющая запись сессий, ошибки и логи."
+   },
+   "localizedTip": {
+    "en": "Self-hostable in full, which is rare for session replay and matters for sensitive interfaces."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-instana",
+   "name": "IBM Instana",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Automatic application performance monitoring with dependency discovery.",
+   "url": "https://www.ibm.com/docs/en/instana-observability",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "apm",
+    "automatic",
+    "dependencies",
+    "enterprise",
+    "pricing",
+    "per-host",
+    "subscription"
+   ],
+   "tip": "Its automatic instrumentation maps service dependencies without manual configuration.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automatic application performance monitoring with dependency discovery.",
+    "ru": "Автоматический мониторинг производительности приложений с обнаружением зависимостей."
+   },
+   "localizedTip": {
+    "en": "Its automatic instrumentation maps service dependencies without manual configuration."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$75 per host per month",
+    "freeQuota": "free trial",
+    "url": "https://www.ibm.com/products/instana/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-incident-io",
+   "name": "incident.io",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Incident management run inside Slack, with automated workflows.",
+   "url": "https://api-docs.incident.io/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "incidents",
+    "slack",
+    "workflows",
+    "postmortems",
+    "pricing",
+    "per-responder",
+    "subscription"
+   ],
+   "tip": "Running the incident where the team already talks removes the tool-switching during an outage.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Incident management run inside Slack, with automated workflows.",
+    "ru": "Управление инцидентами прямо в Slack с автоматизированными процессами."
+   },
+   "localizedTip": {
+    "en": "Running the incident where the team already talks removes the tool-switching during an outage."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$20 per responder per month",
+    "freeQuota": "free trial",
+    "url": "https://incident.io/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-instatus",
+   "name": "Instatus",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Fast status pages with a free tier and subscriber notifications.",
+   "url": "https://instatus.com/help/api",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "status-page",
+    "fast",
+    "affordable",
+    "subscribers"
+   ],
+   "tip": "Substantially cheaper than Statuspage for the same core function.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast status pages with a free tier and subscriber notifications.",
+    "ru": "Быстрые страницы статуса с бесплатным тарифом и уведомлениями подписчиков."
+   },
+   "localizedTip": {
+    "en": "Substantially cheaper than Statuspage for the same core function."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -21022,6 +21616,48 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-pingdom",
+   "name": "Pingdom",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Uptime and synthetic monitoring from many global locations.",
+   "url": "https://docs.pingdom.com/api/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "uptime",
+    "synthetic",
+    "global",
+    "alerts",
+    "pricing",
+    "per-check",
+    "subscription"
+   ],
+   "tip": "Multi-location checks distinguish a real outage from a single regional network problem.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Uptime and synthetic monitoring from many global locations.",
+    "ru": "Мониторинг доступности и синтетический мониторинг из множества локаций по миру."
+   },
+   "localizedTip": {
+    "en": "Multi-location checks distinguish a real outage from a single regional network problem."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$10 per month",
+    "freeQuota": "free trial",
+    "url": "https://www.pingdom.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "paid-plausible",
    "name": "Plausible Analytics",
    "kind": "api",
@@ -21096,6 +21732,125 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "api-raygun",
+   "name": "Raygun",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Error tracking with real user monitoring and code-level performance traces.",
+   "url": "https://raygun.com/documentation/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "errors",
+    "real-user-monitoring",
+    "performance",
+    "traces",
+    "pricing",
+    "per-event",
+    "subscription"
+   ],
+   "tip": "Its traces point at the specific method responsible, which shortens performance work considerably.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Error tracking with real user monitoring and code-level performance traces.",
+    "ru": "Отслеживание ошибок с мониторингом реальных пользователей и трассами производительности на уровне кода."
+   },
+   "localizedTip": {
+    "en": "Its traces point at the specific method responsible, which shortens performance work considerably."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$4 per 10000 errors",
+    "freeQuota": "free trial",
+    "url": "https://raygun.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-rollbar",
+   "name": "Rollbar",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Error monitoring with deployment tracking and automatic grouping.",
+   "url": "https://docs.rollbar.com/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "errors",
+    "grouping",
+    "deploys",
+    "telemetry"
+   ],
+   "tip": "Linking errors to deploys makes 'which release broke this' answerable immediately.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Error monitoring with deployment tracking and automatic grouping.",
+    "ru": "Мониторинг ошибок с отслеживанием развёртываний и автоматической группировкой."
+   },
+   "localizedTip": {
+    "en": "Linking errors to deploys makes 'which release broke this' answerable immediately."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-rootly",
+   "name": "Rootly",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Incident management with Slack workflows and Terraform-managed configuration.",
+   "url": "https://docs.rootly.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "incidents",
+    "slack",
+    "automation",
+    "terraform",
+    "pricing",
+    "per-user",
+    "subscription"
+   ],
+   "tip": "Managing on-call configuration as code makes rotations reviewable in a pull request.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Incident management with Slack workflows and Terraform-managed configuration.",
+    "ru": "Управление инцидентами с процессами в Slack и конфигурацией через Terraform."
+   },
+   "localizedTip": {
+    "en": "Managing on-call configuration as code makes rotations reviewable in a pull request."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "custom quote (per user)",
+    "freeQuota": "free trial",
+    "url": "https://rootly.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "api-sentry",
    "name": "Sentry",
    "kind": "api",
@@ -21126,6 +21881,118 @@
     "freeQuota": "5000 free errors per month",
     "url": "https://sentry.io/pricing/",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-site24x7",
+   "name": "Site24x7",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "All-in-one monitoring covering uptime, servers and applications.",
+   "url": "https://www.site24x7.com/help/api/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "monitoring",
+    "uptime",
+    "apm",
+    "affordable"
+   ],
+   "tip": "Considerably cheaper than the major APM vendors for comparable basic coverage.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "All-in-one monitoring covering uptime, servers and applications.",
+    "ru": "Универсальный мониторинг доступности, серверов и приложений."
+   },
+   "localizedTip": {
+    "en": "Considerably cheaper than the major APM vendors for comparable basic coverage."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-splunk",
+   "name": "Splunk",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Enterprise log analysis and security information platform.",
+   "url": "https://dev.splunk.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "logs",
+    "siem",
+    "enterprise",
+    "search",
+    "pricing",
+    "ingest",
+    "workload"
+   ],
+   "tip": "Its ingest-based pricing is why log volume management becomes a project of its own.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise log analysis and security information platform.",
+    "ru": "Корпоративная платформа анализа логов и информации о безопасности."
+   },
+   "localizedTip": {
+    "en": "Its ingest-based pricing is why log volume management becomes a project of its own."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote (by daily ingest)",
+    "freeQuota": "free tier up to 500MB/day",
+    "url": "https://www.splunk.com/en_us/products/pricing.html",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-squadcast",
+   "name": "Squadcast",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "On-call and incident response with a usable free tier.",
+   "url": "https://support.squadcast.com/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "on-call",
+    "incidents",
+    "slo",
+    "affordable"
+   ],
+   "tip": "Its free tier covers a small team's on-call, which PagerDuty reserves for paid plans.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "On-call and incident response with a usable free tier.",
+    "ru": "Дежурства и реагирование на инциденты с рабочим бесплатным тарифом."
+   },
+   "localizedTip": {
+    "en": "Its free tier covers a small team's on-call, which PagerDuty reserves for paid plans."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -21167,6 +22034,125 @@
     "freeQuota": "14-day free trial",
     "url": "https://www.atlassian.com/software/statuspage/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-sumologic",
+   "name": "Sumo Logic",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Cloud-native log management and security analytics.",
+   "url": "https://help.sumologic.com/docs/api/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "logs",
+    "cloud-native",
+    "siem",
+    "analytics",
+    "pricing",
+    "ingest",
+    "credits"
+   ],
+   "tip": "Its log reduction features cut ingest cost before the data is billed, which matters at volume.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cloud-native log management and security analytics.",
+    "ru": "Облачное управление логами и аналитика безопасности."
+   },
+   "localizedTip": {
+    "en": "Its log reduction features cut ingest cost before the data is billed, which matters at volume."
+   },
+   "pricing": {
+    "model": "credits",
+    "from": "from ~$3.00 per GB ingested",
+    "freeQuota": "free tier",
+    "url": "https://www.sumologic.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-trackjs",
+   "name": "TrackJS",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Frontend JavaScript error tracking with user action telemetry.",
+   "url": "https://docs.trackjs.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "javascript",
+    "frontend",
+    "errors",
+    "telemetry",
+    "pricing",
+    "per-error",
+    "subscription"
+   ],
+   "tip": "Its telemetry timeline shows what the user did before the error, which stack traces omit.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Frontend JavaScript error tracking with user action telemetry.",
+    "ru": "Отслеживание ошибок JavaScript на фронтенде с телеметрией действий пользователя."
+   },
+   "localizedTip": {
+    "en": "Its telemetry timeline shows what the user did before the error, which stack traces omit."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$49 per month",
+    "freeQuota": "free trial",
+    "url": "https://trackjs.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-uptime-kuma",
+   "name": "Uptime Kuma",
+   "kind": "api",
+   "category": "Мониторинг и аналитика",
+   "summary": "Self-hosted uptime monitoring with a built-in status page.",
+   "url": "https://github.com/louislam/uptime-kuma/wiki",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-host",
+    "uptime",
+    "status-page",
+    "free"
+   ],
+   "tip": "One container replaces a paid uptime subscription for a personal or small-team setup.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-hosted uptime monitoring with a built-in status page.",
+    "ru": "Self-hosted мониторинг доступности со встроенной страницей статуса."
+   },
+   "localizedTip": {
+    "en": "One container replaces a paid uptime subscription for a personal or small-team setup."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -21239,6 +22225,41 @@
    },
    "localizedTip": {
     "en": "Its waterfall and filmstrip views diagnose why a page is slow, where a score only says that it is."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-baselime",
+   "name": "Baselime",
+   "kind": "api",
+   "category": "Наблюдаемость трасс",
+   "summary": "Serverless-focused observability, now part of Cloudflare's Workers platform.",
+   "url": "https://docs.cloudflare.com/workers-observability/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "serverless",
+    "opentelemetry",
+    "cloudflare",
+    "tracing"
+   ],
+   "tip": "It was built for the short-lived function traces that traditional APM tools handle badly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Serverless-focused observability, now part of Cloudflare's Workers platform.",
+    "ru": "Observability с фокусом на serverless, теперь часть платформы Cloudflare Workers."
+   },
+   "localizedTip": {
+    "en": "It was built for the short-lived function traces that traditional APM tools handle badly."
    },
    "pricing": {
     "model": "freemium",
@@ -21347,6 +22368,47 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "api-lightstep-cloud",
+   "name": "ServiceNow Cloud Observability",
+   "kind": "api",
+   "category": "Наблюдаемость трасс",
+   "summary": "Distributed tracing platform built on OpenTelemetry, formerly Lightstep.",
+   "url": "https://docs.lightstep.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tracing",
+    "opentelemetry",
+    "distributed",
+    "enterprise",
+    "pricing",
+    "spans"
+   ],
+   "tip": "Its change intelligence correlates a latency regression with the deploy that caused it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed tracing platform built on OpenTelemetry, formerly Lightstep.",
+    "ru": "Платформа распределённой трассировки на OpenTelemetry, ранее Lightstep."
+   },
+   "localizedTip": {
+    "en": "Its change intelligence correlates a latency regression with the deploy that caused it."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "free developer tier",
+    "url": "https://www.servicenow.com/products/observability.html",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
