@@ -36,7 +36,11 @@ jobs:
       - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           channel: stable
-          cache: true
+          # cache: true makes this action call actions/cache internally by
+          # tag, which the repo's action-pinning policy rejects (that nested
+          # call is out of this workflow's control). Disabled until either
+          # flutter-action pins its own dependency or the policy allows it.
+          cache: false
 
       - name: Install Linux dependencies
         if: matrix.target == 'linux'
