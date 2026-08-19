@@ -64221,6 +64221,48 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-backblaze-b2",
+   "name": "Backblaze B2",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Low-cost cloud object storage with an S3-compatible API.",
+   "url": "https://www.backblaze.com/docs/cloud-storage",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "object-storage",
+    "cheap",
+    "s3-compatible",
+    "egress",
+    "storage",
+    "pricing",
+    "per-gb"
+   ],
+   "tip": "Free egress to Cloudflare partners is what makes it far cheaper than S3 for media delivery.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Low-cost cloud object storage with an S3-compatible API.",
+    "ru": "Дешёвое облачное объектное хранилище с S3-совместимым API."
+   },
+   "localizedTip": {
+    "en": "Free egress to Cloudflare partners is what makes it far cheaper than S3 for media delivery."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$6 per TB per month",
+    "freeQuota": "10GB free storage",
+    "url": "https://www.backblaze.com/cloud-storage/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-bottlerocket",
    "name": "Bottlerocket",
    "kind": "library",
@@ -64321,6 +64363,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-cloudflare-r2",
+   "name": "Cloudflare R2",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "S3-compatible object storage with no egress fees.",
+   "url": "https://developers.cloudflare.com/r2/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "object-storage",
+    "zero-egress",
+    "s3-compatible",
+    "workers"
+   ],
+   "tip": "Zero egress is the entire pitch, and it changes the economics of serving media substantially.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "S3-compatible object storage with no egress fees.",
+    "ru": "S3-совместимое объектное хранилище без платы за исходящий трафик."
+   },
+   "localizedTip": {
+    "en": "Zero egress is the entire pitch, and it changes the economics of serving media substantially."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -64466,6 +64543,48 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-filebase",
+   "name": "Filebase",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "S3-compatible gateway to decentralized storage networks.",
+   "url": "https://docs.filebase.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "s3",
+    "ipfs",
+    "decentralized",
+    "gateway",
+    "storage",
+    "pricing",
+    "per-gb"
+   ],
+   "tip": "It puts an S3 interface in front of IPFS, so decentralized storage needs no new client code.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "S3-compatible gateway to decentralized storage networks.",
+    "ru": "S3-совместимый шлюз к децентрализованным сетям хранения."
+   },
+   "localizedTip": {
+    "en": "It puts an S3 interface in front of IPFS, so decentralized storage needs no new client code."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$5.99 per TB per month",
+    "freeQuota": "free tier of 5GB",
+    "url": "https://filebase.com/pricing/",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-firecracker",
    "name": "Firecracker",
    "kind": "library",
@@ -64493,6 +64612,41 @@
    },
    "localizedTip": {
     "en": "Millisecond boots with full VM isolation is what makes secure multi-tenant serverless possible."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-garage-s3",
+   "name": "Garage",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Lightweight S3-compatible store designed for geo-distributed self-hosting.",
+   "url": "https://garagehq.deuxfleurs.fr/documentation/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "s3",
+    "lightweight",
+    "self-host",
+    "geo-distributed"
+   ],
+   "tip": "It tolerates high-latency links between nodes, which MinIO's clustering does not.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight S3-compatible store designed for geo-distributed self-hosting.",
+    "ru": "Лёгкое S3-совместимое хранилище для геораспределённого self-hosting."
+   },
+   "localizedTip": {
+    "en": "It tolerates high-latency links between nodes, which MinIO's clustering does not."
    },
    "pricing": {
     "model": "openSource",
@@ -64571,6 +64725,47 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-keycdn",
+   "name": "KeyCDN",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Affordable pay-as-you-go content delivery network.",
+   "url": "https://www.keycdn.com/support",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cdn",
+    "affordable",
+    "pay-as-you-go",
+    "image-processing",
+    "pricing",
+    "per-gb"
+   ],
+   "tip": "No monthly minimum, which suits a project with irregular or unpredictable traffic.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Affordable pay-as-you-go content delivery network.",
+    "ru": "Доступная сеть доставки контента с оплатой по факту использования."
+   },
+   "localizedTip": {
+    "en": "No monthly minimum, which suits a project with irregular or unpredictable traffic."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.04 per GB",
+    "freeQuota": "free trial credit",
+    "url": "https://www.keycdn.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-lxd",
    "name": "LXD",
    "kind": "library",
@@ -64601,6 +64796,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-minio",
+   "name": "MinIO",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "S3-compatible object storage you run yourself.",
+   "url": "https://docs.min.io/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "s3-compatible",
+    "self-host",
+    "object-storage",
+    "kubernetes"
+   ],
+   "tip": "Wire compatibility means every S3 SDK works unchanged, which makes local testing straightforward.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "S3-compatible object storage you run yourself.",
+    "ru": "S3-совместимое объектное хранилище для самостоятельного развёртывания."
+   },
+   "localizedTip": {
+    "en": "Wire compatibility means every S3 SDK works unchanged, which makes local testing straightforward."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -64746,6 +64976,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-seaweedfs",
+   "name": "SeaweedFS",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Distributed file system optimized for storing very large numbers of small files.",
+   "url": "https://github.com/seaweedfs/seaweedfs/wiki",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "distributed",
+    "files",
+    "s3",
+    "fast"
+   ],
+   "tip": "Small-file performance is where it beats general object stores, which struggle with billions of objects.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Distributed file system optimized for storing very large numbers of small files.",
+    "ru": "Распределённая файловая система, оптимизированная под хранение огромного числа мелких файлов."
+   },
+   "localizedTip": {
+    "en": "Small-file performance is where it beats general object stores, which struggle with billions of objects."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-traefik",
    "name": "Traefik",
    "kind": "library",
@@ -64846,6 +65111,49 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-wasabi",
+   "name": "Wasabi",
+   "kind": "library",
+   "category": "Облако и деплой",
+   "summary": "Object storage with flat pricing and no egress or request fees.",
+   "url": "https://docs.wasabi.com/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "object-storage",
+    "flat-pricing",
+    "no-egress-fees",
+    "s3",
+    "storage",
+    "pricing",
+    "flat",
+    "no-egress"
+   ],
+   "tip": "Its minimum retention period penalizes short-lived data, which the flat rate can obscure.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Object storage with flat pricing and no egress or request fees.",
+    "ru": "Объектное хранилище с фиксированной ценой без платы за исходящий трафик и запросы."
+   },
+   "localizedTip": {
+    "en": "Its minimum retention period penalizes short-lived data, which the flat rate can obscure."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$6.99 per TB per month",
+    "freeQuota": "free trial",
+    "url": "https://wasabi.com/cloud-object-storage/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -66888,6 +67196,76 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-esm-sh",
+   "name": "esm.sh",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Modern ES module CDN for npm packages, popular with Deno.",
+   "url": "https://esm.sh/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "esm",
+    "cdn",
+    "npm",
+    "deno"
+   ],
+   "tip": "It handles dependency resolution and bundling, so a single import works without a build step.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern ES module CDN for npm packages, popular with Deno.",
+    "ru": "Современный CDN ES-модулей для npm-пакетов, популярный в Deno."
+   },
+   "localizedTip": {
+    "en": "It handles dependency resolution and bundling, so a single import works without a build step."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-jsdelivr",
+   "name": "jsDelivr",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "Free CDN serving npm packages, GitHub releases and WordPress assets.",
+   "url": "https://www.jsdelivr.com/documentation",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cdn",
+    "npm",
+    "github",
+    "free"
+   ],
+   "tip": "Pin an exact version in the URL — a floating version can change your site without a deploy.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Free CDN serving npm packages, GitHub releases and WordPress assets.",
+    "ru": "Бесплатный CDN, отдающий npm-пакеты, релизы GitHub и ресурсы WordPress."
+   },
+   "localizedTip": {
+    "en": "Pin an exact version in the URL — a floating version can change your site without a deploy."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-lerna",
    "name": "Lerna",
    "kind": "library",
@@ -67238,6 +67616,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-skypack",
+   "name": "Skypack",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "CDN converting npm packages into browser-ready ES modules.",
+   "url": "https://www.skypack.dev/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "esm",
+    "cdn",
+    "npm",
+    "browser"
+   ],
+   "tip": "Largely superseded by esm.sh, which is more actively maintained.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "CDN converting npm packages into browser-ready ES modules.",
+    "ru": "CDN, преобразующий npm-пакеты в готовые для браузера ES-модули."
+   },
+   "localizedTip": {
+    "en": "Largely superseded by esm.sh, which is more actively maintained."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-swc",
    "name": "SWC",
    "kind": "library",
@@ -67408,6 +67821,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-unpkg",
+   "name": "unpkg",
+   "kind": "library",
+   "category": "Сборка и bundlers",
+   "summary": "CDN serving any file from any npm package.",
+   "url": "https://unpkg.com/",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cdn",
+    "npm",
+    "simple",
+    "free"
+   ],
+   "tip": "Handy for prototypes and demos, and not something to depend on in production.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "CDN serving any file from any npm package.",
+    "ru": "CDN, отдающий любой файл из любого npm-пакета."
+   },
+   "localizedTip": {
+    "en": "Handy for prototypes and demos, and not something to depend on in production."
+   },
+   "pricing": {
+    "model": "free",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -79040,6 +79488,117 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-akamai-image-manager",
+   "name": "Akamai Image & Video Manager",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Automatic image and video optimization within Akamai's CDN.",
+   "url": "https://techdocs.akamai.com/ivm/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cdn",
+    "optimization",
+    "automatic",
+    "enterprise",
+    "pricing",
+    "add-on"
+   ],
+   "tip": "Its automatic format and quality selection needs no per-image configuration.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Automatic image and video optimization within Akamai's CDN.",
+    "ru": "Автоматическая оптимизация изображений и видео в CDN Akamai."
+   },
+   "localizedTip": {
+    "en": "Its automatic format and quality selection needs no per-image configuration."
+   },
+   "pricing": {
+    "model": "custom",
+    "from": "custom quote",
+    "freeQuota": "product demo",
+    "url": "https://www.akamai.com/products/image-and-video-manager",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-avif",
+   "name": "AVIF",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Modern image format with substantially better compression than JPEG.",
+   "url": "https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "format",
+    "compression",
+    "modern",
+    "av1"
+   ],
+   "tip": "Encoding is slow — precompute AVIF variants rather than generating them per request.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern image format with substantially better compression than JPEG.",
+    "ru": "Современный формат изображений с существенно лучшим сжатием, чем JPEG."
+   },
+   "localizedTip": {
+    "en": "Encoding is slow — precompute AVIF variants rather than generating them per request."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-blurhash",
+   "name": "BlurHash",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Encodes a blurred image placeholder into a very short string.",
+   "url": "https://blurha.sh/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "placeholder",
+    "compact",
+    "string",
+    "loading"
+   ],
+   "tip": "Around thirty characters fits in a database row, so placeholders need no extra requests.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i blurhash",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Encodes a blurred image placeholder into a very short string.",
+    "ru": "Кодирует размытый плейсхолдер изображения в очень короткую строку."
+   },
+   "localizedTip": {
+    "en": "Around thirty characters fits in a database row, so placeholders need no extra requests."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-browser-image-compression",
    "name": "browser-image-compression",
    "kind": "library",
@@ -79075,6 +79634,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-bytescale",
+   "name": "Bytescale",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "File upload, storage and image transformation behind one API.",
+   "url": "https://www.bytescale.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "uploads",
+    "cdn",
+    "transformation",
+    "storage"
+   ],
+   "tip": "Combining upload and delivery removes the storage-plus-CDN wiring most projects assemble by hand.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "File upload, storage and image transformation behind one API.",
+    "ru": "Загрузка файлов, хранение и преобразование изображений через один API."
+   },
+   "localizedTip": {
+    "en": "Combining upload and delivery removes the storage-plus-CDN wiring most projects assemble by hand."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-carbon-sh",
    "name": "Carbon",
    "kind": "library",
@@ -79105,6 +79699,48 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-cloudflare-images",
+   "name": "Cloudflare Images",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Image storage, resizing and delivery in one service.",
+   "url": "https://developers.cloudflare.com/images/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "storage",
+    "transformation",
+    "delivery",
+    "variants",
+    "images",
+    "pricing",
+    "per-image"
+   ],
+   "tip": "Its variants let one stored original serve every layout without storing each size.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Image storage, resizing and delivery in one service.",
+    "ru": "Хранение, изменение размера и доставка изображений в одном сервисе."
+   },
+   "localizedTip": {
+    "en": "Its variants let one stored original serve every layout without storing each size."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$5 per 100k stored images",
+    "freeQuota": "free tier via transformations",
+    "url": "https://developers.cloudflare.com/images/pricing/",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -79320,6 +79956,118 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-fastly-io",
+   "name": "Fastly Image Optimizer",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Image transformation at the edge within Fastly's CDN.",
+   "url": "https://www.fastly.com/documentation/reference/io/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cdn",
+    "transformation",
+    "edge",
+    "realtime",
+    "pricing",
+    "per-request",
+    "add-on"
+   ],
+   "tip": "Transforming at the edge means the origin stores one original and serves every variant.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Image transformation at the edge within Fastly's CDN.",
+    "ru": "Преобразование изображений на edge внутри CDN Fastly."
+   },
+   "localizedTip": {
+    "en": "Transforming at the edge means the origin stores one original and serves every variant."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "custom quote (add-on to CDN usage)",
+    "freeQuota": "free trial credit",
+    "url": "https://www.fastly.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-filepond",
+   "name": "FilePond",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Smooth file upload component with image preview and editing plugins.",
+   "url": "https://pqina.nl/filepond/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "uploads",
+    "animated",
+    "plugins",
+    "lightweight"
+   ],
+   "tip": "Its client-side image resizing plugin cuts upload size before the request even starts.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i filepond",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Smooth file upload component with image preview and editing plugins.",
+    "ru": "Плавный компонент загрузки файлов с превью изображений и плагинами редактирования."
+   },
+   "localizedTip": {
+    "en": "Its client-side image resizing plugin cuts upload size before the request even starts."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-filestack",
+   "name": "Filestack",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "File upload and transformation API with a prebuilt file picker.",
+   "url": "https://www.filestack.com/docs/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "uploads",
+    "transformation",
+    "cdn",
+    "picker"
+   ],
+   "tip": "Its picker pulls from Google Drive and Dropbox, which a plain file input cannot reach.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "File upload and transformation API with a prebuilt file picker.",
+    "ru": "API загрузки и преобразования файлов с готовым выбором файлов."
+   },
+   "localizedTip": {
+    "en": "Its picker pulls from Google Drive and Dropbox, which a plain file input cannot reach."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-fontsource",
    "name": "Fontsource",
    "kind": "library",
@@ -79437,6 +80185,76 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-imgproxy",
+   "name": "imgproxy",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Fast on-the-fly image processing server with signed URLs.",
+   "url": "https://docs.imgproxy.net/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "on-the-fly",
+    "resizing",
+    "secure",
+    "go"
+   ],
+   "tip": "URL signing prevents strangers from using your server as a free image processor.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast on-the-fly image processing server with signed URLs.",
+    "ru": "Быстрый сервер обработки изображений на лету с подписанными URL."
+   },
+   "localizedTip": {
+    "en": "URL signing prevents strangers from using your server as a free image processor."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-jimp",
+   "name": "Jimp",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Pure JavaScript image processing with no native dependencies.",
+   "url": "https://jimp-dev.github.io/jimp/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "javascript",
+    "pure-js",
+    "no-native",
+    "simple"
+   ],
+   "tip": "Slower than Sharp, but it installs anywhere, including environments that block native builds.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i jimp",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pure JavaScript image processing with no native dependencies.",
+    "ru": "Обработка изображений на чистом JavaScript без нативных зависимостей."
+   },
+   "localizedTip": {
+    "en": "Slower than Sharp, but it installs anywhere, including environments that block native builds."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-konva",
    "name": "Konva",
    "kind": "library",
@@ -79464,6 +80282,41 @@
    },
    "localizedTip": {
     "en": "Reach for this over raw canvas whenever shapes need to be individually clickable or draggable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-libvips",
+   "name": "libvips",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Demand-driven image processing library with very low memory use.",
+   "url": "https://www.libvips.org/API/current/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "c",
+    "streaming",
+    "low-memory",
+    "fast"
+   ],
+   "tip": "It streams rather than loading whole images, which is why memory stays flat on huge files.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Demand-driven image processing library with very low memory use.",
+    "ru": "Библиотека обработки изображений по требованию с очень низким потреблением памяти."
+   },
+   "localizedTip": {
+    "en": "It streams rather than loading whole images, which is why memory stays flat on huge files."
    },
    "pricing": {
     "model": "openSource",
@@ -79547,6 +80400,41 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-next-cloudinary",
+   "name": "next-cloudinary",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Cloudinary components and transformations for Next.js.",
+   "url": "https://next.cloudinary.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "nextjs",
+    "cloudinary",
+    "components",
+    "transformations"
+   ],
+   "tip": "Transformations are expressed as component props, which keeps URLs out of the markup.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i next-cloudinary",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Cloudinary components and transformations for Next.js.",
+    "ru": "Компоненты и преобразования Cloudinary для Next.js."
+   },
+   "localizedTip": {
+    "en": "Transformations are expressed as component props, which keeps URLs out of the markup."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
@@ -79683,6 +80571,76 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-pillow",
+   "name": "Pillow",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "The standard Python imaging library.",
+   "url": "https://pillow.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "imaging",
+    "formats",
+    "standard"
+   ],
+   "tip": "Its format support is broad enough that most Python image work starts and ends here.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pillow",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard Python imaging library.",
+    "ru": "Стандартная библиотека обработки изображений для Python."
+   },
+   "localizedTip": {
+    "en": "Its format support is broad enough that most Python image work starts and ends here."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-plaiceholder",
+   "name": "Plaiceholder",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Generates image placeholders at build time in several formats.",
+   "url": "https://plaiceholder.co/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "placeholders",
+    "build-time",
+    "css",
+    "base64"
+   ],
+   "tip": "Build-time generation means no runtime cost for the placeholder at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i plaiceholder",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates image placeholders at build time in several formats.",
+    "ru": "Генерирует плейсхолдеры изображений на этапе сборки в нескольких форматах."
+   },
+   "localizedTip": {
+    "en": "Build-time generation means no runtime cost for the placeholder at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-ray-so",
    "name": "ray.so",
    "kind": "library",
@@ -79788,6 +80746,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-sharp",
+   "name": "Sharp",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "High-performance Node image processing built on libvips.",
+   "url": "https://sharp.pixelplumbing.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "node",
+    "libvips",
+    "fast",
+    "resizing"
+   ],
+   "tip": "Several times faster than ImageMagick and uses far less memory on large images.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i sharp",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance Node image processing built on libvips.",
+    "ru": "Высокопроизводительная обработка изображений в Node на базе libvips."
+   },
+   "localizedTip": {
+    "en": "Several times faster than ImageMagick and uses far less memory on large images."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-sharp-cli",
    "name": "sharp-cli",
    "kind": "library",
@@ -79815,6 +80808,41 @@
    },
    "localizedTip": {
     "en": "Useful in a build script for resizing a whole assets folder without writing Node code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-squoosh",
+   "name": "Squoosh",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Image compression tool and WASM codec libraries from Google.",
+   "url": "https://github.com/GoogleChromeLabs/squoosh",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "compression",
+    "wasm",
+    "codecs",
+    "browser"
+   ],
+   "tip": "Its codecs run in the browser, so compression can happen entirely client-side before upload.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Image compression tool and WASM codec libraries from Google.",
+    "ru": "Инструмент сжатия изображений и WASM-кодеки от Google."
+   },
+   "localizedTip": {
+    "en": "Its codecs run in the browser, so compression can happen entirely client-side before upload."
    },
    "pricing": {
     "model": "openSource",
@@ -79858,6 +80886,76 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-thumbhash",
+   "name": "ThumbHash",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Compact image placeholder encoding with better fidelity than BlurHash.",
+   "url": "https://evanw.github.io/thumbhash/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "placeholder",
+    "compact",
+    "better-quality",
+    "alpha"
+   ],
+   "tip": "It preserves aspect ratio and transparency, which BlurHash discards.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i thumbhash",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compact image placeholder encoding with better fidelity than BlurHash.",
+    "ru": "Компактное кодирование плейсхолдеров изображений с большей точностью, чем BlurHash."
+   },
+   "localizedTip": {
+    "en": "It preserves aspect ratio and transparency, which BlurHash discards."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-thumbor",
+   "name": "Thumbor",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "On-demand image cropping and resizing with smart focal point detection.",
+   "url": "https://thumbor.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "on-demand",
+    "cropping",
+    "smart-detection",
+    "python"
+   ],
+   "tip": "Its face and feature detection keeps the subject in frame when aspect ratios change.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "On-demand image cropping and resizing with smart focal point detection.",
+    "ru": "Обрезка и изменение размера изображений по запросу с определением фокусной точки."
+   },
+   "localizedTip": {
+    "en": "Its face and feature detection keeps the subject in frame when aspect ratios change."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-tldraw",
    "name": "tldraw",
    "kind": "library",
@@ -79888,6 +80986,111 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-unpic",
+   "name": "unpic",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Responsive image components that work with any image CDN.",
+   "url": "https://unpic.pics/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "responsive-images",
+    "cdn-agnostic",
+    "components",
+    "multi-framework"
+   ],
+   "tip": "Switching image CDNs becomes a configuration change rather than rewriting every image tag.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @unpic/react",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Responsive image components that work with any image CDN.",
+    "ru": "Компоненты адаптивных изображений, работающие с любым image CDN."
+   },
+   "localizedTip": {
+    "en": "Switching image CDNs becomes a configuration change rather than rewriting every image tag."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-uppy",
+   "name": "Uppy",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Modular file uploader with resumable uploads and a polished interface.",
+   "url": "https://uppy.io/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "uploads",
+    "resumable",
+    "ui",
+    "plugins"
+   ],
+   "tip": "Its tus support resumes a large upload after a dropped connection, which plain form posts cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @uppy/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modular file uploader with resumable uploads and a polished interface.",
+    "ru": "Модульный загрузчик файлов с возобновляемой загрузкой и отточенным интерфейсом."
+   },
+   "localizedTip": {
+    "en": "Its tus support resumes a large upload after a dropped connection, which plain form posts cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-webp",
+   "name": "WebP",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Google's image format with wide browser support and good compression.",
+   "url": "https://developers.google.com/speed/webp",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "format",
+    "google",
+    "compression",
+    "universal-support"
+   ],
+   "tip": "Universally supported now, which makes it the safe default where AVIF is still risky.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's image format with wide browser support and good compression.",
+    "ru": "Формат изображений Google с широкой поддержкой браузеров и хорошим сжатием."
+   },
+   "localizedTip": {
+    "en": "Universally supported now, which makes it the safe default where AVIF is still risky."
+   },
+   "pricing": {
+    "model": "free",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"

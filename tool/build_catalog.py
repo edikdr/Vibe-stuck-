@@ -173,6 +173,13 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-backblaze-b2': 'lib-backblaze-b2',
+ 'paid-wasabi': 'lib-wasabi',
+ 'paid-filebase': 'lib-filebase',
+ 'paid-cloudflare-images': 'lib-cloudflare-images',
+ 'paid-fastly-io': 'lib-fastly-io',
+ 'paid-akamai-image-manager': 'lib-akamai-image-manager',
+ 'paid-keycdn': 'lib-keycdn',
  'paid-okta': 'lib-okta',
  'paid-splunk': 'api-splunk',
  'paid-sumologic': 'api-sumologic',
