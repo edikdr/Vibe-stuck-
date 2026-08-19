@@ -48,6 +48,11 @@ jobs:
           git clone --depth 1 --branch stable https://github.com/flutter/flutter.git "$HOME/flutter"
           echo "$HOME/flutter/bin" >> "$GITHUB_PATH"
 
+      # stable moves under us between runs, so a failure that is really "a new
+      # Flutter release changed something" is visible without re-deriving it.
+      - name: Flutter version
+        run: flutter --version | tee -a "$GITHUB_STEP_SUMMARY"
+
       - name: Generate Android runner
         run: flutter create --project-name vibestack_atlas --platforms=android .
 
@@ -60,6 +65,16 @@ jobs:
 
       - name: Build APK
         run: flutter build apk --${{ inputs.mode }}
+
+      - name: Diagnostics
+        if: failure()
+        run: |
+          echo "::group::flutter doctor -v"
+          flutter doctor -v || true
+          echo "::endgroup::"
+          echo "::group::disk space"
+          df -h .
+          echo "::endgroup::"
 
       # Without a keystore Flutter signs the release build with the debug key.
       # That installs on a normal phone, which is what this artifact is for;

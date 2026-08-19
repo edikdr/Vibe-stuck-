@@ -55,14 +55,32 @@ jobs:
           set -euo pipefail
           url="https://github.com/${{ github.repository }}/releases/download/${TAG}/catalog.db.gz"
           python tool/build_catalog.py --release --download-url "$url"
-          python tool/verify_catalog.py
+          python tool/verify_catalog.py | tee -a "$GITHUB_STEP_SUMMARY"
           echo "catalog=$(python -c "import json;print(json.load(open('dist/manifest.json'))['catalogVersion'])")" >> "$GITHUB_OUTPUT"
           echo "app=$(grep '^version:' pubspec.yaml | cut -d' ' -f2 | cut -d'+' -f1)" >> "$GITHUB_OUTPUT"
+          echo "Publishing tag \`$TAG\`" >> "$GITHUB_STEP_SUMMARY"
 
       # A tag whose generated Dart was never rebuilt would publish an app whose
       # category labels disagree with the catalog shipped beside it.
       - name: Tagged artifacts must match the sources
-        run: git diff --exit-code -- lib/i18n/categories.dart lib/app_info.dart
+        run: |
+          if ! git diff --exit-code -- lib/i18n/categories.dart lib/app_info.dart; then
+            echo "::error::Generated files on this tag are stale. Retag after running: python3 tool/build_catalog.py --release"
+            exit 1
+          fi
+
+      - name: Diagnostics
+        if: failure()
+        run: |
+          echo "::group::python --version"
+          python --version
+          echo "::endgroup::"
+          echo "::group::dist/"
+          ls -la dist/ 2>/dev/null || echo "(dist/ does not exist)"
+          echo "::endgroup::"
+          echo "::group::git status"
+          git status
+          echo "::endgroup::"
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -129,6 +147,14 @@ jobs:
           git clone --depth 1 --branch stable https://github.com/flutter/flutter.git "$env:USERPROFILE\flutter"
           Add-Content -Path $env:GITHUB_PATH -Value "$env:USERPROFILE\flutter\bin"
 
+      # stable moves under us between runs, so a failure that is really "a new
+      # Flutter release changed something" is visible per-platform without
+      # re-deriving it from four separate build logs. Git bash is present on
+      # the Windows runner image too, so one step covers all four targets.
+      - name: Flutter version
+        shell: bash
+        run: flutter --version | tee -a "$GITHUB_STEP_SUMMARY"
+
       - name: Install Linux dependencies
         if: matrix.target == 'linux'
         run: |
@@ -180,6 +206,17 @@ jobs:
           create-dmg --volname "VibeStack Atlas" --window-size 540 380 \
             --icon-size 96 --app-drop-link 380 180 "$out" "$app" \
           || hdiutil create -volname "VibeStack Atlas" -srcfolder "$app" -ov -format UDZO "$out"
+
+      - name: Diagnostics
+        if: failure()
+        shell: bash
+        run: |
+          echo "::group::flutter doctor -v"
+          flutter doctor -v || true
+          echo "::endgroup::"
+          echo "::group::build/ tree"
+          find build -maxdepth 4 2>/dev/null || echo "(no build/ directory)"
+          echo "::endgroup::"
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -234,3 +271,14 @@ jobs:
             --notes "$notes" \
             --verify-tag \
           || gh release upload "$TAG" release/* --clobber
+          echo "Published \`$TAG\` with $(ls release | wc -l) assets" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Diagnostics
+        if: failure()
+        run: |
+          echo "::group::downloaded artifacts"
+          find artifacts -type f 2>/dev/null || echo "(artifacts/ does not exist)"
+          echo "::endgroup::"
+          echo "::group::release/ contents"
+          ls -la release 2>/dev/null || echo "(release/ does not exist)"
+          echo "::endgroup::"

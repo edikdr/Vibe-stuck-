@@ -32,8 +32,14 @@ jobs:
       - name: Build the catalog
         run: python tool/build_catalog.py
 
+      # tee'd into the step summary so the entry counts are visible on the run
+      # page without opening logs; `set -o pipefail` keeps a verify failure
+      # fatal even through the pipe (GitHub's default bash already sets it,
+      # but this makes it explicit rather than relying on that default).
       - name: Verify the contract
-        run: python tool/verify_catalog.py
+        run: |
+          set -o pipefail
+          python tool/verify_catalog.py | tee -a "$GITHUB_STEP_SUMMARY"
 
       # The database is a build artifact and is not committed, but the
       # generated Dart is — it has to compile. An entry edited without a
@@ -43,8 +49,26 @@ jobs:
         run: |
           if ! git diff --exit-code -- lib/i18n/categories.dart lib/app_info.dart; then
             echo "::error::Generated files are stale. Run: python3 tool/build_catalog.py"
+            git diff --stat -- lib/i18n/categories.dart lib/app_info.dart
             exit 1
           fi
+
+      # Nothing here needs Flutter, so a failure is always the Python side.
+      # This dumps the exact command and the tree state at the point of
+      # failure, since "run python tool/build_catalog.py" alone in the log
+      # doesn't say which of the two scripts, or which entry, tripped it.
+      - name: Diagnostics
+        if: failure()
+        run: |
+          echo "::group::python --version"
+          python --version
+          echo "::endgroup::"
+          echo "::group::git status"
+          git status
+          echo "::endgroup::"
+          echo "::group::data/catalog/"
+          ls -la data/catalog/
+          echo "::endgroup::"
 
   app:
     name: Analyze and test
@@ -74,6 +98,12 @@ jobs:
           git clone --depth 1 --branch stable https://github.com/flutter/flutter.git "$HOME/flutter"
           echo "$HOME/flutter/bin" >> "$GITHUB_PATH"
 
+      # stable moves under us between runs, so a failure that is really "a new
+      # Flutter release changed something" instead of a code regression should
+      # be obvious from the log without re-deriving it by hand.
+      - name: Flutter version
+        run: flutter --version | tee -a "$GITHUB_STEP_SUMMARY"
+
       # `flutter test` runs on the host VM, where the native SQLite comes from
       # the system rather than from sqlite3_flutter_libs. Without it the
       # database tests skip themselves instead of failing, which would quietly
@@ -92,3 +122,19 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test --reporter expanded
+
+      # flutter analyze/test already print their own errors; this adds the
+      # surrounding environment state so a failure doesn't need a re-run with
+      # extra flags just to see what SDK/toolchain it happened under.
+      - name: Diagnostics
+        if: failure()
+        run: |
+          echo "::group::flutter doctor -v"
+          flutter doctor -v || true
+          echo "::endgroup::"
+          echo "::group::pubspec.lock"
+          cat pubspec.lock || true
+          echo "::endgroup::"
+          echo "::group::disk space"
+          df -h .
+          echo "::endgroup::"
