@@ -51915,6 +51915,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-kotlinx-serialization",
+   "name": "kotlinx.serialization",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Kotlin's official multiplatform serialization library.",
+   "url": "https://kotlinlang.org/docs/serialization.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kotlin",
+    "official",
+    "multiplatform",
+    "compiler-plugin"
+   ],
+   "tip": "Compiler-plugin based, so it needs no reflection and works on Kotlin/Native too.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Kotlin's official multiplatform serialization library.",
+    "ru": "Официальная мультиплатформенная библиотека сериализации Kotlin."
+   },
+   "localizedTip": {
+    "en": "Compiler-plugin based, so it needs no reflection and works on Kotlin/Native too."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-ktlint",
    "name": "ktlint",
    "kind": "library",
@@ -51942,6 +51977,41 @@
    },
    "localizedTip": {
     "en": "Following the official guide avoids a per-team style debate that never actually converges."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-ktor-client",
+   "name": "Ktor Client",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Multiplatform HTTP client for Kotlin, built on coroutines.",
+   "url": "https://ktor.io/docs/client-create-new-application.html",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kotlin",
+    "http",
+    "multiplatform",
+    "coroutines"
+   ],
+   "tip": "The same client code runs on Android, iOS and the JVM, which is the point of Kotlin Multiplatform.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Multiplatform HTTP client for Kotlin, built on coroutines.",
+    "ru": "Мультиплатформенный HTTP-клиент для Kotlin на корутинах."
+   },
+   "localizedTip": {
+    "en": "The same client code runs on Android, iOS and the JVM, which is the point of Kotlin Multiplatform."
    },
    "pricing": {
     "model": "openSource",
@@ -52012,6 +52082,76 @@
    },
    "localizedTip": {
     "en": "Its build files are plain Scala objects, which makes build logic far easier to follow than sbt's DSL."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-moshi",
+   "name": "Moshi",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Modern JSON library for Kotlin and Java with code generation.",
+   "url": "https://github.com/square/moshi",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "json",
+    "kotlin",
+    "codegen",
+    "square"
+   ],
+   "tip": "It understands Kotlin nullability, which Gson silently violates at runtime.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern JSON library for Kotlin and Java with code generation.",
+    "ru": "Современная JSON-библиотека для Kotlin и Java с кодогенерацией."
+   },
+   "localizedTip": {
+    "en": "It understands Kotlin nullability, which Gson silently violates at runtime."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-okhttp",
+   "name": "OkHttp",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Efficient HTTP client underlying Retrofit and much of the Android ecosystem.",
+   "url": "https://square.github.io/okhttp/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "http",
+    "android",
+    "connection-pooling",
+    "interceptors"
+   ],
+   "tip": "Its interceptors are where logging, auth and retry logic belong, rather than in each call site.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Efficient HTTP client underlying Retrofit and much of the Android ecosystem.",
+    "ru": "Эффективный HTTP-клиент, лежащий в основе Retrofit и большей части экосистемы Android."
+   },
+   "localizedTip": {
+    "en": "Its interceptors are where logging, auth and retry logic belong, rather than in each call site."
    },
    "pricing": {
     "model": "openSource",
@@ -52187,6 +52327,41 @@
    },
    "localizedTip": {
     "en": "Its given/when/then chaining keeps API assertions readable inside ordinary JUnit tests."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-retrofit",
+   "name": "Retrofit",
+   "kind": "library",
+   "category": "JVM экосистема",
+   "summary": "Type-safe HTTP client for Android and Java, defined with annotations.",
+   "url": "https://square.github.io/retrofit/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "android",
+    "http",
+    "annotations",
+    "square"
+   ],
+   "tip": "An annotated interface replaces the request-building code entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Type-safe HTTP client for Android and Java, defined with annotations.",
+    "ru": "Типобезопасный HTTP-клиент для Android и Java, описываемый аннотациями."
+   },
+   "localizedTip": {
+    "en": "An annotated interface replaces the request-building code entirely."
    },
    "pricing": {
     "model": "openSource",
@@ -56807,6 +56982,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-async-storage",
+   "name": "AsyncStorage",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Simple asynchronous key-value storage for React Native.",
+   "url": "https://react-native-async-storage.github.io/async-storage/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react-native",
+    "storage",
+    "simple",
+    "asynchronous"
+   ],
+   "tip": "Fine for small settings; anything larger belongs in SQLite or MMKV.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @react-native-async-storage/async-storage",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple asynchronous key-value storage for React Native.",
+    "ru": "Простое асинхронное хранилище ключ-значение для React Native."
+   },
+   "localizedTip": {
+    "en": "Fine for small settings; anything larger belongs in SQLite or MMKV."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-capacitor",
    "name": "Capacitor",
    "kind": "library",
@@ -56854,6 +57064,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-coil",
+   "name": "Coil",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Kotlin-first image loading library for Android, built on coroutines.",
+   "url": "https://coil-kt.github.io/coil/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "android",
+    "kotlin",
+    "images",
+    "coroutines"
+   ],
+   "tip": "Lifecycle-aware, so requests cancel automatically when the view goes away.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Kotlin-first image loading library for Android, built on coroutines.",
+    "ru": "Библиотека загрузки изображений для Android с приоритетом Kotlin, на корутинах."
+   },
+   "localizedTip": {
+    "en": "Lifecycle-aware, so requests cancel automatically when the view goes away."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-swift-composable-architecture",
    "name": "Composable Architecture (TCA)",
    "kind": "library",
@@ -56884,6 +57129,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-core-data",
+   "name": "Core Data",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Apple's object graph and persistence framework.",
+   "url": "https://developer.apple.com/documentation/coredata",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "apple",
+    "persistence",
+    "object-graph",
+    "mature"
+   ],
+   "tip": "Powerful and notoriously intricate — SwiftData wraps it in a much simpler modern API.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Apple's object graph and persistence framework.",
+    "ru": "Фреймворк графа объектов и персистентности от Apple."
+   },
+   "localizedTip": {
+    "en": "Powerful and notoriously intricate — SwiftData wraps it in a much simpler modern API."
+   },
+   "pricing": {
+    "model": "free",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -57138,6 +57418,111 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-freezed",
+   "name": "Freezed",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Code generation for immutable Dart classes and union types.",
+   "url": "https://pub.dev/packages/freezed",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "dart",
+    "codegen",
+    "immutable",
+    "unions"
+   ],
+   "tip": "Its sealed unions make exhaustive state handling checkable by the compiler.",
+   "verifiedAt": "2026-08-17",
+   "install": "flutter pub add freezed",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Code generation for immutable Dart classes and union types.",
+    "ru": "Кодогенерация неизменяемых классов Dart и union-типов."
+   },
+   "localizedTip": {
+    "en": "Its sealed unions make exhaustive state handling checkable by the compiler."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-getx",
+   "name": "GetX",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "All-in-one Flutter package covering state, routing and dependency injection.",
+   "url": "https://pub.dev/packages/get",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flutter",
+    "state",
+    "routing",
+    "di"
+   ],
+   "tip": "Its convenience comes with heavy global state, which tends to complicate larger applications.",
+   "verifiedAt": "2026-08-17",
+   "install": "flutter pub add get",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "All-in-one Flutter package covering state, routing and dependency injection.",
+    "ru": "Универсальный пакет Flutter для состояния, маршрутизации и внедрения зависимостей."
+   },
+   "localizedTip": {
+    "en": "Its convenience comes with heavy global state, which tends to complicate larger applications."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-glide",
+   "name": "Glide",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Mature Android image loading and caching library.",
+   "url": "https://bumptech.github.io/glide/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "android",
+    "images",
+    "caching",
+    "mature"
+   ],
+   "tip": "Its memory and disk caching defaults are well tuned for scrolling lists of images.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mature Android image loading and caching library.",
+    "ru": "Зрелая библиотека загрузки и кэширования изображений для Android."
+   },
+   "localizedTip": {
+    "en": "Its memory and disk caching defaults are well tuned for scrolling lists of images."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-go-router",
    "name": "go_router",
    "kind": "library",
@@ -57165,6 +57550,111 @@
    },
    "localizedTip": {
     "en": "The official recommendation for Navigator 2.0 — hand-rolling Navigator 2.0 directly is rarely worth it."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-grdb",
+   "name": "GRDB",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "SQLite toolkit for Swift with database observation.",
+   "url": "https://swiftpackageindex.com/groue/GRDB.swift/documentation",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "swift",
+    "sqlite",
+    "observation",
+    "toolkit"
+   ],
+   "tip": "Its value observation drives SwiftUI updates directly from database changes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "SQLite toolkit for Swift with database observation.",
+    "ru": "Набор инструментов SQLite для Swift с наблюдением за изменениями в базе."
+   },
+   "localizedTip": {
+    "en": "Its value observation drives SwiftUI updates directly from database changes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-ionic",
+   "name": "Ionic Framework",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "UI component library for building mobile apps with web technologies.",
+   "url": "https://ionicframework.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hybrid",
+    "web",
+    "components",
+    "cross-platform"
+   ],
+   "tip": "Its components adapt their look to iOS or Android automatically, which hybrid apps usually get wrong.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @ionic/core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "UI component library for building mobile apps with web technologies.",
+    "ru": "Библиотека UI-компонентов для создания мобильных приложений на веб-технологиях."
+   },
+   "localizedTip": {
+    "en": "Its components adapt their look to iOS or Android automatically, which hybrid apps usually get wrong."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-isar",
+   "name": "Isar",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Fast cross-platform NoSQL database for Flutter and Dart.",
+   "url": "https://isar.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flutter",
+    "database",
+    "fast",
+    "nosql"
+   ],
+   "tip": "Its query inspector shows live database contents during development, which speeds debugging.",
+   "verifiedAt": "2026-08-17",
+   "install": "flutter pub add isar",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast cross-platform NoSQL database for Flutter and Dart.",
+    "ru": "Быстрая кроссплатформенная NoSQL база данных для Flutter и Dart."
+   },
+   "localizedTip": {
+    "en": "Its query inspector shows live database contents during development, which speeds debugging."
    },
    "pricing": {
     "model": "openSource",
@@ -57247,6 +57737,41 @@
    },
    "localizedTip": {
     "en": "Unlike KMM (which shares logic only), this shares the UI layer too — a different tradeoff entirely."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-kingfisher",
+   "name": "Kingfisher",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Pure Swift image downloading and caching library.",
+   "url": "https://github.com/onevcat/Kingfisher",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "swift",
+    "images",
+    "caching",
+    "swiftui"
+   ],
+   "tip": "Its SwiftUI view integrates directly, unlike Objective-C libraries that need a wrapper.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Pure Swift image downloading and caching library.",
+    "ru": "Библиотека загрузки и кэширования изображений на чистом Swift."
+   },
+   "localizedTip": {
+    "en": "Its SwiftUI view integrates directly, unlike Objective-C libraries that need a wrapper."
    },
    "pricing": {
     "model": "openSource",
@@ -57372,6 +57897,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-mmkv",
+   "name": "MMKV",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Efficient key-value storage using memory mapping, from Tencent.",
+   "url": "https://github.com/Tencent/MMKV",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "key-value",
+    "fast",
+    "tencent",
+    "mmap"
+   ],
+   "tip": "Orders of magnitude faster than SharedPreferences or UserDefaults for frequent writes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Efficient key-value storage using memory mapping, from Tencent.",
+    "ru": "Эффективное хранилище ключ-значение на отображении в память от Tencent."
+   },
+   "localizedTip": {
+    "en": "Orders of magnitude faster than SharedPreferences or UserDefaults for frequent writes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-nativescript",
    "name": "NativeScript",
    "kind": "library",
@@ -57442,6 +58002,181 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-nitro-modules",
+   "name": "Nitro Modules",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Fast native module framework for React Native with generated bindings.",
+   "url": "https://nitro.margelo.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react-native",
+    "native-modules",
+    "fast",
+    "codegen"
+   ],
+   "tip": "Type-safe generated bridges remove the hand-written glue that native modules usually require.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i react-native-nitro-modules",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast native module framework for React Native with generated bindings.",
+    "ru": "Быстрый фреймворк нативных модулей для React Native с генерируемыми биндингами."
+   },
+   "localizedTip": {
+    "en": "Type-safe generated bridges remove the hand-written glue that native modules usually require."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-nuke",
+   "name": "Nuke",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "High-performance Swift image loading with a configurable pipeline.",
+   "url": "https://kean-docs.github.io/nuke/documentation/nuke/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "swift",
+    "images",
+    "performance",
+    "pipeline"
+   ],
+   "tip": "Its prefetching keeps large image grids scrolling smoothly.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance Swift image loading with a configurable pipeline.",
+    "ru": "Высокопроизводительная загрузка изображений на Swift с настраиваемым пайплайном."
+   },
+   "localizedTip": {
+    "en": "Its prefetching keeps large image grids scrolling smoothly."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-objectbox",
+   "name": "ObjectBox",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "High-performance object database for mobile and embedded devices.",
+   "url": "https://docs.objectbox.io/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "database",
+    "mobile",
+    "fast",
+    "sync"
+   ],
+   "tip": "Its optional sync handles offline-first data replication without a separate sync layer.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-performance object database for mobile and embedded devices.",
+    "ru": "Высокопроизводительная объектная база данных для мобильных и встраиваемых устройств."
+   },
+   "localizedTip": {
+    "en": "Its optional sync handles offline-first data replication without a separate sync layer."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-flutter-provider",
+   "name": "Provider",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Simple dependency injection and state management for Flutter.",
+   "url": "https://pub.dev/packages/provider",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "flutter",
+    "state",
+    "inherited-widget",
+    "simple"
+   ],
+   "tip": "Riverpod is by the same author and fixes its main limitations — prefer it for new projects.",
+   "verifiedAt": "2026-08-17",
+   "install": "flutter pub add provider",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Simple dependency injection and state management for Flutter.",
+    "ru": "Простой dependency injection и управление состоянием для Flutter."
+   },
+   "localizedTip": {
+    "en": "Riverpod is by the same author and fixes its main limitations — prefer it for new projects."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-react-native-mmkv",
+   "name": "React Native MMKV",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "MMKV bindings for React Native with synchronous access.",
+   "url": "https://github.com/mrousavy/react-native-mmkv",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react-native",
+    "storage",
+    "synchronous",
+    "fast"
+   ],
+   "tip": "Synchronous reads let you hydrate state before first render, which AsyncStorage cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i react-native-mmkv",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "MMKV bindings for React Native with synchronous access.",
+    "ru": "Биндинги MMKV для React Native с синхронным доступом."
+   },
+   "localizedTip": {
+    "en": "Synchronous reads let you hydrate state before first render, which AsyncStorage cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-react-native-reanimated",
    "name": "React Native Reanimated",
    "kind": "library",
@@ -57469,6 +58204,111 @@
    },
    "localizedTip": {
     "en": "Worklets run on the UI thread — that separation is exactly why gestures stay smooth under JS load."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-react-native-skia",
+   "name": "React Native Skia",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Exposes the Skia graphics engine to React Native for custom rendering.",
+   "url": "https://shopify.github.io/react-native-skia/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "graphics",
+    "skia",
+    "2d",
+    "high-performance"
+   ],
+   "tip": "The same engine Chrome and Flutter render with, which makes complex visuals genuinely fast.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @shopify/react-native-skia",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Exposes the Skia graphics engine to React Native for custom rendering.",
+    "ru": "Открывает графический движок Skia для React Native для произвольной отрисовки."
+   },
+   "localizedTip": {
+    "en": "The same engine Chrome and Flutter render with, which makes complex visuals genuinely fast."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-react-navigation",
+   "name": "React Navigation",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "The standard navigation library for React Native applications.",
+   "url": "https://reactnavigation.org/docs/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react-native",
+    "routing",
+    "stacks",
+    "tabs"
+   ],
+   "tip": "Its native stack uses the platform navigators, so transitions feel native rather than simulated.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @react-navigation/native",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "The standard navigation library for React Native applications.",
+    "ru": "Стандартная библиотека навигации для приложений React Native."
+   },
+   "localizedTip": {
+    "en": "Its native stack uses the platform navigators, so transitions feel native rather than simulated."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-realm",
+   "name": "Realm",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Object database for mobile with live objects that update automatically.",
+   "url": "https://www.mongodb.com/docs/atlas/device-sdks/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "mobile",
+    "database",
+    "objects",
+    "sync"
+   ],
+   "tip": "MongoDB retired the hosted sync service — the local database remains, the cloud sync does not.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Object database for mobile with live objects that update automatically.",
+    "ru": "Объектная база данных для мобильных с живыми объектами, обновляющимися автоматически."
+   },
+   "localizedTip": {
+    "en": "MongoDB retired the hosted sync service — the local database remains, the cloud sync does not."
    },
    "pricing": {
     "model": "openSource",
@@ -57507,6 +58347,146 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-room",
+   "name": "Room",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Android's SQLite abstraction with compile-time query verification.",
+   "url": "https://developer.android.com/training/data-storage/room",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "android",
+    "sqlite",
+    "orm",
+    "compile-time"
+   ],
+   "tip": "Queries are validated at build time, so a typo in SQL fails the build rather than the app.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Android's SQLite abstraction with compile-time query verification.",
+    "ru": "Абстракция SQLite для Android с проверкой запросов на этапе компиляции."
+   },
+   "localizedTip": {
+    "en": "Queries are validated at build time, so a typo in SQL fails the build rather than the app."
+   },
+   "pricing": {
+    "model": "free",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-sdwebimage",
+   "name": "SDWebImage",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Asynchronous image downloading and caching for iOS.",
+   "url": "https://github.com/SDWebImage/SDWebImage",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ios",
+    "images",
+    "caching",
+    "async"
+   ],
+   "tip": "Long-established with wide format support, including animated images and vectors.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Asynchronous image downloading and caching for iOS.",
+    "ru": "Асинхронная загрузка и кэширование изображений для iOS."
+   },
+   "localizedTip": {
+    "en": "Long-established with wide format support, including animated images and vectors."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-sqldelight",
+   "name": "SQLDelight",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Generates typesafe Kotlin APIs from SQL statements, across platforms.",
+   "url": "https://sqldelight.github.io/sqldelight/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "kotlin",
+    "sql",
+    "multiplatform",
+    "typesafe"
+   ],
+   "tip": "You write real SQL and it generates the code, which is the inverse of an ORM's approach.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Generates typesafe Kotlin APIs from SQL statements, across platforms.",
+    "ru": "Генерирует типобезопасные Kotlin-API из SQL-выражений для разных платформ."
+   },
+   "localizedTip": {
+    "en": "You write real SQL and it generates the code, which is the inverse of an ORM's approach."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-swiftdata",
+   "name": "SwiftData",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Apple's modern persistence framework, declared with Swift macros.",
+   "url": "https://developer.apple.com/documentation/swiftdata",
+   "access": "free",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "apple",
+    "swift",
+    "macros",
+    "modern"
+   ],
+   "tip": "Requires recent OS versions, so check your deployment target before adopting it.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Apple's modern persistence framework, declared with Swift macros.",
+    "ru": "Современный фреймворк персистентности Apple, описываемый макросами Swift."
+   },
+   "localizedTip": {
+    "en": "Requires recent OS versions, so check your deployment target before adopting it."
+   },
+   "pricing": {
+    "model": "free",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "devtools"
@@ -57591,6 +58571,41 @@
    "categoryGroup": "devtools"
   },
   {
+   "id": "lib-tauri-mobile",
+   "name": "Tauri Mobile",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Tauri 2 extending its Rust and webview model to iOS and Android.",
+   "url": "https://v2.tauri.app/start/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "rust",
+    "mobile",
+    "webview",
+    "cross-platform"
+   ],
+   "tip": "One Rust core across desktop and mobile, with far smaller binaries than Electron equivalents.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Tauri 2 extending its Rust and webview model to iOS and Android.",
+    "ru": "Tauri 2, расширяющий модель Rust и webview на iOS и Android."
+   },
+   "localizedTip": {
+    "en": "One Rust core across desktop and mobile, with far smaller binaries than Electron equivalents."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
    "id": "lib-wails",
    "name": "Wails",
    "kind": "library",
@@ -57618,6 +58633,41 @@
    },
    "localizedTip": {
     "en": "Similar idea to Tauri but with Go instead of Rust: compare binary size before choosing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "devtools"
+  },
+  {
+   "id": "lib-watermelondb",
+   "name": "WatermelonDB",
+   "kind": "library",
+   "category": "Мобильная и desktop разработка",
+   "summary": "Reactive database for React Native, optimized for very large datasets.",
+   "url": "https://watermelondb.dev/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react-native",
+    "sqlite",
+    "lazy",
+    "sync"
+   ],
+   "tip": "Lazy loading means it stays fast with tens of thousands of records where AsyncStorage collapses.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @nozbe/watermelondb",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reactive database for React Native, optimized for very large datasets.",
+    "ru": "Реактивная база данных для React Native, оптимизированная под очень большие наборы данных."
+   },
+   "localizedTip": {
+    "en": "Lazy loading means it stays fast with tens of thousands of records where AsyncStorage collapses."
    },
    "pricing": {
     "model": "openSource",
