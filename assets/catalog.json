@@ -67158,6 +67158,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-flickity",
+   "name": "Flickity",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Touch carousel with physics-based momentum scrolling.",
+   "url": "https://flickity.metafizzy.co/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "carousel",
+    "physics",
+    "touch",
+    "polished"
+   ],
+   "tip": "Free under GPL; commercial use in a closed-source product needs a paid licence.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i flickity",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Touch carousel with physics-based momentum scrolling.",
+    "ru": "Тач-карусель с инерционной прокруткой на основе физики."
+   },
+   "localizedTip": {
+    "en": "Free under GPL; commercial use in a closed-source product needs a paid licence."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-floating-ui",
    "name": "Floating UI",
    "kind": "library",
@@ -67255,6 +67290,41 @@
    },
    "localizedTip": {
     "en": "No build step means the dev-to-prod code path is identical, which removes a whole class of deploy surprises."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-glide-js",
+   "name": "Glide.js",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Dependency-free modular slider with a small footprint.",
+   "url": "https://glidejs.com/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "carousel",
+    "dependency-free",
+    "modular",
+    "es6"
+   ],
+   "tip": "Its modular build lets you include only the components your carousel actually uses.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @glidejs/glide",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Dependency-free modular slider with a small footprint.",
+    "ru": "Модульный слайдер без зависимостей с малым размером."
+   },
+   "localizedTip": {
+    "en": "Its modular build lets you include only the components your carousel actually uses."
    },
    "pricing": {
     "model": "openSource",
@@ -67572,6 +67642,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-keen-slider",
+   "name": "Keen Slider",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Lightweight touch slider with no dependencies.",
+   "url": "https://keen-slider.io/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "carousel",
+    "touch",
+    "lightweight",
+    "framework-agnostic"
+   ],
+   "tip": "Under five kilobytes, which matters when a carousel is a small part of the page.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i keen-slider",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight touch slider with no dependencies.",
+    "ru": "Лёгкий тач-слайдер без зависимостей."
+   },
+   "localizedTip": {
+    "en": "Under five kilobytes, which matters when a carousel is a small part of the page."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -68982,6 +69087,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-splide",
+   "name": "Splide",
+   "kind": "library",
+   "category": "UI и frontend",
+   "summary": "Accessible carousel with full keyboard and screen reader support.",
+   "url": "https://splidejs.com/guides/getting-started/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "carousel",
+    "accessible",
+    "lightweight",
+    "extensions"
+   ],
+   "tip": "Accessibility is built in rather than an afterthought, which most carousel libraries get wrong.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @splidejs/splide",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Accessible carousel with full keyboard and screen reader support.",
+    "ru": "Доступная карусель с полной поддержкой клавиатуры и программ чтения с экрана."
+   },
+   "localizedTip": {
+    "en": "Accessibility is built in rather than an afterthought, which most carousel libraries get wrong."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-stencil",
    "name": "Stencil",
    "kind": "library",
@@ -70029,6 +70169,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-atropos",
+   "name": "Atropos",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "3D parallax hover effect supporting both mouse and touch.",
+   "url": "https://atroposjs.com/docs",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "parallax",
+    "3d",
+    "touch",
+    "lightweight"
+   ],
+   "tip": "Its touch support is what separates it from the many mouse-only tilt libraries.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i atropos",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "3D parallax hover effect supporting both mouse and touch.",
+    "ru": "3D-эффект параллакса при наведении с поддержкой мыши и касаний."
+   },
+   "localizedTip": {
+    "en": "Its touch support is what separates it from the many mouse-only tilt libraries."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-auto-animate",
    "name": "AutoAnimate",
    "kind": "library",
@@ -70365,6 +70540,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-locomotive-scroll",
+   "name": "Locomotive Scroll",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Smooth scrolling with parallax and scroll-position detection.",
+   "url": "https://scroll.locomotive.ca/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "smooth-scroll",
+    "parallax",
+    "detection",
+    "creative"
+   ],
+   "tip": "Hijacking native scroll harms accessibility — verify keyboard and screen reader behaviour.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i locomotive-scroll",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Smooth scrolling with parallax and scroll-position detection.",
+    "ru": "Плавная прокрутка с параллаксом и определением позиции скролла."
+   },
+   "localizedTip": {
+    "en": "Hijacking native scroll harms accessibility — verify keyboard and screen reader behaviour."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-lottie",
    "name": "Lottie Web",
    "kind": "library",
@@ -70516,6 +70726,41 @@
    },
    "localizedTip": {
     "en": "Animations are code and fully reproducible/diffable in git, unlike a keyframe-based video editor project."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-framer-motion",
+   "name": "Motion for React",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Declarative React animation with layout transitions and gesture support.",
+   "url": "https://motion.dev/docs/react",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "animation",
+    "gestures",
+    "layout"
+   ],
+   "tip": "Its layout animations interpolate between positions automatically, which is hard to hand-write.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i motion",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Declarative React animation with layout transitions and gesture support.",
+    "ru": "Декларативная анимация React с переходами раскладки и поддержкой жестов."
+   },
+   "localizedTip": {
+    "en": "Its layout animations interpolate between positions automatically, which is hard to hand-write."
    },
    "pricing": {
     "model": "openSource",
@@ -70792,6 +71037,146 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-scrollreveal",
+   "name": "ScrollReveal",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Reveals elements with animation as they enter the viewport.",
+   "url": "https://scrollrevealjs.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "scroll",
+    "reveal",
+    "animations",
+    "simple"
+   ],
+   "tip": "A plain IntersectionObserver now does most of this with no dependency at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i scrollreveal",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Reveals elements with animation as they enter the viewport.",
+    "ru": "Показывает элементы с анимацией по мере их появления в области просмотра."
+   },
+   "localizedTip": {
+    "en": "A plain IntersectionObserver now does most of this with no dependency at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-splitting-js",
+   "name": "Splitting.js",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Splits text into characters and words for per-element animation.",
+   "url": "https://splitting.js.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "text",
+    "characters",
+    "css-variables",
+    "animation"
+   ],
+   "tip": "Splitting text breaks screen reader pronunciation — add an aria-label with the original string.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i splitting",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Splits text into characters and words for per-element animation.",
+    "ru": "Разбивает текст на символы и слова для поэлементной анимации."
+   },
+   "localizedTip": {
+    "en": "Splitting text breaks screen reader pronunciation — add an aria-label with the original string."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-splittype",
+   "name": "SplitType",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Lightweight text splitting utility often paired with GSAP.",
+   "url": "https://github.com/lukePeavey/SplitType",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "text",
+    "splitting",
+    "lightweight",
+    "gsap"
+   ],
+   "tip": "A free alternative to GSAP's own SplitText, which sits behind its paid tier.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i split-type",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight text splitting utility often paired with GSAP.",
+    "ru": "Лёгкая утилита разбиения текста, часто используемая вместе с GSAP."
+   },
+   "localizedTip": {
+    "en": "A free alternative to GSAP's own SplitText, which sits behind its paid tier."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-svelte-motion",
+   "name": "Svelte Transitions",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Svelte's built-in transition, animation and spring primitives.",
+   "url": "https://svelte.dev/docs/svelte/transition",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "svelte",
+    "built-in",
+    "transitions",
+    "spring"
+   ],
+   "tip": "Being part of the compiler means transitions add no runtime animation library to the bundle.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Svelte's built-in transition, animation and spring primitives.",
+    "ru": "Встроенные примитивы переходов, анимаций и пружин в Svelte."
+   },
+   "localizedTip": {
+    "en": "Being part of the compiler means transitions add no runtime animation library to the bundle."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-theatre-js",
    "name": "Theatre.js",
    "kind": "library",
@@ -70906,6 +71291,111 @@
    },
    "localizedTip": {
     "en": "Svelte's fine-grained reactivity fits 3D scene updates well, avoiding unnecessary re-render work."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-typed-js",
+   "name": "Typed.js",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Typewriter text effect with configurable speed and looping.",
+   "url": "https://github.com/mattboldt/typed.js/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "typewriter",
+    "text",
+    "effect",
+    "simple"
+   ],
+   "tip": "Respect prefers-reduced-motion — a looping typewriter is exactly what that setting exists for.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i typed.js",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Typewriter text effect with configurable speed and looping.",
+    "ru": "Эффект печатной машинки с настраиваемой скоростью и зацикливанием."
+   },
+   "localizedTip": {
+    "en": "Respect prefers-reduced-motion — a looping typewriter is exactly what that setting exists for."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-vanilla-tilt",
+   "name": "Vanilla Tilt",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Smooth 3D tilt effect on hover, with no dependencies.",
+   "url": "https://micku7zu.github.io/vanilla-tilt.js/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tilt",
+    "3d",
+    "hover",
+    "dependency-free"
+   ],
+   "tip": "Hover-only by nature, so make sure the interaction it decorates works on touch devices too.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i vanilla-tilt",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Smooth 3D tilt effect on hover, with no dependencies.",
+    "ru": "Плавный 3D-эффект наклона при наведении, без зависимостей."
+   },
+   "localizedTip": {
+    "en": "Hover-only by nature, so make sure the interaction it decorates works on touch devices too."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-zdog",
+   "name": "Zdog",
+   "kind": "library",
+   "category": "Анимация и 3D",
+   "summary": "Round, flat, designer-friendly pseudo-3D engine for canvas and SVG.",
+   "url": "https://zzz.dog/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pseudo-3d",
+    "canvas",
+    "flat",
+    "designer-friendly"
+   ],
+   "tip": "Under three kilobytes, which makes 3D-looking decoration affordable on a landing page.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i zdog",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Round, flat, designer-friendly pseudo-3D engine for canvas and SVG.",
+    "ru": "Округлый плоский псевдо-3D движок для canvas и SVG, дружелюбный к дизайнерам."
+   },
+   "localizedTip": {
+    "en": "Under three kilobytes, which makes 3D-looking decoration affordable on a landing page."
    },
    "pricing": {
     "model": "openSource",
@@ -71403,6 +71893,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-paper-js",
+   "name": "Paper.js",
+   "kind": "library",
+   "category": "Графики и визуализация",
+   "summary": "Vector graphics scripting framework with a full scene graph.",
+   "url": "https://github.com/paperjs/paper.js",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "vector",
+    "canvas",
+    "scene-graph",
+    "bezier"
+   ],
+   "tip": "Its boolean path operations handle vector geometry that canvas drawing alone cannot express.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i paper",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Vector graphics scripting framework with a full scene graph.",
+    "ru": "Фреймворк скриптования векторной графики с полноценным графом сцены."
+   },
+   "localizedTip": {
+    "en": "Its boolean path operations handle vector geometry that canvas drawing alone cannot express."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-plotly",
    "name": "Plotly.js",
    "kind": "library",
@@ -71477,6 +72002,111 @@
    },
    "localizedTip": {
     "en": "Charts compose from JSX components, so conditional series and custom tooltips stay declarative."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-rough-js",
+   "name": "Rough.js",
+   "kind": "library",
+   "category": "Графики и визуализация",
+   "summary": "Draws graphics in a hand-drawn, sketchy style.",
+   "url": "https://roughjs.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "hand-drawn",
+    "sketchy",
+    "canvas",
+    "svg"
+   ],
+   "tip": "The library behind Excalidraw's look — a sketchy diagram reads as a draft, which changes feedback.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i roughjs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Draws graphics in a hand-drawn, sketchy style.",
+    "ru": "Рисует графику в стиле от руки, как эскиз."
+   },
+   "localizedTip": {
+    "en": "The library behind Excalidraw's look — a sketchy diagram reads as a draft, which changes feedback."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-sketch-js",
+   "name": "Sketch.js",
+   "kind": "library",
+   "category": "Графики и визуализация",
+   "summary": "Minimal boilerplate for creative canvas experiments.",
+   "url": "https://soulwire.github.io/sketch.js/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "canvas",
+    "boilerplate",
+    "creative-coding",
+    "minimal"
+   ],
+   "tip": "It sets up the render loop and input handling so a sketch starts at the interesting part.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Minimal boilerplate for creative canvas experiments.",
+    "ru": "Минималистичная заготовка для творческих экспериментов с canvas."
+   },
+   "localizedTip": {
+    "en": "It sets up the render loop and input handling so a sketch starts at the interesting part."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-two-js",
+   "name": "Two.js",
+   "kind": "library",
+   "category": "Графики и визуализация",
+   "summary": "Two-dimensional drawing API that renders to SVG, canvas or WebGL.",
+   "url": "https://two.js.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "2d",
+    "renderer-agnostic",
+    "svg",
+    "canvas"
+   ],
+   "tip": "One drawing API across renderers lets you switch output without rewriting the scene.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i two.js",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Two-dimensional drawing API that renders to SVG, canvas or WebGL.",
+    "ru": "API двумерного рисования с выводом в SVG, canvas или WebGL."
+   },
+   "localizedTip": {
+    "en": "One drawing API across renderers lets you switch output without rewriting the scene."
    },
    "pricing": {
     "model": "openSource",
@@ -71835,6 +72465,111 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-browser-image-compression",
+   "name": "browser-image-compression",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Compresses images in a Web Worker without blocking the main thread.",
+   "url": "https://github.com/Donaldcwl/browser-image-compression",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "compression",
+    "web-worker",
+    "client-side",
+    "exif"
+   ],
+   "tip": "Running in a worker keeps the interface responsive while a large photo is processed.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i browser-image-compression",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Compresses images in a Web Worker without blocking the main thread.",
+    "ru": "Сжимает изображения в Web Worker, не блокируя основной поток."
+   },
+   "localizedTip": {
+    "en": "Running in a worker keeps the interface responsive while a large photo is processed."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-compressorjs",
+   "name": "Compressor.js",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Client-side image compression before upload.",
+   "url": "https://fengyuanchen.github.io/compressorjs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "compression",
+    "client-side",
+    "canvas",
+    "quality"
+   ],
+   "tip": "Compressing a phone photo before upload turns a multi-megabyte transfer into a few hundred kilobytes.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i compressorjs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Client-side image compression before upload.",
+    "ru": "Сжатие изображений на стороне клиента перед загрузкой."
+   },
+   "localizedTip": {
+    "en": "Compressing a phone photo before upload turns a multi-megabyte transfer into a few hundred kilobytes."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-cropperjs",
+   "name": "Cropper.js",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "JavaScript image cropping with rotation, scaling and touch support.",
+   "url": "https://fengyuanchen.github.io/cropperjs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "cropping",
+    "images",
+    "canvas",
+    "touch"
+   ],
+   "tip": "Crop on the client before upload — it cuts both bandwidth and server-side processing.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i cropperjs",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "JavaScript image cropping with rotation, scaling and touch support.",
+    "ru": "Обрезка изображений на JavaScript с поворотом, масштабированием и поддержкой касаний."
+   },
+   "localizedTip": {
+    "en": "Crop on the client before upload — it cuts both bandwidth and server-side processing."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-fabric-js",
    "name": "Fabric.js",
    "kind": "library",
@@ -71865,6 +72600,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-fancybox",
+   "name": "Fancybox",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Polished lightbox and modal library.",
+   "url": "https://fancyapps.com/fancybox/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "lightbox",
+    "modal",
+    "gallery",
+    "polished"
+   ],
+   "tip": "Free for non-commercial use only — check the licence before shipping it in a product.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i @fancyapps/ui",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Polished lightbox and modal library.",
+    "ru": "Отточенная библиотека лайтбоксов и модальных окон."
+   },
+   "localizedTip": {
+    "en": "Free for non-commercial use only — check the licence before shipping it in a product."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -72022,6 +72792,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-lightgallery",
+   "name": "lightGallery",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Feature-rich lightbox supporting images, video and iframes.",
+   "url": "https://www.lightgalleryjs.com/docs/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "lightbox",
+    "gallery",
+    "plugins",
+    "video"
+   ],
+   "tip": "Free under GPL; a commercial licence is required for closed-source products.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i lightgallery",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Feature-rich lightbox supporting images, video and iframes.",
+    "ru": "Функциональный лайтбокс с поддержкой изображений, видео и iframe."
+   },
+   "localizedTip": {
+    "en": "Free under GPL; a commercial licence is required for closed-source products."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-lucide",
    "name": "Lucide",
    "kind": "library",
@@ -72156,6 +72961,76 @@
      }
     }
    ],
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-photoswipe",
+   "name": "PhotoSwipe",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Touch-friendly image gallery and lightbox with pinch zoom.",
+   "url": "https://photoswipe.com/getting-started/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "lightbox",
+    "gallery",
+    "touch",
+    "zoom"
+   ],
+   "tip": "Its gesture handling on mobile is noticeably better than most lightbox libraries.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i photoswipe",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Touch-friendly image gallery and lightbox with pinch zoom.",
+    "ru": "Галерея изображений и лайтбокс с поддержкой касаний и масштабирования щипком."
+   },
+   "localizedTip": {
+    "en": "Its gesture handling on mobile is noticeably better than most lightbox libraries."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-react-image-crop",
+   "name": "react-image-crop",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Responsive React image cropping component with keyboard support.",
+   "url": "https://github.com/DominicTobias/react-image-crop",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "react",
+    "cropping",
+    "responsive",
+    "accessible"
+   ],
+   "tip": "It produces crop coordinates rather than an image, leaving the actual cropping to you.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i react-image-crop",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Responsive React image cropping component with keyboard support.",
+    "ru": "Адаптивный React-компонент обрезки изображений с поддержкой клавиатуры."
+   },
+   "localizedTip": {
+    "en": "It produces crop coordinates rather than an image, leaving the actual cropping to you."
+   },
    "pricing": {
     "model": "openSource",
     "checkedAt": "2026-08-17"
