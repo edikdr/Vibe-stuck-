@@ -27274,6 +27274,146 @@
    "categoryGroup": "media"
   },
   {
+   "id": "lib-atomic-agents",
+   "name": "Atomic Agents",
+   "kind": "library",
+   "category": "AI и агенты",
+   "summary": "Modular agent framework built from small schema-defined, individually testable components.",
+   "url": "https://brainblend-ai.github.io/atomic-agents/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "modular",
+    "schema-driven",
+    "lightweight",
+    "composable"
+   ],
+   "tip": "Deliberately avoids hidden orchestration, which makes agent behaviour debuggable step by step.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install atomic-agents",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modular agent framework built from small schema-defined, individually testable components.",
+    "ru": "Модульный агентный фреймворк из небольших компонентов со схемами, тестируемых по отдельности."
+   },
+   "localizedTip": {
+    "en": "Deliberately avoids hidden orchestration, which makes agent behaviour debuggable step by step."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-google-adk",
+   "name": "Google Agent Development Kit",
+   "kind": "library",
+   "category": "AI и агенты",
+   "summary": "Google's toolkit for building, evaluating and deploying multi-agent systems.",
+   "url": "https://google.github.io/adk-docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "google",
+    "agents",
+    "multi-agent",
+    "evaluation"
+   ],
+   "tip": "Ships with an evaluation harness, which most agent frameworks leave entirely to you.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install google-adk",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's toolkit for building, evaluating and deploying multi-agent systems.",
+    "ru": "Набор инструментов Google для создания, оценки и развёртывания мультиагентных систем."
+   },
+   "localizedTip": {
+    "en": "Ships with an evaluation harness, which most agent frameworks leave entirely to you."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-strands-agents",
+   "name": "Strands Agents",
+   "kind": "library",
+   "category": "AI и агенты",
+   "summary": "AWS's model-driven agent SDK where the model plans and calls tools directly.",
+   "url": "https://strandsagents.com/latest/documentation/docs/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "aws",
+    "model-driven",
+    "tools",
+    "lightweight"
+   ],
+   "tip": "Relies on the model's own reasoning rather than a hardcoded graph, which keeps the code very small.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install strands-agents",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AWS's model-driven agent SDK where the model plans and calls tools directly.",
+    "ru": "Model-driven SDK агентов от AWS, где модель сама планирует и вызывает инструменты."
+   },
+   "localizedTip": {
+    "en": "Relies on the model's own reasoning rather than a hardcoded graph, which keeps the code very small."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-agenta",
+   "name": "Agenta",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Open-source platform for prompt versioning, evaluation and collaborative playgrounds.",
+   "url": "https://docs.agenta.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prompt-management",
+    "evaluation",
+    "playground",
+    "versioning"
+   ],
+   "tip": "Lets non-engineers iterate on prompts without a deploy, while keeping versions under control.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source platform for prompt versioning, evaluation and collaborative playgrounds.",
+    "ru": "Открытая платформа для версионирования промптов, оценки и совместных playground."
+   },
+   "localizedTip": {
+    "en": "Lets non-engineers iterate on prompts without a deploy, while keeping versions under control."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-deepchecks",
    "name": "Deepchecks",
    "kind": "library",
@@ -27301,6 +27441,41 @@
    },
    "localizedTip": {
     "en": "Its train/test leakage checks catch a mistake that silently inflates every offline metric."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-deepeval",
+   "name": "DeepEval",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "LLM evaluation framework shaped like a unit testing library.",
+   "url": "https://deepeval.com/docs/getting-started",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "evaluation",
+    "pytest",
+    "metrics",
+    "unit-tests"
+   ],
+   "tip": "Running evals as pytest cases puts them in CI, where they actually get run on every change.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install deepeval",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "LLM evaluation framework shaped like a unit testing library.",
+    "ru": "Фреймворк оценки LLM, оформленный как библиотека модульного тестирования."
+   },
+   "localizedTip": {
+    "en": "Running evals as pytest cases puts them in CI, where they actually get run on every change."
    },
    "pricing": {
     "model": "openSource",
@@ -27339,6 +27514,265 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-humanloop",
+   "name": "Humanloop",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Enterprise LLM development platform for prompt management and evaluation workflows.",
+   "url": "https://humanloop.com/docs",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "evaluation",
+    "prompt-management",
+    "collaboration",
+    "enterprise",
+    "llm-ops",
+    "pricing",
+    "seats"
+   ],
+   "tip": "Built around domain experts reviewing outputs, not just engineers reading eval scores.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Enterprise LLM development platform for prompt management and evaluation workflows.",
+    "ru": "Корпоративная платформа разработки LLM для управления промптами и процессов оценки."
+   },
+   "localizedTip": {
+    "en": "Built around domain experts reviewing outputs, not just engineers reading eval scores."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "custom quote (per seat)",
+    "freeQuota": "free trial",
+    "url": "https://humanloop.com/pricing",
+    "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-langwatch",
+   "name": "LangWatch",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Monitoring and evaluation platform for LLM applications in production.",
+   "url": "https://docs.langwatch.ai/",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "monitoring",
+    "evaluation",
+    "quality",
+    "pipelines"
+   ],
+   "tip": "Its optimization studio runs DSPy-style prompt tuning against your own collected traces.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Monitoring and evaluation platform for LLM applications in production.",
+    "ru": "Платформа мониторинга и оценки LLM-приложений в продакшне."
+   },
+   "localizedTip": {
+    "en": "Its optimization studio runs DSPy-style prompt tuning against your own collected traces."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-opik",
+   "name": "Opik",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Open-source LLM tracing and evaluation from the Comet team.",
+   "url": "https://www.comet.com/docs/opik/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tracing",
+    "evaluation",
+    "self-host",
+    "comet"
+   ],
+   "tip": "Self-hostable in full, which matters when prompts and outputs contain regulated data.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install opik",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source LLM tracing and evaluation from the Comet team.",
+    "ru": "Открытая трассировка и оценка LLM от команды Comet."
+   },
+   "localizedTip": {
+    "en": "Self-hostable in full, which matters when prompts and outputs contain regulated data."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-arize-phoenix",
+   "name": "Phoenix",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Open-source LLM tracing and evaluation that runs locally in a notebook or container.",
+   "url": "https://arize.com/docs/phoenix",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tracing",
+    "evaluation",
+    "opentelemetry",
+    "notebooks"
+   ],
+   "tip": "Built on OpenTelemetry, so traces flow to your existing observability backend as well.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install arize-phoenix",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open-source LLM tracing and evaluation that runs locally in a notebook or container.",
+    "ru": "Открытая трассировка и оценка LLM, работающая локально в ноутбуке или контейнере."
+   },
+   "localizedTip": {
+    "en": "Built on OpenTelemetry, so traces flow to your existing observability backend as well."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-promptlayer",
+   "name": "PromptLayer",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Prompt registry and request logging with visual prompt editing.",
+   "url": "https://docs.promptlayer.com/introduction",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "prompt-management",
+    "logging",
+    "versioning",
+    "registry"
+   ],
+   "tip": "Decoupling prompts from code lets you fix a bad prompt without shipping a release.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Prompt registry and request logging with visual prompt editing.",
+    "ru": "Реестр промптов и логирование запросов с визуальным редактированием промптов."
+   },
+   "localizedTip": {
+    "en": "Decoupling prompts from code lets you fix a bad prompt without shipping a release."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-trulens",
+   "name": "TruLens",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Evaluates LLM applications using programmable feedback functions.",
+   "url": "https://www.trulens.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "evaluation",
+    "rag",
+    "feedback-functions",
+    "tracking"
+   ],
+   "tip": "Its RAG triad (context relevance, groundedness, answer relevance) is a solid default starting metric set.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install trulens",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Evaluates LLM applications using programmable feedback functions.",
+    "ru": "Оценивает LLM-приложения с помощью программируемых функций обратной связи."
+   },
+   "localizedTip": {
+    "en": "Its RAG triad (context relevance, groundedness, answer relevance) is a solid default starting metric set."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-vellum",
+   "name": "Vellum",
+   "kind": "library",
+   "category": "AI-оценка и safety",
+   "summary": "Visual workflow builder and evaluation platform for production LLM features.",
+   "url": "https://docs.vellum.ai/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "workflows",
+    "evaluation",
+    "prompt-management",
+    "visual",
+    "llm-ops",
+    "pricing",
+    "seats"
+   ],
+   "tip": "Its visual builder suits teams where product managers own the LLM logic alongside engineers.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Visual workflow builder and evaluation platform for production LLM features.",
+    "ru": "Визуальный конструктор workflow и платформа оценки для продакшн-функций на LLM."
+   },
+   "localizedTip": {
+    "en": "Its visual builder suits teams where product managers own the LLM logic alongside engineers."
+   },
+   "pricing": {
+    "model": "subscription",
+    "from": "from ~$500 per month",
+    "freeQuota": "free trial",
+    "url": "https://www.vellum.ai/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -27441,6 +27875,41 @@
    },
    "localizedTip": {
     "en": "The conversation-based model fits debate/critique patterns better than strict sequential pipelines."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-baml",
+   "name": "BAML",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Schema language for LLM functions that generates typed clients in several languages.",
+   "url": "https://docs.boundaryml.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "structured-output",
+    "schema",
+    "typed",
+    "codegen"
+   ],
+   "tip": "Its parser recovers usable data from slightly malformed model output instead of failing outright.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Schema language for LLM functions that generates typed clients in several languages.",
+    "ru": "Язык схем для LLM-функций, генерирующий типизированные клиенты на нескольких языках."
+   },
+   "localizedTip": {
+    "en": "Its parser recovers usable data from slightly malformed model output instead of failing outright."
    },
    "pricing": {
     "model": "openSource",
@@ -27799,6 +28268,76 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-magentic",
+   "name": "Magentic",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Integrates LLM calls into Python code through simple function decorators.",
+   "url": "https://magentic.dev/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "decorators",
+    "structured",
+    "streaming"
+   ],
+   "tip": "Streaming structured output arrives as a typed iterator rather than a string you parse later.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install magentic",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Integrates LLM calls into Python code through simple function decorators.",
+    "ru": "Встраивает вызовы LLM в Python-код через простые декораторы функций."
+   },
+   "localizedTip": {
+    "en": "Streaming structured output arrives as a typed iterator rather than a string you parse later."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-marvin",
+   "name": "Marvin",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Turns ordinary Python functions into LLM-backed ones with typed results.",
+   "url": "https://askmarvin.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "structured",
+    "functions",
+    "pydantic"
+   ],
+   "tip": "Decorating a function with a type signature is often all the prompt engineering a simple task needs.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install marvin",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Turns ordinary Python functions into LLM-backed ones with typed results.",
+    "ru": "Превращает обычные Python-функции в функции на основе LLM с типизированными результатами."
+   },
+   "localizedTip": {
+    "en": "Decorating a function with a type signature is often all the prompt engineering a simple task needs."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-mastra",
    "name": "Mastra",
    "kind": "library",
@@ -27864,6 +28403,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-mirascope",
+   "name": "Mirascope",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "Provider-agnostic LLM library keeping prompts as ordinary typed Python code.",
+   "url": "https://mirascope.com/docs/mirascope",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "python",
+    "provider-agnostic",
+    "typed",
+    "prompts"
+   ],
+   "tip": "Prompts stay normal functions, so your existing editor tooling and tests apply unchanged.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install mirascope",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Provider-agnostic LLM library keeping prompts as ordinary typed Python code.",
+    "ru": "Библиотека LLM вне привязки к провайдеру, хранящая промпты как обычный типизированный Python-код."
+   },
+   "localizedTip": {
+    "en": "Prompts stay normal functions, so your existing editor tooling and tests apply unchanged."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-openai-agents",
    "name": "OpenAI Agents SDK",
    "kind": "library",
@@ -27925,6 +28499,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-portkey",
+   "name": "Portkey",
+   "kind": "library",
+   "category": "AI-фреймворки",
+   "summary": "AI gateway adding routing, retries, caching and observability across providers.",
+   "url": "https://portkey.ai/docs",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "gateway",
+    "routing",
+    "fallbacks",
+    "observability"
+   ],
+   "tip": "Automatic fallback to a second provider turns an outage into added latency rather than downtime.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "AI gateway adding routing, retries, caching and observability across providers.",
+    "ru": "AI-шлюз с маршрутизацией, повторами, кэшированием и наблюдаемостью между провайдерами."
+   },
+   "localizedTip": {
+    "en": "Automatic fallback to a second provider turns an outage into added latency rather than downtime."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "ai"
@@ -30543,6 +31152,111 @@
    },
    "localizedTip": {
     "en": "The OpenAI-compatible layer means your existing client code needs no rewrite."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-cognee",
+   "name": "Cognee",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Builds a knowledge graph memory layer for agents from unstructured input.",
+   "url": "https://docs.cognee.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "memory",
+    "knowledge-graph",
+    "rag",
+    "pipelines"
+   ],
+   "tip": "Graph memory answers relational questions that flat vector retrieval consistently gets wrong.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install cognee",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Builds a knowledge graph memory layer for agents from unstructured input.",
+    "ru": "Строит слой памяти в виде графа знаний для агентов из неструктурированных данных."
+   },
+   "localizedTip": {
+    "en": "Graph memory answers relational questions that flat vector retrieval consistently gets wrong."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-graphiti",
+   "name": "Graphiti",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Temporal knowledge graph tracking how facts about entities change over time.",
+   "url": "https://help.getzep.com/graphiti/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "temporal",
+    "knowledge-graph",
+    "memory",
+    "agents"
+   ],
+   "tip": "Recording when a fact stopped being true is what keeps an agent from repeating stale information.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install graphiti-core",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Temporal knowledge graph tracking how facts about entities change over time.",
+    "ru": "Временной граф знаний, отслеживающий изменение фактов о сущностях во времени."
+   },
+   "localizedTip": {
+    "en": "Recording when a fact stopped being true is what keeps an agent from repeating stale information."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-letta",
+   "name": "Letta",
+   "kind": "library",
+   "category": "Память и знания",
+   "summary": "Stateful agents with self-editing long-term memory, formerly MemGPT.",
+   "url": "https://docs.letta.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "memory",
+    "stateful",
+    "agents",
+    "memgpt"
+   ],
+   "tip": "The agent decides what to keep in memory itself, rather than you tuning a retrieval pipeline.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install letta",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Stateful agents with self-editing long-term memory, formerly MemGPT.",
+    "ru": "Агенты с состоянием и самостоятельно редактируемой долговременной памятью, ранее MemGPT."
+   },
+   "localizedTip": {
+    "en": "The agent decides what to keep in memory itself, rather than you tuning a retrieval pipeline."
    },
    "pricing": {
     "model": "openSource",
@@ -38970,6 +39684,41 @@
    "categoryGroup": "data"
   },
   {
+   "id": "lib-chonkie",
+   "name": "Chonkie",
+   "kind": "library",
+   "category": "Поиск и retrieval",
+   "summary": "Lightweight library implementing many text chunking strategies for RAG.",
+   "url": "https://docs.chonkie.ai/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "chunking",
+    "rag",
+    "lightweight",
+    "strategies"
+   ],
+   "tip": "Chunking strategy affects retrieval quality more than embedding model choice in most pipelines.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install chonkie",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight library implementing many text chunking strategies for RAG.",
+    "ru": "Лёгкая библиотека, реализующая множество стратегий разбиения текста для RAG."
+   },
+   "localizedTip": {
+    "en": "Chunking strategy affects retrieval quality more than embedding model choice in most pipelines."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
    "id": "lib-fusejs",
    "name": "Fuse.js",
    "kind": "library",
@@ -39117,6 +39866,41 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-unstructured",
+   "name": "Unstructured",
+   "kind": "library",
+   "category": "Поиск и retrieval",
+   "summary": "Extracts and chunks text from PDFs, Office files, HTML and images for RAG pipelines.",
+   "url": "https://docs.unstructured.io/",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "parsing",
+    "documents",
+    "ingestion",
+    "rag"
+   ],
+   "tip": "Its element types (title, table, narrative) let you chunk by structure rather than character count.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install unstructured",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Extracts and chunks text from PDFs, Office files, HTML and images for RAG pipelines.",
+    "ru": "Извлекает и разбивает на чанки текст из PDF, файлов Office, HTML и изображений для RAG-пайплайнов."
+   },
+   "localizedTip": {
+    "en": "Its element types (title, table, narrative) let you chunk by structure rather than character count."
+   },
+   "pricing": {
+    "model": "freemium",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "data"
@@ -56463,6 +57247,76 @@
    "categoryGroup": "media"
   },
   {
+   "id": "lib-llamaparse",
+   "name": "LlamaParse",
+   "kind": "library",
+   "category": "Документы и PDF",
+   "summary": "Document parsing service tuned for complex PDFs with tables and multi-column layouts.",
+   "url": "https://docs.cloud.llamaindex.ai/llamaparse/getting_started",
+   "access": "freeTier",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pdf",
+    "parsing",
+    "tables",
+    "rag"
+   ],
+   "tip": "Its free daily page allowance is enough to evaluate it properly against your own difficult documents.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Document parsing service tuned for complex PDFs with tables and multi-column layouts.",
+    "ru": "Сервис разбора документов, настроенный на сложные PDF с таблицами и многоколоночной вёрсткой."
+   },
+   "localizedTip": {
+    "en": "Its free daily page allowance is enough to evaluate it properly against your own difficult documents."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-markitdown",
+   "name": "MarkItDown",
+   "kind": "library",
+   "category": "Документы и PDF",
+   "summary": "Microsoft's converter turning Office documents, PDFs and more into Markdown for LLMs.",
+   "url": "https://github.com/microsoft/markitdown",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "conversion",
+    "markdown",
+    "microsoft",
+    "llm-ready"
+   ],
+   "tip": "Markdown preserves headings and tables, which plain text extraction destroys and retrieval needs.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install markitdown",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Microsoft's converter turning Office documents, PDFs and more into Markdown for LLMs.",
+    "ru": "Конвертер Microsoft, превращающий документы Office, PDF и другие форматы в Markdown для LLM."
+   },
+   "localizedTip": {
+    "en": "Markdown preserves headings and tables, which plain text extraction destroys and retrieval needs."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "lib-pdf-lib",
    "name": "pdf-lib",
    "kind": "library",
@@ -56598,6 +57452,47 @@
    },
    "pricing": {
     "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-reducto",
+   "name": "Reducto",
+   "kind": "library",
+   "category": "Документы и PDF",
+   "summary": "High-accuracy document parsing aimed at complex financial and scientific documents.",
+   "url": "https://docs.reducto.ai/",
+   "access": "paid",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "document-parsing",
+    "tables",
+    "accuracy",
+    "enterprise",
+    "pricing",
+    "per-page"
+   ],
+   "tip": "Priced per page and aimed at cases where a parsing error carries real financial consequence.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "High-accuracy document parsing aimed at complex financial and scientific documents.",
+    "ru": "Высокоточный разбор документов для сложных финансовых и научных материалов."
+   },
+   "localizedTip": {
+    "en": "Priced per page and aimed at cases where a parsing error carries real financial consequence."
+   },
+   "pricing": {
+    "model": "usage",
+    "from": "from ~$0.02 per page",
+    "freeQuota": "free trial pages",
+    "url": "https://reducto.ai/pricing",
+    "currency": "USD",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"

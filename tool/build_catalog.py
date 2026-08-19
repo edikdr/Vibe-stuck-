@@ -173,6 +173,8 @@ CATEGORIES = {
 }
 
 MERGE = {
+ 'paid-humanloop': 'lib-humanloop', 'paid-vellum': 'lib-vellum',
+ 'paid-reducto': 'lib-reducto',
  'paid-twilio-verify': 'api-twilio-verify',
  'paid-bandwidth': 'api-bandwidth',
  'paid-infobip': 'api-infobip',
