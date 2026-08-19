@@ -37609,6 +37609,111 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-calamari-ocr",
+   "name": "Calamari",
+   "kind": "library",
+   "category": "OCR и распознавание документов",
+   "summary": "OCR engine using model ensembles for higher accuracy.",
+   "url": "https://github.com/Calamari-OCR/calamari",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ocr",
+    "ensembles",
+    "historical",
+    "tensorflow"
+   ],
+   "tip": "Voting across models measurably reduces errors on degraded historical scans.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install calamari-ocr",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "OCR engine using model ensembles for higher accuracy.",
+    "ru": "Движок OCR, использующий ансамбли моделей для повышения точности."
+   },
+   "localizedTip": {
+    "en": "Voting across models measurably reduces errors on degraded historical scans."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-doctr",
+   "name": "docTR",
+   "kind": "library",
+   "category": "OCR и распознавание документов",
+   "summary": "End-to-end document text recognition in PyTorch and TensorFlow.",
+   "url": "https://mindee.github.io/doctr/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ocr",
+    "pytorch",
+    "tensorflow",
+    "end-to-end"
+   ],
+   "tip": "Its two-stage detection and recognition design makes each stage independently replaceable.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install python-doctr",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "End-to-end document text recognition in PyTorch and TensorFlow.",
+    "ru": "Сквозное распознавание текста документов на PyTorch и TensorFlow."
+   },
+   "localizedTip": {
+    "en": "Its two-stage detection and recognition design makes each stage independently replaceable."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-donut",
+   "name": "Donut",
+   "kind": "library",
+   "category": "OCR и распознавание документов",
+   "summary": "OCR-free document understanding that reads images directly.",
+   "url": "https://github.com/clovaai/donut",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ocr-free",
+    "document-understanding",
+    "end-to-end",
+    "transformer"
+   ],
+   "tip": "Skipping OCR removes its errors from the pipeline, at the cost of needing task-specific training.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "OCR-free document understanding that reads images directly.",
+    "ru": "Понимание документов без OCR: модель читает изображения напрямую."
+   },
+   "localizedTip": {
+    "en": "Skipping OCR removes its errors from the pipeline, at the cost of needing task-specific training."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-easyocr",
    "name": "EasyOCR",
    "kind": "library",
@@ -37636,6 +37741,111 @@
    },
    "localizedTip": {
     "en": "GPU inference is dramatically faster; CPU-only is fine for occasional single-page use."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-img2table",
+   "name": "img2table",
+   "kind": "library",
+   "category": "OCR и распознавание документов",
+   "summary": "Detects and extracts tables from images and scanned PDFs.",
+   "url": "https://github.com/xavctn/img2table",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tables",
+    "images",
+    "ocr",
+    "detection"
+   ],
+   "tip": "It handles the scanned tables that text-based extractors cannot read at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install img2table",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Detects and extracts tables from images and scanned PDFs.",
+    "ru": "Обнаруживает и извлекает таблицы из изображений и сканированных PDF."
+   },
+   "localizedTip": {
+    "en": "It handles the scanned tables that text-based extractors cannot read at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-kraken-ocr",
+   "name": "Kraken",
+   "kind": "library",
+   "category": "OCR и распознавание документов",
+   "summary": "OCR system built for historical documents and manuscripts.",
+   "url": "https://kraken.re/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ocr",
+    "historical",
+    "manuscripts",
+    "training"
+   ],
+   "tip": "Trainable on a specific scribe's hand, which general OCR models never handle.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install kraken",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "OCR system built for historical documents and manuscripts.",
+    "ru": "Система OCR для исторических документов и рукописей."
+   },
+   "localizedTip": {
+    "en": "Trainable on a specific scribe's hand, which general OCR models never handle."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-layoutlm",
+   "name": "LayoutLM",
+   "kind": "library",
+   "category": "OCR и распознавание документов",
+   "summary": "Document understanding model combining text, layout and image signals.",
+   "url": "https://huggingface.co/docs/transformers/model_doc/layoutlmv3",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "document-ai",
+    "microsoft",
+    "multimodal",
+    "forms"
+   ],
+   "tip": "Position matters in forms and invoices, which is exactly what pure text models discard.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Document understanding model combining text, layout and image signals.",
+    "ru": "Модель понимания документов, объединяющая текст, раскладку и изображение."
+   },
+   "localizedTip": {
+    "en": "Position matters in forms and invoices, which is exactly what pure text models discard."
    },
    "pricing": {
     "model": "openSource",
@@ -37679,6 +37889,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-nougat",
+   "name": "Nougat",
+   "kind": "library",
+   "category": "OCR и распознавание документов",
+   "summary": "Converts academic PDFs to markup, including mathematical formulas.",
+   "url": "https://github.com/facebookresearch/nougat",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "academic",
+    "pdf",
+    "markdown",
+    "formulas"
+   ],
+   "tip": "Formula recognition is where it beats general OCR, which turns equations into noise.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install nougat-ocr",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Converts academic PDFs to markup, including mathematical formulas.",
+    "ru": "Преобразует академические PDF в разметку, включая математические формулы."
+   },
+   "localizedTip": {
+    "en": "Formula recognition is where it beats general OCR, which turns equations into noise."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-paddleocr",
    "name": "PaddleOCR",
    "kind": "library",
@@ -37714,6 +37959,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-surya-ocr",
+   "name": "Surya",
+   "kind": "library",
+   "category": "OCR и распознавание документов",
+   "summary": "Modern OCR with layout analysis and reading order detection.",
+   "url": "https://github.com/datalab-to/surya",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ocr",
+    "layout",
+    "multilingual",
+    "accurate"
+   ],
+   "tip": "Reading order matters for multi-column documents, which plain OCR jumbles.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install surya-ocr",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Modern OCR with layout analysis and reading order detection.",
+    "ru": "Современный OCR с анализом раскладки и определением порядка чтения."
+   },
+   "localizedTip": {
+    "en": "Reading order matters for multi-column documents, which plain OCR jumbles."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-tesseract-ocr",
    "name": "Tesseract OCR",
    "kind": "library",
@@ -37741,6 +38021,41 @@
    },
    "localizedTip": {
     "en": "Preprocessing (deskew, binarize) matters more than engine choice for accuracy on scans."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-tesseract-js",
+   "name": "Tesseract.js",
+   "kind": "library",
+   "category": "OCR и распознавание документов",
+   "summary": "Tesseract OCR compiled to WebAssembly for the browser.",
+   "url": "https://github.com/naptha/tesseract.js",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "ocr",
+    "browser",
+    "wasm",
+    "javascript"
+   ],
+   "tip": "Client-side OCR keeps scanned documents off your servers entirely.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i tesseract.js",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Tesseract OCR compiled to WebAssembly for the browser.",
+    "ru": "Tesseract OCR, скомпилированный в WebAssembly для браузера."
+   },
+   "localizedTip": {
+    "en": "Client-side OCR keeps scanned documents off your servers entirely."
    },
    "pricing": {
     "model": "openSource",
@@ -38413,6 +38728,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-clip",
+   "name": "CLIP",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Joint image and text embedding model enabling zero-shot classification.",
+   "url": "https://github.com/openai/CLIP",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "embeddings",
+    "multimodal",
+    "zero-shot",
+    "openai"
+   ],
+   "tip": "Its shared embedding space is what makes text-based image search work without labels.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install clip",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Joint image and text embedding model enabling zero-shot classification.",
+    "ru": "Модель совместных эмбеддингов изображений и текста для zero-shot классификации."
+   },
+   "localizedTip": {
+    "en": "Its shared embedding space is what makes text-based image search work without labels."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-cvat",
    "name": "CVAT",
    "kind": "library",
@@ -38448,6 +38798,76 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-deepface",
+   "name": "DeepFace",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Lightweight Python wrapper over several face recognition models.",
+   "url": "https://github.com/serengil/deepface",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "face-recognition",
+    "python",
+    "attributes",
+    "wrapper"
+   ],
+   "tip": "One line to compare two faces, which makes it a good way to evaluate the underlying models.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install deepface",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Lightweight Python wrapper over several face recognition models.",
+    "ru": "Лёгкая Python-обёртка над несколькими моделями распознавания лиц."
+   },
+   "localizedTip": {
+    "en": "One line to compare two faces, which makes it a good way to evaluate the underlying models."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-depth-anything",
+   "name": "Depth Anything",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Monocular depth estimation that generalizes across scene types.",
+   "url": "https://github.com/DepthAnything/Depth-Anything-V2",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "depth-estimation",
+    "monocular",
+    "zero-shot",
+    "robust"
+   ],
+   "tip": "Depth from a single ordinary photo enables effects that previously required a depth sensor.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Monocular depth estimation that generalizes across scene types.",
+    "ru": "Оценка глубины по одному изображению, обобщающаяся на разные типы сцен."
+   },
+   "localizedTip": {
+    "en": "Depth from a single ordinary photo enables effects that previously required a depth sensor."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-detectron2",
    "name": "Detectron2",
    "kind": "library",
@@ -38475,6 +38895,41 @@
    },
    "localizedTip": {
     "en": "Config-driven: most experiments are a YAML edit, not new code."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-dinov2",
+   "name": "DINOv2",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Self-supervised vision features that transfer well without fine-tuning.",
+   "url": "https://github.com/facebookresearch/dinov2",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "self-supervised",
+    "features",
+    "meta",
+    "backbone"
+   ],
+   "tip": "Its frozen features often beat a fine-tuned supervised model on small datasets.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Self-supervised vision features that transfer well without fine-tuning.",
+    "ru": "Самообучаемые визуальные признаки, хорошо переносящиеся без дообучения."
+   },
+   "localizedTip": {
+    "en": "Its frozen features often beat a fine-tuned supervised model on small datasets."
    },
    "pricing": {
     "model": "openSource",
@@ -38559,6 +39014,41 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-face-api-js",
+   "name": "face-api.js",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Face detection and recognition running in the browser.",
+   "url": "https://github.com/justadudewhohacks/face-api.js",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "browser",
+    "tensorflow-js",
+    "detection",
+    "landmarks"
+   ],
+   "tip": "Running client-side means face images never leave the user's device, which matters legally.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i face-api.js",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Face detection and recognition running in the browser.",
+    "ru": "Детекция и распознавание лиц прямо в браузере."
+   },
+   "localizedTip": {
+    "en": "Running client-side means face images never leave the user's device, which matters legally."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-fiftyone",
    "name": "FiftyOne",
    "kind": "library",
@@ -38586,6 +39076,76 @@
    },
    "localizedTip": {
     "en": "Looking at your data properly finds more model problems than another round of hyperparameter tuning."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-grounding-dino",
+   "name": "Grounding DINO",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Detects objects described in free text, without a fixed class list.",
+   "url": "https://github.com/IDEA-Research/GroundingDINO",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "detection",
+    "open-vocabulary",
+    "text-prompt",
+    "zero-shot"
+   ],
+   "tip": "Pairing it with Segment Anything gives text-prompted segmentation with no training at all.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Detects objects described in free text, without a fixed class list.",
+    "ru": "Обнаруживает объекты, описанные свободным текстом, без фиксированного списка классов."
+   },
+   "localizedTip": {
+    "en": "Pairing it with Segment Anything gives text-prompted segmentation with no training at all."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-insightface",
+   "name": "InsightFace",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Face analysis toolkit covering detection, recognition and alignment.",
+   "url": "https://github.com/deepinsight/insightface",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "face-recognition",
+    "detection",
+    "embeddings",
+    "research"
+   ],
+   "tip": "Face recognition is regulated in many jurisdictions — check the law before deploying it.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install insightface",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Face analysis toolkit covering detection, recognition and alignment.",
+    "ru": "Набор инструментов анализа лиц: детекция, распознавание и выравнивание."
+   },
+   "localizedTip": {
+    "en": "Face recognition is regulated in many jurisdictions — check the law before deploying it."
    },
    "pricing": {
     "model": "openSource",
@@ -38629,6 +39189,146 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-mediapipe-tasks",
+   "name": "MediaPipe Tasks",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Google's ready-made on-device vision, audio and text solutions.",
+   "url": "https://ai.google.dev/edge/mediapipe/solutions/guide",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "google",
+    "on-device",
+    "vision",
+    "cross-platform"
+   ],
+   "tip": "Its pose and hand tracking run in real time on a phone, which most models cannot.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Google's ready-made on-device vision, audio and text solutions.",
+    "ru": "Готовые решения Google для зрения, аудио и текста на устройстве."
+   },
+   "localizedTip": {
+    "en": "Its pose and hand tracking run in real time on a phone, which most models cannot."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-mmdetection",
+   "name": "MMDetection",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Object detection toolbox with a very large collection of implemented models.",
+   "url": "https://mmdetection.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "detection",
+    "openmmlab",
+    "pytorch",
+    "benchmarks"
+   ],
+   "tip": "Its config system makes swapping backbones and heads a configuration change, not a rewrite.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install mmdet",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Object detection toolbox with a very large collection of implemented models.",
+    "ru": "Набор инструментов детекции объектов с очень большой коллекцией реализованных моделей."
+   },
+   "localizedTip": {
+    "en": "Its config system makes swapping backbones and heads a configuration change, not a rewrite."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-movenet",
+   "name": "MoveNet",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Fast single-person pose detection model.",
+   "url": "https://www.kaggle.com/models/google/movenet",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pose",
+    "fast",
+    "tensorflow",
+    "real-time"
+   ],
+   "tip": "Fast enough for real-time feedback in fitness applications on modest hardware.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Fast single-person pose detection model.",
+    "ru": "Быстрая модель определения позы одного человека."
+   },
+   "localizedTip": {
+    "en": "Fast enough for real-time feedback in fitness applications on modest hardware."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-openclip",
+   "name": "OpenCLIP",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Open reproduction of CLIP with many trained checkpoints.",
+   "url": "https://github.com/mlfoundations/open_clip",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "clip",
+    "reproduction",
+    "checkpoints",
+    "training"
+   ],
+   "tip": "Its checkpoint variety lets you trade model size against accuracy for your own constraints.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install open_clip_torch",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Open reproduction of CLIP with many trained checkpoints.",
+    "ru": "Открытое воспроизведение CLIP со множеством обученных чекпоинтов."
+   },
+   "localizedTip": {
+    "en": "Its checkpoint variety lets you trade model size against accuracy for your own constraints."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-opencv",
    "name": "OpenCV",
    "kind": "library",
@@ -38664,6 +39364,111 @@
    "categoryGroup": "ai"
   },
   {
+   "id": "lib-openmmlab",
+   "name": "OpenMMLab",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Family of computer vision toolboxes spanning detection, segmentation and more.",
+   "url": "https://openmmlab.com/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "toolkits",
+    "research",
+    "pytorch",
+    "ecosystem"
+   ],
+   "tip": "Its shared configuration conventions mean learning one toolbox transfers to the rest.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Family of computer vision toolboxes spanning detection, segmentation and more.",
+    "ru": "Семейство наборов инструментов компьютерного зрения: детекция, сегментация и другое."
+   },
+   "localizedTip": {
+    "en": "Its shared configuration conventions mean learning one toolbox transfers to the rest."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-openpose",
+   "name": "OpenPose",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Multi-person pose estimation covering body, hands and face.",
+   "url": "https://github.com/CMU-Perceptual-Computing-Lab/openpose",
+   "access": "mixed",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pose",
+    "multi-person",
+    "research",
+    "cmu"
+   ],
+   "tip": "Free for academic use only — commercial deployment requires a licence from CMU.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Multi-person pose estimation covering body, hands and face.",
+    "ru": "Оценка позы нескольких людей: тело, руки и лицо."
+   },
+   "localizedTip": {
+    "en": "Free for academic use only — commercial deployment requires a licence from CMU."
+   },
+   "pricing": {
+    "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-posenet",
+   "name": "PoseNet",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Browser-based pose estimation model from TensorFlow.js.",
+   "url": "https://github.com/tensorflow/tfjs-models/tree/master/posenet",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pose",
+    "browser",
+    "tensorflow-js",
+    "legacy"
+   ],
+   "tip": "Superseded by MoveNet, which is both faster and more accurate.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Browser-based pose estimation model from TensorFlow.js.",
+    "ru": "Модель оценки позы в браузере из TensorFlow.js."
+   },
+   "localizedTip": {
+    "en": "Superseded by MoveNet, which is both faster and more accurate."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
    "id": "lib-scikit-image",
    "name": "scikit-image",
    "kind": "library",
@@ -38691,6 +39496,76 @@
    },
    "localizedTip": {
     "en": "Its API is more NumPy-native than OpenCV's, which fits better inside a scientific Python pipeline."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-segment-anything",
+   "name": "Segment Anything",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Promptable segmentation model that works without task-specific training.",
+   "url": "https://github.com/facebookresearch/segment-anything",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "segmentation",
+    "meta",
+    "zero-shot",
+    "promptable"
+   ],
+   "tip": "Zero-shot segmentation removes the mask annotation step that segmentation projects usually start with.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install segment-anything",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Promptable segmentation model that works without task-specific training.",
+    "ru": "Промптируемая модель сегментации, работающая без обучения под конкретную задачу."
+   },
+   "localizedTip": {
+    "en": "Zero-shot segmentation removes the mask annotation step that segmentation projects usually start with."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "ai"
+  },
+  {
+   "id": "lib-siglip",
+   "name": "SigLIP",
+   "kind": "library",
+   "category": "Компьютерное зрение",
+   "summary": "Image-text model using a sigmoid loss, improving on CLIP's efficiency.",
+   "url": "https://huggingface.co/docs/transformers/model_doc/siglip",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "google",
+    "embeddings",
+    "sigmoid-loss",
+    "efficient"
+   ],
+   "tip": "It trains well at smaller batch sizes, which CLIP's contrastive loss does not.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Image-text model using a sigmoid loss, improving on CLIP's efficiency.",
+    "ru": "Модель изображение-текст с сигмоидной функцией потерь, эффективнее CLIP."
+   },
+   "localizedTip": {
+    "en": "It trains well at smaller batch sizes, which CLIP's contrastive loss does not."
    },
    "pricing": {
     "model": "openSource",
@@ -52375,6 +53250,41 @@
    },
    "localizedTip": {
     "en": "Its leaf-wise tree growth can overfit small datasets — prefer XGBoost below roughly ten thousand rows."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "data"
+  },
+  {
+   "id": "lib-lora",
+   "name": "LoRA",
+   "kind": "library",
+   "category": "Данные и ML",
+   "summary": "Low-rank adaptation for fine-tuning large models cheaply.",
+   "url": "https://huggingface.co/docs/peft/conceptual_guides/lora",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "fine-tuning",
+    "efficient",
+    "adapters",
+    "low-rank"
+   ],
+   "tip": "It trains a fraction of the parameters, so fine-tuning fits on a single consumer graphics card.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Low-rank adaptation for fine-tuning large models cheaply.",
+    "ru": "Низкоранговая адаптация для дешёвого дообучения больших моделей."
+   },
+   "localizedTip": {
+    "en": "It trains a fraction of the parameters, so fine-tuning fits on a single consumer graphics card."
    },
    "pricing": {
     "model": "openSource",
@@ -84888,6 +85798,41 @@
    "categoryGroup": "frontend"
   },
   {
+   "id": "lib-controlnet",
+   "name": "ControlNet",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Conditions image generation on structure such as edges, depth or pose.",
+   "url": "https://github.com/lllyasviel/ControlNet",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diffusion",
+    "conditioning",
+    "structure",
+    "poses"
+   ],
+   "tip": "It is what turns prompting from a lottery into controllable composition.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Conditions image generation on structure such as edges, depth or pose.",
+    "ru": "Обусловливает генерацию изображений структурой: контурами, глубиной или позой."
+   },
+   "localizedTip": {
+    "en": "It is what turns prompting from a lottery into controllable composition."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
    "id": "lib-cropperjs",
    "name": "Cropper.js",
    "kind": "library",
@@ -85322,6 +86267,41 @@
    },
    "pricing": {
     "model": "freemium",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "frontend"
+  },
+  {
+   "id": "lib-ip-adapter",
+   "name": "IP-Adapter",
+   "kind": "library",
+   "category": "Изображения и дизайн",
+   "summary": "Conditions diffusion models on a reference image rather than only text.",
+   "url": "https://github.com/tencent-ailab/IP-Adapter",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "diffusion",
+    "image-prompt",
+    "style",
+    "subject"
+   ],
+   "tip": "Style transfer from a reference image needs no fine-tuning with it, unlike a LoRA.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Conditions diffusion models on a reference image rather than only text.",
+    "ru": "Обусловливает диффузионные модели референсным изображением, а не только текстом."
+   },
+   "localizedTip": {
+    "en": "Style transfer from a reference image needs no fine-tuning with it, unlike a LoRA."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "frontend"
@@ -87265,6 +88245,76 @@
    "categoryGroup": "media"
   },
   {
+   "id": "lib-pdfbox",
+   "name": "Apache PDFBox",
+   "kind": "library",
+   "category": "Документы и PDF",
+   "summary": "Java library for creating and manipulating PDF documents.",
+   "url": "https://pdfbox.apache.org/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "java",
+    "pdf",
+    "manipulation",
+    "extraction"
+   ],
+   "tip": "Its form-filling support handles the AcroForm documents that many enterprises still use.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Java library for creating and manipulating PDF documents.",
+    "ru": "Java-библиотека для создания и изменения PDF-документов."
+   },
+   "localizedTip": {
+    "en": "Its form-filling support handles the AcroForm documents that many enterprises still use."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-camelot",
+   "name": "Camelot",
+   "kind": "library",
+   "category": "Документы и PDF",
+   "summary": "Extracts tables from text-based PDFs.",
+   "url": "https://camelot-py.readthedocs.io/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tables",
+    "pdf",
+    "extraction",
+    "python"
+   ],
+   "tip": "Its lattice mode needs ruled lines; stream mode handles tables without them, less reliably.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install camelot-py",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Extracts tables from text-based PDFs.",
+    "ru": "Извлекает таблицы из текстовых PDF."
+   },
+   "localizedTip": {
+    "en": "Its lattice mode needs ruled lines; stream mode handles tables without them, less reliably."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "lib-docling",
    "name": "Docling",
    "kind": "library",
@@ -87440,6 +88490,41 @@
    "categoryGroup": "media"
   },
   {
+   "id": "lib-pdfjs",
+   "name": "PDF.js",
+   "kind": "library",
+   "category": "Документы и PDF",
+   "summary": "Mozilla's PDF renderer, built into Firefox.",
+   "url": "https://mozilla.github.io/pdf.js/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pdf",
+    "browser",
+    "rendering",
+    "mozilla"
+   ],
+   "tip": "It renders PDFs without a plugin, which is why it became the browser standard.",
+   "verifiedAt": "2026-08-17",
+   "install": "npm i pdfjs-dist",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Mozilla's PDF renderer, built into Firefox.",
+    "ru": "Рендерер PDF от Mozilla, встроенный в Firefox."
+   },
+   "localizedTip": {
+    "en": "It renders PDFs without a plugin, which is why it became the browser standard."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
    "id": "lib-pdfmake",
    "name": "pdfmake",
    "kind": "library",
@@ -87467,6 +88552,41 @@
    },
    "localizedTip": {
     "en": "The document definition is plain JSON, which makes generating a PDF from server data a direct mapping."
+   },
+   "pricing": {
+    "model": "openSource",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-pdfplumber",
+   "name": "pdfplumber",
+   "kind": "library",
+   "category": "Документы и PDF",
+   "summary": "Extracts text, tables and layout details from PDFs.",
+   "url": "https://github.com/jsvine/pdfplumber",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "pdf",
+    "extraction",
+    "tables",
+    "python"
+   ],
+   "tip": "Its character-level positions let you reconstruct structure that plain text extraction loses.",
+   "verifiedAt": "2026-08-17",
+   "install": "pip install pdfplumber",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Extracts text, tables and layout details from PDFs.",
+    "ru": "Извлекает текст, таблицы и детали раскладки из PDF."
+   },
+   "localizedTip": {
+    "en": "Its character-level positions let you reconstruct structure that plain text extraction loses."
    },
    "pricing": {
     "model": "openSource",
@@ -87581,6 +88701,41 @@
     "freeQuota": "free trial pages",
     "url": "https://reducto.ai/pricing",
     "currency": "USD",
+    "checkedAt": "2026-08-17"
+   },
+   "categoryGroup": "media"
+  },
+  {
+   "id": "lib-tabula",
+   "name": "Tabula",
+   "kind": "library",
+   "category": "Документы и PDF",
+   "summary": "Table extraction from PDFs, with both a GUI and libraries.",
+   "url": "https://tabula.technology/",
+   "access": "openSource",
+   "compatibility": [
+    "both"
+   ],
+   "tags": [
+    "tables",
+    "pdf",
+    "java",
+    "gui"
+   ],
+   "tip": "Its interface lets a non-programmer pull tables out of a report in minutes.",
+   "verifiedAt": "2026-08-17",
+   "install": "",
+   "source": "curated",
+   "sourceLanguage": "en",
+   "localizedSummary": {
+    "en": "Table extraction from PDFs, with both a GUI and libraries.",
+    "ru": "Извлечение таблиц из PDF с графическим интерфейсом и библиотеками."
+   },
+   "localizedTip": {
+    "en": "Its interface lets a non-programmer pull tables out of a report in minutes."
+   },
+   "pricing": {
+    "model": "openSource",
     "checkedAt": "2026-08-17"
    },
    "categoryGroup": "media"
