@@ -1,0 +1,86 @@
+name: CI
+
+# Runs on every pull request and every push to the default branch.
+#
+# Two independent gates. The catalog gate needs only Python, so a data-only
+# change gets an answer in seconds; the app gate needs the Flutter SDK.
+
+on:
+  pull_request:
+  push:
+    branches: [vibe-atlas]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    name: Catalog
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the catalog
+        run: python tool/build_catalog.py
+
+      - name: Verify the contract
+        run: python tool/verify_catalog.py
+
+      # The database is a build artifact and is not committed, but the
+      # generated Dart is — it has to compile. An entry edited without a
+      # rebuild would otherwise ship category labels that disagree with the
+      # entries using them.
+      - name: Generated Dart must match the sources
+        run: |
+          if ! git diff --exit-code -- lib/i18n/categories.dart lib/app_info.dart; then
+            echo "::error::Generated files are stale. Run: python3 tool/build_catalog.py"
+            exit 1
+          fi
+
+  app:
+    name: Analyze and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # assets/catalog.db is a build artifact, so it is built rather than
+      # checked out. Nothing below can run without it: it is the catalog.
+      - name: Build the catalog
+        run: python tool/build_catalog.py
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      # `flutter test` runs on the host VM, where the native SQLite comes from
+      # the system rather than from sqlite3_flutter_libs. Without it the
+      # database tests skip themselves instead of failing, which would quietly
+      # remove the catalog contract from CI.
+      - name: Install native SQLite
+        run: sudo apt-get update && sudo apt-get install -y libsqlite3-0 libsqlite3-dev
+
+      # No platform runner is committed; it is generated from the Flutter
+      # version on the runner instead of frozen in the repository.
+      - name: Generate platform runner
+        run: flutter create --project-name vibestack_atlas --platforms=linux .
+
+      - name: Configure platform runner
+        run: dart run tool/post_create.dart
+
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test --reporter expanded

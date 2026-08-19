@@ -1,0 +1,219 @@
+name: Release
+
+# Publishes one GitHub Release carrying everything an install needs:
+#
+#   VibeStack-Atlas-<version>-android.apk      phone build
+#   VibeStack-Atlas-<version>-windows-x64.zip  desktop builds
+#   VibeStack-Atlas-<version>-linux-x64.tar.gz
+#   VibeStack-Atlas-<version>-macos.dmg
+#   catalog.db.gz                              the catalog itself
+#   manifest.json                              what installed apps read first
+#
+# The last two are what makes the catalog updatable without reinstalling: an
+# app checks `releases/latest/download/manifest.json`, compares the version
+# with its own, and pulls the database only when there is a newer one.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to publish (must already exist)
+        required: true
+        type: string
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  TAG: ${{ inputs.tag || github.ref_name }}
+
+jobs:
+  catalog:
+    name: Catalog assets
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.build.outputs.catalog }}
+      app_version: ${{ steps.build.outputs.app }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the catalog and its manifest
+        id: build
+        run: |
+          set -euo pipefail
+          url="https://github.com/${{ github.repository }}/releases/download/${TAG}/catalog.db.gz"
+          python tool/build_catalog.py --release --download-url "$url"
+          python tool/verify_catalog.py
+          echo "catalog=$(python -c "import json;print(json.load(open('dist/manifest.json'))['catalogVersion'])")" >> "$GITHUB_OUTPUT"
+          echo "app=$(grep '^version:' pubspec.yaml | cut -d' ' -f2 | cut -d'+' -f1)" >> "$GITHUB_OUTPUT"
+
+      # A tag whose generated Dart was never rebuilt would publish an app whose
+      # category labels disagree with the catalog shipped beside it.
+      - name: Tagged artifacts must match the sources
+        run: git diff --exit-code -- lib/i18n/categories.dart lib/app_info.dart
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: catalog
+          path: dist/*
+          if-no-files-found: error
+
+  build:
+    name: ${{ matrix.target }}
+    needs: catalog
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: android
+            os: ubuntu-latest
+          - target: linux
+            os: ubuntu-latest
+          - target: windows
+            os: windows-latest
+          - target: macos
+            os: macos-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - uses: actions/setup-java@v4
+        if: matrix.target == 'android'
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # assets/catalog.db is a build artifact, not a checked-in file. The same
+      # sources produce it here as produced the release assets in the catalog
+      # job, so what ships inside the app and what ships next to it agree.
+      - name: Build the catalog
+        run: python tool/build_catalog.py
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install Linux dependencies
+        if: matrix.target == 'linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang cmake ninja-build pkg-config \
+            libgtk-3-dev liblzma-dev libsqlite3-dev
+
+      - name: Generate platform runner
+        run: flutter create --project-name vibestack_atlas --platforms=${{ matrix.target }} .
+
+      - name: Configure platform runner
+        run: dart run tool/post_create.dart
+
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+
+      - name: Build
+        shell: bash
+        run: flutter build ${{ matrix.target == 'android' && 'apk' || matrix.target }} --release
+
+      # Each platform leaves one file behind. A directory of loose DLLs or an
+      # .app bundle downloaded as a zip of a zip is awkward to hand to anyone.
+      - name: Package Android
+        if: matrix.target == 'android'
+        shell: bash
+        run: cp build/app/outputs/flutter-apk/app-release.apk
+          "VibeStack-Atlas-${{ needs.catalog.outputs.app_version }}-android.apk"
+
+      - name: Package Linux
+        if: matrix.target == 'linux'
+        run: tar -czf "VibeStack-Atlas-${{ needs.catalog.outputs.app_version }}-linux-x64.tar.gz"
+          -C build/linux/x64/release/bundle .
+
+      - name: Package Windows
+        if: matrix.target == 'windows'
+        shell: pwsh
+        run: Compress-Archive -Path "build/windows/x64/runner/Release/*"
+          -DestinationPath "VibeStack-Atlas-${{ needs.catalog.outputs.app_version }}-windows-x64.zip"
+
+      - name: Package macOS
+        if: matrix.target == 'macos'
+        run: |
+          set -euo pipefail
+          app=$(find build/macos/Build/Products/Release -maxdepth 1 -name '*.app' | head -1)
+          test -n "$app" || { echo "no .app bundle found"; exit 1; }
+          out="VibeStack-Atlas-${{ needs.catalog.outputs.app_version }}-macos.dmg"
+          brew install create-dmg
+          create-dmg --volname "VibeStack Atlas" --window-size 540 380 \
+            --icon-size 96 --app-drop-link 380 180 "$out" "$app" \
+          || hdiutil create -volname "VibeStack Atlas" -srcfolder "$app" -ov -format UDZO "$out"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-${{ matrix.target }}
+          path: |
+            VibeStack-Atlas-*.apk
+            VibeStack-Atlas-*.tar.gz
+            VibeStack-Atlas-*.zip
+            VibeStack-Atlas-*.dmg
+          if-no-files-found: error
+
+  publish:
+    name: Publish release
+    needs: [catalog, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Collect assets
+        run: |
+          set -euo pipefail
+          mkdir -p release
+          find artifacts -type f -exec cp {} release/ \;
+          ls -lh release
+
+      # Release notes name the catalog explicitly: an install decides whether
+      # to download 800 KB based on this version, so it belongs where a person
+      # can read it too.
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          notes=$(cat <<EOF
+          App ${{ needs.catalog.outputs.app_version }} · catalog ${{ needs.catalog.outputs.version }}
+
+          Installed apps pick the catalog up on their next daily check; there is
+          nothing to reinstall. Platform builds are attached below.
+
+          \`catalog.db.gz\` and \`manifest.json\` are the catalog itself — the app
+          reads the manifest, checks the SHA-256, and swaps the database in.
+          EOF
+          )
+          gh release create "$TAG" release/* \
+            --title "VibeStack Atlas ${{ needs.catalog.outputs.app_version }}" \
+            --notes "$notes" \
+            --verify-tag \
+          || gh release upload "$TAG" release/* --clobber

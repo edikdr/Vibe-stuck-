@@ -1,0 +1,46 @@
+name: Баг
+description: Что-то в приложении работает не так
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Что происходит
+      description: И что ожидалось вместо этого.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Как повторить
+      placeholder: |
+        1. Открыть «Обновления»
+        2. Нажать «Проверить новую базу»
+        3. …
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Платформа
+      options: [Android, Windows, Linux, macOS]
+    validations:
+      required: true
+
+  - type: input
+    id: versions
+    attributes:
+      label: Версии
+      description: Приложение и каталог — обе показаны в «Обновлениях».
+      placeholder: приложение 0.7.0, каталог 2026.08.19
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Что ещё может быть важно
+      description: Логи, скриншот, работает ли офлайн.

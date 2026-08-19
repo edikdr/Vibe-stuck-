@@ -1,0 +1,14 @@
+version: 2
+
+# pub is deliberately absent: pubspec.lock is not committed, so CI resolves
+# dependencies fresh on every run and there is no lock file for Dependabot to
+# bump. What it can keep current are the actions the pipelines pin.
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "ci"
+    labels:
+      - ci
