@@ -10,6 +10,7 @@ import app.nebula.archive.AppStrings
 import app.nebula.archive.ArchiveEntry
 import app.nebula.archive.ArchiveKind
 import app.nebula.archive.ArchiveProject
+import app.nebula.archive.ElementCandidate
 import app.nebula.archive.InspectedElement
 import app.nebula.archive.NetworkProfile
 import app.nebula.archive.PagePerformance
@@ -85,6 +86,13 @@ class WorkspaceState(
 
     /** Elements picked but not yet inspected, in the order they were tapped. */
     var selection: List<SelectedElement> by mutableStateOf(emptyList())
+        private set
+
+    /**
+     * Every layer under the last tap, topmost first. More than one means the tap was ambiguous, and the user
+     * — not a heuristic — decides which layer they meant.
+     */
+    var candidates: List<ElementCandidate> by mutableStateOf(emptyList())
         private set
 
     /** Inspected elements: one element for a single inspection, several for a group. */
@@ -163,6 +171,7 @@ class WorkspaceState(
 
     fun stopInspecting() {
         inspecting = false
+        candidates = emptyList()
         preview.setInspectorEnabled(false)
     }
 
@@ -170,6 +179,25 @@ class WorkspaceState(
 
     fun onSelectionChanged(elements: List<SelectedElement>) {
         selection = elements
+    }
+
+    fun onCandidatesChanged(elements: List<ElementCandidate>) {
+        // A single layer under the point was not a choice, so it never becomes a prompt.
+        candidates = if (elements.size > 1) elements else emptyList()
+    }
+
+    /** Picks a layer the user chose from the stack, instead of the topmost one the tap landed on. */
+    fun pickCandidate(candidate: ElementCandidate) {
+        preview.pickCandidate(candidate.index)
+    }
+
+    fun highlightCandidate(candidate: ElementCandidate?) {
+        preview.highlightCandidate(candidate?.index ?: -1)
+    }
+
+    fun dismissCandidates() {
+        candidates = emptyList()
+        preview.dismissCandidates()
     }
 
     fun onInspected(elements: List<InspectedElement>) {
@@ -200,6 +228,7 @@ class WorkspaceState(
     fun clearSelection() {
         preview.clearSelection()
         selection = emptyList()
+        candidates = emptyList()
         clearInspection()
         if (panel == WorkspacePanel.Inspection) panel = WorkspacePanel.None
     }
@@ -224,6 +253,7 @@ class WorkspaceState(
         // Selectors and source hits describe the page that was just replaced.
         stopInspecting()
         selection = emptyList()
+        candidates = emptyList()
         clearInspection()
         if (panel == WorkspacePanel.Inspection) panel = WorkspacePanel.None
     }

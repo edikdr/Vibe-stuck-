@@ -29,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import app.nebula.archive.ElementCandidate
 import app.nebula.archive.ElementProperty
 import app.nebula.archive.ElementReference
 import app.nebula.archive.InspectedElement
@@ -189,6 +190,53 @@ private fun PropertyCard(title: String, properties: List<ElementProperty>, accen
         Column(Modifier.padding(top = 6.dp)) {
             properties.forEach { property -> PropertyRow(property.name, property.value, accent) }
         }
+    }
+}
+
+/**
+ * The layers under the last tap, topmost first — the inspector's breadcrumbs.
+ *
+ * It appears only when the tap was genuinely ambiguous. The first entry is what the tap already picked; the
+ * rest are offered so a decoration lying over a section background can be reached without the inspector
+ * silently walking up to an ancestor. Backgrounds and empty overlays sit at the end of the list, marked.
+ */
+@Composable
+fun CandidateStack(state: WorkspaceState, modifier: Modifier = Modifier) {
+    val strings = state.strings
+    Column(
+        modifier.fillMaxWidth().clip(MaterialTheme.shapes.small).background(Color(0xFF08101C)).padding(8.dp),
+        verticalArrangement = Arrangement.spacedBy(7.dp),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            MonoText("${strings.layersUnderPoint} ${state.candidates.size}", color = Nebula, modifier = Modifier.weight(1f))
+            SmallAction(strings.dismissLayers, state::dismissCandidates)
+        }
+        Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            state.candidates.forEach { candidate -> CandidateChip(state, candidate) }
+        }
+        MonoText(strings.layersHelp, size = 8, maxLines = 2)
+    }
+}
+
+@Composable
+private fun CandidateChip(state: WorkspaceState, candidate: ElementCandidate) {
+    val color = if (candidate.backdrop) TextMuted else domDepthColor(candidate.depth)
+    Row(
+        Modifier.clip(MaterialTheme.shapes.small)
+            .background(if (candidate.selected) color.copy(alpha = .16f) else PanelRaised)
+            .border(1.dp, color.copy(alpha = if (candidate.selected) .9f else .4f), MaterialTheme.shapes.small)
+            .clickable {
+                state.highlightCandidate(candidate)
+                state.pickCandidate(candidate)
+            }
+            .padding(horizontal = 7.dp, vertical = 5.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        MonoText("<${candidate.tag}>", color = color)
+        MonoText(candidate.label, color = if (candidate.backdrop) TextMuted else TextMain, size = 8)
+        if (candidate.decor) MonoText(state.strings.decorLayer, color = Nebula, size = 8)
+        if (candidate.backdrop) MonoText(state.strings.backdropLayer, color = TextMuted, size = 8)
     }
 }
 

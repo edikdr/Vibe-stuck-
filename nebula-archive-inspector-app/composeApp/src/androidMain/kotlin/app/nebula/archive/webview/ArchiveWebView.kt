@@ -68,6 +68,7 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
 
     var onInspected: ((List<InspectedElement>) -> Unit)? = null
     var onSelectionChanged: ((List<SelectedElement>) -> Unit)? = null
+    var onCandidatesChanged: ((List<ElementCandidate>) -> Unit)? = null
     var onPerformanceResult: ((RuntimeMetrics, List<PerformanceFinding>) -> Unit)? = null
     var onNavigationStateChanged: ((PreviewNavigationState) -> Unit)? = null
     var onIssue: ((PreviewIssue) -> Unit)? = null
@@ -191,6 +192,12 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
         pageLoaded = false
         loadUrl(PREVIEW_ORIGIN + encodePath(path))
     }
+
+    override fun pickCandidate(index: Int) = callInspector("pickCandidate($index)")
+
+    override fun highlightCandidate(index: Int) = callInspector("highlightCandidate($index)")
+
+    override fun dismissCandidates() = callInspector("dismissCandidates()")
 
     override fun inspectSelector(selector: String) =
         callInspector("inspectSelector(${JSONObject.quote(selector)})")
@@ -481,6 +488,12 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
         }
 
         @JavascriptInterface
+        fun candidates(payload: String) {
+            runCatching { JSONArray(payload).map(::readElementCandidate) }
+                .onSuccess { elements -> post { onCandidatesChanged?.invoke(elements) } }
+        }
+
+        @JavascriptInterface
         fun inspected(payload: String) {
             runCatching { JSONArray(payload).map(::readInspectedElement) }
                 .onSuccess { elements -> if (elements.isNotEmpty()) post { onInspected?.invoke(elements) } }
@@ -533,6 +546,19 @@ private fun readSelectedElement(json: JSONObject) = SelectedElement(
     childCount = json.optInt("childCount").coerceAtLeast(0),
     width = json.optDouble("width", 0.0),
     height = json.optDouble("height", 0.0),
+)
+
+private fun readElementCandidate(json: JSONObject) = ElementCandidate(
+    index = json.optInt("index"),
+    selector = json.optString("selector"),
+    tag = json.optString("tag"),
+    label = json.optString("label"),
+    depth = json.optInt("depth").coerceAtLeast(0),
+    width = json.optDouble("width", 0.0),
+    height = json.optDouble("height", 0.0),
+    tier = json.optInt("tier").coerceIn(0, 2),
+    decor = json.optBoolean("decor"),
+    selected = json.optBoolean("selected"),
 )
 
 private fun readInspectedElement(json: JSONObject) = InspectedElement(

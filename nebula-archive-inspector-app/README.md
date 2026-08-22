@@ -12,6 +12,14 @@ Nothing is uploaded and nothing in the archive is ever modified.
 
 ## Inspecting elements
 
+- **Picking hits what is under the finger.** The inspector builds the whole stack of layers under the point —
+  the elements the browser hit, plus every layer `pointer-events: none` hides from hit testing — orders it by
+  CSS painting order and takes the topmost. Decoration, overlays and pseudo layers are inspectable, and an
+  ancestor is never substituted for the element that was tapped.
+- **The stack is offered, not resolved.** When several layers overlap, they are listed topmost first and any
+  of them can be picked by hand. Section backgrounds, full-viewport layers and layers that paint nothing
+  under the point — a transparent pixel of an image — are listed last instead of first.
+- **A hover outline shows the element a tap would pick**, before the tap, so a miss is visible immediately.
 - **Multi-selection.** Tap an element to select it — it gets a numbered mark on the page. Tap more elements to
   build a selection. Tap a selected element again to inspect it.
 - **ALL AT ONCE.** One button inspects the entire selection together and produces a single AI block for all of
@@ -60,8 +68,8 @@ The inspector paints its outlines and marks on a canvas above the page, so inspe
   the app says so rather than faking numbers.
 - Compares two open archives: what was added, removed or changed between two builds, with a line diff for
   text files and a compact diff block for an assistant.
-- Adds guarded pointer/touch fallbacks and layer repairs for modals, drawers and scroll-reveal animations that
-  an Android WebView would otherwise leave broken. Every forced style is recorded and restored.
+- Carries guarded pointer/touch fallbacks and layer repairs for modals, drawers and scroll-reveal animations
+  that an Android WebView would otherwise leave broken. Every forced style is recorded and restored.
 - Shows real child WebViews for `window.open` and `target="_blank"`, with native `alert`/`confirm`/`prompt`.
 
 ## Browsing files

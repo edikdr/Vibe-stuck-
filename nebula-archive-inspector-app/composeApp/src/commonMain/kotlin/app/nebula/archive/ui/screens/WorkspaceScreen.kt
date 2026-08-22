@@ -269,6 +269,8 @@ private fun PreviewPane(state: WorkspaceState, platform: NebulaPlatform, modifie
                     Modifier.align(Alignment.BottomCenter).fillMaxWidth().padding(10.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
+                    // Several layers under one tap: the choice is offered, never made for the user.
+                    if (state.candidates.size > 1) CandidateStack(state)
                     // The open inspection panel already carries the strip; showing it twice is just clutter.
                     if (state.selection.isNotEmpty() && state.panel != WorkspacePanel.Inspection) SelectionStrip(state)
                     Row(

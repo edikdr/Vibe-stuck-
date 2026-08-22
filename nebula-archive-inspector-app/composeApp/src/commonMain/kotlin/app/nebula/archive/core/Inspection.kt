@@ -46,6 +46,32 @@ data class SelectedElement(
     val size: String get() = "${formatNumber(width)} × ${formatNumber(height)}"
 }
 
+/**
+ * One layer of the stack under the point that was tapped, in painting order — the topmost first.
+ *
+ * The inspector never substitutes an ancestor for what was tapped, so when several layers overlap the whole
+ * stack is offered and the user picks the one they meant, the way DevTools breadcrumbs work.
+ */
+data class ElementCandidate(
+    val index: Int,
+    val selector: String,
+    val tag: String,
+    val label: String,
+    val depth: Int,
+    val width: Double,
+    val height: Double,
+    /** 0 real content, 1 a section background, 2 a layer that paints nothing under the point. */
+    val tier: Int,
+    /** Carries `pointer-events:none`: decoration the page itself would never hand a click to. */
+    val decor: Boolean,
+    val selected: Boolean,
+) {
+    val size: String get() = "${formatNumber(width)} × ${formatNumber(height)}"
+
+    /** Backgrounds and empty overlays are offered, but marked as the weaker guess they are. */
+    val backdrop: Boolean get() = tier > 0
+}
+
 /** Full inspection of one element. [id] is its multi-selection number, or 0 when it is not part of one. */
 data class InspectedElement(
     val selector: String,
@@ -109,6 +135,15 @@ interface PreviewCommands {
     /** Applies a simulated network profile to everything served from the archive. */
     fun setNetworkProfile(profile: NetworkProfile)
 
+    /** Picks one layer of the reported stack instead of the topmost one. */
+    fun pickCandidate(index: Int)
+
+    /** Outlines a candidate in the page while the user moves through the stack. */
+    fun highlightCandidate(index: Int)
+
+    /** Drops the reported stack and its highlight. */
+    fun dismissCandidates()
+
     /** Inspects the element matching [selector] without adding it to the multi-selection. */
     fun inspectSelector(selector: String)
 
@@ -133,6 +168,9 @@ interface PreviewCommands {
             override fun setOnlineResourcesEnabled(enabled: Boolean) = Unit
             override fun openPage(path: String) = Unit
             override fun setNetworkProfile(profile: NetworkProfile) = Unit
+            override fun pickCandidate(index: Int) = Unit
+            override fun highlightCandidate(index: Int) = Unit
+            override fun dismissCandidates() = Unit
             override fun inspectSelector(selector: String) = Unit
             override fun inspectSelected(id: Int) = Unit
             override fun dropSelected(id: Int) = Unit

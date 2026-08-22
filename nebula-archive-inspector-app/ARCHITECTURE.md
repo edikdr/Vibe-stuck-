@@ -57,6 +57,10 @@ implements it. On Android that implementation is `ArchiveWebView`.
 
 ```
 tap ──> InspectorScript.pickAt()
+         │
+         ├── stackAt(): elementsFromPoint + every `pointer-events:none` layer whose box holds the point,
+         │              ordered by CSS painting order, background and empty layers last → emits `candidates`
+         │
          ├── element not selected yet → adds it, draws a numbered mark, emits `selection`
          └── element already selected → emits `inspected` with the full detail
                                              │
@@ -70,6 +74,12 @@ InspectionPanel: box, computed style, attributes, DOM tree, live DOM, source can
          │
 buildAiContext(): one compact block for one element or for the whole selection
 ```
+
+Hit testing deliberately ignores the event target and `pointer-events`. A decorative layer normally carries
+`pointer-events: none`, so the browser hands the tap to whatever is behind it — usually the section
+background — and the layer the user aimed at would never be offered. Building the stack from the point
+instead makes those layers pickable, keeps the hover outline identical to what a tap will pick, and lets the
+user choose another layer by hand: the inspector never walks up to an ancestor on its own.
 
 The in-page inspector never mutates the page: outlines, selection marks and labels are painted on a single
 fixed canvas above the document. Nothing has to be restored when inspection ends, and a site cannot be broken

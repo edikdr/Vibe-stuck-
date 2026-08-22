@@ -86,6 +86,7 @@ object AndroidPreviewHost : PreviewHost {
         DevicePreview(state, webView, modifier) { view ->
             view.onInspected = state::onInspected
             view.onSelectionChanged = state::onSelectionChanged
+            view.onCandidatesChanged = state::onCandidatesChanged
             view.onNavigationStateChanged = state::onNavigation
             view.onPerformanceResult = state::onPerformanceResult
             view.onIssue = state::onIssue
