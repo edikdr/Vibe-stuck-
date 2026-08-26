@@ -1,4 +1,14 @@
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+// The one place the version is written down. `versionName` keeps the codename the
+// changelog refers to; installers accept digits only, so they get the numeric prefix.
+val appVersionName = "0.14.0-performance-causes-and-diff"
+val appVersion = appVersionName.substringBefore('-')
+
+// jpackage refuses a leading zero in a macOS bundle version, so the .dmg carries the
+// same minor and patch under major 1. Every other format uses `appVersion` unchanged.
+val macAppVersion = "1." + appVersion.substringAfter('.')
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -81,12 +91,40 @@ android {
         minSdk = 26
         targetSdk = 35
         versionCode = 14
-        versionName = "0.14.0-performance-causes-and-diff"
+        versionName = appVersionName
     }
 }
 
 compose.desktop {
     application {
         mainClass = "app.nebula.archive.DesktopMainKt"
+
+        nativeDistributions {
+            targetFormats(TargetFormat.Deb, TargetFormat.Msi, TargetFormat.Dmg)
+            packageName = "NebulaArchiveInspector"
+            packageVersion = appVersion
+            description = "Inspect the contents of a web archive: files, source, assets and diffs."
+            vendor = "Nebula"
+
+            linux {
+                // Debian package names are lowercase and hyphenated; the menu entry is not.
+                packageName = "nebula-archive-inspector"
+                debMaintainer = "edikdr@users.noreply.github.com"
+                menuGroup = "Development"
+            }
+
+            windows {
+                // Fixed once and never changed: Windows matches installers by this UUID to
+                // tell an upgrade from a second, parallel installation.
+                upgradeUuid = "9f3c1d84-5e27-4a6b-8f10-2c7b6d94ae53"
+                menuGroup = "Nebula"
+                perUserInstall = true
+            }
+
+            macOS {
+                packageVersion = macAppVersion
+                bundleID = "app.nebula.archive"
+            }
+        }
     }
 }

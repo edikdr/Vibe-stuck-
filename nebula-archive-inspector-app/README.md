@@ -92,7 +92,12 @@ Requirements: JDK 17 and Android SDK 35.
 ./gradlew :composeApp:assembleDebug     # composeApp/build/outputs/apk/debug/composeApp-debug.apk
 ./gradlew :composeApp:desktopRun -DmainClass=app.nebula.archive.DesktopMainKt
 ./gradlew :composeApp:desktopTest       # shared model, search, scoring, SVG and AI-context tests
+./gradlew :composeApp:packageDistributionForCurrentOS   # composeApp/build/compose/binaries/main/
 ```
+
+The desktop installer is `.deb` on Linux, `.msi` on Windows and `.dmg` on macOS. jpackage builds the image
+from the JDK it runs on and cannot cross-build, so each format has to come from the OS it targets. None of
+the three is signed: Windows SmartScreen and macOS Gatekeeper will warn on first launch.
 
 The included keystore is a reproducible development key for test builds only. A Play Store or public release
 needs a private release signing key owned by the publisher.
