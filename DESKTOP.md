@@ -63,11 +63,17 @@
 | Linux | `.AppImage`, `.deb` | `flutter_distributor` |
 | macOS | `.dmg`, нотаризация | `flutter_distributor` + Apple Developer ID |
 
-**Сделано.** `.github/workflows/desktop.yml` собирает Windows, Linux и macOS и
-упаковывает каждую платформу в один файл: `.tar.gz`, `.zip` и `.dmg`. Запуск —
-вручную через Actions (с выбором release/debug) или пушем тега `v*`.
-`build.yml` остаётся для быстрой проверки сборки без упаковки и покрывает те же
-платформы плюс Android.
+**Сделано.** `.github/workflows/release.yml`, job `build`, собирает Windows, Linux и
+macOS и упаковывает каждую платформу в один файл: `.zip`, `.tar.gz` и `.dmg`.
+Запуск — пушем тега `v*` или вручную через Actions → Release → Run workflow.
+Платформенный раннер не хранится в репозитории: каждая сборка генерирует его
+заново через `flutter create --platforms=<target> .` и `dart run tool/post_create.dart`,
+поэтому он всегда соответствует версии Flutter на раннере.
+
+**Не сделано.** Ни один workflow не компилирует десктоп вне релиза. `ci.yml`
+генерирует только linux-раннер и на нём гоняет `flutter analyze` и `flutter test`
+— сборка как таковая там не запускается. Поломка десктопной компиляции всплывёт
+не в PR, а в момент выпуска релиза.
 
 Осталось за скобками: подпись и нотаризация macOS (нужен Apple Developer ID) и
 `.msix`/`.deb` — текущие форматы ставятся без них, но macOS покажет
@@ -87,7 +93,8 @@
 ## Чего делать не нужно
 
 - Не переписывать состояние на Riverpod/Bloc ради десктопа: `ChangeNotifier` +
-  `InheritedNotifier` держит 393 записи без проблем, а переписывание съест
+  `InheritedNotifier` держит текущий каталог из 2889 записей без проблем,
+  а переписывание съест
   время, которое лучше потратить на этапы 1–3.
 - Не объединять этот проект с Nebula Archive Inspector в «одну платформу», пока
   оба не доведены до релиза по отдельности.
@@ -96,11 +103,21 @@
 
 ## Порядок проверки после каждого этапа
 
+Папок `linux/`, `windows/` и `macos/` в репозитории нет, поэтому на чистом клоне
+раннер сначала надо создать — теми же двумя командами, что использует CI:
+
 ```bash
+flutter create --project-name vibestack_atlas --platforms=linux .
+dart run tool/post_create.dart
+
+flutter pub get
 flutter analyze
 flutter test
 flutter build linux --release && ./build/linux/x64/release/bundle/vibestack_atlas --headless-sync; echo "exit=$?"
 ```
+
+Для `flutter build linux` нужны системные пакеты: `clang cmake ninja-build
+pkg-config libgtk-3-dev liblzma-dev libsqlite3-dev`.
 
 Ожидаемый вывод последней команды: `exit=0` при обновлении каталога и `exit=2`,
 если данные ещё свежие.
