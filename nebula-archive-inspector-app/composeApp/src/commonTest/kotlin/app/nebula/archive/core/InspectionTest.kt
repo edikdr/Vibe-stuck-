@@ -76,18 +76,32 @@ class InspectionTest {
             ),
         )
         val hits = findElementSources(project, subject)
-        val context = buildAiContext("my-site", "index.html", listOf(subject), mapOf(1 to hits))
+        val rules = listOf(
+            StyleRule(
+                path = "assets/app.css",
+                selector = ".cta",
+                specificity = listOf(0, 1, 0),
+                line = 42,
+                declarations = listOf(
+                    StyleDeclaration("padding", "12px 24px", winning = true),
+                    StyleDeclaration("display", "block", winning = false),
+                ),
+            ),
+        )
+        val context = buildAiContext("my-site", "index.html", listOf(subject), mapOf(1 to hits), mapOf(1 to rules))
 
-        assertTrue(context.contains("[1] <button.cta>"), context)
-        assertTrue(context.contains("body>main>button.cta"), context)
-        assertTrue(context.contains("box 320 × 48 @12,340 · 2 children · depth 7"), context)
-        assertTrue(context.contains("css display:flex; background:rgb(10, 132, 255)"), context)
+        assertTrue(context.contains("[1] button.cta · body>main>button.cta · 320×48@12,340 · d7 c2"), context)
+        // The rule that won says where to make the change, which is the whole point of the block.
+        assertTrue(context.contains("assets/app.css:42 .cta{padding:12px 24px}"), context)
+        assertTrue(!context.contains("display:block"), "an overridden declaration is not worth the characters")
+        // A computed value a rule already states is not repeated.
+        assertTrue(context.contains("css display:flex;background:rgb(10, 132, 255)"), context)
         // `class` is already carried by the selector, so it never repeats in the attribute line.
         assertTrue(context.contains("""attr data-action="subscribe""""), context)
         assertTrue(!context.contains("""attr class="cta""""), context)
-        assertTrue(context.contains("src index.html:1"), context)
+        assertTrue(context.contains("index.html:1"), context)
         assertTrue(!context.contains("```"), "the compact block must not use fenced code")
-        assertTrue(context.length < 1_200, "block grew to ${context.length} characters")
+        assertTrue(context.length < 700, "block grew to ${context.length} characters")
         project.close()
     }
 
@@ -99,10 +113,33 @@ class InspectionTest {
         )
         val context = buildAiContext("my-site", "index.html", elements)
 
-        assertTrue(context.contains("2 elements selected"), context)
-        assertTrue(context.contains("[1] <header>"), context)
-        assertTrue(context.contains("[2] <footer>"), context)
-        assertTrue(context.contains("selected together"), context)
+        assertTrue(context.contains("2 elements"), context)
+        assertTrue(context.contains("[1] header ·"), context)
+        assertTrue(context.contains("[2] footer ·"), context)
+    }
+
+    @Test
+    fun locatesTheLineARuleWasWrittenOn() {
+        val project = testProject(
+            mapOf(
+                "assets/app.css" to """
+                    .card { color: red; }
+                    .cta { padding: 4px; }
+                    @media (min-width: 600px) {
+                      .cta { padding: 20px; }
+                    }
+                """.trimIndent(),
+            ),
+        )
+        val first = StyleRule(path = "assets/app.css", selector = ".cta", ordinal = 0)
+        val second = StyleRule(path = "assets/app.css", selector = ".cta", ordinal = 1)
+
+        // The ordinal is what pins a repeated selector to the right line instead of always the first.
+        assertEquals(2, locateRule(project, first))
+        assertEquals(4, locateRule(project, second))
+        assertEquals(0, locateRule(project, StyleRule(path = "assets/app.css", selector = ".missing")))
+        assertEquals(0, locateRule(project, StyleRule(path = "nowhere.css", selector = ".cta")))
+        project.close()
     }
 
     private fun element(

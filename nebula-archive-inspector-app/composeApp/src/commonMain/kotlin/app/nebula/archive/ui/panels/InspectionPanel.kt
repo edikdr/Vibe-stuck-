@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -35,6 +36,7 @@ import app.nebula.archive.ElementReference
 import app.nebula.archive.InspectedElement
 import app.nebula.archive.SelectedElement
 import app.nebula.archive.SourceHit
+import app.nebula.archive.StyleDeclaration
 import app.nebula.archive.buildAiContext
 
 /**
@@ -79,7 +81,7 @@ fun InspectionPanel(state: WorkspaceState, wide: Boolean, modifier: Modifier = M
 
         Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             ToolAction("AI", if (group) strings.copyAllForAi else strings.copyForAi, active = true, onClick = {
-                copy(buildAiContext(state.project.name, state.pagePath, elements, state.sources))
+                copy(buildAiContext(state.project.name, state.pagePath, elements, state.sources, state.ruleLines))
             })
             ToolAction("⌖", strings.selectAnother, onClick = state::startInspecting)
             if (!group) {
@@ -121,6 +123,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.singleElement(
             Text(element.text, color = TextMuted, style = MaterialTheme.typography.bodySmall, maxLines = 4, overflow = TextOverflow.Ellipsis)
         }
     }
+    item { MatchedRulesCard(state, element) }
     if (element.styles.isNotEmpty()) {
         item { PropertyCard(strings.computedStyles, element.styles, Nebula) }
     }
@@ -145,6 +148,82 @@ private fun androidx.compose.foundation.lazy.LazyListScope.singleElement(
         item { Text(strings.noSource, color = TextMuted, style = MaterialTheme.typography.bodySmall) }
     } else {
         items(hits, key = { "${it.path}:${it.line}" }) { hit -> SourceCandidateCard(state, hit) }
+    }
+}
+
+/**
+ * The cascade: every rule that applied, heaviest first.
+ *
+ * This is the answer to "why is it this colour", not just "here is the colour" — the file and line the rule
+ * was written on, the query that gated it, its specificity, and every declaration marked as winning or
+ * overridden. It is read from the page's own stylesheets, so it is exact rather than a ranked guess.
+ */
+@Composable
+private fun MatchedRulesCard(state: WorkspaceState, element: InspectedElement) {
+    val strings = state.strings
+    val rules = state.ruleLines[element.id] ?: element.rules
+    val inline = element.inlineStyle
+    if (rules.isEmpty() && inline.isEmpty()) return
+    Card {
+        SectionLabel(strings.matchedRules, color = Nebula)
+        if (inline.isNotEmpty()) {
+            RuleBlock(
+                place = strings.inlineAttribute,
+                selector = "style=\"\"",
+                condition = "",
+                specificity = "",
+                declarations = inline,
+            )
+        }
+        rules.forEach { rule ->
+            RuleBlock(
+                place = rule.place,
+                selector = rule.selector,
+                condition = rule.condition,
+                specificity = rule.specificityLabel,
+                declarations = rule.declarations,
+            )
+        }
+        if (element.blockedSheets > 0) {
+            MonoText("${strings.blockedSheets} ${element.blockedSheets}", size = 8, modifier = Modifier.padding(top = 6.dp))
+        }
+    }
+}
+
+@Composable
+private fun RuleBlock(
+    place: String,
+    selector: String,
+    condition: String,
+    specificity: String,
+    declarations: List<StyleDeclaration>,
+) {
+    Column(Modifier.padding(top = 8.dp)) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            MonoText(place, color = Green, size = 9, modifier = Modifier.weight(1f))
+            if (condition.isNotBlank()) MonoText(condition, color = Amber, size = 8)
+            if (specificity.isNotBlank()) MonoText(specificity, color = TextFaint, size = 8)
+        }
+        MonoText(selector, color = Violet, size = 10, maxLines = 2)
+        declarations.forEach { declaration ->
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                MonoText(
+                    declaration.name,
+                    color = if (declaration.winning) TextMuted else TextFaint,
+                    size = 9,
+                )
+                Text(
+                    declaration.value + if (declaration.important) " !important" else "",
+                    color = if (declaration.winning) TextMain else TextFaint,
+                    fontSize = 9.sp,
+                    fontFamily = FontFamily.Monospace,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    // An overridden declaration is shown, not hidden: knowing what lost is half the diagnosis.
+                    textDecoration = if (declaration.winning) null else TextDecoration.LineThrough,
+                )
+            }
+        }
     }
 }
 

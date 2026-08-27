@@ -57,7 +57,8 @@ fun describeFinding(finding: PerformanceFinding, strings: AppStrings): FindingTe
 
         PerformanceFindingKind.DomSize -> "${finding.value.toInt()} ${kinds.nodes}"
     }
-    return FindingText(title, detail)
+    // How many places share the problem is worth as much as the number itself.
+    return FindingText(title, if (finding.count > 1) "$detail · ×${finding.count}" else detail)
 }
 
 /** Two decimals, for scores like CLS where the fraction is the whole point. */

@@ -146,6 +146,27 @@ class PerformanceTest {
     }
 
     @Test
+    fun foldsRepeatedFindingsAboutOneFile() {
+        val repeated = List(6) {
+            PerformanceFinding(
+                kind = PerformanceFindingKind.OversizedImage,
+                target = "img/photo.png",
+                value = if (it == 3) 900_000.0 else 100_000.0,
+                extra = .95,
+            )
+        }
+        val other = PerformanceFinding(PerformanceFindingKind.OversizedImage, target = "img/other.png", value = 400_000.0)
+        val report = evaluateRuntimePerformance(RuntimeMetrics(loadMs = 800.0), repeated + other)
+
+        val folded = report.findings.filter { it.kind == PerformanceFindingKind.OversizedImage }
+        assertEquals(2, folded.size, "one file is one problem, however many times it appears")
+        val photo = folded.first { it.target == "img/photo.png" }
+        assertEquals(6, photo.count)
+        assertEquals(900_000.0, photo.value, "the worst of the group is the one kept")
+        assertEquals(1, folded.first { it.target == "img/other.png" }.count)
+    }
+
+    @Test
     fun networkProfilesCycleThroughEveryPreset() {
         var profile = NetworkProfile.Unthrottled
         val seen = mutableListOf(profile)

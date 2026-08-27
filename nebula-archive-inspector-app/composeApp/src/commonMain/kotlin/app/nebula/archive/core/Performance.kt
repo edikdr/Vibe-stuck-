@@ -65,6 +65,8 @@ data class PerformanceFinding(
     val note: String = "",
     val value: Double = 0.0,
     val extra: Double = 0.0,
+    /** How many places share this problem; one fix is worth all of them. */
+    val count: Int = 1,
 ) {
     val severity: FindingSeverity
         get() = when (kind) {
@@ -142,8 +144,29 @@ fun evaluateRuntimePerformance(
     score -= threshold(metrics.longTaskTotalMs, 200.0 to 0, 600.0 to 5, fallback = 10)
     score = score.coerceIn(0, 100)
 
-    val findings = (metricFindings(metrics) + pageFindings).sortedByDescending { it.impact }
+    val findings = fold(metricFindings(metrics) + pageFindings).sortedByDescending { it.impact }
     return RuntimePerformanceReport(score, gradeFor(score), metrics, findings, profile)
+}
+
+/**
+ * Six oversized copies of one image is one problem, not six. Findings about the same file are folded into
+ * the worst of them, carrying how many times it appeared — which is the number that prices the fix.
+ */
+private fun fold(findings: List<PerformanceFinding>): List<PerformanceFinding> {
+    val order = LinkedHashMap<String, PerformanceFinding>()
+    findings.forEach { finding ->
+        val key = "${finding.kind}|${finding.target}"
+        val seen = order[key]
+        order[key] = when {
+            seen == null -> finding
+            finding.value > seen.value -> finding.copy(
+                count = seen.count + 1,
+                selector = seen.selector.ifBlank { finding.selector },
+            )
+            else -> seen.copy(count = seen.count + 1, selector = seen.selector.ifBlank { finding.selector })
+        }
+    }
+    return order.values.toList()
 }
 
 /** Turns the measured numbers into the same kind of finding the page reports, so the UI has one list. */

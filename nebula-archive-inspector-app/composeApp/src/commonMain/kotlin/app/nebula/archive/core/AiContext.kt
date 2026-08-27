@@ -3,19 +3,19 @@ package app.nebula.archive
 /**
  * The block copied by "Copy for AI".
  *
- * It is written to be dense: an assistant needs the element's identity, its real box, the styles that were
- * actually applied, the attributes it can hook onto and where to look in the archive — but every extra
- * character costs the reader context. So the block carries one short line per fact, no fenced code, no
- * repeated file excerpts: only the best candidate keeps a one-line excerpt, the rest are `path:line`.
+ * It is written to be dense: an assistant needs the element's identity, the rule that styled it, the file and
+ * line that rule lives on, and the markup it came from — and every extra character costs the reader context.
+ * So there are no sentences, no fenced code and no labels that repeat what the value already says. What is
+ * kept is what cannot be guessed: paths, names, and the code itself.
  */
 
 private const val MAX_ELEMENTS = 12
-private const val MAX_STYLES = 12
-private const val MAX_ATTRIBUTES = 8
-private const val MAX_HTML = 600
-private const val MAX_TEXT = 160
-private const val MAX_EXCERPT = 160
-private const val MAX_SOURCES = 6
+private const val MAX_STYLES = 8
+private const val MAX_ATTRIBUTES = 6
+private const val MAX_RULES = 4
+private const val MAX_HTML = 220
+private const val MAX_TEXT = 90
+private const val MAX_EXCERPT = 120
 private const val MAX_FINDINGS = 12
 private const val MAX_TARGET = 90
 
@@ -24,53 +24,64 @@ fun buildAiContext(
     pagePath: String,
     elements: List<InspectedElement>,
     sources: Map<Int, List<SourceHit>> = emptyMap(),
+    rules: Map<Int, List<StyleRule>> = emptyMap(),
 ): String = buildString {
     val visible = elements.take(MAX_ELEMENTS)
-    append("NEBULA read-only inspection · $projectName · $pagePath")
-    if (visible.size > 1) append(" · ${visible.size} elements selected")
+    append("NEBULA $projectName/$pagePath")
+    if (visible.size > 1) append(" · ${visible.size} elements")
     visible.forEachIndexed { index, element ->
         appendLine()
-        appendElement(index + 1, element, sources[element.id].orEmpty())
+        appendElement(index + 1, element, sources[element.id].orEmpty(), rules[element.id] ?: element.rules)
     }
-    appendLine()
-    append(
-        if (visible.size > 1) {
-            "These elements were selected together. Use the paths as candidates and verify them before editing."
-        } else {
-            "Use the paths as candidates and verify them before editing."
-        },
-    )
 }
 
-private fun StringBuilder.appendElement(number: Int, element: InspectedElement, hits: List<SourceHit>) {
+private fun StringBuilder.appendElement(
+    number: Int,
+    element: InspectedElement,
+    hits: List<SourceHit>,
+    rules: List<StyleRule>,
+) {
     val marker = if (element.classes.isEmpty() && element.elementId.isBlank()) {
-        "<${element.tag}>"
+        element.tag
     } else {
-        "<${element.tag}${element.elementId.let { if (it.isBlank()) "" else "#$it" }}" +
-            element.classes.take(3).joinToString("") { ".$it" } + ">"
+        element.tag + (if (element.elementId.isBlank()) "" else "#${element.elementId}") +
+            element.classes.take(3).joinToString("") { ".$it" }
     }
-    appendLine("[$number] $marker  ${compactSelector(element.selector)}")
-    appendLine("    box ${element.size} @${formatNumber(element.left)},${formatNumber(element.top)} · ${element.childCount} children · depth ${element.depth}")
-    if (element.styles.isNotEmpty()) {
-        appendLine("    css " + element.styles.take(MAX_STYLES).joinToString("; ") { "${it.name}:${it.value}" })
+    val children = if (element.childCount > 0) " c${element.childCount}" else ""
+    val box = "${formatNumber(element.width)}×${formatNumber(element.height)}" +
+        "@${formatNumber(element.left)},${formatNumber(element.top)}"
+    appendLine("[$number] $marker · ${compactSelector(element.selector)} · $box · d${element.depth}$children")
+
+    val applied = rules.filter { rule -> rule.declarations.any { it.winning } }.take(MAX_RULES)
+    applied.forEach { rule ->
+        val declarations = rule.declarations.filter { it.winning }.joinToString(";") { "${it.name}:${it.value}" }
+        val condition = if (rule.condition.isBlank()) "" else "${rule.condition} "
+        appendLine("  ${rule.place} $condition${rule.selector}{$declarations}")
     }
+    val inline = element.inlineStyle.filter { it.winning }
+    if (inline.isNotEmpty()) appendLine("  style{" + inline.joinToString(";") { "${it.name}:${it.value}" } + "}")
+
+    // Computed values a rule already states are dropped: the rule line is the one worth reading.
+    val claimed = applied.flatMap { rule -> rule.declarations.filter { it.winning }.map { it.name } }.toSet()
+    val tail = element.styles
+        .filter { it.name !in claimed && it.name !in setOf("size", "font", "color") }
+        .take(MAX_STYLES)
+    if (tail.isNotEmpty()) appendLine("  css " + tail.joinToString(";") { "${it.name}:${it.value}" })
+
     val attributes = element.attributes
         .filter { it.name != "class" && it.name != "id" && it.name != "style" }
         .take(MAX_ATTRIBUTES)
-    if (attributes.isNotEmpty()) {
-        appendLine("    attr " + attributes.joinToString(" ") { """${it.name}="${it.value}"""" })
-    }
-    if (element.text.isNotBlank()) appendLine("""    text "${oneLine(element.text, MAX_TEXT)}"""")
-    if (element.outerHtml.isNotBlank()) appendLine("    html " + oneLine(element.outerHtml, MAX_HTML))
-    if (hits.isEmpty()) {
-        appendLine("    src no match in the archive — the element may be created by JavaScript")
+    if (attributes.isNotEmpty()) appendLine("  attr " + attributes.joinToString(" ") { """${it.name}="${it.value}"""" })
+    if (element.text.isNotBlank()) appendLine("""  text "${oneLine(element.text, MAX_TEXT)}"""")
+
+    val best = hits.firstOrNull()
+    if (best != null) {
+        val excerpt = oneLine(best.excerpt, MAX_EXCERPT)
+        appendLine("  ${best.path}:${best.line}" + if (excerpt.isBlank()) "" else " ▸ $excerpt")
         return
     }
-    val best = hits.first()
-    val excerpt = oneLine(best.excerpt, MAX_EXCERPT)
-    appendLine("    src ${best.path}:${best.line}" + if (excerpt.isBlank()) "" else " ▸ $excerpt")
-    val rest = hits.drop(1).take(MAX_SOURCES - 1)
-    if (rest.isNotEmpty()) appendLine("        " + rest.joinToString(" · ") { "${it.path}:${it.line}" })
+    // Nothing in the markup means a script built it, so the live tag is the only code there is to show.
+    appendLine("  html " + oneLine(element.outerHtml, MAX_HTML))
 }
 
 // ---- performance ----------------------------------------------------------------------------------------
@@ -156,7 +167,11 @@ private fun profileLabel(profile: NetworkProfile) =
     if (profile.throttled) "${profile.shortLabel} (simulated)" else "no throttling"
 
 /** `body > main > button.cta` is unambiguous at half the width as `body>main>button.cta`. */
-private fun compactSelector(selector: String): String = selector.replace(" > ", ">")
+/** A long chain is trimmed in the middle: the ends are what identifies an element, not the path through it. */
+private fun compactSelector(selector: String): String {
+    val parts = selector.split(" > ")
+    return if (parts.size <= 3) parts.joinToString(">") else "${parts.first()}>…>${parts.takeLast(2).joinToString(">")}"
+}
 
 private fun oneLine(value: String, limit: Int): String {
     val collapsed = value.replace(Regex("\\s+"), " ").trim()

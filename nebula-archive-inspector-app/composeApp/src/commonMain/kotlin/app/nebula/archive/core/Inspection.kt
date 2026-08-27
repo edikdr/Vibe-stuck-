@@ -32,6 +32,37 @@ data class ElementReference(
 
 data class ElementProperty(val name: String, val value: String)
 
+/** One declaration of a rule, and whether it survived the cascade. */
+data class StyleDeclaration(
+    val name: String,
+    val value: String,
+    val important: Boolean = false,
+    val winning: Boolean = false,
+)
+
+/**
+ * One rule that applied to the inspected element.
+ *
+ * The preview is same-origin, so this is read from the page's own CSSOM rather than guessed at by searching
+ * the archive: [path] is the stylesheet it came from, [line] the line it was written on once the source has
+ * been located, [condition] the media or supports query that gated it, and [specificity] its weight as the
+ * id-class-element triple.
+ */
+data class StyleRule(
+    val path: String,
+    val selector: String,
+    val specificity: List<Int> = emptyList(),
+    val condition: String = "",
+    /** Index among identical selectors in the same file, which is what pins a repeated rule to its line. */
+    val ordinal: Int = 0,
+    val declarations: List<StyleDeclaration> = emptyList(),
+    val line: Int = 0,
+    val inline: Boolean = false,
+) {
+    val specificityLabel: String get() = specificity.joinToString("-")
+    val place: String get() = if (line > 0) "$path:$line" else path
+}
+
 /** One entry of the running multi-selection: enough to list it without paying for a full inspection. */
 data class SelectedElement(
     val id: Int,
@@ -89,6 +120,12 @@ data class InspectedElement(
     val top: Double = 0.0,
     val attributes: List<ElementProperty> = emptyList(),
     val styles: List<ElementProperty> = emptyList(),
+    /** Every rule that applied, heaviest first, with the winning declarations marked. */
+    val rules: List<StyleRule> = emptyList(),
+    val inlineStyle: List<StyleDeclaration> = emptyList(),
+    val blockedSheets: Int = 0,
+    /** The element's opening tag, used to find it in the page's markup. */
+    val openTag: String = "",
     val parents: List<ElementReference> = emptyList(),
     val children: List<ElementReference> = emptyList(),
     val siblings: List<ElementReference> = emptyList(),

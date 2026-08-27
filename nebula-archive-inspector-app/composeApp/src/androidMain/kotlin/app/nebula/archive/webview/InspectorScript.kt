@@ -9,6 +9,11 @@ package app.nebula.archive
  * Picking is two-stage on purpose. The first tap marks an element and leaves the user in the page, the second
  * tap on the same element inspects it. That makes a multi-selection possible with the only input a phone has.
  *
+ * Only the element a tap would take is drawn, as the box the browser actually laid out: content, padding and
+ * margin, each in its own tint, with a label naming it and its real size. Outlining every visible node at
+ * once - which is what this did before - buries the page it is supposed to explain, and on a real site it
+ * turns the screen into a mesh nobody can read.
+ *
  * Hit testing does not use the event target. A decorative layer usually carries `pointer-events:none`, so the
  * browser hands the touch to whatever sits behind it — normally the section's background — and the element
  * the user actually aimed at is never offered. Picking therefore builds the whole stack under the point
@@ -21,7 +26,6 @@ internal const val INSPECTOR_SCRIPT = """
 function(enabled){
   var key='__nebulaInspector';
   if(window[key]){window[key].setEnabled(enabled);return}
-  var MAX_OUTLINES=1200;
   /** More layers than this under one point is a page nobody can choose from anyway. */
   var MAX_CANDIDATES=24;
   /** An element this close to the viewport in both axes is a backdrop, not a target. */
@@ -64,17 +68,7 @@ function(enabled){
     var s=getComputedStyle(el);
     return s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity||1)>0;
   }
-  function visibleElements(){
-    var out=[],nodes=allNodes(),w=innerWidth,h=innerHeight;
-    for(var i=0;i<nodes.length&&out.length<MAX_OUTLINES;i++){
-      var el=nodes[i];
-      if(!selectable(el))continue;
-      var r=el.getBoundingClientRect();
-      if(r.bottom<0||r.top>h||r.right<0||r.left>w)continue;
-      out.push([el,r]);
-    }
-    return out;
-  }
+
 
   // ---- hit testing ------------------------------------------------------------------------------------
 
@@ -255,6 +249,139 @@ function(enabled){
 
   // ---- inspection -------------------------------------------------------------------------------------
 
+  // ---- which rule actually styled it -------------------------------------------------------------------
+
+  /**
+   * The preview is same-origin, so the page's own CSSOM can be read: instead of guessing at the source with
+   * a text search, the inspector reports the exact rule, the file it came from, the media query that gated
+   * it, its specificity, and - for every declaration - whether it won the cascade or was overridden.
+   *
+   * Animations, transitions and layer ordering are not weighted: an archived static site almost never
+   * depends on them for a value someone is trying to fix, and modelling them would produce a confident wrong
+   * answer instead of a useful one.
+   */
+  function splitSelectorList(text){
+    var parts=[],depth=0,current='';
+    for(var i=0;i<text.length;i++){
+      var ch=text[i];
+      if(ch==='('||ch==='[')depth++;else if(ch===')'||ch===']')depth--;
+      if(ch===','&&depth===0){parts.push(current.trim());current=''}else current+=ch;
+    }
+    if(current.trim())parts.push(current.trim());
+    return parts;
+  }
+  /** `:where()` contributes nothing; `:is()`, `:not()` and `:has()` contribute their heaviest argument. */
+  function specificity(selector){
+    var inner=[0,0,0];
+    var flat=String(selector).replace(/:(?:is|where|not|has|matches|any)\(([^()]*)\)/gi,function(match,args){
+      if(/^:where/i.test(match))return ' ';
+      var best=[0,0,0];
+      args.split(',').forEach(function(part){
+        var score=specificity(part.trim());
+        if(score[0]*10000+score[1]*100+score[2]>best[0]*10000+best[1]*100+best[2])best=score;
+      });
+      inner=[inner[0]+best[0],inner[1]+best[1],inner[2]+best[2]];
+      return ' ';
+    });
+    var ids=(flat.match(/#[\w-]+/g)||[]).length;
+    var classes=(flat.match(/\.[\w-]+|\[[^\]]+\]|:(?!:)[\w-]+(\([^)]*\))?/g)||[]).length;
+    var elements=(flat.match(/(^|[\s>+~(])([a-z][\w-]*)|::[\w-]+/gi)||[]).length;
+    return [ids+inner[0],classes+inner[1],elements+inner[2]];
+  }
+  function weightOf(triple){return triple[0]*10000+triple[1]*100+triple[2]}
+  /** The part of a selector list that actually matched, and how heavy that part is. */
+  function matchingPart(el,text){
+    var best=null,parts=splitSelectorList(text);
+    for(var i=0;i<parts.length;i++){
+      var matches=false;
+      try{matches=el.matches(parts[i])}catch(e){continue}
+      if(!matches)continue;
+      var triple=specificity(parts[i]),score=weightOf(triple);
+      if(!best||score>best.score)best={selector:parts[i],score:score,triple:triple};
+    }
+    return best;
+  }
+  function declarationsOf(style){
+    var out=[];
+    for(var i=0;i<style.length;i++){
+      var name=style[i];
+      out.push({name:name,value:style.getPropertyValue(name),important:style.getPropertyPriority(name)==='important',winning:false});
+    }
+    return out;
+  }
+  /** A gated rule counts only while its condition applies; the condition itself is kept for the report. */
+  function conditionOf(rule){
+    var conditions=[],parent=rule.parentRule;
+    while(parent){
+      if(parent.media&&parent.media.mediaText){
+        if(!window.matchMedia(parent.media.mediaText).matches)return null;
+        conditions.unshift('@media '+parent.media.mediaText);
+      }else if(parent.conditionText){
+        conditions.unshift('@supports '+parent.conditionText);
+      }else if(parent.name!==undefined&&parent.cssRules){
+        conditions.unshift(('@layer '+(parent.name||'')).trim());
+      }
+      parent=parent.parentRule;
+    }
+    return conditions.join(' ');
+  }
+  function sheetPath(sheet){
+    if(!sheet.href)return sheet.ownerNode&&sheet.ownerNode.tagName==='STYLE'?'inline <style>':'stylesheet';
+    try{return decodeURIComponent(new URL(sheet.href,location.href).pathname.replace(/^\//,''))}catch(e){return sheet.href}
+  }
+  function collectRules(container,el,path,found,seen){
+    var rules;
+    try{rules=container.cssRules}catch(e){return false}
+    if(!rules)return true;
+    for(var i=0;i<rules.length;i++){
+      var rule=rules[i];
+      if(rule.cssRules&&!rule.selectorText){collectRules(rule,el,path,found,seen);continue}
+      if(!rule.selectorText||!rule.style)continue;
+      var match=matchingPart(el,rule.selectorText);
+      if(!match)continue;
+      var condition=conditionOf(rule);
+      if(condition===null)continue;
+      var key=path+'|'+rule.selectorText,ordinal=seen[key]||0;
+      seen[key]=ordinal+1;
+      found.push({
+        path:path,selector:rule.selectorText,matched:match.selector,specificity:match.triple,
+        score:match.score,condition:condition,ordinal:ordinal,order:found.length,
+        declarations:declarationsOf(rule.style)
+      });
+    }
+    return true;
+  }
+  function compareLevel(a,b){
+    for(var i=0;i<a.length;i++){if(a[i]!==b[i])return a[i]<b[i]?-1:1}
+    return 0;
+  }
+  function matchedRules(el){
+    var found=[],seen={},blocked=0,sheets=el.ownerDocument.styleSheets;
+    for(var i=0;i<sheets.length;i++){
+      if(!collectRules(sheets[i],el,sheetPath(sheets[i]),found,seen))blocked++;
+    }
+    // Later and heavier wins, and `!important` outranks both: the cascade, minus what a static archive
+    // cannot exercise.
+    var winners={};
+    function consider(declaration,rank,source){
+      var level=[declaration.important?1:0,rank[0],rank[1]],current=winners[declaration.name];
+      if(!current||compareLevel(level,current.level)>=0)winners[declaration.name]={level:level,source:source};
+    }
+    for(var f=0;f<found.length;f++){
+      for(var d=0;d<found[f].declarations.length;d++)consider(found[f].declarations[d],[found[f].score,found[f].order],found[f]);
+    }
+    var inline=declarationsOf(el.style),inlineSource={inline:true};
+    for(var n=0;n<inline.length;n++)consider(inline[n],[Number.MAX_SAFE_INTEGER,Number.MAX_SAFE_INTEGER],inlineSource);
+    for(var g=0;g<found.length;g++){
+      for(var k=0;k<found[g].declarations.length;k++){
+        found[g].declarations[k].winning=winners[found[g].declarations[k].name].source===found[g];
+      }
+    }
+    for(var m=0;m<inline.length;m++)inline[m].winning=winners[inline[m].name].source===inlineSource;
+    found.sort(function(a,b){return b.score-a.score||b.order-a.order});
+    return {rules:found,inline:inline,blocked:blocked};
+  }
+
   function attributesOf(el){
     var out=[],list=el.attributes||[];
     for(var i=0;i<list.length&&out.length<24;i++){
@@ -295,7 +422,7 @@ function(enabled){
     return out;
   }
   function detail(el,id){
-    var r=el.getBoundingClientRect(),parents=[],p=el.parentElement;
+    var r=el.getBoundingClientRect(),parents=[],p=el.parentElement,cascade=matchedRules(el);
     while(p&&parents.length<14){parents.push(ref(p));p=p.parentElement}
     var children=slice(el.children).slice(0,24).map(ref);
     var siblings=el.parentElement?slice(el.parentElement.children).filter(function(x){return x!==el}).slice(0,24).map(ref):[];
@@ -303,6 +430,8 @@ function(enabled){
       id:id||0,selector:selector(el),elementId:el.id||'',classes:slice(el.classList),tag:el.tagName.toLowerCase(),
       text:textOf(el,320),outerHtml:String(el.outerHTML||'').slice(0,6000),depth:depth(el),childCount:el.children.length,
       width:r.width,height:r.height,left:r.left,top:r.top,
+      openTag:String(el.outerHTML||'').split('>')[0].slice(0,400),
+      rules:cascade.rules,inlineStyle:cascade.inline,blockedSheets:cascade.blocked,
       attributes:attributesOf(el),styles:styles(el),parents:parents,children:children,siblings:siblings
     };
   }
@@ -346,15 +475,6 @@ function(enabled){
     var ctx=c.getContext('2d');
     ctx.setTransform(ratio,0,0,ratio,0,0);
     ctx.clearRect(0,0,w,h);
-    if(state.enabled){
-      var items=visibleElements();
-      ctx.lineWidth=1;
-      for(var i=0;i<items.length;i++){
-        var r=items[i][1];
-        ctx.strokeStyle=colorFor(items[i][0],.45);
-        ctx.strokeRect(r.left+.5,r.top+.5,Math.max(0,r.width-1),Math.max(0,r.height-1));
-      }
-    }
     for(var s=0;s<state.selection.length;s++){
       var item=state.selection[s];
       if(item.el.isConnected===false)continue;
@@ -367,17 +487,46 @@ function(enabled){
       ctx.strokeRect(sr.left+1,sr.top+1,Math.max(0,sr.width-2),Math.max(0,sr.height-2));
       badge(ctx,Math.max(0,sr.left+2),Math.max(0,sr.top+2),String(item.id),color);
     }
-    // The hover frame is drawn around the element a tap would pick, so a miss is visible before the tap.
-    if(state.enabled&&state.hover&&state.hover.isConnected!==false){
-      var hr=state.hover.getBoundingClientRect(),hc=colorFor(state.hover);
-      ctx.fillStyle=colorFor(state.hover,.22);ctx.fillRect(hr.left,hr.top,hr.width,hr.height);
-      ctx.strokeStyle=hc;ctx.lineWidth=3;ctx.strokeRect(hr.left+1.5,hr.top+1.5,Math.max(0,hr.width-3),Math.max(0,hr.height-3));
-      var label=segment(state.hover)+'  '+Math.round(hr.width)+'×'+Math.round(hr.height);
-      ctx.font='bold 11px monospace';ctx.textBaseline='middle';
-      var tw=Math.min(w-4,ctx.measureText(label).width+12),ty=Math.max(2,hr.top-21),tx=Math.max(2,Math.min(hr.left,w-tw-2));
-      ctx.fillStyle=hc;ctx.fillRect(tx,ty,tw,19);
-      ctx.fillStyle='#05070e';ctx.fillText(label,tx+6,ty+10);
-    }
+    // Only the element a tap would take, drawn as the box the browser actually laid out.
+    if(state.enabled&&state.hover&&state.hover.isConnected!==false)highlight(ctx,state.hover,w,h);
+  }
+  function sides(style,prefix,suffix){
+    return {
+      top:parseFloat(style[prefix+'Top'+suffix])||0,
+      right:parseFloat(style[prefix+'Right'+suffix])||0,
+      bottom:parseFloat(style[prefix+'Bottom'+suffix])||0,
+      left:parseFloat(style[prefix+'Left'+suffix])||0
+    };
+  }
+  function grow(box,by){return {left:box.left-by.left,top:box.top-by.top,right:box.right+by.right,bottom:box.bottom+by.bottom}}
+  function shrink(box,by){return grow(box,{left:-by.left,top:-by.top,right:-by.right,bottom:-by.bottom})}
+  /** Fills the space between two boxes, so padding reads as a ring rather than a slab over the content. */
+  function ring(ctx,outer,inner,fill){
+    ctx.fillStyle=fill;
+    ctx.beginPath();
+    ctx.rect(outer.left,outer.top,outer.right-outer.left,outer.bottom-outer.top);
+    ctx.rect(inner.left,inner.top,inner.right-inner.left,inner.bottom-inner.top);
+    ctx.fill('evenodd');
+  }
+  function highlight(ctx,el,w,h){
+    var rect=el.getBoundingClientRect(),style=getComputedStyle(el);
+    var border={left:rect.left,top:rect.top,right:rect.right,bottom:rect.bottom};
+    var margin=grow(border,sides(style,'margin','')),padding=shrink(border,sides(style,'border','Width'));
+    var content=shrink(padding,sides(style,'padding',''));
+    ring(ctx,margin,border,'rgba(255, 212, 121, 0.18)');
+    ring(ctx,border,content,'rgba(144, 118, 255, 0.24)');
+    ctx.fillStyle='rgba(121, 233, 255, 0.26)';
+    ctx.fillRect(content.left,content.top,Math.max(0,content.right-content.left),Math.max(0,content.bottom-content.top));
+    ctx.strokeStyle='#79e9ff';ctx.lineWidth=2;
+    ctx.strokeRect(border.left+1,border.top+1,Math.max(0,rect.width-2),Math.max(0,rect.height-2));
+    var label=segment(el)+'  '+Math.round(rect.width)+' × '+Math.round(rect.height);
+    ctx.font='bold 12px monospace';ctx.textBaseline='middle';
+    var tw=Math.min(w-8,ctx.measureText(label).width+16);
+    // Above the element, or just inside it when the element is against the top of the viewport.
+    var ty=rect.top>26?Math.max(2,rect.top-24):Math.min(h-24,Math.max(2,rect.top+2));
+    var tx=Math.max(2,Math.min(rect.left,w-tw-2));
+    ctx.fillStyle='#79e9ff';ctx.fillRect(tx,ty,tw,22);
+    ctx.fillStyle='#05070e';ctx.fillText(label,tx+8,ty+12);
   }
   function schedule(){if(state.frame)return;state.frame=requestAnimationFrame(function(){state.frame=0;draw()})}
 

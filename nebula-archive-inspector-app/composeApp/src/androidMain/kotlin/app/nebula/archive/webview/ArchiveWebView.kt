@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Message
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewConfiguration
 import android.webkit.ConsoleMessage
 import android.webkit.CookieManager
 import android.webkit.JavascriptInterface
@@ -25,6 +26,7 @@ import org.json.JSONObject
 import java.io.ByteArrayInputStream
 import java.io.FileInputStream
 import java.io.InputStream
+import kotlin.math.hypot
 
 const val PREVIEW_HOST = "nebula.local"
 const val PREVIEW_ORIGIN = "https://$PREVIEW_HOST/"
@@ -63,7 +65,10 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
     private var networkProfile = NetworkProfile.Unthrottled
     private var popupWindow = false
     private var loadingProgress = 0
-    private var lastInspectorHoverAtMs = 0L
+    private var touchDownX = 0f
+    private var touchDownY = 0f
+    private var touchScrolling = false
+    private val touchSlop by lazy { ViewConfiguration.get(context).scaledTouchSlop.toFloat() }
     private var performanceToken = 0
 
     var onInspected: ((List<InspectedElement>) -> Unit)? = null
@@ -233,8 +238,14 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
     // ---- picking ----------------------------------------------------------------------------------------
 
     /**
-     * While the inspector is on, touches select elements instead of reaching the page. Coordinates are
-     * converted to CSS pixels inside the page, which also keeps picking aligned in an emulated viewport.
+     * While the inspector is on, a tap picks an element - but a drag still scrolls the page.
+     *
+     * Pressing shows what is under the finger straight away, which is the only aiming a touch screen can
+     * offer; a finger that travels past the touch slop is scrolling, so the highlight is dropped and the
+     * gesture is left alone. Every event still reaches the WebView, because a page that cannot be scrolled
+     * cannot be inspected below the fold - which is what swallowing the whole gesture used to cost.
+     * Coordinates are converted to CSS pixels inside the page, which keeps picking aligned in an emulated
+     * viewport.
      */
     override fun onTouchEvent(event: MotionEvent): Boolean {
         if (!inspectorEnabled || !pageLoaded) return super.onTouchEvent(event)
@@ -243,21 +254,30 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
         val y = event.y / density
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
-                lastInspectorHoverAtMs = event.eventTime
+                touchDownX = event.x
+                touchDownY = event.y
+                touchScrolling = false
                 callInspector("hoverAt($x,$y)")
             }
-            MotionEvent.ACTION_MOVE -> if (event.eventTime - lastInspectorHoverAtMs >= HOVER_INTERVAL_MS) {
-                lastInspectorHoverAtMs = event.eventTime
-                callInspector("hoverAt($x,$y)")
+            MotionEvent.ACTION_MOVE -> if (!touchScrolling && travelled(event) > touchSlop) {
+                touchScrolling = true
+                callInspector("clearHover()")
             }
-            MotionEvent.ACTION_UP -> {
+            MotionEvent.ACTION_UP -> if (touchScrolling) {
+                callInspector("clearHover()")
+            } else {
                 performClick()
                 callInspector("pickAt($x,$y)")
             }
-            MotionEvent.ACTION_CANCEL -> callInspector("clearHover()")
+            MotionEvent.ACTION_CANCEL -> {
+                touchScrolling = false
+                callInspector("clearHover()")
+            }
         }
-        return true
+        return super.onTouchEvent(event)
     }
+
+    private fun travelled(event: MotionEvent): Float = hypot(event.x - touchDownX, event.y - touchDownY)
 
     override fun performClick(): Boolean {
         super.performClick()
@@ -509,10 +529,6 @@ class ArchiveWebView(context: Context) : WebView(context), PreviewCommands {
             }
         }
     }
-
-    private companion object {
-        const val HOVER_INTERVAL_MS = 32L
-    }
 }
 
 // ---- JSON readers ---------------------------------------------------------------------------------------
@@ -561,6 +577,30 @@ private fun readElementCandidate(json: JSONObject) = ElementCandidate(
     selected = json.optBoolean("selected"),
 )
 
+private fun readDeclarations(json: JSONObject, key: String): List<StyleDeclaration> =
+    json.optJSONArray(key)?.map {
+        StyleDeclaration(
+            name = it.optString("name"),
+            value = it.optString("value"),
+            important = it.optBoolean("important"),
+            winning = it.optBoolean("winning"),
+        )
+    }?.filter { it.name.isNotBlank() }.orEmpty()
+
+private fun readRules(json: JSONObject): List<StyleRule> =
+    json.optJSONArray("rules")?.map {
+        StyleRule(
+            path = it.optString("path"),
+            selector = it.optString("selector"),
+            specificity = it.optJSONArray("specificity")?.let { array ->
+                (0 until array.length()).map { index -> array.optInt(index) }
+            }.orEmpty(),
+            condition = it.optString("condition"),
+            ordinal = it.optInt("ordinal"),
+            declarations = readDeclarations(it, "declarations"),
+        )
+    }?.filter { it.selector.isNotBlank() }.orEmpty()
+
 private fun readInspectedElement(json: JSONObject) = InspectedElement(
     id = json.optInt("id"),
     selector = json.optString("selector"),
@@ -577,6 +617,10 @@ private fun readInspectedElement(json: JSONObject) = InspectedElement(
     top = json.optDouble("top", 0.0),
     attributes = json.properties("attributes"),
     styles = json.properties("styles"),
+    rules = readRules(json),
+    inlineStyle = readDeclarations(json, "inlineStyle"),
+    blockedSheets = json.optInt("blockedSheets"),
+    openTag = json.optString("openTag"),
     parents = json.references("parents"),
     children = json.references("children"),
     siblings = json.references("siblings"),

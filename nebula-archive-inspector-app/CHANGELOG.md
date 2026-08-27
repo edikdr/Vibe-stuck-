@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.15.0 — picking that shows the real element, and the rule behind it
+
+### Inspector
+
+- **Picking hits what is under the finger.** The stack under the point is built from `elementsFromPoint`
+  plus every `pointer-events:none` layer whose own box holds the point, ordered by CSS painting order. The
+  topmost wins, an ancestor is never substituted for it, and the rest of the stack is offered so a
+  decoration lying over a section background can be reached by hand.
+- **Only the element being aimed at is drawn**, as its real box model — content, padding and margin, each in
+  its own tint, with a label naming it and its size. Outlining every visible node at once, which is what the
+  overlay did before, buried the page it was meant to explain: on a real site it turned the screen into a
+  mesh nobody could read.
+- **The page still scrolls while the inspector is on.** A press aims, a drag past the touch slop scrolls and
+  drops the highlight, a tap picks. Before, the gesture was swallowed whole and nothing below the fold could
+  be reached.
+- **The cascade is reported, not guessed.** The preview is same-origin, so the page's own CSSOM is read:
+  every rule that applied, heaviest first, with the archive file and line it was written on, the query that
+  gated it, its specificity, and each declaration marked as winning or overridden.
+
+### Copy for AI
+
+- The block is roughly half as long for the same element. No sentences, no labels that repeat the value: the
+  rule that won with its `path:line`, the computed values no rule already states, attributes, text, and the
+  markup excerpt.
+
+### Performance test
+
+- Findings about the same file are folded into one, carrying how many times it appeared — six oversized
+  copies of one image is one problem, not six.
+- The frames right after load are no longer counted as jank; they are layout and paint finishing, and they
+  used to make every page look janky.
+
 ## 0.14.0 — concrete performance causes, per-page testing, network throttling, archive diff
 
 ### Performance test

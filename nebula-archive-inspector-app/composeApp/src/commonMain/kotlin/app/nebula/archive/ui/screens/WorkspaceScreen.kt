@@ -43,6 +43,7 @@ import app.nebula.archive.AppLocale
 import app.nebula.archive.ArchiveProject
 import app.nebula.archive.PreviewDevice
 import app.nebula.archive.findElementSources
+import app.nebula.archive.locateRules
 import app.nebula.archive.formatBytes
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -71,11 +72,14 @@ fun WorkspaceScreen(
     LaunchedEffect(state.inspected) {
         val elements = state.inspected
         if (elements.isEmpty()) return@LaunchedEffect
-        state.sources = withContext(Dispatchers.Default) {
+        // Both lookups read archive files, so they belong off the main thread and behind one pass.
+        val resolved = withContext(Dispatchers.Default) {
             elements.take(MAX_GROUP_SOURCE_LOOKUPS).associate { element ->
-                element.id to findElementSources(project, element)
+                element.id to (findElementSources(project, element) to locateRules(project, element))
             }
         }
+        state.sources = resolved.mapValues { (_, pair) -> pair.first }
+        state.ruleLines = resolved.mapValues { (_, pair) -> pair.second }
     }
 
     Column(

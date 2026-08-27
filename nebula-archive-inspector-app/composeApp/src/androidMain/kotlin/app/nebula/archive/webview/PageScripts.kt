@@ -218,12 +218,13 @@ async function(runToken){
     var shiftObserver=observe('layout-shift',shifts);
     var taskObserver=observe('longtask',tasks);
 
-    var deltas=[],last=performance.now(),frames=0;
+    // The frames right after load are layout and paint finishing; counting them as jank blames every page.
+    var deltas=[],last=performance.now(),frames=0,warmup=5;
     await new Promise(function(resolve){
       function sample(now){
-        if(frames>0)deltas.push(now-last);
+        if(frames>warmup)deltas.push(now-last);
         last=now;frames++;
-        if(frames<=60)requestAnimationFrame(sample);else resolve();
+        if(frames<=60+warmup)requestAnimationFrame(sample);else resolve();
       }
       requestAnimationFrame(sample);
     });

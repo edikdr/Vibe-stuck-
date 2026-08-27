@@ -76,6 +76,35 @@ fun findElementSources(
     return hits.sortedByDescending { it.first }.map { it.second }.take(MAX_HITS)
 }
 
+/**
+ * The line a rule was written on.
+ *
+ * The rule itself is exact - it comes from the page's own CSSOM - so this is not a search for evidence, only
+ * a lookup of where that selector stands in the file. The CSSOM normalises a selector list, so the lookup
+ * uses its first part and the rule's ordinal among identical selectors, which is what makes a repeated
+ * `.card { }` resolve to the right one instead of always the first.
+ */
+fun locateRule(project: ArchiveProject, rule: StyleRule): Int {
+    if (rule.inline || rule.path.isBlank()) return 0
+    val entry = project.file(rule.path) ?: return 0
+    if (entry.size > MAX_FILE_BYTES) return 0
+    val text = project.text(entry.path) ?: return 0
+    val needle = rule.selector.substringBefore(',').replace(Regex("\\s+"), " ").trim()
+    if (needle.isEmpty()) return 0
+    var seen = 0
+    text.lineSequence().forEachIndexed { index, raw ->
+        if (raw.replace(Regex("\\s+"), " ").trim().contains(needle)) {
+            if (seen == rule.ordinal) return index + 1
+            seen++
+        }
+    }
+    return 0
+}
+
+/** Fills in the line of every rule of one inspection, so the panel can name file and line together. */
+fun locateRules(project: ArchiveProject, element: InspectedElement): List<StyleRule> =
+    element.rules.map { rule -> rule.copy(line = locateRule(project, rule)) }
+
 private fun kindRank(kind: ArchiveKind) = when (kind) {
     ArchiveKind.Html -> 0
     ArchiveKind.Css -> 1

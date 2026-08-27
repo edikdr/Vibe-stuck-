@@ -24,6 +24,7 @@ import app.nebula.archive.RuntimePerformanceReport
 import app.nebula.archive.SelectedElement
 import app.nebula.archive.SitePerformance
 import app.nebula.archive.SourceHit
+import app.nebula.archive.StyleRule
 import app.nebula.archive.evaluateRuntimePerformance
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -99,6 +100,9 @@ class WorkspaceState(
     var inspected: List<InspectedElement> by mutableStateOf(emptyList())
         private set
     var sources: Map<Int, List<SourceHit>> by mutableStateOf(emptyMap())
+
+    /** Matched rules with their line in the archive filled in; resolved off the main thread like [sources]. */
+    var ruleLines: Map<Int, List<StyleRule>> by mutableStateOf(emptyMap())
 
     var panel: WorkspacePanel by mutableStateOf(WorkspacePanel.None)
         private set
@@ -204,6 +208,7 @@ class WorkspaceState(
         if (elements.isEmpty()) return
         inspected = elements
         sources = emptyMap()
+        ruleLines = emptyMap()
         panel = WorkspacePanel.Inspection
     }
 
@@ -241,6 +246,7 @@ class WorkspaceState(
     private fun clearInspection() {
         inspected = emptyList()
         sources = emptyMap()
+        ruleLines = emptyMap()
     }
 
     // ---- preview ----------------------------------------------------------------------------------------
