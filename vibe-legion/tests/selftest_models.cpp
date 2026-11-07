@@ -37,8 +37,8 @@ int main(int argc, char** argv) {
     if (!palm.load(dir / "palm_detection_mediapipe_2023feb.onnx", cfg, &err)) { std::printf("palm: %s\n", err.c_str()); return 1; }
     if (!hand.load(dir / "handpose_estimation_mediapipe_2023feb.onnx", cfg, &err)) { std::printf("hand: %s\n", err.c_str()); return 1; }
     if (!face.load(dir / "face_detection_yunet_2023mar.onnx", cfg, 224, 128, &err)) { std::printf("face: %s\n", err.c_str()); return 1; }
-    auto sf = dir / "face_recognition_sface_2021dec_int8.onnx";
-    if (!std::filesystem::exists(sf)) sf = dir / "face_recognition_sface_2021dec.onnx";
+    auto sf = dir / "face_recognition_sface_2021dec.onnx";
+    if (!std::filesystem::exists(sf)) sf = dir / "face_recognition_sface_2021dec_int8.onnx";
     if (!emb.load(sf, cfg, &err)) { std::printf("sface: %s\n", err.c_str()); return 1; }
     std::printf("device: %s\n", palm.device().c_str());
 
