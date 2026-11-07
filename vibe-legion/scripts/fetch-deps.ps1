@@ -29,7 +29,11 @@ $root = Split-Path -Parent $PSScriptRoot
 $third = Join-Path $root 'third_party'
 $ortDir = Join-Path $third 'onnxruntime'
 $models = Join-Path $root 'models'
-$tmp = Join-Path $env:TEMP ("vibe-legion-" + [guid]::NewGuid())
+# Scratch space lives under third_party\ (git-ignored), not %TEMP%: with a
+# non-ASCII user name %TEMP% is an 8.3 short path (C:\Users\84C4~1\...) that
+# Remove-Item in Windows PowerShell 5.1 rejects, which failed the script and
+# left ~0.5 GB behind on every run.
+$tmp = Join-Path $third (".tmp-" + [guid]::NewGuid())
 New-Item -ItemType Directory -Force -Path $third, $models, $tmp | Out-Null
 
 function Get-File($url, $out) {
@@ -104,5 +108,5 @@ try {
     Write-Host "Done." -ForegroundColor Green
 }
 finally {
-    Remove-Item -Recurse -Force $tmp -ErrorAction SilentlyContinue
+    try { [IO.Directory]::Delete($tmp, $true) } catch { Write-Warning "Could not remove $tmp : $_" }
 }
