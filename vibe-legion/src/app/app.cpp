@@ -52,6 +52,11 @@ int App::run(HINSTANCE inst, bool startMinimized) {
     const bool firstRun = !std::filesystem::exists(appDataDir() / L"settings.json");
     settings_ = loadSettings();
     faces_ = loadFaces();
+    // Pre-v4 files do not say which SFace build enrolled the faces: it was int8.
+    if (settings_.faces.embedModel.empty()) {
+        settings_.faces.embedModel = faces_.people.empty() ? "fp32" : "int8";
+        settingsDirty_ = true;
+    }
     palette_ = ui::paletteFor(settings_.ui);
     enableDarkMenus(palette_.dark);
 
@@ -93,23 +98,28 @@ int App::run(HINSTANCE inst, bool startMinimized) {
             if (main_ && main_->hwnd()) main_->state().enrollingPerson.clear();
         });
     };
-    cb.onRecorded = [this](const std::string& id, std::vector<std::array<float, 42>> samples) {
-        postToUi([this, id, samples = std::move(samples)] {
+    cb.onRecorded = [this](const std::string& id, bool ok, CustomGesture learned, std::string report) {
+        postToUi([this, id, ok, learned = std::move(learned), report = std::move(report)] {
             for (auto& g : settings_.customGestures) {
                 if (g.id != id) continue;
-                if (samples.size() < 3) {
-                    taskMessage_ = L"Рука почти не была видна — запишите «" + widen(g.name) + L"» ещё раз";
+                if (!ok) {
+                    taskMessage_ = L"«" + widen(g.name) + L"» не записан: " + widen(report);
                 } else {
-                    g.samples = samples;
-                    taskMessage_ = L"Жест «" + widen(g.name) + L"» записан (" + std::to_wstring(samples.size()) +
-                                   L" образцов) — выберите его в правиле: «Свой: " + widen(g.name) + L"»";
+                    // Keep the name, id and the user's strictness; take everything learned.
+                    const float strictness = g.strictness;
+                    const std::string name = g.name;
+                    g = learned;
+                    g.id = id;
+                    g.name = name;
+                    g.strictness = strictness;
+                    taskMessage_ = L"«" + widen(g.name) + L"» записан: " + widen(report) + L". В правиле: «Свой: " +
+                                   widen(g.name) + L"»";
                 }
             }
             if (main_ && main_->hwnd()) main_->state().recordingGesture.clear();
             settingsChanged();
         });
-    };
-    pipeline_ = std::make_unique<VisionPipeline>(exeDir() / L"models", mailbox_, camera_.get(), std::move(cb));
+    };    pipeline_ = std::make_unique<VisionPipeline>(exeDir() / L"models", mailbox_, camera_.get(), std::move(cb));
     pipeline_->setSettings(std::make_shared<Settings>(settings_));
     pipeline_->setFaceDb(std::make_shared<FaceDatabase>(faces_));
 

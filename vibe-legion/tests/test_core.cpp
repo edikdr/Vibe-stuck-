@@ -1,4 +1,5 @@
 // Portable unit tests for the core (no ONNX Runtime, no Windows).
+#include <algorithm>
 #include <cmath>
 #include <cstdio>
 #include <cstring>
@@ -262,31 +263,50 @@ static void testEngine() {
     std::vector<HandObservation> hands = {palm};
 
     int fired = 0;
-    for (int t = 0; t <= 290; t += 33) fired += static_cast<int>(e.update(hands, "", "", fc, rules, FaceGate::AnyFace, 1000 + t).size());
+    for (int t = 0; t <= 290; t += 33) fired += static_cast<int>(e.update(hands, "", "", fc, rules, 1000 + t).size());
     CHECK(fired == 0);                       // not held long enough
-    fired += static_cast<int>(e.update(hands, "", "", fc, rules, FaceGate::AnyFace, 1000 + 310).size());
+    fired += static_cast<int>(e.update(hands, "", "", fc, rules, 1000 + 310).size());
     CHECK(fired == 1);
-    for (int t = 340; t < 3000; t += 33) fired += static_cast<int>(e.update(hands, "", "", fc, rules, FaceGate::AnyFace, 1000 + t).size());
+    for (int t = 340; t < 3000; t += 33) fired += static_cast<int>(e.update(hands, "", "", fc, rules, 1000 + t).size());
     CHECK(fired == 1);                       // held: no repeat
     // release, re-show inside cooldown -> no fire; after cooldown -> fire
-    e.update({}, "", "", fc, rules, FaceGate::AnyFace, 4300);
-    for (int t = 4300; t < 6000; t += 33) fired += static_cast<int>(e.update(hands, "", "", fc, rules, FaceGate::AnyFace, t).size());
+    e.update({}, "", "", fc, rules, 4300);
+    for (int t = 4300; t < 6000; t += 33) fired += static_cast<int>(e.update(hands, "", "", fc, rules, t).size());
     CHECK(fired == 2);
 
-    // Face gate: no face -> no fire.
+    // Face is optional per rule: without the option a hand alone is enough...
     GestureEngine e3;
     FaceContext none;
     int f3 = 0;
-    for (int t = 0; t < 2000; t += 33) f3 += static_cast<int>(e3.update(hands, "", "", none, rules, FaceGate::AnyFace, t).size());
-    CHECK(f3 == 0);
+    for (int t = 0; t < 2000; t += 33) f3 += static_cast<int>(e3.update(hands, "", "", none, rules, t).size());
+    CHECK(f3 == 1);
+    // ...with it, no face -> no fire.
+    GestureEngine e3b;
+    auto faceRules = rules;
+    faceRules[0].requireFace = true;
+    int f3b = 0;
+    for (int t = 0; t < 2000; t += 33) f3b += static_cast<int>(e3b.update(hands, "", "", none, faceRules, t).size());
+    CHECK(f3b == 0);
+
+    // Context: a moving, busy or unclear hand does not hold a static gesture.
+    for (int k = 0; k < 3; ++k) {
+        GestureEngine ek;
+        auto h = palm;
+        if (k == 0) h.steady = false;
+        if (k == 1) h.busy = true;
+        if (k == 2) h.presence = 0.5f;
+        int fk = 0;
+        for (int t = 0; t < 2000; t += 33) fk += static_cast<int>(ek.update({h}, "", "", fc, rules, t).size());
+        CHECK(fk == 0);
+    }
 
     // Brief dropout (grace period) does not reset the hold.
     GestureEngine e4;
     int f4 = 0;
-    f4 += static_cast<int>(e4.update(hands, "", "", fc, rules, FaceGate::Off, 0).size());
-    f4 += static_cast<int>(e4.update(hands, "", "", fc, rules, FaceGate::Off, 150).size());
-    f4 += static_cast<int>(e4.update({}, "", "", fc, rules, FaceGate::Off, 200).size());
-    f4 += static_cast<int>(e4.update(hands, "", "", fc, rules, FaceGate::Off, 320).size());
+    f4 += static_cast<int>(e4.update(hands, "", "", fc, rules, 0).size());
+    f4 += static_cast<int>(e4.update(hands, "", "", fc, rules, 150).size());
+    f4 += static_cast<int>(e4.update({}, "", "", fc, rules, 200).size());
+    f4 += static_cast<int>(e4.update(hands, "", "", fc, rules, 320).size());
     CHECK(f4 == 1);
 }
 
@@ -366,11 +386,168 @@ static void testMotion() {
         GestureEngine e;
         FaceContext fc;
         auto a = handAt(250, 300), b = handAt(390, 300, true, false);
-        CHECK(e.update({a}, "", "", fc, {r}, FaceGate::Off, 0).empty());
-        CHECK(e.update({a, b}, "", "two_palms", fc, {r}, FaceGate::Off, 100).size() == 1);
+        CHECK(e.update({a}, "", "", fc, {r}, 0).empty());
+        CHECK(e.update({a, b}, "", "two_palms", fc, {r}, 100).size() == 1);
         std::string why;
         CHECK(!GestureEngine::handMatches(r, a, &why) && why == "нужны две руки");
     }
+}
+static HandObservation withFeat(HandObservation o) {
+    o.feat = handFeatures(o.lm, o.isRight, false);
+    o.featMirror = o.isRight ? o.feat : handFeatures(o.lm, o.isRight, true);
+    return o;
+}
+
+static RecordedFrame frameOf(std::vector<HandObservation> hs, int64_t t) {
+    RecordedFrame fr;
+    fr.t = t;
+    for (auto& h : hs) {
+        h = withFeat(h);
+        fr.hands.push_back({h.feat, h.featMirror, palmCentre(h), h.palmPx});
+    }
+    std::sort(fr.hands.begin(), fr.hands.end(), [](const RecordedHand& a, const RecordedHand& b) { return a.centre.x < b.centre.x; });
+    return fr;
+}
+
+static void testCustom3D() {
+    // Shape features ignore position, size and in-plane rotation; orientation dims don't.
+    HandLandmarks v = makeHand(false, true, true, false, false);
+    HandLandmarks rot = v;
+    const float ca = std::cos(0.7f), sa = std::sin(0.7f);
+    for (auto& p : rot.world) p = {ca * p.x - sa * p.y, sa * p.x + ca * p.y, p.z};
+    const auto fv = handFeatures(v, true, false), fr = handFeatures(rot, true, false);
+    CHECK(fv.size() == static_cast<size_t>(kHandFeat));
+    CHECK(featureDistance(fv, fr, 63) < 1e-3f);
+    CHECK(featureDistance(fv, fr) > 0.02f);  // orientation towards the camera did change
+    const auto fopen = handFeatures(makeHand(true, true, true, true, true), true, false);
+    CHECK(featureDistance(fv, fopen) > 0.15f);
+    // A mirrored left hand equals the right one.
+    HandLandmarks left = v;
+    for (auto& p : left.world) p.x = -p.x;
+    CHECK(featureDistance(handFeatures(left, false, true), fv) < 1e-3f);
+
+    // ---- learning
+    auto vAt = [](float x, float y, float scale = 1000.f) {
+        HandObservation o = observe(makeHand(false, true, true, false, false, scale, {x, y}));
+        return o;
+    };
+    {   // one hand, held still (tiny jitter) -> pose
+        std::vector<RecordedFrame> fs;
+        for (int i = 0; i < 100; ++i) fs.push_back(frameOf({vAt(300.f + (i % 3), 300)}, i * 100));
+        CustomGesture g;
+        std::string rep;
+        CHECK(learnCustomGesture(fs, g, &rep));
+        CHECK(g.kind == CustomKind::OneHand && !g.rows.empty() && g.threshold >= 0.10f && g.threshold <= 0.32f);
+    }
+    {   // too little
+        CustomGesture g;
+        std::string rep;
+        CHECK(!learnCustomGesture({frameOf({vAt(300, 300)}, 0)}, g, &rep) && !rep.empty());
+    }
+    {   // the same pose moved left-right repeatedly -> motion along X
+        std::vector<RecordedFrame> fs;
+        for (int i = 0; i < 100; ++i) fs.push_back(frameOf({vAt(300.f + 130.f * std::sin(i * 0.8f), 300)}, i * 100));
+        CustomGesture g;
+        std::string rep;
+        CHECK(learnCustomGesture(fs, g, &rep));
+        CHECK(g.kind == CustomKind::Motion && g.axis == MotionAxis::X && g.motionAmp > 0.45f);
+    }
+    {   // towards / away from the camera (the hand grows and shrinks) -> motion in depth
+        std::vector<RecordedFrame> fs;
+        for (int i = 0; i < 100; ++i) fs.push_back(frameOf({vAt(300, 300, 1000.f + 300.f * std::sin(i * 0.8f))}, i * 100));
+        CustomGesture g;
+        std::string rep;
+        CHECK(learnCustomGesture(fs, g, &rep));
+        CHECK(g.kind == CustomKind::Motion && g.axis == MotionAxis::Depth);
+    }
+    CustomGesture two;
+    {   // both hands, apart -> two-hand gesture
+        std::vector<RecordedFrame> fs;
+        for (int i = 0; i < 80; ++i) {
+            HandObservation l = observe(makeHand(true, true, true, true, true, 1000.f, {150, 300}));
+            HandObservation r = observe(makeHand(true, true, true, true, true, 1000.f, {500, 300}));
+            r.isRight = false;
+            fs.push_back(frameOf({l, r}, i * 100));
+        }
+        std::string rep;
+        CHECK(learnCustomGesture(fs, two, &rep));
+        CHECK(two.kind == CustomKind::TwoHands);
+        two.id = "cinema";
+    }
+
+    // ---- matching
+    {   // two-hand gesture: never with one hand, yes with both
+        CustomMatcher m;
+        std::vector<HandObservation> one = {withFeat(observe(makeHand(true, true, true, true, true, 1000.f, {150, 300})))};
+        m.update(one, {two}, 0);
+        CHECK(one[0].customId.empty());
+        HandObservation r = observe(makeHand(true, true, true, true, true, 1000.f, {500, 300}));
+        r.isRight = false;
+        std::vector<HandObservation> both = {one[0], withFeat(r)};
+        m.update(both, {two}, 100);
+        CHECK(both[0].customId == "cinema" && both[1].customId == "cinema");
+        // hands much closer together than recorded -> not the same gesture
+        HandObservation r2 = observe(makeHand(true, true, true, true, true, 1000.f, {220, 300}));
+        r2.isRight = false;
+        std::vector<HandObservation> close = {one[0], withFeat(r2)};
+        m.update(close, {two}, 200);
+        CHECK(close[0].customId.empty());
+    }
+    {   // motion gesture: the shape alone never fires; shape + movement does
+        std::vector<RecordedFrame> fs;
+        for (int i = 0; i < 100; ++i) fs.push_back(frameOf({vAt(300.f + 130.f * std::sin(i * 0.8f), 300)}, i * 100));
+        CustomGesture g;
+        std::string rep;
+        CHECK(learnCustomGesture(fs, g, &rep));
+        g.id = "well";
+        CustomMatcher m;
+        int still = 0, moving = 0;
+        for (int i = 0; i < 40; ++i) {
+            std::vector<HandObservation> hs = {withFeat(vAt(300, 300))};
+            still += !m.update(hs, {g}, i * 100).empty();
+        }
+        for (int i = 0; i < 40; ++i) {
+            std::vector<HandObservation> hs = {withFeat(vAt(300.f + 130.f * std::sin(i * 0.8f), 300))};
+            moving += m.update(hs, {g}, 10000 + i * 100) == "custom:well";
+        }
+        CHECK(still == 0);
+        CHECK(moving >= 1);
+        // a different shape moving the same way does not fire
+        CustomMatcher m2;
+        int other = 0;
+        for (int i = 0; i < 40; ++i) {
+            std::vector<HandObservation> hs = {withFeat(observe(makeHand(true, true, true, true, true, 1000.f, {300.f + 130.f * std::sin(i * 0.8f), 300})))};
+            other += !m2.update(hs, {g}, i * 100).empty();
+        }
+        CHECK(other == 0);
+    }
+    {   // one-hand gesture ignores a busy hand
+        std::vector<RecordedFrame> fs;
+        for (int i = 0; i < 60; ++i) fs.push_back(frameOf({vAt(300.f + (i % 3), 300)}, i * 100));
+        CustomGesture g;
+        std::string rep;
+        CHECK(learnCustomGesture(fs, g, &rep));
+        g.id = "v1";
+        CustomMatcher m;
+        std::vector<HandObservation> hs = {withFeat(vAt(300, 300))};
+        m.update(hs, {g}, 0);
+        CHECK(hs[0].customId == "v1");
+        hs[0].busy = true;
+        m.update(hs, {g}, 100);
+        CHECK(hs[0].customId.empty());
+    }
+}
+
+static void testPoseContext() {
+    // V with fingers pointing sideways (a hand around a phone) is not a "V".
+    HandLandmarks side = makeHand(false, true, true, false, false);
+    for (int i = 0; i < kHandLandmarks; ++i) {
+        auto& w = side.world[i];
+        w = {-w.y, w.x, w.z};  // rotate 90 degrees: fingers point along +x
+        side.image[i] = {320 + w.x * 1000.f, 300 + w.y * 1000.f, w.z * 1000.f};
+    }
+    CHECK(observe(side).pose != "victory");
+    CHECK(observe(makeHand(false, true, true, false, false)).pose == "victory");
 }
 static void testSettings() {
     Settings s = Settings::defaults();
@@ -412,6 +589,21 @@ static void testSettings() {
     Settings w = Settings::fromJson(v2.value);
     CHECK(w.perf.idleFps == 8 && w.rules.size() == 2 && w.rules[0].gesture == "two_spread");
     CHECK(actionFromId("zoom_out") == ActionType::ZoomOut);
+    // v4: face per rule, disabled built-ins, 3D custom gestures round-trip; old known-only gate migrates.
+    Settings x = Settings::defaults();
+    x.rules[0].requireFace = true;
+    x.disabledGestures = {"pinch"};
+    CustomGesture cg3;
+    cg3.id = "m"; cg3.kind = CustomKind::Motion; cg3.axis = MotionAxis::Depth; cg3.motionAmp = 0.8f; cg3.threshold = 0.2f;
+    cg3.rows = {std::vector<float>(kHandFeat, 0.5f)};
+    x.customGestures.push_back(cg3);
+    Settings y = Settings::fromJson(json::parse(x.toJson().dump()).value);
+    CHECK(y.rules[0].requireFace && !y.gestureEnabled("pinch") && y.gestureEnabled("fist"));
+    CHECK(y.customGestures.size() == 1 && y.customGestures[0].kind == CustomKind::Motion && y.customGestures[0].axis == MotionAxis::Depth);
+    CHECK(y.customGestures[0].rows.size() == 1 && y.customGestures[0].rows[0].size() == static_cast<size_t>(kHandFeat));
+    auto v3 = json::parse(R"({"version": 3, "faces": {"gate": "known_only"}, "rules": [{"gesture": "fist"}]})");
+    Settings z = Settings::fromJson(v3.value);
+    CHECK(z.rules[0].person == PersonFilter::AnyKnown && !z.rules[0].requireFace);
     CHECK(actionFromId("next_window") == ActionType::NextWindow);
     CHECK(std::string(actionId(ActionType::ScreenshotFull)) == "screenshot_full");
     CHECK(actionFromId("media_next") == ActionType::MediaNext);
@@ -495,6 +687,8 @@ int main() {
     testTemplates();
     testEngine();
     testMotion();
+    testCustom3D();
+    testPoseContext();
     testSettings();
     testFaceDb();
     testImage();

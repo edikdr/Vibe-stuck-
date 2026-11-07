@@ -75,19 +75,38 @@ struct GestureRule {
     int repeatMs = 250;
     PersonFilter person = PersonFilter::Anyone;
     std::string personId;    // for Specific
+    bool requireFace = false;  // v4: a face must be in the frame (was a global, always-on gate)
     bool requireLooking = false;
     Action action;
 };
+
+enum class CustomKind { OneHand, TwoHands, Motion };
+enum class MotionAxis { X, Y, Depth };  // depth = towards / away from the camera
 
 struct CustomGesture {
     std::string id;
     std::string name;
     bool rotationInvariant = true;
     bool mirrorInvariant = true;   // left and right hands match the same template
-    float tolerance = 0.22f;       // RMS distance in palm-length units
-    std::vector<std::array<float, 42>> samples;
 
-    static constexpr int kRecordMs = 8000;     // how long a recording lasts
+    // v4 recordings: 3D hand shape in the palm's own frame + palm orientation
+    // (handFeatures(), kHandFeat floats). TwoHands rows: left-in-image hand,
+    // right-in-image hand, then their offset in palm lengths (2 floats).
+    CustomKind kind = CustomKind::OneHand;
+    std::vector<std::vector<float>> rows;
+    float threshold = 0.f;     // acceptance distance learned from the recording's own spread
+    float strictness = 1.f;    // user scale on the threshold: < 1 stricter, > 1 looser
+    MotionAxis axis = MotionAxis::X;
+    float motionAmp = 0.f;     // peak-to-peak of the movement (palm lengths; depth: log-size units)
+    float motionPeriodMs = 0.f;
+
+    // v1-v3 recordings: flat 2D outline of one hand. Still matched, but should be re-recorded.
+    float tolerance = 0.22f;   // RMS distance in palm-length units
+    std::vector<std::array<float, 42>> samples;
+    bool legacy() const { return rows.empty() && !samples.empty(); }
+    bool recorded() const { return !rows.empty() || !samples.empty(); }
+
+    static constexpr int kRecordMs = 10000;    // long enough for several cycles of a movement
     static constexpr size_t kMaxSamples = 64;  // kept after de-duplication
 };
 
@@ -116,10 +135,14 @@ struct CameraSettings {
 };
 
 struct FaceSettings {
-    FaceGate gate = FaceGate::AnyFace;
+    FaceGate gate = FaceGate::Off;  // v1-v3 global gate; v4 turns it into per-rule options (migration only)
     float matchThreshold = 0.40f;  // cosine similarity (SFace reference: 0.363)
     float lookingTolerance = 0.45f;  // |yaw|,|pitch| below this = looking at screen
     int recognizeEveryMs = 1000;   // v3: was 2000 (fp32 SFace is 7x cheaper)
+    // Which SFace build the enrolled samples come from. Samples of one build do not match
+    // the other well, so a database recorded with int8 keeps using int8 until re-recorded.
+    // "" = unknown (pre-v4 file): the app decides from whether faces exist.
+    std::string embedModel = "fp32";
 };
 
 struct PerformanceSettings {
@@ -150,8 +173,9 @@ struct UiSettings {
 };
 
 struct Settings {
-    // 2: no distance window, swipe rules, window actions; 3: two-hand rules, zoom, faster idle rate
-    static constexpr int kVersion = 3;
+    // 2: no distance window, swipe rules, window actions; 3: two-hand rules, zoom, faster idle rate;
+    // 4: face requirement per rule, 3D custom gestures, disabled built-ins, minimum hold
+    static constexpr int kVersion = 4;
     int version = kVersion;
     bool enabled = true;  // global recognition on/off
     CameraSettings camera;
@@ -160,6 +184,8 @@ struct Settings {
     UiSettings ui;
     std::vector<GestureRule> rules;
     std::vector<CustomGesture> customGestures;
+    std::vector<std::string> disabledGestures;  // built-in gesture ids the user switched off
+    bool gestureEnabled(const std::string& id) const;
 
     static Settings defaults();
     json::Value toJson() const;

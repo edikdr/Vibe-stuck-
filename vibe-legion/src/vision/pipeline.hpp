@@ -74,7 +74,9 @@ struct PipelineSnapshot {
 struct PipelineCallbacks {
     std::function<void(const GestureEvent&)> onGesture;
     std::function<void(const std::string& personId, std::vector<Embedding>, bool ir)> onEnrolled;
-    std::function<void(const std::string& gestureId, std::vector<std::array<float, 42>>)> onRecorded;
+    // ok = false: unusable recording (report says why). Otherwise learned carries kind,
+    // rows, threshold and movement; report is a one-line Russian summary.
+    std::function<void(const std::string& gestureId, bool ok, CustomGesture learned, std::string report)> onRecorded;
     std::function<void()> onSnapshot;  // throttled (~15 Hz while previewing, 2 Hz otherwise)
 };
 
@@ -139,11 +141,13 @@ private:
     std::string loadedKey_;
     std::string modelError_;
     int64_t embedderLastUse_ = 0;
+    std::string embedModelLoaded_;
 
     NightVision night_;
     IrFrameSelector irSel_;
     GestureEngine engine_;
     TwoHandDetector twoHands_;
+    CustomMatcher custom_;
 
     // Up to two tracked hands. Each keeps its own landmark filter, movement detector
     // and a short pose history (majority vote against single-frame flicker).
@@ -153,6 +157,7 @@ private:
         std::array<OneEuro, kHandLandmarks * 2> filter;
         MotionDetector motion;
         std::deque<std::string> poses;
+        std::deque<std::pair<int64_t, Vec2>> path;  // palm centre, last 0.3 s (speed)
     };
     std::array<Track, 2> tracks_;
     int64_t lastPalmScanMs_ = -100000;
@@ -178,7 +183,7 @@ private:
     struct Enroll { std::string person; int durationMs = 10000; std::vector<Embedding> got; bool ir = false;
                     int64_t start = 0, last = 0; };
     struct Record { std::string id; bool rot = true, mir = true; int ms = CustomGesture::kRecordMs; int64_t start = 0;
-                    std::vector<std::array<float, 42>> got; };
+                    std::vector<RecordedFrame> frames; };
     std::mutex taskMutex_;
     std::unique_ptr<Enroll> enroll_;
     std::unique_ptr<Record> record_;

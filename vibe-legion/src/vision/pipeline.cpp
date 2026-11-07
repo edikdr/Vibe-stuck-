@@ -51,6 +51,7 @@ void VisionPipeline::resetTrack(Track& t) {
     for (auto& f : t.filter) f = OneEuro(2.0f, 0.03f, 1.0f);
     t.motion.reset();
     t.poses.clear();
+    t.path.clear();
 }
 
 VisionPipeline::~VisionPipeline() { stop(); }
@@ -253,16 +254,18 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
     const bool handActive = now - lastHandMs_ < s.perf.idleAfterMs;
     bool needRecognition = false;
     if (!db->people.empty()) {
-        needRecognition = s.faces.gate == FaceGate::KnownOnly || previewWanted_;
+        needRecognition = previewWanted_;
         for (const auto& r : s.rules)
             if (r.enabled && r.person != PersonFilter::Anyone) needRecognition = true;
     }
     std::unique_lock<std::mutex> tlk(taskMutex_);
     const bool enrolling = enroll_ != nullptr;
     tlk.unlock();
-    const bool needFaces = s.faces.gate != FaceGate::Off || needRecognition || enrolling || previewWanted_ ||
+    // Faces are only looked for when a rule asks for them (or the window shows them):
+    // no rule with a face condition = no face model running at all.
+    const bool needFaces = needRecognition || enrolling || previewWanted_ ||
                            std::any_of(s.rules.begin(), s.rules.end(), [](const GestureRule& r) {
-                               return r.enabled && (r.requireLooking || r.person != PersonFilter::Anyone);
+                               return r.enabled && (r.requireFace || r.requireLooking || r.person != PersonFilter::Anyone);
                            });
     if (needFaces && face_.ok() && now - lastFaceRunMs_ >= (handActive ? 300 : 0)) {
         lastFaceRunMs_ = now;
@@ -299,8 +302,9 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
                 std::string err;
                 // fp32 first: on Zen 5 it runs in ~15 ms vs ~110 ms for the int8 build
                 // (no fast int8 path for this graph in the CPU EP) and is more accurate.
-                const char* first = s.perf.int8Models ? "face_recognition_sface_2021dec_int8.onnx" : "face_recognition_sface_2021dec.onnx";
-                const char* second = s.perf.int8Models ? "face_recognition_sface_2021dec.onnx" : "face_recognition_sface_2021dec_int8.onnx";
+                const bool int8 = s.faces.embedModel == "int8";  // must match how the faces were enrolled
+                const char* first = int8 ? "face_recognition_sface_2021dec_int8.onnx" : "face_recognition_sface_2021dec.onnx";
+                const char* second = int8 ? "face_recognition_sface_2021dec.onnx" : "face_recognition_sface_2021dec_int8.onnx";
                 auto p = modelsDir_ / first;
                 if (!std::filesystem::exists(p)) p = modelsDir_ / second;
                 embedder_.load(p, cfg, &err);
@@ -365,6 +369,8 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
         faceRecognizedMs_.clear();
     }
     if (embedder_.ok() && !needRecognition && !enrolling && now - embedderLastUse_ > 120000) embedder_.unload();
+    if (embedder_.ok() && embedModelLoaded_ != s.faces.embedModel) embedder_.unload();  // switched build
+    embedModelLoaded_ = s.faces.embedModel;
 
     // ---- hands (up to two)
     std::string dynamic;
@@ -426,22 +432,60 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
         // Majority of the last 3 frames: one misread frame no longer breaks a hold.
         tr.poses.push_back(o.pose);
         while (tr.poses.size() > 3) tr.poses.pop_front();
+        o.pose.clear();
         for (const auto& cand : tr.poses)
             if (!cand.empty() && std::count(tr.poses.begin(), tr.poses.end(), cand) >= 2) { o.pose = cand; break; }
-        matchCustom(o, s.customGestures);
-        hands.push_back(o);
+        if (!o.pose.empty() && !s.gestureEnabled(o.pose)) o.pose.clear();  // switched off by the user
+
+        // Context: how sure the model is, whether the whole hand is visible, how fast it moves.
+        o.presence = raw.presence;
+        const float mx = rgb.width * 0.01f, my = rgb.height * 0.01f;
+        for (const auto& p : raw.image)
+            if (p.x < mx || p.y < my || p.x > rgb.width - mx || p.y > rgb.height - my) o.inFrame = false;
+        const Vec2 c = palmCentre(o);
+        tr.path.push_back({now, c});
+        while (tr.path.size() > 2 && now - tr.path.front().first > 300) tr.path.pop_front();
+        if (tr.path.size() >= 2 && now > tr.path.front().first) {
+            const float dtS = static_cast<float>(now - tr.path.front().first) / 1000.f;
+            o.speed = length(c - tr.path.front().second) / std::max(1.f, o.palmPx) / dtS;
+        }
+        o.steady = o.speed < 1.5f;  // palm lengths per second: talking hands move faster
+        o.feat = handFeatures(raw, o.isRight, false);
+        o.featMirror = o.isRight ? o.feat : handFeatures(raw, o.isRight, true);
+        hands.push_back(std::move(o));
     }
-    // Larger (closer) hand first: it is "the" hand for one-hand displays and recording.
+    // Larger (closer) hand first: it is "the" hand for one-hand displays.
     if (hands.size() == 2 && hands[1].palmPx > hands[0].palmPx) std::swap(hands[0], hands[1]);
+    // Two hands right next to each other are holding something or typing: their
+    // finger shapes (a "V" around a phone) are not gestures.
+    if (hands.size() == 2) {
+        const float palm = std::max(1.f, 0.5f * (hands[0].palmPx + hands[1].palmPx));
+        if (length(palmCentre(hands[0]) - palmCentre(hands[1])) < 2.0f * palm) hands[0].busy = hands[1].busy = true;
+    }
     const bool found = !hands.empty();
     twoTracked_ = hands.size() >= 2;
     if (found) lastHandMs_ = now;
+
+    // Custom gestures (one hand, two hands, with movement).
+    const std::string customMove = custom_.update(hands, s.customGestures, now);
+
+    // Swipes are held back briefly only if some rule needs to tell them from waving.
+    bool oscillation = false;
+    for (const auto& r : s.rules) {
+        if (!r.enabled) continue;
+        if (r.gesture == "wave") oscillation = true;
+        if (r.gesture.rfind("custom:", 0) == 0)
+            for (const auto& cg : s.customGestures)
+                if ("custom:" + cg.id == r.gesture && cg.kind == CustomKind::Motion) oscillation = true;
+    }
+    for (auto& tr : tracks_) tr.motion.setOscillationAware(oscillation);
 
     // Movements. With two hands up, their joint movement wins (spreading the hands
     // would otherwise also read as a left swipe plus a right swipe).
     const HandObservation* h0 = hands.size() >= 1 ? &hands[0] : nullptr;
     const HandObservation* h1 = hands.size() >= 2 ? &hands[1] : nullptr;
-    const std::string twoPose = twoHands_.staticPose(h0, h1);
+    std::string twoPose = twoHands_.staticPose(h0, h1);
+    if (!twoPose.empty() && !s.gestureEnabled(twoPose)) twoPose.clear();
     if (auto g = twoHands_.update(h0, h1, now); !g.empty()) {
         dynamic = g;
         for (auto& tr : tracks_) tr.motion.reset();
@@ -452,24 +496,37 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
     } else if (hands.size() == 2) {
         for (auto& tr : tracks_) tr.motion.reset();
     }
+    if (!dynamic.empty() && !s.gestureEnabled(dynamic)) dynamic.clear();
+    if (!customMove.empty()) dynamic = customMove;  // a recorded movement beats a generic one
     if (!dynamic.empty()) { lastDynamic_ = dynamic; lastDynamicMs_ = now; }
 
-    if (found) {
-        tlk.lock();
-        if (record_) {
-            if (record_->start == 0) record_->start = now;
-            record_->got.push_back(handTemplate(hands[0].lm, hands[0].isRight, record_->rot, record_->mir));
+    // ---- recording a custom gesture: every frame, all hands, for the analysis at the end
+    tlk.lock();
+    if (record_) {
+        if (found && record_->start == 0) record_->start = now;
+        if (record_->start != 0) {
+            RecordedFrame fr;
+            fr.t = now;
+            for (const auto& h : hands) {
+                if (!h.reliable()) continue;
+                fr.hands.push_back({h.feat, h.featMirror, palmCentre(h), h.palmPx});
+            }
+            std::sort(fr.hands.begin(), fr.hands.end(),
+                      [](const RecordedHand& a, const RecordedHand& b) { return a.centre.x < b.centre.x; });
+            record_->frames.push_back(std::move(fr));
         }
-        tlk.unlock();
     }
     const HandObservation obs = found ? hands[0] : HandObservation{};
-    // ---- gesture recording finishes on time even if the hand left the frame
-    tlk.lock();
+    // Finishes on time even if the hand left the frame.
     if (record_ && record_->start != 0 && now - record_->start >= record_->ms) {
         auto done = std::move(record_);
         tlk.unlock();
-        auto keep = condenseSamples(done->got, CustomGesture::kMaxSamples);
-        if (cb_.onRecorded) cb_.onRecorded(done->id, std::move(keep));
+        CustomGesture learned;
+        learned.mirrorInvariant = done->mir;
+        learned.rotationInvariant = done->rot;
+        std::string report;
+        const bool ok = learnCustomGesture(done->frames, learned, &report);
+        if (cb_.onRecorded) cb_.onRecorded(done->id, ok, std::move(learned), std::move(report));
     } else {
         tlk.unlock();
     }
@@ -481,7 +538,7 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
         fc.looking = fc.looking || f.looking;
         if (!f.personId.empty()) fc.people.push_back(f.personId);
     }
-    auto events = engine_.update(hands, dynamic, twoPose, fc, s.rules, s.faces.gate, now);
+    auto events = engine_.update(hands, dynamic, twoPose, fc, s.rules, now);
     for (const auto& e : events)
         if (cb_.onGesture) cb_.onGesture(e);
 
@@ -524,8 +581,8 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
             else sn.whyNot = "условия выполнены";
         }
         else if (!GestureEngine::handMatches(r, obs, &sn.whyNot)) {}
-        else if (s.faces.gate == FaceGate::AnyFace && !fc.anyFace) sn.whyNot = "нет лица в кадре";
-        else if (s.faces.gate == FaceGate::KnownOnly && fc.people.empty()) sn.whyNot = "лицо не распознано";
+        else if (r.requireFace && !fc.anyFace) sn.whyNot = "нет лица в кадре";
+        else if (r.person != PersonFilter::Anyone && fc.people.empty()) sn.whyNot = "лицо не распознано";
         else sn.whyNot = "условия выполнены";
         break;
     }
@@ -611,6 +668,7 @@ void VisionPipeline::run() {
         if (paused_ || !s->enabled) {
             for (auto& tr : tracks_) resetTrack(tr);
             twoHands_.reset();
+            custom_.reset();
             engine_.reset();
             mailbox_.clear();
             publishMode(PipelineMode::Paused, s->enabled ? reason : "Распознавание выключено");

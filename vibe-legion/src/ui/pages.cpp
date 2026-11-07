@@ -292,7 +292,7 @@ void drawOverview(Gui& g, App& app, UiState& st, const RectF& area) {
         }
         line(glyph::Contact, L"Лица", v, p.text);
     } else {
-        line(glyph::Contact, L"Лица", app.settings().faces.gate == FaceGate::Off ? L"проверка выключена" : L"нет в кадре", p.textDim);
+        line(glyph::Contact, L"Лица", L"нет в кадре", p.textDim);
     }
     const bool anyRule = std::any_of(app.settings().rules.begin(), app.settings().rules.end(), [](const GestureRule& r) { return r.enabled; });
     line(glyph::Info, L"Правило", anyRule ? (s.whyNot.empty() ? L"—" : widen(s.whyNot)) : L"нет включённых правил", p.text);
@@ -366,11 +366,12 @@ void ruleEditor(Gui& g, App& app, UiState& st, Column& col, GestureRule& r, size
     std::vector<std::wstring> gnames;
     std::vector<std::string> gids;
     for (const auto& cg : S.customGestures) {
-        gnames.push_back(L"Свой: " + widen(cg.name) + (cg.samples.empty() ? L" (не записан)" : L""));
+        gnames.push_back(L"Свой: " + widen(cg.name) + (!cg.recorded() ? L" (не записан)" : cg.legacy() ? L" (старая запись)" : L""));
         gids.push_back("custom:" + cg.id);
     }
     for (const auto& b : builtinGestures()) {
-        gnames.push_back(widen(b.nameRu));
+        if (!S.gestureEnabled(b.id) && r.gesture != b.id) continue;  // switched-off built-ins are hidden
+        gnames.push_back(widen(b.nameRu) + (S.gestureEnabled(b.id) ? L"" : L" (отключён)"));
         gids.push_back(b.id);
     }
     int gsel = static_cast<int>(std::find(gids.begin(), gids.end(), r.gesture) - gids.begin());
@@ -433,6 +434,9 @@ void ruleEditor(Gui& g, App& app, UiState& st, Column& col, GestureRule& r, size
         else { r.person = PersonFilter::Specific; r.personId = app.faces().people[wsel - 2].id; }
         ch = true;
     }
+    rr = settingRow(g, col, glyph::Contact, L"Только когда в кадре есть лицо",
+                    L"Отсекает срабатывания, когда вы отошли от компьютера. Выключено — лицо не нужно");
+    if (g.toggle("face", rr, r.requireFace)) ch = true;
     rr = settingRow(g, col, glyph::Eye, L"Только когда смотрю на экран", L"Голова повёрнута к камере");
     if (g.toggle("look", rr, r.requireLooking)) ch = true;
 
@@ -546,6 +550,7 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
         std::wstring sub = gestureName(app, r.gesture);
         const auto* bg = findBuiltin(r.gesture);
         if (r.holdMs > 0 && !(bg && bg->dynamic)) sub += L" · " + fmtMs(static_cast<float>(r.holdMs));
+        if (r.requireFace) sub += L" · с лицом";
         if (r.person == PersonFilter::AnyKnown) sub += L" · знакомые";
         if (r.person == PersonFilter::Specific) sub += L" · один человек";
         sub += L" → " + describeAction(r.action);
@@ -582,24 +587,43 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
     section(g, col, L"Свои жесты");
     {
         const Color& m = p.textDim;
-        g.label(L"Покажите позу руки 8 секунд, слегка поворачивая кисть, — она появится в списке «Жест» правил как «Свой: …».",
-                col.next(20), 12.5f, &m);
+        g.label(L"Запись идёт 10 секунд. Приложение само поймёт, что вы показали: позу одной рукой, позу двумя руками "
+                L"(держите обе в кадре всё время) или позу с движением (повторяйте движение всю запись — сработает только "
+                L"с ним). Слегка меняйте наклон кисти, чтобы жест узнавался под разными углами.",
+                col.next(54), 12.5f, &m, Weight::Regular, Align::Start, Align::Start, true);
     }
     for (size_t i = 0; i < S.customGestures.size(); ++i) {
         CustomGesture& cg = S.customGestures[i];
         g.pushId("cg" + cg.id);
         const RectF row = col.next(64);
         g.card(row, 8);
-        c.icon(glyph::Record, {row.x + 16, row.y, 22, row.h}, p.accent, 16.f);
-        c.text(widen(cg.name), {row.x + 54, row.y + 12, 260, 20}, p.text, 14.f, Weight::Semibold);
-        c.text(std::to_wstring(cg.samples.size()) + L" образцов · допуск", {row.x + 54, row.y + 33, 260, 18}, p.textDim, 12.f);
-        if (g.slider("tol", {row.x + 330, row.y + 15, std::max(120.f, row.w - 700), 34}, cg.tolerance, 0.08f, 0.5f, 0.01f,
-                     [](float v) { return fmt1(v * 100.f, L" %"); }))
-            app.settingsChanged();
-        const bool live = s.hasHand && s.hand.customId == cg.id;
-        if (live) g.pill({row.right() - 330, row.y + 21, 70, 22}, L"сейчас", p.success);
+        c.icon(cg.kind == CustomKind::Motion ? glyph::Swap : glyph::Record, {row.x + 16, row.y, 22, row.h}, p.accent, 16.f);
+        c.text(widen(cg.name), {row.x + 54, row.y + 12, 300, 20}, p.text, 14.f, Weight::Semibold);
+        std::wstring kind;
+        if (!cg.recorded()) kind = L"не записан";
+        else if (cg.legacy()) kind = L"старая 2D-запись — нажмите «Заново»";
+        else if (cg.kind == CustomKind::TwoHands) kind = L"две руки";
+        else if (cg.kind == CustomKind::Motion)
+            kind = cg.axis == MotionAxis::Depth ? L"движение к камере и обратно" : cg.axis == MotionAxis::X ? L"движение влево-вправо" : L"движение вверх-вниз";
+        else kind = L"одна рука";
+        if (cg.recorded()) kind += L" · " + std::to_wstring(cg.legacy() ? cg.samples.size() : cg.rows.size()) + L" обр.";
+        c.text(kind, {row.x + 54, row.y + 33, 300, 18}, cg.legacy() ? p.warning : p.textDim, 12.f);
+        // Strictness: left = stricter (fewer false triggers), right = looser.
+        const RectF sr{row.x + 370, row.y + 15, std::max(120.f, row.w - 740), 34};
+        if (cg.legacy()) {
+            if (g.slider("tol", sr, cg.tolerance, 0.08f, 0.5f, 0.01f, [](float v) { return fmt1(v * 100.f, L" %"); }))
+                app.settingsChanged();
+        } else if (cg.recorded()) {
+            if (g.slider("strict", sr, cg.strictness, 0.6f, 1.6f, 0.05f,
+                         [](float v) { return v < 0.95f ? std::wstring(L"строже") : v > 1.05f ? std::wstring(L"мягче") : std::wstring(L"обычно"); }))
+                app.settingsChanged();
+            g.tooltip(sr, L"Левее — строже: меньше ложных срабатываний, но жест нужно показывать точнее");
+        }
+        const bool live = (s.hasHand && s.hand.customId == cg.id) || (s.hasSecondHand && s.hand2.customId == cg.id) ||
+                          s.lastDynamic == "custom:" + cg.id;
+        if (live) g.pill({row.right() - 300, row.y + 21, 70, 22}, L"сейчас", p.success);
         const bool recording = st.recordingGesture == cg.id && s.recordProgress >= 0.f;
-        if (recording) g.progressRing({row.right() - 230, row.y + row.h / 2}, 11, s.recordProgress, p.accent);
+        if (recording) g.progressRing({row.right() - 220, row.y + row.h / 2}, 11, s.recordProgress, p.accent);
         if (g.button("rerec", {row.right() - 206, row.y + 15, 92, 34}, L"Заново", ButtonKind::Standard, nullptr, !recording)) {
             st.recordingGesture = cg.id;
             app.startRecording(cg.id);
@@ -618,9 +642,9 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
     {
         const RectF row = col.next(64);
         g.card(row, 8);
-        g.textField("newgest", {row.x + 16, row.y + 15, 280, 34}, st.newGestureName, L"Название, например «Три пальца вбок»", 40);
+        g.textField("newgest", {row.x + 16, row.y + 15, 280, 34}, st.newGestureName, L"Название, например «Колодец»", 40);
         const bool busy = !st.recordingGesture.empty() && s.recordProgress >= 0.f;
-        if (g.button("rec", {row.x + 308, row.y + 15, 200, 34}, L"Записать 8 секунд", ButtonKind::Accent, glyph::Record,
+        if (g.button("rec", {row.x + 308, row.y + 15, 200, 34}, L"Записать 10 секунд", ButtonKind::Accent, glyph::Record,
                      !busy && !st.newGestureName.empty())) {
             CustomGesture ng;
             ng.id = newId();
@@ -633,9 +657,48 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
         }
         if (busy) {
             g.progressRing({row.x + 540, row.y + row.h / 2}, 12, s.recordProgress, p.accent);
-            c.text(widen(s.taskHint), {row.x + 562, row.y, row.w - 580, row.h}, p.textDim, 12.5f);
+            c.text(widen(s.taskHint), {row.x + 562, row.y, row.w - 580, row.h}, p.textDim, 12.5f, Weight::Regular, Align::Start,
+                   Align::Center, true);
         } else if (!app.lastTaskMessage().empty()) {
-            c.text(app.lastTaskMessage(), {row.x + 524, row.y, row.w - 540, row.h}, p.textDim, 12.5f);
+            c.text(app.lastTaskMessage(), {row.x + 524, row.y, row.w - 540, row.h}, p.textDim, 12.5f, Weight::Regular,
+                   Align::Start, Align::Center, true);
+        }
+    }
+
+    // Built-in gestures: the user can switch off the ones that misfire for them.
+    section(g, col, L"Встроенные жесты");
+    {
+        const Color& m = p.textDim;
+        g.label(L"Выключенный жест не распознаётся и исчезает из списка «Жест». Правила с ним перестают срабатывать.",
+                col.next(20), 12.5f, &m);
+    }
+    {
+        const auto& all = builtinGestures();
+        const float cellW = (col.w - 10) / 2, cellH = 44;
+        const size_t rows = (all.size() + 1) / 2;
+        const RectF box = col.next(rows * (cellH + 6));
+        for (size_t i = 0; i < all.size(); ++i) {
+            const auto& b = all[i];
+            const RectF cell{box.x + (i % 2) * (cellW + 10), box.y + (i / 2) * (cellH + 6), cellW, cellH};
+            g.card(cell, 7);
+            bool on = S.gestureEnabled(b.id);
+            c.text(widen(b.nameRu), {cell.x + 16, cell.y, cell.w - 90, cell.h}, on ? p.text : p.textMuted, 13.5f);
+            if (b.twoHands || b.dynamic)
+                c.text(b.twoHands ? L"2 руки" : L"движение", {cell.right() - 150, cell.y, 70, cell.h}, p.textMuted, 11.5f,
+                       Weight::Regular, Align::End);
+            if (g.toggle(std::string("bi_") + b.id, {cell.right() - 60, cell.y, 48, cell.h}, on, false)) {
+                auto& d = S.disabledGestures;
+                if (on) d.erase(std::remove(d.begin(), d.end(), std::string(b.id)), d.end());
+                else d.push_back(b.id);
+                app.settingsChanged();
+            }
+        }
+    }
+    if (!S.disabledGestures.empty()) {
+        const RectF r = col.next(40);
+        if (g.button("bi_restore", {r.x, r.y, 220, 36}, L"Вернуть все встроенные", ButtonKind::Standard, glyph::Refresh)) {
+            S.disabledGestures.clear();
+            app.settingsChanged();
         }
     }
 }
@@ -675,12 +738,23 @@ void drawFaces(Gui& g, App& app, UiState& st, const RectF& area) {
         }
     }
 
-    section(g, col, L"Проверка лица");
-    int gate = static_cast<int>(S.faces.gate);
-    RectF rr = settingRow(g, col, glyph::Shield, L"Жесты работают, если в кадре",
-                          L"«Любое лицо» отсекает случайные срабатывания, когда вы отошли. «Только знакомые» — когда рядом другие люди.", 360);
-    if (g.segmented("gate", rr, gate, {L"Не важно", L"Любое лицо", L"Знакомые"})) { S.faces.gate = static_cast<FaceGate>(gate); app.settingsChanged(); }
-    rr = settingRow(g, col, glyph::Contact, L"Порог узнавания",
+    if (S.faces.embedModel == "int8" && !db.people.empty()) {
+        const RectF r = settingRow(g, col, glyph::Warning, L"Лица записаны старой моделью",
+                                   L"Новая модель узнавания точнее и в 7 раз быстрее, но старые образцы ей не подходят. "
+                                   L"Переход сотрёт образцы (имена останутся) — затем нажмите «Дописать» у каждого человека.", 220);
+        if (confirmButton(g, st, "embed_fp32", r, L"Перейти на точную")) {
+            for (auto& pp : db.people) { pp.rgb.clear(); pp.ir.clear(); }
+            S.faces.embedModel = "fp32";
+            app.facesChanged();
+            app.settingsChanged();
+        }
+    }    section(g, col, L"Узнавание");
+    {
+        const Color& m = p.textDim;
+        g.label(L"Лицо для жестов не обязательно. Нужно ли оно, выбирается в каждом правиле: «Только когда в кадре есть лицо», «Кто может подавать жест».",
+                col.next(36), 12.5f, &m, Weight::Regular, Align::Start, Align::Start, true);
+    }
+    RectF rr = settingRow(g, col, glyph::Contact, L"Порог узнавания",
                     L"Выше — строже (меньше ложных узнаваний, но иногда «не узнаёт»). Рекомендуется 36–45 %.");
     if (g.slider("thr", rr, S.faces.matchThreshold, 0.25f, 0.7f, 0.01f, [](float v) { return fmt1(v * 100, L" %"); })) app.settingsChanged();
     rr = settingRow(g, col, glyph::Eye, L"Допуск «смотрит на экран»", L"Насколько можно повернуть голову");
@@ -975,7 +1049,7 @@ void drawSystem(Gui& g, App& app, UiState& st, const RectF& area) {
     {
         const RectF r = col.next(132);
         g.card(r, 8);
-        c.text(L"Vibe Hand 0.2 — фоновое управление жестами для Lenovo Legion 7 (15ASH11)", {r.x + 18, r.y + 14, r.w - 36, 20}, p.text, 14.f, Weight::Semibold);
+        c.text(L"Vibe Hand 0.3 — фоновое управление жестами для Lenovo Legion 7 (15ASH11)", {r.x + 18, r.y + 14, r.w - 36, 20}, p.text, 14.f, Weight::Semibold);
         c.text(L"Нейросети: MediaPipe Palm Detection + Hand Landmark (Apache-2.0), YuNet (MIT), SFace (Apache-2.0) — "
                L"в сборке OpenCV Zoo. Инференс: ONNX Runtime (MIT). Интерфейс: Direct2D. Всё работает локально, "
                L"ничего не отправляется в сеть.",

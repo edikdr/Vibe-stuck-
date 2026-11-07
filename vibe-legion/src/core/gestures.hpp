@@ -26,7 +26,8 @@ const BuiltinGesture* findBuiltin(const std::string& id);
 
 struct FingerState {
     // thumb, index, middle, ring, pinky
-    std::array<bool, 5> extended{};
+    std::array<bool, 5> extended{};  // clearly straight
+    std::array<bool, 5> curled{};    // clearly bent (neither = grey zone)
     std::array<float, 5> curl{};  // 0 = straight .. 1 = fully curled
     int count() const { int n = 0; for (bool e : extended) n += e; return n; }
 };
@@ -39,9 +40,21 @@ struct HandObservation {
     float palmPx = 0.f;        // wrist -> middle MCP, pixels
     std::string pose;           // best built-in static pose id ("" = none)
     float poseConfidence = 0.f;
-    std::string customId;       // matched custom template ("" = none)
+    std::string customId;       // matched custom gesture ("" = none)
     float customConfidence = 0.f;
+
+    // Context, filled by the pipeline (defaults = a clean, still, fully visible hand).
+    std::vector<float> feat;        // handFeatures() as seen
+    std::vector<float> featMirror;  // a left hand mirrored into a right one (== feat for a right hand)
+    float presence = 1.f;           // landmark model's confidence that this is a hand
+    bool inFrame = true;            // every landmark inside the picture
+    float speed = 0.f;              // palm centre, palm lengths per second
+    bool steady = true;             // slow enough for a static gesture
+    bool busy = false;              // right next to the other hand: holding something / typing
+    bool reliable() const { return presence >= 0.85f && inFrame; }
 };
+
+Vec2 palmCentre(const HandObservation& h);
 
 // Static pose from one frame of landmarks.
 void analyzeHand(HandObservation& h);
@@ -55,17 +68,73 @@ float templateDistance(const std::array<float, 42>& a, const std::array<float, 4
 // recorded mid-transition cannot make an unrelated pose match.
 void matchCustom(HandObservation& h, const std::vector<CustomGesture>& gestures);
 
+// 3D shape of the hand in the palm's own frame (x: index->pinky knuckles, y: wrist->
+// middle knuckle, z: palm normal), in palm lengths, from the model's metric landmarks,
+// plus the palm normal and finger direction relative to the camera (weighted 0.6).
+// Unlike the 2D outline it does not collapse when the hand points at the camera, and
+// it does not depend on distance or in-plane rotation. kHandFeat floats.
+// mirrorToRight: a left hand is mirrored into the equivalent right hand.
+constexpr int kHandFeat = 21 * 3 + 6;
+std::vector<float> handFeatures(const HandLandmarks& lm, bool isRight, bool mirrorToRight);
+// RMS difference over the first n floats (n = 0: the shorter length).
+float featureDistance(const std::vector<float>& a, const std::vector<float>& b, size_t n = 0);
+std::vector<std::vector<float>> condenseRows(const std::vector<std::vector<float>>& raw, size_t maxSamples);
+
+// ---- learning a custom gesture from a recording
+struct RecordedHand {
+    std::vector<float> feat, featMirror;
+    Vec2 centre;
+    float palmPx = 0.f;
+};
+struct RecordedFrame {
+    int64_t t = 0;
+    std::vector<RecordedHand> hands;  // left -> right in the image
+};
+// Decides what was shown — one hand, two hands, or a pose with a repeated movement
+// (and along which axis) — and fills g.kind / rows / threshold / axis / motion*.
+// The acceptance threshold comes from how consistent the recording itself was.
+// Returns false with a reason in `reportRu` when the recording is unusable.
+bool learnCustomGesture(const std::vector<RecordedFrame>& frames, CustomGesture& g, std::string* reportRu);
+
+// Matches custom gestures every frame:
+//   * one hand: 3D shape, mean of the 3 nearest samples below the learned threshold;
+//   * two hands: both shapes and their relative position; never with one hand;
+//   * motion: the shape AND the recorded back-and-forth movement along the recorded
+//     axis (>= 2 reversals, >= half the recorded amplitude); the shape alone never fires.
+// One- and two-hand matches go to HandObservation::customId; a completed motion
+// gesture is returned as "custom:<id>".
+class CustomMatcher {
+public:
+    std::string update(std::vector<HandObservation>& hands, const std::vector<CustomGesture>& gestures, int64_t nowMs);
+    void reset() { motion_.clear(); }
+    // 0..1 how far the movement of a motion gesture has got (for the UI).
+    float motionProgress(const std::string& id) const;
+
+private:
+    struct MotionState {
+        std::deque<std::pair<int64_t, float>> signal;  // position along the axis
+        std::deque<std::pair<int64_t, bool>> pose;     // shape matched?
+        int64_t lastFire = -100000;
+        float progress = 0.f;
+        float refPalm = 0.f;
+    };
+    std::unordered_map<std::string, MotionState> motion_;
+};
+
 // Turns a raw recording (every frame for several seconds) into a compact sample
 // set: drops outliers (hand entering / leaving, tracker glitches), merges
 // near-duplicates and keeps at most `maxSamples`, spread over the recording.
 std::vector<std::array<float, 42>> condenseSamples(const std::vector<std::array<float, 42>>& raw, size_t maxSamples);
 
 // Movements of one hand, in palm-length units (independent of distance to the camera):
-//   * swipes left / right / up / down: a fast, mostly straight stroke of >= 1.7 palm
+//   * swipes left / right / up / down: a fast, mostly straight stroke of >= 1.5 palm
 //     lengths within 0.5 s, with the hand open for most of it (motion blur makes
-//     single frames look like a fist, so one bad frame no longer cancels a swipe);
-//     a hand that leaves the frame mid-stroke is evaluated on the way out;
-//   * wave: the open hand goes side to side, >= 3 reversals within 1.5 s.
+//     single frames look like a fist, so one bad frame does not cancel a swipe);
+//     a hand that leaves the frame mid-stroke is evaluated on the way out.
+//     Repeated swipes work: after a swipe, the stroke back the other way within
+//     0.9 s is the hand returning to start the next one and is ignored.
+//   * wave: the open hand goes side to side, >= 3 reversals within 1.6 s at a similar
+//     speed both ways (repeated swipes are fast one way and slow on the way back).
 // Works from ~8 fps (dim room) up.
 class MotionDetector {
 public:
@@ -74,23 +143,26 @@ public:
     // The hand was lost this frame: a stroke that carried it out of view still counts.
     std::string lost(int64_t nowMs);
     void reset() { trail_.clear(); wave_.clear(); pending_.clear(); }
+    // Only when some rule uses waving or a custom back-and-forth gesture is a swipe held
+    // back for ~0.2 s to see whether the hand comes straight back; otherwise it fires at once.
+    void setOscillationAware(bool on) { oscillationAware_ = on; }
 
 private:
     struct P { Vec2 c; float palm; int64_t t; bool open; };
     // Direction of a qualifying stroke in the swipe window ("" = none); axis = unit stroke direction.
     std::string stroke(int64_t nowMs, float minTravel, Vec2* axis, float* palm) const;
     std::string wave(int64_t nowMs);
+    std::string fire(std::string g, Vec2 axis, int64_t nowMs);
     std::deque<P> trail_;   // last 0.5 s (swipes)
-    std::deque<P> wave_;    // last 1.5 s (waving)
+    std::deque<P> wave_;    // last 1.6 s (waving)
     int64_t lastFire_ = -100000;
-    // A swipe is confirmed ~0.18 s after the stroke unless the hand comes straight
-    // back: that is the first half of a wave, not a swipe.
+    Vec2 lastAxis_{};       // direction of the last swipe (return-stroke suppression)
+    bool oscillationAware_ = false;
     std::string pending_;
     int64_t pendingT_ = 0;
     Vec2 pendingAt_{}, pendingAxis_{};
     float pendingPalm_ = 1.f;
-};
-using SwipeDetector = MotionDetector;
+};using SwipeDetector = MotionDetector;
 
 // Gestures made with both hands.
 //   static: "two_palms" (both open palms), "two_fists";
@@ -126,9 +198,11 @@ public:
     // Feed one processed frame. `hands` may be empty. Returns fired events.
     // twoHandPose: static two-hand gesture this frame ("" = none). dynamicGesture may be a
     // one-hand movement or a two-hand one ("two_spread" / "two_pinch").
+    // Static rules need a steady, reliable hand that is not busy next to the other hand.
+    // Face conditions are per rule (requireFace / person / requireLooking).
     std::vector<GestureEvent> update(const std::vector<HandObservation>& hands, const std::string& dynamicGesture,
                                      const std::string& twoHandPose, const FaceContext& faces,
-                                     const std::vector<GestureRule>& rules, FaceGate gate, int64_t nowMs);
+                                     const std::vector<GestureRule>& rules, int64_t nowMs);
 
     // 0..1 hold progress per rule id (for the OSD ring / UI).
     float progress(const std::string& ruleId) const;

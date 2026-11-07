@@ -40,6 +40,10 @@ const char* const kPower[] = {"eco", "balanced", "responsive"};
 const char* const kDevice[] = {"cpu", "gpu", "npu"};
 const char* const kGate[] = {"off", "any_face", "known_only"};
 const char* const kTheme[] = {"dark", "light", "system"};
+const char* const kKind[] = {"one_hand", "two_hands", "motion"};
+const char* const kAxis[] = {"x", "y", "depth"};
+
+double round4(float f) { return static_cast<double>(std::round(f * 10000.f) / 10000.f); }
 
 float clampf(float v, float lo, float hi) { return std::min(hi, std::max(lo, v)); }
 int clampi(int v, int lo, int hi) { return std::min(hi, std::max(lo, v)); }
@@ -164,10 +168,10 @@ json::Value Settings::toJson() const {
     root.set("camera", std::move(cam));
 
     json::Value fc;
-    fc.set("gate", enumName(faces.gate, kGate));
     fc.set("match_threshold", faces.matchThreshold);
     fc.set("looking_tolerance", faces.lookingTolerance);
     fc.set("recognize_every_ms", faces.recognizeEveryMs);
+    fc.set("embed_model", faces.embedModel);
     root.set("faces", std::move(fc));
 
     json::Value pf;
@@ -211,6 +215,7 @@ json::Value Settings::toJson() const {
         o.set("repeat_ms", r.repeatMs);
         o.set("person", enumName(r.person, kPerson));
         o.set("person_id", r.personId);
+        o.set("require_face", r.requireFace);
         o.set("require_looking", r.requireLooking);
         o.set("action", actionToJson(r.action));
         rs.push_back(std::move(o));
@@ -224,17 +229,37 @@ json::Value Settings::toJson() const {
         o.set("name", g.name);
         o.set("rotation_invariant", g.rotationInvariant);
         o.set("mirror_invariant", g.mirrorInvariant);
-        o.set("tolerance", g.tolerance);
-        json::Array samples;
-        for (const auto& smp : g.samples) {
-            json::Array a;
-            for (float f : smp) a.push_back(static_cast<double>(std::round(f * 10000.f) / 10000.f));
-            samples.push_back(std::move(a));
+        o.set("kind", enumName(g.kind, kKind));
+        o.set("threshold", g.threshold);
+        o.set("strictness", g.strictness);
+        if (g.kind == CustomKind::Motion) {
+            o.set("axis", enumName(g.axis, kAxis));
+            o.set("motion_amp", g.motionAmp);
+            o.set("motion_period_ms", g.motionPeriodMs);
         }
-        o.set("samples", std::move(samples));
+        json::Array rows;
+        for (const auto& row : g.rows) {
+            json::Array a;
+            for (float f : row) a.push_back(round4(f));
+            rows.push_back(std::move(a));
+        }
+        o.set("rows", std::move(rows));
+        if (!g.samples.empty()) {  // legacy 2D outline, kept until re-recorded
+            o.set("tolerance", g.tolerance);
+            json::Array samples;
+            for (const auto& smp : g.samples) {
+                json::Array a;
+                for (float f : smp) a.push_back(round4(f));
+                samples.push_back(std::move(a));
+            }
+            o.set("samples", std::move(samples));
+        }
         cg.push_back(std::move(o));
     }
     root.set("custom_gestures", std::move(cg));
+    json::Array dis;
+    for (const auto& id : disabledGestures) dis.push_back(id);
+    root.set("disabled_gestures", std::move(dis));
     return root;
 }
 
@@ -261,10 +286,11 @@ Settings Settings::fromJson(const json::Value& v) {
     // v1 "distance" section and per-rule "use_distance/min_cm/max_cm" are ignored.
 
     const auto& f = v["faces"];
-    s.faces.gate = enumFrom(f["gate"], kGate, FaceGate::AnyFace);
     s.faces.matchThreshold = clampf(f["match_threshold"].asFloat(0.40f), 0.15f, 0.9f);
     s.faces.lookingTolerance = clampf(f["looking_tolerance"].asFloat(0.45f), 0.1f, 1.f);
     s.faces.recognizeEveryMs = clampi(f["recognize_every_ms"].asInt(1000), 250, 60000);
+    s.faces.embedModel = f["embed_model"].asString(fileVersion < 4 ? "" : "fp32");
+    if (s.faces.embedModel != "int8" && s.faces.embedModel != "fp32" && !s.faces.embedModel.empty()) s.faces.embedModel = "fp32";
 
     const auto& p = v["performance"];
     s.perf.profile = enumFrom(p["profile"], kPower, PowerProfile::Balanced);
@@ -304,6 +330,7 @@ Settings Settings::fromJson(const json::Value& v) {
         r.repeatMs = clampi(o["repeat_ms"].asInt(250), 50, 5000);
         r.person = enumFrom(o["person"], kPerson, PersonFilter::Anyone);
         r.personId = o["person_id"].asString();
+        r.requireFace = o["require_face"].asBool(false);
         r.requireLooking = o["require_looking"].asBool(false);
         r.action = actionFromJson(o["action"]);
         s.rules.push_back(std::move(r));
@@ -322,16 +349,40 @@ Settings Settings::fromJson(const json::Value& v) {
             for (size_t i = 0; i < 42; ++i) f42[i] = a[i].asFloat();
             g.samples.push_back(f42);
         }
+        g.kind = enumFrom(o["kind"], kKind, CustomKind::OneHand);
+        g.threshold = clampf(o["threshold"].asFloat(0.f), 0.f, 2.f);
+        g.strictness = clampf(o["strictness"].asFloat(1.f), 0.4f, 2.f);
+        g.axis = enumFrom(o["axis"], kAxis, MotionAxis::X);
+        g.motionAmp = clampf(o["motion_amp"].asFloat(0.f), 0.f, 50.f);
+        g.motionPeriodMs = clampf(o["motion_period_ms"].asFloat(0.f), 0.f, 20000.f);
+        for (const auto& row : o["rows"].asArray()) {
+            std::vector<float> r2;
+            for (const auto& x : row.asArray()) r2.push_back(x.asFloat());
+            if (!r2.empty()) g.rows.push_back(std::move(r2));
+        }
         s.customGestures.push_back(std::move(g));
     }
+    for (const auto& d : v["disabled_gestures"].asArray())
+        if (!d.asString().empty()) s.disabledGestures.push_back(d.asString());
     if (fileVersion < 2) addSwipeRules(s.rules);  // migrations: offer new example rules once
     if (fileVersion < 3) {
         addTwoHandRules(s.rules);
         if (s.perf.idleFps == 4) s.perf.idleFps = 8;  // old defaults -> new defaults
         if (s.faces.recognizeEveryMs == 2000) s.faces.recognizeEveryMs = 1000;
     }
+    if (fileVersion < 4) {
+        // The always-on "a face must be in the frame" gate becomes an opt-in per rule;
+        // "known faces only" carries over to every rule that had no person filter.
+        if (enumFrom(v["faces"]["gate"], kGate, FaceGate::AnyFace) == FaceGate::KnownOnly)
+            for (auto& r : s.rules)
+                if (r.person == PersonFilter::Anyone) r.person = PersonFilter::AnyKnown;
+    }
     s.version = kVersion;
     return s;
+}
+
+bool Settings::gestureEnabled(const std::string& id) const {
+    return std::find(disabledGestures.begin(), disabledGestures.end(), id) == disabledGestures.end();
 }
 
 }  // namespace vl
