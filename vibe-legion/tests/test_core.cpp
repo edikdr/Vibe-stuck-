@@ -373,7 +373,7 @@ static void testNight() {
     CHECK(st.gamma < 1.f);
     // A bright frame is left mostly alone.
     Image bright(160, 90, 3);
-    std::fill(bright.data.begin(), bright.data.end(), 150);
+    std::fill(bright.data.begin(), bright.data.end(), uint8_t{150});
     NightVision nv2;
     nv2.process(bright, NightParams{}, &st);
     NEAR(st.meanOut, st.meanIn, 0.12f);

@@ -58,6 +58,10 @@ build\release\Release\VibeLegion.exe
 Нужен компонент «Разработка классических приложений на C++» (CMake входит в него). Команды выполняются
 в **Developer PowerShell for VS**. Пресет `windows-release` рассчитан на Visual Studio 2026; для VS 2022
 используйте `cmake --preset windows-release-vs2022` и `cmake --build --preset windows-release-vs2022`.
+
+Пресет VS 2026 отключает FileTracker MSBuild (`TrackFileAccess=false`). На VS 2026 Insiders 18.12
+(MSVC 14.52) задача `CL` падала с `MSB4018: IndexOutOfRangeException в FileTracker.FileIsUnderNormalizedPath`
+даже на пустом проекте, и CMake не мог определить компилятор. Цена обхода: каждая сборка полная (~20 с).
 Рядом с exe автоматически кладутся `onnxruntime.dll` и папка `models\`. Для переноса на
 другой ПК достаточно папки `build\release\Release` (или `cmake --install`).
 

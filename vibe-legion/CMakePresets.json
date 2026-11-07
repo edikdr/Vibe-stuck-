@@ -10,6 +10,9 @@
       "cacheVariables": {
         "VL_ORT_ROOT": "${sourceDir}/third_party/onnxruntime"
       },
+      "environment": {
+        "TrackFileAccess": "false"
+      },
       "condition": {
         "type": "equals",
         "lhs": "${hostSystemName}",
