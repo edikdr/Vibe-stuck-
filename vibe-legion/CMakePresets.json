@@ -3,19 +3,42 @@
   "configurePresets": [
     {
       "name": "windows-release",
-      "displayName": "Windows x64 Release (MSVC)",
+      "displayName": "Windows x64 Release (Visual Studio 2026)",
+      "generator": "Visual Studio 18 2026",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "VL_ORT_ROOT": "${sourceDir}/third_party/onnxruntime"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "windows-release-vs2022",
+      "displayName": "Windows x64 Release (Visual Studio 2022)",
       "generator": "Visual Studio 17 2022",
       "architecture": "x64",
       "binaryDir": "${sourceDir}/build/release",
-      "cacheVariables": { "VL_ORT_ROOT": "${sourceDir}/third_party/onnxruntime" },
-      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" }
+      "cacheVariables": {
+        "VL_ORT_ROOT": "${sourceDir}/third_party/onnxruntime"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
     },
     {
       "name": "windows-directml",
       "displayName": "Windows x64 Release + DirectML (Radeon iGPU)",
       "inherits": "windows-release",
       "binaryDir": "${sourceDir}/build/directml",
-      "cacheVariables": { "VL_WITH_DIRECTML": "ON" }
+      "cacheVariables": {
+        "VL_WITH_DIRECTML": "ON"
+      }
     },
     {
       "name": "windows-vcpkg",
@@ -23,12 +46,31 @@
       "inherits": "windows-release",
       "binaryDir": "${sourceDir}/build/vcpkg",
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-      "cacheVariables": { "VL_ORT_ROOT": "" }
+      "cacheVariables": {
+        "VL_ORT_ROOT": ""
+      }
     }
   ],
   "buildPresets": [
-    { "name": "windows-release", "configurePreset": "windows-release", "configuration": "Release" },
-    { "name": "windows-directml", "configurePreset": "windows-directml", "configuration": "Release" },
-    { "name": "windows-vcpkg", "configurePreset": "windows-vcpkg", "configuration": "Release" }
+    {
+      "name": "windows-release",
+      "configurePreset": "windows-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "windows-release-vs2022",
+      "configurePreset": "windows-release-vs2022",
+      "configuration": "Release"
+    },
+    {
+      "name": "windows-directml",
+      "configurePreset": "windows-directml",
+      "configuration": "Release"
+    },
+    {
+      "name": "windows-vcpkg",
+      "configurePreset": "windows-vcpkg",
+      "configuration": "Release"
+    }
   ]
 }

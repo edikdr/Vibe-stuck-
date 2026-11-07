@@ -44,7 +44,7 @@
   - Тёмная и светлая тема, акцент Windows или пресеты (включая Legion Blue).
   - Окно настроек при закрытии уничтожается, а не прячется, чтобы освободить память.
 
-## Сборка (Windows 11, Visual Studio 2022)
+## Сборка (Windows 11, Visual Studio 2026 или 2022)
 
 ```powershell
 git clone -b claude/vibe-legion-gesture-app-7n9xat https://github.com/edikdr/Vibe-stuck-
@@ -55,7 +55,9 @@ cmake --build --preset windows-release
 build\release\Release\VibeLegion.exe
 ```
 
-Нужны «Разработка классических приложений на C++» и CMake ≥ 3.21 (входит в VS 2022).
+Нужен компонент «Разработка классических приложений на C++» (CMake входит в него). Команды выполняются
+в **Developer PowerShell for VS**. Пресет `windows-release` рассчитан на Visual Studio 2026; для VS 2022
+используйте `cmake --preset windows-release-vs2022` и `cmake --build --preset windows-release-vs2022`.
 Рядом с exe автоматически кладутся `onnxruntime.dll` и папка `models\`. Для переноса на
 другой ПК достаточно папки `build\release\Release` (или `cmake --install`).
 
