@@ -71,6 +71,7 @@ private:
     int width_ = 0, height_ = 0, stride_ = 0;
     PixelFormat format_ = PixelFormat::NV12;
     bool openIr_ = false;
+    bool shared_ = false;  // opened in Frame Server shared (read-only) mode: other apps can use the camera
     bool lowLightApplied_ = false;
     long savedGain_ = 0, savedGainFlags_ = 0, savedBacklight_ = 0, savedBacklightFlags_ = 0;
     bool haveSaved_ = false;

@@ -152,11 +152,22 @@ bool MfCamera::open(bool ir) {
     }
 
     ComPtr<IMFAttributes> attr;
-    MFCreateAttributes(&attr, 3);
+    MFCreateAttributes(&attr, 4);
     attr->SetGUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE, MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID);
     attr->SetString(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_SYMBOLIC_LINK, pick->symlink.c_str());
     if (ir) attr->SetGUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY, kCategorySensorCamera);
+    // Shared (read-only) access through the Windows Camera Frame Server: we only read
+    // frames and never take control of the camera, so Discord, Teams, the Camera app
+    // etc. can open it at the same time. Without this, a background reader holds the
+    // camera exclusively and video calls get "camera in use". Falls back to the
+    // classic (exclusive) mode where the Frame Server is not available.
+    attr->SetUINT32(MF_DEVSOURCE_ATTRIBUTE_FRAMESERVER_SHARE_MODE, TRUE);
     HRESULT hr = MFCreateDeviceSource(attr.Get(), &source_);
+    shared_ = SUCCEEDED(hr);
+    if (FAILED(hr)) {
+        attr->DeleteItem(MF_DEVSOURCE_ATTRIBUTE_FRAMESERVER_SHARE_MODE);
+        hr = MFCreateDeviceSource(attr.Get(), &source_);
+    }
     if (FAILED(hr)) {
         setStatus(hr == E_ACCESSDENIED ? "Доступ к камере запрещён (Параметры → Конфиденциальность → Камера)"
                                        : "Не удалось открыть камеру");
@@ -207,23 +218,40 @@ bool MfCamera::open(bool ir) {
         close();
         return false;
     }
-    reader_->SetCurrentMediaType(stream, nullptr, best.Get());
+    // In shared mode another app may already control the format; then we take
+    // whatever the camera is streaming and let the reader convert / scale it.
+    if (FAILED(reader_->SetCurrentMediaType(stream, nullptr, best.Get()))) {
+        ComPtr<IMFMediaType> curNative;
+        if (SUCCEEDED(reader_->GetNativeMediaType(stream, static_cast<DWORD>(MF_SOURCE_READER_CURRENT_TYPE_INDEX), &curNative)))
+            best = curNative;
+    }
 
     GUID nativeSub{};
     best->GetGUID(MF_MT_SUBTYPE, &nativeSub);
     UINT32 w = 0, h = 0;
     MFGetAttributeSize(best.Get(), MF_MT_FRAME_SIZE, &w, &h);
+    const UINT32 nativeW = w, nativeH = h;
+    // Recognition needs ~640 px wide; ask the reader to scale big shared streams down.
+    if (!ir && w > static_cast<UINT32>(std::max(640, cfg.width)) * 3 / 2) {
+        const UINT32 tw = static_cast<UINT32>(std::max(640, cfg.width));
+        h = h * tw / w;
+        h &= ~1u;
+        w = tw;
+    }
 
     // Ask for an uncompressed output we can read.
     const GUID wanted[] = {isIrSubtype(nativeSub) ? nativeSub : MFVideoFormat_NV12, MFVideoFormat_YUY2, MFVideoFormat_RGB32};
     bool set = false;
-    for (const GUID& g : wanted) {
-        ComPtr<IMFMediaType> out;
-        MFCreateMediaType(&out);
-        out->SetGUID(MF_MT_MAJOR_TYPE, MFMediaType_Video);
-        out->SetGUID(MF_MT_SUBTYPE, g);
-        MFSetAttributeSize(out.Get(), MF_MT_FRAME_SIZE, w, h);
-        if (SUCCEEDED(reader_->SetCurrentMediaType(stream, nullptr, out.Get()))) { set = true; break; }
+    for (int pass = 0; pass < 2 && !set; ++pass) {  // scaled size first, then the native one
+        if (pass == 1) { if (w == nativeW && h == nativeH) break; w = nativeW; h = nativeH; }
+        for (const GUID& g : wanted) {
+            ComPtr<IMFMediaType> out;
+            MFCreateMediaType(&out);
+            out->SetGUID(MF_MT_MAJOR_TYPE, MFMediaType_Video);
+            out->SetGUID(MF_MT_SUBTYPE, g);
+            MFSetAttributeSize(out.Get(), MF_MT_FRAME_SIZE, w, h);
+            if (SUCCEEDED(reader_->SetCurrentMediaType(stream, nullptr, out.Get()))) { set = true; break; }
+        }
     }
     if (!set) {
         setStatus("Не удалось настроить формат камеры");
@@ -251,7 +279,8 @@ bool MfCamera::open(bool ir) {
     usingIr_ = ir;
     if (ir && cfg.irTorch) applyIrTorch(true);
     std::string name = narrow(pick->name);
-    setStatus(name + " · " + std::to_string(width_) + "×" + std::to_string(height_) + (ir ? " · ИК" : ""));
+    setStatus(name + " · " + std::to_string(width_) + "×" + std::to_string(height_) + (ir ? " · ИК" : "") +
+              (shared_ ? " · общий доступ" : ""));
     return true;
 }
 
