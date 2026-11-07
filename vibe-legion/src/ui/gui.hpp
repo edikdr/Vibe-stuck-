@@ -108,6 +108,7 @@ private:
     size_t caret_ = 0;
 
     // Combo popup (drawn last, on top).
+    static constexpr float kPopupItemH = 34.f;
     uint32_t popup_ = 0;
     RectF popupAnchor_;
     std::vector<std::wstring> popupItems_;
@@ -115,6 +116,8 @@ private:
     int popupResult_ = -1;
     uint32_t popupResultId_ = 0;
     bool popupJustOpened_ = false;
+    uint32_t popupJustClosed_ = 0;  // combo whose popup the current click closed: don't reopen it
+    float popupScroll_ = 0.f;        // long lists (gestures, actions, apps) scroll inside the popup
 
     // Tooltip.
     std::wstring tipText_;

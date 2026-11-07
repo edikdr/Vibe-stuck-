@@ -57,6 +57,7 @@ bool Gui::end() {
     drawPopups();
     if (in_->pressed && !focusClaimed_) focus_ = 0;
     if (!in_->down) active_ = 0;  // after widgets have seen this frame's release
+    if (in_->released) popupJustClosed_ = 0;
     // Tooltip after a short dwell.
     if (!tipText_.empty()) {
         if (tipSince_ == 0) tipSince_ = t_;
@@ -347,13 +348,17 @@ bool Gui::combo(const std::string& sid, const RectF& r, int& sel, const std::vec
     const bool h = hovered(r);
     if (h) wantHand_ = true;
     if (h && in_->pressed) { active_ = k; focusClaimed_ = true; }
-    if (h && in_->released && active_ == k && popup_ != k) {
+    if (h && in_->released && active_ == k && popup_ != k && popupJustClosed_ != k) {
         popup_ = k;
         // Popup position in window coordinates.
         popupAnchor_ = {r.x, r.y - scrollOffset(""), r.w, r.h};
         popupItems_ = items;
         popupSel_ = sel;
         popupJustOpened_ = true;
+        // Open scrolled so that the current choice is visible (centred when possible).
+        const RectF pr = popupRect();
+        const float maxScroll = std::max(0.f, items.size() * kPopupItemH + 8.f - pr.h);
+        popupScroll_ = std::clamp(sel * kPopupItemH - (pr.h - kPopupItemH) * 0.5f, 0.f, maxScroll);
     }
     c_->fillRound(r, 5, h ? p_->controlHover : p_->control);
     c_->strokeRound(r, 5, p_->controlStroke);
@@ -364,24 +369,35 @@ bool Gui::combo(const std::string& sid, const RectF& r, int& sel, const std::vec
 }
 
 RectF Gui::popupRect() const {
-    const float h = std::min<float>(popupItems_.size() * 34.f + 8.f, 340.f);
+    // As tall as the list, but never taller than the window: below or above the
+    // combo, whichever has more room. Longer lists scroll (popupScroll_).
+    const float full = popupItems_.size() * kPopupItemH + 8.f;
+    const float winH = c_ ? c_->height() : 740.f;
+    const float below = winH - popupAnchor_.bottom() - 12.f, above = popupAnchor_.y - 12.f;
+    const float cap = std::min(420.f, std::max(below, above));
+    const float h = std::max(std::min(full, cap), std::min(full, 3 * kPopupItemH + 8.f));
     RectF pr{popupAnchor_.x, popupAnchor_.bottom() + 4, std::max(popupAnchor_.w, 180.f), h};
-    if (c_ && pr.bottom() > c_->height() - 8) pr.y = popupAnchor_.y - h - 4;  // open upwards
+    if (pr.bottom() > winH - 8) pr.y = popupAnchor_.y - h - 4;  // open upwards
     if (pr.y < 4) pr.y = 4;
     return pr;
 }
 
 void Gui::drawPopups() {
     if (!popup_) return;
-    const float itemH = 34.f;
+    const float itemH = kPopupItemH;
     const RectF pr = popupRect();
+    const float maxScroll = std::max(0.f, popupItems_.size() * itemH + 8.f - pr.h);
+    if (pr.contains(in_->mouse) && in_->wheel != 0.f) popupScroll_ -= in_->wheel * 3.f * itemH;
+    popupScroll_ = std::clamp(popupScroll_, 0.f, maxScroll);
     c_->fillRound({pr.x, pr.y + 2, pr.w, pr.h}, 8, Color{0, 0, 0, 0.25f});  // soft shadow
     c_->fillRound(pr, 8, p_->overlay);
     c_->strokeRound(pr, 8, p_->controlStroke);
-    for (size_t i = 0; i < popupItems_.size(); ++i) {
-        const RectF it{pr.x + 4, pr.y + 4 + i * itemH, pr.w - 8, itemH - 2};
-        if (it.bottom() > pr.bottom()) break;
-        const bool h = it.contains(in_->mouse);
+    c_->pushClip({pr.x + 1, pr.y + 3, pr.w - 2, pr.h - 6});
+    const size_t first = static_cast<size_t>(popupScroll_ / itemH);
+    for (size_t i = first; i < popupItems_.size(); ++i) {
+        const RectF it{pr.x + 4, pr.y + 4 + i * itemH - popupScroll_, pr.w - 8 - (maxScroll > 0 ? 6 : 0), itemH - 2};
+        if (it.y > pr.bottom()) break;
+        const bool h = it.contains(in_->mouse) && pr.contains(in_->mouse);
         if (h) wantHand_ = true;
         if (h || static_cast<int>(i) == popupSel_) c_->fillRound(it, 5, h ? p_->controlHover : p_->control);
         if (static_cast<int>(i) == popupSel_) c_->fillRound({it.x, it.y + 9, 3, it.h - 18}, 1.5f, p_->accent);
@@ -394,7 +410,14 @@ void Gui::drawPopups() {
             focusClaimed_ = true;
         }
     }
+    c_->popClip();
+    if (maxScroll > 0) {  // scroll bar
+        const float barH = std::max(24.f, (pr.h - 8) * (pr.h / (popupItems_.size() * itemH + 8.f)));
+        const float y = pr.y + 4 + (pr.h - 8 - barH) * (popupScroll_ / maxScroll);
+        c_->fillRound({pr.right() - 7, y, 3, barH}, 1.5f, p_->textMuted.alpha(0.7f));
+    }
     if (popup_ && !popupJustOpened_ && in_->pressed && !pr.contains(in_->mouse)) {
+        popupJustClosed_ = popup_;  // a click on the combo itself closes, not re-opens
         popup_ = 0;
         focusClaimed_ = true;
     }
