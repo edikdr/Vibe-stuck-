@@ -49,12 +49,14 @@ void Gui::begin(Canvas& c, const Palette& p, Input& in, double t) {
     wantHand_ = wantText_ = false;
     focusClaimed_ = false;
     tipText_.clear();
-    if (!in.down) active_ = 0;
+    // Note: `active_` must survive from the button-down frame to the button-up
+    // frame (Windows repaints in between); it is cleared in end().
 }
 
 bool Gui::end() {
     drawPopups();
     if (in_->pressed && !focusClaimed_) focus_ = 0;
+    if (!in_->down) active_ = 0;  // after widgets have seen this frame's release
     // Tooltip after a short dwell.
     if (!tipText_.empty()) {
         if (tipSince_ == 0) tipSince_ = t_;
