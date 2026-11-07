@@ -1,0 +1,7 @@
+/build*/
+/out/
+/third_party/
+/models/*.onnx
+/.vs/
+/CMakeUserPresets.json
+*.user
