@@ -5,7 +5,6 @@
 #include <string>
 
 #include "core/detection.hpp"
-#include "core/distance.hpp"
 #include "core/face_db.hpp"
 #include "core/gestures.hpp"
 #include "core/image.hpp"
@@ -57,11 +56,10 @@ static HandLandmarks makeHand(bool thumb, bool idx, bool mid, bool ring, bool pi
     return h;
 }
 
-static HandObservation observe(const HandLandmarks& lm, float distanceCm = 65.f) {
+static HandObservation observe(const HandLandmarks& lm) {
     HandObservation o;
     o.lm = lm;
     o.isRight = lm.rightness > 0.5f;
-    o.distanceCm = distanceCm;
     analyzeHand(o);
     return o;
 }
@@ -220,37 +218,47 @@ static void testTemplates() {
     HandObservation o2 = observe(c);
     matchCustom(o2, {g});
     CHECK(o2.customId.empty());
-}
 
-static void testDistance() {
-    DistanceEstimator d;
-    d.intrinsics.hfovDeg = 74.f;
-    HandLandmarks h = makeHand(true, true, true, true, true);  // 1000 px per metre
-    const float f = d.intrinsics.focalPx(640);
-    NEAR(d.handRawCm(h, 640), f / 1000.f * 100.f, 0.5f);
-    // Tilting the hand (foreshorten y by 0.5) must barely change the estimate,
-    // because the index->pinky bone stays unforeshortened.
-    HandLandmarks tilt = h;
-    for (auto& p : tilt.image) p.y = 300 + (p.y - 300) * 0.5f;
-    NEAR(d.handRawCm(tilt, 640), d.handRawCm(h, 640), 1.0f);
-    // Calibration.
-    const float raw = d.handRawCm(h, 640);
-    d.setCalibration(DistanceEstimator::solveCalibration(65.f, raw));
-    NEAR(d.handRawCm(h, 640), 65.f, 0.1f);
+    // A recording: 200 frames of the V pose (slight jitter) + a few frames of an
+    // open palm while the hand was entering. Outliers and duplicates go away.
+    std::vector<std::array<float, 42>> raw;
+    for (int i = 0; i < 200; ++i) {
+        auto t = ta;
+        t[16] += 0.002f * static_cast<float>(i % 20);  // index tip wiggles
+        raw.push_back(t);
+    }
+    const auto tc = handTemplate(c, true, true, true);
+    for (int i = 0; i < 6; ++i) raw.push_back(tc);
+    auto kept = condenseSamples(raw, 64);
+    CHECK(!kept.empty() && kept.size() <= 64);
+    bool hasPalm = false;
+    for (const auto& k : kept) hasPalm = hasPalm || templateDistance(k, tc) < 1e-3f;
+    CHECK(!hasPalm);
+    CHECK(condenseSamples({}, 64).empty());
+
+    // One stray palm sample among many V samples must not make a palm match.
+    CustomGesture noisy;
+    noisy.id = "v";
+    noisy.samples = {ta, ta, ta, ta, tc};
+    HandObservation o3 = observe(c);
+    matchCustom(o3, {noisy});
+    CHECK(o3.customId.empty());
+    HandObservation o4 = observe(b);
+    matchCustom(o4, {noisy});
+    CHECK(o4.customId == "v");
 }
 
 static void testEngine() {
     GestureRule r;
     r.id = "r1";
     r.gesture = "open_palm";
-    r.minCm = 60; r.maxCm = 70;
     r.holdMs = 300; r.cooldownMs = 1500;
     r.action.type = ActionType::MediaPlayPause;
     std::vector<GestureRule> rules = {r};
     GestureEngine e;
     FaceContext fc;
     fc.anyFace = true;
-    auto palm = observe(makeHand(true, true, true, true, true), 65.f);
+    auto palm = observe(makeHand(true, true, true, true, true));
     std::vector<HandObservation> hands = {palm};
 
     int fired = 0;
@@ -264,15 +272,6 @@ static void testEngine() {
     e.update({}, "", fc, rules, FaceGate::AnyFace, 4300);
     for (int t = 4300; t < 6000; t += 33) fired += static_cast<int>(e.update(hands, "", fc, rules, FaceGate::AnyFace, t).size());
     CHECK(fired == 2);
-
-    // Wrong distance never fires.
-    GestureEngine e2;
-    auto far = observe(makeHand(true, true, true, true, true), 90.f);
-    int f2 = 0;
-    for (int t = 0; t < 2000; t += 33) f2 += static_cast<int>(e2.update({far}, "", fc, rules, FaceGate::AnyFace, t).size());
-    CHECK(f2 == 0);
-    std::string why;
-    CHECK(!GestureEngine::handMatches(r, far, &why) && why == "слишком далеко");
 
     // Face gate: no face -> no fire.
     GestureEngine e3;
@@ -293,7 +292,10 @@ static void testEngine() {
 
 static void testSettings() {
     Settings s = Settings::defaults();
-    CHECK(s.rules.size() == 1 && !s.rules[0].enabled);
+    // Palm example + swipe left/right -> previous/next window, all disabled.
+    CHECK(s.rules.size() == 3 && !s.rules[0].enabled && !s.rules[1].enabled && !s.rules[2].enabled);
+    CHECK(s.rules[1].gesture == "swipe_left" && s.rules[1].action.type == ActionType::PrevWindow);
+    CHECK(s.rules[2].gesture == "swipe_right" && s.rules[2].action.type == ActionType::NextWindow);
     s.rules[0].action.type = ActionType::KeyCombo;
     s.rules[0].action.keys = {0x11, 0x10, 'M'};
     CustomGesture g;
@@ -306,7 +308,7 @@ static void testSettings() {
     auto p = json::parse(text);
     CHECK(p.ok);
     Settings t = Settings::fromJson(p.value);
-    CHECK(t.rules.size() == 1);
+    CHECK(t.rules.size() == 3);  // v2 file: no migration duplicates
     CHECK(t.rules[0].action.type == ActionType::KeyCombo);
     CHECK(t.rules[0].action.keys.size() == 3 && t.rules[0].action.keys[2] == 'M');
     CHECK(t.rules[0].name == s.rules[0].name);
@@ -315,10 +317,14 @@ static void testSettings() {
     CHECK(t.camera.night == NightMode::Infrared);
     CHECK(t.ui.hotkeyToggle == 0x0347);
     // Garbage values are clamped.
-    auto bad = json::parse(R"({"performance": {"active_fps": 9999}, "rules": [{"min_cm": 90, "max_cm": 10}]})");
+    auto bad = json::parse(R"({"performance": {"active_fps": 9999}, "rules": [{"gesture": "fist", "use_distance": true, "min_cm": 90}]})");
     Settings u = Settings::fromJson(bad.value);
     CHECK(u.perf.activeFps == 60);
-    CHECK(u.rules[0].maxCm >= u.rules[0].minCm);
+    // v1 file: distance keys ignored, swipe rules offered once.
+    CHECK(u.rules.size() == 3 && u.rules[0].gesture == "fist" && u.rules[2].gesture == "swipe_right");
+    CHECK(Settings::fromJson(json::parse(u.toJson().dump()).value).rules.size() == 3);
+    CHECK(actionFromId("next_window") == ActionType::NextWindow);
+    CHECK(std::string(actionId(ActionType::ScreenshotFull)) == "screenshot_full");
     CHECK(actionFromId("media_next") == ActionType::MediaNext);
 }
 
@@ -398,7 +404,6 @@ int main() {
     testYuNet();
     testGesturesStatic();
     testTemplates();
-    testDistance();
     testEngine();
     testSettings();
     testFaceDb();

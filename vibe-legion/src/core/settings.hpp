@@ -1,4 +1,4 @@
-// All user-tunable settings. Serialised to %LOCALAPPDATA%\VibeLegion\settings.json.
+// All user-tunable settings. Serialised to %LOCALAPPDATA%\VibeHand\settings.json.
 // Unknown/missing keys fall back to defaults, so old files keep working.
 #pragma once
 
@@ -27,6 +27,20 @@ enum class ActionType {
     Screenshot,     // Win+Shift+S
     SwitchWindow,   // Alt+Tab
     PauseRecognition,
+    // Added in settings v2 (appended: ids are stored by name, order is free).
+    NextWindow,     // cycle open windows forward (swipe-friendly, no Alt+Tab UI)
+    PrevWindow,     // ... and back
+    MinimizeWindow,
+    MaximizeWindow, // maximise / restore the foreground window
+    CloseWindow,    // Alt+F4
+    NextDesktop,    // Ctrl+Win+Right
+    PrevDesktop,    // Ctrl+Win+Left
+    StartMenu,      // Win
+    Search,         // Win+S
+    FileExplorer,   // Win+E
+    BrowserBack,
+    BrowserForward,
+    ScreenshotFull, // Win+PrtScn: whole screen saved to Pictures\Screenshots
     kCount
 };
 
@@ -36,8 +50,9 @@ ActionType actionFromId(const std::string& id);
 struct Action {
     ActionType type = ActionType::None;
     std::vector<uint16_t> keys;  // virtual-key codes, modifiers first (KeyCombo)
-    std::string path;            // LaunchApp
+    std::string path;            // LaunchApp: file, or "shell:AppsFolder\<AppUserModelID>" for Start menu apps
     std::string args;
+    std::string label;           // LaunchApp: display name picked from the Start menu list
 };
 
 // ------------------------------------------------------------------ gestures
@@ -51,8 +66,6 @@ struct GestureRule {
     bool enabled = true;
     std::string gesture = "open_palm";  // built-in id or "custom:<id>"
     HandSide hand = HandSide::Any;
-    bool useDistance = true;
-    float minCm = 60.f, maxCm = 70.f;
     int holdMs = 320;
     int cooldownMs = 1700;
     bool repeat = false;     // fire repeatedly while held (volume, scroll)
@@ -70,6 +83,9 @@ struct CustomGesture {
     bool mirrorInvariant = true;   // left and right hands match the same template
     float tolerance = 0.22f;       // RMS distance in palm-length units
     std::vector<std::array<float, 42>> samples;
+
+    static constexpr int kRecordMs = 8000;     // how long a recording lasts
+    static constexpr size_t kMaxSamples = 64;  // kept after de-duplication
 };
 
 // ------------------------------------------------------------------ subsystems
@@ -94,11 +110,6 @@ struct CameraSettings {
     bool irAmbientSuppression = true;
     bool irTorch = true;           // ask driver to light the IR emitter
     bool hardwareLowLight = true;  // raise gain/backlight compensation in the dark
-};
-
-struct DistanceSettings {
-    float hfovDeg = 74.f;
-    float calibration = 1.f;
 };
 
 struct FaceSettings {
@@ -136,10 +147,10 @@ struct UiSettings {
 };
 
 struct Settings {
-    int version = 1;
+    static constexpr int kVersion = 2;  // 2: no distance window, swipe rules, window actions
+    int version = kVersion;
     bool enabled = true;  // global recognition on/off
     CameraSettings camera;
-    DistanceSettings distance;
     FaceSettings faces;
     PerformanceSettings perf;
     UiSettings ui;

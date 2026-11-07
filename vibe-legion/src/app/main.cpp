@@ -9,9 +9,9 @@ int WINAPI wWinMain(HINSTANCE inst, HINSTANCE, PWSTR cmdLine, int) {
     const bool minimized = cmdLine && wcsstr(cmdLine, L"--minimized") != nullptr;
 
     // Second launch (e.g. from the Start menu) just brings the running instance up.
-    HANDLE mutex = CreateMutexW(nullptr, TRUE, L"Local\\VibeLegion.Singleton");
+    HANDLE mutex = CreateMutexW(nullptr, TRUE, L"Local\\VibeHand.Singleton");
     if (GetLastError() == ERROR_ALREADY_EXISTS) {
-        if (HWND w = FindWindowW(L"VibeLegionMsg", nullptr)) {
+        if (HWND w = FindWindowW(L"VibeHandMsg", nullptr)) {
             AllowSetForegroundWindow(ASFW_ANY);
             PostMessageW(w, vl::win::WM_VL_SHOWMAIN, 0, 0);
         }

@@ -43,7 +43,6 @@ int main(int argc, char** argv) {
     std::printf("device: %s\n", palm.device().c_str());
 
     std::vector<Embedding> embeddings;
-    DistanceEstimator dist;
     for (int a = 2; a < argc; ++a) {
         Image img;
         if (!readPpm(argv[a], img)) { std::printf("%s: cannot read\n", argv[a]); continue; }
@@ -57,15 +56,14 @@ int main(int argc, char** argv) {
                 HandObservation o;
                 o.lm = lm;
                 o.isRight = lm.rightness > 0.5f;
-                o.distanceCm = dist.handRawCm(lm, img.width);
                 analyzeHand(o);
                 // Second pass from the tracking ROI must find the hand again.
                 HandLandmarks lm2;
                 const bool tracked = hand.run(img, handRoiFromLandmarks(lm), lm2);
-                std::printf("    hand: presence %.2f %s pose '%s' (%.2f) fingers %d%d%d%d%d facing %d dist~%.0f cm tracked=%d (%.1f ms)\n",
+                std::printf("    hand: presence %.2f %s pose '%s' (%.2f) fingers %d%d%d%d%d facing %d tracked=%d (%.1f ms)\n",
                             lm.presence, o.isRight ? "right" : "left", o.pose.c_str(), o.poseConfidence,
                             o.fingers.extended[0], o.fingers.extended[1], o.fingers.extended[2], o.fingers.extended[3],
-                            o.fingers.extended[4], o.palmFacing, o.distanceCm, tracked, hand.lastMs());
+                            o.fingers.extended[4], o.palmFacing, tracked, hand.lastMs());
                 std::printf("      wrist %.0f,%.0f  middle_tip %.0f,%.0f\n", lm.image[WRIST].x, lm.image[WRIST].y,
                             lm.image[MIDDLE_TIP].x, lm.image[MIDDLE_TIP].y);
             } else {

@@ -41,7 +41,7 @@ public:
     std::vector<uint8_t> serialize() const;
     bool deserialize(const std::vector<uint8_t>& blob);
 
-    static constexpr size_t kMaxSamplesPerModality = 24;
+    static constexpr size_t kMaxSamplesPerModality = 48;
 };
 
 }  // namespace vl

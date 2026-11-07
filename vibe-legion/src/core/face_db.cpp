@@ -27,9 +27,19 @@ FaceMatch FaceDatabase::match(const Embedding& e, bool ir, float threshold) cons
         const auto& samples = primary.empty() ? fallback : primary;
         // Cross-modality matching is weaker: demand a little more.
         const float penalty = primary.empty() ? 0.06f : 0.f;
-        float s = -1.f;
-        for (const auto& smp : samples) s = std::max(s, cosine(e, smp));
-        s -= penalty;
+        // Mean of the 3 best samples: with dozens of samples per person a single
+        // lucky one would otherwise let look-alikes through.
+        float top[3] = {-1.f, -1.f, -1.f};  // descending
+        for (const auto& smp : samples) {
+            float c = cosine(e, smp);
+            for (float& t : top)
+                if (c > t) std::swap(c, t);
+        }
+        const size_t k = std::min<size_t>(3, samples.size());
+        if (k == 0) continue;
+        float s = 0.f;
+        for (size_t i = 0; i < k; ++i) s += top[i];
+        s = s / static_cast<float>(k) - penalty;
         if (s > best.similarity) {
             best.similarity = s;
             best.person = static_cast<int>(p);

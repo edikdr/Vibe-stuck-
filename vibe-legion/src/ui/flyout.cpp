@@ -37,7 +37,7 @@ void Flyout::toggle(const RECT& anchor) {
     POINT pt{(anchor.left + anchor.right) / 2, (anchor.top + anchor.bottom) / 2};
     const RECT wa = workArea(pt);
     if (!hwnd_) {
-        createWindow(L"VibeLegionFlyout", L"Vibe Legion", WS_POPUP, WS_EX_TOOLWINDOW | WS_EX_TOPMOST, 0, 0, 10, 10, nullptr);
+        createWindow(L"VibeHandFlyout", L"Vibe Hand", WS_POPUP, WS_EX_TOOLWINDOW | WS_EX_TOPMOST, 0, 0, 10, 10, nullptr);
     }
     const float s = GetDpiForWindow(hwnd_) / 96.f;
     const int w = static_cast<int>(372 * s), h = static_cast<int>(532 * s), m = static_cast<int>(12 * s);
@@ -82,7 +82,7 @@ void Flyout::frame(Gui& g, const RectF& client) {
     // Header.
     c.fillRound({pad, pad, 30, 30}, 8, p.accent);
     c.icon(glyph::Hand, {pad, pad, 30, 30}, p.onAccent, 15.f);
-    c.text(L"Vibe Legion", {pad + 40, pad - 1, 200, 20}, p.text, 14.5f, Weight::Semibold);
+    c.text(L"Vibe Hand", {pad + 40, pad - 1, 200, 20}, p.text, 14.5f, Weight::Semibold);
     const std::wstring mode = app_.paused() ? app_.pauseText() : win::widen(modeTextRu(s.mode));
     c.fillCircle({pad + 45, pad + 25}, 3.5f, modeColor(p, static_cast<int>(app_.paused() ? PipelineMode::Paused : s.mode)));
     c.text(mode, {pad + 54, pad + 16, 240, 18}, p.textDim, 12.f);
@@ -100,7 +100,8 @@ void Flyout::frame(Gui& g, const RectF& client) {
     std::wstring live;
     if (s.hasHand) {
         live = s.hand.pose.empty() ? L"Рука в кадре" : win::widen(findBuiltin(s.hand.pose) ? findBuiltin(s.hand.pose)->nameRu : s.hand.pose.c_str());
-        if (s.hand.distanceCm > 0) live += L" · " + std::to_wstring(static_cast<int>(s.hand.distanceCm)) + L" см";
+        if (!s.lastDynamic.empty())
+            if (const auto* b = findBuiltin(s.lastDynamic)) live += L" · " + win::widen(b->nameRu);
     } else {
         live = s.faces.empty() ? L"Никого не видно" : (s.faces[0].personId.empty() ? L"В кадре незнакомое лицо" : L"Привет, " + win::widen(s.faces[0].name));
     }
@@ -162,7 +163,7 @@ int Osd::backdropType() const { return win::kBackdropAcrylic; }
 
 void Osd::ensure() {
     if (hwnd_) return;
-    createWindow(L"VibeLegionOsd", L"", WS_POPUP, WS_EX_TOOLWINDOW | WS_EX_TOPMOST | WS_EX_NOACTIVATE | WS_EX_TRANSPARENT,
+    createWindow(L"VibeHandOsd", L"", WS_POPUP, WS_EX_TOOLWINDOW | WS_EX_TOPMOST | WS_EX_NOACTIVATE | WS_EX_TRANSPARENT,
                  0, 0, 10, 10, nullptr);
 }
 

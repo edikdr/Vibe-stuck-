@@ -62,11 +62,11 @@ int App::run(HINSTANCE inst, bool startMinimized) {
     WNDCLASSEXW wc{sizeof wc};
     wc.lpfnWndProc = msgProc;
     wc.hInstance = inst;
-    wc.lpszClassName = L"VibeLegionMsg";
+    wc.lpszClassName = L"VibeHandMsg";
     RegisterClassExW(&wc);
     // A hidden top-level window (not HWND_MESSAGE): it must receive the
     // "TaskbarCreated" broadcast to restore the tray icon after Explorer restarts.
-    msgWnd_ = CreateWindowExW(WS_EX_TOOLWINDOW, wc.lpszClassName, L"Vibe Legion", WS_POPUP, 0, 0, 0, 0, nullptr, nullptr,
+    msgWnd_ = CreateWindowExW(WS_EX_TOOLWINDOW, wc.lpszClassName, L"Vibe Hand", WS_POPUP, 0, 0, 0, 0, nullptr, nullptr,
                               inst, this);
     if (!msgWnd_) return 1;
 
@@ -87,30 +87,22 @@ int App::run(HINSTANCE inst, bool startMinimized) {
             if (list.size() > FaceDatabase::kMaxSamplesPerModality)
                 list.erase(list.begin(), list.end() - static_cast<long>(FaceDatabase::kMaxSamplesPerModality));
             facesChanged();
-            taskMessage_ = L"Лицо «" + widen(p->name) + L"» запомнено" + (ir ? L" (ИК)" : L"");
-            if (settings_.ui.notifications) tray_.notify(L"Vibe Legion", taskMessage_);
+            taskMessage_ = L"Лицо «" + widen(p->name) + L"» запомнено: " + std::to_wstring(embs.size()) + L" снимков" +
+                           (ir ? L" (ИК)" : L"");
+            if (settings_.ui.notifications) tray_.notify(L"Vibe Hand", taskMessage_);
             if (main_ && main_->hwnd()) main_->state().enrollingPerson.clear();
-        });
-    };
-    cb.onCalibrated = [this](float scale) {
-        postToUi([this, scale] {
-            // `scale` is absolute: the pipeline measured raw distances without calibration.
-            settings_.distance.calibration = std::clamp(scale, 0.1f, 10.f);
-            settingsChanged();
-            wchar_t b[64];
-            swprintf(b, 64, L"готово, коэффициент ×%.2f", scale);
-            taskMessage_ = b;
         });
     };
     cb.onRecorded = [this](const std::string& id, std::vector<std::array<float, 42>> samples) {
         postToUi([this, id, samples = std::move(samples)] {
             for (auto& g : settings_.customGestures) {
                 if (g.id != id) continue;
-                if (samples.empty()) {
-                    taskMessage_ = L"Рука не была видна — попробуйте ещё раз";
+                if (samples.size() < 3) {
+                    taskMessage_ = L"Рука почти не была видна — запишите «" + widen(g.name) + L"» ещё раз";
                 } else {
                     g.samples = samples;
-                    taskMessage_ = L"Жест «" + widen(g.name) + L"» записан (" + std::to_wstring(samples.size()) + L" образцов)";
+                    taskMessage_ = L"Жест «" + widen(g.name) + L"» записан (" + std::to_wstring(samples.size()) +
+                                   L" образцов) — выберите его в правиле: «Свой: " + widen(g.name) + L"»";
                 }
             }
             if (main_ && main_->hwnd()) main_->state().recordingGesture.clear();
@@ -124,7 +116,7 @@ int App::run(HINSTANCE inst, bool startMinimized) {
     trayDark_ = taskbarLight();
     trayIcon_ = makeIcon(GetSystemMetrics(SM_CXSMICON), false, trayDark_, accent, IconBadge::Idle);
     trayBadge_ = IconBadge::Idle;
-    tray_.create(msgWnd_, WM_VL_TRAY, trayIcon_, L"Vibe Legion");
+    tray_.create(msgWnd_, WM_VL_TRAY, trayIcon_, L"Vibe Hand");
 
     powerNotify_[0] = RegisterPowerSettingNotification(msgWnd_, &kAcDcPowerSource, DEVICE_NOTIFY_WINDOW_HANDLE);
     powerNotify_[1] = RegisterPowerSettingNotification(msgWnd_, &kPowerSavingStatus, DEVICE_NOTIFY_WINDOW_HANDLE);
@@ -144,11 +136,13 @@ int App::run(HINSTANCE inst, bool startMinimized) {
     updatePauseState();
     SetTimer(msgWnd_, kTimerTick, 1000, nullptr);
 
+    // Re-register on every start: the Run entry must point at *this* exe (the app may
+    // have been rebuilt or moved), and the pre-rename "VibeLegion" entry goes away.
+    setAutostart(settings_.ui.autostart);
     if (firstRun) {
         saveSettings(settings_);
-        setAutostart(settings_.ui.autostart);
         showMain(ui::PageOverview);
-        tray_.notify(L"Vibe Legion работает", L"Значок рядом с часами: щелчок — быстрые настройки, правый щелчок — меню.");
+        tray_.notify(L"Vibe Hand работает", L"Значок рядом с часами: щелчок — быстрые настройки, правый щелчок — меню.");
     } else if (!startMinimized && !settings_.ui.startMinimized) {
         showMain();
     }
@@ -281,7 +275,7 @@ void App::updateTrayIcon() {
     else if (snap_.mode == PipelineMode::Active) b = IconBadge::Active;
     else if (snap_.nightActive) b = IconBadge::Night;
     const bool dark = taskbarLight();
-    std::wstring tip = L"Vibe Legion — " + (paused() ? pauseText() : widen(modeTextRu(snap_.mode)));
+    std::wstring tip = L"Vibe Hand — " + (paused() ? pauseText() : widen(modeTextRu(snap_.mode)));
     if (b != trayBadge_ || dark != trayDark_) {
         HICON old = trayIcon_;
         trayIcon_ = makeIcon(GetSystemMetrics(SM_CXSMICON), false, dark, ui::accentFor(settings_.ui), b);
@@ -301,18 +295,14 @@ void App::setPreviewWanted(bool on) {
     pipeline_->setPreviewWanted(want);
 }
 
-void App::startEnrollment(const std::string& id, int samples) {
+void App::startEnrollment(const std::string& id, int durationMs) {
     taskMessage_.clear();
-    pipeline_->startEnrollment(id, samples);
-}
-void App::startCalibration(float cm) {
-    taskMessage_.clear();
-    pipeline_->startCalibration(cm);
+    pipeline_->startEnrollment(id, durationMs);
 }
 void App::startRecording(const std::string& id) {
     taskMessage_.clear();
     for (const auto& g : settings_.customGestures)
-        if (g.id == id) pipeline_->startRecording(id, g.rotationInvariant, g.mirrorInvariant, 2000);
+        if (g.id == id) pipeline_->startRecording(id, g.rotationInvariant, g.mirrorInvariant, CustomGesture::kRecordMs);
 }
 void App::cancelTasks() { if (pipeline_) pipeline_->cancelTasks(); }
 
@@ -358,8 +348,7 @@ void App::onGesture(const GestureEvent& e) {
     if (e.gesture.rfind("custom:", 0) == 0)
         for (const auto& g : settings_.customGestures)
             if ("custom:" + g.id == e.gesture) gname = widen(g.name);
-    std::wstring detail = gname;
-    if (e.distanceCm > 0) detail += L" · " + std::to_wstring(static_cast<int>(e.distanceCm)) + L" см";
+    const std::wstring detail = gname;
     const std::wstring title = e.ruleName.empty() ? describeAction(e.action) : widen(e.ruleName);
     addLog({title, detail, actionGlyph(e.action.type), unixMs()});
     if (settings_.ui.osd) osd_->showFired(actionGlyph(e.action.type), describeAction(e.action), detail);
@@ -391,7 +380,7 @@ void App::onSnapshot() {
         lastHint_ = hint;
         updateTrayIcon();
         if (!hint.empty() && settings_.ui.notifications)
-            tray_.notify(L"Vibe Legion", hint == "covered" ? L"Камера закрыта шторкой или выключена клавишей — жесты недоступны."
+            tray_.notify(L"Vibe Hand", hint == "covered" ? L"Камера закрыта шторкой или выключена клавишей — жесты недоступны."
                                                            : widen(snap_.camera.empty() ? "Камера недоступна" : snap_.camera));
     } else if ((snap_.mode == PipelineMode::Active) != (trayBadge_ == IconBadge::Active)) {
         updateTrayIcon();
@@ -401,7 +390,7 @@ void App::onSnapshot() {
 void App::showTrayMenu() {
     HMENU m = CreatePopupMenu();
     HMENU night = CreatePopupMenu(), prof = CreatePopupMenu();
-    AppendMenuW(m, MF_STRING, IdOpen, L"Открыть Vibe Legion");
+    AppendMenuW(m, MF_STRING, IdOpen, L"Открыть Vibe Hand");
     SetMenuDefaultItem(m, IdOpen, FALSE);
     AppendMenuW(m, MF_SEPARATOR, 0, nullptr);
     AppendMenuW(m, MF_STRING | (userPaused_ ? MF_CHECKED : 0), IdPause,

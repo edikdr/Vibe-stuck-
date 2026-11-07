@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-project(VibeLegion VERSION 0.1.0 LANGUAGES CXX)
+project(VibeHand VERSION 0.2.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -57,7 +57,6 @@ add_library(vl_core STATIC
     src/core/image.cpp
     src/core/night_vision.cpp
     src/core/detection.cpp
-    src/core/distance.cpp
     src/core/gestures.cpp
     src/core/face_db.cpp
     src/core/settings.cpp
@@ -78,7 +77,7 @@ target_link_libraries(vl_ml PUBLIC Threads::Threads)
 
 # ---------------------------------------------------------------- Windows app
 if(WIN32)
-    add_executable(VibeLegion WIN32
+    add_executable(VibeHand WIN32
         src/app/main.cpp
         src/app/app.cpp
         src/app/actions.cpp
@@ -94,27 +93,27 @@ if(WIN32)
         src/ui/flyout.cpp
         res/app.rc
     )
-    target_link_libraries(VibeLegion PRIVATE vl_ml
+    target_link_libraries(VibeHand PRIVATE vl_ml
         user32 shell32 gdi32 ole32 oleaut32 uuid advapi32 comctl32
         dwmapi uxtheme d2d1 dwrite windowscodecs
         mf mfplat mfreadwrite mfuuid strmiids
         crypt32 powrprof wtsapi32 psapi shlwapi version comdlg32)
     if(MSVC)
-        target_link_options(VibeLegion PRIVATE /MANIFEST:NO)  # manifest comes from app.rc
+        target_link_options(VibeHand PRIVATE /MANIFEST:NO)  # manifest comes from app.rc
     else()
-        target_link_options(VibeLegion PRIVATE -municode -static)  # no MinGW runtime DLLs
+        target_link_options(VibeHand PRIVATE -municode -static)  # no MinGW runtime DLLs
     endif()
 
     # Ship ONNX Runtime DLLs and the models next to the exe.
     foreach(dll IN LISTS VL_ORT_DLLS)
-        add_custom_command(TARGET VibeLegion POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_if_different "${dll}" "$<TARGET_FILE_DIR:VibeLegion>")
+        add_custom_command(TARGET VibeHand POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different "${dll}" "$<TARGET_FILE_DIR:VibeHand>")
     endforeach()
-    add_custom_command(TARGET VibeLegion POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:VibeLegion>/models"
-        COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/models" "$<TARGET_FILE_DIR:VibeLegion>/models")
+    add_custom_command(TARGET VibeHand POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:VibeHand>/models"
+        COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/models" "$<TARGET_FILE_DIR:VibeHand>/models")
 
-    install(TARGETS VibeLegion RUNTIME DESTINATION .)
+    install(TARGETS VibeHand RUNTIME DESTINATION .)
     install(FILES ${VL_ORT_DLLS} DESTINATION .)
     install(DIRECTORY models/ DESTINATION models FILES_MATCHING PATTERN "*.onnx")
 endif()

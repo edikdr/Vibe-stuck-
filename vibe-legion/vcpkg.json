@@ -1,5 +1,5 @@
 {
-  "name": "vibe-legion",
+  "name": "vibe-hand",
   "version": "0.1.0",
   "description": "Background gesture control for Lenovo Legion 7 (optional: only used with the windows-vcpkg preset)",
   "dependencies": [ "onnxruntime" ]

@@ -55,8 +55,9 @@ public:
     bool userPaused() const { return userPaused_; }
 
     void setPreviewWanted(bool on);
-    void startEnrollment(const std::string& personId, int samples = 12);
-    void startCalibration(float knownCm);
+    static constexpr int kEnrollNewMs = 12000;   // first enrollment of a person
+    static constexpr int kEnrollMoreMs = 8000;   // "Дописать" (more samples, e.g. at night)
+    void startEnrollment(const std::string& personId, int durationMs);
     void startRecording(const std::string& gestureId);
     void cancelTasks();
     std::wstring lastTaskMessage() const { return taskMessage_; }

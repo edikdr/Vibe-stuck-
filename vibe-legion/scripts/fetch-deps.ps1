@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Downloads ONNX Runtime and the ONNX models Vibe Legion needs.
+  Downloads ONNX Runtime and the ONNX models Vibe Hand needs.
 
 .DESCRIPTION
   * ONNX Runtime -> third_party\onnxruntime\{include,lib}

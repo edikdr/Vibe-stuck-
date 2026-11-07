@@ -12,8 +12,8 @@
 #include <thread>
 #include <vector>
 
-#include "core/distance.hpp"
 #include "core/face_db.hpp"
+#include "core/filters.hpp"
 #include "core/gestures.hpp"
 #include "core/night_vision.hpp"
 #include "core/settings.hpp"
@@ -31,7 +31,6 @@ struct FaceInfo {
     std::string name;
     float similarity = 0.f;
     bool looking = false;
-    float distanceCm = -1.f;
 };
 
 struct PipelineSnapshot {
@@ -64,7 +63,6 @@ struct PipelineSnapshot {
 
     // Long-running tasks.
     float enrollProgress = -1.f;  // <0 = idle
-    float calibProgress = -1.f;
     float recordProgress = -1.f;
     std::string taskHint;
 };
@@ -72,7 +70,6 @@ struct PipelineSnapshot {
 struct PipelineCallbacks {
     std::function<void(const GestureEvent&)> onGesture;
     std::function<void(const std::string& personId, std::vector<Embedding>, bool ir)> onEnrolled;
-    std::function<void(float scale)> onCalibrated;
     std::function<void(const std::string& gestureId, std::vector<std::array<float, 42>>)> onRecorded;
     std::function<void()> onSnapshot;  // throttled (~15 Hz while previewing, 2 Hz otherwise)
 };
@@ -93,9 +90,10 @@ public:
     void setPreviewWanted(bool on) { previewWanted_ = on; }
 
     // Tasks (results arrive through callbacks).
-    void startEnrollment(const std::string& personId, int samples = 12);
-    void startCalibration(float knownCm);
-    void startRecording(const std::string& gestureId, bool rotationInvariant, bool mirrorInvariant, int ms = 2000);
+    // Collects face samples for durationMs (counted from when a face is first seen).
+    void startEnrollment(const std::string& personId, int durationMs);
+    void startRecording(const std::string& gestureId, bool rotationInvariant, bool mirrorInvariant,
+                        int ms = CustomGesture::kRecordMs);
     void cancelTasks();
 
     PipelineSnapshot snapshot() const;
@@ -140,7 +138,6 @@ private:
 
     NightVision night_;
     IrFrameSelector irSel_;
-    DistanceEstimator dist_;
     GestureEngine engine_;
     SwipeDetector swipe_;
     std::array<OneEuro, kHandLandmarks * 2> lmFilter_;
@@ -164,13 +161,12 @@ private:
     uint64_t previewSeq_ = 0;
 
     // Tasks.
-    struct Enroll { std::string person; int want = 0; std::vector<Embedding> got; bool ir = false; int64_t last = 0; };
-    struct Calib { float knownCm = 0; std::vector<float> raw; int64_t start = 0; };
-    struct Record { std::string id; bool rot = true, mir = true; int ms = 2000; int64_t start = 0;
+    struct Enroll { std::string person; int durationMs = 10000; std::vector<Embedding> got; bool ir = false;
+                    int64_t start = 0, last = 0; };
+    struct Record { std::string id; bool rot = true, mir = true; int ms = CustomGesture::kRecordMs; int64_t start = 0;
                     std::vector<std::array<float, 42>> got; };
     std::mutex taskMutex_;
     std::unique_ptr<Enroll> enroll_;
-    std::unique_ptr<Calib> calib_;
     std::unique_ptr<Record> record_;
 };
 

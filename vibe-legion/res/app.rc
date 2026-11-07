@@ -18,12 +18,12 @@ BEGIN
     BEGIN
         BLOCK "041904b0"
         BEGIN
-            VALUE "CompanyName", "Vibe Legion"
-            VALUE "FileDescription", "Vibe Legion - gesture control"
+            VALUE "CompanyName", "Vibe Hand"
+            VALUE "FileDescription", "Vibe Hand - gesture control"
             VALUE "FileVersion", "0.1.0"
-            VALUE "InternalName", "VibeLegion"
-            VALUE "OriginalFilename", "VibeLegion.exe"
-            VALUE "ProductName", "Vibe Legion"
+            VALUE "InternalName", "VibeHand"
+            VALUE "OriginalFilename", "VibeHand.exe"
+            VALUE "ProductName", "Vibe Hand"
             VALUE "ProductVersion", "0.1.0"
         END
     END

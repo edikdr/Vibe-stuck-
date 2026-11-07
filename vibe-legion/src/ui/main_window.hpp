@@ -18,7 +18,6 @@ struct UiState {
     std::string enrollingPerson;
     std::wstring newGestureName;
     std::string recordingGesture;
-    float calibCm = 60.f;
     std::unordered_map<std::string, std::wstring> text;  // text buffers by key
     std::string confirmDelete;                            // id awaiting a second click
     double confirmUntil = 0;

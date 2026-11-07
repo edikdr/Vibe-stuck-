@@ -13,7 +13,10 @@ const char* const kActionIds[] = {
     "none", "media_play_pause", "media_next", "media_prev", "media_stop",
     "volume_up", "volume_down", "volume_mute", "mic_mute", "key_combo",
     "scroll_up", "scroll_down", "launch_app", "lock_pc", "show_desktop",
-    "task_view", "screenshot", "switch_window", "pause_recognition"};
+    "task_view", "screenshot", "switch_window", "pause_recognition",
+    "next_window", "prev_window", "minimize_window", "maximize_window", "close_window",
+    "next_desktop", "prev_desktop", "start_menu", "search", "file_explorer",
+    "browser_back", "browser_forward", "screenshot_full"};
 static_assert(sizeof(kActionIds) / sizeof(kActionIds[0]) == static_cast<size_t>(ActionType::kCount));
 
 template <typename E, size_t N>
@@ -51,6 +54,7 @@ json::Value actionToJson(const Action& a) {
     }
     if (!a.path.empty()) o.set("path", a.path);
     if (!a.args.empty()) o.set("args", a.args);
+    if (!a.label.empty()) o.set("label", a.label);
     return o;
 }
 
@@ -60,7 +64,27 @@ Action actionFromJson(const json::Value& v) {
     for (const auto& k : v["keys"].asArray()) a.keys.push_back(static_cast<uint16_t>(clampi(k.asInt(), 0, 255)));
     a.path = v["path"].asString();
     a.args = v["args"].asString();
+    a.label = v["label"].asString();
     return a;
+}
+
+// Swipe left/right -> previous/next window. Shipped disabled like the palm example.
+void addSwipeRules(std::vector<GestureRule>& rules) {
+    auto add = [&](const char* gesture, const char* name, ActionType t) {
+        for (const auto& r : rules)
+            if (r.gesture == gesture) return;  // the user already has a rule for it
+        GestureRule r;
+        r.id = newId();
+        r.name = name;
+        r.enabled = false;
+        r.gesture = gesture;
+        r.holdMs = 0;  // swipes are instantaneous
+        r.cooldownMs = 700;
+        r.action.type = t;
+        rules.push_back(r);
+    };
+    add("swipe_left", "Взмах влево — предыдущее окно", ActionType::PrevWindow);
+    add("swipe_right", "Взмах вправо — следующее окно", ActionType::NextWindow);
 }
 
 }  // namespace
@@ -83,19 +107,17 @@ std::string newId() {
 
 Settings Settings::defaults() {
     Settings s;
-    // The example from the brief: open palm held at 60-70 cm toggles media.
-    // Shipped *disabled*: gestures are meant to be set up in the app.
+    // Examples, shipped *disabled*: gestures are meant to be set up in the app.
     GestureRule r;
     r.id = newId();
     r.name = "Ладонь — пауза / play";
     r.enabled = false;
     r.gesture = "open_palm";
-    r.minCm = 60.f;
-    r.maxCm = 70.f;
-    r.holdMs = 320;
+    r.holdMs = 500;
     r.cooldownMs = 1700;
     r.action.type = ActionType::MediaPlayPause;
     s.rules.push_back(r);
+    addSwipeRules(s.rules);
     return s;
 }
 
@@ -120,11 +142,6 @@ json::Value Settings::toJson() const {
     cam.set("ir_torch", camera.irTorch);
     cam.set("hardware_low_light", camera.hardwareLowLight);
     root.set("camera", std::move(cam));
-
-    json::Value dist;
-    dist.set("hfov_deg", distance.hfovDeg);
-    dist.set("calibration", distance.calibration);
-    root.set("distance", std::move(dist));
 
     json::Value fc;
     fc.set("gate", enumName(faces.gate, kGate));
@@ -168,9 +185,6 @@ json::Value Settings::toJson() const {
         o.set("enabled", r.enabled);
         o.set("gesture", r.gesture);
         o.set("hand", enumName(r.hand, kHand));
-        o.set("use_distance", r.useDistance);
-        o.set("min_cm", r.minCm);
-        o.set("max_cm", r.maxCm);
         o.set("hold_ms", r.holdMs);
         o.set("cooldown_ms", r.cooldownMs);
         o.set("repeat", r.repeat);
@@ -206,7 +220,7 @@ json::Value Settings::toJson() const {
 
 Settings Settings::fromJson(const json::Value& v) {
     Settings s;  // empty rules: a file with "rules": [] stays empty
-    s.version = v["version"].asInt(1);
+    const int fileVersion = v["version"].asInt(1);
     s.enabled = v["enabled"].asBool(true);
 
     const auto& c = v["camera"];
@@ -224,10 +238,7 @@ Settings Settings::fromJson(const json::Value& v) {
     s.camera.irAmbientSuppression = c["ir_ambient_suppression"].asBool(true);
     s.camera.irTorch = c["ir_torch"].asBool(true);
     s.camera.hardwareLowLight = c["hardware_low_light"].asBool(true);
-
-    const auto& d = v["distance"];
-    s.distance.hfovDeg = clampf(d["hfov_deg"].asFloat(74.f), 30.f, 140.f);
-    s.distance.calibration = clampf(d["calibration"].asFloat(1.f), 0.1f, 10.f);
+    // v1 "distance" section and per-rule "use_distance/min_cm/max_cm" are ignored.
 
     const auto& f = v["faces"];
     s.faces.gate = enumFrom(f["gate"], kGate, FaceGate::AnyFace);
@@ -267,9 +278,6 @@ Settings Settings::fromJson(const json::Value& v) {
         r.enabled = o["enabled"].asBool(true);
         r.gesture = o["gesture"].asString("open_palm");
         r.hand = enumFrom(o["hand"], kHand, HandSide::Any);
-        r.useDistance = o["use_distance"].asBool(true);
-        r.minCm = clampf(o["min_cm"].asFloat(60.f), 10.f, 300.f);
-        r.maxCm = clampf(o["max_cm"].asFloat(70.f), r.minCm, 300.f);
         r.holdMs = clampi(o["hold_ms"].asInt(320), 0, 5000);
         r.cooldownMs = clampi(o["cooldown_ms"].asInt(1700), 0, 30000);
         r.repeat = o["repeat"].asBool(false);
@@ -296,6 +304,8 @@ Settings Settings::fromJson(const json::Value& v) {
         }
         s.customGestures.push_back(std::move(g));
     }
+    if (fileVersion < 2) addSwipeRules(s.rules);  // migration: offer the new swipe rules once
+    s.version = kVersion;
     return s;
 }
 

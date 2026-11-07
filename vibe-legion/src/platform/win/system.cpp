@@ -30,11 +30,21 @@ std::string narrow(std::wstring_view w) {
 
 std::filesystem::path appDataDir() {
     PWSTR p = nullptr;
-    std::filesystem::path dir;
-    if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_LocalAppData, 0, nullptr, &p))) dir = std::filesystem::path(p) / L"VibeLegion";
+    std::filesystem::path dir, legacy;
+    if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_LocalAppData, 0, nullptr, &p))) {
+        dir = std::filesystem::path(p) / L"VibeHand";
+        legacy = std::filesystem::path(p) / L"VibeLegion";  // the app's name before 0.2
+    }
     CoTaskMemFree(p);
     if (dir.empty()) dir = exeDir() / L"data";
     std::error_code ec;
+    if (!legacy.empty() && !std::filesystem::exists(dir, ec) && std::filesystem::exists(legacy, ec)) {
+        // First start after the rename: take over settings and enrolled faces. Copy,
+        // not move, so an older build that is still installed keeps working.
+        std::filesystem::create_directories(dir, ec);
+        for (const wchar_t* f : {L"settings.json", L"faces.bin"})
+            std::filesystem::copy_file(legacy / f, dir / f, std::filesystem::copy_options::skip_existing, ec);
+    }
     std::filesystem::create_directories(dir, ec);
     return dir;
 }
@@ -107,7 +117,7 @@ FaceDatabase loadFaces() {
 bool saveFaces(const FaceDatabase& db) {
     auto plain = db.serialize();
     DATA_BLOB in{static_cast<DWORD>(plain.size()), plain.data()}, out{};
-    if (!CryptProtectData(&in, L"Vibe Legion faces", nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &out))
+    if (!CryptProtectData(&in, L"Vibe Hand faces", nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &out))
         return false;
     const bool ok = writeAtomic(appDataDir() / L"faces.bin", out.pbData, out.cbData);
     LocalFree(out.pbData);
@@ -116,12 +126,14 @@ bool saveFaces(const FaceDatabase& db) {
 
 namespace {
 constexpr wchar_t kRunKey[] = L"Software\\Microsoft\\Windows\\CurrentVersion\\Run";
-constexpr wchar_t kRunValue[] = L"VibeLegion";
+constexpr wchar_t kRunValue[] = L"VibeHand";
+constexpr wchar_t kLegacyRunValue[] = L"VibeLegion";  // pre-rename entry, possibly pointing at an old build
 }  // namespace
 
 bool setAutostart(bool on) {
     HKEY k;
     if (RegOpenKeyExW(HKEY_CURRENT_USER, kRunKey, 0, KEY_SET_VALUE, &k) != ERROR_SUCCESS) return false;
+    RegDeleteValueW(k, kLegacyRunValue);
     LONG r;
     if (on) {
         wchar_t exe[MAX_PATH * 2];

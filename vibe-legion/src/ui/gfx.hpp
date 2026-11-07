@@ -129,6 +129,7 @@ inline constexpr const wchar_t* Taskbar = L"";
 inline constexpr const wchar_t* Memory = L"";
 inline constexpr const wchar_t* Warning = L"";
 inline constexpr const wchar_t* Flash = L"";
+inline constexpr const wchar_t* Apps = L"";      // AllApps
 }  // namespace glyph
 
 }  // namespace vl::ui

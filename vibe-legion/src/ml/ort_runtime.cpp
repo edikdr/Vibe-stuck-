@@ -16,7 +16,7 @@ OrtRuntime& OrtRuntime::instance() {
     return rt;
 }
 
-OrtRuntime::OrtRuntime() : env_(ORT_LOGGING_LEVEL_ERROR, "VibeLegion") {}
+OrtRuntime::OrtRuntime() : env_(ORT_LOGGING_LEVEL_ERROR, "VibeHand") {}
 
 bool OrtRuntime::readFile(const std::filesystem::path& p, std::vector<uint8_t>& out) {
     std::ifstream f(p, std::ios::binary | std::ios::ate);

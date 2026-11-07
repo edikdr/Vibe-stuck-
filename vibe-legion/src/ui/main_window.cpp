@@ -23,7 +23,7 @@ void MainWindow::show(int page) {
         const int w = static_cast<int>(1120 * s), h = static_cast<int>(740 * s);
         const RECT& wa = mi.rcWork;
         const int x = wa.left + (wa.right - wa.left - w) / 2, y = wa.top + (wa.bottom - wa.top - h) / 2;
-        createWindow(L"VibeLegionMain", L"Vibe Legion", WS_OVERLAPPEDWINDOW, 0, x, y, w, h, nullptr);
+        createWindow(L"VibeHandMain", L"Vibe Hand", WS_OVERLAPPEDWINDOW, 0, x, y, w, h, nullptr);
     }
     ShowWindow(hwnd_, IsIconic(hwnd_) ? SW_RESTORE : SW_SHOW);
     SetForegroundWindow(hwnd_);
@@ -75,7 +75,7 @@ void MainWindow::frame(Gui& g, const RectF& client) {
     // Brand.
     c.fillRound({18, 18, 34, 34}, 9, p.accent);
     c.icon(glyph::Hand, {18, 18, 34, 34}, p.onAccent, 17.f);
-    c.text(L"Vibe Legion", {62, 16, 180, 22}, p.text, 16.f, Weight::Semibold);
+    c.text(L"Vibe Hand", {62, 16, 180, 22}, p.text, 16.f, Weight::Semibold);
     c.text(L"Жесты и лица · Legion 7", {62, 37, 180, 16}, p.textMuted, 12.f);
 
     struct Nav { const wchar_t* g; const wchar_t* t; };

@@ -190,8 +190,16 @@ void matchCustom(HandObservation& h, const std::vector<CustomGesture>& gestures)
     for (const auto& g : gestures) {
         if (g.samples.empty()) continue;
         const auto t = handTemplate(h.lm, h.isRight, g.rotationInvariant, g.mirrorInvariant);
-        float best = 1e9f;
-        for (const auto& s : g.samples) best = std::min(best, templateDistance(t, s));
+        float near[3] = {1e9f, 1e9f, 1e9f};  // 3 smallest distances, ascending
+        for (const auto& s : g.samples) {
+            float d = templateDistance(t, s);
+            for (float& n : near)
+                if (d < n) std::swap(d, n);
+        }
+        const size_t k = std::min<size_t>(3, g.samples.size());
+        float best = 0.f;
+        for (size_t i = 0; i < k; ++i) best += near[i];
+        best /= static_cast<float>(k);
         const float conf = 1.f - best / std::max(0.01f, g.tolerance);
         if (conf > 0.f && conf > h.customConfidence) {
             h.customConfidence = conf;
@@ -200,12 +208,55 @@ void matchCustom(HandObservation& h, const std::vector<CustomGesture>& gestures)
     }
 }
 
+std::vector<std::array<float, 42>> condenseSamples(const std::vector<std::array<float, 42>>& raw, size_t maxSamples) {
+    const size_t n = raw.size();
+    if (n == 0 || maxSamples == 0) return {};
+    // 1. Outliers: a sample whose median distance to the others is far above the
+    //    typical one belongs to a transition, not to the pose being recorded.
+    std::vector<float> med(n, 0.f);
+    if (n >= 5) {
+        std::vector<float> d;
+        const size_t stride = std::max<size_t>(1, n / 60);  // bounded cost for long recordings
+        for (size_t i = 0; i < n; ++i) {
+            d.clear();
+            for (size_t j = 0; j < n; j += stride)
+                if (j != i) d.push_back(templateDistance(raw[i], raw[j]));
+            std::nth_element(d.begin(), d.begin() + d.size() / 2, d.end());
+            med[i] = d[d.size() / 2];
+        }
+    }
+    std::vector<float> sorted = med;
+    std::nth_element(sorted.begin(), sorted.begin() + n / 2, sorted.end());
+    const float typical = sorted[n / 2];
+    const float cut = std::max(typical * 2.0f, typical + 0.05f);
+    std::vector<size_t> keep;
+    for (size_t i = 0; i < n; ++i)
+        if (n < 5 || med[i] <= cut) keep.push_back(i);
+    // 2. Near-duplicates (hand held perfectly still) add nothing.
+    std::vector<std::array<float, 42>> out;
+    for (size_t i : keep) {
+        bool dup = false;
+        for (const auto& o : out)
+            if (templateDistance(raw[i], o) < 0.015f) { dup = true; break; }
+        if (!dup) out.push_back(raw[i]);
+    }
+    // 3. Spread the remainder evenly over the recording.
+    if (out.size() > maxSamples) {
+        std::vector<std::array<float, 42>> thin;
+        for (size_t i = 0; i < maxSamples; ++i) thin.push_back(out[i * out.size() / maxSamples]);
+        out.swap(thin);
+    }
+    return out;
+}
+
 std::string SwipeDetector::update(const HandObservation& h, int64_t nowMs) {
     const auto& im = h.lm.image;
     const Vec2 c = (im[WRIST].xy() + im[INDEX_MCP].xy() + im[MIDDLE_MCP].xy() + im[PINKY_MCP].xy()) * 0.25f;
     trail_.push_back({c, std::max(1.f, h.palmPx), nowMs});
-    while (!trail_.empty() && nowMs - trail_.front().t > 380) trail_.pop_front();
-    if (nowMs - lastSwipe_ < 650 || trail_.size() < 4) return {};
+    // 0.5 s window and 3 points: in a dim room the webcam drops to ~10 fps, and the
+    // former 0.38 s / 4 points practically never saw a full swipe there.
+    while (!trail_.empty() && nowMs - trail_.front().t > 500) trail_.pop_front();
+    if (nowMs - lastSwipe_ < 600 || trail_.size() < 3) return {};
     if (h.fingers.count() < 3) return {};  // swipe with an open-ish hand only
     const P& s = trail_.front();
     const float palm = (s.palm + h.palmPx) * 0.5f;
@@ -232,11 +283,6 @@ bool GestureEngine::handMatches(const GestureRule& r, const HandObservation& h, 
     }
     if (r.hand == HandSide::Left && h.isRight) return no("нужна левая рука");
     if (r.hand == HandSide::Right && !h.isRight) return no("нужна правая рука");
-    if (r.useDistance) {
-        if (h.distanceCm <= 0.f) return no("дистанция неизвестна");
-        if (h.distanceCm < r.minCm) return no("слишком близко");
-        if (h.distanceCm > r.maxCm) return no("слишком далеко");
-    }
     return true;
 }
 
@@ -268,20 +314,19 @@ std::vector<GestureEvent> GestureEngine::update(const std::vector<HandObservatio
         for (const auto& h : hands)
             if (handMatches(r, h)) { match = &h; break; }
 
-        auto fire = [&](const HandObservation* h) {
+        auto fire = [&] {
             GestureEvent e;
             e.ruleId = r.id;
             e.ruleName = r.name;
             e.action = r.action;
             e.gesture = r.gesture;
-            e.distanceCm = h ? h->distanceCm : -1.f;
             events.push_back(std::move(e));
             st.lastFired = nowMs;
         };
 
         if (dynamic) {
             st.progress = 0.f;
-            if (personOk && match && dynamicGesture == r.gesture && nowMs - st.lastFired >= r.cooldownMs) fire(match);
+            if (personOk && match && dynamicGesture == r.gesture && nowMs - st.lastFired >= r.cooldownMs) fire();
             continue;
         }
 
@@ -296,11 +341,11 @@ std::vector<GestureEvent> GestureEngine::update(const std::vector<HandObservatio
             if (held >= r.holdMs) {
                 if (!st.firedThisHold) {
                     if (nowMs - st.lastFired >= r.cooldownMs) {
-                        fire(match);
+                        fire();
                         st.firedThisHold = true;
                     }
                 } else if (r.repeat && nowMs - st.lastFired >= r.repeatMs) {
-                    fire(match);
+                    fire();
                 }
             }
         } else if (st.holding && nowMs - st.lastSeen > kGraceMs) {

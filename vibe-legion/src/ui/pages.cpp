@@ -104,12 +104,17 @@ std::wstring gestureName(const App& app, const std::string& id) {
 }
 
 const std::vector<ActionType>& actionOrder() {
+    // Own actions first (app, keys), then windows, media, system.
     static const std::vector<ActionType> v = {
+        ActionType::LaunchApp, ActionType::KeyCombo,
+        ActionType::NextWindow, ActionType::PrevWindow, ActionType::SwitchWindow, ActionType::TaskView,
+        ActionType::MinimizeWindow, ActionType::MaximizeWindow, ActionType::CloseWindow, ActionType::ShowDesktop,
+        ActionType::NextDesktop, ActionType::PrevDesktop,
         ActionType::MediaPlayPause, ActionType::MediaNext, ActionType::MediaPrev, ActionType::MediaStop,
         ActionType::VolumeUp, ActionType::VolumeDown, ActionType::VolumeMute, ActionType::MicMute,
-        ActionType::ScrollUp, ActionType::ScrollDown, ActionType::ShowDesktop, ActionType::TaskView,
-        ActionType::SwitchWindow, ActionType::Screenshot, ActionType::LockPC, ActionType::KeyCombo,
-        ActionType::LaunchApp, ActionType::PauseRecognition, ActionType::None};
+        ActionType::ScrollUp, ActionType::ScrollDown, ActionType::BrowserBack, ActionType::BrowserForward,
+        ActionType::Screenshot, ActionType::ScreenshotFull, ActionType::StartMenu, ActionType::Search,
+        ActionType::FileExplorer, ActionType::LockPC, ActionType::PauseRecognition, ActionType::None};
     return v;
 }
 
@@ -137,27 +142,6 @@ bool confirmButton(Gui& g, UiState& st, const std::string& key, const RectF& r, 
         st.confirmUntil = nowSec() + 3.0;
     }
     return false;
-}
-
-void distanceMeter(Gui& g, App& app, const RectF& r) {
-    Canvas& c = g.canvas();
-    const Palette& p = g.pal();
-    const float lo = 20.f, hi = 160.f;
-    auto X = [&](float cm) { return r.x + r.w * std::clamp((cm - lo) / (hi - lo), 0.f, 1.f); };
-    c.fillRound({r.x, r.y + 12, r.w, 8}, 4, p.textMuted.alpha(0.25f));
-    for (const auto& rule : app.settings().rules)
-        if (rule.enabled && rule.useDistance)
-            c.fillRound({X(rule.minCm), r.y + 12, std::max(3.f, X(rule.maxCm) - X(rule.minCm)), 8}, 4, p.accent.alpha(0.55f));
-    for (int cm = 20; cm <= 160; cm += 20) {
-        c.line({X(static_cast<float>(cm)), r.y + 24}, {X(static_cast<float>(cm)), r.y + 28}, p.textMuted, 1.f);
-        c.text(std::to_wstring(cm), {X(static_cast<float>(cm)) - 20, r.y + 28, 40, 14}, p.textMuted, 10.5f, Weight::Regular, Align::Center);
-    }
-    const auto& s = app.snapshot();
-    if (s.hasHand && s.hand.distanceCm > 0) {
-        const float x = X(s.hand.distanceCm);
-        c.fillRound({x - 2, r.y + 6, 4, 20}, 2, p.text);
-        c.text(fmtInt(s.hand.distanceCm, L" см"), {x - 40, r.y - 12, 80, 16}, p.text, 12.f, Weight::Semibold, Align::Center);
-    }
 }
 
 }  // namespace
@@ -221,7 +205,6 @@ void drawPreview(Gui& g, App& app, const RectF& r, bool overlays) {
             for (int i = 0; i < kHandLandmarks; ++i) c.fillCircle(P(lm[i].x, lm[i].y), i % 4 == 0 ? 4.f : 3.f, Color::hex(0xFFFFFF));
             // Label at the wrist.
             std::wstring lbl = s.hand.pose.empty() ? L"рука" : gestureName(app, s.hand.pose);
-            if (s.hand.distanceCm > 0) lbl += L" · " + fmtInt(s.hand.distanceCm, L" см");
             const Vec2 w = P(lm[0].x, lm[0].y);
             const float tw = c.measure(lbl, 12.f, Weight::Semibold).x + 16;
             c.fillRound({w.x - tw / 2, w.y + 10, tw, 22}, 6, Color::hex(0x000000, 0.65f));
@@ -297,15 +280,14 @@ void drawOverview(Gui& g, App& app, UiState& st, const RectF& area) {
             if (i) v += L", ";
             v += f.personId.empty() ? L"незнакомое лицо" : widen(f.name);
         }
-        if (s.faces[0].distanceCm > 0) v += L" · ~" + fmtInt(s.faces[0].distanceCm, L" см");
         line(glyph::Contact, L"Лица", v, p.text);
     } else {
         line(glyph::Contact, L"Лица", app.settings().faces.gate == FaceGate::Off ? L"проверка выключена" : L"нет в кадре", p.textDim);
     }
     const bool anyRule = std::any_of(app.settings().rules.begin(), app.settings().rules.end(), [](const GestureRule& r) { return r.enabled; });
     line(glyph::Info, L"Правило", anyRule ? (s.whyNot.empty() ? L"—" : widen(s.whyNot)) : L"нет включённых правил", p.text);
-    c.text(L"Дистанция руки", {rx, y + 2, rw, 16}, p.textMuted, 12.f);
-    distanceMeter(g, app, {rx, y + 30, rw, 44});
+    line(glyph::Swap, L"Движение", s.lastDynamic.empty() ? L"взмахов нет" : gestureName(app, s.lastDynamic),
+         s.lastDynamic.empty() ? p.textDim : p.success);
 
     // Tiles.
     col.space(4);
@@ -362,7 +344,6 @@ namespace {
 
 void ruleEditor(Gui& g, App& app, UiState& st, Column& col, GestureRule& r, size_t index, bool& removed) {
     Settings& S = app.settings();
-    const auto& s = app.snapshot();
     bool ch = false;
 
     auto& nameBuf = st.text["rule:" + r.id];
@@ -387,29 +368,27 @@ void ruleEditor(Gui& g, App& app, UiState& st, Column& col, GestureRule& r, size
     rr = settingRow(g, col, glyph::Swap, L"Рука", L"");
     if (g.segmented("hand", rr, hand, {L"Любая", L"Левая", L"Правая"})) { r.hand = static_cast<HandSide>(hand); ch = true; }
 
-    rr = settingRow(g, col, glyph::Ruler, L"Учитывать расстояние до камеры",
-                    L"Жест срабатывает только в заданном окне. Зелёная метка — где ваша рука сейчас.");
-    if (g.toggle("usedist", rr, r.useDistance)) ch = true;
-    if (r.useDistance) {
-        const RectF row = col.next(66);
-        g.card(row, 7);
-        const float marker = s.hasHand ? s.hand.distanceCm : -1.f;
-        if (g.rangeSlider("dist", {row.x + 20, row.y + 10, row.w - 200, 46}, r.minCm, r.maxCm, 20.f, 200.f, 1.f, marker)) ch = true;
-        g.canvas().text(fmtInt(r.minCm, L"") + L" – " + fmtInt(r.maxCm, L" см"), {row.right() - 170, row.y, 150, row.h},
-                        g.pal().text, 15.f, Weight::Semibold, Align::End);
+    const auto* builtin = findBuiltin(r.gesture);
+    const bool motion = builtin && builtin->dynamic;
+    if (motion) {
+        const Color& m = g.pal().textDim;
+        g.label(L"Взмах срабатывает сразу: быстро проведите открытой ладонью на 20–30 см в нужную сторону.",
+                col.next(22), 12.5f, &m);
+    } else {
+        float hold = static_cast<float>(r.holdMs);
+        rr = settingRow(g, col, glyph::Record, L"Удержание", L"Сколько держать жест до срабатывания (защита от случайностей)");
+        if (g.slider("hold", rr, hold, 0, 2000, 20, fmtMs)) { r.holdMs = static_cast<int>(hold); ch = true; }
     }
-
-    float hold = static_cast<float>(r.holdMs);
-    rr = settingRow(g, col, glyph::Record, L"Удержание", L"Сколько держать жест до срабатывания (защита от случайностей)");
-    if (g.slider("hold", rr, hold, 0, 2000, 20, fmtMs)) { r.holdMs = static_cast<int>(hold); ch = true; }
 
     float cd = static_cast<float>(r.cooldownMs);
     rr = settingRow(g, col, glyph::Refresh, L"Пауза между срабатываниями", L"Кулдаун после выполнения действия");
     if (g.slider("cooldown", rr, cd, 0, 10000, 100, fmtMs)) { r.cooldownMs = static_cast<int>(cd); ch = true; }
 
-    rr = settingRow(g, col, glyph::Play, L"Повторять, пока жест удерживается", L"Удобно для громкости и прокрутки");
-    if (g.toggle("repeat", rr, r.repeat)) ch = true;
-    if (r.repeat) {
+    if (!motion) {
+        rr = settingRow(g, col, glyph::Play, L"Повторять, пока жест удерживается", L"Удобно для громкости и прокрутки");
+        if (g.toggle("repeat", rr, r.repeat)) ch = true;
+    }
+    if (r.repeat && !motion) {
         float rp = static_cast<float>(r.repeatMs);
         rr = settingRow(g, col, nullptr, L"Интервал повтора", L"");
         if (g.slider("repeatms", rr, rp, 50, 2000, 10, fmtMs)) { r.repeatMs = static_cast<int>(rp); ch = true; }
@@ -445,13 +424,41 @@ void ruleEditor(Gui& g, App& app, UiState& st, Column& col, GestureRule& r, size
         if (g.keysField("keys", rr, r.action.keys)) ch = true;
     }
     if (r.action.type == ActionType::LaunchApp) {
+        // Start menu ("All apps"): desktop programs and Store apps, loaded once.
+        static std::vector<InstalledApp> apps;
+        static bool appsLoaded = false;
+        if (!appsLoaded) {
+            apps = installedApps();
+            appsLoaded = true;
+        }
+        std::vector<std::wstring> names = {L"— выберите —"};
+        int asel2 = 0;
+        for (size_t i = 0; i < apps.size(); ++i) {
+            names.push_back(apps[i].name);
+            if (_wcsicmp(apps[i].path.c_str(), widen(r.action.path).c_str()) == 0) asel2 = static_cast<int>(i) + 1;
+        }
         auto& pathBuf = st.text["path:" + r.id];
-        if (pathBuf.empty() && !r.action.path.empty()) pathBuf = widen(r.action.path);
-        rr = settingRow(g, col, glyph::Open, L"Программа или файл", L"", 420);
-        if (g.textField("path", {rr.x, rr.y, rr.w - 96, rr.h}, pathBuf, L"C:\\Path\\app.exe", 260)) { r.action.path = narrow(pathBuf); ch = true; }
+        rr = settingRow(g, col, glyph::Apps, L"Приложение из меню «Пуск»",
+                        apps.empty() ? L"Список не загрузился — укажите файл ниже" : std::to_wstring(apps.size()) + L" приложений, включая Microsoft Store", 420);
+        if (g.combo("app", {rr.x, rr.y, rr.w - 44, rr.h}, asel2, names) && asel2 > 0) {
+            r.action.path = narrow(apps[asel2 - 1].path);
+            r.action.label = narrow(apps[asel2 - 1].name);
+            pathBuf.clear();
+            ch = true;
+        }
+        if (g.iconButton("appsrefresh", {rr.right() - 36, rr.y, 36, rr.h}, glyph::Refresh, L"Обновить список")) appsLoaded = false;
+
+        const bool fromList = r.action.path.rfind("shell:AppsFolder\\", 0) == 0;
+        if (pathBuf.empty() && !r.action.path.empty() && !fromList) pathBuf = widen(r.action.path);
+        rr = settingRow(g, col, glyph::Open, L"…или любой файл, программа, папка, ссылка", L"", 420);
+        if (g.textField("path", {rr.x, rr.y, rr.w - 96, rr.h}, pathBuf, L"C:\\Path\\app.exe или https://…", 260)) {
+            r.action.path = narrow(pathBuf);
+            r.action.label.clear();
+            ch = true;
+        }
         if (g.button("browse", {rr.right() - 88, rr.y, 88, rr.h}, L"Обзор…")) {
             const auto f = browseExe(GetActiveWindow());
-            if (!f.empty()) { pathBuf = f; r.action.path = narrow(f); ch = true; }
+            if (!f.empty()) { pathBuf = f; r.action.path = narrow(f); r.action.label.clear(); ch = true; }
         }
     }
 
@@ -484,7 +491,7 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
         std::wstring now;
         if (s.hasHand) {
             now = (s.hand.pose.empty() ? L"поза не распознана" : gestureName(app, s.hand.pose)) + L" · " + handName(s.hand.isRight);
-            if (s.hand.distanceCm > 0) now += L" · " + fmtInt(s.hand.distanceCm, L" см");
+            if (!s.lastDynamic.empty()) now += L" · " + gestureName(app, s.lastDynamic);
             if (!s.hand.customId.empty()) now += L" · свой «" + gestureName(app, "custom:" + s.hand.customId) + L"»";
         } else {
             now = s.lastDynamic.empty() ? L"рука не видна" : gestureName(app, s.lastDynamic);
@@ -506,8 +513,8 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
         if (g.toggle("en", {row.x + 12, row.y, 44, row.h}, r.enabled, false)) app.settingsChanged();
         const std::wstring title = r.name.empty() ? gestureName(app, r.gesture) + L" → " + actionTitleRu(r.action.type) : widen(r.name);
         std::wstring sub = gestureName(app, r.gesture);
-        if (r.useDistance) sub += L" · " + fmtInt(r.minCm, L"") + L"–" + fmtInt(r.maxCm, L" см");
-        if (r.holdMs > 0) sub += L" · " + fmtMs(static_cast<float>(r.holdMs));
+        const auto* bg = findBuiltin(r.gesture);
+        if (r.holdMs > 0 && !(bg && bg->dynamic)) sub += L" · " + fmtMs(static_cast<float>(r.holdMs));
         if (r.person == PersonFilter::AnyKnown) sub += L" · знакомые";
         if (r.person == PersonFilter::Specific) sub += L" · один человек";
         sub += L" → " + describeAction(r.action);
@@ -533,9 +540,7 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
             GestureRule nr;
             nr.id = newId();
             nr.gesture = "open_palm";
-            nr.useDistance = true;
-            nr.minCm = 40;
-            nr.maxCm = 90;
+            nr.holdMs = 500;
             nr.action.type = ActionType::MediaPlayPause;
             S.rules.push_back(nr);
             st.expandedRule = nr.id;
@@ -546,7 +551,7 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
     section(g, col, L"Свои жесты");
     {
         const Color& m = p.textDim;
-        g.label(L"Покажите любую позу руки 2 секунды — она станет жестом, который можно выбрать в правилах.",
+        g.label(L"Покажите позу руки 8 секунд, слегка поворачивая кисть, — она появится в списке «Жест» правил как «Свой: …».",
                 col.next(20), 12.5f, &m);
     }
     for (size_t i = 0; i < S.customGestures.size(); ++i) {
@@ -584,7 +589,7 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
         g.card(row, 8);
         g.textField("newgest", {row.x + 16, row.y + 15, 280, 34}, st.newGestureName, L"Название, например «Три пальца вбок»", 40);
         const bool busy = !st.recordingGesture.empty() && s.recordProgress >= 0.f;
-        if (g.button("rec", {row.x + 308, row.y + 15, 200, 34}, L"Записать 2 секунды", ButtonKind::Accent, glyph::Record,
+        if (g.button("rec", {row.x + 308, row.y + 15, 200, 34}, L"Записать 8 секунд", ButtonKind::Accent, glyph::Record,
                      !busy && !st.newGestureName.empty())) {
             CustomGesture ng;
             ng.id = newId();
@@ -632,8 +637,7 @@ void drawFaces(Gui& g, App& app, UiState& st, const RectF& area) {
             const std::wstring n = f.personId.empty() ? L"Незнакомое лицо" : widen(f.name);
             c.text(n, {x, y, w, 24}, f.personId.empty() ? p.text : p.success, 15.f, Weight::Semibold);
             y += 24;
-            c.text(L"сходство " + fmt1(std::max(0.f, f.similarity) * 100.f, L" %") + (f.looking ? L" · смотрит на экран" : L" · отвернулся") +
-                       (f.distanceCm > 0 ? L" · ~" + fmtInt(f.distanceCm, L" см") : L""),
+            c.text(L"сходство " + fmt1(std::max(0.f, f.similarity) * 100.f, L" %") + (f.looking ? L" · смотрит на экран" : L" · отвернулся"),
                    {x, y, w, 18}, p.textDim, 12.5f);
             y += 28;
             if (y > r.bottom() - 30) break;
@@ -670,7 +674,7 @@ void drawFaces(Gui& g, App& app, UiState& st, const RectF& area) {
         }
         if (g.button("more", {row.right() - 216, row.y + 17, 104, 34}, L"Дописать", ButtonKind::Standard, glyph::Add, !enrolling)) {
             st.enrollingPerson = pr.id;
-            app.startEnrollment(pr.id, 10);
+            app.startEnrollment(pr.id, App::kEnrollMoreMs);
         }
         if (confirmButton(g, st, "p" + pr.id, {row.right() - 104, row.y + 17, 92, 34}, L"Удалить")) {
             const std::string pid = pr.id;
@@ -699,9 +703,9 @@ void drawFaces(Gui& g, App& app, UiState& st, const RectF& area) {
             st.enrollingPerson = np.id;
             st.newPersonName.clear();
             app.facesChanged();
-            app.startEnrollment(np.id, 14);
+            app.startEnrollment(np.id, App::kEnrollNewMs);
         }
-        c.text(busy ? widen(s.taskHint) : L"Сядьте как обычно и медленно поворачивайте голову ~3 секунды",
+        c.text(busy ? widen(s.taskHint) : L"Сядьте как обычно и ~12 секунд медленно поворачивайте голову: влево-вправо, вверх-вниз",
                {row.x + 524, row.y, row.w - 540, row.h}, p.textDim, 12.5f, Weight::Regular, Align::Start, Align::Center, true);
     }
     {
@@ -795,32 +799,7 @@ void drawCamera(Gui& g, App& app, UiState& st, const RectF& area) {
     rr = settingRow(g, col, nullptr, L"Подавление засветки в ИК", L"Вычитает кадр без подсветки: солнце и лампы не мешают");
     if (g.toggle("amb", rr, S.camera.irAmbientSuppression)) app.settingsChanged();
 
-    section(g, col, L"Дистанция");
-    rr = settingRow(g, col, glyph::Ruler, L"Угол обзора камеры (по горизонтали)", L"Базовая оценка фокусного расстояния; точнее — калибровкой ниже");
-    if (g.slider("hfov", rr, S.distance.hfovDeg, 50.f, 100.f, 1.f, [](float v) { return fmtInt(v, L"°"); })) app.settingsChanged();
-    {
-        const RectF row = col.next(112);
-        g.card(row, 8);
-        c.icon(glyph::Ruler, {row.x + 18, row.y + 14, 22, 22}, p.text, 17.f);
-        c.text(L"Калибровка по вашей руке", {row.x + 56, row.y + 12, 400, 20}, p.text, 14.f);
-        c.text(L"Отмерьте расстояние от камеры (рулеткой), покажите открытую ладонь и нажмите «Калибровать».",
-               {row.x + 56, row.y + 33, row.w - 80, 18}, p.textDim, 12.5f);
-        g.slider("calcm", {row.x + 52, row.y + 64, 330, 34}, st.calibCm, 30.f, 120.f, 1.f, [](float v) { return fmtInt(v, L" см"); });
-        const bool busy = s.calibProgress >= 0.f;
-        if (g.button("calib", {row.x + 400, row.y + 64, 150, 34}, L"Калибровать", ButtonKind::Accent, nullptr, !busy))
-            app.startCalibration(st.calibCm);
-        if (busy) {
-            g.progressRing({row.x + 576, row.y + 81}, 11, s.calibProgress, p.accent);
-            c.text(widen(s.taskHint), {row.x + 596, row.y + 64, row.w - 610, 34}, p.textDim, 12.5f);
-        } else {
-            c.text(L"коэффициент " + fmt1(S.distance.calibration, L"") + (app.lastTaskMessage().empty() ? L"" : L" · " + app.lastTaskMessage()),
-                   {row.x + 566, row.y + 64, row.w - 690, 34}, p.textDim, 12.5f);
-            if (g.button("calreset", {row.right() - 116, row.y + 64, 100, 34}, L"Сбросить")) {
-                S.distance.calibration = 1.f;
-                app.settingsChanged();
-            }
-        }
-    }
+    section(g, col, L"Руки");
     rr = settingRow(g, col, glyph::Swap, L"Поменять левую и правую руку",
                     L"Если в «Обзоре» ваша правая рука подписана как левая");
     if (g.toggle("swap", rr, S.camera.swapHandedness)) app.settingsChanged();
@@ -920,13 +899,13 @@ void drawSystem(Gui& g, App& app, UiState& st, const RectF& area) {
     RectF rr = settingRow(g, col, glyph::Power, L"Запускать вместе с Windows", L"Сразу в трей, без окна");
     if (g.toggle("auto", rr, S.ui.autostart)) app.settingsChanged();
     rr = settingRow(g, col, glyph::Taskbar, L"Значок рядом с часами",
-                    L"Windows 11 прячет новые значки в «^». Включите Vibe Legion в «Другие значки в области уведомлений».", 300);
+                    L"Windows 11 прячет новые значки в «^». Включите Vibe Hand в «Другие значки в области уведомлений».", 300);
     if (g.button("tb", rr, L"Параметры панели задач", ButtonKind::Standard, glyph::Open)) win::openUri(L"ms-settings:taskbar");
 
     section(g, col, L"Горячие клавиши");
     rr = settingRow(g, col, glyph::Keyboard, L"Пауза / возобновление распознавания", L"Работает в любом приложении");
     if (g.hotkeyField("hk1", rr, S.ui.hotkeyToggle)) app.settingsChanged();
-    rr = settingRow(g, col, glyph::Keyboard, L"Открыть Vibe Legion", L"");
+    rr = settingRow(g, col, glyph::Keyboard, L"Открыть Vibe Hand", L"");
     if (g.hotkeyField("hk2", rr, S.ui.hotkeyOpen)) app.settingsChanged();
 
     section(g, col, L"Уведомления");
@@ -965,7 +944,7 @@ void drawSystem(Gui& g, App& app, UiState& st, const RectF& area) {
     {
         const RectF r = col.next(132);
         g.card(r, 8);
-        c.text(L"Vibe Legion 0.1 — фоновое управление жестами для Lenovo Legion 7 (15ASH11)", {r.x + 18, r.y + 14, r.w - 36, 20}, p.text, 14.f, Weight::Semibold);
+        c.text(L"Vibe Hand 0.2 — фоновое управление жестами для Lenovo Legion 7 (15ASH11)", {r.x + 18, r.y + 14, r.w - 36, 20}, p.text, 14.f, Weight::Semibold);
         c.text(L"Нейросети: MediaPipe Palm Detection + Hand Landmark (Apache-2.0), YuNet (MIT), SFace (Apache-2.0) — "
                L"в сборке OpenCV Zoo. Инференс: ONNX Runtime (MIT). Интерфейс: Direct2D. Всё работает локально, "
                L"ничего не отправляется в сеть.",

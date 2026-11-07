@@ -14,7 +14,7 @@
 
 namespace vl::win {
 
-std::filesystem::path appDataDir();   // %LOCALAPPDATA%\VibeLegion (created)
+std::filesystem::path appDataDir();   // %LOCALAPPDATA%\VibeHand (created)
 std::filesystem::path exeDir();
 
 // Settings (plain JSON, atomic replace) and faces (DPAPI, current user only).

@@ -13,12 +13,6 @@ int64_t nowMs() {
     return duration_cast<milliseconds>(steady_clock::now().time_since_epoch()).count();
 }
 
-float median(std::vector<float> v) {
-    if (v.empty()) return 0.f;
-    std::nth_element(v.begin(), v.begin() + v.size() / 2, v.end());
-    return v[v.size() / 2];
-}
-
 }  // namespace
 
 const char* modeTextRu(PipelineMode m) {
@@ -79,17 +73,11 @@ void VisionPipeline::setPaused(bool paused, std::string reason) {
 
 void VisionPipeline::setEco(bool eco) { eco_ = eco; }
 
-void VisionPipeline::startEnrollment(const std::string& personId, int samples) {
+void VisionPipeline::startEnrollment(const std::string& personId, int durationMs) {
     std::lock_guard<std::mutex> lk(taskMutex_);
     enroll_ = std::make_unique<Enroll>();
     enroll_->person = personId;
-    enroll_->want = std::clamp(samples, 3, static_cast<int>(FaceDatabase::kMaxSamplesPerModality));
-}
-
-void VisionPipeline::startCalibration(float knownCm) {
-    std::lock_guard<std::mutex> lk(taskMutex_);
-    calib_ = std::make_unique<Calib>();
-    calib_->knownCm = knownCm;
+    enroll_->durationMs = std::clamp(durationMs, 2000, 30000);
 }
 
 void VisionPipeline::startRecording(const std::string& id, bool rot, bool mir, int ms) {
@@ -98,13 +86,12 @@ void VisionPipeline::startRecording(const std::string& id, bool rot, bool mir, i
     record_->id = id;
     record_->rot = rot;
     record_->mir = mir;
-    record_->ms = std::clamp(ms, 500, 10000);
+    record_->ms = std::clamp(ms, 500, 20000);
 }
 
 void VisionPipeline::cancelTasks() {
     std::lock_guard<std::mutex> lk(taskMutex_);
     enroll_.reset();
-    calib_.reset();
     record_.reset();
 }
 
@@ -240,8 +227,6 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
     } else {
         night_.reset();
     }
-    dist_.intrinsics.hfovDeg = s.distance.hfovDeg;
-    dist_.setCalibration(s.distance.calibration);
 
     double msPalm = 0, msHand = 0, msFace = 0, msEmbed = 0;
 
@@ -282,7 +267,6 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
             }
             const HeadPose hp = estimateHeadPose(d);
             fi.looking = std::fabs(hp.yaw) < s.faces.lookingTolerance && std::fabs(hp.pitch) < s.faces.lookingTolerance;
-            fi.distanceCm = dist_.faceRawCm(d, rgb.width);
             next.push_back(fi);
             nextRec.push_back(rec);
         }
@@ -306,7 +290,10 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
                     if (faces_[k].det.box.area() > faces_[largest].det.box.area()) largest = k;
                 for (size_t k = 0; k < faces_.size() && k < 3; ++k) {
                     tlk.lock();
-                    const bool enrollThis = enroll_ && k == largest && now - enroll_->last >= 150;
+                    if (enroll_ && enroll_->start == 0) enroll_->start = now;  // the clock starts with a face
+                    // One sample every 300 ms over the whole duration: different head angles,
+                    // expressions and lighting instead of 14 near-identical frames.
+                    const bool enrollThis = enroll_ && k == largest && now - enroll_->last >= 300;
                     tlk.unlock();
                     const bool stale = now - faceRecognizedMs_[k] >= s.faces.recognizeEveryMs || faces_[k].personId.empty();
                     if (!(enrollThis || (needRecognition && stale))) continue;
@@ -326,10 +313,14 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
                     if (enrollThis) {
                         tlk.lock();
                         if (enroll_) {
-                            enroll_->got.push_back(e);
+                            bool dup = false;  // skip frames that add nothing new
+                            for (const auto& g : enroll_->got)
+                                if (cosine(e, g) > 0.985f) { dup = true; break; }
+                            if (!dup) enroll_->got.push_back(e);
                             enroll_->ir = ir;
                             enroll_->last = now;
-                            if (static_cast<int>(enroll_->got.size()) >= enroll_->want) {
+                            const bool timeUp = now - enroll_->start >= enroll_->durationMs && enroll_->got.size() >= 5;
+                            if (timeUp || enroll_->got.size() >= FaceDatabase::kMaxSamplesPerModality) {
                                 auto done = std::move(enroll_);
                                 tlk.unlock();
                                 if (cb_.onEnrolled) cb_.onEnrolled(done->person, std::move(done->got), done->ir);
@@ -378,8 +369,6 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
             obs.lm.image[i].y = lmFilter_[2 * i + 1].filter(raw.image[i].y, dt);
         }
         obs.isRight = (raw.rightness > 0.5f) != s.camera.swapHandedness;
-        const float rawCm = dist_.handRawCm(raw, rgb.width);
-        obs.distanceCm = dist_.smoothHand(rawCm);
         analyzeHand(obs);
         matchCustom(obs, s.customGestures);
         dynamic = swipe_.update(obs, now);
@@ -387,37 +376,25 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
         hands.push_back(obs);
 
         tlk.lock();
-        if (calib_) {
-            if (calib_->start == 0) calib_->start = now;
-            if (obs.pose == "open_palm" && rawCm > 0) calib_->raw.push_back(rawCm / dist_.calibration());
-            if (now - calib_->start > 2000 && calib_->raw.size() >= 12) {
-                const float scale = DistanceEstimator::solveCalibration(calib_->knownCm, median(calib_->raw));
-                calib_.reset();
-                tlk.unlock();
-                dist_.resetHand();
-                if (cb_.onCalibrated) cb_.onCalibrated(scale);
-                tlk.lock();
-            }
-        }
         if (record_) {
             if (record_->start == 0) record_->start = now;
             record_->got.push_back(handTemplate(obs.lm, obs.isRight, record_->rot, record_->mir));
-            if (now - record_->start >= record_->ms) {
-                auto done = std::move(record_);
-                tlk.unlock();
-                // Keep at most 24 evenly spaced samples.
-                std::vector<std::array<float, 42>> keep;
-                const size_t n = done->got.size(), m = std::min<size_t>(24, n);
-                for (size_t i = 0; i < m; ++i) keep.push_back(done->got[i * n / m]);
-                if (cb_.onRecorded) cb_.onRecorded(done->id, std::move(keep));
-                tlk.lock();
-            }
         }
         tlk.unlock();
     } else {
-        dist_.resetHand();
         swipe_.reset();
         for (auto& f : lmFilter_) f.reset();
+    }
+
+    // ---- gesture recording finishes on time even if the hand left the frame
+    tlk.lock();
+    if (record_ && record_->start != 0 && now - record_->start >= record_->ms) {
+        auto done = std::move(record_);
+        tlk.unlock();
+        auto keep = condenseSamples(done->got, CustomGesture::kMaxSamples);
+        if (cb_.onRecorded) cb_.onRecorded(done->id, std::move(keep));
+    } else {
+        tlk.unlock();
     }
 
     // ---- rules
@@ -468,9 +445,17 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
         break;
     }
     tlk.lock();
-    if (enroll_) { sn.enrollProgress = static_cast<float>(enroll_->got.size()) / enroll_->want; sn.taskHint = faces_.empty() ? "Посмотрите в камеру" : "Медленно поворачивайте голову"; }
-    if (calib_) { sn.calibProgress = std::min(1.f, calib_->raw.size() / 12.f); sn.taskHint = found ? "Держите ладонь неподвижно" : "Покажите открытую ладонь"; }
-    if (record_) { sn.recordProgress = record_->start ? std::min(1.f, (now - record_->start) / static_cast<float>(record_->ms)) : 0.f; sn.taskHint = found ? "Держите жест" : "Покажите руку"; }
+    if (enroll_) {
+        sn.enrollProgress = enroll_->start ? std::min(1.f, (now - enroll_->start) / static_cast<float>(enroll_->durationMs)) : 0.f;
+        sn.taskHint = faces_.empty() ? "Посмотрите в камеру"
+                                     : "Медленно поворачивайте голову влево-вправо, вверх-вниз · " + std::to_string(enroll_->got.size()) + " снимков";
+    }
+    if (record_) {
+        sn.recordProgress = record_->start ? std::min(1.f, (now - record_->start) / static_cast<float>(record_->ms)) : 0.f;
+        const int left = record_->start ? std::max(0, static_cast<int>((record_->ms - (now - record_->start) + 999) / 1000)) : record_->ms / 1000;
+        sn.taskHint = found ? "Держите жест, слегка поворачивайте и наклоняйте кисть · " + std::to_string(left) + " с"
+                            : "Покажите руку в нужной позе";
+    }
     tlk.unlock();
 
     if (previewWanted_) {

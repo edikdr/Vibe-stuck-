@@ -10,7 +10,7 @@ namespace vl::win {
 
 enum class IconBadge { None, Active, Idle, Paused, Error, Night };
 
-// Draws the Vibe Legion glyph (stylised palm with a scan arc) at `size` px.
+// Draws the Vibe Hand glyph (stylised palm with a scan arc) at `size` px.
 //   tile = true : white glyph on an accent-coloured rounded tile (app/window icon)
 //   tile = false: monochrome glyph for the tray, white or black for the taskbar theme
 HICON makeIcon(int size, bool tile, bool darkGlyph, uint32_t accentRgb, IconBadge badge);
