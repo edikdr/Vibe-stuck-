@@ -41,6 +41,9 @@ enum class ActionType {
     BrowserBack,
     BrowserForward,
     ScreenshotFull, // Win+PrtScn: whole screen saved to Pictures\Screenshots
+    // v3
+    ZoomIn,         // Ctrl + '+'
+    ZoomOut,        // Ctrl + '-'
     kCount
 };
 
@@ -116,13 +119,13 @@ struct FaceSettings {
     FaceGate gate = FaceGate::AnyFace;
     float matchThreshold = 0.40f;  // cosine similarity (SFace reference: 0.363)
     float lookingTolerance = 0.45f;  // |yaw|,|pitch| below this = looking at screen
-    int recognizeEveryMs = 2000;
+    int recognizeEveryMs = 1000;   // v3: was 2000 (fp32 SFace is 7x cheaper)
 };
 
 struct PerformanceSettings {
     PowerProfile profile = PowerProfile::Balanced;
     int activeFps = 30;
-    int idleFps = 4;
+    int idleFps = 8;           // v3: was 4; a raised hand is picked up within ~125 ms
     int sleepFps = 1;
     int idleAfterMs = 1500;    // no hand -> idle rate
     int sleepAfterSec = 90;    // no face and no hand -> sleep rate
@@ -147,7 +150,8 @@ struct UiSettings {
 };
 
 struct Settings {
-    static constexpr int kVersion = 2;  // 2: no distance window, swipe rules, window actions
+    // 2: no distance window, swipe rules, window actions; 3: two-hand rules, zoom, faster idle rate
+    static constexpr int kVersion = 3;
     int version = kVersion;
     bool enabled = true;  // global recognition on/off
     CameraSettings camera;

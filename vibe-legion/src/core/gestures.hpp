@@ -18,7 +18,8 @@ struct BuiltinGesture {
     const char* id;
     const char* nameRu;
     const char* glyph;  // Segoe Fluent Icons / emoji fallback hint for the UI
-    bool dynamic;       // swipes: instantaneous, hold time ignored
+    bool dynamic;       // movements: instantaneous, hold time ignored
+    bool twoHands = false;
 };
 const std::vector<BuiltinGesture>& builtinGestures();
 const BuiltinGesture* findBuiltin(const std::string& id);
@@ -59,20 +60,53 @@ void matchCustom(HandObservation& h, const std::vector<CustomGesture>& gestures)
 // near-duplicates and keeps at most `maxSamples`, spread over the recording.
 std::vector<std::array<float, 42>> condenseSamples(const std::vector<std::array<float, 42>>& raw, size_t maxSamples);
 
-// Swipe detector on the palm centre, in palm-length units. Works from ~8 fps up:
-// it needs 3 tracked points inside a 0.5 s window.
-class SwipeDetector {
+// Movements of one hand, in palm-length units (independent of distance to the camera):
+//   * swipes left / right / up / down: a fast, mostly straight stroke of >= 1.7 palm
+//     lengths within 0.5 s, with the hand open for most of it (motion blur makes
+//     single frames look like a fist, so one bad frame no longer cancels a swipe);
+//     a hand that leaves the frame mid-stroke is evaluated on the way out;
+//   * wave: the open hand goes side to side, >= 3 reversals within 1.5 s.
+// Works from ~8 fps (dim room) up.
+class MotionDetector {
 public:
-    // Returns "swipe_left" / "swipe_right" / "swipe_up" / "swipe_down" or "".
+    // Returns "swipe_left" / "swipe_right" / "swipe_up" / "swipe_down" / "wave" or "".
     std::string update(const HandObservation& h, int64_t nowMs);
+    // The hand was lost this frame: a stroke that carried it out of view still counts.
+    std::string lost(int64_t nowMs);
+    void reset() { trail_.clear(); wave_.clear(); pending_.clear(); }
+
+private:
+    struct P { Vec2 c; float palm; int64_t t; bool open; };
+    // Direction of a qualifying stroke in the swipe window ("" = none); axis = unit stroke direction.
+    std::string stroke(int64_t nowMs, float minTravel, Vec2* axis, float* palm) const;
+    std::string wave(int64_t nowMs);
+    std::deque<P> trail_;   // last 0.5 s (swipes)
+    std::deque<P> wave_;    // last 1.5 s (waving)
+    int64_t lastFire_ = -100000;
+    // A swipe is confirmed ~0.18 s after the stroke unless the hand comes straight
+    // back: that is the first half of a wave, not a swipe.
+    std::string pending_;
+    int64_t pendingT_ = 0;
+    Vec2 pendingAt_{}, pendingAxis_{};
+    float pendingPalm_ = 1.f;
+};
+using SwipeDetector = MotionDetector;
+
+// Gestures made with both hands.
+//   static: "two_palms" (both open palms), "two_fists";
+//   dynamic: "two_spread" (hands move apart), "two_pinch" (hands come together).
+class TwoHandDetector {
+public:
+    // a, b: the two tracked hands this frame (nullptr when fewer than two are visible).
+    std::string staticPose(const HandObservation* a, const HandObservation* b) const;
+    std::string update(const HandObservation* a, const HandObservation* b, int64_t nowMs);
     void reset() { trail_.clear(); }
 
 private:
-    struct P { Vec2 c; float palm; int64_t t; };
+    struct P { float d; int64_t t; };  // distance between palm centres / mean palm length
     std::deque<P> trail_;
-    int64_t lastSwipe_ = 0;
+    int64_t lastFire_ = -100000;
 };
-
 // What the engine knows about faces this frame.
 struct FaceContext {
     bool anyFace = false;
@@ -90,9 +124,11 @@ struct GestureEvent {
 class GestureEngine {
 public:
     // Feed one processed frame. `hands` may be empty. Returns fired events.
+    // twoHandPose: static two-hand gesture this frame ("" = none). dynamicGesture may be a
+    // one-hand movement or a two-hand one ("two_spread" / "two_pinch").
     std::vector<GestureEvent> update(const std::vector<HandObservation>& hands, const std::string& dynamicGesture,
-                                     const FaceContext& faces, const std::vector<GestureRule>& rules,
-                                     FaceGate gate, int64_t nowMs);
+                                     const std::string& twoHandPose, const FaceContext& faces,
+                                     const std::vector<GestureRule>& rules, FaceGate gate, int64_t nowMs);
 
     // 0..1 hold progress per rule id (for the OSD ring / UI).
     float progress(const std::string& ruleId) const;

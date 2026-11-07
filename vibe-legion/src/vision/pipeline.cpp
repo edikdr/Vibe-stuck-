@@ -8,6 +8,15 @@ namespace vl {
 
 namespace {
 
+RectF handBox(const HandLandmarks& lm) {
+    float x0 = 1e9f, y0 = 1e9f, x1 = -1e9f, y1 = -1e9f;
+    for (const auto& p : lm.image) {
+        x0 = std::min(x0, p.x); y0 = std::min(y0, p.y);
+        x1 = std::max(x1, p.x); y1 = std::max(y1, p.y);
+    }
+    return {x0, y0, x1 - x0, y1 - y0};
+}
+
 int64_t nowMs() {
     using namespace std::chrono;
     return duration_cast<milliseconds>(steady_clock::now().time_since_epoch()).count();
@@ -34,7 +43,14 @@ VisionPipeline::VisionPipeline(std::filesystem::path modelsDir, FrameMailbox& ma
     : modelsDir_(std::move(modelsDir)), mailbox_(mailbox), camera_(camera), cb_(std::move(cb)) {
     settings_ = std::make_shared<Settings>(Settings::defaults());
     faceDb_ = std::make_shared<FaceDatabase>();
-    for (auto& f : lmFilter_) f = OneEuro(2.0f, 0.03f, 1.0f);
+    for (auto& tr : tracks_) resetTrack(tr);
+}
+
+void VisionPipeline::resetTrack(Track& t) {
+    t.active = false;
+    for (auto& f : t.filter) f = OneEuro(2.0f, 0.03f, 1.0f);
+    t.motion.reset();
+    t.poses.clear();
 }
 
 VisionPipeline::~VisionPipeline() { stop(); }
@@ -111,6 +127,9 @@ int VisionPipeline::targetFps(const Settings& s) const {
     } else if (prof == PowerProfile::Responsive) {
         idle = std::max(idle, 8);
     }
+    // Two tracked hands cost two landmark runs per frame: cap at 2/3 of the active rate
+    // (30 -> 20 fps), which keeps the peak load within ~+30 % of the one-hand peak.
+    if (twoTracked_) active = std::max(std::min(active, 12), active * 2 / 3);
     // Hold timers need decent temporal resolution only while a hand is up.
     const int64_t t = nowMs();
     if (t - lastHandMs_ < p.idleAfterMs) return active;
@@ -278,8 +297,12 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
             if (!embedder_.ok()) {
                 ml::InferenceConfig cfg{s.perf.device, 1};
                 std::string err;
-                auto p = modelsDir_ / "face_recognition_sface_2021dec_int8.onnx";
-                if (!std::filesystem::exists(p)) p = modelsDir_ / "face_recognition_sface_2021dec.onnx";
+                // fp32 first: on Zen 5 it runs in ~15 ms vs ~110 ms for the int8 build
+                // (no fast int8 path for this graph in the CPU EP) and is more accurate.
+                const char* first = s.perf.int8Models ? "face_recognition_sface_2021dec_int8.onnx" : "face_recognition_sface_2021dec.onnx";
+                const char* second = s.perf.int8Models ? "face_recognition_sface_2021dec.onnx" : "face_recognition_sface_2021dec_int8.onnx";
+                auto p = modelsDir_ / first;
+                if (!std::filesystem::exists(p)) p = modelsDir_ / second;
                 embedder_.load(p, cfg, &err);
             }
             if (embedder_.ok()) {
@@ -295,7 +318,12 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
                     // expressions and lighting instead of 14 near-identical frames.
                     const bool enrollThis = enroll_ && k == largest && now - enroll_->last >= 300;
                     tlk.unlock();
-                    const bool stale = now - faceRecognizedMs_[k] >= s.faces.recognizeEveryMs || faces_[k].personId.empty();
+                    // Known faces are re-checked every recognizeEveryMs; unknown ones sooner,
+                    // but not on every frame (that used to run SFace at the full frame rate
+                    // whenever a face was not recognised).
+                    const int64_t every = faces_[k].personId.empty() ? std::min(600, s.faces.recognizeEveryMs)
+                                                                     : s.faces.recognizeEveryMs;
+                    const bool stale = now - faceRecognizedMs_[k] >= every;
                     if (!(enrollThis || (needRecognition && stale))) continue;
                     Embedding e;
                     if (!embedder_.embed(rgb, faces_[k].det, e)) continue;
@@ -338,54 +366,103 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
     }
     if (embedder_.ok() && !needRecognition && !enrolling && now - embedderLastUse_ > 120000) embedder_.unload();
 
-    // ---- hand
-    HandLandmarks raw;
-    bool found = false;
+    // ---- hands (up to two)
+    std::string dynamic;
     if (palm_.ok() && hand_.ok()) {
-        if (tracking_) {
-            found = hand_.run(rgb, handRoiFromLandmarks(lastLm_), raw);
+        for (auto& tr : tracks_) {
+            if (!tr.active) continue;
+            HandLandmarks raw;
+            const bool ok = hand_.run(rgb, handRoiFromLandmarks(tr.lastLm), raw);
             msHand += hand_.lastMs();
-        }
-        if (!found) {
-            auto palms = palm_.detect(rgb, 0.5f, 1);
-            msPalm = palm_.lastMs();
-            if (!palms.empty()) {
-                found = hand_.run(rgb, handRoiFromPalm(palms[0]), raw);
-                msHand += hand_.lastMs();
+            if (ok) {
+                tr.lastLm = raw;
+            } else {
+                // Lost: a swipe that carried the hand out of the frame still counts.
+                if (auto g = tr.motion.lost(now); !g.empty() && dynamic.empty()) dynamic = g;
+                resetTrack(tr);
             }
         }
+        const int active = static_cast<int>(tracks_[0].active) + static_cast<int>(tracks_[1].active);
+        // The palm detector is the expensive part: every frame while no hand is
+        // tracked, every 250 ms while one is (to pick up a second hand), never with two.
+        if (active < 2 && (active == 0 || now - lastPalmScanMs_ >= 250)) {
+            lastPalmScanMs_ = now;
+            const auto palms = palm_.detect(rgb, 0.45f, 2);
+            msPalm = palm_.lastMs();
+            for (const auto& pd : palms) {
+                const Vec2 pc{pd.box.x + pd.box.w * 0.5f, pd.box.y + pd.box.h * 0.5f};
+                bool known = false;
+                for (const auto& tr : tracks_)
+                    if (tr.active && handBox(tr.lastLm).contains(pc)) known = true;
+                if (known) continue;
+                Track* slot = !tracks_[0].active ? &tracks_[0] : !tracks_[1].active ? &tracks_[1] : nullptr;
+                if (!slot) break;
+                HandLandmarks raw;
+                const bool ok = hand_.run(rgb, handRoiFromPalm(pd), raw);
+                msHand += hand_.lastMs();
+                if (!ok) continue;
+                resetTrack(*slot);
+                slot->active = true;
+                slot->lastLm = raw;
+            }
+        }
+        // Two tracks may lock onto the same hand (after crossing): keep one.
+        if (tracks_[0].active && tracks_[1].active && iou(handBox(tracks_[0].lastLm), handBox(tracks_[1].lastLm)) > 0.35f)
+            resetTrack(tracks_[1]);
     }
-    tracking_ = found;
 
     std::vector<HandObservation> hands;
-    std::string dynamic;
-    HandObservation obs;
-    if (found) {
-        lastLm_ = raw;
-        lastHandMs_ = now;
-        obs.lm = raw;
+    for (auto& tr : tracks_) {
+        if (!tr.active) continue;
+        HandObservation o;
+        const HandLandmarks& raw = tr.lastLm;
+        o.lm = raw;
         for (int i = 0; i < kHandLandmarks; ++i) {
-            obs.lm.image[i].x = lmFilter_[2 * i].filter(raw.image[i].x, dt);
-            obs.lm.image[i].y = lmFilter_[2 * i + 1].filter(raw.image[i].y, dt);
+            o.lm.image[i].x = tr.filter[2 * i].filter(raw.image[i].x, dt);
+            o.lm.image[i].y = tr.filter[2 * i + 1].filter(raw.image[i].y, dt);
         }
-        obs.isRight = (raw.rightness > 0.5f) != s.camera.swapHandedness;
-        analyzeHand(obs);
-        matchCustom(obs, s.customGestures);
-        dynamic = swipe_.update(obs, now);
-        if (!dynamic.empty()) { lastDynamic_ = dynamic; lastDynamicMs_ = now; }
-        hands.push_back(obs);
+        o.isRight = (raw.rightness > 0.5f) != s.camera.swapHandedness;
+        analyzeHand(o);
+        // Majority of the last 3 frames: one misread frame no longer breaks a hold.
+        tr.poses.push_back(o.pose);
+        while (tr.poses.size() > 3) tr.poses.pop_front();
+        for (const auto& cand : tr.poses)
+            if (!cand.empty() && std::count(tr.poses.begin(), tr.poses.end(), cand) >= 2) { o.pose = cand; break; }
+        matchCustom(o, s.customGestures);
+        hands.push_back(o);
+    }
+    // Larger (closer) hand first: it is "the" hand for one-hand displays and recording.
+    if (hands.size() == 2 && hands[1].palmPx > hands[0].palmPx) std::swap(hands[0], hands[1]);
+    const bool found = !hands.empty();
+    twoTracked_ = hands.size() >= 2;
+    if (found) lastHandMs_ = now;
 
+    // Movements. With two hands up, their joint movement wins (spreading the hands
+    // would otherwise also read as a left swipe plus a right swipe).
+    const HandObservation* h0 = hands.size() >= 1 ? &hands[0] : nullptr;
+    const HandObservation* h1 = hands.size() >= 2 ? &hands[1] : nullptr;
+    const std::string twoPose = twoHands_.staticPose(h0, h1);
+    if (auto g = twoHands_.update(h0, h1, now); !g.empty()) {
+        dynamic = g;
+        for (auto& tr : tracks_) tr.motion.reset();
+    } else if (hands.size() == 1) {
+        for (auto& tr : tracks_)
+            if (tr.active)
+                if (auto m = tr.motion.update(hands[0], now); !m.empty() && dynamic.empty()) dynamic = m;
+    } else if (hands.size() == 2) {
+        for (auto& tr : tracks_) tr.motion.reset();
+    }
+    if (!dynamic.empty()) { lastDynamic_ = dynamic; lastDynamicMs_ = now; }
+
+    if (found) {
         tlk.lock();
         if (record_) {
             if (record_->start == 0) record_->start = now;
-            record_->got.push_back(handTemplate(obs.lm, obs.isRight, record_->rot, record_->mir));
+            record_->got.push_back(handTemplate(hands[0].lm, hands[0].isRight, record_->rot, record_->mir));
         }
         tlk.unlock();
-    } else {
-        swipe_.reset();
-        for (auto& f : lmFilter_) f.reset();
     }
-
+    const HandObservation obs = found ? hands[0] : HandObservation{};
     // ---- gesture recording finishes on time even if the hand left the frame
     tlk.lock();
     if (record_ && record_->start != 0 && now - record_->start >= record_->ms) {
@@ -404,7 +481,7 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
         fc.looking = fc.looking || f.looking;
         if (!f.personId.empty()) fc.people.push_back(f.personId);
     }
-    auto events = engine_.update(hands, dynamic, fc, s.rules, s.faces.gate, now);
+    auto events = engine_.update(hands, dynamic, twoPose, fc, s.rules, s.faces.gate, now);
     for (const auto& e : events)
         if (cb_.onGesture) cb_.onGesture(e);
 
@@ -425,6 +502,8 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
     sn.frameW = rgb.width; sn.frameH = rgb.height;
     sn.hasHand = found;
     if (found) sn.hand = obs;
+    if (hands.size() >= 2) { sn.hasSecondHand = true; sn.hand2 = hands[1]; }
+    sn.twoHandPose = twoPose;
     if (now - lastDynamicMs_ < 1000) sn.lastDynamic = lastDynamic_;
     sn.faces = faces_;
     sn.light = ir ? light : lightEma_;
@@ -437,7 +516,13 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
         if (r.enabled) sn.ruleProgress.emplace_back(r.id, engine_.progress(r.id));
     for (const auto& r : s.rules) {
         if (!r.enabled) continue;
+        const auto* rb = findBuiltin(r.gesture);
         if (!found) sn.whyNot = "рука не найдена";
+        else if (rb && rb->twoHands) {
+            if (hands.size() < 2) sn.whyNot = "нужны две руки";
+            else if (!rb->dynamic && twoPose != r.gesture) sn.whyNot = "другой жест";
+            else sn.whyNot = "условия выполнены";
+        }
         else if (!GestureEngine::handMatches(r, obs, &sn.whyNot)) {}
         else if (s.faces.gate == FaceGate::AnyFace && !fc.anyFace) sn.whyNot = "нет лица в кадре";
         else if (s.faces.gate == FaceGate::KnownOnly && fc.people.empty()) sn.whyNot = "лицо не распознано";
@@ -524,7 +609,8 @@ void VisionPipeline::run() {
         };
 
         if (paused_ || !s->enabled) {
-            tracking_ = false;
+            for (auto& tr : tracks_) resetTrack(tr);
+            twoHands_.reset();
             engine_.reset();
             mailbox_.clear();
             publishMode(PipelineMode::Paused, s->enabled ? reason : "Распознавание выключено");

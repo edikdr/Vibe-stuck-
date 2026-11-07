@@ -20,6 +20,8 @@ std::vector<InstalledApp> installedApps();
 bool executeAction(const Action& a);
 
 std::wstring actionTitleRu(ActionType t);
+// One or two sentences: what exactly happens, the shortcut it stands for, where it is useful.
+std::wstring actionDescriptionRu(ActionType t);
 std::wstring actionGlyph(ActionType t);
 std::wstring describeAction(const Action& a);  // "Ctrl + Shift + M", "Пауза / Play"...
 

@@ -88,13 +88,6 @@ RectF settingRow(Gui& g, Column& col, const wchar_t* glyphStr, const std::wstrin
     return {r.right() - controlW - 16, r.y + (r.h - 34) * 0.5f, controlW, 34};
 }
 
-const std::vector<std::wstring>& gestureNamesBuiltin() {
-    static std::vector<std::wstring> v;
-    if (v.empty())
-        for (const auto& b : builtinGestures()) v.push_back(widen(b.nameRu));
-    return v;
-}
-
 std::wstring gestureName(const App& app, const std::string& id) {
     if (const auto* b = findBuiltin(id)) return widen(b->nameRu);
     if (id.rfind("custom:", 0) == 0)
@@ -196,23 +189,35 @@ void drawPreview(Gui& g, App& app, const RectF& r, bool overlays) {
             c.fillRound({fr.x, fr.y - 22, tw, 20}, 5, col);
             c.text(name, {fr.x + 8, fr.y - 22, tw - 8, 20}, Color::hex(0x0B0D10), 12.f, Weight::Semibold);
         }
-        if (s.hasHand) {
-            static const int bones[][2] = {{0, 1}, {1, 2}, {2, 3}, {3, 4}, {0, 5}, {5, 6}, {6, 7}, {7, 8},
-                                           {5, 9}, {9, 10}, {10, 11}, {11, 12}, {9, 13}, {13, 14}, {14, 15},
-                                           {15, 16}, {13, 17}, {17, 18}, {18, 19}, {19, 20}, {0, 17}};
-            const auto& lm = s.hand.lm.image;
-            for (const auto& b : bones) c.line(P(lm[b[0]].x, lm[b[0]].y), P(lm[b[1]].x, lm[b[1]].y), p.accent, 2.5f);
+        static const int bones[][2] = {{0, 1}, {1, 2}, {2, 3}, {3, 4}, {0, 5}, {5, 6}, {6, 7}, {7, 8},
+                                       {5, 9}, {9, 10}, {10, 11}, {11, 12}, {9, 13}, {13, 14}, {14, 15},
+                                       {15, 16}, {13, 17}, {17, 18}, {18, 19}, {19, 20}, {0, 17}};
+        auto drawHand = [&](const HandObservation& h, const Color& boneCol) {
+            const auto& lm = h.lm.image;
+            for (const auto& b : bones) c.line(P(lm[b[0]].x, lm[b[0]].y), P(lm[b[1]].x, lm[b[1]].y), boneCol, 2.5f);
             for (int i = 0; i < kHandLandmarks; ++i) c.fillCircle(P(lm[i].x, lm[i].y), i % 4 == 0 ? 4.f : 3.f, Color::hex(0xFFFFFF));
             // Label at the wrist.
-            std::wstring lbl = s.hand.pose.empty() ? L"рука" : gestureName(app, s.hand.pose);
+            const std::wstring lbl = (h.pose.empty() ? L"рука" : gestureName(app, h.pose)) + L" · " + handName(h.isRight);
             const Vec2 w = P(lm[0].x, lm[0].y);
             const float tw = c.measure(lbl, 12.f, Weight::Semibold).x + 16;
             c.fillRound({w.x - tw / 2, w.y + 10, tw, 22}, 6, Color::hex(0x000000, 0.65f));
             c.text(lbl, {w.x - tw / 2, w.y + 10, tw, 22}, Color::hex(0xFFFFFF), 12.f, Weight::Semibold, Align::Center);
+        };
+        if (s.hasSecondHand) drawHand(s.hand2, p.info);
+        if (s.hasHand) {
+            drawHand(s.hand, p.accent);
             // Hold progress of the rule that is charging.
             float prog = 0;
             for (const auto& [id, v] : s.ruleProgress) prog = std::max(prog, v);
+            const auto& lm = s.hand.lm.image;
             if (prog > 0.02f && prog < 1.f) g.progressRing(P(lm[9].x, lm[9].y), 18, prog, p.success, 4.f);
+        }
+        // Last movement, top right of the preview.
+        if (!s.lastDynamic.empty()) {
+            const std::wstring t = gestureName(app, s.lastDynamic);
+            const float tw = c.measure(t, 12.f, Weight::Semibold).x + 20;
+            c.fillRound({r.right() - tw - 10, r.y + 10, tw, 24}, 12, p.success);
+            c.text(t, {r.right() - tw - 10, r.y + 10, tw, 24}, Color::hex(0x0B0D10), 12.f, Weight::Semibold, Align::Center);
         }
     }
     // Night / IR badge.
@@ -266,10 +271,15 @@ void drawOverview(Gui& g, App& app, UiState& st, const RectF& area) {
         y += 50;
     };
     if (s.hasHand) {
-        std::wstring v = s.hand.pose.empty() ? L"Поза не распознана" : gestureName(app, s.hand.pose);
-        if (!s.hand.customId.empty()) v += L" · свой: " + gestureName(app, "custom:" + s.hand.customId);
-        v += L" · " + handName(s.hand.isRight);
-        line(glyph::Hand, L"Рука", v, p.text);
+        auto describe = [&](const HandObservation& h) {
+            std::wstring v = handName(h.isRight) + L": " + (h.pose.empty() ? L"поза не распознана" : gestureName(app, h.pose));
+            if (!h.customId.empty()) v += L" · свой «" + gestureName(app, "custom:" + h.customId) + L"»";
+            return v;
+        };
+        std::wstring v = describe(s.hand);
+        if (s.hasSecondHand) v += L"; " + describe(s.hand2);
+        if (!s.twoHandPose.empty()) v = gestureName(app, s.twoHandPose) + L" (" + v + L")";
+        line(glyph::Hand, s.hasSecondHand ? L"Руки" : L"Рука", v, p.text);
     } else {
         line(glyph::Hand, L"Рука", s.lastDynamic.empty() ? L"не видно" : gestureName(app, s.lastDynamic), p.textDim);
     }
@@ -352,29 +362,44 @@ void ruleEditor(Gui& g, App& app, UiState& st, Column& col, GestureRule& r, size
     if (g.textField("name", rr, nameBuf, L"Например: Пауза ладонью", 48)) { r.name = narrow(nameBuf); ch = true; }
 
     // Gesture.
-    std::vector<std::wstring> gnames = gestureNamesBuiltin();
+    // Own gestures first, then poses, movements and two-hand gestures.
+    std::vector<std::wstring> gnames;
     std::vector<std::string> gids;
-    for (const auto& b : builtinGestures()) gids.push_back(b.id);
     for (const auto& cg : S.customGestures) {
-        gnames.push_back(L"Свой: " + widen(cg.name));
+        gnames.push_back(L"Свой: " + widen(cg.name) + (cg.samples.empty() ? L" (не записан)" : L""));
         gids.push_back("custom:" + cg.id);
+    }
+    for (const auto& b : builtinGestures()) {
+        gnames.push_back(widen(b.nameRu));
+        gids.push_back(b.id);
     }
     int gsel = static_cast<int>(std::find(gids.begin(), gids.end(), r.gesture) - gids.begin());
     if (gsel >= static_cast<int>(gids.size())) gsel = 0;
-    rr = settingRow(g, col, glyph::Hand, L"Жест", L"Встроенные позы, взмахи или записанные вами жесты");
+    rr = settingRow(g, col, glyph::Hand, L"Жест", L"Свои жесты, позы, движения одной рукой и жесты двумя руками");
     if (g.combo("gesture", rr, gsel, gnames)) { r.gesture = gids[gsel]; ch = true; }
-
-    int hand = static_cast<int>(r.hand);
-    rr = settingRow(g, col, glyph::Swap, L"Рука", L"");
-    if (g.segmented("hand", rr, hand, {L"Любая", L"Левая", L"Правая"})) { r.hand = static_cast<HandSide>(hand); ch = true; }
 
     const auto* builtin = findBuiltin(r.gesture);
     const bool motion = builtin && builtin->dynamic;
+    const bool twoHands = builtin && builtin->twoHands;
+    if (!twoHands) {
+        int hand = static_cast<int>(r.hand);
+        rr = settingRow(g, col, glyph::Swap, L"Рука", L"");
+        if (g.segmented("hand", rr, hand, {L"Любая", L"Левая", L"Правая"})) { r.hand = static_cast<HandSide>(hand); ch = true; }
+    }
+
     if (motion) {
         const Color& m = g.pal().textDim;
-        g.label(L"Взмах срабатывает сразу: быстро проведите открытой ладонью на 20–30 см в нужную сторону.",
-                col.next(22), 12.5f, &m);
+        const std::string& id = r.gesture;
+        const wchar_t* how = id == "wave" ? L"Помашите открытой ладонью из стороны в сторону 2–3 раза (≈1 секунда)."
+                             : id == "two_spread" ? L"Поднимите обе ладони рядом и быстро разведите их в стороны."
+                             : id == "two_pinch" ? L"Поднимите обе ладони по сторонам и быстро сведите их вместе."
+                                                 : L"Взмах срабатывает сразу: быстро проведите открытой ладонью на 20–30 см в нужную сторону.";
+        g.label(how, col.next(22), 12.5f, &m);
     } else {
+        if (twoHands) {
+            const Color& m = g.pal().textDim;
+            g.label(L"Нужны обе руки в кадре, каждая в этой позе.", col.next(22), 12.5f, &m);
+        }
         float hold = static_cast<float>(r.holdMs);
         rr = settingRow(g, col, glyph::Record, L"Удержание", L"Сколько держать жест до срабатывания (защита от случайностей)");
         if (g.slider("hold", rr, hold, 0, 2000, 20, fmtMs)) { r.holdMs = static_cast<int>(hold); ch = true; }
@@ -417,7 +442,7 @@ void ruleEditor(Gui& g, App& app, UiState& st, Column& col, GestureRule& r, size
     for (auto t : ao) anames.push_back(actionTitleRu(t));
     int asel = static_cast<int>(std::find(ao.begin(), ao.end(), r.action.type) - ao.begin());
     if (asel >= static_cast<int>(ao.size())) asel = 0;
-    rr = settingRow(g, col, actionGlyph(r.action.type).c_str(), L"Действие", L"Что сделать, когда жест сработал");
+    rr = settingRow(g, col, actionGlyph(r.action.type).c_str(), L"Действие", actionDescriptionRu(r.action.type), 360);
     if (g.combo("action", rr, asel, anames)) { r.action.type = ao[asel]; ch = true; }
     if (r.action.type == ActionType::KeyCombo) {
         rr = settingRow(g, col, glyph::Keyboard, L"Сочетание клавиш", L"Щёлкните и нажмите нужные клавиши");
@@ -490,9 +515,15 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
         c.icon(glyph::Eye, {r.x + 16, r.y, 22, r.h}, p.accent, 17.f);
         std::wstring now;
         if (s.hasHand) {
-            now = (s.hand.pose.empty() ? L"поза не распознана" : gestureName(app, s.hand.pose)) + L" · " + handName(s.hand.isRight);
+            auto one = [&](const HandObservation& h) {
+                std::wstring v = handName(h.isRight) + L": " + (h.pose.empty() ? L"поза не распознана" : gestureName(app, h.pose));
+                if (!h.customId.empty()) v += L" · свой «" + gestureName(app, "custom:" + h.customId) + L"»";
+                return v;
+            };
+            now = one(s.hand);
+            if (s.hasSecondHand) now += L"; " + one(s.hand2);
+            if (!s.twoHandPose.empty()) now = gestureName(app, s.twoHandPose) + L" · " + now;
             if (!s.lastDynamic.empty()) now += L" · " + gestureName(app, s.lastDynamic);
-            if (!s.hand.customId.empty()) now += L" · свой «" + gestureName(app, "custom:" + s.hand.customId) + L"»";
         } else {
             now = s.lastDynamic.empty() ? L"рука не видна" : gestureName(app, s.lastDynamic);
         }

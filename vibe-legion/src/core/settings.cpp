@@ -16,7 +16,7 @@ const char* const kActionIds[] = {
     "task_view", "screenshot", "switch_window", "pause_recognition",
     "next_window", "prev_window", "minimize_window", "maximize_window", "close_window",
     "next_desktop", "prev_desktop", "start_menu", "search", "file_explorer",
-    "browser_back", "browser_forward", "screenshot_full"};
+    "browser_back", "browser_forward", "screenshot_full", "zoom_in", "zoom_out"};
 static_assert(sizeof(kActionIds) / sizeof(kActionIds[0]) == static_cast<size_t>(ActionType::kCount));
 
 template <typename E, size_t N>
@@ -87,6 +87,25 @@ void addSwipeRules(std::vector<GestureRule>& rules) {
     add("swipe_right", "Взмах вправо — следующее окно", ActionType::NextWindow);
 }
 
+// Both hands apart / together -> zoom in / out (browsers, photos, documents). Disabled.
+void addTwoHandRules(std::vector<GestureRule>& rules) {
+    auto add = [&](const char* gesture, const char* name, ActionType t) {
+        for (const auto& r : rules)
+            if (r.gesture == gesture) return;
+        GestureRule r;
+        r.id = newId();
+        r.name = name;
+        r.enabled = false;
+        r.gesture = gesture;
+        r.holdMs = 0;
+        r.cooldownMs = 600;
+        r.action.type = t;
+        rules.push_back(r);
+    };
+    add("two_spread", "Развести руки — увеличить", ActionType::ZoomIn);
+    add("two_pinch", "Свести руки — уменьшить", ActionType::ZoomOut);
+}
+
 }  // namespace
 
 const char* actionId(ActionType t) { return enumName(t, kActionIds); }
@@ -118,6 +137,7 @@ Settings Settings::defaults() {
     r.action.type = ActionType::MediaPlayPause;
     s.rules.push_back(r);
     addSwipeRules(s.rules);
+    addTwoHandRules(s.rules);
     return s;
 }
 
@@ -244,12 +264,12 @@ Settings Settings::fromJson(const json::Value& v) {
     s.faces.gate = enumFrom(f["gate"], kGate, FaceGate::AnyFace);
     s.faces.matchThreshold = clampf(f["match_threshold"].asFloat(0.40f), 0.15f, 0.9f);
     s.faces.lookingTolerance = clampf(f["looking_tolerance"].asFloat(0.45f), 0.1f, 1.f);
-    s.faces.recognizeEveryMs = clampi(f["recognize_every_ms"].asInt(2000), 250, 60000);
+    s.faces.recognizeEveryMs = clampi(f["recognize_every_ms"].asInt(1000), 250, 60000);
 
     const auto& p = v["performance"];
     s.perf.profile = enumFrom(p["profile"], kPower, PowerProfile::Balanced);
     s.perf.activeFps = clampi(p["active_fps"].asInt(30), 5, 60);
-    s.perf.idleFps = clampi(p["idle_fps"].asInt(4), 1, 30);
+    s.perf.idleFps = clampi(p["idle_fps"].asInt(8), 1, 30);
     s.perf.sleepFps = clampi(p["sleep_fps"].asInt(1), 1, 10);
     s.perf.idleAfterMs = clampi(p["idle_after_ms"].asInt(1500), 200, 60000);
     s.perf.sleepAfterSec = clampi(p["sleep_after_sec"].asInt(90), 5, 3600);
@@ -304,7 +324,12 @@ Settings Settings::fromJson(const json::Value& v) {
         }
         s.customGestures.push_back(std::move(g));
     }
-    if (fileVersion < 2) addSwipeRules(s.rules);  // migration: offer the new swipe rules once
+    if (fileVersion < 2) addSwipeRules(s.rules);  // migrations: offer new example rules once
+    if (fileVersion < 3) {
+        addTwoHandRules(s.rules);
+        if (s.perf.idleFps == 4) s.perf.idleFps = 8;  // old defaults -> new defaults
+        if (s.faces.recognizeEveryMs == 2000) s.faces.recognizeEveryMs = 1000;
+    }
     s.version = kVersion;
     return s;
 }

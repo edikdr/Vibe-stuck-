@@ -4,6 +4,7 @@
 #pragma once
 
 #include <atomic>
+#include <deque>
 #include <filesystem>
 #include <functional>
 #include <memory>
@@ -41,8 +42,11 @@ struct PipelineSnapshot {
     int frameW = 0, frameH = 0;
 
     bool hasHand = false;
-    HandObservation hand;
-    std::string lastDynamic;     // last swipe id (kept ~1 s for display)
+    HandObservation hand;        // primary hand (the larger one)
+    bool hasSecondHand = false;
+    HandObservation hand2;
+    std::string twoHandPose;     // "two_palms" / "two_fists" / ""
+    std::string lastDynamic;     // last movement id (swipe, wave, two-hand), kept ~1 s for display
     std::string whyNot;          // why the first enabled rule does not match right now
 
     std::vector<FaceInfo> faces;
@@ -139,11 +143,21 @@ private:
     NightVision night_;
     IrFrameSelector irSel_;
     GestureEngine engine_;
-    SwipeDetector swipe_;
-    std::array<OneEuro, kHandLandmarks * 2> lmFilter_;
+    TwoHandDetector twoHands_;
 
-    bool tracking_ = false;
-    HandLandmarks lastLm_;
+    // Up to two tracked hands. Each keeps its own landmark filter, movement detector
+    // and a short pose history (majority vote against single-frame flicker).
+    struct Track {
+        bool active = false;
+        HandLandmarks lastLm;
+        std::array<OneEuro, kHandLandmarks * 2> filter;
+        MotionDetector motion;
+        std::deque<std::string> poses;
+    };
+    std::array<Track, 2> tracks_;
+    int64_t lastPalmScanMs_ = -100000;
+    std::atomic<bool> twoTracked_{false};  // two hands -> frame rate capped (CPU budget)
+    void resetTrack(Track& t);
     int64_t lastHandMs_ = -100000, lastFaceSeenMs_ = -100000, lastFaceRunMs_ = -100000;
     int64_t lastFrameMs_ = 0;
     std::vector<FaceInfo> faces_;

@@ -196,6 +196,8 @@ bool executeAction(const Action& a) {
         case ActionType::BrowserBack: return combo({VK_BROWSER_BACK});
         case ActionType::BrowserForward: return combo({VK_BROWSER_FORWARD});
         case ActionType::ScreenshotFull: return combo({VK_LWIN, VK_SNAPSHOT});
+        case ActionType::ZoomIn: return combo({VK_CONTROL, VK_OEM_PLUS});
+        case ActionType::ZoomOut: return combo({VK_CONTROL, VK_OEM_MINUS});
         case ActionType::kCount: break;
     }
     return false;
@@ -235,11 +237,53 @@ std::wstring actionTitleRu(ActionType t) {
         case ActionType::BrowserBack: return L"Назад (браузер, проводник)";
         case ActionType::BrowserForward: return L"Вперёд (браузер, проводник)";
         case ActionType::ScreenshotFull: return L"Снимок всего экрана в «Изображения»";
+        case ActionType::ZoomIn: return L"Увеличить масштаб (Ctrl +)";
+        case ActionType::ZoomOut: return L"Уменьшить масштаб (Ctrl −)";
         case ActionType::kCount: break;
     }
     return L"";
 }
 
+std::wstring actionDescriptionRu(ActionType t) {
+    switch (t) {
+        case ActionType::None: return L"Ничего не делает: только подсказка на экране и запись в журнал. Удобно, чтобы проверить жест.";
+        case ActionType::MediaPlayPause: return L"Клавиша «Воспроизведение/пауза»: музыка, YouTube, плееры — то, что сейчас играет.";
+        case ActionType::MediaNext: return L"Следующий трек в текущем плеере (мультимедийная клавиша).";
+        case ActionType::MediaPrev: return L"Предыдущий трек или начало текущего (мультимедийная клавиша).";
+        case ActionType::MediaStop: return L"Останавливает воспроизведение (мультимедийная клавиша «Стоп»).";
+        case ActionType::VolumeUp: return L"Громкость +2 %. Включите «Повторять», чтобы прибавлять, пока держите жест.";
+        case ActionType::VolumeDown: return L"Громкость −2 %. Включите «Повторять», чтобы убавлять, пока держите жест.";
+        case ActionType::VolumeMute: return L"Выключает и снова включает звук системы.";
+        case ActionType::MicMute: return L"Win+Alt+K: микрофон в Teams, Zoom и других приложениях с поддержкой Windows 11.";
+        case ActionType::KeyCombo: return L"Нажимает заданное сочетание в активном окне: например Ctrl+Shift+M или F5.";
+        case ActionType::ScrollUp: return L"Колёсико вверх под курсором. С «Повторять» — непрерывная прокрутка.";
+        case ActionType::ScrollDown: return L"Колёсико вниз под курсором. С «Повторять» — непрерывная прокрутка.";
+        case ActionType::LaunchApp: return L"Открывает приложение из меню «Пуск» (и из Microsoft Store), файл, папку или ссылку.";
+        case ActionType::LockPC: return L"Win+L: блокирует компьютер. Камера при этом выключается.";
+        case ActionType::ShowDesktop: return L"Win+D: сворачивает все окна; повторно — возвращает их.";
+        case ActionType::TaskView: return L"Win+Tab: все окна и виртуальные рабочие столы на одном экране.";
+        case ActionType::Screenshot: return L"Win+Shift+S: выделите область — снимок попадёт в буфер обмена.";
+        case ActionType::SwitchWindow: return L"Alt+Tab: переключает на предыдущее окно; повтор возвращает обратно.";
+        case ActionType::PauseRecognition: return L"Ставит распознавание на паузу. Снять — горячей клавишей, из трея или в окне.";
+        case ActionType::NextWindow: return L"Перебирает открытые окна по кругу без панели Alt+Tab: текущее уходит назад. Пара к «Взмах вправо».";
+        case ActionType::PrevWindow: return L"Возвращает окна в обратном порядке. Пара к «Взмах влево».";
+        case ActionType::MinimizeWindow: return L"Сворачивает активное окно в панель задач.";
+        case ActionType::MaximizeWindow: return L"Разворачивает активное окно на весь экран или возвращает прежний размер.";
+        case ActionType::CloseWindow: return L"Закрывает активное окно, как крестик (несохранённое приложение спросит).";
+        case ActionType::NextDesktop: return L"Ctrl+Win+→: следующий виртуальный рабочий стол.";
+        case ActionType::PrevDesktop: return L"Ctrl+Win+←: предыдущий виртуальный рабочий стол.";
+        case ActionType::StartMenu: return L"Открывает или закрывает меню «Пуск» (клавиша Win).";
+        case ActionType::Search: return L"Win+S: поиск Windows.";
+        case ActionType::FileExplorer: return L"Win+E: новое окно проводника.";
+        case ActionType::BrowserBack: return L"Клавиша «Назад»: браузеры, проводник, многие приложения.";
+        case ActionType::BrowserForward: return L"Клавиша «Вперёд»: браузеры, проводник, многие приложения.";
+        case ActionType::ScreenshotFull: return L"Win+PrtScn: весь экран сохраняется в «Изображения\\Снимки экрана».";
+        case ActionType::ZoomIn: return L"Ctrl и «+»: крупнее страница в браузере, документ, фото. Пара к «Развести руки».";
+        case ActionType::ZoomOut: return L"Ctrl и «−»: мельче. Пара к «Свести руки».";
+        case ActionType::kCount: break;
+    }
+    return L"";
+}
 std::wstring actionGlyph(ActionType t) {
     switch (t) {
         case ActionType::MediaPlayPause: return L"";
@@ -273,6 +317,8 @@ std::wstring actionGlyph(ActionType t) {
         case ActionType::BrowserBack: return L"";
         case ActionType::BrowserForward: return L"";
         case ActionType::ScreenshotFull: return L"";   // TVMonitor
+        case ActionType::ZoomIn: return L"";          // ZoomIn
+        case ActionType::ZoomOut: return L"";         // ZoomOut
         default: return L"";
     }
 }

@@ -262,38 +262,123 @@ static void testEngine() {
     std::vector<HandObservation> hands = {palm};
 
     int fired = 0;
-    for (int t = 0; t <= 290; t += 33) fired += static_cast<int>(e.update(hands, "", fc, rules, FaceGate::AnyFace, 1000 + t).size());
+    for (int t = 0; t <= 290; t += 33) fired += static_cast<int>(e.update(hands, "", "", fc, rules, FaceGate::AnyFace, 1000 + t).size());
     CHECK(fired == 0);                       // not held long enough
-    fired += static_cast<int>(e.update(hands, "", fc, rules, FaceGate::AnyFace, 1000 + 310).size());
+    fired += static_cast<int>(e.update(hands, "", "", fc, rules, FaceGate::AnyFace, 1000 + 310).size());
     CHECK(fired == 1);
-    for (int t = 340; t < 3000; t += 33) fired += static_cast<int>(e.update(hands, "", fc, rules, FaceGate::AnyFace, 1000 + t).size());
+    for (int t = 340; t < 3000; t += 33) fired += static_cast<int>(e.update(hands, "", "", fc, rules, FaceGate::AnyFace, 1000 + t).size());
     CHECK(fired == 1);                       // held: no repeat
     // release, re-show inside cooldown -> no fire; after cooldown -> fire
-    e.update({}, "", fc, rules, FaceGate::AnyFace, 4300);
-    for (int t = 4300; t < 6000; t += 33) fired += static_cast<int>(e.update(hands, "", fc, rules, FaceGate::AnyFace, t).size());
+    e.update({}, "", "", fc, rules, FaceGate::AnyFace, 4300);
+    for (int t = 4300; t < 6000; t += 33) fired += static_cast<int>(e.update(hands, "", "", fc, rules, FaceGate::AnyFace, t).size());
     CHECK(fired == 2);
 
     // Face gate: no face -> no fire.
     GestureEngine e3;
     FaceContext none;
     int f3 = 0;
-    for (int t = 0; t < 2000; t += 33) f3 += static_cast<int>(e3.update(hands, "", none, rules, FaceGate::AnyFace, t).size());
+    for (int t = 0; t < 2000; t += 33) f3 += static_cast<int>(e3.update(hands, "", "", none, rules, FaceGate::AnyFace, t).size());
     CHECK(f3 == 0);
 
     // Brief dropout (grace period) does not reset the hold.
     GestureEngine e4;
     int f4 = 0;
-    f4 += static_cast<int>(e4.update(hands, "", fc, rules, FaceGate::Off, 0).size());
-    f4 += static_cast<int>(e4.update(hands, "", fc, rules, FaceGate::Off, 150).size());
-    f4 += static_cast<int>(e4.update({}, "", fc, rules, FaceGate::Off, 200).size());
-    f4 += static_cast<int>(e4.update(hands, "", fc, rules, FaceGate::Off, 320).size());
+    f4 += static_cast<int>(e4.update(hands, "", "", fc, rules, FaceGate::Off, 0).size());
+    f4 += static_cast<int>(e4.update(hands, "", "", fc, rules, FaceGate::Off, 150).size());
+    f4 += static_cast<int>(e4.update({}, "", "", fc, rules, FaceGate::Off, 200).size());
+    f4 += static_cast<int>(e4.update(hands, "", "", fc, rules, FaceGate::Off, 320).size());
     CHECK(f4 == 1);
 }
 
+// A hand observation whose palm centre sits at (x, y) pixels, palm length 100 px.
+static HandObservation handAt(float x, float y, bool open = true, bool right = true) {
+    HandObservation o = observe(open ? makeHand(true, true, true, true, true, 1000.f, {x, y})
+                                     : makeHand(false, false, false, false, false, 1000.f, {x, y}));
+    o.isRight = right;
+    return o;
+}
+
+static void testMotion() {
+    // Swipe right at 10 fps: 2.5 palm lengths in 0.3 s, then the hand rests.
+    {
+        MotionDetector m;
+        std::string got;
+        int64_t t = 0;
+        for (int i = 0; i <= 3; ++i, t += 100) { auto g = m.update(handAt(200.f + i * 85.f, 300), t); if (!g.empty()) got = g; }
+        for (int i = 0; i < 4; ++i, t += 100) { auto g = m.update(handAt(455, 300), t); if (!g.empty()) got = g; }
+        CHECK(got == "swipe_right");
+    }
+    // A stroke that carries the hand out of the frame is reported when it is lost.
+    {
+        MotionDetector m;
+        std::string got;
+        int64_t t = 0;
+        for (int i = 0; i <= 2; ++i, t += 100) { auto g = m.update(handAt(400.f - i * 75.f, 300), t); if (!g.empty()) got = g; }
+        if (got.empty()) got = m.lost(t);
+        CHECK(got == "swipe_left");
+    }
+    // Waving: side to side 3+ times -> "wave", and never a swipe.
+    {
+        MotionDetector m;
+        std::vector<std::string> got;
+        int64_t t = 0;
+        const float xs[] = {300, 370, 300, 230, 300, 370, 300, 230, 300, 370, 300, 230, 300};
+        for (float x : xs) { auto g = m.update(handAt(x, 300), t); if (!g.empty()) got.push_back(g); t += 80; }
+        CHECK(!got.empty() && got.back() == "wave");
+        for (const auto& g : got) CHECK(g.rfind("swipe", 0) != 0);
+    }
+    // A slow drift is not a swipe; a fist moving fast is not either.
+    {
+        MotionDetector m, f;
+        int n = 0;
+        for (int i = 0; i < 30; ++i) n += !m.update(handAt(200.f + i * 6.f, 300), i * 100).empty();
+        for (int i = 0; i < 8; ++i) n += !f.update(handAt(200.f + i * 85.f, 300, false), i * 100).empty();
+        CHECK(n == 0);
+    }
+    // Two hands: static pairs and spreading / pinching.
+    {
+        TwoHandDetector d;
+        auto a = handAt(250, 300), b = handAt(390, 300, true, false);
+        CHECK(d.staticPose(&a, &b) == "two_palms");
+        auto fa = handAt(250, 300, false), fb = handAt(390, 300, false, false);
+        CHECK(d.staticPose(&fa, &fb) == "two_fists");
+        CHECK(d.staticPose(&a, nullptr).empty());
+        std::string got;
+        for (int i = 0; i <= 4; ++i) {
+            auto l = handAt(300.f - i * 40.f, 300), r = handAt(340.f + i * 40.f, 300, true, false);
+            if (auto g = d.update(&l, &r, i * 100); !g.empty()) got = g;
+        }
+        CHECK(got == "two_spread");
+        got.clear();
+        for (int i = 0; i <= 4; ++i) {
+            auto l = handAt(140.f + i * 40.f, 300), r = handAt(500.f - i * 40.f, 300, true, false);
+            if (auto g = d.update(&l, &r, 2000 + i * 100); !g.empty()) got = g;
+        }
+        CHECK(got == "two_pinch");
+    }
+    // Engine: a two-hand rule needs two hands.
+    {
+        GestureRule r;
+        r.id = "z";
+        r.gesture = "two_palms";
+        r.holdMs = 0;
+        r.cooldownMs = 0;
+        GestureEngine e;
+        FaceContext fc;
+        auto a = handAt(250, 300), b = handAt(390, 300, true, false);
+        CHECK(e.update({a}, "", "", fc, {r}, FaceGate::Off, 0).empty());
+        CHECK(e.update({a, b}, "", "two_palms", fc, {r}, FaceGate::Off, 100).size() == 1);
+        std::string why;
+        CHECK(!GestureEngine::handMatches(r, a, &why) && why == "нужны две руки");
+    }
+}
 static void testSettings() {
     Settings s = Settings::defaults();
     // Palm example + swipe left/right -> previous/next window, all disabled.
-    CHECK(s.rules.size() == 3 && !s.rules[0].enabled && !s.rules[1].enabled && !s.rules[2].enabled);
+    CHECK(s.rules.size() == 5);
+    for (const auto& r : s.rules) CHECK(!r.enabled);  // examples only
+    CHECK(s.rules[3].gesture == "two_spread" && s.rules[3].action.type == ActionType::ZoomIn);
+    CHECK(s.perf.idleFps == 8);
     CHECK(s.rules[1].gesture == "swipe_left" && s.rules[1].action.type == ActionType::PrevWindow);
     CHECK(s.rules[2].gesture == "swipe_right" && s.rules[2].action.type == ActionType::NextWindow);
     s.rules[0].action.type = ActionType::KeyCombo;
@@ -308,7 +393,7 @@ static void testSettings() {
     auto p = json::parse(text);
     CHECK(p.ok);
     Settings t = Settings::fromJson(p.value);
-    CHECK(t.rules.size() == 3);  // v2 file: no migration duplicates
+    CHECK(t.rules.size() == 5);  // current file: no migration duplicates
     CHECK(t.rules[0].action.type == ActionType::KeyCombo);
     CHECK(t.rules[0].action.keys.size() == 3 && t.rules[0].action.keys[2] == 'M');
     CHECK(t.rules[0].name == s.rules[0].name);
@@ -321,8 +406,12 @@ static void testSettings() {
     Settings u = Settings::fromJson(bad.value);
     CHECK(u.perf.activeFps == 60);
     // v1 file: distance keys ignored, swipe rules offered once.
-    CHECK(u.rules.size() == 3 && u.rules[0].gesture == "fist" && u.rules[2].gesture == "swipe_right");
-    CHECK(Settings::fromJson(json::parse(u.toJson().dump()).value).rules.size() == 3);
+    CHECK(u.rules.size() == 5 && u.rules[0].gesture == "fist" && u.rules[2].gesture == "swipe_right" && u.rules[4].gesture == "two_pinch");
+    CHECK(Settings::fromJson(json::parse(u.toJson().dump()).value).rules.size() == 5);
+    auto v2 = json::parse(R"({"version": 2, "performance": {"idle_fps": 4}, "rules": []})");
+    Settings w = Settings::fromJson(v2.value);
+    CHECK(w.perf.idleFps == 8 && w.rules.size() == 2 && w.rules[0].gesture == "two_spread");
+    CHECK(actionFromId("zoom_out") == ActionType::ZoomOut);
     CHECK(actionFromId("next_window") == ActionType::NextWindow);
     CHECK(std::string(actionId(ActionType::ScreenshotFull)) == "screenshot_full");
     CHECK(actionFromId("media_next") == ActionType::MediaNext);
@@ -405,6 +494,7 @@ int main() {
     testGesturesStatic();
     testTemplates();
     testEngine();
+    testMotion();
     testSettings();
     testFaceDb();
     testImage();

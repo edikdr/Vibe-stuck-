@@ -22,6 +22,11 @@ const std::vector<BuiltinGesture>& builtinGestures() {
         {"swipe_right", "Взмах вправо", "\xE2\x86\x92", true},
         {"swipe_up", "Взмах вверх", "\xE2\x86\x91", true},
         {"swipe_down", "Взмах вниз", "\xE2\x86\x93", true},
+        {"wave", "Помахать рукой", "\xF0\x9F\x91\x8B", true},
+        {"two_palms", "Две ладони", "\xF0\x9F\x99\x8C", false, true},
+        {"two_fists", "Два кулака", "\xE2\x9C\x8A", false, true},
+        {"two_spread", "Две руки: развести в стороны", "\xE2\x86\x94", true, true},
+        {"two_pinch", "Две руки: свести вместе", "\xE2\x86\x92\xE2\x86\x90", true, true},
     };
     return g;
 }
@@ -249,28 +254,151 @@ std::vector<std::array<float, 42>> condenseSamples(const std::vector<std::array<
     return out;
 }
 
-std::string SwipeDetector::update(const HandObservation& h, int64_t nowMs) {
+namespace {
+Vec2 palmCentre(const HandObservation& h) {
     const auto& im = h.lm.image;
-    const Vec2 c = (im[WRIST].xy() + im[INDEX_MCP].xy() + im[MIDDLE_MCP].xy() + im[PINKY_MCP].xy()) * 0.25f;
-    trail_.push_back({c, std::max(1.f, h.palmPx), nowMs});
-    // 0.5 s window and 3 points: in a dim room the webcam drops to ~10 fps, and the
-    // former 0.38 s / 4 points practically never saw a full swipe there.
-    while (!trail_.empty() && nowMs - trail_.front().t > 500) trail_.pop_front();
-    if (nowMs - lastSwipe_ < 600 || trail_.size() < 3) return {};
-    if (h.fingers.count() < 3) return {};  // swipe with an open-ish hand only
-    const P& s = trail_.front();
-    const float palm = (s.palm + h.palmPx) * 0.5f;
-    const Vec2 d = (c - s.c) / palm;
-    std::string dir;
-    if (std::fabs(d.x) > 2.2f && std::fabs(d.x) > 2.f * std::fabs(d.y)) dir = d.x > 0 ? "swipe_right" : "swipe_left";
-    else if (std::fabs(d.y) > 2.0f && std::fabs(d.y) > 2.f * std::fabs(d.x)) dir = d.y > 0 ? "swipe_down" : "swipe_up";
-    if (!dir.empty()) {
-        lastSwipe_ = nowMs;
-        trail_.clear();
+    return (im[WRIST].xy() + im[INDEX_MCP].xy() + im[MIDDLE_MCP].xy() + im[PINKY_MCP].xy()) * 0.25f;
+}
+}  // namespace
+
+std::string MotionDetector::stroke(int64_t nowMs, float minTravel, Vec2* axis, float* palmOut) const {
+    if (nowMs - lastFire_ < 600 || trail_.size() < 3) return {};
+    // Open hand for most of the stroke: blurred frames mid-swipe often read as a fist.
+    int open = 0;
+    float palm = 0.f;
+    for (const auto& p : trail_) { open += p.open; palm += p.palm; }
+    if (open * 2 < static_cast<int>(trail_.size())) return {};
+    palm /= static_cast<float>(trail_.size());
+    const Vec2 d = (trail_.back().c - trail_.front().c) / palm;
+    const bool horiz = std::fabs(d.x) >= std::fabs(d.y);
+    const float along = horiz ? d.x : d.y, across = horiz ? d.y : d.x;
+    if (std::fabs(along) < minTravel || std::fabs(along) < 1.7f * std::fabs(across)) return {};
+    // Mostly one-way: steps against the stroke may add up to at most a quarter of it.
+    float back = 0.f;
+    for (size_t i = 1; i < trail_.size(); ++i) {
+        const Vec2 s = (trail_[i].c - trail_[i - 1].c) / palm;
+        const float m = horiz ? s.x : s.y;
+        if (m * along < 0.f) back += std::fabs(m);
     }
-    return dir;
+    if (back > 0.25f * std::fabs(along)) return {};
+    if (axis) *axis = horiz ? Vec2{along > 0 ? 1.f : -1.f, 0.f} : Vec2{0.f, along > 0 ? 1.f : -1.f};
+    if (palmOut) *palmOut = palm;
+    return horiz ? (along > 0 ? "swipe_right" : "swipe_left") : (along > 0 ? "swipe_down" : "swipe_up");
 }
 
+std::string MotionDetector::wave(int64_t nowMs) {
+    if (nowMs - lastFire_ < 1000 || wave_.size() < 6) return {};
+    float palm = 0.f, minY = 1e9f, maxY = -1e9f, minX = 1e9f, maxX = -1e9f;
+    int open = 0;
+    for (const auto& p : wave_) {
+        palm += p.palm;
+        open += p.open;
+        minX = std::min(minX, p.c.x); maxX = std::max(maxX, p.c.x);
+        minY = std::min(minY, p.c.y); maxY = std::max(maxY, p.c.y);
+    }
+    palm /= static_cast<float>(wave_.size());
+    if (open * 10 < static_cast<int>(wave_.size()) * 7) return {};  // open hand >= 70 % of the time
+    if (maxY - minY > maxX - minX) return {};                          // side to side, not up and down
+    // Count direction reversals along x with 0.5 palm-length hysteresis.
+    int dir = 0, rev = 0;
+    float ext = wave_.front().c.x;
+    for (const auto& q : wave_) {
+        const float dx = (q.c.x - ext) / palm;
+        if (dir == 0) {
+            if (dx > 0.5f) { dir = 1; ext = q.c.x; }
+            else if (dx < -0.5f) { dir = -1; ext = q.c.x; }
+        } else if (dir == 1) {
+            if (q.c.x > ext) ext = q.c.x;
+            else if (dx < -0.5f) { dir = -1; ++rev; ext = q.c.x; }
+        } else {
+            if (q.c.x < ext) ext = q.c.x;
+            else if (dx > 0.5f) { dir = 1; ++rev; ext = q.c.x; }
+        }
+    }
+    if (rev < 3) return {};
+    lastFire_ = nowMs;
+    trail_.clear();
+    wave_.clear();
+    pending_.clear();
+    return "wave";
+}
+
+std::string MotionDetector::update(const HandObservation& h, int64_t nowMs) {
+    const Vec2 c = palmCentre(h);
+    const P p{c, std::max(1.f, h.palmPx), nowMs, h.fingers.count() >= 3};
+    trail_.push_back(p);
+    while (!trail_.empty() && nowMs - trail_.front().t > 500) trail_.pop_front();
+    wave_.push_back(p);
+    while (!wave_.empty() && nowMs - wave_.front().t > 1500) wave_.pop_front();
+
+    if (auto w = wave(nowMs); !w.empty()) return w;
+    if (!pending_.empty()) {
+        const Vec2 moved = (c - pendingAt_) / pendingPalm_;
+        const float along = moved.x * pendingAxis_.x + moved.y * pendingAxis_.y;
+        if (along < -0.6f) {
+            pending_.clear();  // came straight back: a wave in progress
+        } else if (nowMs - pendingT_ >= 180) {
+            std::string g;
+            g.swap(pending_);
+            lastFire_ = nowMs;
+            trail_.clear();
+            return g;
+        } else {
+            pendingAt_ = along > 0.f ? c : pendingAt_;  // still travelling: follow the hand
+        }
+        return {};
+    }
+    Vec2 axis{};
+    float palm = 1.f;
+    if (auto s = stroke(nowMs, 1.7f, &axis, &palm); !s.empty()) {
+        pending_ = std::move(s);
+        pendingT_ = nowMs;
+        pendingAt_ = c;
+        pendingAxis_ = axis;
+        pendingPalm_ = palm;
+    }
+    return {};
+}
+
+std::string MotionDetector::lost(int64_t nowMs) {
+    std::string g;
+    if (!pending_.empty()) g.swap(pending_);
+    else g = stroke(nowMs, 1.3f, nullptr, nullptr);  // the stroke carried the hand out of view
+    if (!g.empty()) lastFire_ = nowMs;
+    trail_.clear();
+    wave_.clear();
+    pending_.clear();
+    return g;
+}
+
+std::string TwoHandDetector::staticPose(const HandObservation* a, const HandObservation* b) const {
+    if (!a || !b) return {};
+    if (a->pose == "open_palm" && b->pose == "open_palm") return "two_palms";
+    if (a->pose == "fist" && b->pose == "fist") return "two_fists";
+    return {};
+}
+
+std::string TwoHandDetector::update(const HandObservation* a, const HandObservation* b, int64_t nowMs) {
+    if (!a || !b) {
+        trail_.clear();
+        return {};
+    }
+    const float palm = std::max(1.f, (a->palmPx + b->palmPx) * 0.5f);
+    trail_.push_back({length(palmCentre(*a) - palmCentre(*b)) / palm, nowMs});
+    while (!trail_.empty() && nowMs - trail_.front().t > 700) trail_.pop_front();
+    if (nowMs - lastFire_ < 900 || trail_.size() < 3) return {};
+    float mn = 1e9f, mx = -1e9f;
+    for (const auto& p : trail_) { mn = std::min(mn, p.d); mx = std::max(mx, p.d); }
+    const float d = trail_.back().d;
+    std::string g;
+    if (d - mn >= 1.5f && d >= mn * 1.35f) g = "two_spread";
+    else if (mx - d >= 1.5f && mx >= d * 1.35f) g = "two_pinch";
+    if (!g.empty()) {
+        lastFire_ = nowMs;
+        trail_.clear();
+    }
+    return g;
+}
 bool GestureEngine::handMatches(const GestureRule& r, const HandObservation& h, std::string* whyNot) {
     auto no = [&](const char* m) {
         if (whyNot) *whyNot = m;
@@ -278,8 +406,9 @@ bool GestureEngine::handMatches(const GestureRule& r, const HandObservation& h, 
     };
     if (r.gesture.rfind("custom:", 0) == 0) {
         if (h.customId != r.gesture.substr(7)) return no("другой жест");
-    } else if (const auto* b = findBuiltin(r.gesture); b && !b->dynamic) {
-        if (h.pose != r.gesture) return no("другой жест");
+    } else if (const auto* b = findBuiltin(r.gesture)) {
+        if (b->twoHands) return no("нужны две руки");
+        if (!b->dynamic && h.pose != r.gesture) return no("другой жест");
     }
     if (r.hand == HandSide::Left && h.isRight) return no("нужна левая рука");
     if (r.hand == HandSide::Right && !h.isRight) return no("нужна правая рука");
@@ -287,7 +416,8 @@ bool GestureEngine::handMatches(const GestureRule& r, const HandObservation& h, 
 }
 
 std::vector<GestureEvent> GestureEngine::update(const std::vector<HandObservation>& hands,
-                                                const std::string& dynamicGesture, const FaceContext& faces,
+                                                const std::string& dynamicGesture, const std::string& twoHandPose,
+                                                const FaceContext& faces,
                                                 const std::vector<GestureRule>& rules, FaceGate gate,
                                                 int64_t nowMs) {
     std::vector<GestureEvent> events;
@@ -311,8 +441,13 @@ std::vector<GestureEvent> GestureEngine::update(const std::vector<HandObservatio
         const bool dynamic = b && b->dynamic;
 
         const HandObservation* match = nullptr;
-        for (const auto& h : hands)
-            if (handMatches(r, h)) { match = &h; break; }
+        if (b && b->twoHands) {
+            // Two-hand gestures: both hands visible, and for the static ones the pair pose matches.
+            if (hands.size() >= 2 && (dynamic || twoHandPose == r.gesture)) match = &hands[0];
+        } else {
+            for (const auto& h : hands)
+                if (handMatches(r, h)) { match = &h; break; }
+        }
 
         auto fire = [&] {
             GestureEvent e;
