@@ -47,8 +47,8 @@
 ## Сборка (Windows 11, Visual Studio 2022)
 
 ```powershell
-git clone -b claude/vibe-legion-gesture-app-7n9xat https://github.com/edikdr/CAS
-cd CAS\vibe-legion
+git clone -b claude/vibe-legion-gesture-app-7n9xat https://github.com/edikdr/Vibe-stuck-
+cd Vibe-stuck-\vibe-legion
 powershell -ExecutionPolicy Bypass -File scripts\fetch-deps.ps1   # ONNX Runtime + модели (SHA-256)
 cmake --preset windows-release
 cmake --build --preset windows-release
