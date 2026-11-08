@@ -44,6 +44,7 @@ enum class ActionType {
     // v3
     ZoomIn,         // Ctrl + '+'
     ZoomOut,        // Ctrl + '-'
+    CallMute,       // Win+Alt+K (mute in apps that support the Windows 11 call mute)
     kCount
 };
 

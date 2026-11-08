@@ -160,6 +160,7 @@ private:
         std::deque<std::string> poses;
         std::deque<std::pair<int64_t, Vec2>> path;  // palm centre, last 0.3 s (speed)
         std::deque<std::string> customs;            // custom gesture matched in the last 3 frames
+        Vec2 vel{};                                 // last frame-to-frame displacement (ROI prediction)
     };
     std::array<Track, 2> tracks_;
     int64_t lastPalmScanMs_ = -100000;

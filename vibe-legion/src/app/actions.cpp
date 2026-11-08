@@ -3,6 +3,8 @@
 #include "platform/win/system.hpp"
 
 #include <dwmapi.h>
+#include <endpointvolume.h>
+#include <mmdeviceapi.h>
 #include <shellapi.h>
 #include <shlobj.h>
 #include <shobjidl.h>
@@ -12,6 +14,43 @@
 #include <vector>
 
 namespace vl {
+
+bool toggleSystemMicMute(bool* mutedNow) {
+    // Mutes the capture endpoints themselves, like the mute box in Sound settings: every
+    // app (Discord, Zoom, games) then receives silence. Hotkeys such as Win+Alt+K only
+    // reach apps that implement the Windows 11 call-mute API, which Discord does not.
+    using Microsoft::WRL::ComPtr;
+    ComPtr<IMMDeviceEnumerator> en;
+    if (FAILED(CoCreateInstance(__uuidof(MMDeviceEnumerator), nullptr, CLSCTX_ALL, IID_PPV_ARGS(&en)))) return false;
+    // The new state follows the default communications microphone (what calls use).
+    BOOL curMuted = FALSE;
+    {
+        ComPtr<IMMDevice> def;
+        if (FAILED(en->GetDefaultAudioEndpoint(eCapture, eCommunications, &def)) &&
+            FAILED(en->GetDefaultAudioEndpoint(eCapture, eConsole, &def)))
+            return false;
+        ComPtr<IAudioEndpointVolume> vol;
+        if (FAILED(def->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_ALL, nullptr, reinterpret_cast<void**>(vol.GetAddressOf()))))
+            return false;
+        vol->GetMute(&curMuted);
+    }
+    const BOOL target = curMuted ? FALSE : TRUE;
+    ComPtr<IMMDeviceCollection> all;
+    if (FAILED(en->EnumAudioEndpoints(eCapture, DEVICE_STATE_ACTIVE, &all))) return false;
+    UINT n = 0;
+    all->GetCount(&n);
+    bool any = false;
+    for (UINT i = 0; i < n; ++i) {  // every microphone, so a headset and the built-in array agree
+        ComPtr<IMMDevice> d;
+        ComPtr<IAudioEndpointVolume> vol;
+        if (FAILED(all->Item(i, &d)) ||
+            FAILED(d->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_ALL, nullptr, reinterpret_cast<void**>(vol.GetAddressOf()))))
+            continue;
+        any = SUCCEEDED(vol->SetMute(target, nullptr)) || any;
+    }
+    if (mutedNow) *mutedNow = target != FALSE;
+    return any;
+}
 
 namespace {
 
@@ -166,7 +205,8 @@ bool executeAction(const Action& a) {
         case ActionType::VolumeUp: return combo({VK_VOLUME_UP});
         case ActionType::VolumeDown: return combo({VK_VOLUME_DOWN});
         case ActionType::VolumeMute: return combo({VK_VOLUME_MUTE});
-        case ActionType::MicMute: return combo({VK_LWIN, VK_MENU, 'K'});
+        case ActionType::MicMute: return toggleSystemMicMute(nullptr);
+        case ActionType::CallMute: return combo({VK_LWIN, VK_MENU, 'K'});
         case ActionType::KeyCombo: return comboVec(a.keys);
         case ActionType::ScrollUp: return wheel(WHEEL_DELTA);
         case ActionType::ScrollDown: return wheel(-WHEEL_DELTA);
@@ -213,7 +253,8 @@ std::wstring actionTitleRu(ActionType t) {
         case ActionType::VolumeUp: return L"Громче";
         case ActionType::VolumeDown: return L"Тише";
         case ActionType::VolumeMute: return L"Выключить звук";
-        case ActionType::MicMute: return L"Микрофон вкл/выкл (Win+Alt+K)";
+        case ActionType::MicMute: return L"Микрофон вкл/выкл (все приложения)";
+        case ActionType::CallMute: return L"Микрофон в звонке (Win+Alt+K)";
         case ActionType::KeyCombo: return L"Сочетание клавиш…";
         case ActionType::ScrollUp: return L"Прокрутка вверх";
         case ActionType::ScrollDown: return L"Прокрутка вниз";
@@ -254,7 +295,8 @@ std::wstring actionDescriptionRu(ActionType t) {
         case ActionType::VolumeUp: return L"Громкость +2 %. Включите «Повторять», чтобы прибавлять, пока держите жест.";
         case ActionType::VolumeDown: return L"Громкость −2 %. Включите «Повторять», чтобы убавлять, пока держите жест.";
         case ActionType::VolumeMute: return L"Выключает и снова включает звук системы.";
-        case ActionType::MicMute: return L"Win+Alt+K: микрофон в Teams, Zoom и других приложениях с поддержкой Windows 11.";
+        case ActionType::MicMute: return L"Выключает сами микрофоны в Windows: вас не слышит ни одно приложение — Discord, Zoom, игры. Повтор включает. Значок микрофона внутри приложения при этом не меняется.";
+        case ActionType::CallMute: return L"Win+Alt+K: кнопка микрофона в Teams и других приложениях с поддержкой звонков Windows 11. Discord её не поддерживает — для него «Микрофон вкл/выкл».";
         case ActionType::KeyCombo: return L"Нажимает заданное сочетание в активном окне: например Ctrl+Shift+M или F5.";
         case ActionType::ScrollUp: return L"Колёсико вверх под курсором. С «Повторять» — непрерывная прокрутка.";
         case ActionType::ScrollDown: return L"Колёсико вниз под курсором. С «Повторять» — непрерывная прокрутка.";

@@ -16,7 +16,7 @@ const char* const kActionIds[] = {
     "task_view", "screenshot", "switch_window", "pause_recognition",
     "next_window", "prev_window", "minimize_window", "maximize_window", "close_window",
     "next_desktop", "prev_desktop", "start_menu", "search", "file_explorer",
-    "browser_back", "browser_forward", "screenshot_full", "zoom_in", "zoom_out"};
+    "browser_back", "browser_forward", "screenshot_full", "zoom_in", "zoom_out", "call_mute"};
 static_assert(sizeof(kActionIds) / sizeof(kActionIds[0]) == static_cast<size_t>(ActionType::kCount));
 
 template <typename E, size_t N>

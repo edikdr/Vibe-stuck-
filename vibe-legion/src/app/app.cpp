@@ -272,7 +272,7 @@ std::wstring App::pauseText() const {
     if (userPaused_ || !settings_.enabled) return L"Распознавание выключено";
     if (locked_ && settings_.perf.pauseWhenLocked) return L"ПК заблокирован — камера выключена";
     if (displayOff_) return L"Экран выключен";
-    if (fullscreen_ && settings_.perf.pauseInFullscreen) return L"Полноэкранная игра или презентация";
+    if (fullscreen_ && settings_.perf.pauseInFullscreen) return L"Полноэкранная игра или презентация (видео на весь экран не мешает)";
     return L"";
 }
 
@@ -369,16 +369,23 @@ void App::addLog(LogEntry e) {
 }
 
 void App::onGesture(const GestureEvent& e) {
-    if (e.action.type == ActionType::PauseRecognition) setUserPaused(true);
-    else executeAction(e.action);
+    std::wstring what = describeAction(e.action);
+    if (e.action.type == ActionType::PauseRecognition) {
+        setUserPaused(true);
+    } else if (e.action.type == ActionType::MicMute) {
+        bool muted = false;  // say which way it went: the apps' own mic icons do not show it
+        what = toggleSystemMicMute(&muted) ? (muted ? L"Микрофон выключен" : L"Микрофон включён") : L"Микрофон не найден";
+    } else {
+        executeAction(e.action);
+    }
     std::wstring gname = findBuiltin(e.gesture) ? widen(findBuiltin(e.gesture)->nameRu) : L"Свой жест";
     if (e.gesture.rfind("custom:", 0) == 0)
         for (const auto& g : settings_.customGestures)
             if ("custom:" + g.id == e.gesture) gname = widen(g.name);
     const std::wstring detail = gname;
-    const std::wstring title = e.ruleName.empty() ? describeAction(e.action) : widen(e.ruleName);
+    const std::wstring title = e.ruleName.empty() ? what : widen(e.ruleName);
     addLog({title, detail, actionGlyph(e.action.type), unixMs()});
-    if (settings_.ui.osd) osd_->showFired(actionGlyph(e.action.type), describeAction(e.action), detail);
+    if (settings_.ui.osd) osd_->showFired(actionGlyph(e.action.type), what, detail);
     if (main_) main_->invalidate();
 }
 

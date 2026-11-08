@@ -104,7 +104,7 @@ const std::vector<ActionType>& actionOrder() {
         ActionType::MinimizeWindow, ActionType::MaximizeWindow, ActionType::CloseWindow, ActionType::ShowDesktop,
         ActionType::NextDesktop, ActionType::PrevDesktop,
         ActionType::MediaPlayPause, ActionType::MediaNext, ActionType::MediaPrev, ActionType::MediaStop,
-        ActionType::VolumeUp, ActionType::VolumeDown, ActionType::VolumeMute, ActionType::MicMute,
+        ActionType::VolumeUp, ActionType::VolumeDown, ActionType::VolumeMute, ActionType::MicMute, ActionType::CallMute,
         ActionType::ScrollUp, ActionType::ScrollDown, ActionType::BrowserBack, ActionType::BrowserForward,
         ActionType::Screenshot, ActionType::ScreenshotFull, ActionType::StartMenu, ActionType::Search,
         ActionType::FileExplorer, ActionType::LockPC, ActionType::PauseRecognition, ActionType::None};
@@ -585,6 +585,47 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
     }
 
     section(g, col, L"Свои жесты");
+    // ---- live camera next to the recording: framing, both hands, the countdown
+    {
+        const bool recNow = !st.recordingGesture.empty() && s.recordProgress >= 0.f;
+        const RectF r = col.next(250);
+        g.card(r, 10);
+        const float pw = (r.h - 24) * 16.f / 9.f;
+        drawPreview(g, app, {r.x + 12, r.y + 12, pw, r.h - 24}, true);
+        const float x = r.x + pw + 32, w = r.right() - x - 20;
+        float y = r.y + 18;
+        if (recNow) {
+            std::wstring name;
+            for (const auto& cg : S.customGestures)
+                if (cg.id == st.recordingGesture) name = widen(cg.name);
+            c.text(L"Запись «" + name + L"»", {x, y, w, 22}, p.text, 15.f, Weight::Semibold);
+            y += 30;
+            g.progressRing({x + 22, y + 22}, 20, s.recordProgress, p.accent, 4.f);
+            c.text(std::to_wstring(static_cast<int>(s.recordProgress * 100.f + 0.5f)) + L"%", {x, y, 44, 44}, p.text, 12.f,
+                   Weight::Semibold, Align::Center);
+            c.text(widen(s.taskHint), {x + 56, y, w - 56, 44}, p.text, 13.f, Weight::Regular, Align::Start, Align::Center, true);
+            y += 56;
+        } else {
+            c.text(L"Камера", {x, y, w, 18}, p.textMuted, 12.f);
+            y += 20;
+            c.text(L"Проверьте кадр до записи: рука целиком в кадре, для жеста двумя руками — обе.", {x, y, w, 40},
+                   p.textDim, 12.5f, Weight::Regular, Align::Start, Align::Start, true);
+            y += 50;
+        }
+        c.text(L"Сейчас вижу", {x, y, w, 18}, p.textMuted, 12.f);
+        y += 20;
+        std::wstring now = L"руки не видно";
+        if (s.hasHand) {
+            now = handName(s.hand.isRight) + L": " + (s.hand.pose.empty() ? L"поза не распознана" : gestureName(app, s.hand.pose));
+            if (s.hasSecondHand) now += L"; " + handName(s.hand2.isRight) + L": " +
+                                        (s.hand2.pose.empty() ? L"поза не распознана" : gestureName(app, s.hand2.pose));
+            if (!s.hand.steady) now += L" · в движении";
+        }
+        c.text(now, {x, y, w, 40}, p.text, 13.5f, Weight::Semibold, Align::Start, Align::Start, true);
+        y += 44;
+        if (!s.lastDynamic.empty()) g.pill({x, y, c.measure(gestureName(app, s.lastDynamic), 12.f, Weight::Semibold).x + 24, 24},
+                                           gestureName(app, s.lastDynamic), p.success);
+    }
     // ---- recording settings (used by "Записать" and by "Заново" on a row)
     static const int kBudgets[3] = {24, 48, 96};
     st.newGestureBudget = std::clamp(st.newGestureBudget, 0, 2);
@@ -1023,7 +1064,7 @@ void drawPower(Gui& g, App& app, UiState& st, const RectF& area) {
     section(g, col, L"Автоматика");
     rr = settingRow(g, col, glyph::Battery, L"На батарее — режим «Эко»", app.power().onBattery ? L"Сейчас: от батареи" : L"Сейчас: от сети");
     if (g.toggle("ecobat", rr, S.perf.ecoOnBattery)) app.settingsChanged();
-    rr = settingRow(g, col, glyph::Game, L"Пауза в полноэкранных играх и презентациях", L"Камера освобождается, CPU не тратится");
+    rr = settingRow(g, col, glyph::Game, L"Пауза в полноэкранных играх и презентациях", L"Камера освобождается, CPU не тратится. Видео в браузере или плеере на весь экран паузу не включает");
     if (g.toggle("fs", rr, S.perf.pauseInFullscreen)) app.settingsChanged();
     rr = settingRow(g, col, glyph::Lock, L"Выключать камеру при блокировке ПК", L"Индикатор камеры гаснет; возобновится после входа");
     if (g.toggle("lock", rr, S.perf.pauseWhenLocked)) app.settingsChanged();

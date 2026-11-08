@@ -17,6 +17,10 @@ struct InstalledApp {
 std::vector<InstalledApp> installedApps();
 
 // Returns false if the action could not be performed (e.g. app path missing).
+// Mutes or unmutes every active microphone in Windows (all apps hear silence).
+// Returns false on failure; *mutedNow = the new state.
+bool toggleSystemMicMute(bool* mutedNow);
+
 bool executeAction(const Action& a);
 
 std::wstring actionTitleRu(ActionType t);

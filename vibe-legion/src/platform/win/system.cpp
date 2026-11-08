@@ -174,10 +174,40 @@ PowerState queryPower() {
     return s;
 }
 
+namespace {
+// Full screen in these is watching something (a video, a stream, a call), not playing:
+// gestures such as pause / volume are wanted exactly then.
+bool foregroundIsMediaApp() {
+    static const wchar_t* kMedia[] = {
+        L"chrome.exe", L"msedge.exe", L"firefox.exe", L"opera.exe", L"opera_gx.exe", L"brave.exe", L"browser.exe",
+        L"vivaldi.exe", L"arc.exe", L"iexplore.exe", L"vlc.exe", L"mpc-hc64.exe", L"mpc-hc.exe", L"mpc-be64.exe",
+        L"potplayermini64.exe", L"potplayermini.exe", L"mpv.exe", L"wmplayer.exe", L"microsoft.media.player.exe",
+        L"video.ui.exe", L"kmplayer.exe", L"aimp.exe", L"spotify.exe", L"discord.exe", L"telegram.exe",
+        L"obs64.exe", L"zoom.exe", L"ms-teams.exe", L"applicationframehost.exe", L"netflix.exe", L"plex.exe"};
+    const HWND w = GetForegroundWindow();
+    DWORD pid = 0;
+    if (!w || !GetWindowThreadProcessId(w, &pid) || !pid) return false;
+    HANDLE p = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, pid);
+    if (!p) return false;
+    wchar_t path[MAX_PATH * 2];
+    DWORD n = static_cast<DWORD>(std::size(path));
+    const bool ok = QueryFullProcessImageNameW(p, 0, path, &n) != FALSE;
+    CloseHandle(p);
+    if (!ok) return false;
+    const std::wstring exe = std::filesystem::path(std::wstring(path, n)).filename().wstring();
+    for (const wchar_t* m : kMedia)
+        if (_wcsicmp(exe.c_str(), m) == 0) return true;
+    return false;
+}
+}  // namespace
+
 bool fullscreenAppRunning() {
     QUERY_USER_NOTIFICATION_STATE q;
     if (FAILED(SHQueryUserNotificationState(&q))) return false;
-    return q == QUNS_RUNNING_D3D_FULL_SCREEN || q == QUNS_PRESENTATION_MODE || q == QUNS_BUSY;
+    if (q == QUNS_RUNNING_D3D_FULL_SCREEN || q == QUNS_PRESENTATION_MODE) return true;  // exclusive games, slide shows
+    // QUNS_BUSY = any full-screen window: borderless games, but also a YouTube video in
+    // full screen. Browsers, video players and call apps keep recognition running.
+    return q == QUNS_BUSY && !foregroundIsMediaApp();
 }
 
 ProcessStats ProcessMeter::sample() {

@@ -53,6 +53,7 @@ void VisionPipeline::resetTrack(Track& t) {
     t.poses.clear();
     t.path.clear();
     t.customs.clear();
+    t.vel = {};
 }
 
 VisionPipeline::~VisionPipeline() { stop(); }
@@ -381,9 +382,24 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
         for (auto& tr : tracks_) {
             if (!tr.active) continue;
             HandLandmarks raw;
-            const bool ok = hand_.run(rgb, handRoiFromLandmarks(tr.lastLm), raw);
+            // Fast movements: look where the hand is going, not where it was. The ROI moves
+            // by the last frame-to-frame displacement and grows with the speed, so a swipe
+            // or a shake stays inside it instead of being lost and re-detected (which drops
+            // the frames that carry the movement).
+            RotatedRect roi = handRoiFromLandmarks(tr.lastLm);
+            const float step = length(tr.vel);
+            roi.center = roi.center + tr.vel;
+            roi.size *= 1.f + std::min(0.6f, step / std::max(1.f, roi.size));
+            bool ok = hand_.run(rgb, roi, raw);
             msHand += hand_.lastMs();
+            if (!ok && step > 0.f) {  // prediction overshot (the hand stopped / turned back): retry in place
+                ok = hand_.run(rgb, handRoiFromLandmarks(tr.lastLm), raw);
+                msHand += hand_.lastMs();
+            }
             if (ok) {
+                const Vec2 prev = (tr.lastLm.image[WRIST].xy() + tr.lastLm.image[MIDDLE_MCP].xy()) * 0.5f;
+                const Vec2 cur = (raw.image[WRIST].xy() + raw.image[MIDDLE_MCP].xy()) * 0.5f;
+                tr.vel = (cur - prev) * 0.8f;  // a little under, overshooting is worse than lagging
                 tr.lastLm = raw;
             } else {
                 // Lost: a swipe that carried the hand out of the frame still counts.

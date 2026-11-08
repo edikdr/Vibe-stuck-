@@ -747,7 +747,7 @@ std::string CustomMatcher::update(std::vector<HandObservation>& hands, const std
             };
             if (!best) {
                 // The hand left the frame: a stroke that carried it out still counts.
-                if (stroke && poseOk * 2 >= static_cast<int>(ms.pose.size()) && !ms.pose.empty() &&
+                if (stroke && poseOk * 100 >= static_cast<int>(ms.pose.size()) * 35 && !ms.pose.empty() &&
                     strokeTravel() >= 0.45f * g.motionAmp && nowMs - ms.lastFire >= cooldown)
                     fire();
                 ms.signal.clear();
@@ -759,12 +759,12 @@ std::string CustomMatcher::update(std::vector<HandObservation>& hands, const std
             // the camera does not read as sideways movement.
             ms.refPalm = ms.refPalm > 0.f ? 0.9f * ms.refPalm + 0.1f * best->palmPx : std::max(1.f, best->palmPx);
             ms.signal.push_back({nowMs, axisValue(g.axis, palmCentre(*best), best->palmPx, ms.refPalm)});
-            const bool shapeNow = bestD <= thr * 1.3f;  // motion blur: a little looser
+            const bool shapeNow = bestD <= thr * 1.6f;  // motion blur distorts the hand: looser
             ms.pose.push_back({nowMs, shapeNow});
             poseOk += shapeNow;
             if (stroke) {
                 const float travel = strokeTravel();
-                const bool shapeOk = poseOk * 2 >= static_cast<int>(ms.pose.size());
+                const bool shapeOk = poseOk * 100 >= static_cast<int>(ms.pose.size()) * 35;  // shape in >= 35 % of frames
                 ms.progress = shapeOk ? std::min(1.f, travel / std::max(0.05f, 0.6f * g.motionAmp)) : 0.f;
                 if (shapeOk && travel >= 0.6f * g.motionAmp && nowMs - ms.lastFire >= cooldown) fire();
                 continue;
@@ -773,7 +773,7 @@ std::string CustomMatcher::update(std::vector<HandObservation>& hands, const std
             for (const auto& p : ms.signal) s.push_back(p.second);
             const float range = s.empty() ? 0.f : *std::max_element(s.begin(), s.end()) - *std::min_element(s.begin(), s.end());
             const int rev = reversals(s, 0.3f * g.motionAmp);
-            const bool shapeOk = poseOk * 10 >= static_cast<int>(ms.pose.size()) * 6;
+            const bool shapeOk = poseOk * 10 >= static_cast<int>(ms.pose.size()) * 4;  // >= 40 %: the movement is the main cue
             ms.progress = shapeOk ? std::min(1.f, rev / 2.f) : 0.f;
             if (shapeOk && rev >= 2 && range >= 0.5f * g.motionAmp && nowMs - ms.lastFire >= cooldown) fire();
         }
@@ -793,7 +793,7 @@ std::string MotionDetector::stroke(int64_t nowMs, float minTravel, Vec2* axis, f
     int open = 0;
     float palm = 0.f;
     for (const auto& p : trail_) { open += p.open; palm += p.palm; }
-    if (open * 2 < static_cast<int>(trail_.size())) return {};
+    if (open * 3 < static_cast<int>(trail_.size())) return {};  // open in >= 1/3 of the frames
     palm /= static_cast<float>(trail_.size());
     const Vec2 d = (trail_.back().c - trail_.front().c) / palm;
     const bool horiz = std::fabs(d.x) >= std::fabs(d.y);

@@ -574,6 +574,17 @@ static void testDynamicKinds() {
         }
         CHECK(still == 0 && left == 0 && right >= 1);
     }
+    {   // motion blur: the shape matches only every other frame, the stroke still counts
+        CustomMatcher m;
+        int fired = 0;
+        for (int i = 0; i <= 4; ++i) {
+            HandObservation h = (i % 2) ? observe(makeHand(true, true, true, true, true, 1000.f, {150.f + i * 90.f, 300}))
+                                        : fistAt(150.f + i * 90.f, 300);
+            std::vector<HandObservation> hs = {withFeat(h)};
+            fired += m.update(hs, {st}, 9000 + i * 100) == "custom:punch";
+        }
+        CHECK(fired >= 1);
+    }
     // Shaking a fist: small and quick, both ways -> back-and-forth.
     std::vector<RecordedFrame> sh;
     for (int i = 0; i < 90; ++i) sh.push_back(frameOf({fistAt(300.f + 25.f * ((i % 2) ? 1.f : -1.f), 300)}, i * 80));
