@@ -80,7 +80,9 @@ struct GestureRule {
     Action action;
 };
 
-enum class CustomKind { OneHand, TwoHands, Motion };
+// OneHand / TwoHands: static signs. Motion: back-and-forth (waving, shaking a fist).
+// Stroke: a quick movement one way (a swipe with a particular hand shape).
+enum class CustomKind { OneHand, TwoHands, Motion, Stroke };
 enum class MotionAxis { X, Y, Depth };  // depth = towards / away from the camera
 
 struct CustomGesture {
@@ -98,7 +100,14 @@ struct CustomGesture {
     float strictness = 1.f;    // user scale on the threshold: < 1 stricter, > 1 looser
     MotionAxis axis = MotionAxis::X;
     float motionAmp = 0.f;     // peak-to-peak of the movement (palm lengths; depth: log-size units)
-    float motionPeriodMs = 0.f;
+    float motionPeriodMs = 0.f;  // Motion: one full cycle; Stroke: duration of the quick part
+    int motionDir = 1;           // Stroke: +1 along the axis (right / down / towards the camera), -1 back
+
+    // How it was / will be recorded (chosen in the editor; "Заново" reuses it).
+    bool dynamic = false;        // false: a sign (static, micro-movements are fine); true: a movement
+    int recordMs = 9000;         // 6..12 s
+    int sampleBudget = 48;       // samples kept: 24 compact / 48 standard / 96 detailed
+    std::string lookalike;       // built-in pose the recording mostly matched (not saved)
 
     // v1-v3 recordings: flat 2D outline of one hand. Still matched, but should be re-recorded.
     float tolerance = 0.22f;   // RMS distance in palm-length units
@@ -106,8 +115,8 @@ struct CustomGesture {
     bool legacy() const { return rows.empty() && !samples.empty(); }
     bool recorded() const { return !rows.empty() || !samples.empty(); }
 
-    static constexpr int kRecordMs = 10000;    // long enough for several cycles of a movement
-    static constexpr size_t kMaxSamples = 64;  // kept after de-duplication
+    static constexpr int kMinRecordMs = 6000, kMaxRecordMs = 12000;
+    static constexpr int kPrerollMs = 2000;  // countdown after the hand appears: no set-up frames
 };
 
 // ------------------------------------------------------------------ subsystems

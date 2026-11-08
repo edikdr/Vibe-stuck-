@@ -51,6 +51,7 @@ struct HandObservation {
     float speed = 0.f;              // palm centre, palm lengths per second
     bool steady = true;             // slow enough for a static gesture
     bool busy = false;              // right next to the other hand: holding something / typing
+    int track = -1;                 // pipeline's track slot (for per-hand smoothing)
     bool reliable() const { return presence >= 0.85f && inFrame; }
 };
 
@@ -85,13 +86,17 @@ struct RecordedHand {
     std::vector<float> feat, featMirror;
     Vec2 centre;
     float palmPx = 0.f;
+    float speed = 0.f;  // palm lengths per second
+    std::string pose;   // built-in pose seen in this frame (for the "looks like" warning)
 };
 struct RecordedFrame {
     int64_t t = 0;
     std::vector<RecordedHand> hands;  // left -> right in the image
 };
-// Decides what was shown — one hand, two hands, or a pose with a repeated movement
-// (and along which axis) — and fills g.kind / rows / threshold / axis / motion*.
+// g.dynamic (the user's choice) decides the family: a sign (one or two hands, decided
+// from the recording; only steady frames are used) or a movement (back-and-forth or a
+// quick stroke one way, axis and size learned). Keeps up to g.sampleBudget samples and
+// fills g.kind / rows / threshold / axis / motion*.
 // The acceptance threshold comes from how consistent the recording itself was.
 // Returns false with a reason in `reportRu` when the recording is unusable.
 bool learnCustomGesture(const std::vector<RecordedFrame>& frames, CustomGesture& g, std::string* reportRu);
@@ -103,6 +108,10 @@ bool learnCustomGesture(const std::vector<RecordedFrame>& frames, CustomGesture&
 //     axis (>= 2 reversals, >= half the recorded amplitude); the shape alone never fires.
 // One- and two-hand matches go to HandObservation::customId; a completed motion
 // gesture is returned as "custom:<id>".
+// How easily two recorded gestures get confused: their typical distance divided by the
+// larger acceptance threshold. < 1: they will be mixed up; 1..1.5: close.
+float gestureConfusion(const CustomGesture& a, const CustomGesture& b);
+
 class CustomMatcher {
 public:
     std::string update(std::vector<HandObservation>& hands, const std::vector<CustomGesture>& gestures, int64_t nowMs);

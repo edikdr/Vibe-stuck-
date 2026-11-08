@@ -52,6 +52,7 @@ void VisionPipeline::resetTrack(Track& t) {
     t.motion.reset();
     t.poses.clear();
     t.path.clear();
+    t.customs.clear();
 }
 
 VisionPipeline::~VisionPipeline() { stop(); }
@@ -97,13 +98,15 @@ void VisionPipeline::startEnrollment(const std::string& personId, int durationMs
     enroll_->durationMs = std::clamp(durationMs, 2000, 30000);
 }
 
-void VisionPipeline::startRecording(const std::string& id, bool rot, bool mir, int ms) {
+void VisionPipeline::startRecording(const std::string& id, bool rot, bool mir, int ms, bool dynamic, int sampleBudget) {
     std::lock_guard<std::mutex> lk(taskMutex_);
     record_ = std::make_unique<Record>();
     record_->id = id;
     record_->rot = rot;
     record_->mir = mir;
-    record_->ms = std::clamp(ms, 500, 20000);
+    record_->ms = std::clamp(ms, CustomGesture::kMinRecordMs, CustomGesture::kMaxRecordMs);
+    record_->dynamic = dynamic;
+    record_->budget = std::clamp(sampleBudget, 16, 128);
 }
 
 void VisionPipeline::cancelTasks() {
@@ -418,9 +421,11 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
     }
 
     std::vector<HandObservation> hands;
-    for (auto& tr : tracks_) {
+    for (size_t ti = 0; ti < tracks_.size(); ++ti) {
+        auto& tr = tracks_[ti];
         if (!tr.active) continue;
         HandObservation o;
+        o.track = static_cast<int>(ti);
         const HandLandmarks& raw = tr.lastLm;
         o.lm = raw;
         for (int i = 0; i < kHandLandmarks; ++i) {
@@ -468,6 +473,14 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
 
     // Custom gestures (one hand, two hands, with movement).
     const std::string customMove = custom_.update(hands, s.customGestures, now);
+    // Like poses: a custom match must hold in 2 of the last 3 frames of that hand.
+    for (auto& h : hands) {
+        if (h.track < 0) continue;
+        auto& hist = tracks_[static_cast<size_t>(h.track)].customs;
+        hist.push_back(h.customId);
+        while (hist.size() > 3) hist.pop_front();
+        if (!h.customId.empty() && std::count(hist.begin(), hist.end(), h.customId) < 2) h.customId.clear();
+    }
 
     // Swipes are held back briefly only if some rule needs to tell them from waving.
     bool oscillation = false;
@@ -503,13 +516,13 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
     // ---- recording a custom gesture: every frame, all hands, for the analysis at the end
     tlk.lock();
     if (record_) {
-        if (found && record_->start == 0) record_->start = now;
-        if (record_->start != 0) {
+        if (found && record_->start == 0) record_->start = now + CustomGesture::kPrerollMs;  // get ready first
+        if (record_->start != 0 && now >= record_->start) {
             RecordedFrame fr;
             fr.t = now;
             for (const auto& h : hands) {
                 if (!h.reliable()) continue;
-                fr.hands.push_back({h.feat, h.featMirror, palmCentre(h), h.palmPx});
+                fr.hands.push_back({h.feat, h.featMirror, palmCentre(h), h.palmPx, h.speed, h.pose});
             }
             std::sort(fr.hands.begin(), fr.hands.end(),
                       [](const RecordedHand& a, const RecordedHand& b) { return a.centre.x < b.centre.x; });
@@ -524,6 +537,9 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
         CustomGesture learned;
         learned.mirrorInvariant = done->mir;
         learned.rotationInvariant = done->rot;
+        learned.dynamic = done->dynamic;
+        learned.sampleBudget = done->budget;
+        learned.recordMs = done->ms;
         std::string report;
         const bool ok = learnCustomGesture(done->frames, learned, &report);
         if (cb_.onRecorded) cb_.onRecorded(done->id, ok, std::move(learned), std::move(report));
@@ -593,10 +609,17 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
                                      : "Медленно поворачивайте голову влево-вправо, вверх-вниз · " + std::to_string(enroll_->got.size()) + " снимков";
     }
     if (record_) {
-        sn.recordProgress = record_->start ? std::min(1.f, (now - record_->start) / static_cast<float>(record_->ms)) : 0.f;
-        const int left = record_->start ? std::max(0, static_cast<int>((record_->ms - (now - record_->start) + 999) / 1000)) : record_->ms / 1000;
-        sn.taskHint = found ? "Держите жест, слегка поворачивайте и наклоняйте кисть · " + std::to_string(left) + " с"
-                            : "Покажите руку в нужной позе";
+        const bool started = record_->start != 0 && now >= record_->start;
+        sn.recordProgress = started ? std::min(1.f, (now - record_->start) / static_cast<float>(record_->ms)) : 0.f;
+        const int left = started ? std::max(0, static_cast<int>((record_->ms - (now - record_->start) + 999) / 1000)) : record_->ms / 1000;
+        if (record_->start == 0)
+            sn.taskHint = "Покажите руку — запись начнётся после отсчёта";
+        else if (!started)
+            sn.taskHint = "Приготовьтесь… " + std::to_string((record_->start - now + 999) / 1000);
+        else if (record_->dynamic)
+            sn.taskHint = "Повторяйте движение · " + std::to_string(left) + " с";
+        else
+            sn.taskHint = "Держите знак, слегка меняя наклон кисти · " + std::to_string(left) + " с";
     }
     tlk.unlock();
 

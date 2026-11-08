@@ -422,36 +422,71 @@ Vec2 palmCentre(const HandObservation& h) {
 
 bool learnCustomGesture(const std::vector<RecordedFrame>& frames, CustomGesture& g, std::string* reportRu) {
     auto say = [&](const std::wstring& s) { if (reportRu) *reportRu = utf8(s); };
+    const size_t budget = static_cast<size_t>(std::clamp(g.sampleBudget, 16, 128));
     size_t withHand = 0, withTwo = 0;
     for (const auto& fr : frames) {
         withHand += !fr.hands.empty();
         withTwo += fr.hands.size() >= 2;
     }
     if (withHand < 15) {
-        say(L"рука почти не была видна — запишите ещё раз");
+        say(L"рука почти не была видна — держите её в кадре и запишите ещё раз");
         return false;
     }
     int learnedRev = 0;
-    // ---- two hands: most of the recording shows both
-    if (withTwo * 10 >= withHand * 6) {
-        std::vector<std::vector<float>> raw;
-        for (const auto& fr : frames) {
-            if (fr.hands.size() < 2) continue;
-            const auto& l = fr.hands[0];
-            const auto& r = fr.hands[1];
-            const float palm = std::max(1.f, 0.5f * (l.palmPx + r.palmPx));
-            std::vector<float> row = l.feat;
-            row.insert(row.end(), r.feat.begin(), r.feat.end());
-            const Vec2 rel = (r.centre - l.centre) / palm;
-            row.push_back(rel.x);
-            row.push_back(rel.y);
-            if (row.size() == kTwoRow) raw.push_back(std::move(row));
+    std::wstring quality;
+    // Which built-in pose the hand mostly showed (for the "looks like" warning).
+    std::unordered_map<std::string, int> poses;
+    for (const auto& fr : frames)
+        for (const auto& h : fr.hands)
+            if (!h.pose.empty()) ++poses[h.pose];
+
+    if (!g.dynamic) {
+        // ---------------------------------------------------------------- a sign
+        // Only frames where the hand(s) stood still: the moments of raising, adjusting
+        // or lowering the hand are not part of the sign.
+        auto steady = [](const RecordedFrame& fr) {
+            for (const auto& h : fr.hands)
+                if (h.speed > 1.2f) return false;
+            return !fr.hands.empty();
+        };
+        size_t steadyCount = 0;
+        for (const auto& fr : frames) steadyCount += steady(fr);
+        const bool onlySteady = steadyCount >= 15;
+        if (!onlySteady)
+            quality = L"рука почти всё время двигалась — для такого жеста подойдёт «Динамичный»";
+        if (withTwo * 10 >= withHand * 6) {
+            std::vector<std::vector<float>> raw;
+            for (const auto& fr : frames) {
+                if (fr.hands.size() < 2 || (onlySteady && !steady(fr))) continue;
+                const auto& l = fr.hands[0];
+                const auto& r = fr.hands[1];
+                const float palm = std::max(1.f, 0.5f * (l.palmPx + r.palmPx));
+                std::vector<float> row = l.feat;
+                row.insert(row.end(), r.feat.begin(), r.feat.end());
+                const Vec2 rel = (r.centre - l.centre) / palm;
+                row.push_back(rel.x);
+                row.push_back(rel.y);
+                if (row.size() == kTwoRow) raw.push_back(std::move(row));
+            }
+            g.kind = CustomKind::TwoHands;
+            g.rows = condenseImpl(raw, budget,
+                                  [](const auto& a, const auto& b) { return rowDistance(CustomKind::TwoHands, a, b); }, 0.015f);
+        } else {
+            std::vector<std::vector<float>> raw;
+            for (const auto& fr : frames) {
+                if (fr.hands.empty() || (onlySteady && !steady(fr))) continue;
+                const RecordedHand* h = &fr.hands[0];
+                for (const auto& x : fr.hands)
+                    if (x.palmPx > h->palmPx) h = &x;
+                raw.push_back(g.mirrorInvariant ? h->featMirror : h->feat);
+            }
+            g.kind = CustomKind::OneHand;
+            g.rows = condenseRows(raw, budget);
         }
-        g.kind = CustomKind::TwoHands;
-        g.rows = condenseImpl(raw, CustomGesture::kMaxSamples,
-                              [](const auto& a, const auto& b) { return rowDistance(CustomKind::TwoHands, a, b); }, 0.015f);
+        g.motionAmp = 0.f;
+        g.motionPeriodMs = 0.f;
     } else {
-        // ---- one hand: the larger hand of each frame
+        // ---------------------------------------------------------------- a movement
         std::vector<std::vector<float>> raw;
         std::vector<Vec2> centres;
         std::vector<float> palms;
@@ -466,37 +501,99 @@ bool learnCustomGesture(const std::vector<RecordedFrame>& frames, CustomGesture&
             palms.push_back(h->palmPx);
             times.push_back(fr.t);
         }
-        // Was there a repeated movement? Find the axis that moved most and count turns.
         const float refPalm = std::max(1.f, percentile(palms, 0.5f));
+        // The axis that moved most.
         MotionAxis bestAxis = MotionAxis::X;
         float bestAmp = 0.f;
-        int bestRev = 0;
+        std::vector<float> best, bestRaw;  // smoothed (turns, size) and raw (speeds)
         for (MotionAxis ax : {MotionAxis::X, MotionAxis::Y, MotionAxis::Depth}) {
             std::vector<float> s(centres.size());
             for (size_t i = 0; i < s.size(); ++i) s[i] = axisValue(ax, centres[i], palms[i], refPalm);
             std::vector<float> sm(s.size());  // 3-tap smoothing against landmark jitter
             for (size_t i = 0; i < s.size(); ++i)
                 sm[i] = (s[i > 0 ? i - 1 : i] + s[i] + s[i + 1 < s.size() ? i + 1 : i]) / 3.f;
-            const float amp = percentile(sm, 0.9f) - percentile(sm, 0.1f);
-            const int rev = reversals(sm, 0.35f * amp);
-            if (amp > bestAmp && rev >= 3) {
-                bestAmp = amp;
-                bestAxis = ax;
-                bestRev = rev;
+            const float amp = percentile(sm, 0.95f) - percentile(sm, 0.05f);
+            if (amp > bestAmp) { bestAmp = amp; bestAxis = ax; best = sm; bestRaw = s; }
+        }
+        if (bestAmp < 0.15f) {
+            say(L"движения почти не было — повторяйте его всю запись или выберите «Статичный»");
+            return false;
+        }
+        // Velocity per frame along the axis (gaps where the hand left the frame are skipped).
+        float fastPos = 0.f, fastNeg = 0.f;
+        std::vector<float> speeds;
+        for (size_t i = 1; i < best.size(); ++i) {
+            const float dt = static_cast<float>(times[i] - times[i - 1]) / 1000.f;
+            if (dt <= 0.f || dt > 0.3f) continue;
+            speeds.push_back(std::fabs(best[i] - best[i - 1]) / dt);
+        }
+        const float fast = 0.5f * percentile(speeds, 0.9f);
+        std::vector<float> strokeTimes, strokeTravel;
+        int dirOfRun = 0;
+        float runTravel = 0.f, runTime = 0.f;
+        auto closeRun = [&] {
+            if (dirOfRun != 0 && runTravel > 0.25f * bestAmp) {
+                (dirOfRun > 0 ? fastPos : fastNeg) += runTravel;
+                strokeTravel.push_back(runTravel);
+                strokeTimes.push_back(runTime);
             }
+            dirOfRun = 0;
+            runTravel = runTime = 0.f;
+        };
+        for (size_t i = 1; i < best.size(); ++i) {
+            const float dt = static_cast<float>(times[i] - times[i - 1]) / 1000.f;
+            if (dt <= 0.f || dt > 0.3f) { closeRun(); continue; }
+            const float v = (best[i] - best[i - 1]) / dt;
+            const int d = std::fabs(v) >= fast ? (v > 0 ? 1 : -1) : 0;
+            if (d != dirOfRun) closeRun();
+            if (d != 0) { dirOfRun = d; runTravel += std::fabs(best[i] - best[i - 1]); runTime += dt; }
         }
-        if (bestAmp >= 0.45f && bestRev >= 3) {
+        closeRun();
+        std::vector<size_t> turns;
+        const int rev = reversals(best, 0.3f * bestAmp, &turns);
+        learnedRev = rev;
+        // Mean speed of each half-stroke between turning points, per direction. Waving /
+        // shaking goes both ways at a similar speed; a stroke is quick one way and slow (or
+        // out of view) on the way back.
+        std::vector<float> spd[2], amp[2], dur[2];  // [0] negative direction, [1] positive
+        for (size_t k = 1; k < turns.size(); ++k) {
+            const size_t ia = turns[k - 1], ib = turns[k];
+            const float dt = static_cast<float>(times[ib] - times[ia]) / 1000.f;
+            if (dt <= 0.f || dt > 3.f) continue;
+            // Raw values: smoothing shifts the peaks and hides how quick the quick part was.
+            float hiV = bestRaw[ia], loV = bestRaw[ia];
+            for (size_t i = ia; i <= ib; ++i) { hiV = std::max(hiV, bestRaw[i]); loV = std::min(loV, bestRaw[i]); }
+            const float dv = best[ib] > best[ia] ? hiV - loV : loV - hiV;
+            const int d = dv > 0.f ? 1 : 0;
+            spd[d].push_back(std::fabs(dv) / dt);
+            amp[d].push_back(std::fabs(dv));
+            dur[d].push_back(dt);
+        }
+        g.axis = bestAxis;
+        g.motionAmp = bestAmp;
+        float vNeg = spd[0].empty() ? 0.f : percentile(spd[0], 0.5f);
+        float vPos = spd[1].empty() ? 0.f : percentile(spd[1], 0.5f);
+        if (spd[0].empty() && spd[1].empty()) { vPos = fastPos; vNeg = fastNeg; }  // no clean turns: use fast runs
+        const float lo = std::min(vPos, vNeg), hi = std::max(vPos, vNeg);
+        if (rev >= 2 && lo > 0.f && hi < 1.6f * lo) {
             g.kind = CustomKind::Motion;
-            g.axis = bestAxis;
-            g.motionAmp = bestAmp;
-            g.motionPeriodMs = 2.f * static_cast<float>(times.back() - times.front()) / static_cast<float>(bestRev);
-            learnedRev = bestRev;
+            g.motionPeriodMs = 2.f * static_cast<float>(times.back() - times.front()) / static_cast<float>(rev);
         } else {
-            g.kind = CustomKind::OneHand;
-            g.motionAmp = 0.f;
-            g.motionPeriodMs = 0.f;
-        }
-        g.rows = condenseRows(raw, CustomGesture::kMaxSamples);
+            g.kind = CustomKind::Stroke;
+            const int d = vPos >= vNeg ? 1 : 0;
+            g.motionDir = d ? 1 : -1;
+            if (!amp[d].empty()) {
+                g.motionAmp = percentile(amp[d], 0.5f);
+                g.motionPeriodMs = 1000.f * percentile(dur[d], 0.5f);
+                learnedRev = static_cast<int>(amp[d].size());
+            } else {
+                std::vector<float> tr = strokeTravel, tm = strokeTimes;
+                g.motionAmp = tr.empty() ? bestAmp : percentile(tr, 0.5f);
+                g.motionPeriodMs = tm.empty() ? 400.f : 1000.f * percentile(tm, 0.5f);
+                learnedRev = static_cast<int>(tr.size());
+            }
+            if (learnedRev < 2) quality = L"движение повторено мало раз — сделайте 3–5 повторов для надёжности";
+        }        g.rows = condenseRows(raw, budget);
     }
     if (g.rows.empty()) {
         say(L"слишком мало чётких кадров — держите руку целиком в кадре и запишите ещё раз");
@@ -511,19 +608,49 @@ bool learnCustomGesture(const std::vector<RecordedFrame>& frames, CustomGesture&
             if (j != i) others.push_back(g.rows[j]);
         spread.push_back(nearest3(g.kind, g.rows[i], others));
     }
-    g.threshold = std::clamp(2.5f * percentile(spread, 0.9f) + 0.03f, 0.10f, 0.32f);
+    const float sp = percentile(spread, 0.9f);
+    g.threshold = std::clamp(2.5f * sp + 0.03f, 0.10f, 0.32f);
+    if (sp > 0.11f && quality.empty())
+        quality = L"поза заметно менялась во время записи — жест будет узнаваться мягче; для точности держите форму ровнее";
     g.samples.clear();  // a new recording replaces a legacy 2D one
     std::wstring rep;
     switch (g.kind) {
-        case CustomKind::OneHand: rep = L"одна рука, поза"; break;
-        case CustomKind::TwoHands: rep = L"две руки — сработает, только когда в кадре обе"; break;
+        case CustomKind::OneHand: rep = L"знак одной рукой"; break;
+        case CustomKind::TwoHands: rep = L"знак двумя руками — сработает, только когда в кадре обе"; break;
         case CustomKind::Motion:
-            rep = std::wstring(L"одна рука, движение ") + axisNameRu(g.axis) + L" (~" + std::to_wstring(learnedRev / 2) +
-                  L" повторов) — сработает только с движением";
+            rep = std::wstring(L"движение туда-обратно ") + axisNameRu(g.axis) + L" (~" + std::to_wstring(std::max(1, learnedRev / 2)) +
+                  L" повторов)";
             break;
+        case CustomKind::Stroke: {
+            const wchar_t* dir = g.axis == MotionAxis::X ? (g.motionDir > 0 ? L"вправо" : L"влево")
+                                 : g.axis == MotionAxis::Y ? (g.motionDir > 0 ? L"вниз" : L"вверх")
+                                                           : (g.motionDir > 0 ? L"к камере" : L"от камеры");
+            rep = std::wstring(L"рывок ") + dir + L" (" + std::to_wstring(learnedRev) + L" повторов)";
+            break;
+        }
     }
-    say(rep + L", " + std::to_wstring(g.rows.size()) + L" образцов");
-    return true;
+    rep += L", " + std::to_wstring(g.rows.size()) + L" образцов";
+    // "Looks like a built-in pose": worth knowing if a rule also uses that pose.
+    std::string topPose;
+    int topCount = 0;
+    for (const auto& [id, n] : poses)
+        if (n > topCount) { topCount = n; topPose = id; }
+    g.lookalike = topCount * 10 >= static_cast<int>(withHand) * 7 ? topPose : std::string();
+    std::string out = utf8(rep);
+    if (const auto* b = g.lookalike.empty() ? nullptr : findBuiltin(g.lookalike))
+        out += std::string("; поза совпадает со встроенной «") + b->nameRu + "»";
+    if (!quality.empty()) out += ". " + utf8(quality);
+    if (reportRu) *reportRu = out;    return true;
+}
+
+float gestureConfusion(const CustomGesture& a, const CustomGesture& b) {
+    if (a.rows.empty() || b.rows.empty()) return 1e9f;
+    const bool twoA = a.kind == CustomKind::TwoHands, twoB = b.kind == CustomKind::TwoHands;
+    if (twoA != twoB) return 1e9f;  // one hand vs two hands never collide
+    float sum = 0.f;
+    for (const auto& r : a.rows) sum += nearest3(twoA ? CustomKind::TwoHands : CustomKind::OneHand, r, b.rows);
+    const float typical = sum / static_cast<float>(a.rows.size());
+    return typical / std::max(0.02f, std::max(a.threshold * a.strictness, b.threshold * b.strictness));
 }
 
 std::string CustomMatcher::update(std::vector<HandObservation>& hands, const std::vector<CustomGesture>& gestures,
@@ -578,8 +705,9 @@ std::string CustomMatcher::update(std::vector<HandObservation>& hands, const std
                 offer(*left, g.id, 1.f - d / thr);
                 offer(*right, g.id, 1.f - d / thr);
             }
-        } else {  // Motion: the shape AND the recorded back-and-forth movement
+        } else {  // Motion / Stroke: the shape AND the recorded movement
             MotionState& ms = motion_[g.id];
+            const bool stroke = g.kind == CustomKind::Stroke;
             const HandObservation* best = nullptr;
             float bestD = 1e9f;
             for (const auto& h : hands) {
@@ -587,10 +715,41 @@ std::string CustomMatcher::update(std::vector<HandObservation>& hands, const std
                 const float d = nearest3(CustomKind::OneHand, g.mirrorInvariant ? h.featMirror : h.feat, g.rows);
                 if (d < bestD) { bestD = d; best = &h; }
             }
-            const int64_t window = static_cast<int64_t>(std::clamp(1.8f * g.motionPeriodMs, 1500.f, 4000.f));
+            const int64_t window = stroke ? static_cast<int64_t>(std::clamp(2.5f * g.motionPeriodMs, 500.f, 1500.f))
+                                          : static_cast<int64_t>(std::clamp(1.8f * g.motionPeriodMs, 1500.f, 4000.f));
             while (!ms.signal.empty() && nowMs - ms.signal.front().first > window) ms.signal.pop_front();
             while (!ms.pose.empty() && nowMs - ms.pose.front().first > window) ms.pose.pop_front();
+            const int64_t cooldown = static_cast<int64_t>(stroke ? std::max(500.f, g.motionPeriodMs) : std::max(800.f, 0.8f * g.motionPeriodMs));
+            int poseOk = 0;
+            for (const auto& p : ms.pose) poseOk += p.second;
+            // Stroke: travel in the learned direction from the furthest point back, recently.
+            // Only the last ~1.6 stroke durations count, and the movement must be about as
+            // quick as recorded: a slow drift of the hand is not a stroke.
+            auto strokeTravel = [&]() {
+                if (ms.signal.size() < 2) return 0.f;
+                const auto [tLast, last] = ms.signal.back();
+                const int64_t limit = static_cast<int64_t>(std::max(300.f, 1.6f * g.motionPeriodMs));
+                float startV = last;
+                int64_t startT = tLast;
+                for (auto it = ms.signal.rbegin(); it != ms.signal.rend() && tLast - it->first <= limit; ++it)
+                    if ((it->second - startV) * static_cast<float>(g.motionDir) < 0.f) { startV = it->second; startT = it->first; }
+                const float travel = (last - startV) * static_cast<float>(g.motionDir);
+                const float dt = std::max(0.05f, static_cast<float>(tLast - startT) / 1000.f);
+                const float learnedSpeed = g.motionAmp / std::max(0.1f, g.motionPeriodMs / 1000.f);
+                return travel / dt >= 0.4f * learnedSpeed ? travel : 0.f;
+            };
+            auto fire = [&] {
+                ms.lastFire = nowMs;
+                ms.signal.clear();
+                ms.pose.clear();
+                ms.progress = 0.f;
+                if (fired.empty()) fired = "custom:" + g.id;
+            };
             if (!best) {
+                // The hand left the frame: a stroke that carried it out still counts.
+                if (stroke && poseOk * 2 >= static_cast<int>(ms.pose.size()) && !ms.pose.empty() &&
+                    strokeTravel() >= 0.45f * g.motionAmp && nowMs - ms.lastFire >= cooldown)
+                    fire();
                 ms.signal.clear();
                 ms.pose.clear();
                 ms.progress = 0.f;
@@ -600,23 +759,23 @@ std::string CustomMatcher::update(std::vector<HandObservation>& hands, const std
             // the camera does not read as sideways movement.
             ms.refPalm = ms.refPalm > 0.f ? 0.9f * ms.refPalm + 0.1f * best->palmPx : std::max(1.f, best->palmPx);
             ms.signal.push_back({nowMs, axisValue(g.axis, palmCentre(*best), best->palmPx, ms.refPalm)});
-            ms.pose.push_back({nowMs, bestD <= thr * 1.3f});  // motion blur: a little looser
+            const bool shapeNow = bestD <= thr * 1.3f;  // motion blur: a little looser
+            ms.pose.push_back({nowMs, shapeNow});
+            poseOk += shapeNow;
+            if (stroke) {
+                const float travel = strokeTravel();
+                const bool shapeOk = poseOk * 2 >= static_cast<int>(ms.pose.size());
+                ms.progress = shapeOk ? std::min(1.f, travel / std::max(0.05f, 0.6f * g.motionAmp)) : 0.f;
+                if (shapeOk && travel >= 0.6f * g.motionAmp && nowMs - ms.lastFire >= cooldown) fire();
+                continue;
+            }
             std::vector<float> s;
             for (const auto& p : ms.signal) s.push_back(p.second);
-            int poseOk = 0;
-            for (const auto& p : ms.pose) poseOk += p.second;
             const float range = s.empty() ? 0.f : *std::max_element(s.begin(), s.end()) - *std::min_element(s.begin(), s.end());
             const int rev = reversals(s, 0.3f * g.motionAmp);
             const bool shapeOk = poseOk * 10 >= static_cast<int>(ms.pose.size()) * 6;
             ms.progress = shapeOk ? std::min(1.f, rev / 2.f) : 0.f;
-            if (shapeOk && rev >= 2 && range >= 0.5f * g.motionAmp &&
-                nowMs - ms.lastFire >= static_cast<int64_t>(std::max(800.f, 0.8f * g.motionPeriodMs))) {
-                ms.lastFire = nowMs;
-                ms.signal.clear();
-                ms.pose.clear();
-                ms.progress = 0.f;
-                if (fired.empty()) fired = "custom:" + g.id;
-            }
+            if (shapeOk && rev >= 2 && range >= 0.5f * g.motionAmp && nowMs - ms.lastFire >= cooldown) fire();
         }
     }
     return fired;

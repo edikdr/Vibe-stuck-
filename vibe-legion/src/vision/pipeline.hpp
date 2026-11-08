@@ -98,8 +98,9 @@ public:
     // Tasks (results arrive through callbacks).
     // Collects face samples for durationMs (counted from when a face is first seen).
     void startEnrollment(const std::string& personId, int durationMs);
-    void startRecording(const std::string& gestureId, bool rotationInvariant, bool mirrorInvariant,
-                        int ms = CustomGesture::kRecordMs);
+    // dynamic / sampleBudget: the user's choice (sign vs movement, how many samples to keep).
+    void startRecording(const std::string& gestureId, bool rotationInvariant, bool mirrorInvariant, int ms,
+                        bool dynamic, int sampleBudget);
     void cancelTasks();
 
     PipelineSnapshot snapshot() const;
@@ -158,6 +159,7 @@ private:
         MotionDetector motion;
         std::deque<std::string> poses;
         std::deque<std::pair<int64_t, Vec2>> path;  // palm centre, last 0.3 s (speed)
+        std::deque<std::string> customs;            // custom gesture matched in the last 3 frames
     };
     std::array<Track, 2> tracks_;
     int64_t lastPalmScanMs_ = -100000;
@@ -182,7 +184,8 @@ private:
     // Tasks.
     struct Enroll { std::string person; int durationMs = 10000; std::vector<Embedding> got; bool ir = false;
                     int64_t start = 0, last = 0; };
-    struct Record { std::string id; bool rot = true, mir = true; int ms = CustomGesture::kRecordMs; int64_t start = 0;
+    struct Record { std::string id; bool rot = true, mir = true; int ms = 9000; int64_t start = 0;
+                    bool dynamic = false; int budget = 48;
                     std::vector<RecordedFrame> frames; };
     std::mutex taskMutex_;
     std::unique_ptr<Enroll> enroll_;

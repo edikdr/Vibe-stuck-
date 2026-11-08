@@ -114,6 +114,23 @@ int App::run(HINSTANCE inst, bool startMinimized) {
                     g.strictness = strictness;
                     taskMessage_ = L"«" + widen(g.name) + L"» записан: " + widen(report) + L". В правиле: «Свой: " +
                                    widen(g.name) + L"»";
+                    // Would it be confused with another recorded gesture, or with a built-in pose
+                    // that some rule uses?
+                    for (const auto& o : settings_.customGestures) {
+                        if (o.id == g.id || o.rows.empty()) continue;
+                        const float c = std::min(gestureConfusion(g, o), gestureConfusion(o, g));
+                        if (c < 1.f)
+                            taskMessage_ += L". Внимание: очень похож на «" + widen(o.name) + L"» — будут путаться, сделайте жесты разнее";
+                        else if (c < 1.4f)
+                            taskMessage_ += L". Близок к «" + widen(o.name) + L"» — при путанице сдвиньте «строже»";
+                    }
+                    if (!g.lookalike.empty() && !g.dynamic)
+                        for (const auto& r : settings_.rules)
+                            if (r.enabled && r.gesture == g.lookalike) {
+                                taskMessage_ += L". Встроенный жест из правила «" + widen(r.name.empty() ? std::string(findBuiltin(r.gesture)->nameRu) : r.name) +
+                                                L"» тоже сработает на эту позу";
+                                break;
+                            }
                 }
             }
             if (main_ && main_->hwnd()) main_->state().recordingGesture.clear();
@@ -312,7 +329,7 @@ void App::startEnrollment(const std::string& id, int durationMs) {
 void App::startRecording(const std::string& id) {
     taskMessage_.clear();
     for (const auto& g : settings_.customGestures)
-        if (g.id == id) pipeline_->startRecording(id, g.rotationInvariant, g.mirrorInvariant, CustomGesture::kRecordMs);
+        if (g.id == id) pipeline_->startRecording(id, g.rotationInvariant, g.mirrorInvariant, g.recordMs, g.dynamic, g.sampleBudget);
 }
 void App::cancelTasks() { if (pipeline_) pipeline_->cancelTasks(); }
 

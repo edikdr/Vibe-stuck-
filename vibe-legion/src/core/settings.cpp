@@ -40,7 +40,7 @@ const char* const kPower[] = {"eco", "balanced", "responsive"};
 const char* const kDevice[] = {"cpu", "gpu", "npu"};
 const char* const kGate[] = {"off", "any_face", "known_only"};
 const char* const kTheme[] = {"dark", "light", "system"};
-const char* const kKind[] = {"one_hand", "two_hands", "motion"};
+const char* const kKind[] = {"one_hand", "two_hands", "motion", "stroke"};
 const char* const kAxis[] = {"x", "y", "depth"};
 
 double round4(float f) { return static_cast<double>(std::round(f * 10000.f) / 10000.f); }
@@ -232,7 +232,11 @@ json::Value Settings::toJson() const {
         o.set("kind", enumName(g.kind, kKind));
         o.set("threshold", g.threshold);
         o.set("strictness", g.strictness);
-        if (g.kind == CustomKind::Motion) {
+        o.set("dynamic", g.dynamic);
+        o.set("record_ms", g.recordMs);
+        o.set("sample_budget", g.sampleBudget);
+        if (g.kind == CustomKind::Motion || g.kind == CustomKind::Stroke) {
+            o.set("motion_dir", g.motionDir);
             o.set("axis", enumName(g.axis, kAxis));
             o.set("motion_amp", g.motionAmp);
             o.set("motion_period_ms", g.motionPeriodMs);
@@ -355,6 +359,10 @@ Settings Settings::fromJson(const json::Value& v) {
         g.axis = enumFrom(o["axis"], kAxis, MotionAxis::X);
         g.motionAmp = clampf(o["motion_amp"].asFloat(0.f), 0.f, 50.f);
         g.motionPeriodMs = clampf(o["motion_period_ms"].asFloat(0.f), 0.f, 20000.f);
+        g.motionDir = o["motion_dir"].asInt(1) < 0 ? -1 : 1;
+        g.dynamic = o["dynamic"].asBool(g.kind == CustomKind::Motion || g.kind == CustomKind::Stroke);
+        g.recordMs = clampi(o["record_ms"].asInt(9000), CustomGesture::kMinRecordMs, CustomGesture::kMaxRecordMs);
+        g.sampleBudget = clampi(o["sample_budget"].asInt(48), 16, 128);
         for (const auto& row : o["rows"].asArray()) {
             std::vector<float> r2;
             for (const auto& x : row.asArray()) r2.push_back(x.asFloat());

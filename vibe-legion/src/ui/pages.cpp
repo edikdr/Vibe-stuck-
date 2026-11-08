@@ -585,29 +585,68 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
     }
 
     section(g, col, L"Свои жесты");
+    // ---- recording settings (used by "Записать" and by "Заново" on a row)
+    static const int kBudgets[3] = {24, 48, 96};
+    st.newGestureBudget = std::clamp(st.newGestureBudget, 0, 2);
+    st.newGestureSec = std::clamp(st.newGestureSec, 6.f, 12.f);
+    auto applyRecording = [&](CustomGesture& cg) {
+        cg.dynamic = st.newGestureDynamic;
+        cg.sampleBudget = kBudgets[st.newGestureBudget];
+        cg.recordMs = static_cast<int>(std::lround(st.newGestureSec)) * 1000;
+    };
     {
-        const Color& m = p.textDim;
-        g.label(L"Запись идёт 10 секунд. Приложение само поймёт, что вы показали: позу одной рукой, позу двумя руками "
-                L"(держите обе в кадре всё время) или позу с движением (повторяйте движение всю запись — сработает только "
-                L"с ним). Слегка меняйте наклон кисти, чтобы жест узнавался под разными углами.",
-                col.next(54), 12.5f, &m, Weight::Regular, Align::Start, Align::Start, true);
+        int type = st.newGestureDynamic ? 1 : 0;
+        RectF rr = settingRow(g, col, st.newGestureDynamic ? glyph::Swap : glyph::Hand, L"Тип жеста",
+                              st.newGestureDynamic
+                                  ? L"Движение рукой определённой формы: рывок кулаком вправо, покачивание ладонью, тряска кулаком, "
+                                    L"«колодец» к камере и обратно. Повторяйте движение 3–6 раз за запись. Сработает только с движением."
+                                  : L"Знак без движения или с микродвижениями: палец вверх, кулак, ладонь, «коза», «Chinema» двумя руками. "
+                                    L"Держите форму, слегка меняя наклон кисти. Кадры, где рука двигалась, в образцы не попадут.",
+                              300);
+        if (g.segmented("rectype", rr, type, {L"Статичный", L"Динамичный"})) st.newGestureDynamic = type == 1;
+
+        int budget = st.newGestureBudget;
+        static const wchar_t* budgetDesc[3] = {
+            L"24 образца. Простые чёткие знаки, которые вы всегда показываете одинаково: кулак, палец вверх. "
+            L"Узнаёт строже, меньше ложных срабатываний.",
+            L"48 образцов. Подходит большинству жестов.",
+            L"96 образцов. Сложные формы, жесты под разными углами или обеими руками попеременно, динамичные жесты "
+            L"(в движении кадры смазываются, нужно больше примеров).",
+        };
+        rr = settingRow(g, col, glyph::Record, L"Образцы", budgetDesc[budget], 300);
+        if (g.segmented("recbudget", rr, budget, {L"Компактно", L"Стандарт", L"Подробно"})) st.newGestureBudget = budget;
+
+        // Recommended time for the chosen type / detail.
+        const int recLo = st.newGestureDynamic ? 10 : (st.newGestureBudget == 0 ? 6 : st.newGestureBudget == 1 ? 8 : 10);
+        const int recHi = st.newGestureDynamic ? 12 : (st.newGestureBudget == 0 ? 7 : st.newGestureBudget == 1 ? 9 : 12);
+        const std::wstring timeDesc = L"Рекомендуется " + std::to_wstring(recLo) + L"–" + std::to_wstring(recHi) +
+                                      L" с. Дольше — больше повторов и ракурсов, точнее узнавание. Перед записью — отсчёт 2 с.";
+        rr = settingRow(g, col, glyph::Speed, L"Время записи", timeDesc, 300);
+        g.slider("recsec", rr, st.newGestureSec, 6.f, 12.f, 1.f, [](float v) { return fmtInt(v, L" с"); });
     }
     for (size_t i = 0; i < S.customGestures.size(); ++i) {
         CustomGesture& cg = S.customGestures[i];
         g.pushId("cg" + cg.id);
         const RectF row = col.next(64);
         g.card(row, 8);
-        c.icon(cg.kind == CustomKind::Motion ? glyph::Swap : glyph::Record, {row.x + 16, row.y, 22, row.h}, p.accent, 16.f);
+        const bool moving = cg.kind == CustomKind::Motion || cg.kind == CustomKind::Stroke;
+        c.icon(moving ? glyph::Swap : glyph::Record, {row.x + 16, row.y, 22, row.h}, p.accent, 16.f);
         c.text(widen(cg.name), {row.x + 54, row.y + 12, 300, 20}, p.text, 14.f, Weight::Semibold);
         std::wstring kind;
         if (!cg.recorded()) kind = L"не записан";
         else if (cg.legacy()) kind = L"старая 2D-запись — нажмите «Заново»";
-        else if (cg.kind == CustomKind::TwoHands) kind = L"две руки";
+        else if (cg.kind == CustomKind::TwoHands) kind = L"знак двумя руками";
         else if (cg.kind == CustomKind::Motion)
-            kind = cg.axis == MotionAxis::Depth ? L"движение к камере и обратно" : cg.axis == MotionAxis::X ? L"движение влево-вправо" : L"движение вверх-вниз";
-        else kind = L"одна рука";
-        if (cg.recorded()) kind += L" · " + std::to_wstring(cg.legacy() ? cg.samples.size() : cg.rows.size()) + L" обр.";
-        c.text(kind, {row.x + 54, row.y + 33, 300, 18}, cg.legacy() ? p.warning : p.textDim, 12.f);
+            kind = cg.axis == MotionAxis::Depth ? L"туда-обратно к камере" : cg.axis == MotionAxis::X ? L"туда-обратно влево-вправо" : L"туда-обратно вверх-вниз";
+        else if (cg.kind == CustomKind::Stroke)
+            kind = std::wstring(L"рывок ") + (cg.axis == MotionAxis::X ? (cg.motionDir > 0 ? L"вправо" : L"влево")
+                                             : cg.axis == MotionAxis::Y ? (cg.motionDir > 0 ? L"вниз" : L"вверх")
+                                                                        : (cg.motionDir > 0 ? L"к камере" : L"от камеры"));
+        else kind = L"знак одной рукой";
+        if (cg.recorded())
+            kind += L" · " + std::to_wstring(cg.legacy() ? cg.samples.size() : cg.rows.size()) + L" обр." +
+                    (cg.legacy() ? L"" : L" · " + std::to_wstring(cg.recordMs / 1000) + L" с");
+        c.text(kind, {row.x + 54, row.y + 33, 310, 18}, cg.legacy() ? p.warning : p.textDim, 12.f);
         // Strictness: left = stricter (fewer false triggers), right = looser.
         const RectF sr{row.x + 370, row.y + 15, std::max(120.f, row.w - 740), 34};
         if (cg.legacy()) {
@@ -625,9 +664,12 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
         const bool recording = st.recordingGesture == cg.id && s.recordProgress >= 0.f;
         if (recording) g.progressRing({row.right() - 220, row.y + row.h / 2}, 11, s.recordProgress, p.accent);
         if (g.button("rerec", {row.right() - 206, row.y + 15, 92, 34}, L"Заново", ButtonKind::Standard, nullptr, !recording)) {
+            applyRecording(cg);  // with the settings above
             st.recordingGesture = cg.id;
+            app.settingsChanged();
             app.startRecording(cg.id);
         }
+        g.tooltip({row.right() - 206, row.y + 15, 92, 34}, L"Перезаписать с настройками выше (тип, образцы, время)");
         if (confirmButton(g, st, "cg" + cg.id, {row.right() - 106, row.y + 15, 94, 34}, L"Удалить")) {
             const std::string gid = "custom:" + cg.id;
             S.customGestures.erase(S.customGestures.begin() + static_cast<long>(i));
@@ -644,11 +686,13 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
         g.card(row, 8);
         g.textField("newgest", {row.x + 16, row.y + 15, 280, 34}, st.newGestureName, L"Название, например «Колодец»", 40);
         const bool busy = !st.recordingGesture.empty() && s.recordProgress >= 0.f;
-        if (g.button("rec", {row.x + 308, row.y + 15, 200, 34}, L"Записать 10 секунд", ButtonKind::Accent, glyph::Record,
+        const std::wstring recLabel = L"Записать " + fmtInt(st.newGestureSec, L" с");
+        if (g.button("rec", {row.x + 308, row.y + 15, 200, 34}, recLabel, ButtonKind::Accent, glyph::Record,
                      !busy && !st.newGestureName.empty())) {
             CustomGesture ng;
             ng.id = newId();
             ng.name = narrow(st.newGestureName);
+            applyRecording(ng);
             S.customGestures.push_back(ng);
             st.recordingGesture = ng.id;
             st.newGestureName.clear();
@@ -659,10 +703,17 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
             g.progressRing({row.x + 540, row.y + row.h / 2}, 12, s.recordProgress, p.accent);
             c.text(widen(s.taskHint), {row.x + 562, row.y, row.w - 580, row.h}, p.textDim, 12.5f, Weight::Regular, Align::Start,
                    Align::Center, true);
-        } else if (!app.lastTaskMessage().empty()) {
-            c.text(app.lastTaskMessage(), {row.x + 524, row.y, row.w - 540, row.h}, p.textDim, 12.5f, Weight::Regular,
-                   Align::Start, Align::Center, true);
         }
+    }
+    if (st.recordingGesture.empty() && !app.lastTaskMessage().empty()) {
+        // Result of the last recording: kind, samples, quality and confusion warnings.
+        const std::wstring msg = app.lastTaskMessage();
+        const float h = c.measure(msg, 12.5f, Weight::Regular, col.w - 56, true).y + 20;
+        const RectF r = col.next(std::max(40.f, h));
+        g.card(r, 8);
+        const bool warn = msg.find(L"Внимание") != std::wstring::npos || msg.find(L"не записан") != std::wstring::npos;
+        c.icon(warn ? glyph::Warning : glyph::Checkmark, {r.x + 14, r.y, 22, r.h}, warn ? p.warning : p.success, 15.f);
+        c.text(msg, {r.x + 44, r.y + 10, r.w - 56, r.h - 20}, p.text, 12.5f, Weight::Regular, Align::Start, Align::Start, true);
     }
 
     // Built-in gestures: the user can switch off the ones that misfire for them.

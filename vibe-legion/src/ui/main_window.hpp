@@ -17,6 +17,9 @@ struct UiState {
     std::wstring newPersonName;
     std::string enrollingPerson;
     std::wstring newGestureName;
+    bool newGestureDynamic = false;  // recording settings for new / re-recorded gestures
+    int newGestureBudget = 1;        // 0 compact (24) / 1 standard (48) / 2 detailed (96)
+    float newGestureSec = 9.f;       // 6..12 s
     std::string recordingGesture;
     std::unordered_map<std::string, std::wstring> text;  // text buffers by key
     std::string confirmDelete;                            // id awaiting a second click

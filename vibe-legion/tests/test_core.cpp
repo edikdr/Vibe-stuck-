@@ -448,6 +448,7 @@ static void testCustom3D() {
         std::vector<RecordedFrame> fs;
         for (int i = 0; i < 100; ++i) fs.push_back(frameOf({vAt(300.f + 130.f * std::sin(i * 0.8f), 300)}, i * 100));
         CustomGesture g;
+        g.dynamic = true;
         std::string rep;
         CHECK(learnCustomGesture(fs, g, &rep));
         CHECK(g.kind == CustomKind::Motion && g.axis == MotionAxis::X && g.motionAmp > 0.45f);
@@ -456,6 +457,7 @@ static void testCustom3D() {
         std::vector<RecordedFrame> fs;
         for (int i = 0; i < 100; ++i) fs.push_back(frameOf({vAt(300, 300, 1000.f + 300.f * std::sin(i * 0.8f))}, i * 100));
         CustomGesture g;
+        g.dynamic = true;
         std::string rep;
         CHECK(learnCustomGesture(fs, g, &rep));
         CHECK(g.kind == CustomKind::Motion && g.axis == MotionAxis::Depth);
@@ -497,6 +499,7 @@ static void testCustom3D() {
         std::vector<RecordedFrame> fs;
         for (int i = 0; i < 100; ++i) fs.push_back(frameOf({vAt(300.f + 130.f * std::sin(i * 0.8f), 300)}, i * 100));
         CustomGesture g;
+        g.dynamic = true;
         std::string rep;
         CHECK(learnCustomGesture(fs, g, &rep));
         g.id = "well";
@@ -538,6 +541,71 @@ static void testCustom3D() {
     }
 }
 
+static void testDynamicKinds() {
+    auto fistAt = [](float x, float y) { return observe(makeHand(false, false, false, false, false, 1000.f, {x, y})); };
+    auto vAt = [](float x, float y) { return observe(makeHand(false, true, true, false, false, 1000.f, {x, y})); };
+    // A stroke: fast to the right (3 frames), slow back (9 frames), five times.
+    std::vector<RecordedFrame> fs;
+    int64_t t = 0;
+    for (int rep = 0; rep < 5; ++rep) {
+        for (int i = 0; i <= 3; ++i, t += 100) fs.push_back(frameOf({fistAt(200.f + i * 90.f, 300)}, t));
+        for (int i = 1; i <= 9; ++i, t += 100) fs.push_back(frameOf({fistAt(470.f - i * 30.f, 300)}, t));
+    }
+    CustomGesture st;
+    st.dynamic = true;
+    std::string rep;
+    CHECK(learnCustomGesture(fs, st, &rep));
+    CHECK(st.kind == CustomKind::Stroke && st.axis == MotionAxis::X && st.motionDir == 1);
+    st.id = "punch";
+    {   // matching: right fires, left does not, still does not
+        CustomMatcher m;
+        int right = 0, left = 0, still = 0;
+        for (int i = 0; i < 10; ++i) {
+            std::vector<HandObservation> hs = {withFeat(fistAt(300, 300))};
+            still += !m.update(hs, {st}, i * 100).empty();
+        }
+        for (int i = 0; i <= 4; ++i) {
+            std::vector<HandObservation> hs = {withFeat(fistAt(500.f - i * 90.f, 300))};
+            left += !m.update(hs, {st}, 2000 + i * 100).empty();
+        }
+        for (int i = 0; i <= 4; ++i) {
+            std::vector<HandObservation> hs = {withFeat(fistAt(150.f + i * 90.f, 300))};
+            right += m.update(hs, {st}, 4000 + i * 100) == "custom:punch";
+        }
+        CHECK(still == 0 && left == 0 && right >= 1);
+    }
+    // Shaking a fist: small and quick, both ways -> back-and-forth.
+    std::vector<RecordedFrame> sh;
+    for (int i = 0; i < 90; ++i) sh.push_back(frameOf({fistAt(300.f + 25.f * ((i % 2) ? 1.f : -1.f), 300)}, i * 80));
+    CustomGesture shake;
+    shake.dynamic = true;
+    CHECK(learnCustomGesture(sh, shake, &rep));
+    CHECK(shake.kind == CustomKind::Motion);
+    // Static mode keeps a sign a sign even if the hand drifted a bit.
+    std::vector<RecordedFrame> drift;
+    for (int i = 0; i < 80; ++i) drift.push_back(frameOf({vAt(300.f + i * 0.5f, 300)}, i * 100));
+    CustomGesture sign;
+    CHECK(learnCustomGesture(drift, sign, &rep));
+    CHECK(sign.kind == CustomKind::OneHand);
+    // Sample budget is respected.
+    std::vector<RecordedFrame> many;
+    for (int i = 0; i < 200; ++i) {
+        HandLandmarks h = makeHand(false, true, true, false, false);
+        for (auto& p : h.world) p.z += 0.002f * static_cast<float>(i % 40);  // varied enough not to collapse
+        HandObservation o = observe(h);
+        many.push_back(frameOf({o}, i * 50));
+    }
+    CustomGesture compact;
+    compact.sampleBudget = 24;
+    CHECK(learnCustomGesture(many, compact, &rep) && compact.rows.size() <= 24);
+    // Confusion: a gesture against itself is confusable; against a fist it is not.
+    CustomGesture fist;
+    std::vector<RecordedFrame> ff;
+    for (int i = 0; i < 40; ++i) ff.push_back(frameOf({fistAt(300, 300)}, i * 100));
+    CHECK(learnCustomGesture(ff, fist, &rep));
+    CHECK(gestureConfusion(sign, sign) < 1.f);
+    CHECK(gestureConfusion(sign, fist) > 1.5f);
+}
 static void testPoseContext() {
     // V with fingers pointing sideways (a hand around a phone) is not a "V".
     HandLandmarks side = makeHand(false, true, true, false, false);
@@ -689,6 +757,7 @@ int main() {
     testMotion();
     testCustom3D();
     testPoseContext();
+    testDynamicKinds();
     testSettings();
     testFaceDb();
     testImage();
