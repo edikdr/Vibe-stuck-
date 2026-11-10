@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/edikdr/Vibe-stuck-/actions/workflows/ci.yml/badge.svg)](https://github.com/edikdr/Vibe-stuck-/actions/workflows/ci.yml)
 [![Release](https://github.com/edikdr/Vibe-stuck-/actions/workflows/release.yml/badge.svg)](https://github.com/edikdr/Vibe-stuck-/actions/workflows/release.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Offline-first каталог инструментов для vibe coding в Codex и Claude Code:
 **2889 записей** — 1006 API, 1586 библиотек, 152 MCP-сервера, 145 skills,
@@ -42,6 +43,12 @@ data/catalog/*.jsonl ──build──▶ assets/catalog.db ──установ
 sha256 архива и распакованной базы, открывает её на проверку — и только потом
 подменяет старый файл. Провал любого шага оставляет установленную базу
 нетронутой.
+
+Источников манифеста может быть несколько: если хост недоступен, клиент
+пробует следующее зеркало, а архив всегда качает с того же хоста, который
+ответил. Релиз можно подписывать Ed25519 — если в сборку вшит публичный ключ,
+каталог без действительной подписи не устанавливается вовсе. Как это включить
+— в [SECURITY.md](SECURITY.md).
 
 Избранное, свои записи и настройки лежат отдельно, в SharedPreferences, —
 именно потому, что база каталога заменяется целиком.
@@ -222,7 +229,7 @@ flutter test
 
 ```
 data/catalog/     исходные данные каталога (JSONL) + таксономия
-tool/             build_catalog.py, verify_catalog.py, пакет catalog/
+tool/             build_catalog.py, verify_catalog.py, release_key.py, пакет catalog/
 tool/desktop/     шаблоны системных задач для ежедневного обновления
 assets/           catalog.db — собранная база (артефакт сборки, не в git)
 lib/
@@ -240,5 +247,11 @@ lib/
   theme.dart      все цвета, радиусы и темы компонентов
   app_info.dart   генерируется сборкой: версии приложения и каталога
 ```
+
+## Лицензия
+
+[MIT](LICENSE) — и код, и данные каталога. Каталог ссылается на сторонние
+сервисы: их имена и торговые марки принадлежат их владельцам, и правила
+пользования у них свои.
 
 История изменений — в [CHANGELOG.md](CHANGELOG.md).

@@ -15,3 +15,11 @@ const bundledCatalogSchema = 4;
 
 /// Entries in the bundled catalog, for the empty and error states.
 const bundledCatalogItemCount = 2889;
+
+/// Ed25519 public key that catalog releases are signed with, base64, or empty.
+///
+/// Empty disables signature checking: downloads are still verified against the
+/// SHA-256 in the manifest, which is itself fetched over HTTPS. Non-empty makes
+/// a signature mandatory — an unsigned or wrongly signed catalog is refused
+/// rather than installed. Set from data/release-key.pub; see SECURITY.md.
+const releasePublicKey = '';

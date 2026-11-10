@@ -2,18 +2,27 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
+import 'package:cryptography/cryptography.dart';
 import 'package:http/http.dart' as http;
 
+import '../app_info.dart';
 import 'catalog_database.dart';
 
-/// Where the catalog is published.
+/// Where the catalog is published, in the order they are tried.
 ///
 /// `releases/latest/download/<asset>` is a permanent redirect maintained by
-/// GitHub to the newest published release, so the app never has to call the
-/// API, never needs a token, and never runs into the unauthenticated rate
+/// the forge to the newest published release, so the app never has to call an
+/// API, never needs a token, and never runs into an unauthenticated rate
 /// limit — which matters for an app that checks once a day on every device.
-const defaultCatalogManifestUrl =
-    'https://github.com/edikdr/Vibe-stuck-/releases/latest/download/manifest.json';
+///
+/// A list rather than a constant because a release can move and a host can be
+/// unreachable from where the user is. Add a mirror by adding its
+/// `manifest.json` here; the archive is always fetched from whichever host
+/// answered, so the two can never be mixed. A mirror that publishes no release
+/// does not belong here — it would only add a failing request to every check.
+const defaultCatalogManifestUrls = <String>[
+  'https://github.com/edikdr/Vibe-stuck-/releases/latest/download/manifest.json',
+];
 
 /// What a release publishes next to the platform builds.
 class CatalogManifest {
@@ -32,6 +41,10 @@ class CatalogManifest {
     required this.signature,
   });
 
+  /// Version of the signed payload format, not of the manifest.
+  static const signaturePayloadVersion = 'vibestack-atlas-catalog-v1';
+  static const signaturePrefix = 'ed25519:';
+
   final int schemaVersion;
   final String catalogVersion;
   final String verifiedAt;
@@ -48,9 +61,28 @@ class CatalogManifest {
   final String databaseSha256;
   final String minAppVersion;
 
-  /// Reserved for a detached signature. Nothing verifies it yet; the download
-  /// is authenticated by HTTPS to github.com and checked against [sha256].
+  /// Detached Ed25519 signature over [signingPayload], as `ed25519:<base64>`.
+  ///
+  /// Empty when the project has not switched signing on. Whether an empty
+  /// signature is acceptable is decided by the app, not by the manifest: see
+  /// [CatalogUpdateService._verifySignature].
   final String signature;
+
+  /// The exact bytes a signature covers.
+  ///
+  /// Built from named fields rather than from the manifest's own JSON, so that
+  /// adding a field to a future manifest cannot invalidate the signature for
+  /// every app already installed. Kept identical to `signing_payload()` in
+  /// tool/catalog/signing.py — the two are one format described twice.
+  List<int> get signingPayload => utf8.encode([
+        signaturePayloadVersion,
+        '$schemaVersion',
+        catalogVersion,
+        '$size',
+        sha256,
+        '$databaseSize',
+        databaseSha256,
+      ].join('\n'));
 
   factory CatalogManifest.fromJson(Map<String, dynamic> json) => CatalogManifest(
         schemaVersion: (json['schemaVersion'] as num?)?.toInt() ?? 0,
@@ -66,6 +98,13 @@ class CatalogManifest {
         minAppVersion: json['minAppVersion'] as String? ?? '',
         signature: json['signature'] as String? ?? '',
       );
+}
+
+/// A manifest together with the host that served it.
+class _FetchedManifest {
+  const _FetchedManifest(this.manifest, this.source);
+  final CatalogManifest manifest;
+  final String source;
 }
 
 /// Why a check did not end in an installed update.
@@ -96,21 +135,36 @@ class CatalogUpdateResult {
 /// Downloads catalog releases and installs them over the local database.
 ///
 /// Every step is checked before the previous one is thrown away: the manifest
-/// decides whether to download at all, the archive is verified against the
-/// hash in the manifest, the decompressed file is verified again, and it must
-/// open as a readable catalog before it is allowed to replace anything.
+/// decides whether to download at all, its signature decides whether to trust
+/// it, the archive is verified against the hash it names, the decompressed
+/// file is verified again, and it must open as a readable catalog before it is
+/// allowed to replace anything.
 class CatalogUpdateService {
   CatalogUpdateService({
     required CatalogDatabase database,
     http.Client? client,
-    this.manifestUrl = defaultCatalogManifestUrl,
+    List<String>? manifestUrls,
+    this.publicKey = releasePublicKey,
     this.timeout = const Duration(seconds: 30),
   })  : _database = database,
-        _client = client ?? http.Client();
+        _client = client ?? http.Client(),
+        manifestUrls = manifestUrls ?? defaultCatalogManifestUrls;
 
   final CatalogDatabase _database;
   final http.Client _client;
-  final String manifestUrl;
+
+  /// Mirrors to try, in order.
+  final List<String> manifestUrls;
+
+  /// Ed25519 public key releases must be signed with, base64, or empty.
+  ///
+  /// Empty means signing is not switched on: downloads are still verified
+  /// against the SHA-256 in the manifest, which is itself fetched over HTTPS.
+  /// Non-empty makes a signature mandatory — this is what makes it worth
+  /// having, since a signature the client would accept the absence of stops
+  /// nobody.
+  final String publicKey;
+
   final Duration timeout;
 
   /// Largest archive the app will download. A release asset far bigger than
@@ -118,18 +172,38 @@ class CatalogUpdateService {
   /// update worth streaming onto a phone.
   static const maxArchiveBytes = 64 * 1024 * 1024;
 
-  Future<CatalogManifest> fetchManifest() async {
-    final uri = Uri.parse(manifestUrl);
-    if (uri.scheme != 'https') {
-      throw const FormatException('catalog manifest must be served over https');
+  /// Fetches the manifest from the first mirror that answers.
+  ///
+  /// Failing over matters more than it looks: the forge can be unreachable
+  /// from where the user is, and an offline-first catalog that cannot update
+  /// because one host is blocked is exactly the failure it exists to avoid.
+  Future<_FetchedManifest> _fetchManifest() async {
+    if (manifestUrls.isEmpty) {
+      throw const FormatException('no catalog manifest URL is configured');
     }
-    final response = await _client.get(uri).timeout(timeout);
-    if (response.statusCode != 200) {
-      throw HttpException('manifest returned HTTP ${response.statusCode}', uri: uri);
+    Object? lastError;
+    for (final candidate in manifestUrls) {
+      try {
+        final uri = Uri.parse(candidate);
+        if (uri.scheme != 'https') {
+          throw const FormatException('catalog manifest must be served over https');
+        }
+        final response = await _client.get(uri).timeout(timeout);
+        if (response.statusCode != 200) {
+          throw HttpException('manifest returned HTTP ${response.statusCode}', uri: uri);
+        }
+        final manifest = CatalogManifest.fromJson(
+            jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>);
+        return _FetchedManifest(manifest, candidate);
+      } on Object catch (error) {
+        lastError = error;
+      }
     }
-    return CatalogManifest.fromJson(
-        jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>);
+    throw lastError!;
   }
+
+  /// Public entry point for callers that only want to look.
+  Future<CatalogManifest> fetchManifest() async => (await _fetchManifest()).manifest;
 
   /// Checks for a newer catalog and installs it if there is one.
   ///
@@ -144,13 +218,14 @@ class CatalogUpdateService {
     // and the installed version is what decides whether to download at all.
     await _database.ensureOpen();
 
-    final CatalogManifest manifest;
+    final _FetchedManifest fetched;
     try {
-      manifest = await fetchManifest();
+      fetched = await _fetchManifest();
     } on Object catch (error) {
       return CatalogUpdateResult(CatalogUpdateStatus.failed,
           message: 'manifest: ${error.runtimeType}');
     }
+    final manifest = fetched.manifest;
 
     if (manifest.schemaVersion != CatalogDatabase.supportedSchemaVersion ||
         _compare(appVersion, manifest.minAppVersion) < 0) {
@@ -161,13 +236,23 @@ class CatalogUpdateService {
     }
 
     final installed = _database.metadata.catalogVersion;
+
+    // Before the version comparison: an unsigned manifest is not evidence of
+    // anything, including of being up to date.
+    try {
+      await _verifySignature(manifest);
+    } on Object catch (error) {
+      return CatalogUpdateResult(CatalogUpdateStatus.failed,
+          version: installed, message: '$error');
+    }
+
     if (!force &&
         CatalogDatabase.compareVersions(manifest.catalogVersion, installed) <= 0) {
       return CatalogUpdateResult(CatalogUpdateStatus.upToDate, version: installed);
     }
 
     try {
-      await _downloadAndInstall(manifest);
+      await _downloadAndInstall(manifest, fetched.source);
     } on Object catch (error) {
       return CatalogUpdateResult(CatalogUpdateStatus.failed,
           version: installed, message: '${error.runtimeType}: $error');
@@ -176,10 +261,45 @@ class CatalogUpdateService {
         version: manifest.catalogVersion);
   }
 
-  Future<void> _downloadAndInstall(CatalogManifest manifest) async {
+  /// Throws unless the manifest is signed by [publicKey].
+  ///
+  /// Does nothing when no key is compiled in, which is the state of a project
+  /// that has not generated one yet.
+  Future<void> _verifySignature(CatalogManifest manifest) async {
+    if (publicKey.isEmpty) return;
+    if (manifest.signature.isEmpty) {
+      throw const FormatException('catalog is unsigned and this build requires a signature');
+    }
+    if (!manifest.signature.startsWith(CatalogManifest.signaturePrefix)) {
+      throw const FormatException('catalog signature is not ed25519');
+    }
+
+    final List<int> signatureBytes;
+    final List<int> keyBytes;
+    try {
+      signatureBytes = base64.decode(
+          manifest.signature.substring(CatalogManifest.signaturePrefix.length));
+      keyBytes = base64.decode(publicKey);
+    } on FormatException {
+      throw const FormatException('catalog signature or key is not valid base64');
+    }
+
+    final verified = await Ed25519().verify(
+      manifest.signingPayload,
+      signature: Signature(
+        signatureBytes,
+        publicKey: SimplePublicKey(keyBytes, type: KeyPairType.ed25519),
+      ),
+    );
+    if (!verified) {
+      throw const FormatException('catalog signature does not match the release key');
+    }
+  }
+
+  Future<void> _downloadAndInstall(CatalogManifest manifest, String source) async {
     final uri = Uri.parse(manifest.url.isNotEmpty
         ? manifest.url
-        : _siblingOf(manifestUrl, manifest.file));
+        : _siblingOf(source, manifest.file));
     if (uri.scheme != 'https') {
       throw const FormatException('catalog archive must be served over https');
     }
@@ -234,7 +354,8 @@ class CatalogUpdateService {
   }
 
   /// Release assets sit next to each other, so the archive URL is the manifest
-  /// URL with the last path segment swapped.
+  /// URL with the last path segment swapped. Derived from the mirror that
+  /// actually answered, so a fallback never mixes two hosts.
   static String _siblingOf(String manifest, String file) {
     final uri = Uri.parse(manifest);
     final segments = [...uri.pathSegments];

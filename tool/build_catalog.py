@@ -15,6 +15,7 @@ Outputs:
 from __future__ import annotations
 
 import argparse
+import os
 import pathlib
 import sys
 
@@ -22,7 +23,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 from catalog import CatalogError, load_catalog  # noqa: E402
 from catalog.database import build_database  # noqa: E402
-from catalog.appinfo import write_app_info  # noqa: E402
+from catalog.appinfo import read_release_key, write_app_info  # noqa: E402
 from catalog.dartgen import write_categories  # noqa: E402
 from catalog.release import (  # noqa: E402
     ARCHIVE_NAME, MANIFEST_NAME, MIN_APP_VERSION, compress, write_manifest)
@@ -38,8 +39,8 @@ def main(argv: list[str]) -> int:
                         help='URL the manifest points at for the archive')
     parser.add_argument('--min-app-version', default=MIN_APP_VERSION,
                         help='oldest app release able to read this catalog')
-    parser.add_argument('--signature', default='',
-                        help='detached signature to record in the manifest')
+    parser.add_argument('--sign', action='store_true',
+                        help='sign the manifest with $CATALOG_SIGNING_KEY')
     args = parser.parse_args(argv)
 
     try:
@@ -70,11 +71,13 @@ def main(argv: list[str]) -> int:
             target=dist / MANIFEST_NAME,
             min_app_version=args.min_app_version,
             download_url=args.download_url,
-            signature=args.signature,
+            signing_key=os.environ.get('CATALOG_SIGNING_KEY', '') if args.sign else '',
+            public_key=read_release_key(ROOT),
         )
         print(f'archive        dist/{ARCHIVE_NAME} '
               f'({manifest["size"] / 1_048_576:.2f} MB, sha256 {manifest["sha256"][:12]}…)')
         print(f'manifest       dist/{MANIFEST_NAME}')
+        print(f'signature      {manifest["signature"] or "none — releases are unsigned"}')
     return 0
 
 

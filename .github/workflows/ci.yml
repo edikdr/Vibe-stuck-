@@ -41,6 +41,14 @@ jobs:
           set -o pipefail
           python tool/verify_catalog.py | tee -a "$GITHUB_STEP_SUMMARY"
 
+      # An issue form is only validated by GitHub once it is on the default
+      # branch, and a broken one is reported there long after the pull request
+      # that introduced it merged.
+      - name: Check the issue forms
+        run: |
+          python -m pip install --quiet pyyaml
+          python tool/check_templates.py
+
       # The database is a build artifact and is not committed, but the
       # generated Dart is — it has to compile. An entry edited without a
       # rebuild would otherwise ship category labels that disagree with the
