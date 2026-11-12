@@ -60,12 +60,15 @@ add_library(vl_core STATIC
     src/core/gestures.cpp
     src/core/face_db.cpp
     src/core/settings.cpp
+    src/core/macro.cpp
+    src/core/voice.cpp
 )
 target_include_directories(vl_core PUBLIC src)
 
 add_library(vl_ml STATIC
     src/ml/ort_runtime.cpp
     src/ml/models.cpp
+    src/ml/speaker.cpp
     src/vision/pipeline.cpp
 )
 target_link_libraries(vl_ml PUBLIC vl_core vl_onnxruntime)
@@ -84,6 +87,8 @@ if(WIN32)
         src/platform/win/camera_mf.cpp
         src/platform/win/system.cpp
         src/platform/win/tray.cpp
+        src/platform/win/voice_io.cpp
+        src/app/voice_engine.cpp
         src/ui/gfx.cpp
         src/ui/gui.cpp
         src/ui/theme.cpp
@@ -113,9 +118,26 @@ if(WIN32)
         COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:VibeHand>/models"
         COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/models" "$<TARGET_FILE_DIR:VibeHand>/models")
 
+    # Voice commands: the Vosk DLLs go to <exe>\vosk (the Russian model and the speaker
+    # model are in models\ and were copied above). Optional: the app runs without them.
+    set(VL_VOSK_ROOT "${CMAKE_SOURCE_DIR}/third_party/vosk")
+    if(EXISTS "${VL_VOSK_ROOT}/libvosk.dll")
+        file(GLOB VL_VOSK_DLLS "${VL_VOSK_ROOT}/*.dll")
+        add_custom_command(TARGET VibeHand POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:VibeHand>/vosk")
+        foreach(dll IN LISTS VL_VOSK_DLLS)
+            add_custom_command(TARGET VibeHand POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_if_different "${dll}" "$<TARGET_FILE_DIR:VibeHand>/vosk")
+        endforeach()
+        install(FILES ${VL_VOSK_DLLS} DESTINATION vosk)
+        message(STATUS "Vosk: ${VL_VOSK_ROOT}")
+    else()
+        message(STATUS "Vosk: not found (voice commands disabled until scripts/fetch-deps.ps1 is run)")
+    endif()
+
     install(TARGETS VibeHand RUNTIME DESTINATION .)
     install(FILES ${VL_ORT_DLLS} DESTINATION .)
-    install(DIRECTORY models/ DESTINATION models FILES_MATCHING PATTERN "*.onnx")
+    install(DIRECTORY models/ DESTINATION models PATTERN "README.md" EXCLUDE)
 endif()
 
 # ---------------------------------------------------------------- tests / tools
@@ -128,4 +150,10 @@ if(VL_BUILD_TESTS)
     # Runs the real models on PPM images: `vl_selftest <models dir> <image.ppm>...`
     add_executable(vl_selftest tests/selftest_models.cpp)
     target_link_libraries(vl_selftest PRIVATE vl_ml)
+
+    if(WIN32)
+        # Voice chain on WAV files: `vl_voicetest <models> <vosk dir> "phrase|phrase" a.wav ...`
+        add_executable(vl_voicetest tests/voicetest.cpp src/platform/win/voice_io.cpp src/platform/win/system.cpp)
+        target_link_libraries(vl_voicetest PRIVATE vl_ml user32 shell32 ole32 advapi32 crypt32 powrprof psapi shlwapi uxtheme dwmapi)
+    endif()
 endif()

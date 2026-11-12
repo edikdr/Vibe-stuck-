@@ -10,6 +10,7 @@
 #include "core/gestures.hpp"
 #include "core/image.hpp"
 #include "core/json.hpp"
+#include "core/macro.hpp"
 #include "core/night_vision.hpp"
 #include "core/settings.hpp"
 
@@ -756,7 +757,78 @@ static void testNight() {
     CHECK(accepted < 30);
 }
 
+static void testMacro() {
+    using K = MacroStep::Kind;
+    std::vector<uint16_t> keys;
+    CHECK(parseKeyCombo("Ctrl+Shift+M", keys) && keys == (std::vector<uint16_t>{0x11, 0x10, 'M'}));
+    CHECK(parseKeyCombo(" m + ctrl ", keys) && keys == (std::vector<uint16_t>{0x11, 'M'}));  // modifiers first
+    CHECK(parseKeyCombo("F5", keys) && keys == (std::vector<uint16_t>{0x74}));
+    CHECK(parseKeyCombo("win+вправо", keys) && keys == (std::vector<uint16_t>{0x5B, 0x27}));
+    CHECK(!parseKeyCombo("Ctrl+", keys));
+    CHECK(!parseKeyCombo("Ctrl+Banana", keys));
+    CHECK(!parseKeyCombo("F25", keys));
+
+    std::vector<MacroStep> st;
+    std::string err;
+    CHECK(parseMacro("Ctrl+L; пауза 200; текст youtube.com; Enter;\n mic_mute ; запуск C:\\a b\\x.ps1 -n 1", st, &err));
+    CHECK(st.size() == 6);
+    if (st.size() == 6) {
+        CHECK(st[0].kind == K::Keys && st[0].keys.size() == 2);
+        CHECK(st[1].kind == K::Wait && st[1].ms == 200);
+        CHECK(st[2].kind == K::Text && st[2].text == "youtube.com");
+        CHECK(st[3].kind == K::Keys && st[3].keys == (std::vector<uint16_t>{0x0D}));
+        CHECK(st[4].kind == K::Builtin && st[4].action == ActionType::MicMute);
+        CHECK(st[5].kind == K::Run && st[5].text == "C:\\a b\\x.ps1 -n 1");
+    }
+    CHECK(!parseMacro("", st, &err) && !err.empty());
+    CHECK(!parseMacro("Ctrl+L; пауза много", st, &err) && err.find("шаг 2") != std::string::npos);
+    CHECK(!parseMacro("abracadabra", st, &err));
+    CHECK(!parseMacro("voice_listen", st, &err));  // no nesting of the listening action
+    CHECK(!parseMacro("wait 20000", st, &err));
+    std::string many;
+    for (int i = 0; i < 40; ++i) many += "F5;";
+    CHECK(!parseMacro(many, st, &err));
+
+    CHECK(lowerUtf8("ПрИвЕт Ёж ABC") == "привет ёж abc");
+    CHECK(appListMatches("", "anything.exe"));
+    CHECK(appListMatches("  ,; ", "anything.exe"));
+    CHECK(appListMatches("discord.exe, chrome", "Discord.exe"));
+    CHECK(appListMatches("discord.exe, chrome", "CHROME.EXE"));
+    CHECK(!appListMatches("discord.exe, chrome", "firefox.exe"));
+    CHECK(!appListMatches("discord", ""));  // unknown foreground program: a filtered rule stays quiet
+
+    // Settings round trip of the v5 additions.
+    Settings s = Settings::defaults();
+    s.rules[0].apps = "discord.exe";
+    s.rules[0].action.type = ActionType::Macro;
+    s.rules[0].action.script = "Ctrl+Shift+M; пауза 100";
+    s.voice.commands.clear();
+    VoiceCommand vc;
+    vc.id = "v1";
+    vc.phrase = "выключи микрофон";
+    vc.action.type = ActionType::RunScript;
+    vc.action.path = "C:\\s.ps1";
+    vc.action.args = "-x";
+    s.voice.commands.push_back(vc);
+    s.voice.matchThreshold = 0.5f;
+    s.voice.ownerOnly = false;
+    const Settings t = Settings::fromJson(json::parse(s.toJson().dump()).value);
+    CHECK(t.version == Settings::kVersion);
+    CHECK(t.rules[0].apps == "discord.exe");
+    CHECK(t.rules[0].action.type == ActionType::Macro && t.rules[0].action.script == s.rules[0].action.script);
+    CHECK(t.voice.commands.size() == 1 && t.voice.commands[0].phrase == vc.phrase);
+    CHECK(t.voice.commands[0].action.type == ActionType::RunScript && t.voice.commands[0].action.args == "-x");
+    NEAR(t.voice.matchThreshold, 0.5f, 1e-4f);
+    CHECK(!t.voice.ownerOnly);
+    // A v4 file gets the example commands once.
+    json::Value old = s.toJson();
+    old.set("version", 4);
+    old.set("voice", json::Value());
+    CHECK(!Settings::fromJson(old).voice.commands.empty());
+}
+
 int main() {
+    testMacro();
     testJson();
     testGeometry();
     testPalmDecoder();

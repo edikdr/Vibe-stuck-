@@ -195,6 +195,35 @@ bool saveFaces(const FaceDatabase& db) {
     return ok;
 }
 
+voice::VoicePrint loadVoice() {
+    voice::VoicePrint v;
+    const auto fp = appDataDir() / L"voice.bin";
+    for (const auto& path : {fp, std::filesystem::path(fp.wstring() + L".bak")}) {
+        std::string blob;
+        if (!readAll(path, blob) || blob.empty()) continue;
+        DATA_BLOB in{static_cast<DWORD>(blob.size()), reinterpret_cast<BYTE*>(blob.data())}, out{};
+        if (!CryptUnprotectData(&in, nullptr, nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &out)) continue;
+        std::vector<uint8_t> plain(out.pbData, out.pbData + out.cbData);
+        SecureZeroMemory(out.pbData, out.cbData);
+        LocalFree(out.pbData);
+        if (v.deserialize(plain)) return v;
+    }
+    v.samples.clear();
+    return v;
+}
+
+bool saveVoice(const voice::VoicePrint& v) {
+    auto plain = v.serialize();
+    DATA_BLOB in{static_cast<DWORD>(plain.size()), plain.data()}, out{};
+    if (!CryptProtectData(&in, L"Vibe Hand voice", nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &out))
+        return false;
+    const auto fp = appDataDir() / L"voice.bin";
+    const bool ok = writeAtomic(fp, out.pbData, out.cbData);
+    if (ok) dailyBackup(fp);
+    LocalFree(out.pbData);
+    return ok;
+}
+
 namespace {
 constexpr wchar_t kRunKey[] = L"Software\\Microsoft\\Windows\\CurrentVersion\\Run";
 constexpr wchar_t kRunValue[] = L"VibeHand";

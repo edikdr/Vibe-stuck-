@@ -8,7 +8,7 @@
 
 namespace vl::ui {
 
-enum Page { PageOverview, PageGestures, PageFaces, PageCamera, PagePower, PageSystem, kPageCount };
+enum Page { PageOverview, PageGestures, PageVoice, PageFaces, PageCamera, PagePower, PageSystem, kPageCount };
 
 // Editing state that must survive between frames.
 struct UiState {
@@ -45,6 +45,7 @@ private:
 // Page renderers (pages.cpp). `area` is the content area right of the nav pane.
 void drawOverview(Gui& g, App& app, UiState& st, const RectF& area);
 void drawGestures(Gui& g, App& app, UiState& st, const RectF& area);
+void drawVoice(Gui& g, App& app, UiState& st, const RectF& area);
 void drawFaces(Gui& g, App& app, UiState& st, const RectF& area);
 void drawCamera(Gui& g, App& app, UiState& st, const RectF& area);
 void drawPower(Gui& g, App& app, UiState& st, const RectF& area);

@@ -45,6 +45,10 @@ enum class ActionType {
     ZoomIn,         // Ctrl + '+'
     ZoomOut,        // Ctrl + '-'
     CallMute,       // Win+Alt+K (mute in apps that support the Windows 11 call mute)
+    // v5
+    Macro,          // several steps in a row: keys, pauses, text, programs (Action::script)
+    RunScript,      // a script or program, hidden window (PowerShell, .bat, AutoHotkey, Python...)
+    VoiceListen,    // listen for a spoken command (owner's voice only)
     kCount
 };
 
@@ -57,6 +61,7 @@ struct Action {
     std::string path;            // LaunchApp: file, or "shell:AppsFolder\<AppUserModelID>" for Start menu apps
     std::string args;
     std::string label;           // LaunchApp: display name picked from the Start menu list
+    std::string script;          // Macro: steps separated by ';' (see core/macro.hpp)
 };
 
 // ------------------------------------------------------------------ gestures
@@ -78,6 +83,9 @@ struct GestureRule {
     std::string personId;    // for Specific
     bool requireFace = false;  // v4: a face must be in the frame (was a global, always-on gate)
     bool requireLooking = false;
+    // v5: only while one of these programs is in the foreground ("discord.exe, chrome.exe");
+    // empty = everywhere. The same gesture can then do different things in different apps.
+    std::string apps;
     Action action;
 };
 
@@ -170,6 +178,22 @@ struct PerformanceSettings {
     bool int8Models = false;
 };
 
+// A spoken command: after the "listen" gesture, saying `phrase` runs `action`.
+struct VoiceCommand {
+    std::string id;
+    std::string phrase;      // Russian words, any case; compared after normalizePhrase()
+    bool enabled = true;
+    Action action;
+};
+
+struct VoiceSettings {
+    bool ownerOnly = true;         // run a command only when the voice matches the enrolled owner
+    float matchThreshold = 0.45f;  // cosine similarity of the voice to the owner's samples
+    int listenMs = 5000;           // how long to wait for a command after the gesture
+    bool unmuteToListen = false;   // microphones muted by "Микрофон вкл/выкл": unmute just for the command
+    std::vector<VoiceCommand> commands;
+};
+
 struct UiSettings {
     Theme theme = Theme::Dark;
     int accent = 0;          // 0 = Windows accent, 1.. = presets
@@ -185,13 +209,15 @@ struct UiSettings {
 struct Settings {
     // 2: no distance window, swipe rules, window actions; 3: two-hand rules, zoom, faster idle rate;
     // 4: face requirement per rule, 3D custom gestures, disabled built-ins, minimum hold
-    static constexpr int kVersion = 4;
+    // 5: per-app rules, macros, scripts, voice commands
+    static constexpr int kVersion = 5;
     int version = kVersion;
     bool enabled = true;  // global recognition on/off
     CameraSettings camera;
     FaceSettings faces;
     PerformanceSettings perf;
     UiSettings ui;
+    VoiceSettings voice;
     std::vector<GestureRule> rules;
     std::vector<CustomGesture> customGestures;
     std::vector<std::string> disabledGestures;  // built-in gesture ids the user switched off

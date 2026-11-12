@@ -182,7 +182,7 @@ void Osd::place() {
                  SWP_SHOWWINDOW | SWP_NOACTIVATE);
 }
 
-void Osd::showFired(const std::wstring& glyphStr, const std::wstring& title, const std::wstring& detail) {
+void Osd::showFired(const std::wstring& glyphStr, const std::wstring& title, const std::wstring& detail, int holdMs) {
     ensure();
     glyph_ = glyphStr;
     title_ = title;
@@ -190,13 +190,14 @@ void Osd::showFired(const std::wstring& glyphStr, const std::wstring& title, con
     fired_ = true;
     progress_ = -1.f;
     shownAt_ = GetTickCount();
+    holdMs_ = static_cast<DWORD>(holdMs);
     place();
-    SetTimer(hwnd_, 7, 1400, nullptr);
+    SetTimer(hwnd_, 7, holdMs_, nullptr);
     invalidate();
 }
 
 void Osd::showProgress(const std::wstring& title, float progress) {
-    if (fired_ && GetTickCount() - shownAt_ < 1400) return;  // let the confirmation stay
+    if (fired_ && GetTickCount() - shownAt_ < holdMs_) return;  // let the confirmation stay
     ensure();
     fired_ = false;
     title_ = title;

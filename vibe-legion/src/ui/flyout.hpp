@@ -26,7 +26,8 @@ private:
 class Osd final : public GuiWindow {
 public:
     using GuiWindow::GuiWindow;
-    void showFired(const std::wstring& glyph, const std::wstring& title, const std::wstring& detail);
+    // holdMs: how long it stays (longer for "listening for a voice command").
+    void showFired(const std::wstring& glyph, const std::wstring& title, const std::wstring& detail, int holdMs = 1400);
     void showProgress(const std::wstring& title, float progress);
     void hideProgress();
 
@@ -42,6 +43,7 @@ private:
     float progress_ = -1.f;
     bool fired_ = false;
     DWORD shownAt_ = 0;
+    DWORD holdMs_ = 1400;
 };
 
 }  // namespace vl::ui

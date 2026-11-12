@@ -59,6 +59,7 @@ enum : UINT {
     WM_VL_GESTURE,        // lParam: heap GestureEvent*
     WM_VL_TASKDONE,       // lParam: heap std::function<void()>* to run on the UI thread
     WM_VL_SHOWMAIN,       // second instance asked us to show up
+    WM_VL_VOICE,          // voice engine changed state / level: repaint
 };
 
 }  // namespace vl::win

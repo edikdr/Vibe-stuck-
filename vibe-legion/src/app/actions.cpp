@@ -11,7 +11,11 @@
 #include <wrl/client.h>
 
 #include <algorithm>
+#include <atomic>
+#include <thread>
 #include <vector>
+
+#include "core/macro.hpp"
 
 namespace vl {
 
@@ -168,7 +172,128 @@ bool foregroundCommand(int cmd) {  // SC_MINIMIZE / SC_MAXIMIZE / SC_RESTORE / S
     return PostMessageW(fg, WM_SYSCOMMAND, static_cast<WPARAM>(cmd), 0) != FALSE;
 }
 
+bool typeText(const std::wstring& text) {
+    std::vector<INPUT> v;
+    for (wchar_t ch : text) {
+        INPUT in{};
+        in.type = INPUT_KEYBOARD;
+        in.ki.wScan = ch;
+        in.ki.dwFlags = KEYEVENTF_UNICODE;
+        v.push_back(in);
+        in.ki.dwFlags = KEYEVENTF_UNICODE | KEYEVENTF_KEYUP;
+        v.push_back(in);
+    }
+    return !v.empty() && SendInput(static_cast<UINT>(v.size()), v.data(), sizeof(INPUT)) == v.size();
+}
+
+// Starts a program or script without a console window flashing up: PowerShell scripts
+// through powershell.exe, batch files through cmd.exe, everything else (AutoHotkey,
+// Python, .exe, documents, links) the way a double click would.
+bool runCommand(const std::wstring& path, const std::wstring& args) {
+    if (path.empty()) return false;
+    std::wstring ext = std::filesystem::path(path).extension().wstring();
+    std::transform(ext.begin(), ext.end(), ext.begin(), [](wchar_t c) { return static_cast<wchar_t>(towlower(c)); });
+    std::wstring cmd;
+    if (ext == L".ps1")
+        cmd = L"powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File \"" + path + L"\" " + args;
+    else if (ext == L".bat" || ext == L".cmd")
+        cmd = L"cmd.exe /c \"\"" + path + L"\" " + args + L"\"";
+    if (cmd.empty()) {
+        const auto r = reinterpret_cast<INT_PTR>(ShellExecuteW(nullptr, L"open", path.c_str(), args.empty() ? nullptr : args.c_str(),
+                                                               nullptr, SW_SHOWNORMAL));
+        return r > 32;
+    }
+    STARTUPINFOW si{sizeof si};
+    PROCESS_INFORMATION pi{};
+    const std::wstring dir = std::filesystem::path(path).parent_path().wstring();
+    if (!CreateProcessW(nullptr, cmd.data(), nullptr, nullptr, FALSE, CREATE_NO_WINDOW, nullptr,
+                        dir.empty() ? nullptr : dir.c_str(), &si, &pi))
+        return false;
+    CloseHandle(pi.hThread);
+    CloseHandle(pi.hProcess);
+    return true;
+}
+
+// "C:\My scripts\a.ps1 -x 1", "\"C:\a b.exe\" arg": the program and its arguments.
+void splitCommandLine(const std::wstring& line, std::wstring& path, std::wstring& args) {
+    path.clear();
+    args.clear();
+    if (!line.empty() && line[0] == L'"') {
+        const size_t q = line.find(L'"', 1);
+        path = line.substr(1, q == std::wstring::npos ? std::wstring::npos : q - 1);
+        if (q != std::wstring::npos && q + 1 < line.size()) args = line.substr(q + 1);
+    } else {
+        // The longest prefix that is an existing file wins (paths with spaces, no quotes);
+        // otherwise the first word is the program.
+        std::error_code ec;
+        size_t cut = line.size();
+        while (cut != std::wstring::npos && cut > 0 && !std::filesystem::exists(line.substr(0, cut), ec))
+            cut = cut > 1 ? line.rfind(L' ', cut - 1) : std::wstring::npos;
+        if (cut == std::wstring::npos || cut == 0) cut = std::min(line.find(L' '), line.size());
+        path = line.substr(0, cut);
+        if (cut < line.size()) args = line.substr(cut + 1);
+    }
+    while (!args.empty() && args.front() == L' ') args.erase(args.begin());
+}
+
+std::atomic<bool> g_macroBusy{false};
+
+// Runs on its own thread: the pauses must not freeze the tray icon and the windows.
+void runMacro(std::vector<MacroStep> steps) {
+    if (g_macroBusy.exchange(true)) return;  // one macro at a time
+    std::thread([steps = std::move(steps)] {
+        const bool com = SUCCEEDED(CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED));
+        for (const auto& s : steps) {
+            switch (s.kind) {
+                case MacroStep::Kind::Keys: comboVec(s.keys); break;
+                case MacroStep::Kind::Wait: Sleep(static_cast<DWORD>(s.ms)); break;
+                case MacroStep::Kind::Text: typeText(win::widen(s.text)); break;
+                case MacroStep::Kind::Run: {
+                    std::wstring p, a;
+                    splitCommandLine(win::widen(s.text), p, a);
+                    runCommand(p, a);
+                    break;
+                }
+                case MacroStep::Kind::Builtin: {
+                    Action a;
+                    a.type = s.action;
+                    executeAction(a);
+                    break;
+                }
+            }
+            if (s.kind != MacroStep::Kind::Wait) Sleep(40);  // let the target app take the input in order
+        }
+        if (com) CoUninitialize();
+        g_macroBusy = false;
+    }).detach();
+}
+
+std::wstring exeOfWindow(HWND w) {
+    DWORD pid = 0;
+    if (!w || !GetWindowThreadProcessId(w, &pid) || !pid) return {};
+    HANDLE p = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, pid);
+    if (!p) return {};
+    wchar_t path[MAX_PATH * 2];
+    DWORD n = static_cast<DWORD>(std::size(path));
+    const bool ok = QueryFullProcessImageNameW(p, 0, path, &n) != FALSE;
+    CloseHandle(p);
+    return ok ? std::filesystem::path(std::wstring(path, n)).filename().wstring() : std::wstring();
+}
+
 }  // namespace
+
+std::wstring foregroundAppExe() { return exeOfWindow(GetForegroundWindow()); }
+
+std::vector<std::wstring> openWindowApps() {
+    std::vector<std::wstring> out;
+    for (HWND h : switchableWindows()) {
+        std::wstring exe = exeOfWindow(h);
+        std::transform(exe.begin(), exe.end(), exe.begin(), [](wchar_t c) { return static_cast<wchar_t>(towlower(c)); });
+        if (!exe.empty() && std::find(out.begin(), out.end(), exe) == out.end()) out.push_back(exe);
+    }
+    std::sort(out.begin(), out.end());
+    return out;
+}
 
 std::vector<InstalledApp> installedApps() {
     using Microsoft::WRL::ComPtr;
@@ -238,6 +363,14 @@ bool executeAction(const Action& a) {
         case ActionType::ScreenshotFull: return combo({VK_LWIN, VK_SNAPSHOT});
         case ActionType::ZoomIn: return combo({VK_CONTROL, VK_OEM_PLUS});
         case ActionType::ZoomOut: return combo({VK_CONTROL, VK_OEM_MINUS});
+        case ActionType::Macro: {
+            std::vector<MacroStep> steps;
+            if (!parseMacro(a.script, steps, nullptr)) return false;
+            runMacro(std::move(steps));
+            return true;
+        }
+        case ActionType::RunScript: return runCommand(win::widen(a.path), win::widen(a.args));
+        case ActionType::VoiceListen: return true;  // handled by the app
         case ActionType::kCount: break;
     }
     return false;
@@ -280,6 +413,9 @@ std::wstring actionTitleRu(ActionType t) {
         case ActionType::ScreenshotFull: return L"Снимок всего экрана в «Изображения»";
         case ActionType::ZoomIn: return L"Увеличить масштаб (Ctrl +)";
         case ActionType::ZoomOut: return L"Уменьшить масштаб (Ctrl −)";
+        case ActionType::Macro: return L"Макрос: несколько шагов подряд…";
+        case ActionType::RunScript: return L"Запустить скрипт или программу скрыто…";
+        case ActionType::VoiceListen: return L"Слушать голосовую команду";
         case ActionType::kCount: break;
     }
     return L"";
@@ -322,12 +458,18 @@ std::wstring actionDescriptionRu(ActionType t) {
         case ActionType::ScreenshotFull: return L"Win+PrtScn: весь экран сохраняется в «Изображения\\Снимки экрана».";
         case ActionType::ZoomIn: return L"Ctrl и «+»: крупнее страница в браузере, документ, фото. Пара к «Развести руки».";
         case ActionType::ZoomOut: return L"Ctrl и «−»: мельче. Пара к «Свести руки».";
+        case ActionType::Macro: return L"Шаги через «;»: клавиши, пауза в мс, текст, запуск, действия. Пример: Ctrl+L; пауза 200; текст youtube.com; Enter";
+        case ActionType::RunScript: return L"PowerShell (.ps1), .bat, AutoHotkey, Python или любая программа с аргументами. Окно консоли не показывается.";
+        case ActionType::VoiceListen: return L"После жеста приложение несколько секунд слушает микрофон и выполняет сказанную команду. Команды и запись вашего голоса — в разделе «Голос».";
         case ActionType::kCount: break;
     }
     return L"";
 }
 std::wstring actionGlyph(ActionType t) {
     switch (t) {
+        case ActionType::Macro: return L"\uE8FD";       // bulleted list
+        case ActionType::RunScript: return L"\uE756";   // command prompt
+        case ActionType::VoiceListen: return L"\uE720"; // microphone
         case ActionType::MediaPlayPause: return L"";
         case ActionType::MediaNext: return L"";
         case ActionType::MediaPrev: return L"";
@@ -376,6 +518,16 @@ std::wstring describeAction(const Action& a) {
         if (!a.label.empty()) return L"Запуск: " + win::widen(a.label);
         const auto p = std::filesystem::path(win::widen(a.path));
         return L"Запуск: " + p.filename().wstring();
+    }
+    if (a.type == ActionType::Macro) {
+        std::vector<MacroStep> steps;
+        if (a.script.empty()) return L"Макрос не задан";
+        if (!parseMacro(a.script, steps, nullptr)) return L"Макрос с ошибкой";
+        return L"Макрос: шагов — " + std::to_wstring(steps.size());
+    }
+    if (a.type == ActionType::RunScript) {
+        if (a.path.empty()) return L"Скрипт не выбран";
+        return L"Скрипт: " + std::filesystem::path(win::widen(a.path)).filename().wstring();
     }
     return actionTitleRu(a.type);
 }

@@ -18,6 +18,7 @@ param(
     [string]$OrtDirectMLVersion = '1.23.0',
     [string]$DirectMLVersion = '1.15.4',
     [switch]$SkipModels,
+    [switch]$SkipVoice,
     [switch]$WithInt8
 )
 
@@ -105,6 +106,40 @@ try {
                 Remove-Item $out -Force
                 throw "SHA-256 mismatch for $($m.f): got $hash"
             }
+        }
+    }
+    # ------------------------------------------------------------ voice commands
+    # Vosk (offline speech recognition, Apache 2.0) + its small Russian model, and the
+    # WeSpeaker ResNet34 speaker model ("is it the owner's voice"). ~90 MB download.
+    if (-not $SkipVoice) {
+        Write-Host "Voice commands" -ForegroundColor Cyan
+        function Get-Verified($url, $out, $sha) {
+            if ((Test-Path $out) -and ((Get-FileHash $out -Algorithm SHA256).Hash.ToLower() -eq $sha)) { return $false }
+            Get-File $url $out
+            $hash = (Get-FileHash $out -Algorithm SHA256).Hash.ToLower()
+            if ($hash -ne $sha) { Remove-Item $out -Force; throw "SHA-256 mismatch for ${out}: got $hash" }
+            return $true
+        }
+        $voskDir = Join-Path $third 'vosk'
+        if (-not (Test-Path (Join-Path $voskDir 'libvosk.dll'))) {
+            $zip = Join-Path $tmp 'vosk.zip'
+            [void](Get-Verified 'https://github.com/alphacep/vosk-api/releases/download/v0.3.45/vosk-win64-0.3.45.zip' $zip 'f1dcc9cca460630f81ea8f71794f69c80bed6556d2a4e6237b5785e1d2dff34b')
+            Expand-Archive $zip -DestinationPath (Join-Path $tmp 'vosk') -Force
+            Copy-Found (Join-Path $tmp 'vosk') '*.dll' $voskDir
+            Copy-Found (Join-Path $tmp 'vosk') 'vosk_api.h' $voskDir
+        } else { Write-Host "  ok  vosk\libvosk.dll" }
+        $ruDir = Join-Path $models 'vosk-model-small-ru'
+        if (-not (Test-Path (Join-Path $ruDir 'am\final.mdl'))) {
+            $zip = Join-Path $tmp 'vosk-ru.zip'
+            [void](Get-Verified 'https://alphacephei.com/vosk/models/vosk-model-small-ru-0.22.zip' $zip '961d5ff98a17f4aa6de69864d0aa71fa5bac682301d2b5d17a3f24c5c99a46d4')
+            Expand-Archive $zip -DestinationPath (Join-Path $tmp 'vosk-ru') -Force
+            $src = Get-ChildItem (Join-Path $tmp 'vosk-ru') -Directory | Select-Object -First 1
+            if (Test-Path $ruDir) { Remove-Item -Recurse -Force $ruDir }
+            Copy-Item $src.FullName -Destination $ruDir -Recurse
+        } else { Write-Host "  ok  vosk-model-small-ru" }
+        $spk = Join-Path $models 'voice_speaker_resnet34.onnx'
+        if (-not (Get-Verified 'https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/wespeaker_en_voxceleb_resnet34_LM.onnx' $spk 'e9848563da86f263117134dfd7ad63c92355b37de492b55e325400c9d9c39012')) {
+            Write-Host "  ok  voice_speaker_resnet34.onnx"
         }
     }
     Write-Host "Done." -ForegroundColor Green

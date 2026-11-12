@@ -8,6 +8,8 @@
 #include <ctime>
 
 #include "app/actions.hpp"
+#include "core/macro.hpp"
+#include "platform/win/voice_io.hpp"
 #include "ui/flyout.hpp"
 #include "ui/main_window.hpp"
 
@@ -140,6 +142,14 @@ int App::run(HINSTANCE inst, bool startMinimized) {
     pipeline_->setSettings(std::make_shared<Settings>(settings_));
     pipeline_->setFaceDb(std::make_shared<FaceDatabase>(faces_));
 
+    voicePrint_ = loadVoice();
+    VoiceEngine::Callbacks vcb;
+    vcb.onOutcome = [this](VoiceOutcome o) { postToUi([this, o = std::move(o)] { onVoiceOutcome(o); }); };
+    vcb.onEnrolled = [this](VoiceEnrollOutcome o) { postToUi([this, o = std::move(o)] { onVoiceEnrolled(o); }); };
+    vcb.onState = [this] { PostMessageW(msgWnd_, WM_VL_VOICE, 0, 0); };
+    voice_ = std::make_unique<VoiceEngine>(exeDir() / L"models", exeDir() / L"vosk", std::move(vcb));
+    voice_->configure(settings_.voice, voicePrint_);
+
     trayDark_ = taskbarLight();
     trayIcon_ = makeIcon(GetSystemMetrics(SM_CXSMICON), false, trayDark_, accent, IconBadge::Idle);
     trayBadge_ = IconBadge::Idle;
@@ -183,6 +193,7 @@ int App::run(HINSTANCE inst, bool startMinimized) {
     // Shutdown.
     KillTimer(msgWnd_, kTimerTick);
     if (settingsDirty_) saveSettings(settings_);
+    voice_.reset();
     pipeline_->stop();
     camera_->stop();
     tray_.remove();
@@ -207,6 +218,7 @@ void App::applySettings(bool full) {
     const ui::Palette old = palette_;
     palette_ = ui::paletteFor(settings_.ui);
     pipeline_->setSettings(std::make_shared<Settings>(settings_));
+    if (voice_) voice_->configure(settings_.voice, voicePrint_);
     camera_->configure(settings_.camera);
     const PowerProfile prof = (power_.onBattery || power_.saver) && settings_.perf.ecoOnBattery ? PowerProfile::Eco : settings_.perf.profile;
     if (!profileApplied_ || prof != appliedProfile_) {
@@ -368,24 +380,161 @@ void App::addLog(LogEntry e) {
     while (log_.size() > 8) log_.pop_back();
 }
 
-void App::onGesture(const GestureEvent& e) {
-    std::wstring what = describeAction(e.action);
-    if (e.action.type == ActionType::PauseRecognition) {
+bool App::ruleAllowedHere(const std::string& ruleId) const {
+    for (const auto& r : settings_.rules)
+        if (r.id == ruleId) return r.apps.empty() || appListMatches(r.apps, narrow(foregroundAppExe()));
+    return true;
+}
+
+void App::perform(const Action& a, const std::wstring& title, const std::wstring& detail) {
+    std::wstring what = describeAction(a);
+    if (a.type == ActionType::VoiceListen) {
+        startVoiceListen();  // shows its own "listening" hint
+        addLog({title.empty() ? what : title, detail, actionGlyph(a.type), unixMs()});
+        if (main_) main_->invalidate();
+        return;
+    }
+    if (a.type == ActionType::PauseRecognition) {
         setUserPaused(true);
-    } else if (e.action.type == ActionType::MicMute) {
+    } else if (a.type == ActionType::MicMute) {
         bool muted = false;  // say which way it went: the apps' own mic icons do not show it
         what = toggleSystemMicMute(&muted) ? (muted ? L"Микрофон выключен" : L"Микрофон включён") : L"Микрофон не найден";
-    } else {
-        executeAction(e.action);
+    } else if (!executeAction(a)) {
+        what += L" — не выполнено";
     }
+    addLog({title.empty() ? what : title, detail, actionGlyph(a.type), unixMs()});
+    if (settings_.ui.osd) osd_->showFired(actionGlyph(a.type), what, detail);
+    if (main_) main_->invalidate();
+}
+
+void App::onGesture(const GestureEvent& e) {
+    // "Only in these programs": the pipeline does not know which window is in front.
+    if (!ruleAllowedHere(e.ruleId)) return;
     std::wstring gname = findBuiltin(e.gesture) ? widen(findBuiltin(e.gesture)->nameRu) : L"Свой жест";
     if (e.gesture.rfind("custom:", 0) == 0)
         for (const auto& g : settings_.customGestures)
             if ("custom:" + g.id == e.gesture) gname = widen(g.name);
-    const std::wstring detail = gname;
-    const std::wstring title = e.ruleName.empty() ? what : widen(e.ruleName);
-    addLog({title, detail, actionGlyph(e.action.type), unixMs()});
-    if (settings_.ui.osd) osd_->showFired(actionGlyph(e.action.type), what, detail);
+    perform(e.action, widen(e.ruleName), gname);
+}
+
+// --------------------------------------------------------------------- voice commands
+
+void App::clearVoicePrint() {
+    voicePrint_.samples.clear();
+    saveVoice(voicePrint_);
+    voice_->configure(settings_.voice, voicePrint_);
+    voiceMessage_ = L"Образец голоса удалён";
+}
+
+void App::startVoiceListen() {
+    const std::wstring mic = L"";
+    std::string missing;
+    auto say = [&](const std::wstring& title, const std::wstring& detail) {
+        voiceMessage_ = title + (detail.empty() ? L"" : L" — " + detail);
+        osd_->showFired(mic, title, detail, 2600);
+        if (main_) main_->invalidate();
+    };
+    if (!voice_->installed(&missing)) return say(L"Голосовые команды не установлены", widen(missing));
+    if (settings_.voice.ownerOnly && voicePrint_.empty())
+        return say(L"Сначала запишите свой голос", L"Раздел «Голос» → «Записать мой голос»");
+    if (microphonesMuted()) {
+        if (!settings_.voice.unmuteToListen)
+            return say(L"Микрофон выключен", L"Включите его жестом или разрешите в разделе «Голос» включать на время команды");
+        setMicrophonesMuted(false);
+        voiceRemute_ = true;
+    }
+    if (!voice_->listen()) {
+        if (voiceRemute_) { setMicrophonesMuted(true); voiceRemute_ = false; }
+        return say(L"Уже слушаю", L"");
+    }
+    voiceMessage_ = L"Слушаю…";
+    osd_->showFired(mic, L"Слушаю команду…", L"Говорите", settings_.voice.listenMs + 6000);
+}
+
+void App::onVoiceOutcome(const VoiceOutcome& o) {
+    if (voiceRemute_) {  // back to muted before anything else: the command itself may toggle it
+        setMicrophonesMuted(true);
+        voiceRemute_ = false;
+    }
+    const std::wstring mic = L"";
+    voiceLastScore_ = o.score;
+    wchar_t pct[48] = L"";
+    if (o.score >= 0) swprintf(pct, 48, L"сходство голоса %d %%", static_cast<int>(o.score * 100 + 0.5f));
+    const std::wstring heard = L"«" + widen(o.heard) + L"»";
+    std::wstring title, detail;
+    switch (o.kind) {
+        case VoiceOutcome::Kind::Command: {
+            for (const auto& c : settings_.voice.commands)
+                if (c.id == o.commandId) {
+                    voiceMessage_ = L"Выполнено: " + heard + (pct[0] ? std::wstring(L" · ") + pct : L"");
+                    perform(c.action, L"Голос: " + widen(c.phrase), pct[0] ? pct : L"голосовая команда");
+                    return;
+                }
+            title = L"Команда удалена";
+            break;
+        }
+        case VoiceOutcome::Kind::NotUnderstood:
+            title = L"Команда не распознана";
+            detail = L"Скажите одну из фраз из раздела «Голос»";
+            break;
+        case VoiceOutcome::Kind::NoSpeech:
+            title = L"Ничего не услышал";
+            detail = L"Говорите сразу после жеста, ближе к микрофону";
+            break;
+        case VoiceOutcome::Kind::NotOwner:
+            title = L"Голос не ваш — команда не выполнена";
+            detail = heard + L" · " + pct + L", нужно " + std::to_wstring(static_cast<int>(settings_.voice.matchThreshold * 100 + 0.5f)) + L" %";
+            break;
+        case VoiceOutcome::Kind::NoVoicePrint:
+            title = L"Сначала запишите свой голос";
+            detail = L"Раздел «Голос» → «Записать мой голос»";
+            break;
+        case VoiceOutcome::Kind::Error:
+            title = L"Голосовая команда не сработала";
+            detail = widen(o.error);
+            break;
+        case VoiceOutcome::Kind::Cancelled:
+            title = L"Прослушивание отменено";
+            break;
+    }
+    voiceMessage_ = title + (detail.empty() ? L"" : L" — " + detail);
+    addLog({title, detail, mic, unixMs()});
+    if (settings_.ui.osd) osd_->showFired(mic, title, detail, 2600);
+    if (main_) main_->invalidate();
+}
+
+void App::startVoiceEnroll(bool append) {
+    std::string missing;
+    if (!voice_->installed(&missing)) {
+        voiceMessage_ = widen(missing);
+        return;
+    }
+    if (microphonesMuted()) {
+        voiceMessage_ = L"Микрофон выключен в Windows — включите его и повторите запись";
+        return;
+    }
+    voiceEnrollAppend_ = append;
+    voiceMessage_ = voice_->enroll(kVoiceEnrollMs) ? L"Идёт запись — читайте текст вслух" : L"Голосовой модуль занят, повторите через пару секунд";
+}
+
+void App::onVoiceEnrolled(const VoiceEnrollOutcome& o) {
+    if (!o.ok) {
+        voiceMessage_ = L"Голос не записан: " + widen(o.error);
+    } else {
+        if (!voiceEnrollAppend_) voicePrint_.samples.clear();
+        voicePrint_.samples.insert(voicePrint_.samples.end(), o.samples.begin(), o.samples.end());
+        if (voicePrint_.samples.size() > voice::VoicePrint::kMaxSamples)  // keep the newest
+            voicePrint_.samples.erase(voicePrint_.samples.begin(),
+                                      voicePrint_.samples.end() - static_cast<long>(voice::VoicePrint::kMaxSamples));
+        saveVoice(voicePrint_);
+        voice_->configure(settings_.voice, voicePrint_);
+        wchar_t b[160];
+        swprintf(b, 160, L"Голос записан: %d с речи, образцов %d, похожесть образцов между собой %d %%",
+                 static_cast<int>(o.speechSec + 0.5f), static_cast<int>(voicePrint_.samples.size()),
+                 static_cast<int>(o.consistency * 100 + 0.5f));
+        voiceMessage_ = b;
+        if (settings_.ui.notifications) tray_.notify(L"Vibe Hand", voiceMessage_);
+    }
     if (main_) main_->invalidate();
 }
 
@@ -403,7 +552,7 @@ void App::onSnapshot() {
         const GestureRule* r = nullptr;
         for (const auto& x : settings_.rules)
             if (x.id == rid) r = &x;
-        if (r && r->holdMs >= 250 && best > 0.12f && best < 1.f)
+        if (r && r->holdMs >= 250 && best > 0.12f && best < 1.f && ruleAllowedHere(r->id))
             osd_->showProgress(r->name.empty() ? describeAction(r->action) : widen(r->name), best);
         else
             osd_->hideProgress();
@@ -507,6 +656,9 @@ LRESULT App::handle(UINT msg, WPARAM wp, LPARAM lp) {
         case WM_VL_SHOWMAIN:
             showMain();
             return 0;
+        case WM_VL_VOICE:
+            if (main_ && main_->visible()) main_->invalidate();
+            return 0;
         case WM_HOTKEY:
             if (wp == kHotkeyToggle) {
                 setUserPaused(!userPaused_);
@@ -539,7 +691,10 @@ LRESULT App::handle(UINT msg, WPARAM wp, LPARAM lp) {
                 }
             } else if (wp == kTimerTest) {
                 KillTimer(msgWnd_, kTimerTest);
-                if (auto* a = reinterpret_cast<Action*>(GetPropW(msgWnd_, L"vl.test"))) executeAction(*a);
+                if (auto* a = reinterpret_cast<Action*>(GetPropW(msgWnd_, L"vl.test"))) {
+                    if (a->type == ActionType::VoiceListen) startVoiceListen();
+                    else executeAction(*a);
+                }
                 RemovePropW(msgWnd_, L"vl.test");
             }
             return 0;

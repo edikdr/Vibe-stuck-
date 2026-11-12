@@ -11,6 +11,8 @@
 
 #include "app/actions.hpp"
 #include "app/app.hpp"
+#include "core/macro.hpp"
+#include "core/voice.hpp"
 #include "platform/win/system.hpp"
 #include "ui/main_window.hpp"
 
@@ -99,7 +101,7 @@ std::wstring gestureName(const App& app, const std::string& id) {
 const std::vector<ActionType>& actionOrder() {
     // Own actions first (app, keys), then windows, media, system.
     static const std::vector<ActionType> v = {
-        ActionType::LaunchApp, ActionType::KeyCombo,
+        ActionType::LaunchApp, ActionType::KeyCombo, ActionType::Macro, ActionType::RunScript, ActionType::VoiceListen,
         ActionType::NextWindow, ActionType::PrevWindow, ActionType::SwitchWindow, ActionType::TaskView,
         ActionType::MinimizeWindow, ActionType::MaximizeWindow, ActionType::CloseWindow, ActionType::ShowDesktop,
         ActionType::NextDesktop, ActionType::PrevDesktop,
@@ -113,11 +115,12 @@ const std::vector<ActionType>& actionOrder() {
 
 std::wstring handName(bool right) { return right ? L"правая" : L"левая"; }
 
+
 std::wstring browseExe(HWND owner) {
     wchar_t file[MAX_PATH] = {};
     OPENFILENAMEW ofn{sizeof ofn};
     ofn.hwndOwner = owner;
-    ofn.lpstrFilter = L"Программы\0*.exe;*.lnk;*.bat;*.cmd\0Все файлы\0*.*\0";
+    ofn.lpstrFilter = L"Программы и скрипты\0*.exe;*.lnk;*.bat;*.cmd;*.ps1;*.ahk;*.py\0Все файлы\0*.*\0";
     ofn.lpstrFile = file;
     ofn.nMaxFile = MAX_PATH;
     ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_NOCHANGEDIR;
@@ -352,6 +355,99 @@ void drawOverview(Gui& g, App& app, UiState& st, const RectF& area) {
 
 namespace {
 
+// The action picker and the extra rows some actions need (keys, app, macro, script).
+// `first` is the control area of an already drawn "Действие" row. `key` keeps the text
+// buffers of different rules / voice commands apart. Returns true when `a` changed.
+bool actionEditor(Gui& g, UiState& st, Column& col, Action& a, const std::string& key, const RectF& first, bool allowVoice) {
+    bool ch = false;
+    RectF rr = first;
+    std::vector<ActionType> ao;
+    for (auto t : actionOrder())
+        if (allowVoice || t != ActionType::VoiceListen) ao.push_back(t);
+    std::vector<std::wstring> anames;
+    for (auto t : ao) anames.push_back(actionTitleRu(t));
+    int asel = static_cast<int>(std::find(ao.begin(), ao.end(), a.type) - ao.begin());
+    if (asel >= static_cast<int>(ao.size())) asel = static_cast<int>(ao.size()) - 1;
+    if (g.combo("action" + key, rr, asel, anames)) { a.type = ao[asel]; ch = true; }
+    if (a.type == ActionType::KeyCombo) {
+        rr = settingRow(g, col, glyph::Keyboard, L"Сочетание клавиш", L"Щёлкните и нажмите нужные клавиши");
+        if (g.keysField("keys" + key, rr, a.keys)) ch = true;
+    }
+    if (a.type == ActionType::Macro) {
+        auto& buf = st.text["macro:" + key];
+        if (buf.empty() && !a.script.empty()) buf = widen(a.script);
+        std::vector<MacroStep> steps;
+        std::string err;
+        const bool ok = a.script.empty() || parseMacro(a.script, steps, &err);
+        const std::wstring status = a.script.empty() ? L"Шаги через «;». Клавиши: Ctrl+Shift+M · пауза 300 · текст Привет · запуск C:\\x.ps1 · действия: mic_mute, media_next, volume_up…"
+                                    : ok ? L"Понятно, шагов: " + std::to_wstring(steps.size()) : L"Ошибка — " + widen(err);
+        rr = settingRow(g, col, glyph::Macro, L"Шаги макроса", status, 460);
+        if (g.textField("macro" + key, rr, buf, L"Ctrl+L; пауза 200; текст youtube.com; Enter", 400)) {
+            a.script = narrow(buf);
+            ch = true;
+        }
+    }
+    if (a.type == ActionType::RunScript) {
+        auto& pbuf = st.text["script:" + key];
+        auto& abuf = st.text["sargs:" + key];
+        if (pbuf.empty() && !a.path.empty()) pbuf = widen(a.path);
+        if (abuf.empty() && !a.args.empty()) abuf = widen(a.args);
+        rr = settingRow(g, col, glyph::Script, L"Скрипт или программа", L".ps1, .bat, .ahk, .py, .exe — запускается без окна консоли", 420);
+        if (g.textField("script" + key, {rr.x, rr.y, rr.w - 96, rr.h}, pbuf, L"C:\\Scripts\\mute.ps1", 260)) {
+            a.path = narrow(pbuf);
+            ch = true;
+        }
+        if (g.button("sbrowse" + key, {rr.right() - 88, rr.y, 88, rr.h}, L"Обзор…")) {
+            const auto f = browseExe(GetActiveWindow());
+            if (!f.empty()) { pbuf = f; a.path = narrow(f); ch = true; }
+        }
+        rr = settingRow(g, col, nullptr, L"Аргументы", L"Необязательно: то, что передаётся скрипту", 420);
+        if (g.textField("sargs" + key, rr, abuf, L"-Channel 2", 200)) {
+            a.args = narrow(abuf);
+            ch = true;
+        }
+    }
+    if (a.type == ActionType::LaunchApp) {
+        // Start menu ("All apps"): desktop programs and Store apps, loaded once.
+        static std::vector<InstalledApp> apps;
+        static bool appsLoaded = false;
+        if (!appsLoaded) {
+            apps = installedApps();
+            appsLoaded = true;
+        }
+        std::vector<std::wstring> names = {L"— выберите —"};
+        int asel2 = 0;
+        for (size_t i = 0; i < apps.size(); ++i) {
+            names.push_back(apps[i].name);
+            if (_wcsicmp(apps[i].path.c_str(), widen(a.path).c_str()) == 0) asel2 = static_cast<int>(i) + 1;
+        }
+        auto& pathBuf = st.text["path:" + key];
+        rr = settingRow(g, col, glyph::Apps, L"Приложение из меню «Пуск»",
+                        apps.empty() ? L"Список не загрузился — укажите файл ниже" : std::to_wstring(apps.size()) + L" приложений, включая Microsoft Store", 420);
+        if (g.combo("app" + key, {rr.x, rr.y, rr.w - 44, rr.h}, asel2, names) && asel2 > 0) {
+            a.path = narrow(apps[asel2 - 1].path);
+            a.label = narrow(apps[asel2 - 1].name);
+            pathBuf.clear();
+            ch = true;
+        }
+        if (g.iconButton("appsrefresh" + key, {rr.right() - 36, rr.y, 36, rr.h}, glyph::Refresh, L"Обновить список")) appsLoaded = false;
+
+        const bool fromList = a.path.rfind("shell:AppsFolder\\", 0) == 0;
+        if (pathBuf.empty() && !a.path.empty() && !fromList) pathBuf = widen(a.path);
+        rr = settingRow(g, col, glyph::Open, L"…или любой файл, программа, папка, ссылка", L"", 420);
+        if (g.textField("path" + key, {rr.x, rr.y, rr.w - 96, rr.h}, pathBuf, L"C:\\Path\\app.exe или https://…", 260)) {
+            a.path = narrow(pathBuf);
+            a.label.clear();
+            ch = true;
+        }
+        if (g.button("browse" + key, {rr.right() - 88, rr.y, 88, rr.h}, L"Обзор…")) {
+            const auto f = browseExe(GetActiveWindow());
+            if (!f.empty()) { pathBuf = f; a.path = narrow(f); a.label.clear(); ch = true; }
+        }
+    }
+    return ch;
+}
+
 void ruleEditor(Gui& g, App& app, UiState& st, Column& col, GestureRule& r, size_t index, bool& removed) {
     Settings& S = app.settings();
     bool ch = false;
@@ -440,56 +536,37 @@ void ruleEditor(Gui& g, App& app, UiState& st, Column& col, GestureRule& r, size
     rr = settingRow(g, col, glyph::Eye, L"Только когда смотрю на экран", L"Голова повёрнута к камере");
     if (g.toggle("look", rr, r.requireLooking)) ch = true;
 
-    // Action.
-    const auto& ao = actionOrder();
-    std::vector<std::wstring> anames;
-    for (auto t : ao) anames.push_back(actionTitleRu(t));
-    int asel = static_cast<int>(std::find(ao.begin(), ao.end(), r.action.type) - ao.begin());
-    if (asel >= static_cast<int>(ao.size())) asel = 0;
-    rr = settingRow(g, col, actionGlyph(r.action.type).c_str(), L"Действие", actionDescriptionRu(r.action.type), 360);
-    if (g.combo("action", rr, asel, anames)) { r.action.type = ao[asel]; ch = true; }
-    if (r.action.type == ActionType::KeyCombo) {
-        rr = settingRow(g, col, glyph::Keyboard, L"Сочетание клавиш", L"Щёлкните и нажмите нужные клавиши");
-        if (g.keysField("keys", rr, r.action.keys)) ch = true;
-    }
-    if (r.action.type == ActionType::LaunchApp) {
-        // Start menu ("All apps"): desktop programs and Store apps, loaded once.
-        static std::vector<InstalledApp> apps;
-        static bool appsLoaded = false;
-        if (!appsLoaded) {
-            apps = installedApps();
-            appsLoaded = true;
+    // Only in some programs.
+    {
+        auto& appsBuf = st.text["apps:" + r.id];
+        if (appsBuf.empty() && !r.apps.empty()) appsBuf = widen(r.apps);
+        static std::vector<std::wstring> open;
+        static double openAt = -100;
+        if (nowSec() - openAt > 3.0) {  // programs with a window right now
+            open = openWindowApps();
+            openAt = nowSec();
         }
-        std::vector<std::wstring> names = {L"— выберите —"};
-        int asel2 = 0;
-        for (size_t i = 0; i < apps.size(); ++i) {
-            names.push_back(apps[i].name);
-            if (_wcsicmp(apps[i].path.c_str(), widen(r.action.path).c_str()) == 0) asel2 = static_cast<int>(i) + 1;
-        }
-        auto& pathBuf = st.text["path:" + r.id];
-        rr = settingRow(g, col, glyph::Apps, L"Приложение из меню «Пуск»",
-                        apps.empty() ? L"Список не загрузился — укажите файл ниже" : std::to_wstring(apps.size()) + L" приложений, включая Microsoft Store", 420);
-        if (g.combo("app", {rr.x, rr.y, rr.w - 44, rr.h}, asel2, names) && asel2 > 0) {
-            r.action.path = narrow(apps[asel2 - 1].path);
-            r.action.label = narrow(apps[asel2 - 1].name);
-            pathBuf.clear();
+        std::vector<std::wstring> items = {L"＋ из открытых"};
+        items.insert(items.end(), open.begin(), open.end());
+        rr = settingRow(g, col, glyph::Apps, L"Только в приложении",
+                        L"Правило работает, только когда активно окно этой программы. Пусто — везде. Один жест может делать разное в разных программах", 420);
+        if (g.textField("apps", {rr.x, rr.y, rr.w - 168, rr.h}, appsBuf, L"везде · пример: discord.exe, chrome.exe", 200)) {
+            r.apps = narrow(appsBuf);
             ch = true;
         }
-        if (g.iconButton("appsrefresh", {rr.right() - 36, rr.y, 36, rr.h}, glyph::Refresh, L"Обновить список")) appsLoaded = false;
+        int pick = 0;
+        if (g.combo("appspick", {rr.right() - 160, rr.y, 160, rr.h}, pick, items) && pick > 0) {
+            if (!appListMatches(r.apps, narrow(items[pick])) || r.apps.empty()) {
+                r.apps += (trimCopy(r.apps).empty() ? "" : ", ") + narrow(items[pick]);
+                appsBuf = widen(r.apps);
+                ch = true;
+            }
+        }
+    }
 
-        const bool fromList = r.action.path.rfind("shell:AppsFolder\\", 0) == 0;
-        if (pathBuf.empty() && !r.action.path.empty() && !fromList) pathBuf = widen(r.action.path);
-        rr = settingRow(g, col, glyph::Open, L"…или любой файл, программа, папка, ссылка", L"", 420);
-        if (g.textField("path", {rr.x, rr.y, rr.w - 96, rr.h}, pathBuf, L"C:\\Path\\app.exe или https://…", 260)) {
-            r.action.path = narrow(pathBuf);
-            r.action.label.clear();
-            ch = true;
-        }
-        if (g.button("browse", {rr.right() - 88, rr.y, 88, rr.h}, L"Обзор…")) {
-            const auto f = browseExe(GetActiveWindow());
-            if (!f.empty()) { pathBuf = f; r.action.path = narrow(f); r.action.label.clear(); ch = true; }
-        }
-    }
+    // Action.
+    rr = settingRow(g, col, actionGlyph(r.action.type).c_str(), L"Действие", actionDescriptionRu(r.action.type), 360);
+    if (actionEditor(g, st, col, r.action, "r:" + r.id, rr, true)) ch = true;
 
     const RectF btns = col.next(40);
     if (g.button("test", {btns.x, btns.y, 190, 34}, L"Проверить действие", ButtonKind::Standard, glyph::Play)) app.testAction(r.action);
@@ -793,6 +870,187 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
             app.settingsChanged();
         }
     }
+}
+
+// --------------------------------------------------------------------- voice
+
+void drawVoice(Gui& g, App& app, UiState& st, const RectF& area) {
+    PageScope ps(g, "voice", area, L"Голос", L"Команды голосом после жеста-активатора. Выполняются только на ваш голос");
+    Column& col = ps.col;
+    Canvas& c = g.canvas();
+    const Palette& p = g.pal();
+    Settings& S = app.settings();
+    VoiceEngine& ve = app.voice();
+    const VoiceEngine::State vs = ve.state();
+    const bool busy = vs != VoiceEngine::State::Idle;
+    bool ch = false;
+
+    std::string missing;
+    const bool installed = ve.installed(&missing);
+    if (installed) ve.warmUp();  // the dictionary check below needs the speech model
+
+    // Status: what the engine is doing, the microphone level, the last result.
+    {
+        const RectF r = col.next(92);
+        g.card(r, 10);
+        const wchar_t* stateText = !installed ? L"Не установлено"
+                                   : vs == VoiceEngine::State::Loading ? L"Загружаю модели…"
+                                   : vs == VoiceEngine::State::Listening ? L"Слушаю — говорите команду"
+                                   : vs == VoiceEngine::State::Recognizing ? L"Распознаю…"
+                                   : vs == VoiceEngine::State::Enrolling ? L"Записываю ваш голос — читайте текст вслух"
+                                                                         : L"Готово. Микрофон выключен, пока нет жеста";
+        const Color sc = !installed ? p.warning : busy ? p.accent : p.success;
+        c.icon(glyph::Mic, {r.x + 16, r.y + 12, 24, 24}, sc, 18.f);
+        c.text(stateText, {r.x + 52, r.y + 10, r.w - 260, 26}, p.text, 15.f, Weight::Semibold);
+        std::wstring msg = !installed ? widen(missing) : app.voiceMessage();
+        if (msg.empty()) msg = L"Микрофон открывается только после жеста «Слушать голосовую команду» и закрывается после фразы.";
+        c.text(msg, {r.x + 52, r.y + 38, r.w - 68, 44}, p.textDim, 12.5f, Weight::Regular, Align::Start, Align::Start, true);
+        if (busy) {
+            // Level meter + how much of the listening window / recording is used.
+            const RectF bar{r.right() - 196, r.y + 18, 180, 8};
+            c.fillRound(bar, 4, p.control);
+            c.fillRound({bar.x, bar.y, bar.w * std::clamp(ve.level(), 0.f, 1.f), bar.h}, 4, p.success);
+            const RectF pr{bar.x, bar.y + 14, bar.w, 4};
+            c.fillRound(pr, 2, p.control);
+            c.fillRound({pr.x, pr.y, pr.w * std::clamp(ve.progress(), 0.f, 1.f), pr.h}, 2, p.accent);
+        }
+    }
+
+    // ---- the owner's voice
+    section(g, col, L"Мой голос");
+    const size_t samples = app.voicePrint().samples.size();
+    {
+        const bool enrolling = vs == VoiceEngine::State::Enrolling;
+        const std::wstring have = samples ? L"Записан: образцов " + std::to_wstring(samples) + L". «Дописать» добавляет образцы — например, с гарнитурой или уставшим голосом"
+                                          : L"Не записан. Без образца команды «только на мой голос» не выполняются";
+        RectF rr = settingRow(g, col, glyph::Contact, L"Образец голоса", have, 380);
+        if (enrolling) {
+            if (g.button("venrollstop", {rr.right() - 150, rr.y, 150, rr.h}, L"Отмена")) ve.cancel();
+        } else {
+            const float bw = samples ? 122.f : 190.f;
+            if (g.button("venroll", {rr.right() - bw, rr.y, bw, rr.h}, samples ? L"Заново" : L"Записать мой голос", ButtonKind::Accent, glyph::Record, installed && !busy))
+                app.startVoiceEnroll(false);
+            if (samples) {
+                if (g.button("venrollmore", {rr.right() - bw - 8 - 112, rr.y, 112, rr.h}, L"Дописать", ButtonKind::Standard, nullptr, installed && !busy))
+                    app.startVoiceEnroll(true);
+                if (confirmButton(g, st, "voiceprint", {rr.right() - bw - 16 - 112 - 120, rr.y, 120, rr.h}, L"Удалить")) app.clearVoicePrint();
+            }
+        }
+        if (enrolling || !samples) {
+            const RectF r = col.next(118);
+            g.card(r, 8);
+            c.text(enrolling ? L"Читайте вслух обычным голосом, как будете подавать команды (20 секунд):" : L"При записи нужно 20 секунд читать вслух этот текст:",
+                   {r.x + 18, r.y + 10, r.w - 36, 20}, p.textMuted, 12.5f);
+            c.text(L"Пауза. Следующий трек. Громче, ещё громче. Тише. Выключи микрофон. Сверни окно. Открой браузер. "
+                   L"Сегодня я настраиваю управление компьютером голосом и жестами. Съешь ещё этих мягких французских булок да выпей чаю. "
+                   L"Раз, два, три, четыре, пять, шесть, семь, восемь, девять, десять.",
+                   {r.x + 18, r.y + 34, r.w - 36, 76}, p.text, 14.f, Weight::Regular, Align::Start, Align::Start, true);
+        }
+    }
+    RectF rr = settingRow(g, col, glyph::Shield, L"Выполнять только на мой голос",
+                          L"Фраза сравнивается с образцом. Чужой голос, видео или музыка команду не запустят");
+    if (g.toggle("vowner", rr, S.voice.ownerOnly)) ch = true;
+    if (S.voice.ownerOnly) {
+        std::wstring last = L"Выше — строже. Обычно свой голос даёт 50–80 %, чужой — до 35 %.";
+        if (app.voiceLastScore() >= 0) last += L" В последний раз: " + fmtInt(app.voiceLastScore() * 100, L" %");
+        rr = settingRow(g, col, nullptr, L"Порог сходства голоса", last);
+        if (g.slider("vthr", rr, S.voice.matchThreshold, 0.25f, 0.75f, 0.01f, [](float v) { return fmtInt(v * 100, L" %"); })) ch = true;
+    }
+    float listen = static_cast<float>(S.voice.listenMs);
+    rr = settingRow(g, col, glyph::Refresh, L"Сколько ждать команду", L"Если за это время никто не заговорил, микрофон закрывается");
+    if (g.slider("vlisten", rr, listen, 2000, 10000, 500, fmtMs)) { S.voice.listenMs = static_cast<int>(listen); ch = true; }
+    rr = settingRow(g, col, glyph::Mic, L"Включать микрофон на время команды",
+                    L"Если микрофоны выключены действием «Микрофон вкл/выкл»: включить на несколько секунд и выключить обратно. В звонке вас в это время слышно");
+    if (g.toggle("vunmute", rr, S.voice.unmuteToListen)) ch = true;
+
+    // ---- how it is started
+    section(g, col, L"Жест-активатор");
+    {
+        std::wstring rules;
+        int count = 0;
+        for (const auto& r : S.rules)
+            if (r.action.type == ActionType::VoiceListen) {
+                rules += (count++ ? L", " : L"") + std::wstring(L"«") + (r.name.empty() ? gestureName(app, r.gesture) : widen(r.name)) + L"»" + (r.enabled ? L"" : L" (выключено)");
+            }
+        rr = settingRow(g, col, glyph::Hand, L"Правило с действием «Слушать голосовую команду»",
+                        count ? L"Есть: " + rules + L". Покажите жест и сразу говорите" : L"Пока нет. Создайте правило и выберите в нём удобный жест", 380);
+        if (g.button("vaddrule", {rr.right() - 184, rr.y, 184, rr.h}, L"Создать правило", ButtonKind::Standard, glyph::Add)) {
+            GestureRule r;
+            r.id = newId();
+            r.name = "Голосовая команда";
+            r.gesture = "open_palm";
+            r.holdMs = 500;
+            r.cooldownMs = 2500;
+            r.action.type = ActionType::VoiceListen;
+            S.rules.push_back(r);
+            st.expandedRule = r.id;
+            st.page = PageGestures;
+            ch = true;
+        }
+        if (g.button("vtest", {rr.right() - 184 - 8 - 180, rr.y, 180, rr.h}, L"Слушать сейчас", ButtonKind::Accent, glyph::Play, installed && !busy))
+            app.startVoiceListen();
+    }
+
+    // ---- commands
+    section(g, col, L"Команды");
+    {
+        const Color& m = p.textDim;
+        g.label(L"Фразы — русскими словами, лучше из 2–3 слов: их труднее спутать и по ним надёжнее узнаётся голос. Числа пишите словами.",
+                col.next(22), 12.5f, &m);
+    }
+    static std::unordered_map<std::string, std::vector<std::string>> dictCache;  // phrase -> unknown words
+    int removeAt = -1;
+    for (size_t i = 0; i < S.voice.commands.size(); ++i) {
+        VoiceCommand& vc = S.voice.commands[i];
+        g.pushId("vc" + vc.id);
+        auto& buf = st.text["vphrase:" + vc.id];
+        if (buf.empty() && !vc.phrase.empty()) buf = widen(vc.phrase);
+        // Words the recogniser does not know can never be heard: say so right under the phrase.
+        std::wstring note = L"Что сказать после жеста";
+        const std::string norm = voice::normalizePhrase(vc.phrase);
+        if (norm.empty()) {
+            note = L"Введите фразу";
+        } else {
+            auto it = dictCache.find(norm);
+            if (it == dictCache.end()) {
+                std::vector<std::string> miss;
+                if (installed && ve.unknownWords(norm, miss)) it = dictCache.emplace(norm, std::move(miss)).first;
+            }
+            if (it != dictCache.end() && !it->second.empty()) {
+                note = L"Нет в словаре распознавания: ";
+                for (size_t k = 0; k < it->second.size(); ++k) note += (k ? L", " : L"") + widen(it->second[k]);
+                note += L". Замените слово (названия программ — русским словом: «браузер», «музыка»)";
+            }
+            for (size_t k = 0; k < i; ++k)
+                if (voice::normalizePhrase(S.voice.commands[k].phrase) == norm) note = L"Такая фраза уже есть выше — сработает первая";
+        }
+        rr = settingRow(g, col, glyph::Mic, L"Фраза", note, 420);
+        if (g.textField("phrase", {rr.x, rr.y, rr.w - 110, rr.h}, buf, L"например: выключи микрофон", 60)) {
+            vc.phrase = narrow(buf);
+            ch = true;
+        }
+        if (g.toggle("on", {rr.right() - 100, rr.y, 52, rr.h}, vc.enabled, false)) ch = true;
+        if (g.iconButton("del", {rr.right() - 40, rr.y, 40, rr.h}, glyph::Delete, L"Удалить команду")) removeAt = static_cast<int>(i);
+        rr = settingRow(g, col, actionGlyph(vc.action.type).c_str(), L"Действие", actionDescriptionRu(vc.action.type), 360);
+        if (actionEditor(g, st, col, vc.action, "v:" + vc.id, rr, false)) ch = true;
+        col.space(10);
+        g.popId();
+    }
+    if (removeAt >= 0) {
+        S.voice.commands.erase(S.voice.commands.begin() + removeAt);
+        ch = true;
+    }
+    {
+        const RectF b = col.next(40);
+        if (g.button("vadd", {b.x, b.y, 200, 34}, L"Добавить команду", ButtonKind::Accent, glyph::Add)) {
+            VoiceCommand vc;
+            vc.id = newId();
+            vc.action.type = ActionType::MediaPlayPause;
+            S.voice.commands.push_back(vc);
+            ch = true;
+        }
+    }
+    if (ch) app.settingsChanged();
 }
 
 // --------------------------------------------------------------------- faces

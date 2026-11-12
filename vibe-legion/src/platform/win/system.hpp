@@ -10,6 +10,7 @@
 
 #include "core/face_db.hpp"
 #include "core/settings.hpp"
+#include "core/voice.hpp"
 #include "platform/win/win_common.hpp"
 
 namespace vl::win {
@@ -22,6 +23,9 @@ Settings loadSettings();
 bool saveSettings(const Settings& s);
 FaceDatabase loadFaces();
 bool saveFaces(const FaceDatabase& db);
+// The owner's voice print (voice.bin, DPAPI like the faces).
+voice::VoicePrint loadVoice();
+bool saveVoice(const voice::VoicePrint& v);
 
 // HKCU\...\Run entry with --minimized.
 bool setAutostart(bool on);

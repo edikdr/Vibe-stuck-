@@ -130,6 +130,9 @@ inline constexpr const wchar_t* Memory = L"";
 inline constexpr const wchar_t* Warning = L"";
 inline constexpr const wchar_t* Flash = L"";
 inline constexpr const wchar_t* Apps = L"";      // AllApps
+inline constexpr const wchar_t* Mic = L"\uE720";
+inline constexpr const wchar_t* Macro = L"\uE8FD";     // bulleted list
+inline constexpr const wchar_t* Script = L"\uE756";    // command prompt
 }  // namespace glyph
 
 }  // namespace vl::ui

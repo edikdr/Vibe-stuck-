@@ -76,11 +76,12 @@ void MainWindow::frame(Gui& g, const RectF& client) {
     c.fillRound({18, 18, 34, 34}, 9, p.accent);
     c.icon(glyph::Hand, {18, 18, 34, 34}, p.onAccent, 17.f);
     c.text(L"Vibe Hand", {62, 16, 180, 22}, p.text, 16.f, Weight::Semibold);
-    c.text(L"Жесты и лица · Legion 7", {62, 37, 180, 16}, p.textMuted, 12.f);
+    c.text(L"Жесты, голос, лица · Legion 7", {62, 37, 180, 16}, p.textMuted, 12.f);
 
     struct Nav { const wchar_t* g; const wchar_t* t; };
     static const Nav items[kPageCount] = {
         {glyph::Home, L"Обзор"},          {glyph::Hand, L"Жесты"},
+        {glyph::Mic, L"Голос"},
         {glyph::People, L"Лица"},          {glyph::Camera, L"Камера и ночь"},
         {glyph::Leaf, L"Питание"},         {glyph::Settings, L"Система"},
     };
@@ -110,6 +111,7 @@ void MainWindow::frame(Gui& g, const RectF& client) {
     switch (state_.page) {
         case PageOverview: drawOverview(g, app_, state_, area); break;
         case PageGestures: drawGestures(g, app_, state_, area); break;
+        case PageVoice: drawVoice(g, app_, state_, area); break;
         case PageFaces: drawFaces(g, app_, state_, area); break;
         case PageCamera: drawCamera(g, app_, state_, area); break;
         case PagePower: drawPower(g, app_, state_, area); break;

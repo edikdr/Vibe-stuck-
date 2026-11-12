@@ -9,6 +9,7 @@
 #include <vector>
 
 #include "core/face_db.hpp"
+#include "app/voice_engine.hpp"
 #include "core/settings.hpp"
 #include "platform/win/camera_mf.hpp"
 #include "platform/win/system.hpp"
@@ -62,6 +63,16 @@ public:
     void cancelTasks();
     std::wstring lastTaskMessage() const { return taskMessage_; }
 
+    // ---- voice commands
+    VoiceEngine& voice() { return *voice_; }
+    const voice::VoicePrint& voicePrint() const { return voicePrint_; }
+    void clearVoicePrint();
+    void startVoiceListen();                 // the "listen" gesture, or the test button
+    void startVoiceEnroll(bool append);      // records the owner reading aloud
+    static constexpr int kVoiceEnrollMs = 20000;
+    std::wstring voiceMessage() const { return voiceMessage_; }   // last result, for the voice page
+    float voiceLastScore() const { return voiceLastScore_; }
+
     void testAction(const Action& a);
     void showMain(int page = -1);
     void toggleFlyout();
@@ -84,6 +95,11 @@ private:
     void updateTrayIcon();
     void registerHotkeys();
     void onGesture(const GestureEvent& e);
+    // Runs an action and reports it (journal + OSD). `title`: rule / command name, may be empty.
+    void perform(const Action& a, const std::wstring& title, const std::wstring& detail);
+    void onVoiceOutcome(const VoiceOutcome& o);
+    void onVoiceEnrolled(const VoiceEnrollOutcome& o);
+    bool ruleAllowedHere(const std::string& ruleId) const;  // per-app rule filter vs. the foreground program
     void onSnapshot();
     void showTrayMenu();
     void postToUi(std::function<void()> fn);
@@ -100,6 +116,13 @@ private:
     std::unique_ptr<win::MfCamera> camera_;
     std::unique_ptr<VisionPipeline> pipeline_;
     PipelineSnapshot snap_;
+
+    std::unique_ptr<VoiceEngine> voice_;
+    voice::VoicePrint voicePrint_;
+    std::wstring voiceMessage_;
+    float voiceLastScore_ = -1.f;
+    bool voiceEnrollAppend_ = false;
+    bool voiceRemute_ = false;   // microphones were unmuted just for the command: mute them again
 
     win::TrayIcon tray_;
     HICON trayIcon_ = nullptr, iconSmall_ = nullptr, iconLarge_ = nullptr;

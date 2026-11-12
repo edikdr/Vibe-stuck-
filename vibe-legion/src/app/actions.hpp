@@ -23,6 +23,11 @@ bool toggleSystemMicMute(bool* mutedNow);
 
 bool executeAction(const Action& a);
 
+// File name of the program whose window is in front ("Discord.exe"; "" if unknown).
+std::wstring foregroundAppExe();
+// Lower-case exe names of the programs that have a window open (for the per-app rule picker).
+std::vector<std::wstring> openWindowApps();
+
 std::wstring actionTitleRu(ActionType t);
 // One or two sentences: what exactly happens, the shortcut it stands for, where it is useful.
 std::wstring actionDescriptionRu(ActionType t);
