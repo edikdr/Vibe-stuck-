@@ -567,6 +567,14 @@ LRESULT App::handle(UINT msg, WPARAM wp, LPARAM lp) {
         case WM_SETTINGCHANGE:
             if (lp && wcscmp(reinterpret_cast<const wchar_t*>(lp), L"ImmersiveColorSet") == 0) applySettings(true);
             return 0;
+        case WM_QUERYENDSESSION:
+            // Windows is shutting down / restarting: write everything now, the 0.5 s save
+            // timer and the normal exit path may never get to run.
+            if (settingsDirty_) { saveSettings(settings_); settingsDirty_ = false; }
+            return TRUE;
+        case WM_ENDSESSION:
+            if (wp && settingsDirty_) { saveSettings(settings_); settingsDirty_ = false; }
+            return 0;
         case WM_DESTROY:
             PostQuitMessage(0);
             return 0;

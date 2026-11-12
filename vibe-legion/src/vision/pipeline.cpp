@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <chrono>
 #include <cmath>
+#include <cstdio>
+#include <cstdlib>
 
 namespace vl {
 
@@ -573,6 +575,37 @@ void VisionPipeline::processFrame(Image& rgb, bool ir, int64_t now, const Settin
     auto events = engine_.update(hands, dynamic, twoPose, fc, s.rules, now);
     for (const auto& e : events)
         if (cb_.onGesture) cb_.onGesture(e);
+
+    // Diagnostics: VL_DIAG=<file> logs, for every frame with a hand, what the engine saw
+    // and why each enabled rule did or did not match.
+    static FILE* diag = [] {
+        const char* p = std::getenv("VL_DIAG");
+        return p && *p ? std::fopen(p, "a") : nullptr;
+    }();
+    if (diag && (found || !events.empty() || !dynamic.empty())) {
+        std::fprintf(diag, "%lld faces=%d known=%zu dyn=%s two=%s", static_cast<long long>(now), fc.anyFace ? 1 : 0,
+                     fc.people.size(), dynamic.c_str(), twoPose.c_str());
+        for (const auto& h : hands)
+            std::fprintf(diag, " | %s pres=%.2f in=%d spd=%.2f busy=%d pose=%s custom=%s(%.2f)", h.isRight ? "R" : "L",
+                         h.presence, h.inFrame ? 1 : 0, h.speed, h.busy ? 1 : 0, h.pose.c_str(), h.customId.c_str(),
+                         h.customConfidence);
+        for (const auto& r : s.rules) {
+            if (!r.enabled) continue;
+            std::string why = "ok";
+            bool any = false;
+            for (const auto& h : hands) {
+                std::string w;
+                if (GestureEngine::handMatches(r, h, &w)) { any = true; break; }
+                why = w;
+            }
+            if (any) why = "match";
+            if (r.person != PersonFilter::Anyone && fc.people.empty()) why += "+noface";
+            std::fprintf(diag, " [%s:%s]", r.gesture.c_str(), why.c_str());
+        }
+        for (const auto& e : events) std::fprintf(diag, " FIRED(%s)", e.gesture.c_str());
+        std::fputc('\n', diag);
+        std::fflush(diag);
+    }
 
     // ---- snapshot
     const double msFrame = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - t0).count();

@@ -6,6 +6,7 @@
 #include <shlobj.h>
 #include <wincrypt.h>
 
+#include <algorithm>
 #include <fstream>
 #include <iterator>
 #include <sstream>
@@ -66,50 +67,118 @@ bool readAll(const std::filesystem::path& p, std::string& out) {
     return true;
 }
 
+// Durable replace: write a temp file, FlushFileBuffers it (data really on disk, not in the
+// cache: without this a power loss / reboot right after the rename leaves an empty file),
+// keep the previous good file as <name>.bak, then swap with a write-through rename.
 bool writeAtomic(const std::filesystem::path& p, const void* data, size_t size) {
     std::filesystem::path tmp = p;
     tmp += L".tmp";
-    {
-        std::ofstream f(tmp, std::ios::binary | std::ios::trunc);
-        if (!f) return false;
-        f.write(static_cast<const char*>(data), static_cast<std::streamsize>(size));
-        if (!f) return false;
+    HANDLE h = CreateFileW(tmp.c_str(), GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS,
+                           FILE_ATTRIBUTE_NORMAL | FILE_FLAG_WRITE_THROUGH, nullptr);
+    if (h == INVALID_HANDLE_VALUE) return false;
+    bool ok = true;
+    const char* src = static_cast<const char*>(data);
+    size_t left = size;
+    while (left > 0 && ok) {
+        const DWORD chunk = static_cast<DWORD>(std::min<size_t>(left, 1u << 20));
+        DWORD wrote = 0;
+        ok = WriteFile(h, src, chunk, &wrote, nullptr) && wrote == chunk;
+        src += wrote;
+        left -= wrote;
     }
+    ok = ok && FlushFileBuffers(h);
+    CloseHandle(h);
+    if (!ok) {
+        DeleteFileW(tmp.c_str());
+        return false;
+    }
+    std::filesystem::path bak = p;
+    bak += L".bak";
+    std::error_code ec;
+    if (std::filesystem::exists(p, ec) && std::filesystem::file_size(p, ec) > 0)
+        CopyFileW(p.c_str(), bak.c_str(), FALSE);  // previous version survives a bad write
     return MoveFileExW(tmp.c_str(), p.c_str(), MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH) != 0;
+}
+
+// One copy per day, the last 7 kept: protects against a bad state that was saved properly.
+void dailyBackup(const std::filesystem::path& p) {
+    std::error_code ec;
+    if (!std::filesystem::exists(p, ec) || std::filesystem::file_size(p, ec) == 0) return;
+    const auto dir = p.parent_path() / L"backup";
+    std::filesystem::create_directories(dir, ec);
+    SYSTEMTIME st;
+    GetLocalTime(&st);
+    wchar_t day[16];
+    swprintf(day, 16, L"%04d%02d%02d", st.wYear, st.wMonth, st.wDay);
+    const auto dst = dir / (p.stem().wstring() + L"-" + day + p.extension().wstring());
+    if (!std::filesystem::exists(dst, ec)) CopyFileW(p.c_str(), dst.c_str(), TRUE);
+    std::vector<std::filesystem::path> mine;
+    for (const auto& e : std::filesystem::directory_iterator(dir, ec))
+        if (e.path().stem().wstring().rfind(p.stem().wstring() + L"-", 0) == 0) mine.push_back(e.path());
+    std::sort(mine.begin(), mine.end());
+    while (mine.size() > 7) {
+        std::filesystem::remove(mine.front(), ec);
+        mine.erase(mine.begin());
+    }
 }
 
 }  // namespace
 
 Settings loadSettings() {
-    std::string text;
-    const auto p = appDataDir() / L"settings.json";
-    if (!readAll(p, text)) return Settings::defaults();
-    auto r = json::parse(text);
-    if (!r.ok) {
-        // Keep the broken file for the user, start from defaults.
+    const auto dir = appDataDir();
+    const auto p = dir / L"settings.json";
+    // settings.json, then its previous version, then the newest daily backup.
+    std::vector<std::filesystem::path> candidates = {p, dir / L"settings.json.bak"};
+    {
         std::error_code ec;
-        std::filesystem::copy_file(p, appDataDir() / L"settings.broken.json",
-                                   std::filesystem::copy_options::overwrite_existing, ec);
-        return Settings::defaults();
+        std::vector<std::filesystem::path> daily;
+        for (const auto& e : std::filesystem::directory_iterator(dir / L"backup", ec))
+            if (e.path().stem().wstring().rfind(L"settings-", 0) == 0) daily.push_back(e.path());
+        std::sort(daily.rbegin(), daily.rend());
+        candidates.insert(candidates.end(), daily.begin(), daily.end());
     }
-    return Settings::fromJson(r.value);
+    bool existed = false;
+    for (size_t i = 0; i < candidates.size(); ++i) {
+        std::string text;
+        if (!readAll(candidates[i], text) || text.empty()) continue;
+        existed = true;
+        auto r = json::parse(text);
+        if (!r.ok) continue;
+        if (i > 0) {
+            // The main file was unusable: keep it for inspection and restore from this copy.
+            std::error_code ec;
+            std::filesystem::copy_file(p, dir / L"settings.broken.json", std::filesystem::copy_options::overwrite_existing, ec);
+            std::filesystem::copy_file(candidates[i], p, std::filesystem::copy_options::overwrite_existing, ec);
+        }
+        dailyBackup(p);
+        return Settings::fromJson(r.value);
+    }
+    if (existed) {
+        std::error_code ec;
+        std::filesystem::copy_file(p, dir / L"settings.broken.json", std::filesystem::copy_options::overwrite_existing, ec);
+    }
+    return Settings::defaults();
 }
 
 bool saveSettings(const Settings& s) {
     const std::string text = s.toJson().dump(2);
-    return writeAtomic(appDataDir() / L"settings.json", text.data(), text.size());
+    const auto p = appDataDir() / L"settings.json";
+    const bool ok = writeAtomic(p, text.data(), text.size());
+    if (ok) dailyBackup(p);
+    return ok;
 }
-
 FaceDatabase loadFaces() {
     FaceDatabase db;
-    std::string blob;
-    if (!readAll(appDataDir() / L"faces.bin", blob) || blob.empty()) return db;
-    DATA_BLOB in{static_cast<DWORD>(blob.size()), reinterpret_cast<BYTE*>(blob.data())}, out{};
-    if (CryptUnprotectData(&in, nullptr, nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &out)) {
+    const auto fp = appDataDir() / L"faces.bin";
+    for (const auto& path : {fp, std::filesystem::path(fp.wstring() + L".bak")}) {  // main file, then the previous one
+        std::string blob;
+        if (!readAll(path, blob) || blob.empty()) continue;
+        DATA_BLOB in{static_cast<DWORD>(blob.size()), reinterpret_cast<BYTE*>(blob.data())}, out{};
+        if (!CryptUnprotectData(&in, nullptr, nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &out)) continue;
         std::vector<uint8_t> plain(out.pbData, out.pbData + out.cbData);
         SecureZeroMemory(out.pbData, out.cbData);
         LocalFree(out.pbData);
-        db.deserialize(plain);
+        if (db.deserialize(plain)) return db;
     }
     return db;
 }
@@ -119,7 +188,9 @@ bool saveFaces(const FaceDatabase& db) {
     DATA_BLOB in{static_cast<DWORD>(plain.size()), plain.data()}, out{};
     if (!CryptProtectData(&in, L"Vibe Hand faces", nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &out))
         return false;
-    const bool ok = writeAtomic(appDataDir() / L"faces.bin", out.pbData, out.cbData);
+    const auto fp = appDataDir() / L"faces.bin";
+    const bool ok = writeAtomic(fp, out.pbData, out.cbData);
+    if (ok) dailyBackup(fp);
     LocalFree(out.pbData);
     return ok;
 }
