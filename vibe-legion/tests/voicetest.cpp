@@ -1,16 +1,15 @@
 // Offline check of the voice chain on WAV files (16-bit PCM, any rate, mono or stereo):
-//   vl_voicetest <models dir> <vosk dll dir> "<phrase 1>|<phrase 2>|..." a.wav b.wav ...
-// Prints what the recogniser heard in each file (closed list of phrases) and the
-// similarity of every pair of voices.
+//   vl_voicetest <speaker model.onnx> [intonation 0..1] a.wav b.wav ...
+// Every file goes through the same path as the live microphone (end-pointing, phrase
+// features, speaker embedding). Prints the DTW distance and the voice similarity of
+// every pair: used to calibrate the thresholds in core/voice.cpp.
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #include <fstream>
 
 #include "core/voice.hpp"
 #include "ml/speaker.hpp"
-#include "platform/win/voice_io.hpp"
-
-#include <objbase.h>
 
 using namespace vl;
 
@@ -48,8 +47,7 @@ static bool readWav(const std::filesystem::path& p, std::vector<float>& pcm16k) 
         for (int c = 0; c < ch; ++c) sum += s[i * static_cast<size_t>(ch) + static_cast<size_t>(c)];
         mono[i] = static_cast<float>(sum) / static_cast<float>(ch) / 32768.f;
     }
-    // Linear resampling is enough for a test tool.
-    const double step = static_cast<double>(rate) / voice::kRate;
+    const double step = static_cast<double>(rate) / voice::kRate;  // linear resampling: fine for a test tool
     pcm16k.clear();
     for (double x = 0; x + 1 < static_cast<double>(n); x += step) {
         const size_t i = static_cast<size_t>(x);
@@ -59,65 +57,56 @@ static bool readWav(const std::filesystem::path& p, std::vector<float>& pcm16k) 
     return !pcm16k.empty();
 }
 
-int wmain(int argc, wchar_t** argv) {
-    if (argc < 5) {
-        std::printf("usage: vl_voicetest <models dir> <vosk dir> \"phrase|phrase\" a.wav ...\n");
+int main(int argc, char** argv) {
+    if (argc < 3) {
+        std::printf("usage: vl_voicetest <speaker model.onnx> [intonation] a.wav ...\n");
         return 2;
     }
-    CoInitializeEx(nullptr, COINIT_MULTITHREADED);
-    const std::filesystem::path models = argv[1], voskDir = argv[2];
-    std::vector<VoiceCommand> cmds;
-    {
-        const std::string all = win::narrow(argv[3]);
-        size_t pos = 0;
-        while (pos <= all.size()) {
-            size_t bar = all.find('|', pos);
-            if (bar == std::string::npos) bar = all.size();
-            VoiceCommand c;
-            c.phrase = all.substr(pos, bar - pos);
-            if (!c.phrase.empty()) cmds.push_back(c);
-            pos = bar + 1;
-        }
-    }
     std::string err;
-    win::Vosk vosk;
-    if (!vosk.load(voskDir, models / L"vosk-model-small-ru", &err)) std::printf("vosk: %s\n", err.c_str());
     ml::SpeakerEmbedder spk;
-    if (!spk.load(models / L"voice_speaker_resnet34.onnx", &err)) std::printf("speaker: %s\n", err.c_str());
-    const std::string grammar = voice::grammarJson(cmds);
-    std::printf("grammar: %s\n", grammar.c_str());
-    for (const auto& c : cmds)
-        for (const auto& w : voice::splitWords(voice::normalizePhrase(c.phrase)))
-            if (vosk.ok() && !vosk.hasWord(w)) std::printf("  not in dictionary: %s\n", w.c_str());
+    auto toPath = [](const char* s) { return std::filesystem::path(std::u8string(reinterpret_cast<const char8_t*>(s))); };
+    if (!spk.load(toPath(argv[1]), &err)) std::printf("speaker model: %s\n", err.c_str());
+    int first = 2;
+    float intonation = 0.5f;
+    if (std::strchr(argv[2], '.') && !std::strstr(argv[2], ".wav")) intonation = static_cast<float>(std::atof(argv[first++]));
 
-    std::vector<std::vector<float>> embs;
+    std::vector<voice::VoiceTake> takes;
     std::vector<std::string> names;
-    for (int i = 4; i < argc; ++i) {
+    for (int i = first; i < argc; ++i) {
         std::vector<float> pcm;
-        if (!readWav(argv[i], pcm)) {
-            std::printf("%ls: cannot read\n", argv[i]);
+        const auto path = toPath(argv[i]);
+        if (!readWav(path, pcm)) {
+            std::printf("%s: cannot read\n", argv[i]);
             continue;
         }
-        // The same path as the app: end-pointing, then recognition and embedding of the utterance.
+        pcm.insert(pcm.end(), voice::kRate, 0.f);  // trailing quiet so the phrase ends
         voice::Endpointer ep;
-        for (size_t at = 0; at < pcm.size() && ep.state() != voice::Endpointer::State::Done; at += 480)
-            ep.feed(pcm.data() + at, std::min<size_t>(480, pcm.size() - at));
+        for (size_t at = 0; at < pcm.size() && ep.state() != voice::Endpointer::State::Done; at += 320)
+            ep.feed(pcm.data() + at, std::min<size_t>(320, pcm.size() - at));
         const std::vector<float> utt = ep.utterance();
-        const std::string text = vosk.recognize(utt.empty() ? pcm : utt, grammar);
-        std::vector<float> e;
-        const bool ok = spk.embed(utt.empty() ? pcm : utt, e);
-        std::printf("%-28ls %5.2f s, speech %5.2f s  heard: \"%s\"  cmd: %d  emb: %s (%zu, %.0f ms)\n",
-                    std::filesystem::path(argv[i]).filename().c_str(), pcm.size() / 16000.0, utt.size() / 16000.0, text.c_str(),
-                    voice::matchCommand(cmds, text), ok ? "ok" : "FAIL", e.size(), spk.lastMs());
-        if (ok) {
-            embs.push_back(e);
-            names.push_back(win::narrow(std::filesystem::path(argv[i]).filename().wstring()));
-        }
+        voice::VoiceTake t;
+        t.feat = voice::phraseFeatures(utt, &t.frames);
+        spk.embed(utt, t.emb);
+        int voiced = 0;
+        for (int k = 0; k < t.frames; ++k) voiced += t.feat[static_cast<size_t>(k) * voice::kTplDim + voice::kCep + 2] > 0.5f;
+        std::printf("%2zu %-26s phrase %.2f s, %3d frames, voiced %2d %%, emb %zu\n", takes.size(), path.filename().string().c_str(),
+                    utt.size() / 16000.0, t.frames, t.frames ? voiced * 100 / t.frames : 0, t.emb.size());
+        takes.push_back(std::move(t));
+        names.push_back(path.filename().string());
     }
-    std::printf("\nsimilarity:\n");
-    for (size_t i = 0; i < embs.size(); ++i) {
-        for (size_t j = 0; j < embs.size(); ++j) std::printf("%6.2f", voice::cosine(embs[i], embs[j]));
-        std::printf("   %s\n", names[i].c_str());
+    std::printf("\nDTW distance (intonation %.2f):\n", intonation);
+    for (size_t i = 0; i < takes.size(); ++i) {
+        for (size_t j = 0; j < takes.size(); ++j) {
+            const float d = voice::dtwDistance(takes[i], takes[j], intonation);
+            if (d > 90) std::printf("    -");
+            else std::printf("%5.2f", d);
+        }
+        std::printf("  %2zu\n", i);
+    }
+    std::printf("\nvoice similarity:\n");
+    for (size_t i = 0; i < takes.size(); ++i) {
+        for (size_t j = 0; j < takes.size(); ++j) std::printf("%5.2f", voice::cosine(takes[i].emb, takes[j].emb));
+        std::printf("  %2zu\n", i);
     }
     return 0;
 }

@@ -48,7 +48,6 @@ enum class ActionType {
     // v5
     Macro,          // several steps in a row: keys, pauses, text, programs (Action::script)
     RunScript,      // a script or program, hidden window (PowerShell, .bat, AutoHotkey, Python...)
-    VoiceListen,    // listen for a spoken command (owner's voice only)
     kCount
 };
 
@@ -178,19 +177,22 @@ struct PerformanceSettings {
     bool int8Models = false;
 };
 
-// A spoken command: after the "listen" gesture, saying `phrase` runs `action`.
+// A spoken command. The user records it with their own voice (several takes, stored in
+// voice.bin); saying it the same way runs `action`. Any language: the recordings are
+// compared directly, there is no dictionary.
 struct VoiceCommand {
     std::string id;
-    std::string phrase;      // Russian words, any case; compared after normalizePhrase()
+    std::string phrase;        // label only: what the user says ("выключи микрофон", "next track")
     bool enabled = true;
+    float strictness = 1.f;    // scale on the learned distance: < 1 stricter, > 1 looser
     Action action;
 };
 
 struct VoiceSettings {
-    bool ownerOnly = true;         // run a command only when the voice matches the enrolled owner
-    float matchThreshold = 0.45f;  // cosine similarity of the voice to the owner's samples
-    int listenMs = 5000;           // how long to wait for a command after the gesture
-    bool unmuteToListen = false;   // microphones muted by "Микрофон вкл/выкл": unmute just for the command
+    bool enabled = true;           // listen all the time (no gesture); off = microphone closed
+    bool ownerOnly = true;         // the voice must match the person who recorded the command
+    float matchThreshold = 0.55f;  // cosine similarity of the voice to the command's recordings
+    float intonation = 0.5f;       // 0..1: how much the pitch contour counts next to the sounds
     std::vector<VoiceCommand> commands;
 };
 

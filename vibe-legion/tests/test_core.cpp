@@ -13,6 +13,7 @@
 #include "core/macro.hpp"
 #include "core/night_vision.hpp"
 #include "core/settings.hpp"
+#include "core/voice.hpp"
 
 using namespace vl;
 
@@ -783,7 +784,7 @@ static void testMacro() {
     CHECK(!parseMacro("", st, &err) && !err.empty());
     CHECK(!parseMacro("Ctrl+L; пауза много", st, &err) && err.find("шаг 2") != std::string::npos);
     CHECK(!parseMacro("abracadabra", st, &err));
-    CHECK(!parseMacro("voice_listen", st, &err));  // no nesting of the listening action
+    CHECK(!parseMacro("pause_recognition", st, &err));  // app-level actions cannot be macro steps
     CHECK(!parseMacro("wait 20000", st, &err));
     std::string many;
     for (int i = 0; i < 40; ++i) many += "F5;";
@@ -810,24 +811,161 @@ static void testMacro() {
     vc.action.path = "C:\\s.ps1";
     vc.action.args = "-x";
     s.voice.commands.push_back(vc);
-    s.voice.matchThreshold = 0.5f;
+    s.voice.matchThreshold = 0.6f;
     s.voice.ownerOnly = false;
+    s.voice.intonation = 0.8f;
+    s.voice.commands[0].strictness = 1.2f;
     const Settings t = Settings::fromJson(json::parse(s.toJson().dump()).value);
     CHECK(t.version == Settings::kVersion);
     CHECK(t.rules[0].apps == "discord.exe");
     CHECK(t.rules[0].action.type == ActionType::Macro && t.rules[0].action.script == s.rules[0].action.script);
     CHECK(t.voice.commands.size() == 1 && t.voice.commands[0].phrase == vc.phrase);
     CHECK(t.voice.commands[0].action.type == ActionType::RunScript && t.voice.commands[0].action.args == "-x");
-    NEAR(t.voice.matchThreshold, 0.5f, 1e-4f);
+    NEAR(t.voice.matchThreshold, 0.6f, 1e-4f);
+    NEAR(t.voice.intonation, 0.8f, 1e-4f);
+    NEAR(t.voice.commands[0].strictness, 1.2f, 1e-4f);
     CHECK(!t.voice.ownerOnly);
-    // A v4 file gets the example commands once.
-    json::Value old = s.toJson();
-    old.set("version", 4);
-    old.set("voice", json::Value());
-    CHECK(!Settings::fromJson(old).voice.commands.empty());
+}
+
+// A synthetic "phrase": a few sustained vowel-like sounds (harmonics under a formant
+// envelope) with a pitch contour. Different formant sequences = different words.
+static std::vector<float> synthPhrase(const std::vector<std::pair<int, int>>& formants, float f0Start, float f0End,
+                                      float secPerSound, uint32_t seed) {
+    std::vector<float> pcm(voice::kRate / 2, 0.f);  // quiet lead-in
+    uint32_t rng = seed;
+    auto noise = [&] { rng = rng * 1664525u + 1013904223u; return (static_cast<float>(rng >> 8) / 8388608.f - 1.f); };
+    const size_t per = static_cast<size_t>(secPerSound * voice::kRate);
+    const size_t total = per * formants.size();
+    double phase = 0;
+    for (size_t i = 0; i < total; ++i) {
+        const float fa = static_cast<float>(formants[i / per].first), fb = static_cast<float>(formants[i / per].second);
+        const float f0 = f0Start + (f0End - f0Start) * static_cast<float>(i) / static_cast<float>(total);
+        phase += 2 * 3.14159265358979 * f0 / voice::kRate;
+        float s = 0.f;
+        for (int h = 1; h * f0 < 3800.f; ++h) {
+            const float f = h * f0;
+            const float gain = std::exp(-0.5f * (f - fa) * (f - fa) / (150.f * 150.f)) + 0.7f * std::exp(-0.5f * (f - fb) * (f - fb) / (220.f * 220.f)) + 0.02f;
+            s += gain * static_cast<float>(std::sin(phase * h));
+        }
+        const float edge = std::min(1.f, std::min(static_cast<float>(i % per), static_cast<float>(per - i % per)) / 400.f);
+        pcm.push_back(0.12f * s * edge + 0.0006f * noise());
+    }
+    pcm.insert(pcm.end(), voice::kRate / 2, 0.f);
+    for (auto& x : pcm) x += 0.0004f * noise();
+    return pcm;
+}
+
+static voice::VoiceTake takeOf(const std::vector<float>& pcm) {
+    voice::Endpointer ep;
+    for (size_t at = 0; at < pcm.size() && ep.state() != voice::Endpointer::State::Done; at += 320)
+        ep.feed(pcm.data() + at, std::min<size_t>(320, pcm.size() - at));
+    voice::VoiceTake t;
+    t.feat = voice::phraseFeatures(ep.utterance(), &t.frames);
+    return t;
+}
+
+static void testVoice() {
+    using namespace voice;
+    const std::vector<std::pair<int, int>> wordA = {{700, 1200}, {300, 2300}, {500, 900}, {350, 2000}};
+    const std::vector<std::pair<int, int>> wordB = {{300, 800}, {650, 1700}, {280, 2400}, {750, 1100}};
+
+    // End-pointing: the phrase is found, the lead-in and tail are cut.
+    const std::vector<float> a1pcm = synthPhrase(wordA, 120, 110, 0.22f, 1);
+    Endpointer ep;
+    for (size_t at = 0; at < a1pcm.size(); at += 320) ep.feed(a1pcm.data() + at, std::min<size_t>(320, a1pcm.size() - at));
+    CHECK(ep.state() == Endpointer::State::Done);
+    const float sec = static_cast<float>(ep.utterance().size()) / kRate;
+    CHECK(sec > 0.8f && sec < 1.5f);  // 0.88 s of sound + pre-roll + tail
+    ep.restart();
+    CHECK(ep.state() == Endpointer::State::Waiting);
+    // Silence alone never becomes a phrase, and the buffer does not grow while waiting.
+    Endpointer quiet;
+    std::vector<float> hush(320, 0.0002f);
+    for (int i = 0; i < 1000; ++i) quiet.feed(hush.data(), hush.size());
+    CHECK(quiet.state() == Endpointer::State::Waiting);
+
+    const VoiceTake a1 = takeOf(a1pcm);
+    const VoiceTake a2 = takeOf(synthPhrase(wordA, 122, 112, 0.24f, 2));   // a little slower
+    const VoiceTake a3 = takeOf(synthPhrase(wordA, 118, 108, 0.20f, 3));   // a little faster
+    const VoiceTake a4 = takeOf(synthPhrase(wordA, 121, 111, 0.22f, 4));
+    const VoiceTake b1 = takeOf(synthPhrase(wordB, 120, 110, 0.22f, 5));
+    const VoiceTake b2 = takeOf(synthPhrase(wordB, 121, 111, 0.23f, 6));
+    const VoiceTake b3 = takeOf(synthPhrase(wordB, 119, 109, 0.21f, 7));
+    const VoiceTake aRise = takeOf(synthPhrase(wordA, 105, 190, 0.22f, 8));  // same sounds, rising pitch (a question)
+    CHECK(a1.frames > 30 && a1.feat.size() == static_cast<size_t>(a1.frames) * kTplDim);
+
+    const float same = dtwDistance(a1, a2, 0.5f), other = dtwDistance(a1, b1, 0.5f);
+    CHECK(dtwDistance(a1, a1, 0.5f) < 1e-4f);
+    CHECK(same < 0.5f);
+    CHECK(other > 0.8f);
+    CHECK(other > same * 2.f);
+    // Intonation: the rising version is further away the more intonation counts.
+    const float riseOff = dtwDistance(a1, aRise, 0.f), riseOn = dtwDistance(a1, aRise, 1.f);
+    CHECK(riseOn > riseOff + 0.15f);
+    CHECK(riseOn > dtwDistance(a1, a2, 1.f) * 1.5f);
+    // Wildly different lengths are not compared at all.
+    VoiceTake tiny = a1;
+    tiny.frames = 10;
+    tiny.feat.resize(10 * kTplDim);
+    CHECK(dtwDistance(a1, tiny, 0.5f) > 90.f);
+
+    VoiceStore store;
+    VoiceModel& ma = store.get("a");
+    ma.takes = {a1, a2, a3};
+    learnThreshold(ma, 0.5f);
+    VoiceModel& mb = store.get("b");
+    mb.takes = {b1, b2, b3};
+    learnThreshold(mb, 0.5f);
+    CHECK(store.find("a")->ready() && store.find("a")->threshold >= 0.5f && store.find("a")->threshold <= 0.85f);
+    CHECK(takeOddness(*store.find("a"), a4, 0.5f) < 1.6f);
+    CHECK(takeOddness(*store.find("a"), b1, 0.5f) > 1.8f);
+
+    std::vector<VoiceCommand> cmds(2);
+    cmds[0].id = "a";
+    cmds[1].id = "b";
+    CHECK(matchPhrase(store, cmds, a4, 0.5f).id == "a");
+    CHECK(matchPhrase(store, cmds, b2, 0.5f).id == "b");
+    cmds[0].enabled = false;
+    CHECK(matchPhrase(store, cmds, a4, 0.5f).id.empty());   // disabled, and "b" is not close
+    cmds[0].enabled = true;
+    // With intonation fully on, the question-like version of the phrase is not the command.
+    learnThreshold(*store.find("a"), 1.f);
+    CHECK(matchPhrase(store, cmds, aRise, 1.f).id.empty());
+    CHECK(matchPhrase(store, cmds, a4, 1.f).id == "a");
+    // Two recorded takes are not enough to act on.
+    VoiceStore two;
+    two.get("a").takes = {a1, a2};
+    learnThreshold(two.get("a"), 0.5f);
+    CHECK(matchPhrase(two, cmds, a4, 0.5f).id.empty());
+
+    // Whose voice: mean of the two best similarities to the command's takes.
+    VoiceModel v;
+    v.takes.resize(3);
+    v.takes[0].emb = {1, 0, 0};
+    v.takes[1].emb = {0.8f, 0.6f, 0};
+    v.takes[2].emb = {0, 0, 1};
+    NEAR(ownerScore(v, {1, 0, 0}), 0.9f, 1e-4f);
+    CHECK(ownerScore(VoiceModel(), {1, 0, 0}) < 0.f);
+
+    // voice.bin round trip; damaged data is rejected, not half-loaded.
+    store.find("a")->takes[0].emb = {0.1f, 0.2f, 0.3f};
+    const auto blob = store.serialize();
+    VoiceStore back;
+    CHECK(back.deserialize(blob));
+    CHECK(back.commands.size() == 2 && back.find("a")->takes.size() == 3);
+    CHECK(back.find("a")->takes[0].frames == a1.frames && back.find("a")->takes[0].feat == a1.feat);
+    CHECK(back.find("a")->takes[0].emb.size() == 3);
+    NEAR(back.find("b")->threshold, store.find("b")->threshold, 1e-6f);
+    auto cut = blob;
+    cut.resize(cut.size() / 2);
+    CHECK(!back.deserialize(cut) && back.commands.empty());
+    CHECK(!back.deserialize({'x', 'y'}));
+    store.remove("a");
+    CHECK(!store.find("a") && store.find("b"));
 }
 
 int main() {
+    testVoice();
     testMacro();
     testJson();
     testGeometry();

@@ -93,7 +93,7 @@ void splitWord(const std::string& s, std::string& word, std::string& rest) {
 bool builtinAllowed(ActionType t) {
     switch (t) {
         case ActionType::None: case ActionType::KeyCombo: case ActionType::LaunchApp: case ActionType::Macro:
-        case ActionType::RunScript: case ActionType::VoiceListen: case ActionType::PauseRecognition:
+        case ActionType::RunScript: case ActionType::PauseRecognition:
         case ActionType::kCount:
             return false;
         default:

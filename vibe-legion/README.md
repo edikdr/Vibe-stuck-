@@ -227,3 +227,15 @@ build/vl_selftest models img1.ppm img2.ppm        # модели на карти
 MediaPipe Palm Detection / Hand Landmark — Apache-2.0 (Google), YuNet — MIT, SFace — Apache-2.0;
 все в составе [OpenCV Zoo](https://github.com/opencv/opencv_zoo). ONNX Runtime — MIT.
 Всё работает локально, в сеть ничего не отправляется.
+
+## Голосовые команды, макросы, правила по приложениям (0.4)
+
+- **Голос** (раздел «Голос»): приложение постоянно слушает микрофон, жест не нужен. Каждую команду
+  вы записываете сами — 3 и более раз, на любом языке. Фраза сравнивается с записями напрямую
+  (звуки, громкость, интонация — DTW), затем проверяется, что голос тот же (модель WeSpeaker ResNet34,
+  `models/voice_speaker_resnet34.onnx`). Записи хранятся в `%LOCALAPPDATA%\VibeHand\voice.bin` (DPAPI).
+  Звук не сохраняется и никуда не отправляется. На паузе и при блокировке ПК микрофон закрыт.
+- **Только в приложении**: правило жеста можно ограничить программами (`discord.exe, chrome.exe`).
+- **Макрос**: шаги через `;` — `Ctrl+L; пауза 200; текст youtube.com; Enter`, действия по id (`mic_mute`).
+- **Скрипт**: `.ps1`, `.bat`, `.ahk`, `.py` или программа без окна консоли.
+- Проверка голосовой цепочки на WAV-файлах: `vl_voicetest models\voice_speaker_resnet34.onnx a.wav b.wav`.

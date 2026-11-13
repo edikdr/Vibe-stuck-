@@ -17,7 +17,7 @@ const char* const kActionIds[] = {
     "next_window", "prev_window", "minimize_window", "maximize_window", "close_window",
     "next_desktop", "prev_desktop", "start_menu", "search", "file_explorer",
     "browser_back", "browser_forward", "screenshot_full", "zoom_in", "zoom_out", "call_mute",
-    "macro", "run_script", "voice_listen"};
+    "macro", "run_script"};
 static_assert(sizeof(kActionIds) / sizeof(kActionIds[0]) == static_cast<size_t>(ActionType::kCount));
 
 template <typename E, size_t N>
@@ -75,22 +75,6 @@ Action actionFromJson(const json::Value& v) {
     return a;
 }
 
-// A few everyday commands so the voice page is not empty; the user edits or removes them.
-void addVoiceExamples(std::vector<VoiceCommand>& cmds) {
-    auto add = [&](const char* phrase, ActionType t) {
-        VoiceCommand c;
-        c.id = newId();
-        c.phrase = phrase;
-        c.action.type = t;
-        cmds.push_back(c);
-    };
-    add("пауза", ActionType::MediaPlayPause);
-    add("следующий трек", ActionType::MediaNext);
-    add("громче", ActionType::VolumeUp);
-    add("тише", ActionType::VolumeDown);
-    add("выключи микрофон", ActionType::MicMute);
-    add("сверни окно", ActionType::MinimizeWindow);
-}
 
 // Swipe left/right -> previous/next window. Shipped disabled like the palm example.
 void addSwipeRules(std::vector<GestureRule>& rules) {
@@ -162,7 +146,6 @@ Settings Settings::defaults() {
     s.rules.push_back(r);
     addSwipeRules(s.rules);
     addTwoHandRules(s.rules);
-    addVoiceExamples(s.voice.commands);
     return s;
 }
 
@@ -223,16 +206,17 @@ json::Value Settings::toJson() const {
     root.set("ui", std::move(ui_));
 
     json::Value vo;
+    vo.set("enabled", voice.enabled);
     vo.set("owner_only", voice.ownerOnly);
     vo.set("match_threshold", voice.matchThreshold);
-    vo.set("listen_ms", voice.listenMs);
-    vo.set("unmute_to_listen", voice.unmuteToListen);
+    vo.set("intonation", voice.intonation);
     json::Array vc;
     for (const auto& c : voice.commands) {
         json::Value o;
         o.set("id", c.id);
         o.set("phrase", c.phrase);
         o.set("enabled", c.enabled);
+        o.set("strictness", c.strictness);
         o.set("action", actionToJson(c.action));
         vc.push_back(std::move(o));
     }
@@ -361,15 +345,16 @@ Settings Settings::fromJson(const json::Value& v) {
     s.ui.hotkeyOpen = static_cast<uint32_t>(u["hotkey_open"].asNumber(0x0356));
 
     const auto& vo = v["voice"];
+    s.voice.enabled = vo["enabled"].asBool(true);
     s.voice.ownerOnly = vo["owner_only"].asBool(true);
-    s.voice.matchThreshold = clampf(vo["match_threshold"].asFloat(0.45f), 0.1f, 0.9f);
-    s.voice.listenMs = clampi(vo["listen_ms"].asInt(5000), 2000, 10000);
-    s.voice.unmuteToListen = vo["unmute_to_listen"].asBool(false);
+    s.voice.matchThreshold = clampf(vo["match_threshold"].asFloat(0.55f), 0.1f, 0.9f);
+    s.voice.intonation = clampf(vo["intonation"].asFloat(0.5f), 0.f, 1.f);
     for (const auto& o : vo["commands"].asArray()) {
         VoiceCommand vc;
         vc.id = o["id"].asString(newId());
         vc.phrase = o["phrase"].asString();
         vc.enabled = o["enabled"].asBool(true);
+        vc.strictness = clampf(o["strictness"].asFloat(1.f), 0.6f, 1.5f);
         vc.action = actionFromJson(o["action"]);
         s.voice.commands.push_back(std::move(vc));
     }
@@ -439,7 +424,6 @@ Settings Settings::fromJson(const json::Value& v) {
             for (auto& r : s.rules)
                 if (r.person == PersonFilter::Anyone) r.person = PersonFilter::AnyKnown;
     }
-    if (fileVersion < 5) addVoiceExamples(s.voice.commands);
     s.version = kVersion;
     return s;
 }

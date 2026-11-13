@@ -6,8 +6,6 @@
 #include <complex>
 #include <cstring>
 
-#include "core/json.hpp"
-#include "core/macro.hpp"
 
 namespace vl::voice {
 
@@ -124,8 +122,8 @@ float levelDb(const float* pcm, size_t n) {
 }
 
 Endpointer::State Endpointer::feed(const float* pcm, size_t n) {
+    if (state_ == State::Done) return state_;
     buf_.insert(buf_.end(), pcm, pcm + n);
-    total_ += n;
     while (state_ != State::Done && done_ + kFrame <= buf_.size()) {
         const float db = levelDb(buf_.data() + done_, kFrame);
         lastDb_ = db;
@@ -154,12 +152,19 @@ Endpointer::State Endpointer::feed(const float* pcm, size_t n) {
             quietMs_ = loud ? 0 : quietMs_ + 20;
             if (quietMs_ >= hangMs_ || speechMs_ >= maxSpeechMs_) {
                 state_ = State::Done;
-                // Keep 200 ms of the trailing quiet: enough for the recogniser to close the last word.
-                const size_t tail = static_cast<size_t>(std::max(0, quietMs_ - 200)) * kRate / 1000;
+                // Keep 150 ms of the trailing quiet: soft word endings stay in.
+                const size_t tail = static_cast<size_t>(std::max(0, quietMs_ - 150)) * kRate / 1000;
                 end_ = done_ + kFrame > tail ? done_ + kFrame - tail : done_ + kFrame;
             }
         }
         done_ += kFrame;
+    }
+    // Always listening: while nobody speaks only the last second is kept (the pre-roll).
+    if (state_ == State::Waiting && buf_.size() > static_cast<size_t>(kRate) * 2) {
+        const size_t drop = (buf_.size() - kRate) / kFrame * kFrame;
+        const size_t cut = std::min(drop, done_);
+        buf_.erase(buf_.begin(), buf_.begin() + static_cast<std::ptrdiff_t>(cut));
+        done_ -= cut;
     }
     return state_;
 }
@@ -169,6 +174,13 @@ std::vector<float> Endpointer::utterance() const {
     const size_t e = state_ == State::Done ? std::min(end_, buf_.size()) : buf_.size();
     if (e <= start_) return {};
     return std::vector<float>(buf_.begin() + static_cast<std::ptrdiff_t>(start_), buf_.begin() + static_cast<std::ptrdiff_t>(e));
+}
+
+void Endpointer::restart() {
+    state_ = State::Waiting;
+    buf_.clear();
+    done_ = start_ = end_ = 0;
+    loud_ = quietMs_ = speechMs_ = 0;
 }
 
 std::vector<float> speechOnly(const std::vector<float>& pcm) {
@@ -194,42 +206,343 @@ std::vector<float> speechOnly(const std::vector<float>& pcm) {
     return out;
 }
 
-// ------------------------------------------------------------------ voice print
+// ------------------------------------------------------------------ phrase features
 
-std::vector<uint8_t> VoicePrint::serialize() const {
-    std::vector<uint8_t> out;
-    auto put32 = [&](uint32_t v) {
-        for (int i = 0; i < 4; ++i) out.push_back(static_cast<uint8_t>(v >> (8 * i)));
-    };
-    out.insert(out.end(), {'V', 'H', 'V', '1'});
-    const uint32_t dim = samples.empty() ? 0 : static_cast<uint32_t>(samples[0].size());
-    put32(static_cast<uint32_t>(samples.size()));
-    put32(dim);
-    for (const auto& s : samples) {
-        if (s.size() != dim) continue;
-        const auto* p = reinterpret_cast<const uint8_t*>(s.data());
-        out.insert(out.end(), p, p + dim * sizeof(float));
+namespace {
+
+// Pitch of one 40 ms window by normalised autocorrelation, 70..400 Hz. 0 = unvoiced.
+float pitchHz(const float* x, int n) {
+    const int minLag = kRate / 400, maxLag = kRate / 70;
+    if (n <= maxLag + 1) return 0.f;
+    double e0 = 0;
+    for (int i = 0; i < n; ++i) e0 += static_cast<double>(x[i]) * x[i];
+    if (e0 < 1e-7 * n) return 0.f;
+    double best = 0;
+    int bestLag = 0;
+    for (int lag = minLag; lag <= maxLag; ++lag) {
+        double s = 0, e1 = 0;
+        for (int i = 0; i + lag < n; ++i) {
+            s += static_cast<double>(x[i]) * x[i + lag];
+            e1 += static_cast<double>(x[i + lag]) * x[i + lag];
+        }
+        double e2 = 0;
+        for (int i = 0; i + lag < n; ++i) e2 += static_cast<double>(x[i]) * x[i];
+        const double r = s / std::sqrt(std::max(1e-12, e1 * e2));
+        // Prefer the shortest lag among near-equal peaks: avoids octave-down errors.
+        if (r > best * 1.06) {
+            best = r;
+            bestLag = lag;
+        }
+    }
+    return best > 0.5 && bestLag > 0 ? static_cast<float>(kRate) / static_cast<float>(bestLag) : 0.f;
+}
+
+}  // namespace
+
+std::vector<float> phraseFeatures(const std::vector<float>& pcm, int* frames) {
+    int n10 = 0;
+    const std::vector<float> mel = fbank(pcm, &n10);  // 10 ms frames, mean-normalised
+    const int n = n10 / 2;                            // 20 ms steps
+    if (frames) *frames = n;
+    std::vector<float> out(static_cast<size_t>(std::max(0, n)) * kTplDim, 0.f);
+    if (n < 4) {
+        if (frames) *frames = 0;
+        return {};
+    }
+    // DCT of the log-mel spectrum: coefficients 1..12 describe its shape (the sound),
+    // not its level or fine harmonic structure.
+    static const std::vector<float> dct = [] {
+        std::vector<float> d(static_cast<size_t>(kCep) * kMelBins);
+        for (int k = 0; k < kCep; ++k)
+            for (int j = 0; j < kMelBins; ++j)
+                d[static_cast<size_t>(k) * kMelBins + j] = static_cast<float>(std::cos(kPi * (k + 1) * (j + 0.5) / kMelBins));
+        return d;
+    }();
+    std::vector<float> loud(static_cast<size_t>(n)), pitch(static_cast<size_t>(n), 0.f);
+    for (int t = 0; t < n; ++t) {
+        const float* a = mel.data() + static_cast<size_t>(2 * t) * kMelBins;
+        const float* b = a + kMelBins;
+        float* o = out.data() + static_cast<size_t>(t) * kTplDim;
+        for (int k = 0; k < kCep; ++k) {
+            float s = 0.f;
+            const float* d = dct.data() + static_cast<size_t>(k) * kMelBins;
+            for (int j = 0; j < kMelBins; ++j) s += d[j] * (a[j] + b[j]) * 0.5f;
+            o[k] = s;
+        }
+        const size_t at = static_cast<size_t>(2 * t) * 160;
+        const size_t len = std::min<size_t>(640, pcm.size() - at);
+        loud[static_cast<size_t>(t)] = levelDb(pcm.data() + at, std::min<size_t>(len, 400));
+        pitch[static_cast<size_t>(t)] = pitchHz(pcm.data() + at, static_cast<int>(len));
+    }
+    // Per-phrase normalisation of every cepstral coefficient (zero mean, unit spread).
+    for (int k = 0; k < kCep; ++k) {
+        double m = 0, v = 0;
+        for (int t = 0; t < n; ++t) m += out[static_cast<size_t>(t) * kTplDim + k];
+        m /= n;
+        for (int t = 0; t < n; ++t) {
+            const double d = out[static_cast<size_t>(t) * kTplDim + k] - m;
+            v += d * d;
+        }
+        const float sd = static_cast<float>(std::sqrt(v / n)) + 1e-3f;
+        for (int t = 0; t < n; ++t) {
+            float& x = out[static_cast<size_t>(t) * kTplDim + k];
+            x = (x - static_cast<float>(m)) / sd;
+        }
+    }
+    // Loudness contour: relative to the loudest part, 0 (peak) .. -1 (30 dB below or quieter).
+    float peak = -120.f;
+    for (float l : loud) peak = std::max(peak, l);
+    // Pitch contour: octaves above / below the phrase's median pitch; unvoiced frames 0.
+    std::vector<float> voiced;
+    for (float f : pitch)
+        if (f > 0) voiced.push_back(f);
+    float median = 0.f;
+    if (!voiced.empty()) {
+        std::nth_element(voiced.begin(), voiced.begin() + static_cast<std::ptrdiff_t>(voiced.size() / 2), voiced.end());
+        median = voiced[voiced.size() / 2];
+    }
+    for (int t = 0; t < n; ++t) {
+        float* o = out.data() + static_cast<size_t>(t) * kTplDim;
+        o[kCep] = std::clamp((loud[static_cast<size_t>(t)] - peak) / 30.f, -1.f, 0.f);
+        const float f = pitch[static_cast<size_t>(t)];
+        o[kCep + 1] = f > 0 && median > 0 ? std::clamp(std::log2(f / median), -1.f, 1.f) : 0.f;
+        o[kCep + 2] = f > 0 ? 1.f : 0.f;
     }
     return out;
 }
 
-bool VoicePrint::deserialize(const std::vector<uint8_t>& blob) {
-    samples.clear();
-    if (blob.size() < 12 || std::memcmp(blob.data(), "VHV1", 4) != 0) return false;
-    auto get32 = [&](size_t at) {
-        uint32_t v = 0;
-        for (int i = 0; i < 4; ++i) v |= static_cast<uint32_t>(blob[at + i]) << (8 * i);
-        return v;
-    };
-    const uint32_t count = get32(4), dim = get32(8);
-    if (count > 4096 || dim == 0 || dim > 4096) return count == 0;
-    if (blob.size() < 12 + static_cast<size_t>(count) * dim * sizeof(float)) return false;
-    for (uint32_t i = 0; i < count; ++i) {
-        std::vector<float> s(dim);
-        std::memcpy(s.data(), blob.data() + 12 + static_cast<size_t>(i) * dim * sizeof(float), dim * sizeof(float));
-        samples.push_back(std::move(s));
+// ------------------------------------------------------------------ matching
+
+namespace {
+
+// Weights of the three groups next to the 12 cepstra (each has unit spread).
+constexpr float kLoudWeight = 2.0f;
+
+float frameDist(const float* a, const float* b, float pitchW) {
+    float s = 0.f;
+    for (int k = 0; k < kCep; ++k) {
+        const float d = a[k] - b[k];
+        s += d * d;
     }
-    return true;
+    const float dl = (a[kCep] - b[kCep]) * kLoudWeight;
+    s += dl * dl;
+    // Pitch counts where both frames are voiced; a voiced frame against an unvoiced one
+    // is a mismatch of its own (different sound).
+    if (a[kCep + 2] > 0.5f && b[kCep + 2] > 0.5f) {
+        const float dp = (a[kCep + 1] - b[kCep + 1]) * pitchW;
+        s += dp * dp;
+    } else if (a[kCep + 2] != b[kCep + 2]) {
+        s += 1.0f;
+    }
+    return std::sqrt(s / static_cast<float>(kCep));
+}
+
+}  // namespace
+
+float dtwDistance(const VoiceTake& a, const VoiceTake& b, float intonation) {
+    const int n = a.frames, m = b.frames;
+    if (n < 4 || m < 4) return 99.f;
+    // Twice as fast or slow is another way of saying it, or another phrase.
+    if (n > 2 * m || m > 2 * n) return 99.f;
+    const float pitchW = 8.f * std::clamp(intonation, 0.f, 1.f);  // an octave apart ~ a wrong sound at full weight
+    const int band = std::max(std::abs(n - m) + 2, static_cast<int>(0.35f * static_cast<float>(std::max(n, m))));
+    const float inf = 1e30f;
+    std::vector<float> prev(static_cast<size_t>(m) + 1, inf), cur(static_cast<size_t>(m) + 1, inf);
+    std::vector<int> prevLen(static_cast<size_t>(m) + 1, 0), curLen(static_cast<size_t>(m) + 1, 0);
+    prev[0] = 0.f;
+    for (int i = 1; i <= n; ++i) {
+        std::fill(cur.begin(), cur.end(), inf);
+        const int centre = static_cast<int>(static_cast<long long>(i) * m / n);
+        const int lo = std::max(1, centre - band), hi = std::min(m, centre + band);
+        const float* fa = a.feat.data() + static_cast<size_t>(i - 1) * kTplDim;
+        for (int j = lo; j <= hi; ++j) {
+            const float d = frameDist(fa, b.feat.data() + static_cast<size_t>(j - 1) * kTplDim, pitchW);
+            float best = prev[static_cast<size_t>(j - 1)];
+            int len = prevLen[static_cast<size_t>(j - 1)];
+            if (prev[static_cast<size_t>(j)] < best) { best = prev[static_cast<size_t>(j)]; len = prevLen[static_cast<size_t>(j)]; }
+            if (cur[static_cast<size_t>(j - 1)] < best) { best = cur[static_cast<size_t>(j - 1)]; len = curLen[static_cast<size_t>(j - 1)]; }
+            if (best >= inf) continue;
+            cur[static_cast<size_t>(j)] = best + d;
+            curLen[static_cast<size_t>(j)] = len + 1;
+        }
+        std::swap(prev, cur);
+        std::swap(prevLen, curLen);
+    }
+    const float total = prev[static_cast<size_t>(m)];
+    const int steps = prevLen[static_cast<size_t>(m)];
+    return total >= inf || steps == 0 ? 99.f : total / static_cast<float>(steps);
+}
+
+namespace {
+
+// Typical distance between takes of one phrase said by one person, and the bounds the
+// learned threshold must stay within (measured on recordings; see tests/voicetest.cpp).
+// Same phrase, same voice: 0.25..0.6. A phrase one word apart ("включи" / "выключи"): ~0.5.
+// Different phrases: 0.9 and more.
+constexpr float kTypicalSpread = 0.42f;
+constexpr float kMinThreshold = 0.56f, kMaxThreshold = 0.80f;
+
+// Mean distance from every take to its nearest other take.
+float spread(const VoiceModel& m, float intonation) {
+    if (m.takes.size() < 2) return kTypicalSpread;
+    double sum = 0;
+    for (size_t i = 0; i < m.takes.size(); ++i) {
+        float best = 99.f;
+        for (size_t j = 0; j < m.takes.size(); ++j)
+            if (j != i) best = std::min(best, dtwDistance(m.takes[i], m.takes[j], intonation));
+        sum += best;
+    }
+    return static_cast<float>(sum / static_cast<double>(m.takes.size()));
+}
+
+float modelDistance(const VoiceModel& m, const VoiceTake& t, float intonation) {
+    std::vector<float> d;
+    for (const auto& k : m.takes) d.push_back(dtwDistance(k, t, intonation));
+    if (d.empty()) return 99.f;
+    std::sort(d.begin(), d.end());
+    return d.size() >= 2 ? (d[0] + d[1]) * 0.5f : d[0];
+}
+
+}  // namespace
+
+void learnThreshold(VoiceModel& m, float intonation) {
+    // A live phrase is a little further from the takes than the takes are from each other
+    // (they were recorded in one sitting): allow half as much again as their own spread.
+    m.threshold = std::clamp(spread(m, intonation) * 1.5f + 0.05f, kMinThreshold, kMaxThreshold);
+}
+
+float takeOddness(const VoiceModel& m, const VoiceTake& t, float intonation) {
+    if (m.takes.empty()) return 0.f;
+    float best = 99.f;
+    for (const auto& k : m.takes) best = std::min(best, dtwDistance(k, t, intonation));
+    return best / std::max(kTypicalSpread, spread(m, intonation));
+}
+
+VoiceModel* VoiceStore::find(const std::string& id) {
+    for (auto& c : commands)
+        if (c.id == id) return &c;
+    return nullptr;
+}
+const VoiceModel* VoiceStore::find(const std::string& id) const {
+    for (const auto& c : commands)
+        if (c.id == id) return &c;
+    return nullptr;
+}
+VoiceModel& VoiceStore::get(const std::string& id) {
+    if (VoiceModel* m = find(id)) return *m;
+    commands.push_back({});
+    commands.back().id = id;
+    return commands.back();
+}
+void VoiceStore::remove(const std::string& id) {
+    commands.erase(std::remove_if(commands.begin(), commands.end(), [&](const VoiceModel& m) { return m.id == id; }), commands.end());
+}
+
+VoiceMatch matchPhrase(const VoiceStore& store, const std::vector<VoiceCommand>& commands, const VoiceTake& heard,
+                       float intonation) {
+    VoiceMatch r;
+    float second = 99.f;
+    for (const auto& c : commands) {
+        const VoiceModel* m = store.find(c.id);
+        if (!c.enabled || !m || !m->ready()) continue;
+        const float thr = std::max(0.01f, m->threshold * std::clamp(c.strictness, 0.6f, 1.5f));
+        const float ratio = modelDistance(*m, heard, intonation) / thr;
+        if (ratio < r.ratio) {
+            second = r.ratio;
+            r.ratio = ratio;
+            r.nearest = c.id;
+        } else {
+            second = std::min(second, ratio);
+        }
+    }
+    r.margin = r.ratio > 0 ? second / r.ratio : 99.f;
+    // Close enough, and not a toss-up between two commands that sound alike.
+    if (!r.nearest.empty() && r.ratio <= 1.f && r.margin >= 1.12f) r.id = r.nearest;
+    return r;
+}
+
+// ------------------------------------------------------------------ storage
+
+namespace {
+void put32(std::vector<uint8_t>& o, uint32_t v) {
+    for (int i = 0; i < 4; ++i) o.push_back(static_cast<uint8_t>(v >> (8 * i)));
+}
+void putFloats(std::vector<uint8_t>& o, const std::vector<float>& f) {
+    put32(o, static_cast<uint32_t>(f.size()));
+    const auto* p = reinterpret_cast<const uint8_t*>(f.data());
+    o.insert(o.end(), p, p + f.size() * sizeof(float));
+}
+struct Reader {
+    const std::vector<uint8_t>& b;
+    size_t at = 0;
+    bool ok = true;
+    uint32_t u32() {
+        if (at + 4 > b.size()) { ok = false; return 0; }
+        uint32_t v = 0;
+        for (int i = 0; i < 4; ++i) v |= static_cast<uint32_t>(b[at + i]) << (8 * i);
+        at += 4;
+        return v;
+    }
+    std::vector<float> floats() {
+        const uint32_t n = u32();
+        if (!ok || n > (1u << 22) || at + static_cast<size_t>(n) * sizeof(float) > b.size()) { ok = false; return {}; }
+        std::vector<float> f(n);
+        if (n) std::memcpy(f.data(), b.data() + at, static_cast<size_t>(n) * sizeof(float));
+        at += static_cast<size_t>(n) * sizeof(float);
+        return f;
+    }
+    std::string str() {
+        const uint32_t n = u32();
+        if (!ok || n > 4096 || at + n > b.size()) { ok = false; return {}; }
+        std::string s(reinterpret_cast<const char*>(b.data() + at), n);
+        at += n;
+        return s;
+    }
+};
+}  // namespace
+
+std::vector<uint8_t> VoiceStore::serialize() const {
+    std::vector<uint8_t> out = {'V', 'H', 'V', '2'};
+    put32(out, static_cast<uint32_t>(commands.size()));
+    for (const auto& c : commands) {
+        put32(out, static_cast<uint32_t>(c.id.size()));
+        out.insert(out.end(), c.id.begin(), c.id.end());
+        putFloats(out, {c.threshold});
+        put32(out, static_cast<uint32_t>(c.takes.size()));
+        for (const auto& t : c.takes) {
+            put32(out, static_cast<uint32_t>(t.frames));
+            putFloats(out, t.feat);
+            putFloats(out, t.emb);
+        }
+    }
+    return out;
+}
+
+bool VoiceStore::deserialize(const std::vector<uint8_t>& blob) {
+    commands.clear();
+    if (blob.size() < 8 || std::memcmp(blob.data(), "VHV2", 4) != 0) return false;
+    Reader r{blob, 4};
+    const uint32_t n = r.u32();
+    if (n > 1024) return false;
+    for (uint32_t i = 0; i < n && r.ok; ++i) {
+        VoiceModel m;
+        m.id = r.str();
+        const auto thr = r.floats();
+        m.threshold = thr.empty() ? 0.f : thr[0];
+        const uint32_t takes = r.u32();
+        if (takes > 64) { r.ok = false; break; }
+        for (uint32_t k = 0; k < takes && r.ok; ++k) {
+            VoiceTake t;
+            t.frames = static_cast<int>(r.u32());
+            t.feat = r.floats();
+            t.emb = r.floats();
+            if (t.frames < 0 || t.feat.size() != static_cast<size_t>(t.frames) * kTplDim) r.ok = false;
+            else m.takes.push_back(std::move(t));
+        }
+        if (r.ok) commands.push_back(std::move(m));
+    }
+    if (!r.ok) commands.clear();
+    return r.ok;
 }
 
 void l2normalize(std::vector<float>& v) {
@@ -250,88 +563,13 @@ float cosine(const std::vector<float>& a, const std::vector<float>& b) {
     return na < 1e-12 || nb < 1e-12 ? 0.f : static_cast<float>(dot / std::sqrt(na * nb));
 }
 
-float ownerScore(const VoicePrint& p, const std::vector<float>& emb) {
-    if (p.samples.empty() || emb.empty()) return -1.f;
+float ownerScore(const VoiceModel& m, const std::vector<float>& emb) {
     std::vector<float> sims;
-    for (const auto& s : p.samples) sims.push_back(cosine(s, emb));
+    for (const auto& t : m.takes)
+        if (!t.emb.empty() && !emb.empty()) sims.push_back(cosine(t.emb, emb));
+    if (sims.empty()) return -1.f;
     std::sort(sims.begin(), sims.end(), [](float a, float b) { return a > b; });
-    const size_t k = std::min<size_t>(3, sims.size());
-    float sum = 0.f;
-    for (size_t i = 0; i < k; ++i) sum += sims[i];
-    return sum / static_cast<float>(k);
-}
-
-// ------------------------------------------------------------------ phrases
-
-std::string normalizePhrase(const std::string& utf8) {
-    const std::string low = lowerUtf8(utf8);
-    std::string out;
-    bool space = false;
-    for (size_t i = 0; i < low.size();) {
-        const unsigned char c = static_cast<unsigned char>(low[i]);
-        if (c < 0x80) {
-            const bool word = (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
-            if (word) {
-                if (space && !out.empty()) out.push_back(' ');
-                space = false;
-                out.push_back(static_cast<char>(c));
-            } else {
-                space = true;
-            }
-            ++i;
-            continue;
-        }
-        // Two-byte sequences cover Cyrillic; anything else (dashes, quotes, emoji) is a separator.
-        const size_t len = (c & 0xE0) == 0xC0 ? 2 : (c & 0xF0) == 0xE0 ? 3 : (c & 0xF8) == 0xF0 ? 4 : 1;
-        if (len == 2 && i + 1 < low.size()) {
-            const uint32_t cp = ((c & 0x1Fu) << 6) | (static_cast<unsigned char>(low[i + 1]) & 0x3Fu);
-            if ((cp >= 0x430 && cp <= 0x44F) || cp == 0x451) {
-                if (space && !out.empty()) out.push_back(' ');
-                space = false;
-                if (cp == 0x451) out += "\xD0\xB5";  // ё -> е: the recogniser's dictionary has no ё
-                else out.append(low, i, 2);
-                i += 2;
-                continue;
-            }
-        }
-        space = true;
-        i += std::min(len, low.size() - i);
-    }
-    return out;
-}
-
-std::vector<std::string> splitWords(const std::string& normalized) {
-    std::vector<std::string> w;
-    size_t pos = 0;
-    while (pos < normalized.size()) {
-        size_t sp = normalized.find(' ', pos);
-        if (sp == std::string::npos) sp = normalized.size();
-        if (sp > pos) w.push_back(normalized.substr(pos, sp - pos));
-        pos = sp + 1;
-    }
-    return w;
-}
-
-int matchCommand(const std::vector<VoiceCommand>& commands, const std::string& heard) {
-    const std::string h = normalizePhrase(heard);
-    if (h.empty()) return -1;
-    for (size_t i = 0; i < commands.size(); ++i)
-        if (commands[i].enabled && normalizePhrase(commands[i].phrase) == h) return static_cast<int>(i);
-    return -1;
-}
-
-std::string grammarJson(const std::vector<VoiceCommand>& commands) {
-    json::Array a;
-    std::vector<std::string> seen;
-    for (const auto& c : commands) {
-        const std::string p = normalizePhrase(c.phrase);
-        if (!c.enabled || p.empty() || std::find(seen.begin(), seen.end(), p) != seen.end()) continue;
-        seen.push_back(p);
-        a.push_back(p);
-    }
-    a.push_back(std::string("[unk]"));
-    json::Value v(std::move(a));
-    return v.dump(0);
+    return sims.size() >= 2 ? (sims[0] + sims[1]) * 0.5f : sims[0];
 }
 
 }  // namespace vl::voice

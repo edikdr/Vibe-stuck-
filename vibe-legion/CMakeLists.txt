@@ -118,26 +118,10 @@ if(WIN32)
         COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:VibeHand>/models"
         COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/models" "$<TARGET_FILE_DIR:VibeHand>/models")
 
-    # Voice commands: the Vosk DLLs go to <exe>\vosk (the Russian model and the speaker
-    # model are in models\ and were copied above). Optional: the app runs without them.
-    set(VL_VOSK_ROOT "${CMAKE_SOURCE_DIR}/third_party/vosk")
-    if(EXISTS "${VL_VOSK_ROOT}/libvosk.dll")
-        file(GLOB VL_VOSK_DLLS "${VL_VOSK_ROOT}/*.dll")
-        add_custom_command(TARGET VibeHand POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:VibeHand>/vosk")
-        foreach(dll IN LISTS VL_VOSK_DLLS)
-            add_custom_command(TARGET VibeHand POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy_if_different "${dll}" "$<TARGET_FILE_DIR:VibeHand>/vosk")
-        endforeach()
-        install(FILES ${VL_VOSK_DLLS} DESTINATION vosk)
-        message(STATUS "Vosk: ${VL_VOSK_ROOT}")
-    else()
-        message(STATUS "Vosk: not found (voice commands disabled until scripts/fetch-deps.ps1 is run)")
-    endif()
 
     install(TARGETS VibeHand RUNTIME DESTINATION .)
     install(FILES ${VL_ORT_DLLS} DESTINATION .)
-    install(DIRECTORY models/ DESTINATION models PATTERN "README.md" EXCLUDE)
+    install(DIRECTORY models/ DESTINATION models FILES_MATCHING PATTERN "*.onnx")
 endif()
 
 # ---------------------------------------------------------------- tests / tools
@@ -151,9 +135,7 @@ if(VL_BUILD_TESTS)
     add_executable(vl_selftest tests/selftest_models.cpp)
     target_link_libraries(vl_selftest PRIVATE vl_ml)
 
-    if(WIN32)
-        # Voice chain on WAV files: `vl_voicetest <models> <vosk dir> "phrase|phrase" a.wav ...`
-        add_executable(vl_voicetest tests/voicetest.cpp src/platform/win/voice_io.cpp src/platform/win/system.cpp)
-        target_link_libraries(vl_voicetest PRIVATE vl_ml user32 shell32 ole32 advapi32 crypt32 powrprof psapi shlwapi uxtheme dwmapi)
-    endif()
+    # Voice chain on WAV files: `vl_voicetest <speaker model.onnx> a.wav b.wav ...`
+    add_executable(vl_voicetest tests/voicetest.cpp)
+    target_link_libraries(vl_voicetest PRIVATE vl_ml)
 endif()

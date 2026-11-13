@@ -370,7 +370,6 @@ bool executeAction(const Action& a) {
             return true;
         }
         case ActionType::RunScript: return runCommand(win::widen(a.path), win::widen(a.args));
-        case ActionType::VoiceListen: return true;  // handled by the app
         case ActionType::kCount: break;
     }
     return false;
@@ -415,7 +414,6 @@ std::wstring actionTitleRu(ActionType t) {
         case ActionType::ZoomOut: return L"Уменьшить масштаб (Ctrl −)";
         case ActionType::Macro: return L"Макрос: несколько шагов подряд…";
         case ActionType::RunScript: return L"Запустить скрипт или программу скрыто…";
-        case ActionType::VoiceListen: return L"Слушать голосовую команду";
         case ActionType::kCount: break;
     }
     return L"";
@@ -460,7 +458,7 @@ std::wstring actionDescriptionRu(ActionType t) {
         case ActionType::ZoomOut: return L"Ctrl и «−»: мельче. Пара к «Свести руки».";
         case ActionType::Macro: return L"Шаги через «;»: клавиши, пауза в мс, текст, запуск, действия. Пример: Ctrl+L; пауза 200; текст youtube.com; Enter";
         case ActionType::RunScript: return L"PowerShell (.ps1), .bat, AutoHotkey, Python или любая программа с аргументами. Окно консоли не показывается.";
-        case ActionType::VoiceListen: return L"После жеста приложение несколько секунд слушает микрофон и выполняет сказанную команду. Команды и запись вашего голоса — в разделе «Голос».";
+
         case ActionType::kCount: break;
     }
     return L"";
@@ -469,7 +467,6 @@ std::wstring actionGlyph(ActionType t) {
     switch (t) {
         case ActionType::Macro: return L"\uE8FD";       // bulleted list
         case ActionType::RunScript: return L"\uE756";   // command prompt
-        case ActionType::VoiceListen: return L"\uE720"; // microphone
         case ActionType::MediaPlayPause: return L"";
         case ActionType::MediaNext: return L"";
         case ActionType::MediaPrev: return L"";

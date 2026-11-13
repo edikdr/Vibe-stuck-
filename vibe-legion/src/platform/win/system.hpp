@@ -23,9 +23,9 @@ Settings loadSettings();
 bool saveSettings(const Settings& s);
 FaceDatabase loadFaces();
 bool saveFaces(const FaceDatabase& db);
-// The owner's voice print (voice.bin, DPAPI like the faces).
-voice::VoicePrint loadVoice();
-bool saveVoice(const voice::VoicePrint& v);
+// The recorded voice commands (voice.bin, DPAPI like the faces).
+voice::VoiceStore loadVoice();
+bool saveVoice(const voice::VoiceStore& v);
 
 // HKCU\...\Run entry with --minimized.
 bool setAutostart(bool on);

@@ -1,8 +1,8 @@
-// Voice commands: one worker thread that, on request, opens the microphone, waits for a
-// phrase, recognises it against the user's list of commands (Vosk, offline) and checks
-// that the voice is the owner's (speaker embedding). Nothing listens between requests:
-// the microphone is opened by the "listen" gesture and closed after the phrase.
-// Models are loaded on first use and dropped after a few idle minutes.
+// Voice commands: one worker thread that keeps the microphone open, cuts the stream into
+// phrases and compares every phrase with the commands the user recorded (see
+// core/voice.hpp): what was said and with which intonation, then whose voice it is.
+// No gesture is needed. The microphone is open only while voice commands are switched
+// on, at least one command is recorded and the app is not paused.
 #pragma once
 
 #include <atomic>
@@ -19,91 +19,78 @@
 
 namespace vl {
 
-struct VoiceOutcome {
+struct VoiceHeard {
     enum class Kind {
-        Command,        // recognised, voice accepted: run commandId
-        NotUnderstood,  // speech, but none of the phrases
-        NoSpeech,       // nobody spoke in time
-        NotOwner,       // a phrase was recognised, but the voice is not the owner's
-        NoVoicePrint,   // "owner only" is on and no voice has been enrolled
-        Error,          // microphone / models
-        Cancelled
+        Command,    // matched a recorded command and the voice fits: run commandId
+        NotOwner,   // matched a command, but it is somebody else's voice
+        Unknown     // speech that is not one of the commands (talk, music, TV)
     };
-    Kind kind = Kind::Error;
-    std::string heard;       // recognised phrase
-    std::string commandId;
-    float score = -1.f;      // similarity to the owner (-1: not measured)
-    std::string error;       // Russian
+    Kind kind = Kind::Unknown;
+    std::string commandId;   // Command / NotOwner: the command; Unknown: the nearest one
+    float ratio = 99.f;      // distance to the nearest command / allowed distance (< 1 fits)
+    float score = -1.f;      // voice similarity to the command's recordings (-1: not measured)
+    float seconds = 0.f;
 };
 
-struct VoiceEnrollOutcome {
+struct VoiceTakeResult {
     bool ok = false;
-    std::vector<std::vector<float>> samples;
-    float speechSec = 0.f;
-    float consistency = 0.f;  // how alike the pieces are (typical score of the owner's own voice)
-    std::string error;
+    std::string commandId;
+    voice::VoiceTake take;
+    float seconds = 0.f;
+    std::string error;       // Russian
 };
 
 class VoiceEngine {
 public:
-    enum class State { Idle, Loading, Listening, Recognizing, Enrolling };
-    struct Callbacks {
-        std::function<void(VoiceOutcome)> onOutcome;          // worker thread
-        std::function<void(VoiceEnrollOutcome)> onEnrolled;   // worker thread
-        std::function<void()> onState;                        // worker thread, throttled
+    enum class State { Off, Loading, Listening, Recording, Error };
+    struct Callbacks {  // all called on the worker thread
+        std::function<void(VoiceHeard)> onHeard;
+        std::function<void(VoiceTakeResult)> onTake;
+        std::function<void()> onState;  // throttled; also while the level meter moves
     };
 
-    VoiceEngine(std::filesystem::path modelsDir, std::filesystem::path voskDir, Callbacks cb);
+    VoiceEngine(std::filesystem::path modelsDir, Callbacks cb);
     ~VoiceEngine();
 
-    void configure(const VoiceSettings& s, const voice::VoicePrint& print);
-    // Are the library and both models on disk? Otherwise *missingRu says what to do.
+    void configure(const VoiceSettings& s, const voice::VoiceStore& store);
+    void setActive(bool on);           // false while the app is paused / the PC is locked
     bool installed(std::string* missingRu) const;
 
-    bool listen();          // false: busy
-    bool enroll(int ms);    // records `ms` of the user reading aloud
-    void cancel();
-    void warmUp();          // load the models now (the voice page is open)
+    // Records the next phrase as a take of this command (up to 8 s to start speaking).
+    void recordTake(const std::string& commandId);
+    void cancelRecording();
+    std::string recordingId() const;
 
     State state() const { return state_; }
-    float level() const { return level_; }        // 0..1 microphone level while capturing
-    float progress() const { return progress_; }  // 0..1 of the listening window / enrollment
-
-    // Words of the phrase the recogniser does not know (it could never hear them).
-    // Returns false while the models are not loaded or busy: ask again later.
-    bool unknownWords(const std::string& phrase, std::vector<std::string>& missing);
+    float level() const { return level_; }   // 0..1 microphone level
+    bool speaking() const { return speaking_; }
+    std::string errorText() const;
 
 private:
-    enum class Job { None, Listen, Enroll, Warm, Quit };
     struct Models;
     void run();
-    bool ensureModels(std::string* error);
-    void doListen();
-    void doEnroll();
+    void handlePhrase(const std::vector<float>& pcm);
     void setState(State s);
-    void notify();
+    void notify(bool force = false);
 
-    std::filesystem::path modelsDir_, voskDir_;
+    std::filesystem::path modelsDir_;
     Callbacks cb_;
-
     std::thread thread_;
-    std::mutex jobMutex_;
-    std::condition_variable jobCv_;
-    Job job_ = Job::None;
-    int enrollMs_ = 15000;
-    std::atomic<bool> cancel_{false};
 
-    std::mutex cfgMutex_;
+    mutable std::mutex mutex_;          // settings_, store_, recordId_, error_
+    std::condition_variable cv_;
     VoiceSettings settings_;
-    voice::VoicePrint print_;
+    voice::VoiceStore store_;
+    std::string recordId_;
+    uint64_t recordDeadline_ = 0;
+    std::string error_;
+    bool quit_ = false;
 
-    std::mutex modelMutex_;  // guards models_ (load / unload / recognition vs. dictionary look-ups)
-    Models* models_ = nullptr;
-
-    std::atomic<bool> loaded_{false};      // models are in memory
-    std::atomic<bool> warmFailed_{false};  // loading failed: do not retry on every repaint
-    std::atomic<State> state_{State::Idle};
-    std::atomic<float> level_{0.f}, progress_{0.f};
+    Models* models_ = nullptr;          // worker thread only
+    std::atomic<bool> active_{true};
+    std::atomic<State> state_{State::Off};
+    std::atomic<float> level_{0.f};
+    std::atomic<bool> speaking_{false};
     uint64_t lastNotify_ = 0;
 };
 

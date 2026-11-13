@@ -195,8 +195,8 @@ bool saveFaces(const FaceDatabase& db) {
     return ok;
 }
 
-voice::VoicePrint loadVoice() {
-    voice::VoicePrint v;
+voice::VoiceStore loadVoice() {
+    voice::VoiceStore v;
     const auto fp = appDataDir() / L"voice.bin";
     for (const auto& path : {fp, std::filesystem::path(fp.wstring() + L".bak")}) {
         std::string blob;
@@ -208,11 +208,11 @@ voice::VoicePrint loadVoice() {
         LocalFree(out.pbData);
         if (v.deserialize(plain)) return v;
     }
-    v.samples.clear();
+    v.commands.clear();
     return v;
 }
 
-bool saveVoice(const voice::VoicePrint& v) {
+bool saveVoice(const voice::VoiceStore& v) {
     auto plain = v.serialize();
     DATA_BLOB in{static_cast<DWORD>(plain.size()), plain.data()}, out{};
     if (!CryptProtectData(&in, L"Vibe Hand voice", nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &out))

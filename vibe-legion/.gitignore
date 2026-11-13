@@ -2,7 +2,6 @@
 /out/
 /third_party/
 /models/*.onnx
-/models/vosk-model-*/
 /.vs/
 /CMakeUserPresets.json
 *.user

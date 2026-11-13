@@ -101,7 +101,7 @@ std::wstring gestureName(const App& app, const std::string& id) {
 const std::vector<ActionType>& actionOrder() {
     // Own actions first (app, keys), then windows, media, system.
     static const std::vector<ActionType> v = {
-        ActionType::LaunchApp, ActionType::KeyCombo, ActionType::Macro, ActionType::RunScript, ActionType::VoiceListen,
+        ActionType::LaunchApp, ActionType::KeyCombo, ActionType::Macro, ActionType::RunScript,
         ActionType::NextWindow, ActionType::PrevWindow, ActionType::SwitchWindow, ActionType::TaskView,
         ActionType::MinimizeWindow, ActionType::MaximizeWindow, ActionType::CloseWindow, ActionType::ShowDesktop,
         ActionType::NextDesktop, ActionType::PrevDesktop,
@@ -361,9 +361,8 @@ namespace {
 bool actionEditor(Gui& g, UiState& st, Column& col, Action& a, const std::string& key, const RectF& first, bool allowVoice) {
     bool ch = false;
     RectF rr = first;
-    std::vector<ActionType> ao;
-    for (auto t : actionOrder())
-        if (allowVoice || t != ActionType::VoiceListen) ao.push_back(t);
+    const std::vector<ActionType>& ao = actionOrder();
+    (void)allowVoice;
     std::vector<std::wstring> anames;
     for (auto t : ao) anames.push_back(actionTitleRu(t));
     int asel = static_cast<int>(std::find(ao.begin(), ao.end(), a.type) - ao.begin());
@@ -875,168 +874,121 @@ void drawGestures(Gui& g, App& app, UiState& st, const RectF& area) {
 // --------------------------------------------------------------------- voice
 
 void drawVoice(Gui& g, App& app, UiState& st, const RectF& area) {
-    PageScope ps(g, "voice", area, L"Голос", L"Команды голосом после жеста-активатора. Выполняются только на ваш голос");
+    PageScope ps(g, "voice", area, L"Голос", L"Команды вашим голосом, без жеста. Вы сами записываете каждую фразу — на любом языке");
     Column& col = ps.col;
     Canvas& c = g.canvas();
     const Palette& p = g.pal();
     Settings& S = app.settings();
     VoiceEngine& ve = app.voice();
     const VoiceEngine::State vs = ve.state();
-    const bool busy = vs != VoiceEngine::State::Idle;
+    const std::string recId = ve.recordingId();
     bool ch = false;
 
     std::string missing;
     const bool installed = ve.installed(&missing);
-    if (installed) ve.warmUp();  // the dictionary check below needs the speech model
+    size_t ready = 0;
+    for (const auto& vc : S.voice.commands) {
+        const voice::VoiceModel* m = app.voiceStore().find(vc.id);
+        ready += vc.enabled && m && m->ready();
+    }
 
-    // Status: what the engine is doing, the microphone level, the last result.
+    // Status: what the engine is doing, the microphone level, the last thing it heard.
     {
         const RectF r = col.next(92);
         g.card(r, 10);
-        const wchar_t* stateText = !installed ? L"Не установлено"
-                                   : vs == VoiceEngine::State::Loading ? L"Загружаю модели…"
-                                   : vs == VoiceEngine::State::Listening ? L"Слушаю — говорите команду"
-                                   : vs == VoiceEngine::State::Recognizing ? L"Распознаю…"
-                                   : vs == VoiceEngine::State::Enrolling ? L"Записываю ваш голос — читайте текст вслух"
-                                                                         : L"Готово. Микрофон выключен, пока нет жеста";
-        const Color sc = !installed ? p.warning : busy ? p.accent : p.success;
+        std::wstring stateText;
+        Color sc = p.textMuted;
+        if (!installed) { stateText = L"Не установлено"; sc = p.warning; }
+        else if (vs == VoiceEngine::State::Error) { stateText = L"Микрофон недоступен: " + widen(ve.errorText()); sc = p.danger; }
+        else if (vs == VoiceEngine::State::Recording) { stateText = L"Запись — скажите фразу"; sc = p.danger; }
+        else if (vs == VoiceEngine::State::Loading) { stateText = L"Загружаю модель голоса…"; sc = p.accent; }
+        else if (vs == VoiceEngine::State::Listening) { stateText = ve.speaking() ? L"Слышу речь…" : L"Слушаю постоянно"; sc = p.success; }
+        else if (!S.voice.enabled) stateText = L"Выключено — микрофон закрыт";
+        else if (app.paused()) stateText = L"Пауза — микрофон закрыт";
+        else if (!ready) stateText = L"Нет записанных команд — микрофон закрыт";
+        else stateText = L"Запускается…";
         c.icon(glyph::Mic, {r.x + 16, r.y + 12, 24, 24}, sc, 18.f);
-        c.text(stateText, {r.x + 52, r.y + 10, r.w - 260, 26}, p.text, 15.f, Weight::Semibold);
+        c.text(stateText, {r.x + 52, r.y + 10, r.w - 270, 26}, p.text, 15.f, Weight::Semibold);
         std::wstring msg = !installed ? widen(missing) : app.voiceMessage();
-        if (msg.empty()) msg = L"Микрофон открывается только после жеста «Слушать голосовую команду» и закрывается после фразы.";
+        if (msg.empty()) msg = L"Добавьте команду, запишите её 3 раза своим голосом и выберите действие. Потом просто скажите фразу.";
         c.text(msg, {r.x + 52, r.y + 38, r.w - 68, 44}, p.textDim, 12.5f, Weight::Regular, Align::Start, Align::Start, true);
-        if (busy) {
-            // Level meter + how much of the listening window / recording is used.
-            const RectF bar{r.right() - 196, r.y + 18, 180, 8};
+        if (vs == VoiceEngine::State::Listening || vs == VoiceEngine::State::Recording) {
+            const RectF bar{r.right() - 196, r.y + 20, 180, 8};
             c.fillRound(bar, 4, p.control);
-            c.fillRound({bar.x, bar.y, bar.w * std::clamp(ve.level(), 0.f, 1.f), bar.h}, 4, p.success);
-            const RectF pr{bar.x, bar.y + 14, bar.w, 4};
-            c.fillRound(pr, 2, p.control);
-            c.fillRound({pr.x, pr.y, pr.w * std::clamp(ve.progress(), 0.f, 1.f), pr.h}, 2, p.accent);
+            c.fillRound({bar.x, bar.y, bar.w * std::clamp(ve.level(), 0.f, 1.f), bar.h}, 4, ve.speaking() ? p.accent : p.success);
         }
     }
 
-    // ---- the owner's voice
-    section(g, col, L"Мой голос");
-    const size_t samples = app.voicePrint().samples.size();
-    {
-        const bool enrolling = vs == VoiceEngine::State::Enrolling;
-        const std::wstring have = samples ? L"Записан: образцов " + std::to_wstring(samples) + L". «Дописать» добавляет образцы — например, с гарнитурой или уставшим голосом"
-                                          : L"Не записан. Без образца команды «только на мой голос» не выполняются";
-        RectF rr = settingRow(g, col, glyph::Contact, L"Образец голоса", have, 380);
-        if (enrolling) {
-            if (g.button("venrollstop", {rr.right() - 150, rr.y, 150, rr.h}, L"Отмена")) ve.cancel();
-        } else {
-            const float bw = samples ? 122.f : 190.f;
-            if (g.button("venroll", {rr.right() - bw, rr.y, bw, rr.h}, samples ? L"Заново" : L"Записать мой голос", ButtonKind::Accent, glyph::Record, installed && !busy))
-                app.startVoiceEnroll(false);
-            if (samples) {
-                if (g.button("venrollmore", {rr.right() - bw - 8 - 112, rr.y, 112, rr.h}, L"Дописать", ButtonKind::Standard, nullptr, installed && !busy))
-                    app.startVoiceEnroll(true);
-                if (confirmButton(g, st, "voiceprint", {rr.right() - bw - 16 - 112 - 120, rr.y, 120, rr.h}, L"Удалить")) app.clearVoicePrint();
-            }
-        }
-        if (enrolling || !samples) {
-            const RectF r = col.next(118);
-            g.card(r, 8);
-            c.text(enrolling ? L"Читайте вслух обычным голосом, как будете подавать команды (20 секунд):" : L"При записи нужно 20 секунд читать вслух этот текст:",
-                   {r.x + 18, r.y + 10, r.w - 36, 20}, p.textMuted, 12.5f);
-            c.text(L"Пауза. Следующий трек. Громче, ещё громче. Тише. Выключи микрофон. Сверни окно. Открой браузер. "
-                   L"Сегодня я настраиваю управление компьютером голосом и жестами. Съешь ещё этих мягких французских булок да выпей чаю. "
-                   L"Раз, два, три, четыре, пять, шесть, семь, восемь, девять, десять.",
-                   {r.x + 18, r.y + 34, r.w - 36, 76}, p.text, 14.f, Weight::Regular, Align::Start, Align::Start, true);
-        }
-    }
-    RectF rr = settingRow(g, col, glyph::Shield, L"Выполнять только на мой голос",
-                          L"Фраза сравнивается с образцом. Чужой голос, видео или музыка команду не запустят");
+    RectF rr = settingRow(g, col, glyph::Mic, L"Голосовые команды",
+                          L"Приложение всё время слушает микрофон и ждёт ваши фразы. Звук никуда не отправляется и не сохраняется. "
+                          L"Windows при этом показывает значок микрофона у часов. На паузе и при блокировке ПК микрофон закрыт");
+    if (g.toggle("von", rr, S.voice.enabled)) ch = true;
+    rr = settingRow(g, col, glyph::Shield, L"Только мой голос",
+                    L"Фраза должна быть сказана голосом того, кто её записал. Чужой голос, видео и музыка команду не запустят");
     if (g.toggle("vowner", rr, S.voice.ownerOnly)) ch = true;
     if (S.voice.ownerOnly) {
-        std::wstring last = L"Выше — строже. Обычно свой голос даёт 50–80 %, чужой — до 35 %.";
+        std::wstring last = L"Выше — строже. Свой голос на своей же фразе обычно даёт 60–90 %, чужой — до 40 %.";
         if (app.voiceLastScore() >= 0) last += L" В последний раз: " + fmtInt(app.voiceLastScore() * 100, L" %");
         rr = settingRow(g, col, nullptr, L"Порог сходства голоса", last);
-        if (g.slider("vthr", rr, S.voice.matchThreshold, 0.25f, 0.75f, 0.01f, [](float v) { return fmtInt(v * 100, L" %"); })) ch = true;
+        if (g.slider("vthr", rr, S.voice.matchThreshold, 0.30f, 0.80f, 0.01f, [](float v) { return fmtInt(v * 100, L" %"); })) ch = true;
     }
-    float listen = static_cast<float>(S.voice.listenMs);
-    rr = settingRow(g, col, glyph::Refresh, L"Сколько ждать команду", L"Если за это время никто не заговорил, микрофон закрывается");
-    if (g.slider("vlisten", rr, listen, 2000, 10000, 500, fmtMs)) { S.voice.listenMs = static_cast<int>(listen); ch = true; }
-    rr = settingRow(g, col, glyph::Mic, L"Включать микрофон на время команды",
-                    L"Если микрофоны выключены действием «Микрофон вкл/выкл»: включить на несколько секунд и выключить обратно. В звонке вас в это время слышно");
-    if (g.toggle("vunmute", rr, S.voice.unmuteToListen)) ch = true;
-
-    // ---- how it is started
-    section(g, col, L"Жест-активатор");
-    {
-        std::wstring rules;
-        int count = 0;
-        for (const auto& r : S.rules)
-            if (r.action.type == ActionType::VoiceListen) {
-                rules += (count++ ? L", " : L"") + std::wstring(L"«") + (r.name.empty() ? gestureName(app, r.gesture) : widen(r.name)) + L"»" + (r.enabled ? L"" : L" (выключено)");
-            }
-        rr = settingRow(g, col, glyph::Hand, L"Правило с действием «Слушать голосовую команду»",
-                        count ? L"Есть: " + rules + L". Покажите жест и сразу говорите" : L"Пока нет. Создайте правило и выберите в нём удобный жест", 380);
-        if (g.button("vaddrule", {rr.right() - 184, rr.y, 184, rr.h}, L"Создать правило", ButtonKind::Standard, glyph::Add)) {
-            GestureRule r;
-            r.id = newId();
-            r.name = "Голосовая команда";
-            r.gesture = "open_palm";
-            r.holdMs = 500;
-            r.cooldownMs = 2500;
-            r.action.type = ActionType::VoiceListen;
-            S.rules.push_back(r);
-            st.expandedRule = r.id;
-            st.page = PageGestures;
-            ch = true;
-        }
-        if (g.button("vtest", {rr.right() - 184 - 8 - 180, rr.y, 180, rr.h}, L"Слушать сейчас", ButtonKind::Accent, glyph::Play, installed && !busy))
-            app.startVoiceListen();
+    rr = settingRow(g, col, glyph::Volume, L"Учитывать интонацию",
+                    L"Насколько важно, КАК сказано: «стоп!» приказом и «стоп?» вопросом — разные команды. 0 — важны только слова");
+    if (g.slider("vint", rr, S.voice.intonation, 0.f, 1.f, 0.05f, [](float v) { return fmtInt(v * 100, L" %"); })) {
+        app.voiceIntonationChanged();
+        ch = true;
     }
 
     // ---- commands
-    section(g, col, L"Команды");
+    section(g, col, L"Мои команды");
     {
         const Color& m = p.textDim;
-        g.label(L"Фразы — русскими словами, лучше из 2–3 слов: их труднее спутать и по ним надёжнее узнаётся голос. Числа пишите словами.",
-                col.next(22), 12.5f, &m);
+        g.label(L"Как записывать: нажмите «Записать» и сразу скажите фразу — 3 раза, одинаково, обычным голосом. Русский, английский, любые слова. "
+                L"Лучше 2–4 слова: короткое «да» легко спутать с обычной речью.",
+                col.next(38), 12.5f, &m, Weight::Regular, Align::Start, Align::Start, true);
     }
-    static std::unordered_map<std::string, std::vector<std::string>> dictCache;  // phrase -> unknown words
     int removeAt = -1;
     for (size_t i = 0; i < S.voice.commands.size(); ++i) {
         VoiceCommand& vc = S.voice.commands[i];
         g.pushId("vc" + vc.id);
+        const voice::VoiceModel* m = app.voiceStore().find(vc.id);
+        const size_t takes = m ? m->takes.size() : 0;
+        const bool recording = recId == vc.id;
         auto& buf = st.text["vphrase:" + vc.id];
         if (buf.empty() && !vc.phrase.empty()) buf = widen(vc.phrase);
-        // Words the recogniser does not know can never be heard: say so right under the phrase.
-        std::wstring note = L"Что сказать после жеста";
-        const std::string norm = voice::normalizePhrase(vc.phrase);
-        if (norm.empty()) {
-            note = L"Введите фразу";
-        } else {
-            auto it = dictCache.find(norm);
-            if (it == dictCache.end()) {
-                std::vector<std::string> miss;
-                if (installed && ve.unknownWords(norm, miss)) it = dictCache.emplace(norm, std::move(miss)).first;
-            }
-            if (it != dictCache.end() && !it->second.empty()) {
-                note = L"Нет в словаре распознавания: ";
-                for (size_t k = 0; k < it->second.size(); ++k) note += (k ? L", " : L"") + widen(it->second[k]);
-                note += L". Замените слово (названия программ — русским словом: «браузер», «музыка»)";
-            }
-            for (size_t k = 0; k < i; ++k)
-                if (voice::normalizePhrase(S.voice.commands[k].phrase) == norm) note = L"Такая фраза уже есть выше — сработает первая";
-        }
-        rr = settingRow(g, col, glyph::Mic, L"Фраза", note, 420);
-        if (g.textField("phrase", {rr.x, rr.y, rr.w - 110, rr.h}, buf, L"например: выключи микрофон", 60)) {
+
+        rr = settingRow(g, col, glyph::Edit, L"Название", L"Что вы говорите — только подпись для журнала и подсказок", 420);
+        if (g.textField("phrase", {rr.x, rr.y, rr.w - 110, rr.h}, buf, L"например: выключи микрофон / next track", 60)) {
             vc.phrase = narrow(buf);
             ch = true;
         }
         if (g.toggle("on", {rr.right() - 100, rr.y, 52, rr.h}, vc.enabled, false)) ch = true;
         if (g.iconButton("del", {rr.right() - 40, rr.y, 40, rr.h}, glyph::Delete, L"Удалить команду")) removeAt = static_cast<int>(i);
+
+        const size_t need = voice::VoiceModel::kMinTakes;
+        const std::wstring status = recording ? L"Говорите фразу сейчас…"
+                                    : takes == 0 ? L"Не записана: нужно " + std::to_wstring(need) + L" записи"
+                                    : takes < need ? L"Записей " + std::to_wstring(takes) + L" из " + std::to_wstring(need) + L" — скажите ещё раз так же"
+                                                   : L"Записей " + std::to_wstring(takes) + L" — работает. Можно дописать ещё (до " + std::to_wstring(voice::VoiceModel::kMaxTakes) + L")";
+        rr = settingRow(g, col, glyph::Record, L"Запись голосом", status, 300);
+        if (recording) {
+            if (g.button("recstop", {rr.right() - 150, rr.y, 150, rr.h}, L"Отмена")) ve.cancelRecording();
+        } else {
+            if (g.button("rec", {rr.right() - 150, rr.y, 150, rr.h}, takes ? L"Дописать" : L"Записать", ButtonKind::Accent, glyph::Record, installed && recId.empty()))
+                app.recordVoiceTake(vc.id);
+            if (takes && confirmButton(g, st, "vtakes" + vc.id, {rr.right() - 150 - 8 - 130, rr.y, 130, rr.h}, L"Стереть")) app.clearVoiceTakes(vc.id);
+        }
+        if (takes >= need) {
+            rr = settingRow(g, col, nullptr, L"Строгость", L"Срабатывает на чужие слова — влево. Не срабатывает на вашу фразу — вправо");
+            if (g.slider("strict", rr, vc.strictness, 0.7f, 1.4f, 0.05f, [](float v) { return v < 0.97f ? L"строже" : v > 1.03f ? L"мягче" : std::wstring(L"обычно"); })) ch = true;
+        }
         rr = settingRow(g, col, actionGlyph(vc.action.type).c_str(), L"Действие", actionDescriptionRu(vc.action.type), 360);
         if (actionEditor(g, st, col, vc.action, "v:" + vc.id, rr, false)) ch = true;
-        col.space(10);
+        col.space(14);
         g.popId();
     }
     if (removeAt >= 0) {
+        app.clearVoiceTakes(S.voice.commands[static_cast<size_t>(removeAt)].id);
         S.voice.commands.erase(S.voice.commands.begin() + removeAt);
         ch = true;
     }
@@ -1045,7 +997,7 @@ void drawVoice(Gui& g, App& app, UiState& st, const RectF& area) {
         if (g.button("vadd", {b.x, b.y, 200, 34}, L"Добавить команду", ButtonKind::Accent, glyph::Add)) {
             VoiceCommand vc;
             vc.id = newId();
-            vc.action.type = ActionType::MediaPlayPause;
+            vc.action.type = ActionType::None;  // the user picks; nothing fires by surprise
             S.voice.commands.push_back(vc);
             ch = true;
         }
